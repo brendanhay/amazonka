@@ -37,10 +37,10 @@ module Network.AWS.RDS.DescribeAccountAttributes
     , daarAccountQuotas
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes' deriving (Eq, Read, Show)

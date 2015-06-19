@@ -45,9 +45,9 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     , setIdentityFeedbackForwardingEnabledResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SES.Types
 
 -- | /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.

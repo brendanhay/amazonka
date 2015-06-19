@@ -32,10 +32,10 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , dlhtrLifecycleHookTypes
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeLifecycleHookTypes' smart constructor.
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes' deriving (Eq, Read, Show)

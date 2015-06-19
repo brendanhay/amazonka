@@ -40,10 +40,10 @@ module Network.AWS.OpsWorks.DisassociateElasticIP
     , disassociateElasticIPResponse
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'disassociateElasticIP' smart constructor.
 --

@@ -89,10 +89,10 @@ module Network.AWS.Glacier.GetJobOutput
     , gjorBody
     ) where
 
+import Network.AWS.Glacier.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Glacier.Types
 
 -- | /See:/ 'getJobOutput' smart constructor.
 --

@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     , enableMetricsCollectionResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'enableMetricsCollection' smart constructor.
 --
@@ -58,28 +58,27 @@ data EnableMetricsCollection = EnableMetricsCollection'{_emcMetrics :: Maybe [Te
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
 enableMetricsCollection pAutoScalingGroupName pGranularity = EnableMetricsCollection'{_emcMetrics = Nothing, _emcAutoScalingGroupName = pAutoScalingGroupName, _emcGranularity = pGranularity};
 
--- | One or more of the following metrics:
+-- | One or more metrics. If you omit this parameter, all metrics are
+-- enabled.
 --
--- -   GroupMinSize
+-- -   @GroupMinSize@
 --
--- -   GroupMaxSize
+-- -   @GroupMaxSize@
 --
--- -   GroupDesiredCapacity
+-- -   @GroupDesiredCapacity@
 --
--- -   GroupInServiceInstances
+-- -   @GroupInServiceInstances@
 --
--- -   GroupPendingInstances
+-- -   @GroupPendingInstances@
 --
--- -   GroupStandbyInstances
+-- -   @GroupStandbyInstances@
 --
--- -   GroupTerminatingInstances
+-- -   @GroupTerminatingInstances@
 --
--- -   GroupTotalInstances
+-- -   @GroupTotalInstances@
 --
--- If you omit this parameter, all metrics are enabled.
---
--- The @GroupStandbyInstances@ metric is not returned by default. You must
--- explicitly request it when calling EnableMetricsCollection.
+-- Note that the @GroupStandbyInstances@ metric is not enabled by default.
+-- You must explicitly request this metric.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default;
 
@@ -87,8 +86,8 @@ emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default;
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
 emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScalingGroupName = a});
 
--- | The granularity to associate with the metrics to collect. Currently, the
--- only valid value is \"1Minute\".
+-- | The granularity to associate with the metrics to collect. The only valid
+-- value is @1Minute@.
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
 

@@ -37,10 +37,10 @@ module Network.AWS.EMR.ListBootstrapActions
     , lbarMarker
     ) where
 
+import Network.AWS.EMR.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EMR.Types
 
 -- | /See:/ 'listBootstrapActions' smart constructor.
 --

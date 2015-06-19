@@ -37,10 +37,10 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     , dasrAnalysisScheme
     ) where
 
+import Network.AWS.CloudSearch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearch.Types
 
 -- | /See:/ 'deleteAnalysisScheme' smart constructor.
 --

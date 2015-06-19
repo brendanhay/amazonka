@@ -37,10 +37,10 @@ module Network.AWS.ECS.CreateCluster
     , ccrCluster
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'createCluster' smart constructor.
 --

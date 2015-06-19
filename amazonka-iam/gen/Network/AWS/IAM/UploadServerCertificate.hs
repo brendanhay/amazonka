@@ -55,10 +55,10 @@ module Network.AWS.IAM.UploadServerCertificate
     , uscrServerCertificateMetadata
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'uploadServerCertificate' smart constructor.
 --
@@ -100,7 +100,7 @@ uscCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 uscCertificateChain = lens _uscCertificateChain (\ s a -> s{_uscCertificateChain = a});
 
 -- | The name for the server certificate. Do not include the path in this
--- value.
+-- value. The name of the certificate cannot contain any spaces.
 uscServerCertificateName :: Lens' UploadServerCertificate Text
 uscServerCertificateName = lens _uscServerCertificateName (\ s a -> s{_uscServerCertificateName = a});
 

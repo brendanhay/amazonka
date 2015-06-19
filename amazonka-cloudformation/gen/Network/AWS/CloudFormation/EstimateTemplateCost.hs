@@ -38,10 +38,10 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     , etcrURL
     ) where
 
+import Network.AWS.CloudFormation.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFormation.Types
 
 -- | /See:/ 'estimateTemplateCost' smart constructor.
 --

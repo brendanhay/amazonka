@@ -41,10 +41,10 @@ module Network.AWS.Glacier.SetDataRetrievalPolicy
     , setDataRetrievalPolicyResponse
     ) where
 
+import Network.AWS.Glacier.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Glacier.Types
 
 -- | /See:/ 'setDataRetrievalPolicy' smart constructor.
 --

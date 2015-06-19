@@ -34,9 +34,9 @@ module Network.AWS.S3.GetBucketRequestPayment
     , gbrprPayer
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketRequestPayment' smart constructor.

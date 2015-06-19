@@ -14,10 +14,18 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | NOT YET IMPLEMENTED.
+-- | Deregisters the specified task definition by family and revision. Upon
+-- deregistration, the task definition is marked as @INACTIVE@. Existing
+-- tasks and services that reference an @INACTIVE@ task definition continue
+-- to run without disruption. Existing services that reference an
+-- @INACTIVE@ task definition can still scale up or down by modifying the
+-- service\'s desired count.
 --
--- Deregisters the specified task definition. You will no longer be able to
--- run tasks from this definition after deregistration.
+-- You cannot use an @INACTIVE@ task definition to run new tasks or create
+-- new services, and you cannot update an existing service to reference an
+-- @INACTIVE@ task definition (although there may be up to a 10 minute
+-- window following deregistration where these restrictions have not yet
+-- taken effect).
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html>
 module Network.AWS.ECS.DeregisterTaskDefinition
@@ -37,10 +45,10 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     , dtdrTaskDefinition
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'deregisterTaskDefinition' smart constructor.
 --
@@ -54,7 +62,8 @@ deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
 deregisterTaskDefinition pTaskDefinition = DeregisterTaskDefinition'{_derTaskDefinition = pTaskDefinition};
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
--- Name (ARN) of the task definition that you want to deregister.
+-- Name (ARN) of the task definition that you want to deregister. You must
+-- specify a @revision@.
 derTaskDefinition :: Lens' DeregisterTaskDefinition Text
 derTaskDefinition = lens _derTaskDefinition (\ s a -> s{_derTaskDefinition = a});
 

@@ -72,10 +72,10 @@ module Network.AWS.CloudSearchDomains.Search
     , seaHits
     ) where
 
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearchDomains.Types
 
 -- | /See:/ 'search' smart constructor.
 --

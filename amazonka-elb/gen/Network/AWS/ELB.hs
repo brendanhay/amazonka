@@ -12,17 +12,21 @@
 
 -- | Elastic Load Balancing
 --
--- Elastic Load Balancing automatically distributes incoming web traffic
--- across multiple Amazon EC2 instances.
+-- Elastic Load Balancing distributes incoming traffic across your EC2
+-- instances.
 --
--- All Elastic Load Balancing actions and commands are /idempotent/, which
--- means that they complete no more than one time. If you repeat a request
--- or a command, the action succeeds with a 200 OK response code.
---
--- For detailed information about the features of Elastic Load Balancing,
--- see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenarios.html Managing Load Balancers>
+-- For information about the features of Elastic Load Balancing, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html What Is Elastic Load Balancing?>
 -- in the /Elastic Load Balancing Developer Guide/.
+--
+-- For information about the AWS regions supported by Elastic Load
+-- Balancing, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints - Elastic Load Balancing>
+-- in the /Amazon Web Services General Reference/.
+--
+-- All Elastic Load Balancing operations are /idempotent/, which means that
+-- they complete at most one time. If you repeat an operation, it succeeds
+-- with a 200 OK response code.
 module Network.AWS.ELB
     ( module Export
     ) where

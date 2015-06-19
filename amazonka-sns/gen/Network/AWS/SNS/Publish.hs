@@ -49,9 +49,9 @@ module Network.AWS.SNS.Publish
     , prMessageId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'publish' smart constructor.

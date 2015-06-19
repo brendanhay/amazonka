@@ -46,9 +46,9 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     , dwbrNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'describeWorkspaceBundles' smart constructor.

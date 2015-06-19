@@ -44,13 +44,13 @@ module Network.AWS.ElasticTranscoder.CreateJob
     -- ** Response constructor
     , createJobResponse
     -- ** Response lenses
-    , cjrJob'
+    , cjrJob
     ) where
 
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticTranscoder.Types
 
 -- | /See:/ 'createJob' smart constructor.
 --
@@ -126,7 +126,7 @@ instance AWSRequest CreateJob where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateJobResponse' <$> (x .?> "Job'"))
+              (\ s h x -> CreateJobResponse' <$> (x .?> "Job"))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -150,14 +150,14 @@ instance ToQuery CreateJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrJob''
-newtype CreateJobResponse = CreateJobResponse'{_cjrJob' :: Maybe Job'} deriving (Eq, Read, Show)
+-- * 'cjrJob'
+newtype CreateJobResponse = CreateJobResponse'{_cjrJob :: Maybe Job'} deriving (Eq, Read, Show)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: CreateJobResponse
-createJobResponse = CreateJobResponse'{_cjrJob' = Nothing};
+createJobResponse = CreateJobResponse'{_cjrJob = Nothing};
 
 -- | A section of the response body that provides information about the job
 -- that is created.
-cjrJob' :: Lens' CreateJobResponse (Maybe Job')
-cjrJob' = lens _cjrJob' (\ s a -> s{_cjrJob' = a});
+cjrJob :: Lens' CreateJobResponse (Maybe Job')
+cjrJob = lens _cjrJob (\ s a -> s{_cjrJob = a});

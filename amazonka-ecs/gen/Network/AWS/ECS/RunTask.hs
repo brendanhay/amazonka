@@ -43,10 +43,10 @@ module Network.AWS.ECS.RunTask
     , rtrTasks
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'runTask' smart constructor.
 --
@@ -68,10 +68,15 @@ runTask :: Text -> RunTask
 runTask pTaskDefinition = RunTask'{_rtOverrides = Nothing, _rtCluster = Nothing, _rtCount = Nothing, _rtStartedBy = Nothing, _rtTaskDefinition = pTaskDefinition};
 
 -- | A list of container overrides in JSON format that specify the name of a
--- container in the specified task definition and the command it should run
--- instead of its default. A total of 8192 characters are allowed for
--- overrides. This limit includes the JSON formatting characters of the
--- override structure.
+-- container in the specified task definition and the overrides it should
+-- receive. You can override the default command for a container (that is
+-- specified in the task definition or Docker image) with a @command@
+-- override. You can also override existing environment variables (that are
+-- specified in the task definition or Docker image) on a container or add
+-- new environment variables to it with an @environment@ override.
+--
+-- A total of 8192 characters are allowed for overrides. This limit
+-- includes the JSON formatting characters of the override structure.
 rtOverrides :: Lens' RunTask (Maybe TaskOverride)
 rtOverrides = lens _rtOverrides (\ s a -> s{_rtOverrides = a});
 
@@ -100,7 +105,8 @@ rtStartedBy :: Lens' RunTask (Maybe Text)
 rtStartedBy = lens _rtStartedBy (\ s a -> s{_rtStartedBy = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
--- Name (ARN) of the task definition that you want to run.
+-- Name (ARN) of the task definition that you want to run. If a @revision@
+-- is not specified, the latest @ACTIVE@ revision is used.
 rtTaskDefinition :: Lens' RunTask Text
 rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 

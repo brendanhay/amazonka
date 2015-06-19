@@ -120,9 +120,9 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwirProvider
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.STS.Types
 
 -- | /See:/ 'assumeRoleWithWebIdentity' smart constructor.

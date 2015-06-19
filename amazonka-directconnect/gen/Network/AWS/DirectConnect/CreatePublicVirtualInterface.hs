@@ -52,10 +52,10 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , viVirtualInterfaceId
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'createPublicVirtualInterface' smart constructor.
 --

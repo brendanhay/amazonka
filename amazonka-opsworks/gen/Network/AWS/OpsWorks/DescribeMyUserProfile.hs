@@ -37,10 +37,10 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , dmuprUserProfile
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'describeMyUserProfile' smart constructor.
 data DescribeMyUserProfile = DescribeMyUserProfile' deriving (Eq, Read, Show)

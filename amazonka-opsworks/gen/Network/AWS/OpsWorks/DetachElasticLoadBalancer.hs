@@ -39,10 +39,10 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , detachElasticLoadBalancerResponse
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'detachElasticLoadBalancer' smart constructor.
 --

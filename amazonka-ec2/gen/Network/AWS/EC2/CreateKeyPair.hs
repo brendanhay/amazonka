@@ -46,15 +46,15 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Response constructor
     , createKeyPairResponse
     -- ** Response lenses
-    , ckprKeyFingerprint
     , ckprKeyName
+    , ckprKeyFingerprint
     , ckprKeyMaterial
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'createKeyPair' smart constructor.
 --
@@ -90,8 +90,8 @@ instance AWSRequest CreateKeyPair where
           = receiveXML
               (\ s h x ->
                  CreateKeyPairResponse' <$>
-                   (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
-                     (x .@? "keyMaterial"))
+                   (x .@ "keyName") <*> (x .@ "keyFingerprint") <*>
+                     (x .@ "keyMaterial"))
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
@@ -110,25 +110,25 @@ instance ToQuery CreateKeyPair where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckprKeyFingerprint'
---
 -- * 'ckprKeyName'
 --
+-- * 'ckprKeyFingerprint'
+--
 -- * 'ckprKeyMaterial'
-data CreateKeyPairResponse = CreateKeyPairResponse'{_ckprKeyFingerprint :: Maybe Text, _ckprKeyName :: Maybe Text, _ckprKeyMaterial :: Maybe Text} deriving (Eq, Read, Show)
+data CreateKeyPairResponse = CreateKeyPairResponse'{_ckprKeyName :: Text, _ckprKeyFingerprint :: Text, _ckprKeyMaterial :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateKeyPairResponse' smart constructor.
-createKeyPairResponse :: CreateKeyPairResponse
-createKeyPairResponse = CreateKeyPairResponse'{_ckprKeyFingerprint = Nothing, _ckprKeyName = Nothing, _ckprKeyMaterial = Nothing};
-
--- | The SHA-1 digest of the DER encoded private key.
-ckprKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprKeyFingerprint = lens _ckprKeyFingerprint (\ s a -> s{_ckprKeyFingerprint = a});
+createKeyPairResponse :: Text -> Text -> Text -> CreateKeyPairResponse
+createKeyPairResponse pKeyName pKeyFingerprint pKeyMaterial = CreateKeyPairResponse'{_ckprKeyName = pKeyName, _ckprKeyFingerprint = pKeyFingerprint, _ckprKeyMaterial = pKeyMaterial};
 
 -- | The name of the key pair.
-ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyName :: Lens' CreateKeyPairResponse Text
 ckprKeyName = lens _ckprKeyName (\ s a -> s{_ckprKeyName = a});
 
+-- | The SHA-1 digest of the DER encoded private key.
+ckprKeyFingerprint :: Lens' CreateKeyPairResponse Text
+ckprKeyFingerprint = lens _ckprKeyFingerprint (\ s a -> s{_ckprKeyFingerprint = a});
+
 -- | An unencrypted PEM encoded RSA private key.
-ckprKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprKeyMaterial = lens _ckprKeyMaterial (\ s a -> s{_ckprKeyMaterial = a});

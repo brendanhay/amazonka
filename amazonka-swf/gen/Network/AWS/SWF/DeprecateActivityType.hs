@@ -62,9 +62,9 @@ module Network.AWS.SWF.DeprecateActivityType
     , deprecateActivityTypeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'deprecateActivityType' smart constructor.

@@ -29,24 +29,24 @@ module Network.AWS.ECS.CreateService
     -- ** Request lenses
     , creCluster
     , creClientToken
-    , creDesiredCount
     , creLoadBalancers
     , creRole
-    , creTaskDefinition
     , creServiceName
+    , creTaskDefinition
+    , creDesiredCount
 
     -- * Response
     , CreateServiceResponse
     -- ** Response constructor
     , createServiceResponse
     -- ** Response lenses
-    , csrContainerService
+    , csrService
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'createService' smart constructor.
 --
@@ -56,20 +56,20 @@ import Network.AWS.ECS.Types
 --
 -- * 'creClientToken'
 --
--- * 'creDesiredCount'
---
 -- * 'creLoadBalancers'
 --
 -- * 'creRole'
 --
+-- * 'creServiceName'
+--
 -- * 'creTaskDefinition'
 --
--- * 'creServiceName'
-data CreateService = CreateService'{_creCluster :: Maybe Text, _creClientToken :: Maybe Text, _creDesiredCount :: Maybe Int, _creLoadBalancers :: Maybe [LoadBalancer], _creRole :: Maybe Text, _creTaskDefinition :: Maybe Text, _creServiceName :: Text} deriving (Eq, Read, Show)
+-- * 'creDesiredCount'
+data CreateService = CreateService'{_creCluster :: Maybe Text, _creClientToken :: Maybe Text, _creLoadBalancers :: Maybe [LoadBalancer], _creRole :: Maybe Text, _creServiceName :: Text, _creTaskDefinition :: Text, _creDesiredCount :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateService' smart constructor.
-createService :: Text -> CreateService
-createService pServiceName = CreateService'{_creCluster = Nothing, _creClientToken = Nothing, _creDesiredCount = Nothing, _creLoadBalancers = Nothing, _creRole = Nothing, _creTaskDefinition = Nothing, _creServiceName = pServiceName};
+createService :: Text -> Text -> Int -> CreateService
+createService pServiceName pTaskDefinition pDesiredCount = CreateService'{_creCluster = Nothing, _creClientToken = Nothing, _creLoadBalancers = Nothing, _creRole = Nothing, _creServiceName = pServiceName, _creTaskDefinition = pTaskDefinition, _creDesiredCount = pDesiredCount};
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to run your service on. If you do not specify a cluster, the
@@ -81,11 +81,6 @@ creCluster = lens _creCluster (\ s a -> s{_creCluster = a});
 -- of the request. Up to 32 ASCII characters are allowed.
 creClientToken :: Lens' CreateService (Maybe Text)
 creClientToken = lens _creClientToken (\ s a -> s{_creClientToken = a});
-
--- | The number of instantiations of the specified task definition that you
--- would like to place and keep running on your cluster.
-creDesiredCount :: Lens' CreateService (Maybe Int)
-creDesiredCount = lens _creDesiredCount (\ s a -> s{_creDesiredCount = a});
 
 -- | A list of load balancer objects, containing the load balancer name, the
 -- container name (as it appears in a container definition), and the
@@ -100,15 +95,21 @@ creLoadBalancers = lens _creLoadBalancers (\ s a -> s{_creLoadBalancers = a}) . 
 creRole :: Lens' CreateService (Maybe Text)
 creRole = lens _creRole (\ s a -> s{_creRole = a});
 
--- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
--- Name (ARN) of the task definition that you want to run in your service.
-creTaskDefinition :: Lens' CreateService (Maybe Text)
-creTaskDefinition = lens _creTaskDefinition (\ s a -> s{_creTaskDefinition = a});
-
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, hyphens, and underscores are allowed.
 creServiceName :: Lens' CreateService Text
 creServiceName = lens _creServiceName (\ s a -> s{_creServiceName = a});
+
+-- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
+-- Name (ARN) of the task definition that you want to run in your service.
+-- If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
+creTaskDefinition :: Lens' CreateService Text
+creTaskDefinition = lens _creTaskDefinition (\ s a -> s{_creTaskDefinition = a});
+
+-- | The number of instantiations of the specified task definition that you
+-- would like to place and keep running on your cluster.
+creDesiredCount :: Lens' CreateService Int
+creDesiredCount = lens _creDesiredCount (\ s a -> s{_creDesiredCount = a});
 
 instance AWSRequest CreateService where
         type Sv CreateService = ECS
@@ -117,8 +118,7 @@ instance AWSRequest CreateService where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateServiceResponse' <$>
-                   (x .?> "ContainerService"))
+                 CreateServiceResponse' <$> (x .?> "service"))
 
 instance ToHeaders CreateService where
         toHeaders
@@ -135,11 +135,10 @@ instance ToJSON CreateService where
           = object
               ["cluster" .= _creCluster,
                "clientToken" .= _creClientToken,
-               "desiredCount" .= _creDesiredCount,
                "loadBalancers" .= _creLoadBalancers,
-               "role" .= _creRole,
+               "role" .= _creRole, "serviceName" .= _creServiceName,
                "taskDefinition" .= _creTaskDefinition,
-               "serviceName" .= _creServiceName]
+               "desiredCount" .= _creDesiredCount]
 
 instance ToPath CreateService where
         toPath = const "/"
@@ -151,13 +150,13 @@ instance ToQuery CreateService where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrContainerService'
-newtype CreateServiceResponse = CreateServiceResponse'{_csrContainerService :: Maybe ContainerService} deriving (Eq, Read, Show)
+-- * 'csrService'
+newtype CreateServiceResponse = CreateServiceResponse'{_csrService :: Maybe ContainerService} deriving (Eq, Read, Show)
 
 -- | 'CreateServiceResponse' smart constructor.
 createServiceResponse :: CreateServiceResponse
-createServiceResponse = CreateServiceResponse'{_csrContainerService = Nothing};
+createServiceResponse = CreateServiceResponse'{_csrService = Nothing};
 
 -- | The full description of your service following the create call.
-csrContainerService :: Lens' CreateServiceResponse (Maybe ContainerService)
-csrContainerService = lens _csrContainerService (\ s a -> s{_csrContainerService = a});
+csrService :: Lens' CreateServiceResponse (Maybe ContainerService)
+csrService = lens _csrService (\ s a -> s{_csrService = a});

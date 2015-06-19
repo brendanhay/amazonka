@@ -14,7 +14,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the termination policies supported by Auto Scaling.
+-- | Describes the termination policies supported by Auto Scaling.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html>
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
@@ -32,10 +32,10 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , dtptrTerminationPolicyTypes
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeTerminationPolicyTypes' smart constructor.
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes' deriving (Eq, Read, Show)
@@ -84,8 +84,8 @@ newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesR
 describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes = Nothing};
 
--- | The Termination policies supported by Auto Scaling. They are:
--- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
--- @ClosestToNextInstanceHour@, and @Default@.
+-- | The termination policies supported by Auto Scaling (@OldestInstance@,
+-- @OldestLaunchConfiguration@, @NewestInstance@,
+-- @ClosestToNextInstanceHour@, and @Default@).
 dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a}) . _Default;

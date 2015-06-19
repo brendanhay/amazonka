@@ -34,10 +34,10 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , cslrS3Bucket
     ) where
 
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticBeanstalk.Types
 
 -- | /See:/ 'createStorageLocation' smart constructor.
 data CreateStorageLocation = CreateStorageLocation' deriving (Eq, Read, Show)

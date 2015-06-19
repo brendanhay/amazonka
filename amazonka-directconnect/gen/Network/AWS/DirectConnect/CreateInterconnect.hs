@@ -57,10 +57,10 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , intRegion
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'createInterconnect' smart constructor.
 --

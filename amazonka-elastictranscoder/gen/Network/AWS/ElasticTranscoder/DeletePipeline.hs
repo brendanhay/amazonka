@@ -36,10 +36,10 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     , deletePipelineResponse
     ) where
 
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticTranscoder.Types
 
 -- | /See:/ 'deletePipeline' smart constructor.
 --

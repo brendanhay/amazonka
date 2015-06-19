@@ -51,10 +51,10 @@ module Network.AWS.EC2.GetPasswordData
     , gpdrTimestamp
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'getPasswordData' smart constructor.
 --
@@ -88,8 +88,8 @@ instance AWSRequest GetPasswordData where
           = receiveXML
               (\ s h x ->
                  GetPasswordDataResponse' <$>
-                   (x .@? "instanceId") <*> (x .@? "passwordData") <*>
-                     (x .@? "timestamp"))
+                   (x .@ "instanceId") <*> (x .@ "passwordData") <*>
+                     (x .@ "timestamp"))
 
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty
@@ -114,20 +114,20 @@ instance ToQuery GetPasswordData where
 -- * 'gpdrPasswordData'
 --
 -- * 'gpdrTimestamp'
-data GetPasswordDataResponse = GetPasswordDataResponse'{_gpdrInstanceId :: Maybe Text, _gpdrPasswordData :: Maybe Text, _gpdrTimestamp :: Maybe ISO8601} deriving (Eq, Read, Show)
+data GetPasswordDataResponse = GetPasswordDataResponse'{_gpdrInstanceId :: Text, _gpdrPasswordData :: Text, _gpdrTimestamp :: ISO8601} deriving (Eq, Read, Show)
 
 -- | 'GetPasswordDataResponse' smart constructor.
-getPasswordDataResponse :: GetPasswordDataResponse
-getPasswordDataResponse = GetPasswordDataResponse'{_gpdrInstanceId = Nothing, _gpdrPasswordData = Nothing, _gpdrTimestamp = Nothing};
+getPasswordDataResponse :: Text -> Text -> UTCTime -> GetPasswordDataResponse
+getPasswordDataResponse pInstanceId pPasswordData pTimestamp = GetPasswordDataResponse'{_gpdrInstanceId = pInstanceId, _gpdrPasswordData = pPasswordData, _gpdrTimestamp = _Time # pTimestamp};
 
 -- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
+gpdrInstanceId :: Lens' GetPasswordDataResponse Text
 gpdrInstanceId = lens _gpdrInstanceId (\ s a -> s{_gpdrInstanceId = a});
 
 -- | The password of the instance.
-gpdrPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
+gpdrPasswordData :: Lens' GetPasswordDataResponse Text
 gpdrPasswordData = lens _gpdrPasswordData (\ s a -> s{_gpdrPasswordData = a});
 
 -- | The time the data was last updated.
-gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
-gpdrTimestamp = lens _gpdrTimestamp (\ s a -> s{_gpdrTimestamp = a}) . mapping _Time;
+gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
+gpdrTimestamp = lens _gpdrTimestamp (\ s a -> s{_gpdrTimestamp = a}) . _Time;

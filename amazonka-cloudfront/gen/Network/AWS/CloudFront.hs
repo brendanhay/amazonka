@@ -25,26 +25,26 @@ module Network.AWS.CloudFront
     ( module Export
     ) where
 
-import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_11_06 as Export
-import Network.AWS.CloudFront.CreateDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.CreateInvalidation2014_11_06 as Export
-import Network.AWS.CloudFront.CreateStreamingDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_11_06 as Export
-import Network.AWS.CloudFront.DeleteDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.DeleteStreamingDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_11_06 as Export
-import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_11_06 as Export
-import Network.AWS.CloudFront.GetDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.GetDistributionConfig2014_11_06 as Export
-import Network.AWS.CloudFront.GetInvalidation2014_11_06 as Export
-import Network.AWS.CloudFront.GetStreamingDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.GetStreamingDistributionConfig2014_11_06 as Export
-import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_11_06 as Export
-import Network.AWS.CloudFront.ListDistributions2014_11_06 as Export
-import Network.AWS.CloudFront.ListInvalidations2014_11_06 as Export
-import Network.AWS.CloudFront.ListStreamingDistributions2014_11_06 as Export
+import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity as Export
+import Network.AWS.CloudFront.CreateDistribution as Export
+import Network.AWS.CloudFront.CreateInvalidation as Export
+import Network.AWS.CloudFront.CreateStreamingDistribution as Export
+import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity as Export
+import Network.AWS.CloudFront.DeleteDistribution as Export
+import Network.AWS.CloudFront.DeleteStreamingDistribution as Export
+import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity as Export
+import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig as Export
+import Network.AWS.CloudFront.GetDistribution as Export
+import Network.AWS.CloudFront.GetDistributionConfig as Export
+import Network.AWS.CloudFront.GetInvalidation as Export
+import Network.AWS.CloudFront.GetStreamingDistribution as Export
+import Network.AWS.CloudFront.GetStreamingDistributionConfig as Export
+import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities as Export
+import Network.AWS.CloudFront.ListDistributions as Export
+import Network.AWS.CloudFront.ListInvalidations as Export
+import Network.AWS.CloudFront.ListStreamingDistributions as Export
 import Network.AWS.CloudFront.Types as Export
-import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_11_06 as Export
-import Network.AWS.CloudFront.UpdateDistribution2014_11_06 as Export
-import Network.AWS.CloudFront.UpdateStreamingDistribution2014_11_06 as Export
+import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity as Export
+import Network.AWS.CloudFront.UpdateDistribution as Export
+import Network.AWS.CloudFront.UpdateStreamingDistribution as Export
 import Network.AWS.CloudFront.Waiters as Export

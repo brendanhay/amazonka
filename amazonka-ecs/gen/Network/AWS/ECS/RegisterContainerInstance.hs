@@ -42,10 +42,10 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rcirContainerInstance
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
 --
@@ -66,7 +66,10 @@ data RegisterContainerInstance = RegisterContainerInstance'{_rciInstanceIdentity
 registerContainerInstance :: RegisterContainerInstance
 registerContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature = Nothing, _rciCluster = Nothing, _rciInstanceIdentityDocument = Nothing, _rciVersionInfo = Nothing, _rciTotalResources = Nothing};
 
--- | FIXME: Undocumented member.
+-- | The instance identity document signature for the Amazon EC2 instance to
+-- register. This signature can be found by running the following command
+-- from the instance:
+-- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/@
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
 
@@ -76,15 +79,19 @@ rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignatur
 rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
 rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 
--- | FIXME: Undocumented member.
+-- | The instance identity document for the Amazon EC2 instance to register.
+-- This document can be found by running the following command from the
+-- instance:
+-- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/@
 rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a});
 
--- | FIXME: Undocumented member.
+-- | The version information for the Amazon ECS container agent and Docker
+-- daemon running on the container instance.
 rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
 rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 
--- | FIXME: Undocumented member.
+-- | The resources available on the instance.
 rciTotalResources :: Lens' RegisterContainerInstance [Resource]
 rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default;
 

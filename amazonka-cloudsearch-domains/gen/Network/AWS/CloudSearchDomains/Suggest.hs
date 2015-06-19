@@ -55,10 +55,10 @@ module Network.AWS.CloudSearchDomains.Suggest
     , srStatus
     ) where
 
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearchDomains.Types
 
 -- | /See:/ 'suggest' smart constructor.
 --

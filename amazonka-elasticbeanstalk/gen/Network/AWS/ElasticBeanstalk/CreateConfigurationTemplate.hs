@@ -56,10 +56,10 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , csdDescription
     ) where
 
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticBeanstalk.Types
 
 -- | /See:/ 'createConfigurationTemplate' smart constructor.
 --

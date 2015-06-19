@@ -39,10 +39,10 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     , ddlfprMarker
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'downloadDBLogFilePortion' smart constructor.
 --

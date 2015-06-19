@@ -98,9 +98,9 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , arwsamlrIssuer
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.STS.Types
 
 -- | /See:/ 'assumeRoleWithSAML' smart constructor.

@@ -37,10 +37,10 @@ module Network.AWS.RDS.ModifyOptionGroup
     , mogrOptionGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyOptionGroup' smart constructor.
 --

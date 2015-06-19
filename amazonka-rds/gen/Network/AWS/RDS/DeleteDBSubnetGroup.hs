@@ -35,10 +35,10 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     , deleteDBSubnetGroupResponse
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDBSubnetGroup' smart constructor.
 --

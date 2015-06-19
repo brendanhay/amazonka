@@ -15,8 +15,9 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns a list of tasks for a specified cluster. You can filter the
--- results by family name or by a particular container instance with the
--- @family@ and @containerInstance@ parameters.
+-- results by family name, by a particular container instance, or by the
+-- desired status of the task with the @family@, @containerInstance@, and
+-- @desiredStatus@ parameters.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html>
 module Network.AWS.ECS.ListTasks
@@ -26,6 +27,7 @@ module Network.AWS.ECS.ListTasks
     -- ** Request constructor
     , listTasks
     -- ** Request lenses
+    , ltDesiredStatus
     , ltCluster
     , ltFamily
     , ltNextToken
@@ -43,14 +45,16 @@ module Network.AWS.ECS.ListTasks
     , ltrTaskARNs
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'listTasks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ltDesiredStatus'
 --
 -- * 'ltCluster'
 --
@@ -65,11 +69,19 @@ import Network.AWS.ECS.Types
 -- * 'ltContainerInstance'
 --
 -- * 'ltMaxResults'
-data ListTasks = ListTasks'{_ltCluster :: Maybe Text, _ltFamily :: Maybe Text, _ltNextToken :: Maybe Text, _ltStartedBy :: Maybe Text, _ltServiceName :: Maybe Text, _ltContainerInstance :: Maybe Text, _ltMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListTasks = ListTasks'{_ltDesiredStatus :: Maybe DesiredStatus, _ltCluster :: Maybe Text, _ltFamily :: Maybe Text, _ltNextToken :: Maybe Text, _ltStartedBy :: Maybe Text, _ltServiceName :: Maybe Text, _ltContainerInstance :: Maybe Text, _ltMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ListTasks' smart constructor.
 listTasks :: ListTasks
-listTasks = ListTasks'{_ltCluster = Nothing, _ltFamily = Nothing, _ltNextToken = Nothing, _ltStartedBy = Nothing, _ltServiceName = Nothing, _ltContainerInstance = Nothing, _ltMaxResults = Nothing};
+listTasks = ListTasks'{_ltDesiredStatus = Nothing, _ltCluster = Nothing, _ltFamily = Nothing, _ltNextToken = Nothing, _ltStartedBy = Nothing, _ltServiceName = Nothing, _ltContainerInstance = Nothing, _ltMaxResults = Nothing};
+
+-- | The task status that you want to filter the @ListTasks@ results with.
+-- Specifying a @desiredStatus@ of @STOPPED@ will limit the results to
+-- tasks that are in the @STOPPED@ status, which can be useful for
+-- debugging tasks that are not starting properly or have died or finished.
+-- The default status filter is @RUNNING@.
+ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
+ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the tasks you want to list. If you do not specify a cluster, the
@@ -145,7 +157,8 @@ instance ToHeaders ListTasks where
 instance ToJSON ListTasks where
         toJSON ListTasks'{..}
           = object
-              ["cluster" .= _ltCluster, "family" .= _ltFamily,
+              ["desiredStatus" .= _ltDesiredStatus,
+               "cluster" .= _ltCluster, "family" .= _ltFamily,
                "nextToken" .= _ltNextToken,
                "startedBy" .= _ltStartedBy,
                "serviceName" .= _ltServiceName,

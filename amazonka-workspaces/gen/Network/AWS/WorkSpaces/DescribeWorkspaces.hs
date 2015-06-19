@@ -48,9 +48,9 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     , dwrWorkspaces
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'describeWorkspaces' smart constructor.

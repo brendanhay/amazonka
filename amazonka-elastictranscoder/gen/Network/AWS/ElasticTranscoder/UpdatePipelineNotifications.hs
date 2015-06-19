@@ -39,10 +39,10 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , upnrPipeline
     ) where
 
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticTranscoder.Types
 
 -- | /See:/ 'updatePipelineNotifications' smart constructor.
 --

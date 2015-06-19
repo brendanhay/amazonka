@@ -35,10 +35,10 @@ module Network.AWS.IAM.ListSAMLProviders
     , lsamlprSAMLProviderList
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'listSAMLProviders' smart constructor.
 data ListSAMLProviders = ListSAMLProviders' deriving (Eq, Read, Show)

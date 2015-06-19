@@ -46,9 +46,9 @@ module Network.AWS.StorageGateway.ResetCache
     , rcrGatewayARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'resetCache' smart constructor.

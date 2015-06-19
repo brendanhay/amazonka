@@ -47,9 +47,9 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcrHealthCheck
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53.Types
 
 -- | /See:/ 'updateHealthCheck' smart constructor.

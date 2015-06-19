@@ -43,10 +43,10 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     , ddsgrMarker
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDBSubnetGroups' smart constructor.
 --

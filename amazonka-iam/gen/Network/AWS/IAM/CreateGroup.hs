@@ -39,10 +39,10 @@ module Network.AWS.IAM.CreateGroup
     , cgrGroup
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'createGroup' smart constructor.
 --

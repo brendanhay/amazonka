@@ -44,9 +44,9 @@ module Network.AWS.SSM.CreateAssociation
     , carAssociationDescription
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SSM.Types
 
 -- | /See:/ 'createAssociation' smart constructor.

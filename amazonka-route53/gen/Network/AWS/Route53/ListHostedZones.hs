@@ -49,9 +49,9 @@ module Network.AWS.Route53.ListHostedZones
     , lhzrMaxItems
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53.Types
 
 -- | /See:/ 'listHostedZones' smart constructor.

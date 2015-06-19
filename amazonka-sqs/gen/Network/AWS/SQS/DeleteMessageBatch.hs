@@ -50,9 +50,9 @@ module Network.AWS.SQS.DeleteMessageBatch
     , dmbrFailed
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'deleteMessageBatch' smart constructor.

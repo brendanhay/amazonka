@@ -44,10 +44,10 @@ module Network.AWS.EC2.DescribeImages
     , dirImages
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'describeImages' smart constructor.
 --

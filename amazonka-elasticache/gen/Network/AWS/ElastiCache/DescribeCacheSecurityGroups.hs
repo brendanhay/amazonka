@@ -39,10 +39,10 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     , descMarker
     ) where
 
+import Network.AWS.ElastiCache.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElastiCache.Types
 
 -- | /See:/ 'describeCacheSecurityGroups' smart constructor.
 --

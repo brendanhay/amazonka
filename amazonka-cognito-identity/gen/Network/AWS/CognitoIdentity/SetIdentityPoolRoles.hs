@@ -36,10 +36,10 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     , setIdentityPoolRolesResponse
     ) where
 
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CognitoIdentity.Types
 
 -- | /See:/ 'setIdentityPoolRoles' smart constructor.
 --

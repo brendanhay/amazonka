@@ -52,10 +52,10 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrS3BucketName
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'updateTrail' smart constructor.
 --

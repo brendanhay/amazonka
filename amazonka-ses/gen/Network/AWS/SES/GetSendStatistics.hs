@@ -38,9 +38,9 @@ module Network.AWS.SES.GetSendStatistics
     , gssrSendDataPoints
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SES.Types
 
 -- | /See:/ 'getSendStatistics' smart constructor.

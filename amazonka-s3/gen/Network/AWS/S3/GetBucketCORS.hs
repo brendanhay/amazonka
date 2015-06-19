@@ -34,9 +34,9 @@ module Network.AWS.S3.GetBucketCORS
     , gbcrCORSRules
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketCORS' smart constructor.

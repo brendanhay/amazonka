@@ -55,10 +55,10 @@ module Network.AWS.CloudFormation.DescribeStackResources
     , dsrrStackResources
     ) where
 
+import Network.AWS.CloudFormation.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFormation.Types
 
 -- | /See:/ 'describeStackResources' smart constructor.
 --

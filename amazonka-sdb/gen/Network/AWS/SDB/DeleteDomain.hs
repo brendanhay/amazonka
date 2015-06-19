@@ -34,9 +34,9 @@ module Network.AWS.SDB.DeleteDomain
     , deleteDomainResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'deleteDomain' smart constructor.

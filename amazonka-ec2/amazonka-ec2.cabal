@@ -63,6 +63,7 @@ library
         , Network.AWS.EC2.CopySnapshot
         , Network.AWS.EC2.CreateCustomerGateway
         , Network.AWS.EC2.CreateDHCPOptions
+        , Network.AWS.EC2.CreateFlowLogs
         , Network.AWS.EC2.CreateImage
         , Network.AWS.EC2.CreateInstanceExportTask
         , Network.AWS.EC2.CreateInternetGateway
@@ -88,6 +89,7 @@ library
         , Network.AWS.EC2.CreateVolume
         , Network.AWS.EC2.DeleteCustomerGateway
         , Network.AWS.EC2.DeleteDHCPOptions
+        , Network.AWS.EC2.DeleteFlowLogs
         , Network.AWS.EC2.DeleteInternetGateway
         , Network.AWS.EC2.DeleteKeyPair
         , Network.AWS.EC2.DeleteNetworkACL
@@ -118,6 +120,7 @@ library
         , Network.AWS.EC2.DescribeCustomerGateways
         , Network.AWS.EC2.DescribeDHCPOptions
         , Network.AWS.EC2.DescribeExportTasks
+        , Network.AWS.EC2.DescribeFlowLogs
         , Network.AWS.EC2.DescribeImageAttribute
         , Network.AWS.EC2.DescribeImages
         , Network.AWS.EC2.DescribeImportImageTasks

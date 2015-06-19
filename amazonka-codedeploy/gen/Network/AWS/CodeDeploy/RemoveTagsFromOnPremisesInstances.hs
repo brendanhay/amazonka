@@ -33,10 +33,10 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     , removeTagsFromOnPremisesInstancesResponse
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
 --

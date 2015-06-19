@@ -73,10 +73,10 @@ module Network.AWS.EC2.CreateDHCPOptions
     , cdorDHCPOptions
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'createDHCPOptions' smart constructor.
 --

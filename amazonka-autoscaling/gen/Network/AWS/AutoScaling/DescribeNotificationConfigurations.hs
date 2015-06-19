@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     , dncrNotificationConfigurations
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeNotificationConfigurations' smart constructor.
 --

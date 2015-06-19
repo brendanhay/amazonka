@@ -41,10 +41,10 @@ module Network.AWS.EC2.DescribeReservedInstances
     , drirReservedInstances
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'describeReservedInstances' smart constructor.
 --
@@ -72,7 +72,7 @@ describeReservedInstances = DescribeReservedInstances'{_driFilters = Nothing, _d
 --     three years), in seconds (@31536000@ | @94608000@).
 --
 -- -   @end@ - The time when the Reserved Instance expires (for example,
---     2014-08-07T11:54:42.000Z).
+--     2015-08-07T11:54:42.000Z).
 --
 -- -   @fixed-price@ - The purchase price of the Reserved Instance (for
 --     example, 9800.0).
@@ -80,9 +80,17 @@ describeReservedInstances = DescribeReservedInstances'{_driFilters = Nothing, _d
 -- -   @instance-type@ - The instance type on which the Reserved Instance
 --     can be used.
 --
--- -   @product-description@ - The product description of the Reserved
---     Instance (@Linux\/UNIX@ | @Linux\/UNIX (Amazon VPC)@ | @Windows@ |
---     @Windows (Amazon VPC)@).
+-- -   @product-description@ - The Reserved Instance product platform
+--     description. Instances that include @(Amazon VPC)@ in the product
+--     platform description will only be displayed to EC2-Classic account
+--     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
+--     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
+--     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
+--     @Windows with SQL Server Standard (Amazon VPC)@ |
+--     @Windows with SQL Server Web@ |
+--     @Windows with SQL Server Web (Amazon VPC)@).
 --
 -- -   @reserved-instances-id@ - The ID of the Reserved Instance.
 --

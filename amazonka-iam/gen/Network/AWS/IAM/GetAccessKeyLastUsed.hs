@@ -38,10 +38,10 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     , gaklurAccessKeyLastUsed
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'getAccessKeyLastUsed' smart constructor.
 --

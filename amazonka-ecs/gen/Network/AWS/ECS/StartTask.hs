@@ -43,10 +43,10 @@ module Network.AWS.ECS.StartTask
     , strTasks
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'startTask' smart constructor.
 --
@@ -68,10 +68,15 @@ startTask :: Text -> StartTask
 startTask pTaskDefinition = StartTask'{_staOverrides = Nothing, _staCluster = Nothing, _staStartedBy = Nothing, _staTaskDefinition = pTaskDefinition, _staContainerInstances = mempty};
 
 -- | A list of container overrides in JSON format that specify the name of a
--- container in the specified task definition and the command it should run
--- instead of its default. A total of 8192 characters are allowed for
--- overrides. This limit includes the JSON formatting characters of the
--- override structure.
+-- container in the specified task definition and the overrides it should
+-- receive. You can override the default command for a container (that is
+-- specified in the task definition or Docker image) with a @command@
+-- override. You can also override existing environment variables (that are
+-- specified in the task definition or Docker image) on a container or add
+-- new environment variables to it with an @environment@ override.
+--
+-- A total of 8192 characters are allowed for overrides. This limit
+-- includes the JSON formatting characters of the override structure.
 staOverrides :: Lens' StartTask (Maybe TaskOverride)
 staOverrides = lens _staOverrides (\ s a -> s{_staOverrides = a});
 
@@ -93,7 +98,8 @@ staStartedBy :: Lens' StartTask (Maybe Text)
 staStartedBy = lens _staStartedBy (\ s a -> s{_staStartedBy = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
--- Name (ARN) of the task definition that you want to start.
+-- Name (ARN) of the task definition that you want to start. If a
+-- @revision@ is not specified, the latest @ACTIVE@ revision is used.
 staTaskDefinition :: Lens' StartTask Text
 staTaskDefinition = lens _staTaskDefinition (\ s a -> s{_staTaskDefinition = a});
 

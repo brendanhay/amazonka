@@ -14,8 +14,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns scaling process types for use in the ResumeProcesses and
--- SuspendProcesses actions.
+-- | Describes the scaling process types for use with ResumeProcesses and
+-- SuspendProcesses.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html>
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
@@ -33,10 +33,10 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , dsptrProcesses
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeScalingProcessTypes' smart constructor.
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes' deriving (Eq, Read, Show)

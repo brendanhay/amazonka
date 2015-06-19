@@ -37,10 +37,10 @@ module Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
     , removeClientIDFromOpenIDConnectProviderResponse
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'removeClientIDFromOpenIDConnectProvider' smart constructor.
 --

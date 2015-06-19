@@ -40,10 +40,10 @@ module Network.AWS.CloudWatch.ListMetrics
     , lmrNextToken
     ) where
 
+import Network.AWS.CloudWatch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudWatch.Types
 
 -- | /See:/ 'listMetrics' smart constructor.
 --

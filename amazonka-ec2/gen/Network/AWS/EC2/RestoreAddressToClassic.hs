@@ -35,14 +35,14 @@ module Network.AWS.EC2.RestoreAddressToClassic
     -- ** Response constructor
     , restoreAddressToClassicResponse
     -- ** Response lenses
-    , ratcrAddressStatus
+    , ratcrStatus
     , ratcrPublicIP
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'restoreAddressToClassic' smart constructor.
 --
@@ -97,18 +97,18 @@ instance ToQuery RestoreAddressToClassic where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratcrAddressStatus'
+-- * 'ratcrStatus'
 --
 -- * 'ratcrPublicIP'
-data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrAddressStatus :: Maybe AddressStatus, _ratcrPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrStatus :: Maybe AddressStatus, _ratcrPublicIP :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: RestoreAddressToClassicResponse
-restoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrAddressStatus = Nothing, _ratcrPublicIP = Nothing};
+restoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrStatus = Nothing, _ratcrPublicIP = Nothing};
 
 -- | The move status for the IP address.
-ratcrAddressStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
-ratcrAddressStatus = lens _ratcrAddressStatus (\ s a -> s{_ratcrAddressStatus = a});
+ratcrStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
+ratcrStatus = lens _ratcrStatus (\ s a -> s{_ratcrStatus = a});
 
 -- | The Elastic IP address.
 ratcrPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)

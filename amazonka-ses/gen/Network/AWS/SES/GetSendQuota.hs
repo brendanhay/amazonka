@@ -36,9 +36,9 @@ module Network.AWS.SES.GetSendQuota
     , gsqrMax24HourSend
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SES.Types
 
 -- | /See:/ 'getSendQuota' smart constructor.

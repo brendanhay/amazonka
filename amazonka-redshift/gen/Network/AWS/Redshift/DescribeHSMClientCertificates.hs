@@ -52,10 +52,10 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     , dhccrHSMClientCertificates
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeHSMClientCertificates' smart constructor.
 --

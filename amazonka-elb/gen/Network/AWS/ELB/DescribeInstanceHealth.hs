@@ -38,10 +38,10 @@ module Network.AWS.ELB.DescribeInstanceHealth
     , dihrInstanceStates
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'describeInstanceHealth' smart constructor.
 --

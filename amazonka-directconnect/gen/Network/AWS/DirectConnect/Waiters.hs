@@ -15,4 +15,6 @@
 
 module Network.AWS.DirectConnect.Waiters where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

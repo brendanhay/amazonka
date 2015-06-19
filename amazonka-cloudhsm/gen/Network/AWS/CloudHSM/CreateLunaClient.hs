@@ -35,10 +35,10 @@ module Network.AWS.CloudHSM.CreateLunaClient
     , clcrClientARN
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'createLunaClient' smart constructor.
 --

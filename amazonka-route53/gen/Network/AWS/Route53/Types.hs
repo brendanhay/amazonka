@@ -186,8 +186,8 @@ module Network.AWS.Route53.Types
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Sign.V4
 import Network.AWS.Route53.Internal
+import Network.AWS.Sign.V4
 
 -- | Version @2013-04-01@ of the Amazon Route 53 SDK.
 data Route53

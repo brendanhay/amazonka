@@ -37,10 +37,10 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     , cdsgrDBSecurityGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDBSecurityGroup' smart constructor.
 --

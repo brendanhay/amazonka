@@ -37,10 +37,10 @@ module Network.AWS.DirectoryService.CreateSnapshot
     , csrSnapshotId
     ) where
 
+import Network.AWS.DirectoryService.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectoryService.Types
 
 -- | /See:/ 'createSnapshot' smart constructor.
 --

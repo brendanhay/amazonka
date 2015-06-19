@@ -43,10 +43,10 @@ module Network.AWS.EC2.ImportVolume
     , ivrConversionTask
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'importVolume' smart constructor.
 --

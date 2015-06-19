@@ -38,10 +38,10 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , ddcsrDeliveryChannelsStatus
     ) where
 
+import Network.AWS.Config.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Config.Types
 
 -- | /See:/ 'describeDeliveryChannelStatus' smart constructor.
 --

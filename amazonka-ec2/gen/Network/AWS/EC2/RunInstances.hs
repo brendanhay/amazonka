@@ -89,16 +89,16 @@ module Network.AWS.EC2.RunInstances
     , reservation
     -- ** Response lenses
     , resGroups
-    , resOwnerId
     , resInstances
-    , resReservationId
     , resRequesterId
+    , resReservationId
+    , resOwnerId
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'runInstances' smart constructor.
 --

@@ -35,9 +35,9 @@ module Network.AWS.SNS.DeleteTopic
     , deleteTopicResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'deleteTopic' smart constructor.

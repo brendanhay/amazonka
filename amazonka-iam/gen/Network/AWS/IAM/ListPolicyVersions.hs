@@ -43,10 +43,10 @@ module Network.AWS.IAM.ListPolicyVersions
     , lpvrIsTruncated
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
 --

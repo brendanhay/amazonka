@@ -36,10 +36,10 @@ module Network.AWS.EMR.AddTags
     , addTagsResponse
     ) where
 
+import Network.AWS.EMR.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EMR.Types
 
 -- | /See:/ 'addTags' smart constructor.
 --

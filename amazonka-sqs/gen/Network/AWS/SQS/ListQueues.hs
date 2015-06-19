@@ -37,9 +37,9 @@ module Network.AWS.SQS.ListQueues
     , lqrQueueURLs
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'listQueues' smart constructor.

@@ -47,10 +47,10 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     , drnorMarker
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeReservedNodeOfferings' smart constructor.
 --

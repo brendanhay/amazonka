@@ -34,10 +34,10 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicyResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'executePolicy' smart constructor.
 --

@@ -65,9 +65,9 @@ module Network.AWS.SWF.SignalWorkflowExecution
     , signalWorkflowExecutionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'signalWorkflowExecution' smart constructor.

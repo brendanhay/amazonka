@@ -34,10 +34,10 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , dhrStatus
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'deleteHAPG' smart constructor.
 --

@@ -25,20 +25,20 @@ module Network.AWS.ECS.DeleteService
     , deleteService
     -- ** Request lenses
     , dsCluster
-    , dsContainerService
+    , dsService
 
     -- * Response
     , DeleteServiceResponse
     -- ** Response constructor
     , deleteServiceResponse
     -- ** Response lenses
-    , dsrContainerService
+    , dsrService
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'deleteService' smart constructor.
 --
@@ -46,20 +46,20 @@ import Network.AWS.ECS.Types
 --
 -- * 'dsCluster'
 --
--- * 'dsContainerService'
-data DeleteService = DeleteService'{_dsCluster :: Maybe Text, _dsContainerService :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dsService'
+data DeleteService = DeleteService'{_dsCluster :: Maybe Text, _dsService :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteService' smart constructor.
-deleteService :: DeleteService
-deleteService = DeleteService'{_dsCluster = Nothing, _dsContainerService = Nothing};
+deleteService :: Text -> DeleteService
+deleteService pService = DeleteService'{_dsCluster = Nothing, _dsService = pService};
 
 -- | The name of the cluster that hosts the service you want to delete.
 dsCluster :: Lens' DeleteService (Maybe Text)
 dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
 
 -- | The name of the service you want to delete.
-dsContainerService :: Lens' DeleteService (Maybe Text)
-dsContainerService = lens _dsContainerService (\ s a -> s{_dsContainerService = a});
+dsService :: Lens' DeleteService Text
+dsService = lens _dsService (\ s a -> s{_dsService = a});
 
 instance AWSRequest DeleteService where
         type Sv DeleteService = ECS
@@ -68,8 +68,7 @@ instance AWSRequest DeleteService where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteServiceResponse' <$>
-                   (x .?> "ContainerService"))
+                 DeleteServiceResponse' <$> (x .?> "service"))
 
 instance ToHeaders DeleteService where
         toHeaders
@@ -84,8 +83,7 @@ instance ToHeaders DeleteService where
 instance ToJSON DeleteService where
         toJSON DeleteService'{..}
           = object
-              ["cluster" .= _dsCluster,
-               "ContainerService" .= _dsContainerService]
+              ["cluster" .= _dsCluster, "service" .= _dsService]
 
 instance ToPath DeleteService where
         toPath = const "/"
@@ -97,13 +95,13 @@ instance ToQuery DeleteService where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrContainerService'
-newtype DeleteServiceResponse = DeleteServiceResponse'{_dsrContainerService :: Maybe ContainerService} deriving (Eq, Read, Show)
+-- * 'dsrService'
+newtype DeleteServiceResponse = DeleteServiceResponse'{_dsrService :: Maybe ContainerService} deriving (Eq, Read, Show)
 
 -- | 'DeleteServiceResponse' smart constructor.
 deleteServiceResponse :: DeleteServiceResponse
-deleteServiceResponse = DeleteServiceResponse'{_dsrContainerService = Nothing};
+deleteServiceResponse = DeleteServiceResponse'{_dsrService = Nothing};
 
 -- | FIXME: Undocumented member.
-dsrContainerService :: Lens' DeleteServiceResponse (Maybe ContainerService)
-dsrContainerService = lens _dsrContainerService (\ s a -> s{_dsrContainerService = a});
+dsrService :: Lens' DeleteServiceResponse (Maybe ContainerService)
+dsrService = lens _dsrService (\ s a -> s{_dsrService = a});

@@ -34,9 +34,9 @@ module Network.AWS.S3.GetBucketReplication
     , gbrrReplicationConfiguration
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketReplication' smart constructor.

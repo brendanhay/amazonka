@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling
     ) where
 
 import Network.AWS.AutoScaling.AttachInstances as Export
+import Network.AWS.AutoScaling.AttachLoadBalancers as Export
 import Network.AWS.AutoScaling.CompleteLifecycleAction as Export
 import Network.AWS.AutoScaling.CreateAutoScalingGroup as Export
 import Network.AWS.AutoScaling.CreateLaunchConfiguration as Export
@@ -40,6 +41,7 @@ import Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes as Export
 import Network.AWS.AutoScaling.DescribeLaunchConfigurations as Export
 import Network.AWS.AutoScaling.DescribeLifecycleHookTypes as Export
 import Network.AWS.AutoScaling.DescribeLifecycleHooks as Export
+import Network.AWS.AutoScaling.DescribeLoadBalancers as Export
 import Network.AWS.AutoScaling.DescribeMetricCollectionTypes as Export
 import Network.AWS.AutoScaling.DescribeNotificationConfigurations as Export
 import Network.AWS.AutoScaling.DescribePolicies as Export
@@ -49,6 +51,7 @@ import Network.AWS.AutoScaling.DescribeScheduledActions as Export
 import Network.AWS.AutoScaling.DescribeTags as Export
 import Network.AWS.AutoScaling.DescribeTerminationPolicyTypes as Export
 import Network.AWS.AutoScaling.DetachInstances as Export
+import Network.AWS.AutoScaling.DetachLoadBalancers as Export
 import Network.AWS.AutoScaling.DisableMetricsCollection as Export
 import Network.AWS.AutoScaling.EnableMetricsCollection as Export
 import Network.AWS.AutoScaling.EnterStandby as Export

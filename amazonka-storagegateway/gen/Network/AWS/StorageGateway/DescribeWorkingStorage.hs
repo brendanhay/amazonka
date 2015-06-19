@@ -47,9 +47,9 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     , dwsrWorkingStorageUsedInBytes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'describeWorkingStorage' smart constructor.

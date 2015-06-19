@@ -83,9 +83,9 @@ module Network.AWS.SQS.ReceiveMessage
     , rmrMessages
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'receiveMessage' smart constructor.

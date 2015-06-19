@@ -37,10 +37,10 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     , dlbrNextToken
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
 --
@@ -80,8 +80,8 @@ instance AWSRequest DescribeLoadBalancers where
               (\ s h x ->
                  DescribeLoadBalancersResponse' <$>
                    (x .@? "LoadBalancers" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
@@ -105,15 +105,15 @@ instance ToQuery DescribeLoadBalancers where
 -- * 'dlbrLoadBalancers'
 --
 -- * 'dlbrNextToken'
-data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers :: [LoadBalancerState], _dlbrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers :: Maybe [LoadBalancerState], _dlbrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: DescribeLoadBalancersResponse
-describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers = mempty, _dlbrNextToken = Nothing};
+describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers = Nothing, _dlbrNextToken = Nothing};
 
 -- | The load balancers.
 dlbrLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
-dlbrLoadBalancers = lens _dlbrLoadBalancers (\ s a -> s{_dlbrLoadBalancers = a});
+dlbrLoadBalancers = lens _dlbrLoadBalancers (\ s a -> s{_dlbrLoadBalancers = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

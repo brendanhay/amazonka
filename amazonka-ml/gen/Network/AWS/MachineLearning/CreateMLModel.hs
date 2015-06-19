@@ -58,10 +58,10 @@ module Network.AWS.MachineLearning.CreateMLModel
     , cmlmrMLModelId
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'createMLModel' smart constructor.
 --

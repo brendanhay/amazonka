@@ -63,9 +63,9 @@ module Network.AWS.SWF.DeprecateWorkflowType
     , deprecateWorkflowTypeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'deprecateWorkflowType' smart constructor.

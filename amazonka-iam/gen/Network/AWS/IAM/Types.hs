@@ -382,16 +382,40 @@ accessKeyLastUsed pLastUsedDate pServiceName pRegion = AccessKeyLastUsed'{_akluL
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- access key was most recently used.
+-- access key was most recently used. This field is null when:
+--
+-- -   The user does not have an access key.
+--
+-- -   An access key exists but has never been used, at least not since IAM
+--     started tracking this information on April 22nd, 2015.
+--
+-- -   There is no sign-in data associated with the user
+--
 akluLastUsedDate :: Lens' AccessKeyLastUsed UTCTime
 akluLastUsedDate = lens _akluLastUsedDate (\ s a -> s{_akluLastUsedDate = a}) . _Time;
 
 -- | The name of the AWS service with which this access key was most recently
--- used.
+-- used. This field is null when:
+--
+-- -   The user does not have an access key.
+--
+-- -   An access key exists but has never been used, at least not since IAM
+--     started tracking this information on April 22nd, 2015.
+--
+-- -   There is no sign-in data associated with the user
+--
 akluServiceName :: Lens' AccessKeyLastUsed Text
 akluServiceName = lens _akluServiceName (\ s a -> s{_akluServiceName = a});
 
--- | The AWS region where this access key was most recently used.
+-- | The AWS region where this access key was most recently used. This field
+-- is null when:
+--
+-- -   The user does not have an access key.
+--
+-- -   An access key exists but has never been used, at least not since IAM
+--     started tracking this information on April 22nd, 2015.
+--
+-- -   There is no sign-in data associated with the user
 --
 -- For more information about AWS regions, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>
@@ -1737,11 +1761,15 @@ user pPath pUserName pUserId pARN pCreateDate = User'{_usePasswordLastUsed = Not
 -- of AWS websites that capture a user\'s last sign-in time, see the
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports>
 -- topic in the /Using IAM/ guide. If a password is used more than once in
--- a five-minute span, only the first use is returned in this field. When
--- the user does not have a password, this field is null (not present).
--- When a user\'s password exists but has never been used, or when there is
--- no sign-in data associated with the user, this field is null (not
--- present).
+-- a five-minute span, only the first use is returned in this field. This
+-- field is null (not present) when:
+--
+-- -   The user does not have a password
+--
+-- -   The password exists but has never been used (at least not since IAM
+--     started tracking this information on October 20th, 2014
+--
+-- -   there is no sign-in data associated with the user
 --
 -- This value is returned only in the GetUser and ListUsers actions.
 usePasswordLastUsed :: Lens' User (Maybe UTCTime)

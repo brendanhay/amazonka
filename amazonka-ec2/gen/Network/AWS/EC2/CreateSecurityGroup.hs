@@ -65,10 +65,10 @@ module Network.AWS.EC2.CreateSecurityGroup
     , csgrGroupId
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'createSecurityGroup' smart constructor.
 --
@@ -128,7 +128,7 @@ instance AWSRequest CreateSecurityGroup where
         response
           = receiveXML
               (\ s h x ->
-                 CreateSecurityGroupResponse' <$> (x .@? "groupId"))
+                 CreateSecurityGroupResponse' <$> (x .@ "groupId"))
 
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
@@ -150,12 +150,12 @@ instance ToQuery CreateSecurityGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csgrGroupId'
-newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse'{_csgrGroupId :: Maybe Text} deriving (Eq, Read, Show)
+newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse'{_csgrGroupId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
-createSecurityGroupResponse :: CreateSecurityGroupResponse
-createSecurityGroupResponse = CreateSecurityGroupResponse'{_csgrGroupId = Nothing};
+createSecurityGroupResponse :: Text -> CreateSecurityGroupResponse
+createSecurityGroupResponse pGroupId = CreateSecurityGroupResponse'{_csgrGroupId = pGroupId};
 
 -- | The ID of the security group.
-csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
+csgrGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrGroupId = lens _csgrGroupId (\ s a -> s{_csgrGroupId = a});

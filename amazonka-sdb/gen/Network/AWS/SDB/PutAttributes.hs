@@ -70,9 +70,9 @@ module Network.AWS.SDB.PutAttributes
     , putAttributesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'putAttributes' smart constructor.

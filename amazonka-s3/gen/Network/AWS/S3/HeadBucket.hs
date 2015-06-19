@@ -33,9 +33,9 @@ module Network.AWS.S3.HeadBucket
     , headBucketResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'headBucket' smart constructor.

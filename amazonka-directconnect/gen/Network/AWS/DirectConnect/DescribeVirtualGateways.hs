@@ -35,13 +35,13 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     -- ** Response constructor
     , describeVirtualGatewaysResponse
     -- ** Response lenses
-    , dvgrDescribeVirtualGatewaysResponse
+    , dvgrVirtualGateways
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'describeVirtualGateways' smart constructor.
 data DescribeVirtualGateways = DescribeVirtualGateways' deriving (Eq, Read, Show)
@@ -59,7 +59,7 @@ instance AWSRequest DescribeVirtualGateways where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualGatewaysResponse' <$>
-                   (x .?> "DescribeVirtualGatewaysResponse" .!@ mempty))
+                   (x .?> "virtualGateways" .!@ mempty))
 
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
@@ -84,13 +84,13 @@ instance ToQuery DescribeVirtualGateways where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvgrDescribeVirtualGatewaysResponse'
-newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse :: Maybe [VirtualGateway]} deriving (Eq, Read, Show)
+-- * 'dvgrVirtualGateways'
+newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrVirtualGateways :: Maybe [VirtualGateway]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse = Nothing};
+describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrVirtualGateways = Nothing};
 
 -- | A list of virtual private gateways.
-dvgrDescribeVirtualGatewaysResponse :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrDescribeVirtualGatewaysResponse = lens _dvgrDescribeVirtualGatewaysResponse (\ s a -> s{_dvgrDescribeVirtualGatewaysResponse = a}) . _Default;
+dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrVirtualGateways = lens _dvgrVirtualGateways (\ s a -> s{_dvgrVirtualGateways = a}) . _Default;

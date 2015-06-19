@@ -43,10 +43,10 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , scscrAcknowledgment
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'submitContainerStateChange' smart constructor.
 --

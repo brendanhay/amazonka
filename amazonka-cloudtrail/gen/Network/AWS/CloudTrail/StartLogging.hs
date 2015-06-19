@@ -32,10 +32,10 @@ module Network.AWS.CloudTrail.StartLogging
     , startLoggingResponse
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'startLogging' smart constructor.
 --

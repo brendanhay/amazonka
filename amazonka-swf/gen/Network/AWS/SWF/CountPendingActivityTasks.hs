@@ -59,9 +59,9 @@ module Network.AWS.SWF.CountPendingActivityTasks
     , ptcCount
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'countPendingActivityTasks' smart constructor.

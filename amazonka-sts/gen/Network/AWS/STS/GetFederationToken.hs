@@ -110,9 +110,9 @@ module Network.AWS.STS.GetFederationToken
     , gftrFederatedUser
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.STS.Types
 
 -- | /See:/ 'getFederationToken' smart constructor.

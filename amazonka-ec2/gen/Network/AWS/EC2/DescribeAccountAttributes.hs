@@ -55,10 +55,10 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , daarAccountAttributes
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'describeAccountAttributes' smart constructor.
 --

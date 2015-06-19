@@ -37,10 +37,10 @@ module Network.AWS.DirectConnect.DescribeConnections
     , conConnections
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'describeConnections' smart constructor.
 --

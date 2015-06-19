@@ -40,9 +40,9 @@ module Network.AWS.SQS.SetQueueAttributes
     , setQueueAttributesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'setQueueAttributes' smart constructor.

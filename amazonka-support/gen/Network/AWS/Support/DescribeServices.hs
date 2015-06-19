@@ -48,9 +48,9 @@ module Network.AWS.Support.DescribeServices
     , dsrServices
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Support.Types
 
 -- | /See:/ 'describeServices' smart constructor.

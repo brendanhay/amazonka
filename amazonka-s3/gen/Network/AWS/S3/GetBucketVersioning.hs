@@ -35,9 +35,9 @@ module Network.AWS.S3.GetBucketVersioning
     , gbvrMFADelete
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'getBucketVersioning' smart constructor.

@@ -15,4 +15,6 @@
 
 module Network.AWS.KMS.Waiters where
 
+import Network.AWS.KMS.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

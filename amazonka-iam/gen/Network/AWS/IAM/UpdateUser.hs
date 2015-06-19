@@ -46,10 +46,10 @@ module Network.AWS.IAM.UpdateUser
     , updateUserResponse
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'updateUser' smart constructor.
 --

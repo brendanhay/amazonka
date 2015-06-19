@@ -54,10 +54,10 @@ module Network.AWS.MachineLearning.CreateEvaluation
     , cerEvaluationId
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'createEvaluation' smart constructor.
 --

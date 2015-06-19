@@ -53,10 +53,10 @@ module Network.AWS.CloudTrail.LookupEvents
     , lerEvents
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'lookupEvents' smart constructor.
 --

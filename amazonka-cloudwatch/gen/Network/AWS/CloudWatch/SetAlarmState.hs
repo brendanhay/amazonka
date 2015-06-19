@@ -39,10 +39,10 @@ module Network.AWS.CloudWatch.SetAlarmState
     , setAlarmStateResponse
     ) where
 
+import Network.AWS.CloudWatch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudWatch.Types
 
 -- | /See:/ 'setAlarmState' smart constructor.
 --

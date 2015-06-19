@@ -43,9 +43,9 @@ module Network.AWS.SDB.GetAttributes
     , garAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'getAttributes' smart constructor.

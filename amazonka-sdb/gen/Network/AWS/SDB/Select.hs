@@ -49,9 +49,9 @@ module Network.AWS.SDB.Select
     , srNextToken
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'select' smart constructor.

@@ -32,10 +32,10 @@ module Network.AWS.CloudSearch.ListDomainNames
     , ldnrDomainNames
     ) where
 
+import Network.AWS.CloudSearch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearch.Types
 
 -- | /See:/ 'listDomainNames' smart constructor.
 data ListDomainNames = ListDomainNames' deriving (Eq, Read, Show)

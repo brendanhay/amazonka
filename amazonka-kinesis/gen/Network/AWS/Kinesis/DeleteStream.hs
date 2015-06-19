@@ -51,10 +51,10 @@ module Network.AWS.Kinesis.DeleteStream
     , deleteStreamResponse
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'deleteStream' smart constructor.
 --

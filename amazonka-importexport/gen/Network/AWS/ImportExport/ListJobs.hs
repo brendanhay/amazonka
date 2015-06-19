@@ -41,10 +41,10 @@ module Network.AWS.ImportExport.ListJobs
     , ljrIsTruncated
     ) where
 
+import Network.AWS.ImportExport.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ImportExport.Types
 
 -- | /See:/ 'listJobs' smart constructor.
 --

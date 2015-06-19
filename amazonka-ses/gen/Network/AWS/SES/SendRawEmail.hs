@@ -64,9 +64,9 @@ module Network.AWS.SES.SendRawEmail
     , srerMessageId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SES.Types
 
 -- | /See:/ 'sendRawEmail' smart constructor.

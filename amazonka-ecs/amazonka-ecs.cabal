@@ -71,6 +71,7 @@ library
         , Network.AWS.ECS.SubmitContainerStateChange
         , Network.AWS.ECS.SubmitTaskStateChange
         , Network.AWS.ECS.Types
+        , Network.AWS.ECS.UpdateContainerAgent
         , Network.AWS.ECS.UpdateService
         , Network.AWS.ECS.Waiters
 

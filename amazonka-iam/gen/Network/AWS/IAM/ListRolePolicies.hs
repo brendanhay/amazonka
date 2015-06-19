@@ -49,10 +49,10 @@ module Network.AWS.IAM.ListRolePolicies
     , lrprPolicyNames
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'listRolePolicies' smart constructor.
 --

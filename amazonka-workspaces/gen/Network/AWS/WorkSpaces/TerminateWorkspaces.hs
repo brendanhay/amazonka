@@ -44,9 +44,9 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     , twrFailedRequests
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'terminateWorkspaces' smart constructor.

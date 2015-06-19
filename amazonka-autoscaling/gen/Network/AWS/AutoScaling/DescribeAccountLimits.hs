@@ -17,7 +17,8 @@
 -- | Describes the current Auto Scaling resource limits for your AWS account.
 --
 -- For information about requesting an increase in these limits, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>.
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
+-- in the /Amazon Web Services General Reference/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html>
 module Network.AWS.AutoScaling.DescribeAccountLimits
@@ -36,10 +37,10 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     , dalrMaxNumberOfAutoScalingGroups
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits' deriving (Eq, Read, Show)

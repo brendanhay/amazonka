@@ -22,7 +22,7 @@
 -- value.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html Tag Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html>
@@ -42,10 +42,10 @@ module Network.AWS.ELB.AddTags
     , addTagsResponse
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'addTags' smart constructor.
 --

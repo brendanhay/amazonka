@@ -38,9 +38,9 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     , edtlrOperationId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'enableDomainTransferLock' smart constructor.

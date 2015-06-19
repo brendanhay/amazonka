@@ -39,10 +39,10 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     , defAnalysisScheme
     ) where
 
+import Network.AWS.CloudSearch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearch.Types
 
 -- | /See:/ 'defineAnalysisScheme' smart constructor.
 --

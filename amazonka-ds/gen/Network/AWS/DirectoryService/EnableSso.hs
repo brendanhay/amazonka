@@ -34,10 +34,10 @@ module Network.AWS.DirectoryService.EnableSso
     , enableSsoResponse
     ) where
 
+import Network.AWS.DirectoryService.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectoryService.Types
 
 -- | /See:/ 'enableSso' smart constructor.
 --

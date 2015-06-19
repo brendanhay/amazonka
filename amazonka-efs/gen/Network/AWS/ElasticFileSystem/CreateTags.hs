@@ -41,10 +41,10 @@ module Network.AWS.ElasticFileSystem.CreateTags
     , createTagsResponse
     ) where
 
+import Network.AWS.ElasticFileSystem.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticFileSystem.Types
 
 -- | /See:/ 'createTags' smart constructor.
 --

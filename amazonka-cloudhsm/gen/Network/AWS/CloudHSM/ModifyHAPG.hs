@@ -36,10 +36,10 @@ module Network.AWS.CloudHSM.ModifyHAPG
     , mhrHAPGARN
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'modifyHAPG' smart constructor.
 --

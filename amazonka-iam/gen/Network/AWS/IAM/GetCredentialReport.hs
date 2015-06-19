@@ -37,10 +37,10 @@ module Network.AWS.IAM.GetCredentialReport
     , gcrrReportFormat
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'getCredentialReport' smart constructor.
 data GetCredentialReport = GetCredentialReport' deriving (Eq, Read, Show)

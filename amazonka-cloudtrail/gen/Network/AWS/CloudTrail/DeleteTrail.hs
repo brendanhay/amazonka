@@ -32,10 +32,10 @@ module Network.AWS.CloudTrail.DeleteTrail
     , deleteTrailResponse
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'deleteTrail' smart constructor.
 --

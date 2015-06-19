@@ -41,23 +41,23 @@ module Network.AWS.EC2.ImportImage
     -- ** Response constructor
     , importImageResponse
     -- ** Response lenses
+    , iirStatus
     , iirHypervisor
     , iirPlatform
     , iirProgress
     , iirLicenseType
     , iirSnapshotDetails
     , iirStatusMessage
-    , iirAddressStatus
     , iirImageId
     , iirImportTaskId
     , iirArchitecture
     , iirDescription
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'importImage' smart constructor.
 --
@@ -155,12 +155,12 @@ instance AWSRequest ImportImage where
           = receiveXML
               (\ s h x ->
                  ImportImageResponse' <$>
-                   (x .@? "hypervisor") <*> (x .@? "platform") <*>
-                     (x .@? "progress")
+                   (x .@? "status") <*> (x .@? "hypervisor") <*>
+                     (x .@? "platform")
+                     <*> (x .@? "progress")
                      <*> (x .@? "licenseType")
                      <*> (may (parseXMLList "item") x)
                      <*> (x .@? "statusMessage")
-                     <*> (x .@? "status")
                      <*> (x .@? "imageId")
                      <*> (x .@? "importTaskId")
                      <*> (x .@? "architecture")
@@ -192,6 +192,8 @@ instance ToQuery ImportImage where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'iirStatus'
+--
 -- * 'iirHypervisor'
 --
 -- * 'iirPlatform'
@@ -204,8 +206,6 @@ instance ToQuery ImportImage where
 --
 -- * 'iirStatusMessage'
 --
--- * 'iirAddressStatus'
---
 -- * 'iirImageId'
 --
 -- * 'iirImportTaskId'
@@ -213,11 +213,15 @@ instance ToQuery ImportImage where
 -- * 'iirArchitecture'
 --
 -- * 'iirDescription'
-data ImportImageResponse = ImportImageResponse'{_iirHypervisor :: Maybe Text, _iirPlatform :: Maybe Text, _iirProgress :: Maybe Text, _iirLicenseType :: Maybe Text, _iirSnapshotDetails :: Maybe [SnapshotDetail], _iirStatusMessage :: Maybe Text, _iirAddressStatus :: Maybe Text, _iirImageId :: Maybe Text, _iirImportTaskId :: Maybe Text, _iirArchitecture :: Maybe Text, _iirDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ImportImageResponse = ImportImageResponse'{_iirStatus :: Maybe Text, _iirHypervisor :: Maybe Text, _iirPlatform :: Maybe Text, _iirProgress :: Maybe Text, _iirLicenseType :: Maybe Text, _iirSnapshotDetails :: Maybe [SnapshotDetail], _iirStatusMessage :: Maybe Text, _iirImageId :: Maybe Text, _iirImportTaskId :: Maybe Text, _iirArchitecture :: Maybe Text, _iirDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: ImportImageResponse
-importImageResponse = ImportImageResponse'{_iirHypervisor = Nothing, _iirPlatform = Nothing, _iirProgress = Nothing, _iirLicenseType = Nothing, _iirSnapshotDetails = Nothing, _iirStatusMessage = Nothing, _iirAddressStatus = Nothing, _iirImageId = Nothing, _iirImportTaskId = Nothing, _iirArchitecture = Nothing, _iirDescription = Nothing};
+importImageResponse = ImportImageResponse'{_iirStatus = Nothing, _iirHypervisor = Nothing, _iirPlatform = Nothing, _iirProgress = Nothing, _iirLicenseType = Nothing, _iirSnapshotDetails = Nothing, _iirStatusMessage = Nothing, _iirImageId = Nothing, _iirImportTaskId = Nothing, _iirArchitecture = Nothing, _iirDescription = Nothing};
+
+-- | A brief status of the task.
+iirStatus :: Lens' ImportImageResponse (Maybe Text)
+iirStatus = lens _iirStatus (\ s a -> s{_iirStatus = a});
 
 -- | The target hypervisor of the import task.
 iirHypervisor :: Lens' ImportImageResponse (Maybe Text)
@@ -242,10 +246,6 @@ iirSnapshotDetails = lens _iirSnapshotDetails (\ s a -> s{_iirSnapshotDetails = 
 -- | A detailed status message of the import task.
 iirStatusMessage :: Lens' ImportImageResponse (Maybe Text)
 iirStatusMessage = lens _iirStatusMessage (\ s a -> s{_iirStatusMessage = a});
-
--- | A brief status of the task.
-iirAddressStatus :: Lens' ImportImageResponse (Maybe Text)
-iirAddressStatus = lens _iirAddressStatus (\ s a -> s{_iirAddressStatus = a});
 
 -- | The ID of the Amazon Machine Image (AMI) created by the import task.
 iirImageId :: Lens' ImportImageResponse (Maybe Text)

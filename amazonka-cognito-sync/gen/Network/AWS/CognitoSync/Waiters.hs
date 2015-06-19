@@ -15,4 +15,6 @@
 
 module Network.AWS.CognitoSync.Waiters where
 
+import Network.AWS.CognitoSync.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

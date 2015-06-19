@@ -14,7 +14,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the policy adjustment types for use with PutScalingPolicy.
+-- | Describes the policy adjustment types for use with PutScalingPolicy.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html>
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
@@ -32,10 +32,10 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , datrAdjustmentTypes
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeAdjustmentTypes' smart constructor.
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes' deriving (Eq, Read, Show)

@@ -55,10 +55,10 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , dcsgr1Marker
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeClusterSecurityGroups' smart constructor.
 --

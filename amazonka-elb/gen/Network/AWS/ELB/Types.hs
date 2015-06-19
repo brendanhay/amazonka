@@ -701,13 +701,12 @@ lisSSLCertificateId = lens _lisSSLCertificateId (\ s a -> s{_lisSSLCertificateId
 lisProtocol :: Lens' Listener Text
 lisProtocol = lens _lisProtocol (\ s a -> s{_lisProtocol = a});
 
--- | The port on which the load balancer is listening: 25, 80, 443, 465, 587,
--- or 1024-65535.
+-- | The port on which the load balancer is listening. The supported ports
+-- are: 25, 80, 443, 465, 587, and 1024-65535.
 lisLoadBalancerPort :: Lens' Listener Int
 lisLoadBalancerPort = lens _lisLoadBalancerPort (\ s a -> s{_lisLoadBalancerPort = a});
 
--- | The port on which the instance server is listening - 25, 80, 443, 465,
--- 587, or 1024-65535.
+-- | The port on which the instance is listening.
 lisInstancePort :: Lens' Listener Natural
 lisInstancePort = lens _lisInstancePort (\ s a -> s{_lisInstancePort = a}) . _Nat;
 

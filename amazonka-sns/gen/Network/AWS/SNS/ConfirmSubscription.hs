@@ -40,9 +40,9 @@ module Network.AWS.SNS.ConfirmSubscription
     , csrSubscriptionARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'confirmSubscription' smart constructor.

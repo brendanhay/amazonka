@@ -40,10 +40,10 @@ module Network.AWS.CloudHSM.ListLunaClients
     , llcrClientList
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'listLunaClients' smart constructor.
 --

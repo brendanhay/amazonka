@@ -35,10 +35,10 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     , dscrCluster
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableSnapshotCopy' smart constructor.
 --

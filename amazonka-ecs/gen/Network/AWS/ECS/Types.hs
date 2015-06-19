@@ -24,6 +24,9 @@ module Network.AWS.ECS.Types
     -- ** Errors
     , JSONError
 
+    -- * AgentUpdateStatus
+    , AgentUpdateStatus (..)
+
     -- * Cluster
     , Cluster
     , cluster
@@ -33,6 +36,7 @@ module Network.AWS.ECS.Types
     , cluRegisteredContainerInstancesCount
     , cluPendingTasksCount
     , cluClusterName
+    , cluActiveServicesCount
 
     -- * Container
     , Container
@@ -70,6 +74,8 @@ module Network.AWS.ECS.Types
     , ciEc2InstanceId
     , ciContainerInstanceARN
     , ciAgentConnected
+    , ciVersionInfo
+    , ciAgentUpdateStatus
     , ciPendingTasksCount
     , ciRegisteredResources
 
@@ -77,6 +83,7 @@ module Network.AWS.ECS.Types
     , ContainerOverride
     , containerOverride
     , coCommand
+    , coEnvironment
     , coName
 
     -- * ContainerService
@@ -106,6 +113,9 @@ module Network.AWS.ECS.Types
     , depId
     , depTaskDefinition
     , depUpdatedAt
+
+    -- * DesiredStatus
+    , DesiredStatus (..)
 
     -- * Failure
     , Failure
@@ -142,12 +152,14 @@ module Network.AWS.ECS.Types
     , NetworkBinding
     , networkBinding
     , nbBindIP
+    , nbProtocol
     , nbHostPort
     , nbContainerPort
 
     -- * PortMapping
     , PortMapping
     , portMapping
+    , pmProtocol
     , pmHostPort
     , pmContainerPort
 
@@ -168,6 +180,9 @@ module Network.AWS.ECS.Types
     , seId
     , seMessage
 
+    -- * SortOrder
+    , SortOrder (..)
+
     -- * Task
     , Task
     , task
@@ -184,16 +199,23 @@ module Network.AWS.ECS.Types
     -- * TaskDefinition
     , TaskDefinition
     , taskDefinition
+    , tdStatus
     , tdFamily
     , tdContainerDefinitions
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes
 
+    -- * TaskDefinitionStatus
+    , TaskDefinitionStatus (..)
+
     -- * TaskOverride
     , TaskOverride
     , taskOverride
     , toContainerOverrides
+
+    -- * TransportProtocol
+    , TransportProtocol (..)
 
     -- * VersionInfo
     , VersionInfo
@@ -248,6 +270,34 @@ instance AWSService ECS where
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e) = undefined
 
+data AgentUpdateStatus = AUSFailed | AUSStaged | AUSPending | AUSStaging | AUSUpdated | AUSUpdating deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AgentUpdateStatus where
+    parser = takeLowerText >>= \case
+        "FAILED" -> pure AUSFailed
+        "PENDING" -> pure AUSPending
+        "STAGED" -> pure AUSStaged
+        "STAGING" -> pure AUSStaging
+        "UPDATED" -> pure AUSUpdated
+        "UPDATING" -> pure AUSUpdating
+        e -> fail ("Failure parsing AgentUpdateStatus from " ++ show e)
+
+instance ToText AgentUpdateStatus where
+    toText = \case
+        AUSFailed -> "FAILED"
+        AUSPending -> "PENDING"
+        AUSStaged -> "STAGED"
+        AUSStaging -> "STAGING"
+        AUSUpdated -> "UPDATED"
+        AUSUpdating -> "UPDATING"
+
+instance Hashable AgentUpdateStatus
+instance ToQuery AgentUpdateStatus
+instance ToHeader AgentUpdateStatus
+
+instance FromJSON AgentUpdateStatus where
+    parseJSON = parseJSONText "AgentUpdateStatus"
+
 -- | /See:/ 'cluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -263,11 +313,13 @@ instance AWSService ECS where
 -- * 'cluPendingTasksCount'
 --
 -- * 'cluClusterName'
-data Cluster = Cluster'{_cluStatus :: Maybe Text, _cluClusterARN :: Maybe Text, _cluRunningTasksCount :: Maybe Int, _cluRegisteredContainerInstancesCount :: Maybe Int, _cluPendingTasksCount :: Maybe Int, _cluClusterName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cluActiveServicesCount'
+data Cluster = Cluster'{_cluStatus :: Maybe Text, _cluClusterARN :: Maybe Text, _cluRunningTasksCount :: Maybe Int, _cluRegisteredContainerInstancesCount :: Maybe Int, _cluPendingTasksCount :: Maybe Int, _cluClusterName :: Maybe Text, _cluActiveServicesCount :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
-cluster = Cluster'{_cluStatus = Nothing, _cluClusterARN = Nothing, _cluRunningTasksCount = Nothing, _cluRegisteredContainerInstancesCount = Nothing, _cluPendingTasksCount = Nothing, _cluClusterName = Nothing};
+cluster = Cluster'{_cluStatus = Nothing, _cluClusterARN = Nothing, _cluRunningTasksCount = Nothing, _cluRegisteredContainerInstancesCount = Nothing, _cluPendingTasksCount = Nothing, _cluClusterName = Nothing, _cluActiveServicesCount = Nothing};
 
 -- | The status of the cluster. The valid values are @ACTIVE@ or @INACTIVE@.
 -- @ACTIVE@ indicates that you can register container instances with the
@@ -299,6 +351,11 @@ cluPendingTasksCount = lens _cluPendingTasksCount (\ s a -> s{_cluPendingTasksCo
 cluClusterName :: Lens' Cluster (Maybe Text)
 cluClusterName = lens _cluClusterName (\ s a -> s{_cluClusterName = a});
 
+-- | The number of services that are running on the cluster in an @ACTIVE@
+-- state. You can view these services with ListServices.
+cluActiveServicesCount :: Lens' Cluster (Maybe Int)
+cluActiveServicesCount = lens _cluActiveServicesCount (\ s a -> s{_cluActiveServicesCount = a});
+
 instance FromJSON Cluster where
         parseJSON
           = withObject "Cluster"
@@ -308,7 +365,8 @@ instance FromJSON Cluster where
                      (x .:? "runningTasksCount")
                      <*> (x .:? "registeredContainerInstancesCount")
                      <*> (x .:? "pendingTasksCount")
-                     <*> (x .:? "clusterName"))
+                     <*> (x .:? "clusterName")
+                     <*> (x .:? "activeServicesCount"))
 
 -- | /See:/ 'container' smart constructor.
 --
@@ -444,8 +502,9 @@ cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a}) . _Default;
 cdPortMappings :: Lens' ContainerDefinition [PortMapping]
 cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a}) . _Default;
 
--- | The number of MiB of memory reserved for the container. Docker will
--- allocate a minimum of 4 MiB of memory to a container.
+-- | The number of MiB of memory reserved for the container. If your
+-- container attempts to exceed the memory allocated here, the container is
+-- killed.
 cdMemory :: Lens' ContainerDefinition (Maybe Int)
 cdMemory = lens _cdMemory (\ s a -> s{_cdMemory = a});
 
@@ -460,21 +519,60 @@ cdMountPoints :: Lens' ContainerDefinition [MountPoint]
 cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default;
 
 -- | The @link@ parameter allows containers to communicate with each other
--- without the need for port mappings, using the @name@ parameter. For more
--- information on linking Docker containers, see
+-- without the need for port mappings, using the @name@ parameter. The
+-- @name:internalName@ construct is analogous to @name:alias@ in Docker
+-- links. For more information on linking Docker containers, see
 -- <https://docs.docker.com/userguide/dockerlinks/>.
+--
+-- Containers that are collocated on a single container instance may be
+-- able to communicate with each other without requiring links or host port
+-- mappings. Network isolation is achieved on the container instance using
+-- security groups and VPC settings.
 cdLinks :: Lens' ContainerDefinition [Text]
 cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default;
 
 -- | If the @essential@ parameter of a container is marked as @true@, the
 -- failure of that container will stop the task. If the @essential@
 -- parameter of a container is marked as @false@, then its failure will not
--- affect the rest of the containers in a task.
+-- affect the rest of the containers in a task. If this parameter is
+-- omitted, a container is assumed to be essential.
+--
+-- All tasks must have at least one essential container.
 cdEssential :: Lens' ContainerDefinition (Maybe Bool)
 cdEssential = lens _cdEssential (\ s a -> s{_cdEssential = a});
 
 -- | The number of @cpu@ units reserved for the container. A container
--- instance has 1,024 @cpu@ units for every CPU core.
+-- instance has 1,024 @cpu@ units for every CPU core. This parameter
+-- specifies the minimum amount of CPU to reserve for a container, and
+-- containers share unallocated CPU units with other containers on the
+-- instance with the same ratio as their allocated amount.
+--
+-- For example, if you run a single-container task on a single-core
+-- instance type with 512 CPU units specified for that container, and that
+-- is the only task running on the container instance, that container could
+-- use the full 1,024 CPU unit share at any given time. However, if you
+-- launched another copy of the same task on that container instance, each
+-- task would be guaranteed a minimum of 512 CPU units when needed, and
+-- each container could float to higher CPU usage if the other container
+-- was not using it, but if both tasks were 100% active all of the time,
+-- they would be limited to 512 CPU units.
+--
+-- The Docker daemon on the container instance uses the CPU value to
+-- calculate the relative CPU share ratios for running containers. For more
+-- information, see
+-- <https://docs.docker.com/reference/run/#cpu-share-constraint CPU share constraint>
+-- in the Docker documentation. The minimum valid CPU share value that the
+-- Linux kernel will allow is 2; however, the CPU parameter is not
+-- required, and you can use CPU values below 2 in your container
+-- definitions. For CPU values below 2 (including null), the behavior
+-- varies based on your Amazon ECS container agent version:
+--
+-- -   __Agent versions less than or equal to 1.1.0:__ Null and zero CPU
+--     values are passed to Docker as 0, which Docker then converts to
+--     1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which
+--     the Linux kernel converts to 2 CPU shares.
+-- -   __Agent versions greater than or equal to 1.2.0:__ Null, zero, and
+--     CPU values of 1 are passed to Docker as 2.
 cdCpu :: Lens' ContainerDefinition (Maybe Int)
 cdCpu = lens _cdCpu (\ s a -> s{_cdCpu = a});
 
@@ -523,14 +621,18 @@ instance ToJSON ContainerDefinition where
 --
 -- * 'ciAgentConnected'
 --
+-- * 'ciVersionInfo'
+--
+-- * 'ciAgentUpdateStatus'
+--
 -- * 'ciPendingTasksCount'
 --
 -- * 'ciRegisteredResources'
-data ContainerInstance = ContainerInstance'{_ciStatus :: Maybe Text, _ciRunningTasksCount :: Maybe Int, _ciRemainingResources :: Maybe [Resource], _ciEc2InstanceId :: Maybe Text, _ciContainerInstanceARN :: Maybe Text, _ciAgentConnected :: Maybe Bool, _ciPendingTasksCount :: Maybe Int, _ciRegisteredResources :: Maybe [Resource]} deriving (Eq, Read, Show)
+data ContainerInstance = ContainerInstance'{_ciStatus :: Maybe Text, _ciRunningTasksCount :: Maybe Int, _ciRemainingResources :: Maybe [Resource], _ciEc2InstanceId :: Maybe Text, _ciContainerInstanceARN :: Maybe Text, _ciAgentConnected :: Maybe Bool, _ciVersionInfo :: Maybe VersionInfo, _ciAgentUpdateStatus :: Maybe AgentUpdateStatus, _ciPendingTasksCount :: Maybe Int, _ciRegisteredResources :: Maybe [Resource]} deriving (Eq, Read, Show)
 
 -- | 'ContainerInstance' smart constructor.
 containerInstance :: ContainerInstance
-containerInstance = ContainerInstance'{_ciStatus = Nothing, _ciRunningTasksCount = Nothing, _ciRemainingResources = Nothing, _ciEc2InstanceId = Nothing, _ciContainerInstanceARN = Nothing, _ciAgentConnected = Nothing, _ciPendingTasksCount = Nothing, _ciRegisteredResources = Nothing};
+containerInstance = ContainerInstance'{_ciStatus = Nothing, _ciRunningTasksCount = Nothing, _ciRemainingResources = Nothing, _ciEc2InstanceId = Nothing, _ciContainerInstanceARN = Nothing, _ciAgentConnected = Nothing, _ciVersionInfo = Nothing, _ciAgentUpdateStatus = Nothing, _ciPendingTasksCount = Nothing, _ciRegisteredResources = Nothing};
 
 -- | The status of the container instance. The valid values are @ACTIVE@ or
 -- @INACTIVE@. @ACTIVE@ indicates that the container instance can accept
@@ -568,6 +670,16 @@ ciContainerInstanceARN = lens _ciContainerInstanceARN (\ s a -> s{_ciContainerIn
 ciAgentConnected :: Lens' ContainerInstance (Maybe Bool)
 ciAgentConnected = lens _ciAgentConnected (\ s a -> s{_ciAgentConnected = a});
 
+-- | The version information for the Amazon ECS container agent and Docker
+-- daemon running on the container instance.
+ciVersionInfo :: Lens' ContainerInstance (Maybe VersionInfo)
+ciVersionInfo = lens _ciVersionInfo (\ s a -> s{_ciVersionInfo = a});
+
+-- | The status of the most recent agent update. If an update has never been
+-- requested, this value is @NULL@.
+ciAgentUpdateStatus :: Lens' ContainerInstance (Maybe AgentUpdateStatus)
+ciAgentUpdateStatus = lens _ciAgentUpdateStatus (\ s a -> s{_ciAgentUpdateStatus = a});
+
 -- | The number of tasks on the container instance that are in the @PENDING@
 -- status.
 ciPendingTasksCount :: Lens' ContainerInstance (Maybe Int)
@@ -588,6 +700,8 @@ instance FromJSON ContainerInstance where
                      <*> (x .:? "ec2InstanceId")
                      <*> (x .:? "containerInstanceArn")
                      <*> (x .:? "agentConnected")
+                     <*> (x .:? "versionInfo")
+                     <*> (x .:? "agentUpdateStatus")
                      <*> (x .:? "pendingTasksCount")
                      <*> (x .:? "registeredResources" .!= mempty))
 
@@ -597,17 +711,26 @@ instance FromJSON ContainerInstance where
 --
 -- * 'coCommand'
 --
+-- * 'coEnvironment'
+--
 -- * 'coName'
-data ContainerOverride = ContainerOverride'{_coCommand :: Maybe [Text], _coName :: Maybe Text} deriving (Eq, Read, Show)
+data ContainerOverride = ContainerOverride'{_coCommand :: Maybe [Text], _coEnvironment :: Maybe [KeyValuePair], _coName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ContainerOverride' smart constructor.
 containerOverride :: ContainerOverride
-containerOverride = ContainerOverride'{_coCommand = Nothing, _coName = Nothing};
+containerOverride = ContainerOverride'{_coCommand = Nothing, _coEnvironment = Nothing, _coName = Nothing};
 
 -- | The command to send to the container that overrides the default command
 -- from the Docker image or the task definition.
 coCommand :: Lens' ContainerOverride [Text]
 coCommand = lens _coCommand (\ s a -> s{_coCommand = a}) . _Default;
+
+-- | The environment variables to send to the container. You can add new
+-- environment variables, which are added to the container at launch, or
+-- you can override the existing environment variables from the Docker
+-- image or the task definition.
+coEnvironment :: Lens' ContainerOverride [KeyValuePair]
+coEnvironment = lens _coEnvironment (\ s a -> s{_coEnvironment = a}) . _Default;
 
 -- | The name of the container that receives the override.
 coName :: Lens' ContainerOverride (Maybe Text)
@@ -618,11 +741,15 @@ instance FromJSON ContainerOverride where
           = withObject "ContainerOverride"
               (\ x ->
                  ContainerOverride' <$>
-                   (x .:? "command" .!= mempty) <*> (x .:? "name"))
+                   (x .:? "command" .!= mempty) <*>
+                     (x .:? "environment" .!= mempty)
+                     <*> (x .:? "name"))
 
 instance ToJSON ContainerOverride where
         toJSON ContainerOverride'{..}
-          = object ["command" .= _coCommand, "name" .= _coName]
+          = object
+              ["command" .= _coCommand,
+               "environment" .= _coEnvironment, "name" .= _coName]
 
 -- | /See:/ 'containerService' smart constructor.
 --
@@ -813,6 +940,28 @@ instance FromJSON Deployment where
                      <*> (x .:? "taskDefinition")
                      <*> (x .:? "updatedAt"))
 
+data DesiredStatus = Pending | Stopped | Running deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DesiredStatus where
+    parser = takeLowerText >>= \case
+        "PENDING" -> pure Pending
+        "RUNNING" -> pure Running
+        "STOPPED" -> pure Stopped
+        e -> fail ("Failure parsing DesiredStatus from " ++ show e)
+
+instance ToText DesiredStatus where
+    toText = \case
+        Pending -> "PENDING"
+        Running -> "RUNNING"
+        Stopped -> "STOPPED"
+
+instance Hashable DesiredStatus
+instance ToQuery DesiredStatus
+instance ToHeader DesiredStatus
+
+instance ToJSON DesiredStatus where
+    toJSON = toJSONText
+
 -- | /See:/ 'failure' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -880,11 +1029,13 @@ data KeyValuePair = KeyValuePair'{_kvpValue :: Maybe Text, _kvpName :: Maybe Tex
 keyValuePair :: KeyValuePair
 keyValuePair = KeyValuePair'{_kvpValue = Nothing, _kvpName = Nothing};
 
--- | The value of the key value pair.
+-- | The value of the key value pair. For environment variables, this is the
+-- value of the environment variable.
 kvpValue :: Lens' KeyValuePair (Maybe Text)
 kvpValue = lens _kvpValue (\ s a -> s{_kvpValue = a});
 
--- | The name of the key value pair.
+-- | The name of the key value pair. For environment variables, this is the
+-- name of the environment variable.
 kvpName :: Lens' KeyValuePair (Maybe Text)
 kvpName = lens _kvpName (\ s a -> s{_kvpName = a});
 
@@ -921,7 +1072,10 @@ lbLoadBalancerName = lens _lbLoadBalancerName (\ s a -> s{_lbLoadBalancerName = 
 lbContainerName :: Lens' LoadBalancer (Maybe Text)
 lbContainerName = lens _lbContainerName (\ s a -> s{_lbContainerName = a});
 
--- | The port on the container to associate with the load balancer.
+-- | The port on the container to associate with the load balancer. This port
+-- must correspond to a @containerPort@ in the service\'s task definition.
+-- Your container instances must allow ingress traffic on the @hostPort@ of
+-- the port mapping.
 lbContainerPort :: Lens' LoadBalancer (Maybe Int)
 lbContainerPort = lens _lbContainerPort (\ s a -> s{_lbContainerPort = a});
 
@@ -991,18 +1145,24 @@ instance ToJSON MountPoint where
 --
 -- * 'nbBindIP'
 --
+-- * 'nbProtocol'
+--
 -- * 'nbHostPort'
 --
 -- * 'nbContainerPort'
-data NetworkBinding = NetworkBinding'{_nbBindIP :: Maybe Text, _nbHostPort :: Maybe Int, _nbContainerPort :: Maybe Int} deriving (Eq, Read, Show)
+data NetworkBinding = NetworkBinding'{_nbBindIP :: Maybe Text, _nbProtocol :: Maybe TransportProtocol, _nbHostPort :: Maybe Int, _nbContainerPort :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'NetworkBinding' smart constructor.
 networkBinding :: NetworkBinding
-networkBinding = NetworkBinding'{_nbBindIP = Nothing, _nbHostPort = Nothing, _nbContainerPort = Nothing};
+networkBinding = NetworkBinding'{_nbBindIP = Nothing, _nbProtocol = Nothing, _nbHostPort = Nothing, _nbContainerPort = Nothing};
 
 -- | The IP address that the container is bound to on the container instance.
 nbBindIP :: Lens' NetworkBinding (Maybe Text)
 nbBindIP = lens _nbBindIP (\ s a -> s{_nbBindIP = a});
+
+-- | The protocol used for the network binding.
+nbProtocol :: Lens' NetworkBinding (Maybe TransportProtocol)
+nbProtocol = lens _nbProtocol (\ s a -> s{_nbProtocol = a});
 
 -- | The port number on the host that is used with the network binding.
 nbHostPort :: Lens' NetworkBinding (Maybe Int)
@@ -1018,35 +1178,52 @@ instance FromJSON NetworkBinding where
           = withObject "NetworkBinding"
               (\ x ->
                  NetworkBinding' <$>
-                   (x .:? "bindIP") <*> (x .:? "hostPort") <*>
-                     (x .:? "containerPort"))
+                   (x .:? "bindIP") <*> (x .:? "protocol") <*>
+                     (x .:? "hostPort")
+                     <*> (x .:? "containerPort"))
 
 instance ToJSON NetworkBinding where
         toJSON NetworkBinding'{..}
           = object
-              ["bindIP" .= _nbBindIP, "hostPort" .= _nbHostPort,
+              ["bindIP" .= _nbBindIP, "protocol" .= _nbProtocol,
+               "hostPort" .= _nbHostPort,
                "containerPort" .= _nbContainerPort]
 
 -- | /See:/ 'portMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'pmProtocol'
+--
 -- * 'pmHostPort'
 --
 -- * 'pmContainerPort'
-data PortMapping = PortMapping'{_pmHostPort :: Maybe Int, _pmContainerPort :: Maybe Int} deriving (Eq, Read, Show)
+data PortMapping = PortMapping'{_pmProtocol :: Maybe TransportProtocol, _pmHostPort :: Maybe Int, _pmContainerPort :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'PortMapping' smart constructor.
 portMapping :: PortMapping
-portMapping = PortMapping'{_pmHostPort = Nothing, _pmContainerPort = Nothing};
+portMapping = PortMapping'{_pmProtocol = Nothing, _pmHostPort = Nothing, _pmContainerPort = Nothing};
+
+-- | The protocol used for the port mapping. Valid values are @tcp@ and
+-- @udp@. The default is @tcp@.
+pmProtocol :: Lens' PortMapping (Maybe TransportProtocol)
+pmProtocol = lens _pmProtocol (\ s a -> s{_pmProtocol = a});
 
 -- | The port number on the container instance to reserve for your container.
 -- You can specify a non-reserved host port for your container port
--- mapping, or you can omit the @hostPort@ while specifying a
--- @containerPort@ and your container will automatically receive a port in
--- the 49153 to 65535 port range. You should not attempt to specify a host
--- port in the 49153 to 65535 port range, since these are reserved for
--- automatic assignment.
+-- mapping, or you can omit the @hostPort@ (or set it to @0@) while
+-- specifying a @containerPort@ and your container will automatically
+-- receive a port in the ephemeral port range for your container instance
+-- operating system and Docker version.
+--
+-- The default ephemeral port range is 49153 to 65535, and this range is
+-- used for Docker versions prior to 1.6.0. For Docker version 1.6.0 and
+-- later, the Docker daemon tries to read the ephemeral port range from
+-- @\/proc\/sys\/net\/ipv4\/ip_local_port_range@; if this kernel parameter
+-- is unavailable, the default ephemeral port range is used. You should not
+-- attempt to specify a host port in the ephemeral port range, since these
+-- are reserved for automatic assignment. In general, ports below 32768 are
+-- outside of the ephemeral port range.
 --
 -- The default reserved ports are 22 for SSH, the Docker ports 2375 and
 -- 2376, and the Amazon ECS Container Agent port 51678. Any host port that
@@ -1062,7 +1239,7 @@ pmHostPort = lens _pmHostPort (\ s a -> s{_pmHostPort = a});
 -- | The port number on the container that is bound to the user-specified or
 -- automatically assigned host port. If you specify a container port and
 -- not a host port, your container will automatically receive a host port
--- in the 49153 to 65535 port range.
+-- in the ephemeral port range (for more information, see @hostPort@).
 pmContainerPort :: Lens' PortMapping (Maybe Int)
 pmContainerPort = lens _pmContainerPort (\ s a -> s{_pmContainerPort = a});
 
@@ -1071,12 +1248,14 @@ instance FromJSON PortMapping where
           = withObject "PortMapping"
               (\ x ->
                  PortMapping' <$>
-                   (x .:? "hostPort") <*> (x .:? "containerPort"))
+                   (x .:? "protocol") <*> (x .:? "hostPort") <*>
+                     (x .:? "containerPort"))
 
 instance ToJSON PortMapping where
         toJSON PortMapping'{..}
           = object
-              ["hostPort" .= _pmHostPort,
+              ["protocol" .= _pmProtocol,
+               "hostPort" .= _pmHostPort,
                "containerPort" .= _pmContainerPort]
 
 -- | /See:/ 'resource' smart constructor.
@@ -1186,6 +1365,26 @@ instance FromJSON ServiceEvent where
                    (x .:? "createdAt") <*> (x .:? "id") <*>
                      (x .:? "message"))
 
+data SortOrder = Asc | Desc deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SortOrder where
+    parser = takeLowerText >>= \case
+        "ASC" -> pure Asc
+        "DESC" -> pure Desc
+        e -> fail ("Failure parsing SortOrder from " ++ show e)
+
+instance ToText SortOrder where
+    toText = \case
+        Asc -> "ASC"
+        Desc -> "DESC"
+
+instance Hashable SortOrder
+instance ToQuery SortOrder
+instance ToHeader SortOrder
+
+instance ToJSON SortOrder where
+    toJSON = toJSONText
+
 -- | /See:/ 'task' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -1272,6 +1471,8 @@ instance FromJSON Task where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'tdStatus'
+--
 -- * 'tdFamily'
 --
 -- * 'tdContainerDefinitions'
@@ -1281,11 +1482,15 @@ instance FromJSON Task where
 -- * 'tdRevision'
 --
 -- * 'tdVolumes'
-data TaskDefinition = TaskDefinition'{_tdFamily :: Maybe Text, _tdContainerDefinitions :: Maybe [ContainerDefinition], _tdTaskDefinitionARN :: Maybe Text, _tdRevision :: Maybe Int, _tdVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
+data TaskDefinition = TaskDefinition'{_tdStatus :: Maybe TaskDefinitionStatus, _tdFamily :: Maybe Text, _tdContainerDefinitions :: Maybe [ContainerDefinition], _tdTaskDefinitionARN :: Maybe Text, _tdRevision :: Maybe Int, _tdVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
 
 -- | 'TaskDefinition' smart constructor.
 taskDefinition :: TaskDefinition
-taskDefinition = TaskDefinition'{_tdFamily = Nothing, _tdContainerDefinitions = Nothing, _tdTaskDefinitionARN = Nothing, _tdRevision = Nothing, _tdVolumes = Nothing};
+taskDefinition = TaskDefinition'{_tdStatus = Nothing, _tdFamily = Nothing, _tdContainerDefinitions = Nothing, _tdTaskDefinitionARN = Nothing, _tdRevision = Nothing, _tdVolumes = Nothing};
+
+-- | The status of the task definition.
+tdStatus :: Lens' TaskDefinition (Maybe TaskDefinitionStatus)
+tdStatus = lens _tdStatus (\ s a -> s{_tdStatus = a});
 
 -- | The family of your task definition. You can think of the @family@ as the
 -- name of your task definition.
@@ -1307,8 +1512,9 @@ tdTaskDefinitionARN = lens _tdTaskDefinitionARN (\ s a -> s{_tdTaskDefinitionARN
 -- | The revision of the task in a particular family. You can think of the
 -- revision as a version number of a task definition in a family. When you
 -- register a task definition for the first time, the revision is @1@, and
--- each time you register a task definition in the same family, the
--- revision value increases by one.
+-- each time you register a new revision of a task definition in the same
+-- family, the revision value always increases by one (even if you have
+-- deregistered previous revisions in this family).
 tdRevision :: Lens' TaskDefinition (Maybe Int)
 tdRevision = lens _tdRevision (\ s a -> s{_tdRevision = a});
 
@@ -1324,11 +1530,34 @@ instance FromJSON TaskDefinition where
           = withObject "TaskDefinition"
               (\ x ->
                  TaskDefinition' <$>
-                   (x .:? "family") <*>
+                   (x .:? "status") <*> (x .:? "family") <*>
                      (x .:? "containerDefinitions" .!= mempty)
                      <*> (x .:? "taskDefinitionArn")
                      <*> (x .:? "revision")
                      <*> (x .:? "volumes" .!= mempty))
+
+data TaskDefinitionStatus = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TaskDefinitionStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure Active
+        "INACTIVE" -> pure Inactive
+        e -> fail ("Failure parsing TaskDefinitionStatus from " ++ show e)
+
+instance ToText TaskDefinitionStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Inactive -> "INACTIVE"
+
+instance Hashable TaskDefinitionStatus
+instance ToQuery TaskDefinitionStatus
+instance ToHeader TaskDefinitionStatus
+
+instance ToJSON TaskDefinitionStatus where
+    toJSON = toJSONText
+
+instance FromJSON TaskDefinitionStatus where
+    parseJSON = parseJSONText "TaskDefinitionStatus"
 
 -- | /See:/ 'taskOverride' smart constructor.
 --
@@ -1356,6 +1585,29 @@ instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
           = object
               ["containerOverrides" .= _toContainerOverrides]
+
+data TransportProtocol = Udp | TCP deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TransportProtocol where
+    parser = takeLowerText >>= \case
+        "tcp" -> pure TCP
+        "udp" -> pure Udp
+        e -> fail ("Failure parsing TransportProtocol from " ++ show e)
+
+instance ToText TransportProtocol where
+    toText = \case
+        TCP -> "tcp"
+        Udp -> "udp"
+
+instance Hashable TransportProtocol
+instance ToQuery TransportProtocol
+instance ToHeader TransportProtocol
+
+instance ToJSON TransportProtocol where
+    toJSON = toJSONText
+
+instance FromJSON TransportProtocol where
+    parseJSON = parseJSONText "TransportProtocol"
 
 -- | /See:/ 'versionInfo' smart constructor.
 --
@@ -1385,6 +1637,14 @@ viAgentHash = lens _viAgentHash (\ s a -> s{_viAgentHash = a});
 -- | The Docker version running on the container instance.
 viDockerVersion :: Lens' VersionInfo (Maybe Text)
 viDockerVersion = lens _viDockerVersion (\ s a -> s{_viDockerVersion = a});
+
+instance FromJSON VersionInfo where
+        parseJSON
+          = withObject "VersionInfo"
+              (\ x ->
+                 VersionInfo' <$>
+                   (x .:? "agentVersion") <*> (x .:? "agentHash") <*>
+                     (x .:? "dockerVersion"))
 
 instance ToJSON VersionInfo where
         toJSON VersionInfo'{..}

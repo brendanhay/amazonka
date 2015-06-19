@@ -44,13 +44,13 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- ** Response constructor
     , describeVirtualInterfacesResponse
     -- ** Response lenses
-    , dvirDescribeVirtualInterfacesResponse
+    , dvirVirtualInterfaces
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'describeVirtualInterfaces' smart constructor.
 --
@@ -82,8 +82,7 @@ instance AWSRequest DescribeVirtualInterfaces where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualInterfacesResponse' <$>
-                   (x .?> "DescribeVirtualInterfacesResponse" .!@
-                      mempty))
+                   (x .?> "virtualInterfaces" .!@ mempty))
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
@@ -111,13 +110,13 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvirDescribeVirtualInterfacesResponse'
-newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse :: Maybe [VirtualInterface]} deriving (Eq, Read, Show)
+-- * 'dvirVirtualInterfaces'
+newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirVirtualInterfaces :: Maybe [VirtualInterface]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse = Nothing};
+describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirVirtualInterfaces = Nothing};
 
 -- | A list of virtual interfaces.
-dvirDescribeVirtualInterfacesResponse :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvirDescribeVirtualInterfacesResponse = lens _dvirDescribeVirtualInterfacesResponse (\ s a -> s{_dvirDescribeVirtualInterfacesResponse = a}) . _Default;
+dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirVirtualInterfaces = lens _dvirVirtualInterfaces (\ s a -> s{_dvirVirtualInterfaces = a}) . _Default;

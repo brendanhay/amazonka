@@ -49,9 +49,9 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     , setIdentityDkimEnabledResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SES.Types
 
 -- | /See:/ 'setIdentityDkimEnabled' smart constructor.

@@ -41,10 +41,10 @@ module Network.AWS.DirectoryService.CreateAlias
     , carAlias
     ) where
 
+import Network.AWS.DirectoryService.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectoryService.Types
 
 -- | /See:/ 'createAlias' smart constructor.
 --

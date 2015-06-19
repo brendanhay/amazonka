@@ -48,9 +48,9 @@ module Network.AWS.StorageGateway.ListVolumes
     , lvrVolumeInfos
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'listVolumes' smart constructor.

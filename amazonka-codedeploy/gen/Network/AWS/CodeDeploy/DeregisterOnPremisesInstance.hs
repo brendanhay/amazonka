@@ -32,10 +32,10 @@ module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     , deregisterOnPremisesInstanceResponse
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'deregisterOnPremisesInstance' smart constructor.
 --

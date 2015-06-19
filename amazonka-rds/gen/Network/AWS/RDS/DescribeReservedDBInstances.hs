@@ -45,10 +45,10 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , drdirMarker
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeReservedDBInstances' smart constructor.
 --

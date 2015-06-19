@@ -44,10 +44,10 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrArtifactList
     ) where
 
+import Network.AWS.ImportExport.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ImportExport.Types
 
 -- | /See:/ 'updateJob' smart constructor.
 --

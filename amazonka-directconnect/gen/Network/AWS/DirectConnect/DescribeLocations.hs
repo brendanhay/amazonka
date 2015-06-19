@@ -31,13 +31,13 @@ module Network.AWS.DirectConnect.DescribeLocations
     -- ** Response constructor
     , describeLocationsResponse
     -- ** Response lenses
-    , dlrDescribeLocationsResponse
+    , dlrLocations
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'describeLocations' smart constructor.
 data DescribeLocations = DescribeLocations' deriving (Eq, Read, Show)
@@ -54,7 +54,7 @@ instance AWSRequest DescribeLocations where
           = receiveJSON
               (\ s h x ->
                  DescribeLocationsResponse' <$>
-                   (x .?> "DescribeLocationsResponse" .!@ mempty))
+                   (x .?> "locations" .!@ mempty))
 
 instance ToHeaders DescribeLocations where
         toHeaders
@@ -78,13 +78,13 @@ instance ToQuery DescribeLocations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlrDescribeLocationsResponse'
-newtype DescribeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse :: Maybe [Location]} deriving (Eq, Read, Show)
+-- * 'dlrLocations'
+newtype DescribeLocationsResponse = DescribeLocationsResponse'{_dlrLocations :: Maybe [Location]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: DescribeLocationsResponse
-describeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse = Nothing};
+describeLocationsResponse = DescribeLocationsResponse'{_dlrLocations = Nothing};
 
 -- | FIXME: Undocumented member.
-dlrDescribeLocationsResponse :: Lens' DescribeLocationsResponse [Location]
-dlrDescribeLocationsResponse = lens _dlrDescribeLocationsResponse (\ s a -> s{_dlrDescribeLocationsResponse = a}) . _Default;
+dlrLocations :: Lens' DescribeLocationsResponse [Location]
+dlrLocations = lens _dlrLocations (\ s a -> s{_dlrLocations = a}) . _Default;

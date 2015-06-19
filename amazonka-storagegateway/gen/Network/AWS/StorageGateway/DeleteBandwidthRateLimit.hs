@@ -39,9 +39,9 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     , delGatewayARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'deleteBandwidthRateLimit' smart constructor.

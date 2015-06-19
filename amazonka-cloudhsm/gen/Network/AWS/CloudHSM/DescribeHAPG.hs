@@ -42,10 +42,10 @@ module Network.AWS.CloudHSM.DescribeHAPG
     , dhrLabel
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'describeHAPG' smart constructor.
 --

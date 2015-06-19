@@ -51,9 +51,9 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     , respondDecisionTaskCompletedResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'respondDecisionTaskCompleted' smart constructor.

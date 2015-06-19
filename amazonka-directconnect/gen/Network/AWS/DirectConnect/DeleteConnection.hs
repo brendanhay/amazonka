@@ -47,10 +47,10 @@ module Network.AWS.DirectConnect.DeleteConnection
     , conConnectionState
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'deleteConnection' smart constructor.
 --

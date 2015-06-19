@@ -43,10 +43,10 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     , gdkwprCiphertextBlob
     ) where
 
+import Network.AWS.KMS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.KMS.Types
 
 -- | /See:/ 'generateDataKeyWithoutPlaintext' smart constructor.
 --

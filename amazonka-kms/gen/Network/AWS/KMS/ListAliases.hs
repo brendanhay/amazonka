@@ -37,10 +37,10 @@ module Network.AWS.KMS.ListAliases
     , larNextMarker
     ) where
 
+import Network.AWS.KMS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.KMS.Types
 
 -- | /See:/ 'listAliases' smart constructor.
 --

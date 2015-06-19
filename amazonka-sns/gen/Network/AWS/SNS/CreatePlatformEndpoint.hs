@@ -52,9 +52,9 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     , cperEndpointARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'createPlatformEndpoint' smart constructor.

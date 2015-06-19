@@ -61,9 +61,9 @@ module Network.AWS.SWF.DescribeActivityType
     , datrConfiguration
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'describeActivityType' smart constructor.

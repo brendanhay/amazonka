@@ -34,10 +34,10 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     , disableMetricsCollectionResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'disableMetricsCollection' smart constructor.
 --
@@ -52,25 +52,25 @@ data DisableMetricsCollection = DisableMetricsCollection'{_dmcMetrics :: Maybe [
 disableMetricsCollection :: Text -> DisableMetricsCollection
 disableMetricsCollection pAutoScalingGroupName = DisableMetricsCollection'{_dmcMetrics = Nothing, _dmcAutoScalingGroupName = pAutoScalingGroupName};
 
--- | One or more of the following metrics:
+-- | One or more metrics. If you omit this parameter, all metrics are
+-- disabled.
 --
--- -   GroupMinSize
+-- -   @GroupMinSize@
 --
--- -   GroupMaxSize
+-- -   @GroupMaxSize@
 --
--- -   GroupDesiredCapacity
+-- -   @GroupDesiredCapacity@
 --
--- -   GroupInServiceInstances
+-- -   @GroupInServiceInstances@
 --
--- -   GroupPendingInstances
+-- -   @GroupPendingInstances@
 --
--- -   GroupStandbyInstances
+-- -   @GroupStandbyInstances@
 --
--- -   GroupTerminatingInstances
+-- -   @GroupTerminatingInstances@
 --
--- -   GroupTotalInstances
+-- -   @GroupTotalInstances@
 --
--- If you omit this parameter, all metrics are disabled.
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default;
 

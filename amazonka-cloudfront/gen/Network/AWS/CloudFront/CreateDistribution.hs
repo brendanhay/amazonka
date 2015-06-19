@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.CloudFront.CreateDistribution2014_11_06
+-- Module      : Network.AWS.CloudFront.CreateDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,76 +16,75 @@
 
 -- | Create a new distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution2014_11_06.html>
-module Network.AWS.CloudFront.CreateDistribution2014_11_06
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution.html>
+module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Request
-      CreateDistribution2014_11_06
+      CreateDistribution
     -- ** Request constructor
-    , createDistribution2014_11_06
+    , createDistribution
     -- ** Request lenses
     , cdDistributionConfig
 
     -- * Response
-    , CreateDistribution2014_11_06Response
+    , CreateDistributionResponse
     -- ** Response constructor
-    , createDistribution2014_11_06Response
+    , createDistributionResponse
     -- ** Response lenses
     , cdrETag
     , cdrDistribution
     , cdrLocation
     ) where
 
+import Network.AWS.CloudFront.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFront.Types
 
--- | /See:/ 'createDistribution2014_11_06' smart constructor.
+-- | /See:/ 'createDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdDistributionConfig'
-newtype CreateDistribution2014_11_06 = CreateDistribution2014_11_06'{_cdDistributionConfig :: DistributionConfig} deriving (Eq, Read, Show)
+newtype CreateDistribution = CreateDistribution'{_cdDistributionConfig :: DistributionConfig} deriving (Eq, Read, Show)
 
--- | 'CreateDistribution2014_11_06' smart constructor.
-createDistribution2014_11_06 :: DistributionConfig -> CreateDistribution2014_11_06
-createDistribution2014_11_06 pDistributionConfig = CreateDistribution2014_11_06'{_cdDistributionConfig = pDistributionConfig};
+-- | 'CreateDistribution' smart constructor.
+createDistribution :: DistributionConfig -> CreateDistribution
+createDistribution pDistributionConfig = CreateDistribution'{_cdDistributionConfig = pDistributionConfig};
 
 -- | The distribution\'s configuration information.
-cdDistributionConfig :: Lens' CreateDistribution2014_11_06 DistributionConfig
+cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
 
-instance AWSRequest CreateDistribution2014_11_06
-         where
-        type Sv CreateDistribution2014_11_06 = CloudFront
-        type Rs CreateDistribution2014_11_06 =
-             CreateDistribution2014_11_06Response
+instance AWSRequest CreateDistribution where
+        type Sv CreateDistribution = CloudFront
+        type Rs CreateDistribution =
+             CreateDistributionResponse
         request = postXML
         response
           = receiveXML
               (\ s h x ->
-                 CreateDistribution2014_11_06Response' <$>
+                 CreateDistributionResponse' <$>
                    (h .#? "ETag") <*> (x .@? "Distribution") <*>
                      (h .#? "Location"))
 
-instance ToElement CreateDistribution2014_11_06 where
+instance ToElement CreateDistribution where
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2014-11-06/}DistributionConfig"
               .
               _cdDistributionConfig
 
-instance ToHeaders CreateDistribution2014_11_06 where
+instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
-instance ToPath CreateDistribution2014_11_06 where
+instance ToPath CreateDistribution where
         toPath = const "/2014-11-06/distribution"
 
-instance ToQuery CreateDistribution2014_11_06 where
+instance ToQuery CreateDistribution where
         toQuery = const mempty
 
--- | /See:/ 'createDistribution2014_11_06Response' smart constructor.
+-- | /See:/ 'createDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -94,22 +93,22 @@ instance ToQuery CreateDistribution2014_11_06 where
 -- * 'cdrDistribution'
 --
 -- * 'cdrLocation'
-data CreateDistribution2014_11_06Response = CreateDistribution2014_11_06Response'{_cdrETag :: Maybe Text, _cdrDistribution :: Maybe Distribution, _cdrLocation :: Maybe Text} deriving (Eq, Read, Show)
+data CreateDistributionResponse = CreateDistributionResponse'{_cdrETag :: Maybe Text, _cdrDistribution :: Maybe Distribution, _cdrLocation :: Maybe Text} deriving (Eq, Read, Show)
 
--- | 'CreateDistribution2014_11_06Response' smart constructor.
-createDistribution2014_11_06Response :: CreateDistribution2014_11_06Response
-createDistribution2014_11_06Response = CreateDistribution2014_11_06Response'{_cdrETag = Nothing, _cdrDistribution = Nothing, _cdrLocation = Nothing};
+-- | 'CreateDistributionResponse' smart constructor.
+createDistributionResponse :: CreateDistributionResponse
+createDistributionResponse = CreateDistributionResponse'{_cdrETag = Nothing, _cdrDistribution = Nothing, _cdrLocation = Nothing};
 
 -- | The current version of the distribution created.
-cdrETag :: Lens' CreateDistribution2014_11_06Response (Maybe Text)
+cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
 cdrETag = lens _cdrETag (\ s a -> s{_cdrETag = a});
 
 -- | The distribution\'s information.
-cdrDistribution :: Lens' CreateDistribution2014_11_06Response (Maybe Distribution)
+cdrDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdrDistribution = lens _cdrDistribution (\ s a -> s{_cdrDistribution = a});
 
 -- | The fully qualified URI of the new distribution resource just created.
 -- For example:
 -- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
-cdrLocation :: Lens' CreateDistribution2014_11_06Response (Maybe Text)
+cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\ s a -> s{_cdrLocation = a});

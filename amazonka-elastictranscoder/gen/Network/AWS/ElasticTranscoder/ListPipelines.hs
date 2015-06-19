@@ -37,10 +37,10 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     , lprPipelines
     ) where
 
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticTranscoder.Types
 
 -- | /See:/ 'listPipelines' smart constructor.
 --

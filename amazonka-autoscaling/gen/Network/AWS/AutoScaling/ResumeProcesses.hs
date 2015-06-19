@@ -38,10 +38,10 @@ module Network.AWS.AutoScaling.ResumeProcesses
     , resumeProcessesResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'resumeProcesses' smart constructor.
 --
@@ -58,14 +58,22 @@ resumeProcesses pAutoScalingGroupName = ResumeProcesses'{_rpScalingProcesses = N
 
 -- | One or more of the following processes:
 --
--- -   Launch
--- -   Terminate
--- -   HealthCheck
--- -   ReplaceUnhealthy
--- -   AZRebalance
--- -   AlarmNotification
--- -   ScheduledActions
--- -   AddToLoadBalancer
+-- -   @Launch@
+--
+-- -   @Terminate@
+--
+-- -   @HealthCheck@
+--
+-- -   @ReplaceUnhealthy@
+--
+-- -   @AZRebalance@
+--
+-- -   @AlarmNotification@
+--
+-- -   @ScheduledActions@
+--
+-- -   @AddToLoadBalancer@
+--
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default;
 

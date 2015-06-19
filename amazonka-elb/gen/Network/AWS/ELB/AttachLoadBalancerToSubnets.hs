@@ -19,7 +19,7 @@
 --
 -- The load balancer evenly distributes requests across all registered
 -- subnets. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in Amazon VPC>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html>
@@ -41,10 +41,10 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , albtsrSubnets
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'attachLoadBalancerToSubnets' smart constructor.
 --

@@ -40,22 +40,22 @@ module Network.AWS.ECS.UpdateService
     , updateService
     -- ** Request lenses
     , usCluster
-    , usContainerService
     , usDesiredCount
     , usTaskDefinition
+    , usService
 
     -- * Response
     , UpdateServiceResponse
     -- ** Response constructor
     , updateServiceResponse
     -- ** Response lenses
-    , usrContainerService
+    , usrService
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'updateService' smart constructor.
 --
@@ -63,26 +63,22 @@ import Network.AWS.ECS.Types
 --
 -- * 'usCluster'
 --
--- * 'usContainerService'
---
 -- * 'usDesiredCount'
 --
 -- * 'usTaskDefinition'
-data UpdateService = UpdateService'{_usCluster :: Maybe Text, _usContainerService :: Maybe Text, _usDesiredCount :: Maybe Int, _usTaskDefinition :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'usService'
+data UpdateService = UpdateService'{_usCluster :: Maybe Text, _usDesiredCount :: Maybe Int, _usTaskDefinition :: Maybe Text, _usService :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateService' smart constructor.
-updateService :: UpdateService
-updateService = UpdateService'{_usCluster = Nothing, _usContainerService = Nothing, _usDesiredCount = Nothing, _usTaskDefinition = Nothing};
+updateService :: Text -> UpdateService
+updateService pService = UpdateService'{_usCluster = Nothing, _usDesiredCount = Nothing, _usTaskDefinition = Nothing, _usService = pService};
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your service is running on. If you do not specify a cluster, the default
 -- cluster is assumed.
 usCluster :: Lens' UpdateService (Maybe Text)
 usCluster = lens _usCluster (\ s a -> s{_usCluster = a});
-
--- | The name of the service that you want to update.
-usContainerService :: Lens' UpdateService (Maybe Text)
-usContainerService = lens _usContainerService (\ s a -> s{_usContainerService = a});
 
 -- | The number of instantiations of the task that you would like to place
 -- and keep running in your service.
@@ -91,11 +87,16 @@ usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run in your service.
+-- If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
 -- If you modify the task definition with @UpdateService@, Amazon ECS
 -- spawns a task with the new version of the task definition and then stops
 -- an old task after the new version is running.
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
 usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a});
+
+-- | The name of the service that you want to update.
+usService :: Lens' UpdateService Text
+usService = lens _usService (\ s a -> s{_usService = a});
 
 instance AWSRequest UpdateService where
         type Sv UpdateService = ECS
@@ -104,8 +105,7 @@ instance AWSRequest UpdateService where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateServiceResponse' <$>
-                   (x .?> "ContainerService"))
+                 UpdateServiceResponse' <$> (x .?> "service"))
 
 instance ToHeaders UpdateService where
         toHeaders
@@ -121,9 +121,9 @@ instance ToJSON UpdateService where
         toJSON UpdateService'{..}
           = object
               ["cluster" .= _usCluster,
-               "ContainerService" .= _usContainerService,
                "desiredCount" .= _usDesiredCount,
-               "taskDefinition" .= _usTaskDefinition]
+               "taskDefinition" .= _usTaskDefinition,
+               "service" .= _usService]
 
 instance ToPath UpdateService where
         toPath = const "/"
@@ -135,13 +135,13 @@ instance ToQuery UpdateService where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usrContainerService'
-newtype UpdateServiceResponse = UpdateServiceResponse'{_usrContainerService :: Maybe ContainerService} deriving (Eq, Read, Show)
+-- * 'usrService'
+newtype UpdateServiceResponse = UpdateServiceResponse'{_usrService :: Maybe ContainerService} deriving (Eq, Read, Show)
 
 -- | 'UpdateServiceResponse' smart constructor.
 updateServiceResponse :: UpdateServiceResponse
-updateServiceResponse = UpdateServiceResponse'{_usrContainerService = Nothing};
+updateServiceResponse = UpdateServiceResponse'{_usrService = Nothing};
 
 -- | The full description of your service following the update call.
-usrContainerService :: Lens' UpdateServiceResponse (Maybe ContainerService)
-usrContainerService = lens _usrContainerService (\ s a -> s{_usrContainerService = a});
+usrService :: Lens' UpdateServiceResponse (Maybe ContainerService)
+usrService = lens _usrService (\ s a -> s{_usrService = a});

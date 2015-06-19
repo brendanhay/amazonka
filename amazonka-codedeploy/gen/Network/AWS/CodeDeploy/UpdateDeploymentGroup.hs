@@ -41,10 +41,10 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgrHooksNotCleanedUp
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'updateDeploymentGroup' smart constructor.
 --

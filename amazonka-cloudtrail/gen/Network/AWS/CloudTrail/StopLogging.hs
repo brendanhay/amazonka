@@ -35,10 +35,10 @@ module Network.AWS.CloudTrail.StopLogging
     , stopLoggingResponse
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'stopLogging' smart constructor.
 --

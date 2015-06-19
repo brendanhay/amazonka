@@ -15,4 +15,6 @@
 
 module Network.AWS.CloudSearch.Waiters where
 
+import Network.AWS.CloudSearch.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

@@ -36,10 +36,10 @@ module Network.AWS.ImportExport.CancelJob
     , cjrSuccess
     ) where
 
+import Network.AWS.ImportExport.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ImportExport.Types
 
 -- | /See:/ 'cancelJob' smart constructor.
 --

@@ -14,8 +14,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the actions scheduled for your Auto Scaling group that haven\'t
--- been executed. To list the actions that were already executed, use
+-- | Describes the actions scheduled for your Auto Scaling group that
+-- haven\'t run. To describe the actions that have already run, use
 -- DescribeScalingActivities.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html>
@@ -42,10 +42,10 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     , dsarNextToken
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeScheduledActions' smart constructor.
 --

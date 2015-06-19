@@ -55,10 +55,10 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     , recordLifecycleActionHeartbeatResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 --

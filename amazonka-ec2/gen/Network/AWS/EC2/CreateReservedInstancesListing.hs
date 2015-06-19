@@ -25,7 +25,7 @@
 -- through the Reserved Instance Marketplace work like any other Reserved
 -- Instances.
 --
--- To sell your Reserved Instances, you must first register as a Seller in
+-- To sell your Reserved Instances, you must first register as a seller in
 -- the Reserved Instance Marketplace. After completing the registration
 -- process, you can create a Reserved Instance Marketplace listing of some
 -- or all of your Reserved Instances, and specify the upfront price to
@@ -58,10 +58,10 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , creReservedInstancesListings
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'createReservedInstancesListing' smart constructor.
 --

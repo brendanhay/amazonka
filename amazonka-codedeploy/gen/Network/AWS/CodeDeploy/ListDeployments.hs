@@ -40,10 +40,10 @@ module Network.AWS.CodeDeploy.ListDeployments
     , ldrDeployments
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'listDeployments' smart constructor.
 --

@@ -437,8 +437,8 @@ module Network.AWS.S3.Types
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Sign.V4
 import Network.AWS.S3.Internal
+import Network.AWS.Sign.V4
 
 -- | Version @2006-03-01@ of the Amazon Simple Storage Service SDK.
 data S3

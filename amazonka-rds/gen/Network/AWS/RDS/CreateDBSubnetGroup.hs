@@ -38,10 +38,10 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     , cdsgrDBSubnetGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDBSubnetGroup' smart constructor.
 --

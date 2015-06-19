@@ -55,10 +55,10 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , acsgirClusterSecurityGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'authorizeClusterSecurityGroupIngress' smart constructor.
 --

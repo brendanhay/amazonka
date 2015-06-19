@@ -63,9 +63,9 @@ module Network.AWS.SQS.CreateQueue
     , cqrQueueURL
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'createQueue' smart constructor.

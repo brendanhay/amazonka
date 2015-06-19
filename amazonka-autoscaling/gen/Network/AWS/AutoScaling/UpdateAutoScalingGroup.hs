@@ -14,34 +14,32 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the configuration for the specified AutoScalingGroup.
+-- | Updates the configuration for the specified Auto Scaling group.
 --
--- To update an Auto Scaling group with a launch configuration that has the
--- @InstanceMonitoring@ flag set to @False@, you must first ensure that
--- collection of group metrics is disabled. Otherwise, calls to
--- UpdateAutoScalingGroup will fail. If you have previously enabled group
--- metrics collection, you can disable collection of all group metrics by
--- calling DisableMetricsCollection.
+-- To update an Auto Scaling group with a launch configuration with
+-- @InstanceMonitoring@ set to @False@, you must first disable the
+-- collection of group metrics. Otherwise, you will get an error. If you
+-- have previously enabled the collection of group metrics, you can disable
+-- it using DisableMetricsCollection.
 --
 -- The new settings are registered upon the completion of this call. Any
 -- launch configuration settings take effect on any triggers after this
 -- call returns. Scaling activities that are currently in progress aren\'t
 -- affected.
 --
--- -   If a new value is specified for /MinSize/ without specifying the
---     value for /DesiredCapacity/, and if the new /MinSize/ is larger than
---     the current size of the Auto Scaling group, there will be an
---     implicit call to SetDesiredCapacity to set the group to the new
---     /MinSize/.
+-- Note the following:
 --
--- -   If a new value is specified for /MaxSize/ without specifying the
---     value for /DesiredCapacity/, and the new /MaxSize/ is smaller than
---     the current size of the Auto Scaling group, there will be an
---     implicit call to SetDesiredCapacity to set the group to the new
---     /MaxSize/.
+-- -   If you specify a new value for @MinSize@ without specifying a value
+--     for @DesiredCapacity@, and the new @MinSize@ is larger than the
+--     current size of the group, we implicitly call SetDesiredCapacity to
+--     set the size of the group to the new value of @MinSize@.
 --
--- -   All other optional parameters are left unchanged if not passed in
---     the request.
+-- -   If you specify a new value for @MaxSize@ without specifying a value
+--     for @DesiredCapacity@, and the new @MaxSize@ is smaller than the
+--     current size of the group, we implicitly call SetDesiredCapacity to
+--     set the size of the group to the new value of @MaxSize@.
+--
+-- -   All other optional parameters are left unchanged if not specified.
 --
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
@@ -71,10 +69,10 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , updateAutoScalingGroupResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'updateAutoScalingGroup' smart constructor.
 --
@@ -119,23 +117,22 @@ updateAutoScalingGroup pAutoScalingGroupName = UpdateAutoScalingGroup'{_uasgTerm
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default;
 
--- | The amount of time, in second, that Auto Scaling waits before checking
+-- | The amount of time, in seconds, that Auto Scaling waits before checking
 -- the health status of an instance. The grace period begins when the
--- instance passes System Status and the Instance Status checks from Amazon
--- EC2. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html DescribeInstanceStatus>.
+-- instance passes the system status and instance status checks from Amazon
+-- EC2. For more information, see < >.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
 
--- | The subnet identifier for the Amazon VPC connection, if applicable. You
--- can specify several subnets in a comma-separated list.
+-- | The ID of the subnet, if you are launching into a VPC. You can specify
+-- several subnets in a comma-separated list.
 --
 -- When you specify @VPCZoneIdentifier@ with @AvailabilityZones@, ensure
 -- that the subnets\' Availability Zones match the values you specify for
 -- @AvailabilityZones@.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a});

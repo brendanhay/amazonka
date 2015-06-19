@@ -51,10 +51,10 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrDescription
     ) where
 
+import Network.AWS.CloudFormation.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFormation.Types
 
 -- | /See:/ 'getTemplateSummary' smart constructor.
 --

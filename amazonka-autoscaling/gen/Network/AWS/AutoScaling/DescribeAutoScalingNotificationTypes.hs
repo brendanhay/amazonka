@@ -14,7 +14,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the notification types that are supported by Auto Scaling.
+-- | Describes the notification types that are supported by Auto Scaling.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
@@ -32,10 +32,10 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , dasntrAutoScalingNotificationTypes
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeAutoScalingNotificationTypes' smart constructor.
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes' deriving (Eq, Read, Show)

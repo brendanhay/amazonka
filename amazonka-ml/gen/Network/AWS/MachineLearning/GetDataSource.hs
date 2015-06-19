@@ -56,10 +56,10 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrDataRearrangement
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'getDataSource' smart constructor.
 --

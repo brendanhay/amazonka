@@ -38,10 +38,10 @@ module Network.AWS.ECS.DescribeContainerInstances
     , dcirContainerInstances
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
 --

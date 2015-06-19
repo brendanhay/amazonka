@@ -51,9 +51,9 @@ module Network.AWS.S3.ListMultipartUploads
     , lmurDelimiter
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'listMultipartUploads' smart constructor.

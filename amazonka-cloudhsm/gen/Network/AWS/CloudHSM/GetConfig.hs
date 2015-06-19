@@ -39,10 +39,10 @@ module Network.AWS.CloudHSM.GetConfig
     , gcrConfigType
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'getConfig' smart constructor.
 --

@@ -53,10 +53,10 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrrDBInstance
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDBInstanceReadReplica' smart constructor.
 --

@@ -40,10 +40,10 @@ module Network.AWS.CloudFormation.ListStacks
     , lisNextToken
     ) where
 
+import Network.AWS.CloudFormation.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFormation.Types
 
 -- | /See:/ 'listStacks' smart constructor.
 --

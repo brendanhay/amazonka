@@ -38,10 +38,10 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , ccrConnectionState
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'confirmConnection' smart constructor.
 --

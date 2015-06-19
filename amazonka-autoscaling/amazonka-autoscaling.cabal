@@ -38,6 +38,7 @@ library
     exposed-modules:
           Network.AWS.AutoScaling
         , Network.AWS.AutoScaling.AttachInstances
+        , Network.AWS.AutoScaling.AttachLoadBalancers
         , Network.AWS.AutoScaling.CompleteLifecycleAction
         , Network.AWS.AutoScaling.CreateAutoScalingGroup
         , Network.AWS.AutoScaling.CreateLaunchConfiguration
@@ -57,6 +58,7 @@ library
         , Network.AWS.AutoScaling.DescribeLaunchConfigurations
         , Network.AWS.AutoScaling.DescribeLifecycleHookTypes
         , Network.AWS.AutoScaling.DescribeLifecycleHooks
+        , Network.AWS.AutoScaling.DescribeLoadBalancers
         , Network.AWS.AutoScaling.DescribeMetricCollectionTypes
         , Network.AWS.AutoScaling.DescribeNotificationConfigurations
         , Network.AWS.AutoScaling.DescribePolicies
@@ -66,6 +68,7 @@ library
         , Network.AWS.AutoScaling.DescribeTags
         , Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
         , Network.AWS.AutoScaling.DetachInstances
+        , Network.AWS.AutoScaling.DetachLoadBalancers
         , Network.AWS.AutoScaling.DisableMetricsCollection
         , Network.AWS.AutoScaling.EnableMetricsCollection
         , Network.AWS.AutoScaling.EnterStandby

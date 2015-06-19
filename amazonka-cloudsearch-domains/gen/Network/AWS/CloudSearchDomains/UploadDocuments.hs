@@ -63,10 +63,10 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     , udrDeletes
     ) where
 
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearchDomains.Types
 
 -- | /See:/ 'uploadDocuments' smart constructor.
 --

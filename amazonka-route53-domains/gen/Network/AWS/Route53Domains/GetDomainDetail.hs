@@ -55,9 +55,9 @@ module Network.AWS.Route53Domains.GetDomainDetail
     , gddrTechContact
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'getDomainDetail' smart constructor.

@@ -51,9 +51,9 @@ module Network.AWS.StorageGateway.DeleteGateway
     , dgrGatewayARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'deleteGateway' smart constructor.

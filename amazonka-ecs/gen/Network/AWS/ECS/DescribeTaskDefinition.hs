@@ -16,7 +16,10 @@
 
 -- | Describes a task definition. You can specify a @family@ and @revision@
 -- to find information on a specific task definition, or you can simply
--- specify the family to find the latest revision in that family.
+-- specify the family to find the latest @ACTIVE@ revision in that family.
+--
+-- You can only describe @INACTIVE@ task definitions while an active task
+-- or service references them.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html>
 module Network.AWS.ECS.DescribeTaskDefinition
@@ -36,10 +39,10 @@ module Network.AWS.ECS.DescribeTaskDefinition
     , desTaskDefinition
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'describeTaskDefinition' smart constructor.
 --
@@ -52,7 +55,7 @@ newtype DescribeTaskDefinition = DescribeTaskDefinition'{_dtdTaskDefinition :: T
 describeTaskDefinition :: Text -> DescribeTaskDefinition
 describeTaskDefinition pTaskDefinition = DescribeTaskDefinition'{_dtdTaskDefinition = pTaskDefinition};
 
--- | The @family@ for the latest revision, @family@ and @revision@
+-- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
 -- (@family:revision@) for a specific revision in the family, or full
 -- Amazon Resource Name (ARN) of the task definition that you want to
 -- describe.

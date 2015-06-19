@@ -37,10 +37,10 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , garrRevision
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'getApplicationRevision' smart constructor.
 --

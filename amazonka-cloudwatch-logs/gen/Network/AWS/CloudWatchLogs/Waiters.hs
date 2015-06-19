@@ -15,4 +15,6 @@
 
 module Network.AWS.CloudWatchLogs.Waiters where
 
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

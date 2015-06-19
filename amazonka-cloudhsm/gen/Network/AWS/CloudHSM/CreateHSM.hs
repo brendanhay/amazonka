@@ -43,10 +43,10 @@ module Network.AWS.CloudHSM.CreateHSM
     , chrHSMARN
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'createHSM' smart constructor.
 --

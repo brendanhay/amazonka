@@ -66,10 +66,10 @@ module Network.AWS.ElasticFileSystem.DescribeFileSystems
     , dfsrNextMarker
     ) where
 
+import Network.AWS.ElasticFileSystem.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticFileSystem.Types
 
 -- | /See:/ 'describeFileSystems' smart constructor.
 --

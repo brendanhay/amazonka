@@ -41,9 +41,9 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , aubrGatewayARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'addUploadBuffer' smart constructor.

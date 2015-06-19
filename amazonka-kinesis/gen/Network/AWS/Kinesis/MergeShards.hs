@@ -73,10 +73,10 @@ module Network.AWS.Kinesis.MergeShards
     , mergeShardsResponse
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'mergeShards' smart constructor.
 --

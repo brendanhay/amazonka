@@ -37,10 +37,10 @@ module Network.AWS.ECS.DeregisterContainerInstance
     , dcirContainerInstance
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'deregisterContainerInstance' smart constructor.
 --

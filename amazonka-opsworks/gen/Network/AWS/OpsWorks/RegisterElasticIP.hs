@@ -45,10 +45,10 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     , reirElasticIP
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'registerElasticIP' smart constructor.
 --

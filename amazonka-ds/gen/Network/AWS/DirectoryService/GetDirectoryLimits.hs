@@ -32,10 +32,10 @@ module Network.AWS.DirectoryService.GetDirectoryLimits
     , gdlrDirectoryLimits
     ) where
 
+import Network.AWS.DirectoryService.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectoryService.Types
 
 -- | /See:/ 'getDirectoryLimits' smart constructor.
 data GetDirectoryLimits = GetDirectoryLimits' deriving (Eq, Read, Show)

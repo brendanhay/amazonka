@@ -48,9 +48,9 @@ module Network.AWS.Route53.DeleteHostedZone
     , dhzrChangeInfo
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53.Types
 
 -- | /See:/ 'deleteHostedZone' smart constructor.

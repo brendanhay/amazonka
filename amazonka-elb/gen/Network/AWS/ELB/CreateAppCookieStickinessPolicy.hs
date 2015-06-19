@@ -29,7 +29,7 @@
 -- stops being sticky until a new application cookie is issued.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies Application-Controlled Session Stickiness>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html>
@@ -50,10 +50,10 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     , createAppCookieStickinessPolicyResponse
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'createAppCookieStickinessPolicy' smart constructor.
 --

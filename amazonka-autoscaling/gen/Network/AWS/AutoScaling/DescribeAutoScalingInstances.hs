@@ -17,11 +17,6 @@
 -- | Describes one or more Auto Scaling instances. If a list is not provided,
 -- the call describes all instances.
 --
--- You can describe up to a maximum of 50 instances with a single call. By
--- default, a call returns up to 20 instances. If there are more items to
--- return, the call returns a token. To get the next set of items, repeat
--- the call with the returned token in the @NextToken@ parameter.
---
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (
@@ -43,10 +38,10 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     , dasirAutoScalingInstances
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeAutoScalingInstances' smart constructor.
 --

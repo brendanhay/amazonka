@@ -38,14 +38,14 @@ module Network.AWS.EC2.MoveAddressToVPC
     -- ** Response constructor
     , moveAddressToVPCResponse
     -- ** Response lenses
+    , matvrStatus
     , matvrAllocationId
-    , matvrAddressStatus
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'moveAddressToVPC' smart constructor.
 --
@@ -79,7 +79,7 @@ instance AWSRequest MoveAddressToVPC where
           = receiveXML
               (\ s h x ->
                  MoveAddressToVPCResponse' <$>
-                   (x .@? "allocationId") <*> (x .@? "status"))
+                   (x .@? "status") <*> (x .@? "allocationId"))
 
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
@@ -98,19 +98,19 @@ instance ToQuery MoveAddressToVPC where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'matvrAllocationId'
+-- * 'matvrStatus'
 --
--- * 'matvrAddressStatus'
-data MoveAddressToVPCResponse = MoveAddressToVPCResponse'{_matvrAllocationId :: Maybe Text, _matvrAddressStatus :: Maybe AddressStatus} deriving (Eq, Read, Show)
+-- * 'matvrAllocationId'
+data MoveAddressToVPCResponse = MoveAddressToVPCResponse'{_matvrStatus :: Maybe AddressStatus, _matvrAllocationId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: MoveAddressToVPCResponse
-moveAddressToVPCResponse = MoveAddressToVPCResponse'{_matvrAllocationId = Nothing, _matvrAddressStatus = Nothing};
+moveAddressToVPCResponse = MoveAddressToVPCResponse'{_matvrStatus = Nothing, _matvrAllocationId = Nothing};
+
+-- | The status of the move of the IP address.
+matvrStatus :: Lens' MoveAddressToVPCResponse (Maybe AddressStatus)
+matvrStatus = lens _matvrStatus (\ s a -> s{_matvrStatus = a});
 
 -- | The allocation ID for the Elastic IP address.
 matvrAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
 matvrAllocationId = lens _matvrAllocationId (\ s a -> s{_matvrAllocationId = a});
-
--- | The status of the move of the IP address.
-matvrAddressStatus :: Lens' MoveAddressToVPCResponse (Maybe AddressStatus)
-matvrAddressStatus = lens _matvrAddressStatus (\ s a -> s{_matvrAddressStatus = a});

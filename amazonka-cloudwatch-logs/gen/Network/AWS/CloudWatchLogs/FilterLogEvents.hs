@@ -57,10 +57,10 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , flerEvents
     ) where
 
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudWatchLogs.Types
 
 -- | /See:/ 'filterLogEvents' smart constructor.
 --

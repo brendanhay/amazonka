@@ -49,9 +49,9 @@ module Network.AWS.SQS.DeleteQueue
     , deleteQueueResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'deleteQueue' smart constructor.

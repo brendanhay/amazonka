@@ -39,10 +39,10 @@ module Network.AWS.RDS.DescribeCertificates
     , dcrMarker
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCertificates' smart constructor.
 --

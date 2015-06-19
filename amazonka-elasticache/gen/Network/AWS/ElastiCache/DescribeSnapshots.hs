@@ -42,10 +42,10 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     , dsrMarker
     ) where
 
+import Network.AWS.ElastiCache.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElastiCache.Types
 
 -- | /See:/ 'describeSnapshots' smart constructor.
 --

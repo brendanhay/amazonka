@@ -40,10 +40,10 @@ module Network.AWS.IAM.DeleteRolePolicy
     , deleteRolePolicyResponse
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'deleteRolePolicy' smart constructor.
 --

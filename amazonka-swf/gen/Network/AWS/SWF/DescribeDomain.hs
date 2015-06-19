@@ -54,9 +54,9 @@ module Network.AWS.SWF.DescribeDomain
     , ddrConfiguration
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'describeDomain' smart constructor.

@@ -68,10 +68,10 @@ module Network.AWS.Glacier.SetVaultNotifications
     , setVaultNotificationsResponse
     ) where
 
+import Network.AWS.Glacier.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Glacier.Types
 
 -- | /See:/ 'setVaultNotifications' smart constructor.
 --

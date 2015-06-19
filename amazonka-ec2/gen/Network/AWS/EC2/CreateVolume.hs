@@ -56,24 +56,24 @@ module Network.AWS.EC2.CreateVolume
     -- ** Response constructor
     , volume
     -- ** Response lenses
-    , volState
     , volAttachments
-    , volSize
     , volIOPS
-    , volEncrypted
-    , volAvailabilityZone
     , volKMSKeyId
+    , volTags
+    , volAvailabilityZone
+    , volCreateTime
+    , volEncrypted
+    , volSize
+    , volSnapshotId
+    , volState
     , volVolumeId
     , volVolumeType
-    , volSnapshotId
-    , volTags
-    , volCreateTime
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'createVolume' smart constructor.
 --

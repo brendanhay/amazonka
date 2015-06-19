@@ -40,10 +40,10 @@ module Network.AWS.CloudHSM.ListHAPGs
     , lhrHAPGList
     ) where
 
+import Network.AWS.CloudHSM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudHSM.Types
 
 -- | /See:/ 'listHAPGs' smart constructor.
 --

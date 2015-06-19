@@ -48,10 +48,10 @@ module Network.AWS.ElasticFileSystem.ModifyMountTargetSecurityGroups
     , modifyMountTargetSecurityGroupsResponse
     ) where
 
+import Network.AWS.ElasticFileSystem.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticFileSystem.Types
 
 -- | /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 --

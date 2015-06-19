@@ -44,10 +44,10 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , gtsrStopLoggingTime
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'getTrailStatus' smart constructor.
 --

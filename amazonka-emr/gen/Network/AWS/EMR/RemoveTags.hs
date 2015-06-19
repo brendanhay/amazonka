@@ -39,10 +39,10 @@ module Network.AWS.EMR.RemoveTags
     , removeTagsResponse
     ) where
 
+import Network.AWS.EMR.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EMR.Types
 
 -- | /See:/ 'removeTags' smart constructor.
 --

@@ -40,10 +40,10 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
+import Network.AWS.ElastiCache.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElastiCache.Types
 
 -- | /See:/ 'resetCacheParameterGroup' smart constructor.
 --

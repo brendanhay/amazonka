@@ -68,9 +68,9 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     , wecCount
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'countOpenWorkflowExecutions' smart constructor.

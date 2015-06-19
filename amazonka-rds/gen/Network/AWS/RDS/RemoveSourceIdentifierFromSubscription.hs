@@ -36,10 +36,10 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     , rsifsrEventSubscription
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeSourceIdentifierFromSubscription' smart constructor.
 --

@@ -33,10 +33,10 @@ module Network.AWS.CloudWatch.DeleteAlarms
     , deleteAlarmsResponse
     ) where
 
+import Network.AWS.CloudWatch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudWatch.Types
 
 -- | /See:/ 'deleteAlarms' smart constructor.
 --

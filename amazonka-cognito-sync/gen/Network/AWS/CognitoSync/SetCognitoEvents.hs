@@ -36,10 +36,10 @@ module Network.AWS.CognitoSync.SetCognitoEvents
     , setCognitoEventsResponse
     ) where
 
+import Network.AWS.CognitoSync.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CognitoSync.Types
 
 -- | /See:/ 'setCognitoEvents' smart constructor.
 --

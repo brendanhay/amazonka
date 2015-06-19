@@ -56,10 +56,10 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , driorReservedInstancesOfferings
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'describeReservedInstancesOfferings' smart constructor.
 --
@@ -105,8 +105,8 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMa
 drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMaxDuration = lens _drioMaxDuration (\ s a -> s{_drioMaxDuration = a});
 
--- | The Reserved Instance description. Instances that include @(Amazon VPC)@
--- in the description are for use with Amazon VPC.
+-- | The Reserved Instance product platform description. Instances that
+-- include @(Amazon VPC)@ in the description are for use with Amazon VPC.
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDescription = a});
 
@@ -133,9 +133,17 @@ drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMa
 --     default behavior, all offerings from AWS and Reserved Instance
 --     Marketplace are listed.
 --
--- -   @product-description@ - The description of the Reserved Instance
---     (@Linux\/UNIX@ | @Linux\/UNIX (Amazon VPC)@ | @Windows@ |
---     @Windows (Amazon VPC)@).
+-- -   @product-description@ - The Reserved Instance product platform
+--     description. Instances that include @(Amazon VPC)@ in the product
+--     platform description will only be displayed to EC2-Classic account
+--     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
+--     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
+--     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Windows (Amazon VPC)@) | @Windows with SQL Server Standard@ |
+--     @Windows with SQL Server Standard (Amazon VPC)@ |
+--     @Windows with SQL Server Web@ |
+--     @ Windows with SQL Server Web (Amazon VPC))@
 --
 -- -   @reserved-instances-offering-id@ - The Reserved Instances offering
 --     ID.

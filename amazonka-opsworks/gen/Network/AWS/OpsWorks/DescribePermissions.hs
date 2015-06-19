@@ -41,10 +41,10 @@ module Network.AWS.OpsWorks.DescribePermissions
     , dprPermissions
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'describePermissions' smart constructor.
 --

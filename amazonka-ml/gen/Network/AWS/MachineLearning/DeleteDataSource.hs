@@ -42,10 +42,10 @@ module Network.AWS.MachineLearning.DeleteDataSource
     , ddsrDataSourceId
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'deleteDataSource' smart constructor.
 --

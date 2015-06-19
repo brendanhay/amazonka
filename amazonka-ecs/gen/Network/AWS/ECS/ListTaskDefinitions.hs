@@ -16,7 +16,7 @@
 
 -- | Returns a list of task definitions that are registered to your account.
 -- You can filter the results by family name with the @familyPrefix@
--- parameter.
+-- parameter or by status with the @status@ parameter.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitions.html>
 module Network.AWS.ECS.ListTaskDefinitions
@@ -26,8 +26,10 @@ module Network.AWS.ECS.ListTaskDefinitions
     -- ** Request constructor
     , listTaskDefinitions
     -- ** Request lenses
+    , ltdStatus
     , ltdFamilyPrefix
     , ltdNextToken
+    , ltdSort
     , ltdMaxResults
 
     -- * Response
@@ -39,25 +41,38 @@ module Network.AWS.ECS.ListTaskDefinitions
     , ltdrNextToken
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'listTaskDefinitions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'ltdStatus'
+--
 -- * 'ltdFamilyPrefix'
 --
 -- * 'ltdNextToken'
 --
+-- * 'ltdSort'
+--
 -- * 'ltdMaxResults'
-data ListTaskDefinitions = ListTaskDefinitions'{_ltdFamilyPrefix :: Maybe Text, _ltdNextToken :: Maybe Text, _ltdMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListTaskDefinitions = ListTaskDefinitions'{_ltdStatus :: Maybe TaskDefinitionStatus, _ltdFamilyPrefix :: Maybe Text, _ltdNextToken :: Maybe Text, _ltdSort :: Maybe SortOrder, _ltdMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ListTaskDefinitions' smart constructor.
 listTaskDefinitions :: ListTaskDefinitions
-listTaskDefinitions = ListTaskDefinitions'{_ltdFamilyPrefix = Nothing, _ltdNextToken = Nothing, _ltdMaxResults = Nothing};
+listTaskDefinitions = ListTaskDefinitions'{_ltdStatus = Nothing, _ltdFamilyPrefix = Nothing, _ltdNextToken = Nothing, _ltdSort = Nothing, _ltdMaxResults = Nothing};
+
+-- | The task definition status that you want to filter the
+-- @ListTaskDefinitions@ results with. By default, only @ACTIVE@ task
+-- definitions are listed. By setting this parameter to @INACTIVE@, you can
+-- view task definitions that are @INACTIVE@ as long as an active task or
+-- service still references them. If you paginate the resulting output, be
+-- sure to keep the @status@ value constant in each subsequent request.
+ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
+ltdStatus = lens _ltdStatus (\ s a -> s{_ltdStatus = a});
 
 -- | The full family name that you want to filter the @ListTaskDefinitions@
 -- results with. Specifying a @familyPrefix@ will limit the listed task
@@ -72,6 +87,16 @@ ltdFamilyPrefix = lens _ltdFamilyPrefix (\ s a -> s{_ltdFamilyPrefix = a});
 -- This value is @null@ when there are no more results to return.
 ltdNextToken :: Lens' ListTaskDefinitions (Maybe Text)
 ltdNextToken = lens _ltdNextToken (\ s a -> s{_ltdNextToken = a});
+
+-- | The order in which to sort the results. Valid values are @ASC@ and
+-- @DESC@. By default (@ASC@), task definitions are listed
+-- lexicographically by family name and in ascending numerical order by
+-- revision so that the newest task definitions in a family are listed
+-- last. Setting this parameter to @DESC@ reverses the sort order on family
+-- name and revision so that the newest task definitions in a family are
+-- listed first.
+ltdSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
+ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
 
 -- | The maximum number of task definition results returned by
 -- @ListTaskDefinitions@ in paginated output. When this parameter is used,
@@ -109,8 +134,9 @@ instance ToHeaders ListTaskDefinitions where
 instance ToJSON ListTaskDefinitions where
         toJSON ListTaskDefinitions'{..}
           = object
-              ["familyPrefix" .= _ltdFamilyPrefix,
-               "nextToken" .= _ltdNextToken,
+              ["status" .= _ltdStatus,
+               "familyPrefix" .= _ltdFamilyPrefix,
+               "nextToken" .= _ltdNextToken, "sort" .= _ltdSort,
                "maxResults" .= _ltdMaxResults]
 
 instance ToPath ListTaskDefinitions where

@@ -16,9 +16,8 @@
 
 -- | Purchases a Reserved Instance for use with your account. With Amazon EC2
 -- Reserved Instances, you obtain a capacity reservation for a certain
--- instance configuration over a specified period of time. You pay a lower
--- usage rate than with On-Demand instances for the time that you actually
--- use the capacity reservation.
+-- instance configuration over a specified period of time and pay a lower
+-- hourly rate compared to on-Demand Instance pricing.
 --
 -- Use DescribeReservedInstancesOfferings to get a list of Reserved
 -- Instance offerings that match your specifications. After you\'ve
@@ -52,10 +51,10 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , priorReservedInstancesId
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'purchaseReservedInstancesOffering' smart constructor.
 --

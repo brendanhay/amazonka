@@ -82,9 +82,9 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     , rathrCancelRequested
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'recordActivityTaskHeartbeat' smart constructor.

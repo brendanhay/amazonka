@@ -36,9 +36,9 @@ module Network.AWS.SSM.DescribeAssociation
     , darAssociationDescription
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SSM.Types
 
 -- | /See:/ 'describeAssociation' smart constructor.

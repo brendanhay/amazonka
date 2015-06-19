@@ -46,10 +46,10 @@ module Network.AWS.AutoScaling.DescribeTags
     , dtrTags
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'describeTags' smart constructor.
 --
@@ -66,10 +66,7 @@ data DescribeTags = DescribeTags'{_dtFilters :: Maybe [Filter], _dtNextToken :: 
 describeTags :: DescribeTags
 describeTags = DescribeTags'{_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing};
 
--- | The value of the filter type used to identify the tags to be returned.
--- For example, you can filter so that tags are returned according to Auto
--- Scaling group, the key and value, or whether the new tag will be applied
--- to instances launched after the tag is created (PropagateAtLaunch).
+-- | A filter used to scope the tags to return.
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
 

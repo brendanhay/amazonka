@@ -35,10 +35,10 @@ module Network.AWS.ECS.DescribeClusters
     , dcrClusters
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'describeClusters' smart constructor.
 --

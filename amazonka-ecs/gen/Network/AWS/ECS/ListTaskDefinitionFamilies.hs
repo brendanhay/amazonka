@@ -15,7 +15,9 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns a list of task definition families that are registered to your
--- account. You can filter the results with the @familyPrefix@ parameter.
+-- account (which may include task definition families that no longer have
+-- any @ACTIVE@ task definitions). You can filter the results with the
+-- @familyPrefix@ parameter.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html>
 module Network.AWS.ECS.ListTaskDefinitionFamilies
@@ -38,10 +40,10 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     , ltdfrNextToken
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'listTaskDefinitionFamilies' smart constructor.
 --

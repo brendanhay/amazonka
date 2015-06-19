@@ -51,10 +51,10 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , revokeSecurityGroupIngressResponse
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
 --
@@ -120,13 +120,16 @@ rsgiCIDRIP = lens _rsgiCIDRIP (\ s a -> s{_rsgiCIDRIP = a});
 rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 
--- | The ID of the source security group. You can\'t specify a source
--- security group and a CIDR IP address range.
+-- | The ID of the source security group. You can\'t specify this parameter
+-- in combination with the following parameters: the CIDR IP address range,
+-- the start of the port range, and the end of the port range.
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupOwnerId = lens _rsgiSourceSecurityGroupOwnerId (\ s a -> s{_rsgiSourceSecurityGroupOwnerId = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
--- can\'t specify a source security group and a CIDR IP address range.
+-- can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the start of the port range, and
+-- the end of the port range.
 rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupName = lens _rsgiSourceSecurityGroupName (\ s a -> s{_rsgiSourceSecurityGroupName = a});
 

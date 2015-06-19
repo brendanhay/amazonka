@@ -46,10 +46,10 @@ module Network.AWS.IAM.GetPolicyVersion
     , gpvrPolicyVersion
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'getPolicyVersion' smart constructor.
 --

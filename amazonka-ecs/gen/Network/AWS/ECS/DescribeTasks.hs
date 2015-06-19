@@ -36,10 +36,10 @@ module Network.AWS.ECS.DescribeTasks
     , dtrTasks
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'describeTasks' smart constructor.
 --

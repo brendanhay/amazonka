@@ -20,6 +20,10 @@
 -- default is 100 per region, the call fails. For information about viewing
 -- and updating these limits, see DescribeAccountLimits.
 --
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations>
+-- in the /Auto Scaling Developer Guide/.
+--
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
@@ -53,10 +57,10 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , createLaunchConfigurationResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'createLaunchConfiguration' smart constructor.
 --
@@ -125,8 +129,8 @@ clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- If your instances are launched in a VPC, specify security group IDs. For
--- more information, see
+-- If your instances are launched into a VPC, specify security group IDs.
+-- For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
@@ -135,7 +139,7 @@ clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a})
 -- | Used for groups that launch instances into a virtual private cloud
 -- (VPC). Specifies whether to assign a public IP address to each instance.
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- If you specify a value for this parameter, be sure to specify at least
@@ -145,7 +149,7 @@ clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a})
 -- Default: If the instance is launched into a default subnet, the default
 -- is @true@. If the instance is launched into a nondefault subnet, the
 -- default is @false@. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html Supported Platforms>
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 clcAssociatePublicIPAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clcAssociatePublicIPAddress = a});
@@ -153,9 +157,9 @@ clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clc
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is
 -- enabled by default.
 --
--- When detailed monitoring is enabled, Amazon Cloudwatch generates metrics
+-- When detailed monitoring is enabled, Amazon CloudWatch generates metrics
 -- every minute and your account is charged a fee. When you disable
--- detailed monitoring, by specifying @False@, Cloudwatch generates metrics
+-- detailed monitoring, by specifying @False@, CloudWatch generates metrics
 -- every 5 minutes. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances>
 -- in the /Auto Scaling Developer Guide/.
@@ -184,16 +188,16 @@ clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
 clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
 clcClassicLinkVPCSecurityGroups = lens _clcClassicLinkVPCSecurityGroups (\ s a -> s{_clcClassicLinkVPCSecurityGroups = a}) . _Default;
 
--- | The ID of the RAM disk associated with the Amazon EC2 AMI.
+-- | The ID of the RAM disk associated with the AMI.
 clcRAMDiskId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcRAMDiskId = lens _clcRAMDiskId (\ s a -> s{_clcRAMDiskId = a});
 
--- | The ID of the kernel associated with the Amazon EC2 AMI.
+-- | The ID of the kernel associated with the AMI.
 clcKernelId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKernelId = lens _clcKernelId (\ s a -> s{_clcKernelId = a});
 
--- | The instance type of the Amazon EC2 instance. For information about
--- available Amazon EC2 instance types, see
+-- | The instance type of the EC2 instance. For information about available
+-- instance types, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
 -- in the /Amazon Elastic Cloud Compute User Guide./
 clcInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
@@ -231,11 +235,10 @@ clcClassicLinkVPCId = lens _clcClassicLinkVPCId (\ s a -> s{_clcClassicLinkVPCId
 -- | The name or the Amazon Resource Name (ARN) of the instance profile
 -- associated with the IAM role for the instance.
 --
--- Amazon EC2 instances launched with an IAM role will automatically have
--- AWS security credentials available. You can use IAM roles with Auto
--- Scaling to automatically enable applications running on your Amazon EC2
--- instances to securely access other AWS resources. For more information,
--- see
+-- EC2 instances launched with an IAM role will automatically have AWS
+-- security credentials available. You can use IAM roles with Auto Scaling
+-- to automatically enable applications running on your EC2 instances to
+-- securely access other AWS resources. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role>
 -- in the /Auto Scaling Developer Guide/.
 clcIAMInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
@@ -249,18 +252,18 @@ clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 
 -- | The tenancy of the instance. An instance with a tenancy of @dedicated@
--- runs on single-tenant hardware and can only be launched in a VPC.
+-- runs on single-tenant hardware and can only be launched into a VPC.
 --
 -- You must set the value of this parameter to @dedicated@ if want to
--- launch Dedicated Instances in a shared tenancy VPC (VPC with instance
+-- launch Dedicated Instances into a shared tenancy VPC (VPC with instance
 -- placement tenancy attribute set to @default@).
 --
 -- If you specify a value for this parameter, be sure to specify at least
--- one VPC subnet using the /VPCZoneIdentifier/ parameter when you create
--- your group.
+-- one subnet using the /VPCZoneIdentifier/ parameter when you create your
+-- group.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- Valid values: @default@ | @dedicated@

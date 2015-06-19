@@ -41,9 +41,9 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     , ginarNotificationAttributes
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SES.Types
 
 -- | /See:/ 'getIdentityNotificationAttributes' smart constructor.

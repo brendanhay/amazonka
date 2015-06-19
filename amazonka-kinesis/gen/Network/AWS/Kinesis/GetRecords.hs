@@ -84,10 +84,10 @@ module Network.AWS.Kinesis.GetRecords
     , grrRecords
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'getRecords' smart constructor.
 --

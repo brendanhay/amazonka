@@ -18,7 +18,7 @@ module Network.AWS.MachineLearning
 import Network.AWS.MachineLearning.CreateBatchPrediction as Export
 import Network.AWS.MachineLearning.CreateDataSourceFromRDS as Export
 import Network.AWS.MachineLearning.CreateDataSourceFromRedshift as Export
-import Network.AWS.MachineLearning.CreateDataSourceFromS3 as Export
+import Network.AWS.MachineLearning.CreateDataSourceFromS as Export
 import Network.AWS.MachineLearning.CreateEvaluation as Export
 import Network.AWS.MachineLearning.CreateMLModel as Export
 import Network.AWS.MachineLearning.CreateRealtimeEndpoint as Export

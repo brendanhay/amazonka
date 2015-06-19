@@ -34,10 +34,10 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     , restartAppServerResponse
     ) where
 
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticBeanstalk.Types
 
 -- | /See:/ 'restartAppServer' smart constructor.
 --

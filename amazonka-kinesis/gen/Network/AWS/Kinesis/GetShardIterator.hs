@@ -77,10 +77,10 @@ module Network.AWS.Kinesis.GetShardIterator
     , gsirShardIterator
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'getShardIterator' smart constructor.
 --

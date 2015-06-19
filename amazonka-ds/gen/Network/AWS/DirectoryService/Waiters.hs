@@ -15,4 +15,6 @@
 
 module Network.AWS.DirectoryService.Waiters where
 
+import Network.AWS.DirectoryService.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

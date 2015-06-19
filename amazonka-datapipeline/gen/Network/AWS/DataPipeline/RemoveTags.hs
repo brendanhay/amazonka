@@ -33,10 +33,10 @@ module Network.AWS.DataPipeline.RemoveTags
     , removeTagsResponse
     ) where
 
+import Network.AWS.DataPipeline.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DataPipeline.Types
 
 -- | /See:/ 'removeTags' smart constructor.
 --

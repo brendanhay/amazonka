@@ -61,9 +61,9 @@ module Network.AWS.SWF.DescribeWorkflowType
     , dwtrConfiguration
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'describeWorkflowType' smart constructor.

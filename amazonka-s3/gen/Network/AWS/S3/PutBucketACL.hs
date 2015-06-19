@@ -40,9 +40,9 @@ module Network.AWS.S3.PutBucketACL
     , putBucketACLResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketACL' smart constructor.

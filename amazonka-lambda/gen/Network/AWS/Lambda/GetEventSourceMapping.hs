@@ -45,10 +45,10 @@ module Network.AWS.Lambda.GetEventSourceMapping
     , esmcLastModified
     ) where
 
+import Network.AWS.Lambda.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Lambda.Types
 
 -- | /See:/ 'getEventSourceMapping' smart constructor.
 --

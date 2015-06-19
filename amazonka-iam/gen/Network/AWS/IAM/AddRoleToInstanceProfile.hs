@@ -37,10 +37,10 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     , addRoleToInstanceProfileResponse
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'addRoleToInstanceProfile' smart constructor.
 --

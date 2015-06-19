@@ -40,10 +40,10 @@ module Network.AWS.ECS.SubmitTaskStateChange
     , stscrAcknowledgment
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'submitTaskStateChange' smart constructor.
 --

@@ -40,9 +40,9 @@ module Network.AWS.Route53Domains.GetOperationDetail
     , godrMessage
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'getOperationDetail' smart constructor.

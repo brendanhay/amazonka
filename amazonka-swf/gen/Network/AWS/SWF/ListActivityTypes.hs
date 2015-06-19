@@ -63,9 +63,9 @@ module Network.AWS.SWF.ListActivityTypes
     , latrTypeInfos
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'listActivityTypes' smart constructor.

@@ -38,10 +38,10 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrDeploymentGroups
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'listDeploymentGroups' smart constructor.
 --

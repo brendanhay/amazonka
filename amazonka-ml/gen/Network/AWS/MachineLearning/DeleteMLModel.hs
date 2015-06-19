@@ -41,10 +41,10 @@ module Network.AWS.MachineLearning.DeleteMLModel
     , dmlmrMLModelId
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'deleteMLModel' smart constructor.
 --

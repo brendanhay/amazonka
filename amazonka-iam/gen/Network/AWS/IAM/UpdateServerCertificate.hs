@@ -47,10 +47,10 @@ module Network.AWS.IAM.UpdateServerCertificate
     , updateServerCertificateResponse
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'updateServerCertificate' smart constructor.
 --
@@ -68,7 +68,8 @@ updateServerCertificate :: Text -> UpdateServerCertificate
 updateServerCertificate pServerCertificateName = UpdateServerCertificate'{_updNewServerCertificateName = Nothing, _updNewPath = Nothing, _updServerCertificateName = pServerCertificateName};
 
 -- | The new name for the server certificate. Include this only if you are
--- updating the server certificate\'s name.
+-- updating the server certificate\'s name. The name of the certificate
+-- cannot contain any spaces.
 updNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
 updNewServerCertificateName = lens _updNewServerCertificateName (\ s a -> s{_updNewServerCertificateName = a});
 

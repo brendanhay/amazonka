@@ -80,10 +80,10 @@ module Network.AWS.Kinesis.PutRecord
     , prrSequenceNumber
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'putRecord' smart constructor.
 --

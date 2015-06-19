@@ -37,10 +37,10 @@ module Network.AWS.CloudSearch.DeleteSuggester
     , delSuggester
     ) where
 
+import Network.AWS.CloudSearch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearch.Types
 
 -- | /See:/ 'deleteSuggester' smart constructor.
 --

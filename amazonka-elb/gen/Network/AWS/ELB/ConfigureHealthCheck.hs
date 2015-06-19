@@ -18,7 +18,7 @@
 -- state of your back-end instances.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck Health Checks>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html Configure Health Checks>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html>
@@ -40,10 +40,10 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , chcrHealthCheck
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'configureHealthCheck' smart constructor.
 --

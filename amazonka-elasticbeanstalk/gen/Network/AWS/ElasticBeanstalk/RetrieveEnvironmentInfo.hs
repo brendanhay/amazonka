@@ -41,10 +41,10 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     , reirEnvironmentInfo
     ) where
 
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticBeanstalk.Types
 
 -- | /See:/ 'retrieveEnvironmentInfo' smart constructor.
 --

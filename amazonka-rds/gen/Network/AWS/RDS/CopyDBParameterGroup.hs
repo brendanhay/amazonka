@@ -37,10 +37,10 @@ module Network.AWS.RDS.CopyDBParameterGroup
     , copDBParameterGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'copyDBParameterGroup' smart constructor.
 --

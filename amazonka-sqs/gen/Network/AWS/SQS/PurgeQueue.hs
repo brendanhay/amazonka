@@ -42,9 +42,9 @@ module Network.AWS.SQS.PurgeQueue
     , purgeQueueResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'purgeQueue' smart constructor.

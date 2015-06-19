@@ -54,9 +54,9 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     , rwrFailedRequests
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'rebuildWorkspaces' smart constructor.

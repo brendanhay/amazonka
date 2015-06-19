@@ -46,6 +46,7 @@ import Network.AWS.EC2.CopyImage as Export
 import Network.AWS.EC2.CopySnapshot as Export
 import Network.AWS.EC2.CreateCustomerGateway as Export
 import Network.AWS.EC2.CreateDHCPOptions as Export
+import Network.AWS.EC2.CreateFlowLogs as Export
 import Network.AWS.EC2.CreateImage as Export
 import Network.AWS.EC2.CreateInstanceExportTask as Export
 import Network.AWS.EC2.CreateInternetGateway as Export
@@ -71,6 +72,7 @@ import Network.AWS.EC2.CreateVPNGateway as Export
 import Network.AWS.EC2.CreateVolume as Export
 import Network.AWS.EC2.DeleteCustomerGateway as Export
 import Network.AWS.EC2.DeleteDHCPOptions as Export
+import Network.AWS.EC2.DeleteFlowLogs as Export
 import Network.AWS.EC2.DeleteInternetGateway as Export
 import Network.AWS.EC2.DeleteKeyPair as Export
 import Network.AWS.EC2.DeleteNetworkACL as Export
@@ -101,6 +103,7 @@ import Network.AWS.EC2.DescribeConversionTasks as Export
 import Network.AWS.EC2.DescribeCustomerGateways as Export
 import Network.AWS.EC2.DescribeDHCPOptions as Export
 import Network.AWS.EC2.DescribeExportTasks as Export
+import Network.AWS.EC2.DescribeFlowLogs as Export
 import Network.AWS.EC2.DescribeImageAttribute as Export
 import Network.AWS.EC2.DescribeImages as Export
 import Network.AWS.EC2.DescribeImportImageTasks as Export

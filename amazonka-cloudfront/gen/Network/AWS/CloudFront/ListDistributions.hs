@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.CloudFront.ListDistributions2014_11_06
+-- Module      : Network.AWS.CloudFront.ListDistributions
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,45 +16,45 @@
 
 -- | List distributions.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions2014_11_06.html>
-module Network.AWS.CloudFront.ListDistributions2014_11_06
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html>
+module Network.AWS.CloudFront.ListDistributions
     (
     -- * Request
-      ListDistributions2014_11_06
+      ListDistributions
     -- ** Request constructor
-    , listDistributions2014_11_06
+    , listDistributions
     -- ** Request lenses
     , ldMaxItems
     , ldMarker
 
     -- * Response
-    , ListDistributions2014_11_06Response
+    , ListDistributionsResponse
     -- ** Response constructor
-    , listDistributions2014_11_06Response
+    , listDistributionsResponse
     -- ** Response lenses
     , ldrDistributionList
     ) where
 
+import Network.AWS.CloudFront.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFront.Types
 
--- | /See:/ 'listDistributions2014_11_06' smart constructor.
+-- | /See:/ 'listDistributions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldMaxItems'
 --
 -- * 'ldMarker'
-data ListDistributions2014_11_06 = ListDistributions2014_11_06'{_ldMaxItems :: Maybe Text, _ldMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListDistributions = ListDistributions'{_ldMaxItems :: Maybe Text, _ldMarker :: Maybe Text} deriving (Eq, Read, Show)
 
--- | 'ListDistributions2014_11_06' smart constructor.
-listDistributions2014_11_06 :: ListDistributions2014_11_06
-listDistributions2014_11_06 = ListDistributions2014_11_06'{_ldMaxItems = Nothing, _ldMarker = Nothing};
+-- | 'ListDistributions' smart constructor.
+listDistributions :: ListDistributions
+listDistributions = ListDistributions'{_ldMaxItems = Nothing, _ldMarker = Nothing};
 
 -- | The maximum number of distributions you want in the response body.
-ldMaxItems :: Lens' ListDistributions2014_11_06 (Maybe Text)
+ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
 -- | Use this when paginating results to indicate where to begin in your list
@@ -62,42 +62,41 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 -- occur after the marker. To get the next page of results, set the Marker
 -- to the value of the NextMarker from the current page\'s response (which
 -- is also the ID of the last distribution on that page).
-ldMarker :: Lens' ListDistributions2014_11_06 (Maybe Text)
+ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
-instance AWSRequest ListDistributions2014_11_06 where
-        type Sv ListDistributions2014_11_06 = CloudFront
-        type Rs ListDistributions2014_11_06 =
-             ListDistributions2014_11_06Response
+instance AWSRequest ListDistributions where
+        type Sv ListDistributions = CloudFront
+        type Rs ListDistributions = ListDistributionsResponse
         request = get
         response
           = receiveXML
               (\ s h x ->
-                 ListDistributions2014_11_06Response' <$>
+                 ListDistributionsResponse' <$>
                    (x .@ "DistributionList"))
 
-instance ToHeaders ListDistributions2014_11_06 where
+instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
-instance ToPath ListDistributions2014_11_06 where
+instance ToPath ListDistributions where
         toPath = const "/2014-11-06/distribution"
 
-instance ToQuery ListDistributions2014_11_06 where
-        toQuery ListDistributions2014_11_06'{..}
+instance ToQuery ListDistributions where
+        toQuery ListDistributions'{..}
           = mconcat
               ["MaxItems" =: _ldMaxItems, "Marker" =: _ldMarker]
 
--- | /See:/ 'listDistributions2014_11_06Response' smart constructor.
+-- | /See:/ 'listDistributionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldrDistributionList'
-newtype ListDistributions2014_11_06Response = ListDistributions2014_11_06Response'{_ldrDistributionList :: DistributionList} deriving (Eq, Read, Show)
+newtype ListDistributionsResponse = ListDistributionsResponse'{_ldrDistributionList :: DistributionList} deriving (Eq, Read, Show)
 
--- | 'ListDistributions2014_11_06Response' smart constructor.
-listDistributions2014_11_06Response :: DistributionList -> ListDistributions2014_11_06Response
-listDistributions2014_11_06Response pDistributionList = ListDistributions2014_11_06Response'{_ldrDistributionList = pDistributionList};
+-- | 'ListDistributionsResponse' smart constructor.
+listDistributionsResponse :: DistributionList -> ListDistributionsResponse
+listDistributionsResponse pDistributionList = ListDistributionsResponse'{_ldrDistributionList = pDistributionList};
 
 -- | The DistributionList type.
-ldrDistributionList :: Lens' ListDistributions2014_11_06Response DistributionList
+ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrDistributionList = lens _ldrDistributionList (\ s a -> s{_ldrDistributionList = a});

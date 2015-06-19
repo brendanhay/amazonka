@@ -36,9 +36,9 @@ module Network.AWS.Route53.GetCheckerIPRanges
     , gcirrCheckerIPRanges
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53.Types
 
 -- | /See:/ 'getCheckerIPRanges' smart constructor.

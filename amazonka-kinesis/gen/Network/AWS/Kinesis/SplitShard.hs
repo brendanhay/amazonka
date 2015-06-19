@@ -82,10 +82,10 @@ module Network.AWS.Kinesis.SplitShard
     , splitShardResponse
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'splitShard' smart constructor.
 --

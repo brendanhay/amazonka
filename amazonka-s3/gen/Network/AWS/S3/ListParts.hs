@@ -50,9 +50,9 @@ module Network.AWS.S3.ListParts
     , lprUploadId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'listParts' smart constructor.

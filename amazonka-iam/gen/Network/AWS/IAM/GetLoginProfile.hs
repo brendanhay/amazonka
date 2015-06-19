@@ -36,10 +36,10 @@ module Network.AWS.IAM.GetLoginProfile
     , glprLoginProfile
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'getLoginProfile' smart constructor.
 --

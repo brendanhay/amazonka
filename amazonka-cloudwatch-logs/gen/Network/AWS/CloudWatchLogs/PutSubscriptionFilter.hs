@@ -44,10 +44,10 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     , putSubscriptionFilterResponse
     ) where
 
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudWatchLogs.Types
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
 --

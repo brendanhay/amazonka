@@ -36,9 +36,9 @@ module Network.AWS.S3.PutBucketVersioning
     , putBucketVersioningResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketVersioning' smart constructor.

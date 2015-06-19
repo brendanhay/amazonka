@@ -34,10 +34,10 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     , gapprPasswordPolicy
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'getAccountPasswordPolicy' smart constructor.
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy' deriving (Eq, Read, Show)

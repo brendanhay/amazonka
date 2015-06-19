@@ -37,10 +37,10 @@ module Network.AWS.Kinesis.ListTagsForStream
     , ltfsrHasMoreTags
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'listTagsForStream' smart constructor.
 --

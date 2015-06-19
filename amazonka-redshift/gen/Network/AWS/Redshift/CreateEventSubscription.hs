@@ -64,10 +64,10 @@ module Network.AWS.Redshift.CreateEventSubscription
     , cesrEventSubscription
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createEventSubscription' smart constructor.
 --

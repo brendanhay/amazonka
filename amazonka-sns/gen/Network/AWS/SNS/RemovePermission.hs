@@ -33,9 +33,9 @@ module Network.AWS.SNS.RemovePermission
     , removePermissionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'removePermission' smart constructor.

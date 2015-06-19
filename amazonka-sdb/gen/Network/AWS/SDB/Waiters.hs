@@ -15,4 +15,6 @@
 
 module Network.AWS.SDB.Waiters where
 
+import Network.AWS.Prelude
+import Network.AWS.SDB.Types
 import Network.AWS.Waiters

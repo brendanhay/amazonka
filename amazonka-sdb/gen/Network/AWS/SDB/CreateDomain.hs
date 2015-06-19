@@ -40,9 +40,9 @@ module Network.AWS.SDB.CreateDomain
     , createDomainResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'createDomain' smart constructor.

@@ -36,9 +36,9 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     , dtacrsrStatuses
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Support.Types
 
 -- | /See:/ 'describeTrustedAdvisorCheckRefreshStatuses' smart constructor.

@@ -38,9 +38,9 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     , dtacrChecks
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Support.Types
 
 -- | /See:/ 'describeTrustedAdvisorChecks' smart constructor.

@@ -48,10 +48,10 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdrDeploymentId
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'createDeployment' smart constructor.
 --

@@ -43,10 +43,10 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     , ccsgrClusterSubnetGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createClusterSubnetGroup' smart constructor.
 --

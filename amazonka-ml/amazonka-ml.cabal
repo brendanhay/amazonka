@@ -35,7 +35,7 @@ library
         , Network.AWS.MachineLearning.CreateBatchPrediction
         , Network.AWS.MachineLearning.CreateDataSourceFromRDS
         , Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-        , Network.AWS.MachineLearning.CreateDataSourceFromS3
+        , Network.AWS.MachineLearning.CreateDataSourceFromS
         , Network.AWS.MachineLearning.CreateEvaluation
         , Network.AWS.MachineLearning.CreateMLModel
         , Network.AWS.MachineLearning.CreateRealtimeEndpoint

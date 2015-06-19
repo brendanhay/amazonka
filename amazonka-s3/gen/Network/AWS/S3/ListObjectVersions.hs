@@ -52,9 +52,9 @@ module Network.AWS.S3.ListObjectVersions
     , lovrDelimiter
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'listObjectVersions' smart constructor.

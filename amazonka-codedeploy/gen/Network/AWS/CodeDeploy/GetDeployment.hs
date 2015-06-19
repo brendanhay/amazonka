@@ -34,10 +34,10 @@ module Network.AWS.CodeDeploy.GetDeployment
     , gdrDeploymentInfo
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'getDeployment' smart constructor.
 --

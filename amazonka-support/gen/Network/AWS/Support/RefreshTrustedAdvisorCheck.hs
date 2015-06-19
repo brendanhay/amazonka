@@ -45,9 +45,9 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     , rtacrStatus
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Support.Types
 
 -- | /See:/ 'refreshTrustedAdvisorCheck' smart constructor.

@@ -61,9 +61,9 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     , dwerOpenCounts
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'describeWorkflowExecution' smart constructor.

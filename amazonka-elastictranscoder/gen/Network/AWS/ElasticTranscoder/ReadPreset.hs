@@ -34,10 +34,10 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     , rprPreset
     ) where
 
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticTranscoder.Types
 
 -- | /See:/ 'readPreset' smart constructor.
 --

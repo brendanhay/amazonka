@@ -36,9 +36,9 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     , lvirInitiators
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'listVolumeInitiators' smart constructor.

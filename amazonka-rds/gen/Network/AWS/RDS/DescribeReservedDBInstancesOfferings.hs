@@ -43,10 +43,10 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , drdiorReservedDBInstancesOfferings
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeReservedDBInstancesOfferings' smart constructor.
 --

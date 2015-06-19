@@ -52,10 +52,10 @@ module Network.AWS.EMR.SetTerminationProtection
     , setTerminationProtectionResponse
     ) where
 
+import Network.AWS.EMR.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EMR.Types
 
 -- | /See:/ 'setTerminationProtection' smart constructor.
 --

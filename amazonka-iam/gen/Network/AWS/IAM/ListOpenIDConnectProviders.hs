@@ -32,10 +32,10 @@ module Network.AWS.IAM.ListOpenIDConnectProviders
     , loidcprOpenIDConnectProviderList
     ) where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.IAM.Types
 
 -- | /See:/ 'listOpenIDConnectProviders' smart constructor.
 data ListOpenIDConnectProviders = ListOpenIDConnectProviders' deriving (Eq, Read, Show)

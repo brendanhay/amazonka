@@ -41,10 +41,10 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , dlbfsrSubnets
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 --

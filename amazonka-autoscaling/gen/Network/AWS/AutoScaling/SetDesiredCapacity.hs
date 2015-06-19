@@ -14,7 +14,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Sets the size of the specified AutoScalingGroup.
+-- | Sets the size of the specified Auto Scaling group.
+--
+-- For more information about desired capacity, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?>
+-- in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html>
 module Network.AWS.AutoScaling.SetDesiredCapacity
@@ -34,10 +38,10 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     , setDesiredCapacityResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'setDesiredCapacity' smart constructor.
 --

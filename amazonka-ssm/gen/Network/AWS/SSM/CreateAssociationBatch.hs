@@ -44,9 +44,9 @@ module Network.AWS.SSM.CreateAssociationBatch
     , cabrFailed
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SSM.Types
 
 -- | /See:/ 'createAssociationBatch' smart constructor.

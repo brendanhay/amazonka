@@ -63,10 +63,10 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , putLifecycleHookResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'putLifecycleHook' smart constructor.
 --
@@ -122,9 +122,8 @@ plhNotificationMetadata = lens _plhNotificationMetadata (\ s a -> s{_plhNotifica
 plhRoleARN :: Lens' PutLifecycleHook (Maybe Text)
 plhRoleARN = lens _plhRoleARN (\ s a -> s{_plhRoleARN = a});
 
--- | The Amazon EC2 instance state to which you want to attach the lifecycle
--- hook. See DescribeLifecycleHookTypes for a list of available lifecycle
--- hook types.
+-- | The instance state to which you want to attach the lifecycle hook. For a
+-- list of lifecycle hook types, see DescribeLifecycleHookTypes.
 --
 -- This parameter is required for new lifecycle hooks, but optional when
 -- updating existing hooks.

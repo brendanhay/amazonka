@@ -45,9 +45,9 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     , avwhzrChangeInfo
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53.Types
 
 -- | /See:/ 'associateVPCWithHostedZone' smart constructor.

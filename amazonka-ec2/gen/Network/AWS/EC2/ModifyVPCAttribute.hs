@@ -34,10 +34,10 @@ module Network.AWS.EC2.ModifyVPCAttribute
     , modifyVPCAttributeResponse
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'modifyVPCAttribute' smart constructor.
 --

@@ -46,9 +46,9 @@ module Network.AWS.Support.AddCommunicationToCase
     , actcrResult
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Support.Types
 
 -- | /See:/ 'addCommunicationToCase' smart constructor.

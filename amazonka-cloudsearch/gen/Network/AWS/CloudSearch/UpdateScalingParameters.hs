@@ -43,10 +43,10 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , usprScalingParameters
     ) where
 
+import Network.AWS.CloudSearch.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudSearch.Types
 
 -- | /See:/ 'updateScalingParameters' smart constructor.
 --

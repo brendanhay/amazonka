@@ -56,10 +56,10 @@ module Network.AWS.Lambda.CreateFunction
     , fcDescription
     ) where
 
+import Network.AWS.Lambda.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Lambda.Types
 
 -- | /See:/ 'createFunction' smart constructor.
 --

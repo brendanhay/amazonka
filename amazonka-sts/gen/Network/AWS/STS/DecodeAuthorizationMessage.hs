@@ -62,9 +62,9 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     , damrDecodedMessage
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.STS.Types
 
 -- | /See:/ 'decodeAuthorizationMessage' smart constructor.

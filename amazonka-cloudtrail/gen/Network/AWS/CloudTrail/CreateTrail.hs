@@ -49,10 +49,10 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrS3BucketName
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'createTrail' smart constructor.
 --

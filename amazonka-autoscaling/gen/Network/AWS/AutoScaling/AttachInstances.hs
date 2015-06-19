@@ -17,7 +17,7 @@
 -- | Attaches one or more EC2 instances to the specified Auto Scaling group.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach Amazon EC2 Instances to Your Existing Auto Scaling Group>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html>
@@ -37,10 +37,10 @@ module Network.AWS.AutoScaling.AttachInstances
     , attachInstancesResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'attachInstances' smart constructor.
 --
@@ -55,7 +55,7 @@ data AttachInstances = AttachInstances'{_aiInstanceIds :: Maybe [Text], _aiAutoS
 attachInstances :: Text -> AttachInstances
 attachInstances pAutoScalingGroupName = AttachInstances'{_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName};
 
--- | One or more EC2 instance IDs. You must specify at least one ID.
+-- | One or more EC2 instance IDs.
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default;
 

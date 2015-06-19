@@ -35,10 +35,10 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     , removeTagsFromStreamResponse
     ) where
 
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Kinesis.Types
 
 -- | /See:/ 'removeTagsFromStream' smart constructor.
 --

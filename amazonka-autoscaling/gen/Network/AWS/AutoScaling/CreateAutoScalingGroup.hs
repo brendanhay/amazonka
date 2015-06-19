@@ -20,6 +20,10 @@
 -- default is 20 per region, the call fails. For information about viewing
 -- and updating these limits, see DescribeAccountLimits.
 --
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html Auto Scaling Groups>
+-- in the /Auto Scaling Developer Guide/.
+--
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.CreateAutoScalingGroup
     (
@@ -50,10 +54,10 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , createAutoScalingGroupResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'createAutoScalingGroup' smart constructor.
 --
@@ -104,7 +108,7 @@ createAutoScalingGroup pAutoScalingGroupName pMinSize pMaxSize = CreateAutoScali
 -- the exception of the block device mapping.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 Instance ID>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group from an EC2 Instance>
 -- in the /Auto Scaling Developer Guide/.
 casgInstanceId :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
@@ -143,7 +147,7 @@ casgHealthCheckGracePeriod = lens _casgHealthCheckGracePeriod (\ s a -> s{_casgH
 -- specified.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
 casgVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIdentifier = a});
@@ -186,7 +190,8 @@ casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_cas
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 casgPlacementGroup :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = a});
 
@@ -204,7 +209,7 @@ casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalance
 -- and propagate are optional parameters.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>
 -- in the /Auto Scaling Developer Guide/.
 casgTags :: Lens' CreateAutoScalingGroup [Tag]
 casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default;

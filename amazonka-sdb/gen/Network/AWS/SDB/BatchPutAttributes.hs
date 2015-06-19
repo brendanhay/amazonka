@@ -80,9 +80,9 @@ module Network.AWS.SDB.BatchPutAttributes
     , batchPutAttributesResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'batchPutAttributes' smart constructor.

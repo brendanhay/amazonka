@@ -35,10 +35,10 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     , cdcrDeploymentConfigId
     ) where
 
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CodeDeploy.Types
 
 -- | /See:/ 'createDeploymentConfig' smart constructor.
 --

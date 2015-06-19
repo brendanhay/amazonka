@@ -39,10 +39,10 @@ module Network.AWS.CloudFormation.ListStackResources
     , lsrrStackResourceSummaries
     ) where
 
+import Network.AWS.CloudFormation.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFormation.Types
 
 -- | /See:/ 'listStackResources' smart constructor.
 --

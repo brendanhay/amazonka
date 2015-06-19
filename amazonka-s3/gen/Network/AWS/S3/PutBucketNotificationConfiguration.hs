@@ -33,9 +33,9 @@ module Network.AWS.S3.PutBucketNotificationConfiguration
     , putBucketNotificationConfigurationResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.S3.Types
 
 -- | /See:/ 'putBucketNotificationConfiguration' smart constructor.

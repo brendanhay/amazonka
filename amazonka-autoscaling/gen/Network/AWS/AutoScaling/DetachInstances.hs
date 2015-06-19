@@ -42,10 +42,10 @@ module Network.AWS.AutoScaling.DetachInstances
     , dirActivities
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'detachInstances' smart constructor.
 --

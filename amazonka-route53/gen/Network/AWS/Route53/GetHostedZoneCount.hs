@@ -33,9 +33,9 @@ module Network.AWS.Route53.GetHostedZoneCount
     , ghzcrHostedZoneCount
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Route53.Types
 
 -- | /See:/ 'getHostedZoneCount' smart constructor.

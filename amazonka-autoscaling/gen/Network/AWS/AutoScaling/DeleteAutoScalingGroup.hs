@@ -18,9 +18,9 @@
 --
 -- The group must have no instances and no scaling activities in progress.
 --
--- To remove all instances before calling DeleteAutoScalingGroup, you can
--- call UpdateAutoScalingGroup to set the minimum and maximum size of the
--- AutoScalingGroup to zero.
+-- To remove all instances before calling @DeleteAutoScalingGroup@, call
+-- UpdateAutoScalingGroup to set the minimum and maximum size of the Auto
+-- Scaling group to zero.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
@@ -39,10 +39,10 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     , deleteAutoScalingGroupResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'deleteAutoScalingGroup' smart constructor.
 --

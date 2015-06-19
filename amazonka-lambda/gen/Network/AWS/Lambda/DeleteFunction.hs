@@ -38,10 +38,10 @@ module Network.AWS.Lambda.DeleteFunction
     , deleteFunctionResponse
     ) where
 
+import Network.AWS.Lambda.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Lambda.Types
 
 -- | /See:/ 'deleteFunction' smart constructor.
 --

@@ -83,10 +83,10 @@ module Network.AWS.Glacier.ListJobs
     , ljrJobList
     ) where
 
+import Network.AWS.Glacier.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Glacier.Types
 
 -- | /See:/ 'listJobs' smart constructor.
 --

@@ -28,10 +28,10 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , putScalingPolicy
     -- ** Request lenses
     , pspMinAdjustmentStep
+    , pspScalingAdjustment
     , pspCooldown
     , pspAutoScalingGroupName
     , pspPolicyName
-    , pspScalingAdjustment
     , pspAdjustmentType
 
     -- * Response
@@ -42,10 +42,10 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , psprPolicyARN
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 --
@@ -53,20 +53,20 @@ import Network.AWS.AutoScaling.Types
 --
 -- * 'pspMinAdjustmentStep'
 --
+-- * 'pspScalingAdjustment'
+--
 -- * 'pspCooldown'
 --
 -- * 'pspAutoScalingGroupName'
 --
 -- * 'pspPolicyName'
 --
--- * 'pspScalingAdjustment'
---
 -- * 'pspAdjustmentType'
-data PutScalingPolicy = PutScalingPolicy'{_pspMinAdjustmentStep :: Maybe Int, _pspCooldown :: Maybe Int, _pspAutoScalingGroupName :: Text, _pspPolicyName :: Text, _pspScalingAdjustment :: Int, _pspAdjustmentType :: Text} deriving (Eq, Read, Show)
+data PutScalingPolicy = PutScalingPolicy'{_pspMinAdjustmentStep :: Maybe Int, _pspScalingAdjustment :: Maybe Int, _pspCooldown :: Maybe Int, _pspAutoScalingGroupName :: Text, _pspPolicyName :: Text, _pspAdjustmentType :: Text} deriving (Eq, Read, Show)
 
 -- | 'PutScalingPolicy' smart constructor.
-putScalingPolicy :: Text -> Text -> Int -> Text -> PutScalingPolicy
-putScalingPolicy pAutoScalingGroupName pPolicyName pScalingAdjustment pAdjustmentType = PutScalingPolicy'{_pspMinAdjustmentStep = Nothing, _pspCooldown = Nothing, _pspAutoScalingGroupName = pAutoScalingGroupName, _pspPolicyName = pPolicyName, _pspScalingAdjustment = pScalingAdjustment, _pspAdjustmentType = pAdjustmentType};
+putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
+putScalingPolicy pAutoScalingGroupName pPolicyName pAdjustmentType = PutScalingPolicy'{_pspMinAdjustmentStep = Nothing, _pspScalingAdjustment = Nothing, _pspCooldown = Nothing, _pspAutoScalingGroupName = pAutoScalingGroupName, _pspPolicyName = pPolicyName, _pspAdjustmentType = pAdjustmentType};
 
 -- | Used with @AdjustmentType@ with the value @PercentChangeInCapacity@, the
 -- scaling policy changes the @DesiredCapacity@ of the Auto Scaling group
@@ -76,6 +76,14 @@ putScalingPolicy pAutoScalingGroupName pPolicyName pScalingAdjustment pAdjustmen
 -- policy with an @AdjustmentType@ other than @PercentChangeInCapacity@.
 pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
 pspMinAdjustmentStep = lens _pspMinAdjustmentStep (\ s a -> s{_pspMinAdjustmentStep = a});
+
+-- | The number of instances by which to scale. @AdjustmentType@ determines
+-- the interpretation of this number (for example, as an absolute number or
+-- as a percentage of the existing Auto Scaling group size). A positive
+-- increment adds to the current capacity and a negative value removes from
+-- the current capacity.
+pspScalingAdjustment :: Lens' PutScalingPolicy (Maybe Int)
+pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustment = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes and
 -- before the next scaling activity can start.
@@ -94,16 +102,7 @@ pspAutoScalingGroupName = lens _pspAutoScalingGroupName (\ s a -> s{_pspAutoScal
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 
--- | The number of instances by which to scale. @AdjustmentType@ determines
--- the interpretation of this number (e.g., as an absolute number or as a
--- percentage of the existing Auto Scaling group size). A positive
--- increment adds to the current capacity and a negative value removes from
--- the current capacity.
-pspScalingAdjustment :: Lens' PutScalingPolicy Int
-pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustment = a});
-
--- | Specifies whether the @ScalingAdjustment@ is an absolute number or a
--- percentage of the current capacity. Valid values are @ChangeInCapacity@,
+-- | The adjustment type. Valid values are @ChangeInCapacity@,
 -- @ExactCapacity@, and @PercentChangeInCapacity@.
 --
 -- For more information, see
@@ -133,10 +132,10 @@ instance ToQuery PutScalingPolicy where
               ["Action" =: ("PutScalingPolicy" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "MinAdjustmentStep" =: _pspMinAdjustmentStep,
+               "ScalingAdjustment" =: _pspScalingAdjustment,
                "Cooldown" =: _pspCooldown,
                "AutoScalingGroupName" =: _pspAutoScalingGroupName,
                "PolicyName" =: _pspPolicyName,
-               "ScalingAdjustment" =: _pspScalingAdjustment,
                "AdjustmentType" =: _pspAdjustmentType]
 
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.

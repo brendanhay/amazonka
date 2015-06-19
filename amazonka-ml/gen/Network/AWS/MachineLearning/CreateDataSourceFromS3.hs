@@ -70,10 +70,10 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS3
     , cdsfsrDataSourceId
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'createDataSourceFromS3' smart constructor.
 --

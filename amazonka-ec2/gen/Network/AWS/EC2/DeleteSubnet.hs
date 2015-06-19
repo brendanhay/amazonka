@@ -34,10 +34,10 @@ module Network.AWS.EC2.DeleteSubnet
     , deleteSubnetResponse
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'deleteSubnet' smart constructor.
 --

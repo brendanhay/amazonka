@@ -61,10 +61,10 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , authorizeSecurityGroupIngressResponse
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'authorizeSecurityGroupIngress' smart constructor.
 --
@@ -130,13 +130,16 @@ asgiCIDRIP = lens _asgiCIDRIP (\ s a -> s{_asgiCIDRIP = a});
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 
--- | The ID of the source security group. You can\'t specify a source
--- security group and a CIDR IP address range.
+-- | The ID of the source security group. You can\'t specify this parameter
+-- in combination with the following parameters: the CIDR IP address range,
+-- the start of the port range, and the end of the port range.
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> s{_asgiSourceSecurityGroupOwnerId = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
--- can\'t specify a source security group and a CIDR IP address range.
+-- can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the start of the port range, and
+-- the end of the port range.
 asgiSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupName = lens _asgiSourceSecurityGroupName (\ s a -> s{_asgiSourceSecurityGroupName = a});
 

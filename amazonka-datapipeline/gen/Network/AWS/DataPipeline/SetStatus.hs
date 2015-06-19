@@ -39,10 +39,10 @@ module Network.AWS.DataPipeline.SetStatus
     , setStatusResponse
     ) where
 
+import Network.AWS.DataPipeline.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DataPipeline.Types
 
 -- | /See:/ 'setStatus' smart constructor.
 --

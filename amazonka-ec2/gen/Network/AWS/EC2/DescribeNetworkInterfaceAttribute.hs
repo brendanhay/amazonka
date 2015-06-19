@@ -41,10 +41,10 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniarDescription
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
 --

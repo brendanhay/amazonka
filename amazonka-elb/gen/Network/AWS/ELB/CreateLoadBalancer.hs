@@ -17,30 +17,16 @@
 -- | Creates a load balancer.
 --
 -- If the call completes successfully, a new load balancer is created with
--- a unique Domain Name Service (DNS) name. The DNS name includes the name
--- of the AWS region in which the load balancer was created. For example,
--- the DNS name might end with either of the following:
---
--- -   @us-east-1.elb.amazonaws.com@
--- -   @us-west-2.elb.amazonaws.com@
---
--- For information about the AWS regions supported by Elastic Load
--- Balancing, see
--- <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints>
--- in the /Amazon Web Services General Reference/.
+-- a unique Domain Name Service (DNS) name. The load balancer receives
+-- incoming traffic and routes it to the registered instances. For more
+-- information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html How Elastic Load Balancing Works>
+-- in the /Elastic Load Balancing Developer Guide/.
 --
 -- You can create up to 20 load balancers per region per account. You can
 -- request an increase for the number of load balancers for your account.
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits>
--- in the /Elastic Load Balancing Developer Guide/.
---
--- Elastic Load Balancing supports load balancing your EC2 instances
--- launched in either the EC2-Classic or EC2-VPC platform. For more
--- information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html Elastic Load Balancing in EC2-Classic>
--- or
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in a VPC>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
@@ -67,10 +53,10 @@ module Network.AWS.ELB.CreateLoadBalancer
     , clbrDNSName
     ) where
 
+import Network.AWS.ELB.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ELB.Types
 
 -- | /See:/ 'createLoadBalancer' smart constructor.
 --
@@ -149,7 +135,7 @@ clbLoadBalancerName = lens _clbLoadBalancerName (\ s a -> s{_clbLoadBalancerName
 -- | The listeners.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a});

@@ -23,9 +23,6 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling>
 -- in the /Auto Scaling Developer Guide/.
 --
--- Auto Scaling supports the date and time expressed in
--- \"YYYY-MM-DDThh:mm:ssZ\" format in UTC\/GMT only.
---
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
@@ -50,10 +47,10 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     , putScheduledUpdateGroupActionResponse
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 --
@@ -82,23 +79,21 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'{_psugaTime :
 putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName = PutScheduledUpdateGroupAction'{_psugaTime = Nothing, _psugaStartTime = Nothing, _psugaMaxSize = Nothing, _psugaDesiredCapacity = Nothing, _psugaRecurrence = Nothing, _psugaMinSize = Nothing, _psugaEndTime = Nothing, _psugaAutoScalingGroupName = pAutoScalingGroupName, _psugaScheduledActionName = pScheduledActionName};
 
--- | @Time@ is deprecated.
+-- | @Time@ is deprecated; use @StartTime@ instead.
 --
--- The time for this action to start. @Time@ is an alias for @StartTime@
--- and can be specified instead of @StartTime@, or vice versa. If both
--- @Time@ and @StartTime@ are specified, their values should be identical.
--- Otherwise, @PutScheduledUpdateGroupAction@ will return an error.
+-- The time for this action to start. If both @Time@ and @StartTime@ are
+-- specified, their values must be identical.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 
--- | The time for this action to start, as in
--- @--start-time 2010-06-01T00:00:00Z@.
+-- | The time for this action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in
+-- UTC\/GMT only (for example, @2014-06-01T00:00:00Z@).
 --
 -- If you try to schedule your action in the past, Auto Scaling returns an
 -- error message.
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
--- form the boundaries of when the recurring action will start and stop.
+-- form the boundaries of when the recurring action starts and stops.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
 
@@ -106,21 +101,20 @@ psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mappin
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a});
 
--- | The number of Amazon EC2 instances that should be running in the group.
+-- | The number of EC2 instances that should be running in the group.
 psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapacity = a});
 
 -- | The time when recurring future actions will start. Start time is
--- specified by the user following the Unix cron syntax format. For
--- information about cron syntax, go to
--- <http://en.wikipedia.org/wiki/Cron Wikipedia, The Free Encyclopedia>.
+-- specified by the user following the Unix cron syntax format. For more
+-- information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia.
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a});
 
--- | The minimum size for the new Auto Scaling group.
+-- | The minimum size for the Auto Scaling group.
 psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMinSize = lens _psugaMinSize (\ s a -> s{_psugaMinSize = a});
 

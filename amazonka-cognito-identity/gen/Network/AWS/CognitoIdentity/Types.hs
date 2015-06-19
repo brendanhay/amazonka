@@ -62,7 +62,7 @@ module Network.AWS.CognitoIdentity.Types
     -- * UnprocessedIdentityId
     , UnprocessedIdentityId
     , unprocessedIdentityId
-    , uiiCognitoErrorCode
+    , uiiErrorCode
     , uiiIdentityId
     ) where
 
@@ -307,18 +307,18 @@ instance FromJSON IdentityPoolShortDescription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uiiCognitoErrorCode'
+-- * 'uiiErrorCode'
 --
 -- * 'uiiIdentityId'
-data UnprocessedIdentityId = UnprocessedIdentityId'{_uiiCognitoErrorCode :: Maybe CognitoErrorCode, _uiiIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+data UnprocessedIdentityId = UnprocessedIdentityId'{_uiiErrorCode :: Maybe CognitoErrorCode, _uiiIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UnprocessedIdentityId' smart constructor.
 unprocessedIdentityId :: UnprocessedIdentityId
-unprocessedIdentityId = UnprocessedIdentityId'{_uiiCognitoErrorCode = Nothing, _uiiIdentityId = Nothing};
+unprocessedIdentityId = UnprocessedIdentityId'{_uiiErrorCode = Nothing, _uiiIdentityId = Nothing};
 
 -- | The error code indicating the type of error that occurred.
-uiiCognitoErrorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErrorCode)
-uiiCognitoErrorCode = lens _uiiCognitoErrorCode (\ s a -> s{_uiiCognitoErrorCode = a});
+uiiErrorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErrorCode)
+uiiErrorCode = lens _uiiErrorCode (\ s a -> s{_uiiErrorCode = a});
 
 -- | A unique identifier in the format REGION:GUID.
 uiiIdentityId :: Lens' UnprocessedIdentityId (Maybe Text)
@@ -329,4 +329,4 @@ instance FromJSON UnprocessedIdentityId where
           = withObject "UnprocessedIdentityId"
               (\ x ->
                  UnprocessedIdentityId' <$>
-                   (x .:? "CognitoErrorCode") <*> (x .:? "IdentityId"))
+                   (x .:? "ErrorCode") <*> (x .:? "IdentityId"))

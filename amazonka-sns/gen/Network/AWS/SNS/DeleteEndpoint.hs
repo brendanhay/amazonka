@@ -34,9 +34,9 @@ module Network.AWS.SNS.DeleteEndpoint
     , deleteEndpointResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'deleteEndpoint' smart constructor.

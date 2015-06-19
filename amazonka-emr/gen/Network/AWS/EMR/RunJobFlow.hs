@@ -71,10 +71,10 @@ module Network.AWS.EMR.RunJobFlow
     , rjfrJobFlowId
     ) where
 
+import Network.AWS.EMR.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EMR.Types
 
 -- | /See:/ 'runJobFlow' smart constructor.
 --

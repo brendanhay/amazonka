@@ -35,10 +35,10 @@ module Network.AWS.CloudTrail.DescribeTrails
     , dtrTrailList
     ) where
 
+import Network.AWS.CloudTrail.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudTrail.Types
 
 -- | /See:/ 'describeTrails' smart constructor.
 --

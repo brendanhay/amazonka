@@ -71,9 +71,9 @@ module Network.AWS.SWF.RegisterWorkflowType
     , registerWorkflowTypeResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'registerWorkflowType' smart constructor.

@@ -80,10 +80,10 @@ module Network.AWS.Glacier.UploadArchive
     , acoLocation
     ) where
 
+import Network.AWS.Glacier.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.Glacier.Types
 
 -- | /See:/ 'uploadArchive' smart constructor.
 --

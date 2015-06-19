@@ -34,10 +34,10 @@ module Network.AWS.Redshift.RotateEncryptionKey
     , rekrCluster
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rotateEncryptionKey' smart constructor.
 --

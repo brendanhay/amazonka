@@ -42,10 +42,10 @@ module Network.AWS.MachineLearning.Predict
     , prPrediction
     ) where
 
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.MachineLearning.Types
 
 -- | /See:/ 'predict' smart constructor.
 --

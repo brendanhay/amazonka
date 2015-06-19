@@ -15,4 +15,6 @@
 
 module Network.AWS.SQS.Waiters where
 
+import Network.AWS.Prelude
+import Network.AWS.SQS.Types
 import Network.AWS.Waiters

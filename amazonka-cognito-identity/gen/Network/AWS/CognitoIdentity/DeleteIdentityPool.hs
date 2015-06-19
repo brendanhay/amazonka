@@ -35,10 +35,10 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     , deleteIdentityPoolResponse
     ) where
 
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CognitoIdentity.Types
 
 -- | /See:/ 'deleteIdentityPool' smart constructor.
 --

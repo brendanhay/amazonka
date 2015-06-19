@@ -34,10 +34,10 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     , abortEnvironmentUpdateResponse
     ) where
 
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticBeanstalk.Types
 
 -- | /See:/ 'abortEnvironmentUpdate' smart constructor.
 --

@@ -15,4 +15,6 @@
 
 module Network.AWS.IAM.Waiters where
 
+import Network.AWS.IAM.Types
+import Network.AWS.Prelude
 import Network.AWS.Waiters

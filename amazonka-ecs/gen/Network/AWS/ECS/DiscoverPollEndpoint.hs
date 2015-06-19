@@ -36,13 +36,14 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- ** Response constructor
     , discoverPollEndpointResponse
     -- ** Response lenses
+    , dperTelemetryEndpoint
     , dperEndpoint
     ) where
 
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ECS.Types
 
 -- | /See:/ 'discoverPollEndpoint' smart constructor.
 --
@@ -78,7 +79,8 @@ instance AWSRequest DiscoverPollEndpoint where
         response
           = receiveJSON
               (\ s h x ->
-                 DiscoverPollEndpointResponse' <$> (x .?> "endpoint"))
+                 DiscoverPollEndpointResponse' <$>
+                   (x .?> "telemetryEndpoint") <*> (x .?> "endpoint"))
 
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders
@@ -106,12 +108,18 @@ instance ToQuery DiscoverPollEndpoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dperTelemetryEndpoint'
+--
 -- * 'dperEndpoint'
-newtype DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperEndpoint :: Maybe Text} deriving (Eq, Read, Show)
+data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint :: Maybe Text, _dperEndpoint :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: DiscoverPollEndpointResponse
-discoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperEndpoint = Nothing};
+discoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint = Nothing, _dperEndpoint = Nothing};
+
+-- | The telemetry endpoint for the Amazon ECS agent.
+dperTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
+dperTelemetryEndpoint = lens _dperTelemetryEndpoint (\ s a -> s{_dperTelemetryEndpoint = a});
 
 -- | The endpoint for the Amazon ECS agent to poll.
 dperEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)

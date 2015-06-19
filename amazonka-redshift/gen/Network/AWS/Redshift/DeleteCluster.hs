@@ -54,10 +54,10 @@ module Network.AWS.Redshift.DeleteCluster
     , dcrCluster
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCluster' smart constructor.
 --

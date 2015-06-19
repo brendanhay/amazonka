@@ -60,9 +60,9 @@ module Network.AWS.SWF.ListWorkflowTypes
     , lwtrTypeInfos
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'listWorkflowTypes' smart constructor.

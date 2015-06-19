@@ -39,10 +39,10 @@ module Network.AWS.AutoScaling.ExitStandby
     , exiActivities
     ) where
 
+import Network.AWS.AutoScaling.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.AutoScaling.Types
 
 -- | /See:/ 'exitStandby' smart constructor.
 --

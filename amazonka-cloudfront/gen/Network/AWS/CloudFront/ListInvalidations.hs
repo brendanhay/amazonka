@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.CloudFront.ListInvalidations2014_11_06
+-- Module      : Network.AWS.CloudFront.ListInvalidations
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,32 +16,32 @@
 
 -- | List invalidation batches.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations2014_11_06.html>
-module Network.AWS.CloudFront.ListInvalidations2014_11_06
+-- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html>
+module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Request
-      ListInvalidations2014_11_06
+      ListInvalidations
     -- ** Request constructor
-    , listInvalidations2014_11_06
+    , listInvalidations
     -- ** Request lenses
     , liMaxItems
     , liMarker
     , liDistributionId
 
     -- * Response
-    , ListInvalidations2014_11_06Response
+    , ListInvalidationsResponse
     -- ** Response constructor
-    , listInvalidations2014_11_06Response
+    , listInvalidationsResponse
     -- ** Response lenses
     , lirInvalidationList
     ) where
 
+import Network.AWS.CloudFront.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.CloudFront.Types
 
--- | /See:/ 'listInvalidations2014_11_06' smart constructor.
+-- | /See:/ 'listInvalidations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -50,15 +50,15 @@ import Network.AWS.CloudFront.Types
 -- * 'liMarker'
 --
 -- * 'liDistributionId'
-data ListInvalidations2014_11_06 = ListInvalidations2014_11_06'{_liMaxItems :: Maybe Text, _liMarker :: Maybe Text, _liDistributionId :: Text} deriving (Eq, Read, Show)
+data ListInvalidations = ListInvalidations'{_liMaxItems :: Maybe Text, _liMarker :: Maybe Text, _liDistributionId :: Text} deriving (Eq, Read, Show)
 
--- | 'ListInvalidations2014_11_06' smart constructor.
-listInvalidations2014_11_06 :: Text -> ListInvalidations2014_11_06
-listInvalidations2014_11_06 pDistributionId = ListInvalidations2014_11_06'{_liMaxItems = Nothing, _liMarker = Nothing, _liDistributionId = pDistributionId};
+-- | 'ListInvalidations' smart constructor.
+listInvalidations :: Text -> ListInvalidations
+listInvalidations pDistributionId = ListInvalidations'{_liMaxItems = Nothing, _liMarker = Nothing, _liDistributionId = pDistributionId};
 
 -- | The maximum number of invalidation batches you want in the response
 -- body.
-liMaxItems :: Lens' ListInvalidations2014_11_06 (Maybe Text)
+liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
 -- | Use this parameter when paginating results to indicate where to begin in
@@ -68,49 +68,48 @@ liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 -- on. To get the next page of results, set the Marker to the value of the
 -- NextMarker from the current page\'s response. This value is the same as
 -- the ID of the last invalidation batch on that page.
-liMarker :: Lens' ListInvalidations2014_11_06 (Maybe Text)
+liMarker :: Lens' ListInvalidations (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 
 -- | The distribution\'s id.
-liDistributionId :: Lens' ListInvalidations2014_11_06 Text
+liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
-instance AWSRequest ListInvalidations2014_11_06 where
-        type Sv ListInvalidations2014_11_06 = CloudFront
-        type Rs ListInvalidations2014_11_06 =
-             ListInvalidations2014_11_06Response
+instance AWSRequest ListInvalidations where
+        type Sv ListInvalidations = CloudFront
+        type Rs ListInvalidations = ListInvalidationsResponse
         request = get
         response
           = receiveXML
               (\ s h x ->
-                 ListInvalidations2014_11_06Response' <$>
+                 ListInvalidationsResponse' <$>
                    (x .@ "InvalidationList"))
 
-instance ToHeaders ListInvalidations2014_11_06 where
+instance ToHeaders ListInvalidations where
         toHeaders = const mempty
 
-instance ToPath ListInvalidations2014_11_06 where
-        toPath ListInvalidations2014_11_06'{..}
+instance ToPath ListInvalidations where
+        toPath ListInvalidations'{..}
           = mconcat
               ["/2014-11-06/distribution/",
                toText _liDistributionId, "/invalidation"]
 
-instance ToQuery ListInvalidations2014_11_06 where
-        toQuery ListInvalidations2014_11_06'{..}
+instance ToQuery ListInvalidations where
+        toQuery ListInvalidations'{..}
           = mconcat
               ["MaxItems" =: _liMaxItems, "Marker" =: _liMarker]
 
--- | /See:/ 'listInvalidations2014_11_06Response' smart constructor.
+-- | /See:/ 'listInvalidationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lirInvalidationList'
-newtype ListInvalidations2014_11_06Response = ListInvalidations2014_11_06Response'{_lirInvalidationList :: InvalidationList} deriving (Eq, Read, Show)
+newtype ListInvalidationsResponse = ListInvalidationsResponse'{_lirInvalidationList :: InvalidationList} deriving (Eq, Read, Show)
 
--- | 'ListInvalidations2014_11_06Response' smart constructor.
-listInvalidations2014_11_06Response :: InvalidationList -> ListInvalidations2014_11_06Response
-listInvalidations2014_11_06Response pInvalidationList = ListInvalidations2014_11_06Response'{_lirInvalidationList = pInvalidationList};
+-- | 'ListInvalidationsResponse' smart constructor.
+listInvalidationsResponse :: InvalidationList -> ListInvalidationsResponse
+listInvalidationsResponse pInvalidationList = ListInvalidationsResponse'{_lirInvalidationList = pInvalidationList};
 
 -- | Information about invalidation batches.
-lirInvalidationList :: Lens' ListInvalidations2014_11_06Response InvalidationList
+lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});

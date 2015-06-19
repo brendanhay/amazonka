@@ -57,9 +57,9 @@ module Network.AWS.SQS.AddPermission
     , addPermissionResponse
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'addPermission' smart constructor.

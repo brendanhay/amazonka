@@ -36,10 +36,10 @@ module Network.AWS.ElasticTranscoder.CancelJob
     , cancelJobResponse
     ) where
 
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticTranscoder.Types
 
 -- | /See:/ 'cancelJob' smart constructor.
 --

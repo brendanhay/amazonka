@@ -63,24 +63,24 @@ module Network.AWS.EC2.CreateSnapshot
     -- ** Response constructor
     , snapshot
     -- ** Response lenses
-    , snaState
     , snaOwnerAlias
+    , snaKMSKeyId
+    , snaTags
+    , snaSnapshotId
+    , snaOwnerId
+    , snaVolumeId
     , snaVolumeSize
+    , snaDescription
     , snaStartTime
     , snaProgress
+    , snaState
     , snaEncrypted
-    , snaOwnerId
-    , snaKMSKeyId
-    , snaVolumeId
-    , snaDescription
-    , snaSnapshotId
-    , snaTags
     ) where
 
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.EC2.Types
 
 -- | /See:/ 'createSnapshot' smart constructor.
 --

@@ -66,9 +66,9 @@ module Network.AWS.SQS.SendMessageBatch
     , smbrFailed
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'sendMessageBatch' smart constructor.

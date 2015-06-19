@@ -38,9 +38,9 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     , ldlsqrQueueURLs
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SQS.Types
 
 -- | /See:/ 'listDeadLetterSourceQueues' smart constructor.

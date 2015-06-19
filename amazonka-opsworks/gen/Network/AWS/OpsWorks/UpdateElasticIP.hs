@@ -41,10 +41,10 @@ module Network.AWS.OpsWorks.UpdateElasticIP
     , updateElasticIPResponse
     ) where
 
+import Network.AWS.OpsWorks.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.OpsWorks.Types
 
 -- | /See:/ 'updateElasticIP' smart constructor.
 --

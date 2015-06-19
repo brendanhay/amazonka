@@ -50,9 +50,9 @@ module Network.AWS.SNS.CreatePlatformApplication
     , cparPlatformApplicationARN
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'createPlatformApplication' smart constructor.

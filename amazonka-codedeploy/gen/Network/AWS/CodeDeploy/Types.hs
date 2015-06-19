@@ -104,8 +104,8 @@ module Network.AWS.CodeDeploy.Types
     -- * Diagnostics
     , Diagnostics
     , diagnostics
-    , diaDeployErrorCode
     , diaLogTail
+    , diaErrorCode
     , diaScriptName
     , diaMessage
 
@@ -789,18 +789,22 @@ instance FromJSON DeploymentStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diaDeployErrorCode'
---
 -- * 'diaLogTail'
+--
+-- * 'diaErrorCode'
 --
 -- * 'diaScriptName'
 --
 -- * 'diaMessage'
-data Diagnostics = Diagnostics'{_diaDeployErrorCode :: Maybe LifecycleErrorCode, _diaLogTail :: Maybe Text, _diaScriptName :: Maybe Text, _diaMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Diagnostics = Diagnostics'{_diaLogTail :: Maybe Text, _diaErrorCode :: Maybe LifecycleErrorCode, _diaScriptName :: Maybe Text, _diaMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Diagnostics' smart constructor.
 diagnostics :: Diagnostics
-diagnostics = Diagnostics'{_diaDeployErrorCode = Nothing, _diaLogTail = Nothing, _diaScriptName = Nothing, _diaMessage = Nothing};
+diagnostics = Diagnostics'{_diaLogTail = Nothing, _diaErrorCode = Nothing, _diaScriptName = Nothing, _diaMessage = Nothing};
+
+-- | The last portion of the associated diagnostic log.
+diaLogTail :: Lens' Diagnostics (Maybe Text)
+diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
 
 -- | The associated error code:
 --
@@ -814,12 +818,8 @@ diagnostics = Diagnostics'{_diaDeployErrorCode = Nothing, _diaLogTail = Nothing,
 -- -   ScriptFailed: The specified script failed to run as expected.
 -- -   UnknownError: The specified script did not run for an unknown
 --     reason.
-diaDeployErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
-diaDeployErrorCode = lens _diaDeployErrorCode (\ s a -> s{_diaDeployErrorCode = a});
-
--- | The last portion of the associated diagnostic log.
-diaLogTail :: Lens' Diagnostics (Maybe Text)
-diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
+diaErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
+diaErrorCode = lens _diaErrorCode (\ s a -> s{_diaErrorCode = a});
 
 -- | The name of the script.
 diaScriptName :: Lens' Diagnostics (Maybe Text)
@@ -834,7 +834,7 @@ instance FromJSON Diagnostics where
           = withObject "Diagnostics"
               (\ x ->
                  Diagnostics' <$>
-                   (x .:? "DeployErrorCode") <*> (x .:? "logTail") <*>
+                   (x .:? "logTail") <*> (x .:? "errorCode") <*>
                      (x .:? "scriptName")
                      <*> (x .:? "message"))
 

@@ -60,12 +60,12 @@ module Network.AWS.SWF.ListDomains
     , listDomainsResponse
     -- ** Response lenses
     , ldrNextPageToken
-    , ldrListDomainsResponse
+    , ldrDomainInfos
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'listDomains' smart constructor.
@@ -124,7 +124,7 @@ instance AWSRequest ListDomains where
               (\ s h x ->
                  ListDomainsResponse' <$>
                    (x .?> "nextPageToken") <*>
-                     (x .?> "ListDomainsResponse" .!@ mempty))
+                     (x .?> "domainInfos" .!@ mempty))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -155,12 +155,12 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrNextPageToken'
 --
--- * 'ldrListDomainsResponse'
-data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrListDomainsResponse :: Maybe [DomainInfo]} deriving (Eq, Read, Show)
+-- * 'ldrDomainInfos'
+data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrDomainInfos :: [DomainInfo]} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrListDomainsResponse = Nothing};
+listDomainsResponse = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrDomainInfos = mempty};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -173,5 +173,5 @@ ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageToken = lens _ldrNextPageToken (\ s a -> s{_ldrNextPageToken = a});
 
 -- | A list of DomainInfo structures.
-ldrListDomainsResponse :: Lens' ListDomainsResponse [DomainInfo]
-ldrListDomainsResponse = lens _ldrListDomainsResponse (\ s a -> s{_ldrListDomainsResponse = a}) . _Default;
+ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
+ldrDomainInfos = lens _ldrDomainInfos (\ s a -> s{_ldrDomainInfos = a});

@@ -40,10 +40,10 @@ module Network.AWS.Redshift.CreateTags
     , createTagsResponse
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
 --

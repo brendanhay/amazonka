@@ -84,9 +84,9 @@ module Network.AWS.Support.CreateCase
     , ccrCaseId
     ) where
 
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
 import Network.AWS.Support.Types
 
 -- | /See:/ 'createCase' smart constructor.

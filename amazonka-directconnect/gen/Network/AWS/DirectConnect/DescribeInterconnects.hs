@@ -34,13 +34,13 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     -- ** Response constructor
     , describeInterconnectsResponse
     -- ** Response lenses
-    , dirDescribeInterconnectsResponse
+    , dirInterconnects
     ) where
 
+import Network.AWS.DirectConnect.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.DirectConnect.Types
 
 -- | /See:/ 'describeInterconnects' smart constructor.
 --
@@ -66,7 +66,7 @@ instance AWSRequest DescribeInterconnects where
           = receiveJSON
               (\ s h x ->
                  DescribeInterconnectsResponse' <$>
-                   (x .?> "DescribeInterconnectsResponse" .!@ mempty))
+                   (x .?> "interconnects" .!@ mempty))
 
 instance ToHeaders DescribeInterconnects where
         toHeaders
@@ -92,13 +92,13 @@ instance ToQuery DescribeInterconnects where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirDescribeInterconnectsResponse'
-newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse :: Maybe [Interconnect]} deriving (Eq, Read, Show)
+-- * 'dirInterconnects'
+newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirInterconnects :: Maybe [Interconnect]} deriving (Eq, Read, Show)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: DescribeInterconnectsResponse
-describeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse = Nothing};
+describeInterconnectsResponse = DescribeInterconnectsResponse'{_dirInterconnects = Nothing};
 
 -- | A list of interconnects.
-dirDescribeInterconnectsResponse :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirDescribeInterconnectsResponse = lens _dirDescribeInterconnectsResponse (\ s a -> s{_dirDescribeInterconnectsResponse = a}) . _Default;
+dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirInterconnects = lens _dirInterconnects (\ s a -> s{_dirInterconnects = a}) . _Default;

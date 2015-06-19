@@ -52,10 +52,10 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , adsgirDBSecurityGroup
     ) where
 
-import Network.AWS.Request
-import Network.AWS.Response
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
 --

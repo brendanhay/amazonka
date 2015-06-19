@@ -35,10 +35,10 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     , swapEnvironmentCNAMEsResponse
     ) where
 
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
-import Network.AWS.Prelude
-import Network.AWS.ElasticBeanstalk.Types
 
 -- | /See:/ 'swapEnvironmentCNAMEs' smart constructor.
 --

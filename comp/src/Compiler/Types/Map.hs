@@ -14,6 +14,7 @@ import           Control.Lens
 import           Data.Hashable
 import qualified Data.HashMap.Strict as Map
 import           Data.Maybe
+import           Data.Tuple
 
 type Map = Map.HashMap
 
@@ -22,6 +23,9 @@ vMapMaybe :: (Eq k, Hashable k)
           -> Map k a
           -> Map k b
 vMapMaybe f = runIdentity . kvTraverseMaybe (const (pure . f))
+
+kvInvert :: (Eq v, Hashable v) => Map k v -> Map v k
+kvInvert = kvTraversal %~ swap
 
 kvTraverseMaybe :: (Applicative f, Eq k, Hashable k)
                 => (k -> a -> f (Maybe b))

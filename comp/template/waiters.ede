@@ -12,5 +12,6 @@ import {{ import.value }}
 {% endfor %}
 {% for waiter in waiters %}
 
-{{ waiter.value }}
+{{ waiter.value.signature }}
+{{ waiter.value.declaration }}
 {% endfor %}

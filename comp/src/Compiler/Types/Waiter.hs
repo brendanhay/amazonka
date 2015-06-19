@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -140,7 +141,7 @@ instance FromJSON Criteria where
 
 data Expect
     = Status' !Integer
-    | Textual Text
+    | Textual !Text
     | Boolean !Bool
       deriving (Eq, Show)
 
@@ -150,30 +151,32 @@ instance FromJSON Expect where
         Bool   b -> pure (Boolean b)
         o        -> Status' <$> parseJSON o
 
-data Accept = Accept
+data Accept a = Accept
     { _acceptExpect   :: Expect
     , _acceptMatch    :: Match
     , _acceptCriteria :: Criteria
-    , _acceptArgument :: Maybe Notation
+    , _acceptArgument :: Maybe (Notation a)
     } deriving (Eq, Show)
 
-instance FromJSON Accept where
+makeLenses ''Accept
+
+instance FromJSON (Accept Id) where
     parseJSON = withObject "acceptor" $ \o -> Accept
         <$> o .:  "expected"
         <*> o .:  "matcher"
         <*> o .:  "state"
         <*> o .:? "argument"
 
-data Waiter = Waiter
+data Waiter a = Waiter
     { _waitDelay     :: !Integer
     , _waitAttempts  :: !Integer
     , _waitOperation :: Id
-    , _waitAcceptors :: [Accept]
+    , _waitAcceptors :: [Accept a]
     } deriving (Show, Eq)
 
 makeLenses ''Waiter
 
-instance FromJSON Waiter where
+instance FromJSON (Waiter Id) where
     parseJSON = withObject "waiter" $ \o -> Waiter
         <$> o .: "delay"
         <*> o .: "maxAttempts"

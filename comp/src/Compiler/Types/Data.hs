@@ -2,6 +2,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Compiler.Types.Data
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,7 +20,9 @@ import           Compiler.Text
 import           Compiler.TH
 import           Compiler.Types.Ann
 import           Compiler.Types.Help
+import           Compiler.Types.Id
 import           Compiler.Types.Map
+import           Compiler.Types.NS
 import           Compiler.Types.URI
 import           Control.Error
 import           Control.Lens              hiding ((.=))
@@ -92,12 +95,26 @@ sumToJSON s Sum'{..} is =
     , "shared"        .= s
     ]
 
-data Data
+data SData
     = Prod !Bool Prod (Map Text Rendered)
     | Sum  !Bool Sum  [Text]
       deriving (Show)
 
-instance ToJSON Data where
+instance ToJSON SData where
     toJSON = \case
-        Prod s p  is -> object (prodToJSON s p is)
+        Prod s p  is -> object (prodToJSON s p  is)
         Sum  s st is -> object (sumToJSON  s st is)
+
+data WData = WData
+    { _waitOpName :: Id
+    , _waitSig    :: Rendered
+    , _waitDecl   :: Rendered
+    } deriving (Show)
+
+makeLenses ''WData
+
+instance ToJSON WData where
+    toJSON (WData _ s d) = object
+        [ "signature"   .= s
+        , "declaration" .= d
+        ]

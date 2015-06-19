@@ -92,7 +92,7 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
     svc = fromText (l ^. serviceAbbrev)
     lib = fromText (l ^. libraryName)
 
-    op :: Operation Identity Data -> DirTree (Either Error LText.Text)
+    op :: Operation Identity SData -> DirTree (Either Error LText.Text)
     op = operation' l operationTemplate
 
     mod :: NS -> [NS] -> Template -> DirTree (Either Error LText.Text)
@@ -106,14 +106,14 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
 
 operation' :: Library
            -> Template
-           -> Operation Identity Data
-           -> DirTree (Either Error LText.Text)
+           -> Operation Identity SData
+           -> DirTree (Either Error Rendered)
 operation' l t o = module' n is t $ do
     x <- JS.objectErr (show n) o
     y <- JS.objectErr "metadata" (toJSON m)
     return $! Map.insert "operationUrl" (toJSON u) (y <> x)
   where
-    n  = o ^. operationNS (l ^. libraryNS)
+    n  = operationNS (l ^. libraryNS) (o ^. opName)
     m  = l ^. metadata
     u  = l ^. operationUrl
 

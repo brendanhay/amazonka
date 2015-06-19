@@ -30,6 +30,8 @@ import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op)
+import           Control.Monad
+import           Data.Bifunctor
 import qualified Data.Foldable                as Fold
 import           Data.Function                ((&))
 import qualified Data.HashMap.Strict          as Map
@@ -43,14 +45,14 @@ import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
-ctorSig :: Timestamp -> Id -> [Field] -> Decl
-ctorSig ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
+ctorS :: Timestamp -> Id -> [Field] -> Decl
+ctorS ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . Fold.foldr' TyFun (n ^. typeId . to tycon)
     . map (external ts)
     . filter fieldIsParam
 
-ctorDecl :: Id -> [Field] -> Decl
-ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
+ctorD :: Id -> [Field] -> Decl
+ctorD n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
   where
     name :: Name
     name = n ^. smartCtorId . to ident
@@ -74,13 +76,13 @@ fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
     p :: Exp
     p = Exts.Var (UnQual (fieldParamName f))
 
-lensSig :: Timestamp -> TType -> Field -> Decl
-lensSig ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
+lensS :: Timestamp -> TType -> Field -> Decl
+lensS ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
     TyApp (TyApp (tycon "Lens'")
                  (signature ts t)) (external ts f)
 
-lensDecl :: Field -> Decl
-lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
+lensD :: Field -> Decl
+lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
   where
     l = f ^. fieldLens
     a = f ^. fieldAccessor
@@ -90,8 +92,8 @@ lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
             (paren (lamE noLoc [pvar "s", pvar "a"]
                    (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
 
-dataDecl :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
+dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
+dataD n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
   where
     arity = case fs of
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
@@ -99,12 +101,12 @@ dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
 
     ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
 
-conDecl :: Text -> QualConDecl
-conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
+conD :: Text -> QualConDecl
+conD n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
-recDecl :: Timestamp -> Id -> [Field] -> QualConDecl
-recDecl _  n [] = conDecl (n ^. ctorId)
-recDecl ts n fs = QualConDecl noLoc [] [] $
+recordD :: Timestamp -> Id -> [Field] -> QualConDecl
+recordD _  n [] = conD (n ^. ctorId)
+recordD ts n fs = QualConDecl noLoc [] [] $
     RecDecl (ident (n ^. ctorId)) (map g fs)
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
@@ -435,9 +437,6 @@ encodeE n o = infixApp (str n) o
 decodeE :: Exp -> QOp -> Text -> Exp
 decodeE v o = infixApp v o . str
 
-notationE :: Notation -> Exp
-notationE _ = error ("Compiler.AST.Data.Syntax.notationE: not implemented.")
-
 memberName :: Protocol -> Direction -> Field -> Text
 memberName p d f = Proto.memberName p d (f ^. fieldId) (f ^. fieldRef)
 
@@ -469,6 +468,66 @@ responseF p h r fs
     | otherwise                       = var suf
   where
     suf = "receive" <> Proto.suffix p
+
+waiterS :: Id -> Waiter a -> Decl
+waiterS n w = TypeSig noLoc [ident c] $ TyApp (tycon "Wait") (tycon k)
+  where
+    k = w ^. waitOperation . typeId
+    c = n ^. smartCtorId
+
+waiterD :: Id -> Waiter Field -> Decl
+waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
+  where
+    c = n ^. smartCtorId
+
+    rhs = RecConstr (unqual "Wait")
+        [ FieldUpdate (unqual "_waitName")      (n ^. memberId     . to str)
+        , FieldUpdate (unqual "_waitAttempts")  (w ^. waitAttempts . to intE)
+        , FieldUpdate (unqual "_waitDelay")     (w ^. waitDelay    . to intE)
+        , FieldUpdate (unqual "_waitAcceptors")
+            . listE $ map match (w ^. waitAcceptors)
+        ]
+
+    match x = ($ [expect x, criteria x] ++ argument x) $
+        case _acceptMatch x of
+            Path    -> appFun (var "matchAll")
+            PathAll -> appFun (var "matchAll")
+            PathAny -> appFun (var "matchAny")
+            Status  -> appFun (var "matchStatus")
+            Error   -> appFun (var "matchError")
+
+    expect x =
+        case _acceptExpect x of
+            Status' i -> intE i
+            Boolean b -> con . Text.pack $ show b
+            Textual t -> str t
+
+    criteria x =
+        case _acceptCriteria x of
+            Retry   -> var "AcceptRetry"
+            Success -> var "AcceptSuccess"
+            Failure -> var "AcceptFailure"
+
+    argument x = go <$>
+        maybe [] ((:[]) . notation) (_acceptArgument x)
+      where
+        go = case _acceptExpect x of
+            Textual {} -> \c -> infixApp c "." (app (var "to") (var "toText"))
+            _          -> id
+
+    -- FIXME: doesn't support Maybe fields currently.
+    notation = \case
+        Key    f      -> mkey f
+        Each   f      -> app (var "folding") . paren $ app (var "concatOf") (key f)
+        Or     x y    -> infixApp (notation x) "||" (notation y)
+        Apply  x y    -> infixApp (notation x) "."  (notation y)
+        Length f GT 0 -> app (var "nonEmpty") (key f)
+        e             -> error "FIXME: Not implemented: notation"
+      where
+        mkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
+               | otherwise       = key f
+
+        key f = f ^. fieldLens . to var
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing

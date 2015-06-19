@@ -344,8 +344,8 @@ data Operation f a = Operation
 
 makeLenses ''Operation
 
-operationNS :: NS -> Getter (Operation f a) NS
-operationNS ns = opName . typeId . to (mappend ns . mkNS)
+operationNS :: NS -> Id -> NS
+operationNS ns n = n ^. typeId . to (mappend ns . mkNS)
 
 inputName, outputName :: HasId a => Getter (Operation Identity a) Id
 inputName  = opInput  . _Identity . to identifier
@@ -356,7 +356,7 @@ instance HasHTTP (Operation f a) f where
 
 instance FromJSON (Operation Maybe (RefF ())) where
     parseJSON = withObject "operation" $ \o -> Operation
-        <$> o .:  "name"
+        <$> (o .: "name" <&> mkId . renameOperation)
         <*> o .:? "documentation"
         <*> o .:? "deprecated" .!= False
         <*> o .:  "http"
@@ -434,7 +434,7 @@ makeClassy ''Service
 instance HasMetadata (Service f a b c) f where
     metadata = metadata'
 
-instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) Waiter) where
+instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
     parseJSON = withObject "service" $ \o -> Service
         <$> o .:  "metadata"
         <*> o .:  "documentation"

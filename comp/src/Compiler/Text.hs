@@ -51,6 +51,12 @@ stripPrefix p t = Text.strip . fromMaybe t $ p `Text.stripPrefix` t
 stripSuffix :: Text -> Text -> Text
 stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
 
+renameOperation :: Text -> Text
+renameOperation = Text.dropWhileEnd f . Text.strip
+  where
+    f x = x == '_'
+       || isDigit x
+
 renameService :: Text -> Text
 renameService =
       mappend "Amazon "

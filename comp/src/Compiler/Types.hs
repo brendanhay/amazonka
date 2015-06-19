@@ -136,6 +136,7 @@ data Config = Config
     , _operationModules :: [NS]
     , _typeModules      :: [NS]
     , _typeOverrides    :: Map Id Override
+    , _ignoredWaiters   :: Set Id
     }
 
 makeClassy ''Config
@@ -148,11 +149,12 @@ instance FromJSON Config where
         <*> o .:? "operationModules" .!= mempty
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "typeOverrides"    .!= mempty
+        <*> o .:? "ignoredWaiters"   .!= mempty
 
 data Library = Library
     { _versions' :: Versions
     , _config'   :: Config
-    , _service'  :: Service Identity Data Data Rendered
+    , _service'  :: Service Identity SData SData WData
     } deriving (Generic)
 
 makeLenses ''Library
@@ -160,7 +162,7 @@ makeLenses ''Library
 instance HasMetadata Library Identity where
     metadata = service' . metadata'
 
-instance HasService Library Identity Data Data Rendered where
+instance HasService Library Identity SData SData WData where
     service  = service'
 
 instance HasConfig Library where
@@ -182,7 +184,7 @@ exposedModules = to f
         let ns = x ^. libraryNS
          in x ^.  typesNS
           : x ^.  waitersNS
-          : x ^.. operations . each . operationNS ns
+          : x ^.. operations . each . to (operationNS ns . view opName)
 
 instance ToJSON Library where
     toJSON l = Object (x <> y)

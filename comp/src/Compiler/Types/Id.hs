@@ -48,6 +48,7 @@ import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Data.Text.Manipulate
+import           Debug.Trace
 
 -- | A class to extract identifiers from arbitrary products.
 class HasId a where

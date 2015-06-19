@@ -30,7 +30,6 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
-import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -111,7 +110,7 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
         overrideShape ovs (r ^. refShape) (r ^. refAnn)
 
     rules :: ShapeF a -> MemoS (ShapeF a)
-    rules = rename . fields . prefix . require . optional >=> retype
+    rules = retype . fields . prefix . require . optional
 
     require, optional :: ShapeF a -> ShapeF a
     require  = setRequired (<> _requiredFields)
@@ -126,15 +125,7 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
     fields :: ShapeF a -> ShapeF a
     fields = _Struct . members . kvTraversal %~ first f
       where
-        f k = maybe k (trace (show k) . replaceId k) (Map.lookup k _renamedFields)
-
-    rename :: ShapeF a -> MemoS (ShapeF a)
-    rename x = do
-        rn <- use renamed
-        let f k = fromMaybe k (Map.lookup k rn)
-        return $! x
-                & _Struct . members . kvTraversal
-               %~ first f
+        f k = maybe k (replaceId k) (Map.lookup k _renamedFields)
 
     retype :: ShapeF a -> MemoS (ShapeF a)
     retype x = do

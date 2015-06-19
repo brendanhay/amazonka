@@ -144,8 +144,8 @@ save n s = memo %= Map.insert n s
 rename :: Id -> Id -> MemoS a ()
 rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
 
-remove :: Id -> Id -> MemoS a ()
-remove x y = overrides %= Map.insert x (defaultOverride & replacedBy ?~ Replace y mempty)
+-- remove :: Id -> Id -> MemoS a ()
+-- remove x y = overrides %= Map.insert x (defaultOverride & replacedBy ?~ Replace y mempty)
 
 safe :: Show a => Id -> Map Id a -> Either Error a
 safe n ss = note

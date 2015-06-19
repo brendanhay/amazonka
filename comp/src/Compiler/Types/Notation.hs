@@ -1,3 +1,7 @@
+{-# LANGUAGE DeriveFoldable    #-}
+{-# LANGUAGE DeriveFunctor     #-}
+{-# LANGUAGE DeriveTraversable #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Compiler.Types.Notation
@@ -18,7 +22,8 @@ import           Control.Monad
 import           Data.Aeson
 import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as A
-import           Data.Foldable        (foldl')
+import           Data.Foldable        (foldl', foldr')
+import           Data.Maybe
 import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
@@ -32,55 +37,57 @@ import qualified Data.Text            as Text
 -- services | [@[?length(deployments)!=`1`], @[?desiredCount!=runningCount]][] | length(@) == `0`
 -- InstanceStatuses[].SystemStatus.Status
 
-data Notation
-    = Key    Id                  -- StreamDescription
-    | Each                       -- []
-    | Index  !Int                -- [n]
-    | Or     !Notation !Notation -- \||
-    | Apply  !Notation !Notation
-    | Length Id !Ordering !Int
-      deriving (Eq, Show)
+data Notation a
+    = Key    a                         -- StreamDescription
+    | Index  a !Int                    -- [n]
+    | Each   a                         -- []
+    | Or     (Notation a) (Notation a) -- \||
+    | Apply  (Notation a) (Notation a)
+    | Length a !Ordering !Int
+      deriving (Eq, Show, Functor, Foldable, Traversable)
 
-instance FromJSON Notation where
-    parseJSON = withText "notation" (either fail pure . parseOnly p)
-      where
-        p = notationParser <* A.endOfInput
+instance FromJSON (Notation Id) where
+    parseJSON = withText "notation" (either fail pure . parseOnly notationParser)
 
-notationParser :: Parser Notation
-notationParser = foldl' Apply <$> expr1 <*> many expr1
+-- lastKey :: Notation a -> Maybe a
+-- lastKey = listToMaybe . reverse . foldMap (:[])
+
+    -- Key   n      -> n
+    -- Index n _    -> n
+    -- Each  n _    -> n
+    -- Or    _ y    -> lastKey y
+    -- Apply _ y    -> lastKey y
+    -- Length n _ _ -> n
+
+notationParser :: Parser (Notation Id)
+notationParser = (expr1 <* A.endOfInput) <|> (Key . mkId <$> A.takeText)
   where
-    expr1 = cond  <|> expr0
-    expr0 = terms <|> term
+    expr1 = cond   <|> expr0
+    expr0 = length <|> apply <|> label
 
-    cond = Or
-        <$> (expr0 <* or)
-        <*> expr0
+    cond = Or <$> expr0 <* strip (A.string "||") <*> expr1
 
-    terms = foldl' Apply
-        <$> (term <* A.char '.')
-        <*> A.sepBy1 term (A.char '.')
+    apply = foldl' Apply
+        <$> (label <* A.char '.')
+        <*> A.sepBy1 label (A.char '.')
 
-    term = do
-        k <- Key <$> key
-        m <- optional (each <|> index)
-        return $! maybe k (Apply k) m
+    label = strip (index <|> each <|> key)
+
+    key   = Key   <$> ident
+    index = Index <$> ident <*> (A.char '[' *> num <* A.char ']')
+    each  = Each  <$> ident <*  A.string "[]"
+
+    ident = mkId <$> A.takeWhile1 (A.notInClass "0-9[].`()|><= ")
 
     length = Length
-        <$> (A.string "length(" *> key <* A.char ')')
-        <*> relation
-        <*> int
+        <$> (A.string "length(" *> ident <* A.char ')')
+        <*> strip (eq <|> gt <|> lt)
+        <*> (A.char '`' *> num <* A.char '`')
 
-    key = mkId <$> A.takeWhile1 (A.notInClass "0-9[].`()|><= ")
+    eq = A.string "==" >> return EQ
+    gt = A.char   '>'  >> return GT
+    lt = A.char   '<'  >> return LT
 
-    each  = A.char '[' *> return Each <* A.char ']'
-    index = A.char '[' *> (Index <$> A.signed A.decimal) <* A.char ']'
+    num = A.signed A.decimal
 
-    int = A.char '`' *> A.signed A.decimal <* A.char '`'
-
-    or = A.skipSpace *> A.string "||" <* A.skipSpace
-
-    relation = A.skipSpace *> (eq <|> gt <|> lt) <* A.skipSpace
-      where
-        eq = A.string "==" >> return EQ
-        gt = A.char   '>'  >> return GT
-        lt = A.char   '<'  >> return LT
+    strip p = A.skipSpace *> p <* A.skipSpace

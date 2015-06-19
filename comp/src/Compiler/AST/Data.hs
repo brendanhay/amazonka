@@ -1,9 +1,10 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedLists   #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE LambdaCase          #-}
+{-# LANGUAGE OverloadedLists     #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE RecordWildCards     #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TupleSections       #-}
 
 -- Module      : Compiler.AST.Data
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,9 +17,9 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.AST.Data
-    ( waiterData
-    , operationData
+    ( operationData
     , shapeData
+    , waiterData
     ) where
 
 import           Compiler.AST.Data.Field
@@ -29,17 +30,23 @@ import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
+import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))
 import           Control.Monad
+import           Control.Monad.Except
+import           Control.Monad.Trans.State
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
+import           Data.List                    (find)
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.String
 import           Data.Text                    (Text)
+import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
+import           Data.Traversable             (mapAccumL)
 import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts.Pretty
@@ -49,71 +56,10 @@ import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
-waiterData :: Id
-           -> Waiter
-           -> Either Error Rendered
-waiterData n w = liftM2 newline (pp None sig) (pp Indent dec)
-  where
-    newline x y = x <> "\n" <> y
-
-    c = n ^. smartCtorId . to ident
-
-    sig = TypeSig noLoc [c] $ TyApp (tycon "Wait") (n ^. typeId . to tycon)
-
-    dec = sfun noLoc c [] (UnGuardedRhs rhs) noBinds
-
-    rhs :: Exp
-    rhs = RecConstr (n ^. ctorId . to unqual)
-        [ FieldUpdate (unqual "_waitName")      (n ^. typeId . to str)
-        , FieldUpdate (unqual "_waitAttempts")  (w ^. waitAttempts . to intE)
-        , FieldUpdate (unqual "_waitDelay")     (w ^. waitDelay . to intE )
-        , FieldUpdate (unqual "_waitAcceptors") . listE $ map match (w ^. waitAcceptors)
-        ]
-
-    match x =  ($ [expect x, criteria x]) $
-        case _acceptMatch x of
-            Path    -> appFun (var "matchAll")
-            PathAll -> appFun (var "matchAll")
-            PathAny -> appFun (var "matchAny")
-            Status  -> appFun (var "matchStatus")
-            Error   -> appFun (var "matchError")
-
-    expect x =
-        case _acceptExpect x of
-            Status' i -> intE i
---            Boolean b -> boolE b
-            Textual t -> str t
-
-    criteria x =
-        case _acceptCriteria x of
-            Retry   -> var "AcceptRetry"
-            Success -> var "AcceptSuccess"
-            Failure -> var "AcceptFailure"
-
-    argument = maybe [] ((:[]) . notationE) . _acceptArgument
-
--- Indexed k i    -> "folding (concatOf " <> k <> ") . " <> go i
--- Nested  k i    -> k <> " . " <> go i
--- Access  k      -> k
--- Bounds  k GT 0 -> "nonEmpty " <> k
--- Bounds  k _  _ ->
---     error $ "Bounds notation not implemented for: " ++ show k
-
--- bucketExists :: Wait HeadBucket
--- bucketExists = Wait
---     { _waitName      = "BucketExists"
---     , _waitAttempts  = 20
---     , _waitDelay     = 5
---     , _waitAcceptors =
---         [ matchStatus 200 AcceptSuccess
---         , matchStatus 404 AcceptRetry
---         ]
---     }
-
 operationData :: HasMetadata a Identity
               => a
               -> Operation Identity Ref
-              -> Either Error (Operation Identity Data)
+              -> Either Error (Operation Identity SData)
 operationData m o = do
     (xa, x)  <- struct (xr ^. refAnn)
     (ya, y)  <- struct (yr ^. refAnn)
@@ -145,7 +91,7 @@ operationData m o = do
 shapeData :: HasMetadata a Identity
           => a
           -> Shape Solved
-          -> Either Error (Maybe Data)
+          -> Either Error (Maybe SData)
 shapeData m (a :< s) = case s of
     Enum   i vs -> Just <$> sumData p a i vs
     Struct st   -> do
@@ -160,14 +106,14 @@ sumData :: Protocol
         -> Solved
         -> Info
         -> Map Id Text
-        -> Either Error Data
+        -> Either Error SData
 sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
   where
     mk = Sum' (n ^. typeId) (i ^. infoDocumentation)
         <$> pp Indent decl
         <*> pure bs
 
-    decl  = dataDecl n (map conDecl (Map.keys bs)) (derivingOf s)
+    decl  = dataD n (map conD (Map.keys bs)) (derivingOf s)
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId
@@ -185,26 +131,26 @@ prodData m s st = (,fields) <$> mk
         <*> mkCtor
         <*> traverse mkLens fields
 
-    decl = dataDecl n [recDecl ts n fields] (derivingOf s)
+    decl = dataD n [recordD ts n fields] (derivingOf s)
 
     fields :: [Field]
     fields = mkFields m s st
 
     mkLens :: Field -> Either Error Fun
     mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)
-        <$> pp None (lensSig ts (s ^. annType) f)
-        <*> pp None (lensDecl f)
+        <$> pp None (lensS ts (s ^. annType) f)
+        <*> pp None (lensD f)
 
     mkCtor :: Either Error Fun
     mkCtor = Fun (n ^. smartCtorId) mkHelp
-        <$> pp None   (ctorSig ts n fields)
-        <*> pp Indent (ctorDecl n fields)
+        <$> pp None   (ctorS ts n fields)
+        <*> pp Indent (ctorD n fields)
 
     mkHelp :: Help
     mkHelp = fromString
         . LText.unpack
         $ format ("'" % itype % "' smart constructor.") n
---       <> mkSee
+    -- <> mkSee
 
     -- mkSee :: LText.Text
     -- mkSee = case r ^. relParents of
@@ -215,12 +161,70 @@ prodData m s st = (,fields) <$> mk
 
     ts = m ^. timestampFormat . _Identity
     n  = s ^. annId
-    r  = s ^. annRelation
 
 renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
 renderInsts p n = fmap Map.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
+
+waiterData :: HasMetadata a Identity
+           => a
+           -> Map Id (Operation Identity Ref)
+           -> Id
+           -> Waiter Id
+           -> Either Error WData
+waiterData m os n w = do
+    o  <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
+    wf <- waiterFields m o w
+    WData (o ^. opName)
+        <$> pp None   (waiterS n wf)
+        <*> pp Indent (waiterD n wf)
+  where
+    missingErr =
+        format ("Missing operation "      % iprimary %
+                " when rendering waiter " %
+                ", possible matches: "    % partial)
+
+    k = w ^. waitOperation
+
+waiterFields :: HasMetadata a Identity
+             => a
+             -> Operation Identity Ref
+             -> Waiter Id
+             -> Either Error (Waiter Field)
+waiterFields m o = traverseOf (waitAcceptors . each) go
+  where
+    go :: Accept Id -> Either Error (Accept Field)
+    go x = do
+        y <- case x ^. acceptArgument of
+            Nothing -> pure Nothing
+            Just ns -> do
+                let s = o ^. opOutput . _Identity . refAnn
+                Just <$> evalStateT (traverse ref ns) s
+        return $! x & acceptArgument .~ y
+
+    ref :: Id -> StateT (Shape Solved) (Either Error) Field
+    ref k = do
+        a :< s <- skip <$> get
+        r <- case s of
+            Struct st ->
+                lift . note (missingErr k (identifier a) (Map.keys (st ^. members)))
+                     . find ((k ==) . _fieldId)
+                     $ mkFields m a st
+            _         -> throwError (descendErr k)
+        put (r ^. fieldRef . refAnn)
+        return r
+
+    skip :: Shape a -> Shape a
+    skip s = case unwrap s of
+        List   l  -> l ^. listItem . refAnn
+        Map    m  -> m ^. mapValue . refAnn
+        _         -> s
+
+    missingErr =
+        format ("Unable to find " % iprimary % " in members of " % iprimary % " " % shown)
+    descendErr =
+        format ("Unable to descend into nested waiter reference " % iprimary)
 
 data Ident
     = Indent
@@ -230,7 +234,7 @@ data Ident
 
 pp :: Pretty a => Ident -> a -> Either Error LText.Text
 pp i d
-    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
+--    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack

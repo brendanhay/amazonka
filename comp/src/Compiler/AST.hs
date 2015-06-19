@@ -39,18 +39,23 @@ import           Debug.Trace
 
 rewrite :: Versions
         -> Config
-        -> Service Maybe (RefF ()) (ShapeF ()) Waiter
+        -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)
         -> Either Error Library
 rewrite v cfg s' = Library v cfg
-    <$> (rewriteService cfg (deprecate s')
+    <$> (rewriteService cfg (ignore cfg (deprecate s'))
          >>= renderShapes cfg)
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ Map.filter (not . view opDeprecated)
 
+ignore :: Config -> Service f a b c -> Service f a b c
+ignore c = waiters %~ Map.filterWithKey (const . valid)
+  where
+    valid k = not $ Set.member k (c ^. ignoredWaiters)
+
 rewriteService :: Config
-               -> Service Maybe (RefF ()) (ShapeF ()) Waiter
-               -> Either Error (Service Identity (RefF ()) (Shape Related) Waiter)
+               -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)
+               -> Either Error (Service Identity (RefF ()) (Shape Related) (Waiter Id))
 rewriteService cfg s = do
         -- Determine which direction (input, output, or both) shapes are used.
     rs <- relations (s ^. operations) (s ^. shapes)
@@ -68,8 +73,8 @@ rewriteService cfg s = do
         >>= substitute
 
 renderShapes :: Config
-             -> Service Identity (RefF ()) (Shape Related) Waiter
-             -> Either Error (Service Identity Data Data Rendered)
+             -> Service Identity (RefF ()) (Shape Related) (Waiter Id)
+             -> Either Error (Service Identity SData SData WData)
 renderShapes cfg svc = do
         -- Generate unique prefixes for struct (product) members and
         -- enum (sum) branches to avoid ambiguity.
@@ -85,7 +90,7 @@ renderShapes cfg svc = do
     -- Convert shape ASTs into a rendered Haskell AST declaration,
     xs <- traverse (operationData svc) x
     ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
-    zs <- Map.traverseWithKey waiterData (svc ^. waiters)
+    zs <- Map.traverseWithKey (waiterData svc x) (svc ^. waiters)
 
     return $! svc
         { _operations = xs

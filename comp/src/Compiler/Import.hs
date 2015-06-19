@@ -21,11 +21,12 @@ module Compiler.Import
 import           Compiler.Types
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
+import           Data.List           (sort)
 import           Data.Maybe
 import           Data.Monoid         ((<>))
 
-operationImports :: Library -> Operation Identity Data -> [NS]
-operationImports l o =
+operationImports :: Library -> Operation Identity SData -> [NS]
+operationImports l o = sort $
       "Network.AWS.Request"
     : "Network.AWS.Response"
     : "Network.AWS.Prelude"
@@ -33,16 +34,19 @@ operationImports l o =
     : l ^. operationModules
 
 typeImports :: Library -> [NS]
-typeImports l =
+typeImports l = sort $
       "Network.AWS.Prelude"
     : signatureImport (l ^. signatureVersion)
     : l ^. typeModules
 
 waiterImports :: Library -> [NS]
-waiterImports l =
-    [ "Network.AWS.Prelude"
-    , l ^. typesNS
-    ]
+waiterImports l = sort $
+      "Network.AWS.Prelude"
+    : "Network.AWS.Waiters"
+    : l ^. typesNS
+    : map (operationNS ns . _waitOpName) (l ^.. waiters . each)
+  where
+    ns = l ^. libraryNS
 
 signatureImport :: Signature -> NS
 signatureImport = \case

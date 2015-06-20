@@ -12,7 +12,7 @@ clean:
 	stack clean
 
 define forward
-$1: $$(addprefix $1-,$$(LIBRARIES)
+$1: $$(addprefix $1-,$$(LIBRARIES))
 
 $1-%:
 	@make -C $$* $1

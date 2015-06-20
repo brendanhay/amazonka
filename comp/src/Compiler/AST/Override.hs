@@ -24,11 +24,9 @@ import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
-import           Control.Monad
 import           Control.Monad.State
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
-import qualified Data.HashSet           as Set
 import           Data.Monoid
 
 data Env = Env
@@ -42,8 +40,8 @@ makeLenses ''Env
 -- | Apply the override rules to shapes and their respective fields.
 override :: Functor f
          => Map Id Override
-         -> Service f (RefF a) (Shape Related) b
-         -> Service f (RefF a) (Shape Related) b
+         -> Service f (RefF a) (Shape Related) b c
+         -> Service f (RefF a) (Shape Related) b c
 override ovs svc = do
    svc & operations . each %~ operation
        & shapes            .~ evalState ss (Env rename replace mempty)

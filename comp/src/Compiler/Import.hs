@@ -20,10 +20,7 @@ module Compiler.Import
 
 import           Compiler.Types
 import           Control.Lens
-import qualified Data.HashMap.Strict as Map
-import           Data.List           (sort)
-import           Data.Maybe
-import           Data.Monoid         ((<>))
+import           Data.List      (sort)
 
 operationImports :: Library -> Operation Identity SData -> [NS]
 operationImports l o = sort $

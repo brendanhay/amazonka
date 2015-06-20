@@ -11,7 +11,6 @@
 {-# LANGUAGE LambdaCase             #-}
 {-# LANGUAGE MultiParamTypeClasses  #-}
 {-# LANGUAGE OverloadedStrings      #-}
-{-# LANGUAGE RankNTypes             #-}
 {-# LANGUAGE RecordWildCards        #-}
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
@@ -38,6 +37,7 @@ import           Compiler.Types.Id
 import           Compiler.Types.Map
 import           Compiler.Types.NS
 import           Compiler.Types.Orphans ()
+import           Compiler.Types.Pager
 import           Compiler.Types.URI
 import           Compiler.Types.Waiter
 import           Control.Comonad
@@ -421,26 +421,28 @@ instance ToJSON (Metadata Identity) where
 
         (e, f) = m ^. serviceError
 
-data Service f a b c = Service
+data Service f a b c d = Service
     { _metadata'     :: Metadata f
     , _documentation :: Help
     , _operations    :: Map Id (Operation f a)
     , _shapes        :: Map Id b
     , _waiters       :: Map Id c
+    , _pagers        :: Map Id d
     } deriving (Generic)
 
 makeClassy ''Service
 
-instance HasMetadata (Service f a b c) f where
+instance HasMetadata (Service f a b c d) f where
     metadata = metadata'
 
-instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
+instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) (Pager Id)) where
     parseJSON = withObject "service" $ \o -> Service
         <$> o .:  "metadata"
         <*> o .:  "documentation"
         <*> o .:  "operations"
         <*> o .:  "shapes"
-        <*> o .:? "waiters" .!= mempty
+        <*> o .:? "waiters"    .!= mempty
+        <*> o .:? "pagination" .!= mempty
 
 type Shape = Cofree ShapeF
 type Ref   = RefF (Shape Solved)

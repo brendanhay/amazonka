@@ -18,10 +18,12 @@ module Compiler.Types.Notation where
 
 import           Compiler.Types.Id
 import           Control.Applicative
+import           Control.Lens
 import           Control.Monad
 import           Data.Aeson
 import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as A
+import           Data.Bifunctor
 import           Data.Foldable        (foldl', foldr')
 import           Data.Maybe
 import           Data.Ord
@@ -38,56 +40,64 @@ import qualified Data.Text            as Text
 -- InstanceStatuses[].SystemStatus.Status
 
 data Notation a
-    = Key    a                         -- StreamDescription
-    | Index  a !Int                    -- [n]
-    | Each   a                         -- []
-    | Or     (Notation a) (Notation a) -- \||
-    | Apply  (Notation a) (Notation a)
-    | Length a !Ordering !Int
+    = Blank
+    | Key      a
+    | NonEmpty a
+    | Each     a
+    | Last     a
+    | Apply    (Notation a) (Notation a)
+    | Choice   (Notation a) (Notation a)
       deriving (Eq, Show, Functor, Foldable, Traversable)
 
+-- keys :: Traversal' (Notation a) a
+-- keys f = traverse f
+
 instance FromJSON (Notation Id) where
-    parseJSON = withText "notation" (either fail pure . parseOnly notationParser)
+    parseJSON = withText "notation" (either fail pure . parseNotation)
 
--- lastKey :: Notation a -> Maybe a
--- lastKey = listToMaybe . reverse . foldMap (:[])
+parseNotation :: Text -> Either String (Notation Id)
+parseNotation t = mappend msg `first` A.parseOnly expr1 t
+      where
+        msg = "Failed parsing index notation: "
+            ++ Text.unpack t
+            ++ ", with: "
 
-    -- Key   n      -> n
-    -- Index n _    -> n
-    -- Each  n _    -> n
-    -- Or    _ y    -> lastKey y
-    -- Apply _ y    -> lastKey y
-    -- Length n _ _ -> n
+        expr0 = length' <|> each' <|> last' <|> keyed
+        expr1 = choice  <|> apply <|> expr0
 
-notationParser :: Parser (Notation Id)
-notationParser = (expr1 <* A.endOfInput) <|> (Key . mkId <$> A.takeText)
-  where
-    expr1 = cond   <|> expr0
-    expr0 = length <|> apply <|> label
+        each' = Each <$> label <* A.string "[]"
+        last' = Last <$> label <* A.string "[-1]"
 
-    cond = Or <$> expr0 <* strip (A.string "||") <*> expr1
+        length' = NonEmpty
+            <$> (A.string "length(" *> label <* A.char ')')
+            <*  strip (A.char '>')
+            <*  strip (A.string "`0`")
 
-    apply = foldl' Apply
-        <$> (label <* A.char '.')
-        <*> A.sepBy1 label (A.char '.')
+        apply = Apply
+            <$> expr0
+            <* A.char '.'
+            <*> expr1
 
-    label = strip (index <|> each <|> key)
+        choice = Choice
+            <$> expr0
+             <* A.string "||"
+            <*> expr1
 
-    key   = Key   <$> ident
-    index = Index <$> ident <*> (A.char '[' *> num <* A.char ']')
-    each  = Each  <$> ident <*  A.string "[]"
+        keyed = Key <$> label
 
-    ident = mkId <$> A.takeWhile1 (A.notInClass "0-9[].`()|><= ")
+        label = mkId <$> strip (A.takeWhile1 delim)
 
-    length = Length
-        <$> (A.string "length(" *> ident <* A.char ')')
-        <*> strip (eq <|> gt <|> lt)
-        <*> (A.char '`' *> num <* A.char '`')
+        delim = A.notInClass "0-9[].`()|><= "
 
-    eq = A.string "==" >> return EQ
-    gt = A.char   '>'  >> return GT
-    lt = A.char   '<'  >> return LT
+        strip p = A.skipSpace *> p <* A.skipSpace
 
-    num = A.signed A.decimal
-
-    strip p = A.skipSpace *> p <* A.skipSpace
+-- instance A.ToJSON Key where
+--     toJSON = A.toJSON . go
+--       where
+--         go = \case
+--             Blank                -> "(to id)"
+--             Key    n             -> n
+--             Index  n k           -> "index "   <> n <> " " <> go k
+--             Apply  n (Index a b) -> "index ("  <> go (Apply n (Key a)) <> ") " <> go b
+--             Apply  n k           -> n <> " . " <> go k
+--             Choice n k           -> "choice (" <> go n <> ") (" <> go k <> ")"

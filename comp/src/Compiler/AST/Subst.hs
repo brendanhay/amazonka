@@ -53,8 +53,8 @@ type MemoS a = StateT (Env a) (Either Error)
 -- by either adding any empty request or response shapes,
 -- or creating a wrapper type for the request/response pointing to a
 -- potentially shared shape.
-substitute :: Service Maybe (RefF ()) (Shape Related) a
-           -> Either Error (Service Identity (RefF ()) (Shape Related) a)
+substitute :: Service Maybe (RefF ()) (Shape Related) a b
+           -> Either Error (Service Identity (RefF ()) (Shape Related) a b)
 substitute svc@Service{..} = do
     (os, e) <- runStateT (traverse operation _operations) (Env mempty _shapes)
     return $! override (e ^. overrides) $ svc

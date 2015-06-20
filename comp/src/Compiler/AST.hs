@@ -33,29 +33,28 @@ import           Control.Monad.State
 import qualified Data.HashMap.Strict   as Map
 import qualified Data.HashSet          as Set
 import           Data.Monoid
-import           Debug.Trace
 
 -- FIXME: Relations need to be updated by the solving step.
 
 rewrite :: Versions
         -> Config
-        -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)
+        -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) (Pager Id)
         -> Either Error Library
 rewrite v cfg s' = Library v cfg
     <$> (rewriteService cfg (ignore cfg (deprecate s'))
          >>= renderShapes cfg)
 
-deprecate :: Service f a b c -> Service f a b c
+deprecate :: Service f a b c d -> Service f a b c d
 deprecate = operations %~ Map.filter (not . view opDeprecated)
 
-ignore :: Config -> Service f a b c -> Service f a b c
+ignore :: Config -> Service f a b c d -> Service f a b c d
 ignore c = waiters %~ Map.filterWithKey (const . valid)
   where
     valid k = not $ Set.member k (c ^. ignoredWaiters)
 
 rewriteService :: Config
-               -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)
-               -> Either Error (Service Identity (RefF ()) (Shape Related) (Waiter Id))
+               -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) (Pager Id)
+               -> Either Error (Service Identity (RefF ()) (Shape Related) (Waiter Id) (Pager Id))
 rewriteService cfg s = do
         -- Determine which direction (input, output, or both) shapes are used.
     rs <- relations (s ^. operations) (s ^. shapes)
@@ -73,8 +72,8 @@ rewriteService cfg s = do
         >>= substitute
 
 renderShapes :: Config
-             -> Service Identity (RefF ()) (Shape Related) (Waiter Id)
-             -> Either Error (Service Identity SData SData WData)
+             -> Service Identity (RefF ()) (Shape Related) (Waiter Id) (Pager Id)
+             -> Either Error (Service Identity SData SData WData ())
 renderShapes cfg svc = do
         -- Generate unique prefixes for struct (product) members and
         -- enum (sum) branches to avoid ambiguity.
@@ -96,6 +95,7 @@ renderShapes cfg svc = do
         { _operations = xs
         , _shapes     = ys
         , _waiters    = zs
+        , _pagers     = mempty
         }
 
 type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either Error)

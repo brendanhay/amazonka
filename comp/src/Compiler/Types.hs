@@ -10,6 +10,7 @@
 {-# LANGUAGE LambdaCase             #-}
 {-# LANGUAGE MultiParamTypeClasses  #-}
 {-# LANGUAGE OverloadedStrings      #-}
+{-# LANGUAGE RankNTypes             #-}
 {-# LANGUAGE RecordWildCards        #-}
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
@@ -41,6 +42,7 @@ import           Compiler.Types.Map        as Types
 import           Compiler.Types.Notation   as Types
 import           Compiler.Types.NS         as Types
 import           Compiler.Types.Orphans    ()
+import           Compiler.Types.Pager      as Types
 import           Compiler.Types.Service    as Types
 import           Compiler.Types.URI        as Types
 import           Compiler.Types.Waiter     as Types
@@ -154,37 +156,22 @@ instance FromJSON Config where
 data Library = Library
     { _versions' :: Versions
     , _config'   :: Config
-    , _service'  :: Service Identity SData SData WData
-    } deriving (Generic)
+    , _service'  :: Service Identity SData SData WData ()
+    }
 
 makeLenses ''Library
 
 instance HasMetadata Library Identity where
     metadata = service' . metadata'
 
-instance HasService Library Identity SData SData WData where
-    service  = service'
+instance HasService Library Identity SData SData WData () where
+    service = service'
 
 instance HasConfig Library where
     config = config'
 
 instance HasVersions Library where
     versions = versions'
-
-libraryNS, typesNS, waitersNS :: Getter Library NS
-libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
-typesNS   = libraryNS . to (<> "Types")
-waitersNS = libraryNS . to (<> "Waiters")
-
-otherModules, exposedModules :: Getter Library [NS]
-otherModules   = to (\l -> l ^. operationModules <> l ^. typeModules)
-exposedModules = to f
-  where
-    f x =
-        let ns = x ^. libraryNS
-         in x ^.  typesNS
-          : x ^.  waitersNS
-          : x ^.. operations . each . to (operationNS ns . view opName)
 
 instance ToJSON Library where
     toJSON l = Object (x <> y)
@@ -209,6 +196,21 @@ instance ToJSON Library where
             , "waiters"          .= (l ^.. waiters . each)
             ]
 
+libraryNS, typesNS, waitersNS :: Getter Library NS
+libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
+typesNS   = libraryNS . to (<> "Types")
+waitersNS = libraryNS . to (<> "Waiters")
+
+otherModules, exposedModules :: Getter Library [NS]
+otherModules   = to (\l -> l ^. operationModules <> l ^. typeModules)
+exposedModules = to f
+  where
+    f x =
+        let ns = x ^. libraryNS
+         in x ^.  typesNS
+          : x ^.  waitersNS
+          : x ^.. operations . each . to (operationNS ns . view opName)
+
 data Templates = Templates
     { cabalTemplate           :: Template
     , tocTemplate             :: Template
@@ -216,6 +218,7 @@ data Templates = Templates
     , readmeTemplate          :: Template
     , exampleCabalTemplate    :: Template
     , exampleMakefileTemplate :: Template
+    , exampleStackTemplate    :: Template
     , operationTemplate       :: Template
     , typesTemplate           :: Template
     }

@@ -25,7 +25,6 @@ import           Control.Monad
 import           Data.Aeson
 import           Data.Attoparsec.Text    (Parser, parseOnly)
 import qualified Data.Attoparsec.Text    as A
-import           Data.Foldable           (foldl')
 import           Data.Ord
 import           Data.Text               (Text)
 import qualified Data.Text               as Text

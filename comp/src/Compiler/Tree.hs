@@ -72,6 +72,7 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
             [ dir "src" []
             , file (lib <-> "examples.cabal") exampleCabalTemplate
             , file "Makefile" exampleMakefileTemplate
+            , file "stack.yaml" exampleStackTemplate
             ]
         , dir "gen"
             [ dir "Network"

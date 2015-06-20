@@ -111,6 +111,25 @@ recordD ts n fs = QualConDecl noLoc [] [] $
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
+pagerD :: Decl
+pagerD = instD "AWSPager" (mkId "a")
+    [ InsDecl fun
+    ]
+  where
+    fun = sfun noLoc (ident "page") [ident "rq", ident "rs"] rhs noBinds
+    rhs = GuardedRhss [stop, other]
+
+    stop  = guard (app (var "stop") (var "True")) (var "Nothing")
+    other = guard (var "otherwise") (var "Just")
+
+    guard x = GuardedRhs noLoc [Qualifier x]
+
+-- instance AWSPager ListObjects where
+--     page rq rs
+--         | stop (rs ^. lorIsTruncated) = Nothing
+--         | otherwise = Just $ rq
+--             & loMarker .~ rs ^. lorNextMarker
+
 requestD :: HasMetadata a f
          => a
          -> HTTP Identity
@@ -517,14 +536,14 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
 
     -- FIXME: doesn't support Maybe fields currently.
     notation = \case
-        Key    f      -> mkey f
-        Each   f      -> app (var "folding") . paren $ app (var "concatOf") (key f)
-        Or     x y    -> infixApp (notation x) "||" (notation y)
-        Apply  x y    -> infixApp (notation x) "."  (notation y)
-        Length f GT 0 -> app (var "nonEmpty") (key f)
+        Key      f   -> jkey f
+        NonEmpty f   -> app (var "nonEmpty") (key f)
+        Each     f   -> app (var "folding") . paren $ app (var "concatOf") (key f)
+        Apply    x y -> infixApp (notation x) "."  (notation y)
+        Choice   x y -> infixApp (notation x) "||" (notation y)
         e             -> error "FIXME: Not implemented: notation"
       where
-        mkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
+        jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
                | otherwise       = key f
 
         key f = f ^. fieldLens . to var

@@ -159,6 +159,7 @@ main = do
             <*> load "readme.ede"
             <*> load "example/cabal.ede"
             <*> load "example/makefile.ede"
+            <*> load "example/stack.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
             <*  lift done

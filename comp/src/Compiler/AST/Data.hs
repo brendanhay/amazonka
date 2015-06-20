@@ -68,8 +68,13 @@ operationData m o = do
     (yd, ys) <- prodData m ya y
 
     is       <- requestInsts m h xr xs
+
     cls      <- pp Print $ requestD m h (xr, is) (yr, ys)
-    is'      <- Map.insert "AWSRequest" cls <$> renderInsts p xn is
+    mpage    <- pp Print $ pagerD
+
+    is' <- -- Map.insert "AWSPager" mpage .
+          Map.insert "AWSRequest" cls
+        <$> renderInsts p xn is
 
     return $! o
         { _opInput  = Identity $ Prod False xd is'

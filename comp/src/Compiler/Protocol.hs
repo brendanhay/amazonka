@@ -20,15 +20,10 @@ module Compiler.Protocol
     ) where
 
 import           Compiler.Types
-import           Control.Applicative
-import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
-import           Data.List              (nub)
 import           Data.Maybe
-import           Data.Monoid
 import           Data.Text              (Text)
-import qualified Data.Text              as Text
 import           Data.Text.Manipulate
 
 suffix :: Protocol -> Text
@@ -49,7 +44,7 @@ memberName p d n r =
     case nestedNames p d n r of
         NMap  mn e _ _ -> fromMaybe e mn
         NList mn i     -> fromMaybe i mn
-        NName n        -> n
+        NName x        -> x
 
 nestedNames :: Protocol -> Direction -> Id -> RefF (Shape a) -> Names
 nestedNames p d n r =

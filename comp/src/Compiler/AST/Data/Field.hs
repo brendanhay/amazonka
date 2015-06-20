@@ -21,12 +21,10 @@ module Compiler.AST.Data.Field where
 import           Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Applicative
-import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Function                (on)
 import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
 import           Data.List                    (findIndex, sortBy)
 import           Data.Maybe
 import           Data.Text                    (Text)

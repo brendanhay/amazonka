@@ -47,6 +47,7 @@ executable compile
         , Compiler.Types.NS
         , Compiler.Types.Notation
         , Compiler.Types.Orphans
+        , Compiler.Types.Pager
         , Compiler.Types.Service
         , Compiler.Types.URI
         , Compiler.Types.Waiter
@@ -63,7 +64,7 @@ executable compile
         , data-default-class
         , directory-tree
         , ede
-        , errors
+        , errors               == 2.*
         , formatting
         , free
         , hashable

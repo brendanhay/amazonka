@@ -4,11 +4,6 @@ DEPS      := vendor/botocore
 MODEL_DIR := model
 OUT_DIR   := ..
 
-CABAL_INSTALL_DEFARGS ?= -j \
- --disable-documentation \
- --disable-coverage \
- --enable-profiling
-
 define version =
 $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
 endef
@@ -93,22 +88,14 @@ compile: build
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
 
 build: $(MODEL_DIR)
-	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
-
-include ../share/stackage.mk
-
-deps: $(DEPS) cabal.sandbox.config # temporary cabal.config
-	cabal install $(CABAL_INSTALL_DEFARGS) --only-dependencies
+	stack build
 
 clean:
-	cabal clean
-	rm -rf $(MODEL_DIR) cabal.sandbox.config .cabal-sandbox cabal.config
+	stack clean
+	rm -rf $(MODEL_DIR)
 
 full-clean: clean
 	rm -rf $(DEPS)
-
-cabal.sandbox.config:
-	cabal sandbox init
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@

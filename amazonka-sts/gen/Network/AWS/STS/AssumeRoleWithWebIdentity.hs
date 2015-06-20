@@ -200,6 +200,11 @@ arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionN
 arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken = lens _arwwiWebIdentityToken (\ s a -> s{_arwwiWebIdentityToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssumeRoleWithWebIdentity where
         type Sv AssumeRoleWithWebIdentity = STS
         type Rs AssumeRoleWithWebIdentity =

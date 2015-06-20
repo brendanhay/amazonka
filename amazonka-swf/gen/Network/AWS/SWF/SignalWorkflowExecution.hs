@@ -111,6 +111,11 @@ sweWorkflowId = lens _sweWorkflowId (\ s a -> s{_sweWorkflowId = a});
 sweSignalName :: Lens' SignalWorkflowExecution Text
 sweSignalName = lens _sweSignalName (\ s a -> s{_sweSignalName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SignalWorkflowExecution where
         type Sv SignalWorkflowExecution = SWF
         type Rs SignalWorkflowExecution =

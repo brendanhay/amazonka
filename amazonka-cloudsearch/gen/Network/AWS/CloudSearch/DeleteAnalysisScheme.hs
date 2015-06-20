@@ -63,6 +63,11 @@ dasDomainName = lens _dasDomainName (\ s a -> s{_dasDomainName = a});
 dasAnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
 dasAnalysisSchemeName = lens _dasAnalysisSchemeName (\ s a -> s{_dasAnalysisSchemeName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteAnalysisScheme where
         type Sv DeleteAnalysisScheme = CloudSearch
         type Rs DeleteAnalysisScheme =

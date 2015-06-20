@@ -71,6 +71,11 @@ dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
 dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeNotificationConfigurations where
         type Sv DescribeNotificationConfigurations =

@@ -85,6 +85,11 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 ldMarker :: Lens' ListDomains (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDomains where
         type Sv ListDomains = Route53Domains
         type Rs ListDomains = ListDomainsResponse

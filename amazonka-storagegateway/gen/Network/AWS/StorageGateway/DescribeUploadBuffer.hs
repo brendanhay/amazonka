@@ -63,6 +63,11 @@ describeUploadBuffer pGatewayARN = DescribeUploadBuffer'{_dubGatewayARN = pGatew
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
 dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeUploadBuffer where
         type Sv DescribeUploadBuffer = StorageGateway
         type Rs DescribeUploadBuffer =

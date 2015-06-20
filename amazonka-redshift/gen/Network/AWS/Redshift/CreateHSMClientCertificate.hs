@@ -73,6 +73,11 @@ chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default;
 chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
 chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateHSMClientCertificate where
         type Sv CreateHSMClientCertificate = Redshift
         type Rs CreateHSMClientCertificate =

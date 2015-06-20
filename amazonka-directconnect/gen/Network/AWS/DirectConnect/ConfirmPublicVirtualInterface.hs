@@ -59,6 +59,11 @@ confirmPublicVirtualInterface pVirtualInterfaceId = ConfirmPublicVirtualInterfac
 conVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
 conVirtualInterfaceId = lens _conVirtualInterfaceId (\ s a -> s{_conVirtualInterfaceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ConfirmPublicVirtualInterface
          where
         type Sv ConfirmPublicVirtualInterface = DirectConnect

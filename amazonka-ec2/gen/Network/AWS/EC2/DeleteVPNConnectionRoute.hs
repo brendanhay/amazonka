@@ -62,6 +62,11 @@ dvcrVPNConnectionId = lens _dvcrVPNConnectionId (\ s a -> s{_dvcrVPNConnectionId
 dvcrDestinationCIDRBlock :: Lens' DeleteVPNConnectionRoute Text
 dvcrDestinationCIDRBlock = lens _dvcrDestinationCIDRBlock (\ s a -> s{_dvcrDestinationCIDRBlock = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVPNConnectionRoute where
         type Sv DeleteVPNConnectionRoute = EC2
         type Rs DeleteVPNConnectionRoute =

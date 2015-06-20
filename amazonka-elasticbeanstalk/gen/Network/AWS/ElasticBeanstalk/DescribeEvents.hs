@@ -140,6 +140,11 @@ deApplicationName = lens _deApplicationName (\ s a -> s{_deApplicationName = a})
 deEnvironmentId :: Lens' DescribeEvents (Maybe Text)
 deEnvironmentId = lens _deEnvironmentId (\ s a -> s{_deEnvironmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElasticBeanstalk
         type Rs DescribeEvents = DescribeEventsResponse

@@ -61,6 +61,11 @@ prpLogGroupName = lens _prpLogGroupName (\ s a -> s{_prpLogGroupName = a});
 prpRetentionInDays :: Lens' PutRetentionPolicy Int
 prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutRetentionPolicy where
         type Sv PutRetentionPolicy = CloudWatchLogs
         type Rs PutRetentionPolicy =

@@ -72,6 +72,11 @@ aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
 aiLayerIds :: Lens' AssignInstance [Text]
 aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssignInstance where
         type Sv AssignInstance = OpsWorks
         type Rs AssignInstance = AssignInstanceResponse

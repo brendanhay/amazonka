@@ -88,6 +88,11 @@ dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = 
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
 dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVTLDevices where
         type Sv DescribeVTLDevices = StorageGateway
         type Rs DescribeVTLDevices =

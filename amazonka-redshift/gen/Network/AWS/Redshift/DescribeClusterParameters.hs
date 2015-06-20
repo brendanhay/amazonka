@@ -107,6 +107,11 @@ dcp1Source = lens _dcp1Source (\ s a -> s{_dcp1Source = a});
 dcp1ParameterGroupName :: Lens' DescribeClusterParameters Text
 dcp1ParameterGroupName = lens _dcp1ParameterGroupName (\ s a -> s{_dcp1ParameterGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusterParameters where
         type Sv DescribeClusterParameters = Redshift
         type Rs DescribeClusterParameters =

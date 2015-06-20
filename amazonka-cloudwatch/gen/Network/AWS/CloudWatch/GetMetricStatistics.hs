@@ -143,6 +143,11 @@ gmsPeriod = lens _gmsPeriod (\ s a -> s{_gmsPeriod = a}) . _Nat;
 gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetMetricStatistics where
         type Sv GetMetricStatistics = CloudWatch
         type Rs GetMetricStatistics =

@@ -100,6 +100,11 @@ uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
 uesmUUID :: Lens' UpdateEventSourceMapping Text
 uesmUUID = lens _uesmUUID (\ s a -> s{_uesmUUID = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateEventSourceMapping where
         type Sv UpdateEventSourceMapping = Lambda
         type Rs UpdateEventSourceMapping =

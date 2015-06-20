@@ -53,6 +53,11 @@ deleteUser pUserName = DeleteUser'{_duUserName = pUserName};
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\ s a -> s{_duUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteUser where
         type Sv DeleteUser = IAM
         type Rs DeleteUser = DeleteUserResponse

@@ -58,6 +58,11 @@ stopStack pStackId = StopStack'{_stoStackId = pStackId};
 stoStackId :: Lens' StopStack Text
 stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StopStack where
         type Sv StopStack = OpsWorks
         type Rs StopStack = StopStackResponse

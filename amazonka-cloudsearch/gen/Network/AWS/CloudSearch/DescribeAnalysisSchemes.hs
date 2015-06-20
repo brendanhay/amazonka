@@ -76,6 +76,11 @@ descAnalysisSchemeNames = lens _descAnalysisSchemeNames (\ s a -> s{_descAnalysi
 descDomainName :: Lens' DescribeAnalysisSchemes Text
 descDomainName = lens _descDomainName (\ s a -> s{_descDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAnalysisSchemes where
         type Sv DescribeAnalysisSchemes = CloudSearch
         type Rs DescribeAnalysisSchemes =

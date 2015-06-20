@@ -77,6 +77,11 @@ ccsgCacheSubnetGroupDescription = lens _ccsgCacheSubnetGroupDescription (\ s a -
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateCacheSubnetGroup where
         type Sv CreateCacheSubnetGroup = ElastiCache
         type Rs CreateCacheSubnetGroup =

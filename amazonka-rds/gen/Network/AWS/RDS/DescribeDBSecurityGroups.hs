@@ -88,6 +88,11 @@ ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 ddbsgDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsgDBSecurityGroupName = lens _ddbsgDBSecurityGroupName (\ s a -> s{_ddbsgDBSecurityGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDBSecurityGroups where
         type Sv DescribeDBSecurityGroups = RDS
         type Rs DescribeDBSecurityGroups =

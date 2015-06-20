@@ -68,6 +68,11 @@ lisAscending = lens _lisAscending (\ s a -> s{_lisAscending = a});
 lisPageToken :: Lens' ListPresets (Maybe Text)
 lisPageToken = lens _lisPageToken (\ s a -> s{_lisPageToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListPresets where
         type Sv ListPresets = ElasticTranscoder
         type Rs ListPresets = ListPresetsResponse

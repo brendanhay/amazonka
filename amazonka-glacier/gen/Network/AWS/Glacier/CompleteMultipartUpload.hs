@@ -139,6 +139,11 @@ cmuVaultName = lens _cmuVaultName (\ s a -> s{_cmuVaultName = a});
 cmuUploadId :: Lens' CompleteMultipartUpload Text
 cmuUploadId = lens _cmuUploadId (\ s a -> s{_cmuUploadId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CompleteMultipartUpload where
         type Sv CompleteMultipartUpload = Glacier
         type Rs CompleteMultipartUpload =

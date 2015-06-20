@@ -67,6 +67,11 @@ dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeContainerInstances where
         type Sv DescribeContainerInstances = ECS
         type Rs DescribeContainerInstances =

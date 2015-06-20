@@ -99,6 +99,11 @@ larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
 larpRoleName :: Lens' ListAttachedRolePolicies Text
 larpRoleName = lens _larpRoleName (\ s a -> s{_larpRoleName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListAttachedRolePolicies where
         type Sv ListAttachedRolePolicies = IAM
         type Rs ListAttachedRolePolicies =

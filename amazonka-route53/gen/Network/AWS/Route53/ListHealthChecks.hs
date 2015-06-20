@@ -77,6 +77,11 @@ lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListHealthChecks where
         type Sv ListHealthChecks = Route53
         type Rs ListHealthChecks = ListHealthChecksResponse

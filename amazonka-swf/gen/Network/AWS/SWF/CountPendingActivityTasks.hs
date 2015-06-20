@@ -85,6 +85,11 @@ cpatDomain = lens _cpatDomain (\ s a -> s{_cpatDomain = a});
 cpatTaskList :: Lens' CountPendingActivityTasks TaskList
 cpatTaskList = lens _cpatTaskList (\ s a -> s{_cpatTaskList = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CountPendingActivityTasks where
         type Sv CountPendingActivityTasks = SWF
         type Rs CountPendingActivityTasks = PendingTaskCount

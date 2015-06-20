@@ -78,6 +78,11 @@ apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
 apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ApplyPendingMaintenanceAction
          where
         type Sv ApplyPendingMaintenanceAction = RDS

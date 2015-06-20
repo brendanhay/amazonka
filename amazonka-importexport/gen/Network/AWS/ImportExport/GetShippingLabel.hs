@@ -133,6 +133,11 @@ gslStreet1 = lens _gslStreet1 (\ s a -> s{_gslStreet1 = a});
 gslJobIds :: Lens' GetShippingLabel [Text]
 gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetShippingLabel where
         type Sv GetShippingLabel = ImportExport
         type Rs GetShippingLabel = GetShippingLabelResponse

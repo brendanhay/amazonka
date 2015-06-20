@@ -85,6 +85,11 @@ getDomainDetail pDomainName = GetDomainDetail'{_gddDomainName = pDomainName};
 gddDomainName :: Lens' GetDomainDetail Text
 gddDomainName = lens _gddDomainName (\ s a -> s{_gddDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDomainDetail where
         type Sv GetDomainDetail = Route53Domains
         type Rs GetDomainDetail = GetDomainDetailResponse

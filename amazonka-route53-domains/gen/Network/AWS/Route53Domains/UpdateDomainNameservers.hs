@@ -92,6 +92,11 @@ udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateDomainNameservers where
         type Sv UpdateDomainNameservers = Route53Domains
         type Rs UpdateDomainNameservers =

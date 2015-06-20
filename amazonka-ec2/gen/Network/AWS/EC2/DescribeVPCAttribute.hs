@@ -74,6 +74,11 @@ dvpcaDryRun = lens _dvpcaDryRun (\ s a -> s{_dvpcaDryRun = a});
 dvpcaVPCId :: Lens' DescribeVPCAttribute Text
 dvpcaVPCId = lens _dvpcaVPCId (\ s a -> s{_dvpcaVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVPCAttribute where
         type Sv DescribeVPCAttribute = EC2
         type Rs DescribeVPCAttribute =

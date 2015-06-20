@@ -63,6 +63,11 @@ getDataRetrievalPolicy pAccountId = GetDataRetrievalPolicy'{_gdrpAccountId = pAc
 gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
 gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDataRetrievalPolicy where
         type Sv GetDataRetrievalPolicy = Glacier
         type Rs GetDataRetrievalPolicy =

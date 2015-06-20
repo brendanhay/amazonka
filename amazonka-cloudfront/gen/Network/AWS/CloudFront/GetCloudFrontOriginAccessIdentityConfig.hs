@@ -55,6 +55,11 @@ getCloudFrontOriginAccessIdentityConfig pId = GetCloudFrontOriginAccessIdentityC
 gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
 gcfoaicId = lens _gcfoaicId (\ s a -> s{_gcfoaicId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          GetCloudFrontOriginAccessIdentityConfig where
         type Sv GetCloudFrontOriginAccessIdentityConfig =

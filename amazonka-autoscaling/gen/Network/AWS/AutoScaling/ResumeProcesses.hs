@@ -81,6 +81,11 @@ rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = 
 rpAutoScalingGroupName :: Lens' ResumeProcesses Text
 rpAutoScalingGroupName = lens _rpAutoScalingGroupName (\ s a -> s{_rpAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResumeProcesses where
         type Sv ResumeProcesses = AutoScaling
         type Rs ResumeProcesses = ResumeProcessesResponse

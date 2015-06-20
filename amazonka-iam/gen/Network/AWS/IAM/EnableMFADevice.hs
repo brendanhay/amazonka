@@ -76,6 +76,11 @@ emdAuthenticationCode1 = lens _emdAuthenticationCode1 (\ s a -> s{_emdAuthentica
 emdAuthenticationCode2 :: Lens' EnableMFADevice Text
 emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthenticationCode2 = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableMFADevice where
         type Sv EnableMFADevice = IAM
         type Rs EnableMFADevice = EnableMFADeviceResponse

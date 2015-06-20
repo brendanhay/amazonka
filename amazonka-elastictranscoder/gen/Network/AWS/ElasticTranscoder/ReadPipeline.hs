@@ -55,6 +55,11 @@ readPipeline pId = ReadPipeline'{_reaId = pId};
 reaId :: Lens' ReadPipeline Text
 reaId = lens _reaId (\ s a -> s{_reaId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ReadPipeline where
         type Sv ReadPipeline = ElasticTranscoder
         type Rs ReadPipeline = ReadPipelineResponse

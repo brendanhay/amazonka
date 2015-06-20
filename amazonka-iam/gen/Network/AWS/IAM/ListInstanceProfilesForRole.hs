@@ -83,6 +83,11 @@ lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListInstanceProfilesForRole where
         type Sv ListInstanceProfilesForRole = IAM
         type Rs ListInstanceProfilesForRole =

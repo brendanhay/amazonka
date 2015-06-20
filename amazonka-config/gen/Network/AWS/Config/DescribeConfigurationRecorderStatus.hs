@@ -60,6 +60,11 @@ describeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrs
 dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
 dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeConfigurationRecorderStatus where
         type Sv DescribeConfigurationRecorderStatus = Config

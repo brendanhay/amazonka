@@ -94,6 +94,11 @@ prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
 prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PurchaseReservedInstancesOffering
          where
         type Sv PurchaseReservedInstancesOffering = EC2

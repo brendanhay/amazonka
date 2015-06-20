@@ -65,6 +65,11 @@ ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
 ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = Route53
         type Rs ListTagsForResource =

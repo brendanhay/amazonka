@@ -60,6 +60,11 @@ rtLoadBalancerNames = lens _rtLoadBalancerNames (\ s a -> s{_rtLoadBalancerNames
 rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = ELB
         type Rs RemoveTags = RemoveTagsResponse

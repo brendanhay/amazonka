@@ -72,6 +72,11 @@ dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
 dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLaunchConfigurations
          where
         type Sv DescribeLaunchConfigurations = AutoScaling

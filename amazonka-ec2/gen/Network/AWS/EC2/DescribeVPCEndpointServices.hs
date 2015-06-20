@@ -79,6 +79,11 @@ dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a});
 dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
 dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVPCEndpointServices where
         type Sv DescribeVPCEndpointServices = EC2
         type Rs DescribeVPCEndpointServices =

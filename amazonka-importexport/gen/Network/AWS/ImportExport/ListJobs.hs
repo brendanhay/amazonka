@@ -73,6 +73,11 @@ ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 ljMaxJobs :: Lens' ListJobs (Maybe Int)
 ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListJobs where
         type Sv ListJobs = ImportExport
         type Rs ListJobs = ListJobsResponse

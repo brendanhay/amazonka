@@ -138,6 +138,11 @@ uhcPort = lens _uhcPort (\ s a -> s{_uhcPort = a}) . mapping _Nat;
 uhcHealthCheckId :: Lens' UpdateHealthCheck Text
 uhcHealthCheckId = lens _uhcHealthCheckId (\ s a -> s{_uhcHealthCheckId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateHealthCheck where
         type Sv UpdateHealthCheck = Route53
         type Rs UpdateHealthCheck = UpdateHealthCheckResponse

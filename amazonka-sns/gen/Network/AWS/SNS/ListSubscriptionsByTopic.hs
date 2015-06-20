@@ -66,6 +66,11 @@ lsbtNextToken = lens _lsbtNextToken (\ s a -> s{_lsbtNextToken = a});
 lsbtTopicARN :: Lens' ListSubscriptionsByTopic Text
 lsbtTopicARN = lens _lsbtTopicARN (\ s a -> s{_lsbtTopicARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListSubscriptionsByTopic where
         type Sv ListSubscriptionsByTopic = SNS
         type Rs ListSubscriptionsByTopic =

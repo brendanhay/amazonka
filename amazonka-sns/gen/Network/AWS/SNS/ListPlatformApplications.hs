@@ -65,6 +65,11 @@ listPlatformApplications = ListPlatformApplications'{_lpaNextToken = Nothing};
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListPlatformApplications where
         type Sv ListPlatformApplications = SNS
         type Rs ListPlatformApplications =

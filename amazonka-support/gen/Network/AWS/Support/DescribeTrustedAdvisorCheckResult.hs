@@ -80,6 +80,11 @@ dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
 dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
 dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTrustedAdvisorCheckResult
          where
         type Sv DescribeTrustedAdvisorCheckResult = Support

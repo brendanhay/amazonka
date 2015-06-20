@@ -57,6 +57,11 @@ deleteIdentities pIdentityIdsToDelete = DeleteIdentities'{_diIdentityIdsToDelete
 diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
 diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsToDelete = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteIdentities where
         type Sv DeleteIdentities = CognitoIdentity
         type Rs DeleteIdentities = DeleteIdentitiesResponse

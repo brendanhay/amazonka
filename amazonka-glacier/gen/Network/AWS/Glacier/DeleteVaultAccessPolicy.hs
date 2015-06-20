@@ -72,6 +72,11 @@ dvapAccountId = lens _dvapAccountId (\ s a -> s{_dvapAccountId = a});
 dvapVaultName :: Lens' DeleteVaultAccessPolicy Text
 dvapVaultName = lens _dvapVaultName (\ s a -> s{_dvapVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVaultAccessPolicy where
         type Sv DeleteVaultAccessPolicy = Glacier
         type Rs DeleteVaultAccessPolicy =

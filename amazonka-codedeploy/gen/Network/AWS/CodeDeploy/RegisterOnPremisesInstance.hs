@@ -59,6 +59,11 @@ ropiInstanceName = lens _ropiInstanceName (\ s a -> s{_ropiInstanceName = a});
 ropiIamUserARN :: Lens' RegisterOnPremisesInstance Text
 ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterOnPremisesInstance where
         type Sv RegisterOnPremisesInstance = CodeDeploy
         type Rs RegisterOnPremisesInstance =

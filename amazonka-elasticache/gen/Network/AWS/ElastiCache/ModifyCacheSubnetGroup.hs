@@ -75,6 +75,11 @@ mcsgCacheSubnetGroupDescription = lens _mcsgCacheSubnetGroupDescription (\ s a -
 mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName = lens _mcsgCacheSubnetGroupName (\ s a -> s{_mcsgCacheSubnetGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyCacheSubnetGroup where
         type Sv ModifyCacheSubnetGroup = ElastiCache
         type Rs ModifyCacheSubnetGroup =

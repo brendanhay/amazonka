@@ -78,6 +78,11 @@ dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 dseStackName :: Lens' DescribeStackEvents (Maybe Text)
 dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStackEvents where
         type Sv DescribeStackEvents = CloudFormation
         type Rs DescribeStackEvents =

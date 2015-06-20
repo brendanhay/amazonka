@@ -72,6 +72,11 @@ aigInternetGatewayId = lens _aigInternetGatewayId (\ s a -> s{_aigInternetGatewa
 aigVPCId :: Lens' AttachInternetGateway Text
 aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachInternetGateway where
         type Sv AttachInternetGateway = EC2
         type Rs AttachInternetGateway =

@@ -57,6 +57,11 @@ describeClusters = DescribeClusters'{_dcClusters = Nothing};
 dcClusters :: Lens' DescribeClusters [Text]
 dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = ECS
         type Rs DescribeClusters = DescribeClustersResponse

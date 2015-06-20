@@ -58,6 +58,11 @@ listTopics = ListTopics'{_ltNextToken = Nothing};
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListTopics where
         type Sv ListTopics = SNS
         type Rs ListTopics = ListTopicsResponse

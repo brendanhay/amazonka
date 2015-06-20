@@ -64,6 +64,11 @@ dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default;
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
 dihLoadBalancerName = lens _dihLoadBalancerName (\ s a -> s{_dihLoadBalancerName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeInstanceHealth where
         type Sv DescribeInstanceHealth = ELB
         type Rs DescribeInstanceHealth =

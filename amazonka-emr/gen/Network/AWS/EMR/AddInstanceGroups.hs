@@ -62,6 +62,11 @@ aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a})
 aigJobFlowId :: Lens' AddInstanceGroups Text
 aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddInstanceGroups where
         type Sv AddInstanceGroups = EMR
         type Rs AddInstanceGroups = AddInstanceGroupsResponse

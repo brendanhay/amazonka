@@ -191,6 +191,11 @@ lcweMaximumPageSize = lens _lcweMaximumPageSize (\ s a -> s{_lcweMaximumPageSize
 lcweDomain :: Lens' ListClosedWorkflowExecutions Text
 lcweDomain = lens _lcweDomain (\ s a -> s{_lcweDomain = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListClosedWorkflowExecutions
          where
         type Sv ListClosedWorkflowExecutions = SWF

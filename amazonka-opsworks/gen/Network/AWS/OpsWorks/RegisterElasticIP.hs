@@ -71,6 +71,11 @@ reiElasticIP = lens _reiElasticIP (\ s a -> s{_reiElasticIP = a});
 reiStackId :: Lens' RegisterElasticIP Text
 reiStackId = lens _reiStackId (\ s a -> s{_reiStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterElasticIP where
         type Sv RegisterElasticIP = OpsWorks
         type Rs RegisterElasticIP = RegisterElasticIPResponse

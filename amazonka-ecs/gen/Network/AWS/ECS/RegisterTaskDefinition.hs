@@ -79,6 +79,11 @@ rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
 rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
 rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterTaskDefinition where
         type Sv RegisterTaskDefinition = ECS
         type Rs RegisterTaskDefinition =

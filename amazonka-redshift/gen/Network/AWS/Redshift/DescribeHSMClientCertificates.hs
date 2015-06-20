@@ -123,6 +123,11 @@ dhccMaxRecords = lens _dhccMaxRecords (\ s a -> s{_dhccMaxRecords = a});
 dhccMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
 dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeHSMClientCertificates
          where
         type Sv DescribeHSMClientCertificates = Redshift

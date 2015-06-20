@@ -72,6 +72,11 @@ sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
 sdpvVersionId :: Lens' SetDefaultPolicyVersion Text
 sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetDefaultPolicyVersion where
         type Sv SetDefaultPolicyVersion = IAM
         type Rs SetDefaultPolicyVersion =

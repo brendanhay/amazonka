@@ -111,6 +111,11 @@ teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a})
 teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest TerminateEnvironment where
         type Sv TerminateEnvironment = ElasticBeanstalk
         type Rs TerminateEnvironment = EnvironmentDescription

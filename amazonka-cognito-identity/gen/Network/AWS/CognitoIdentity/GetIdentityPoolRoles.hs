@@ -57,6 +57,11 @@ getIdentityPoolRoles pIdentityPoolId = GetIdentityPoolRoles'{_giprIdentityPoolId
 giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
 giprIdentityPoolId = lens _giprIdentityPoolId (\ s a -> s{_giprIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetIdentityPoolRoles where
         type Sv GetIdentityPoolRoles = CognitoIdentity
         type Rs GetIdentityPoolRoles =

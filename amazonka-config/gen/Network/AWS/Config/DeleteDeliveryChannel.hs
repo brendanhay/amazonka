@@ -57,6 +57,11 @@ deleteDeliveryChannel pDeliveryChannelName = DeleteDeliveryChannel'{_ddcDelivery
 ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
 ddcDeliveryChannelName = lens _ddcDeliveryChannelName (\ s a -> s{_ddcDeliveryChannelName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDeliveryChannel where
         type Sv DeleteDeliveryChannel = Config
         type Rs DeleteDeliveryChannel =

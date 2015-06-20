@@ -84,6 +84,11 @@ lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
 lhzMarker :: Lens' ListHostedZones (Maybe Text)
 lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListHostedZones where
         type Sv ListHostedZones = Route53
         type Rs ListHostedZones = ListHostedZonesResponse

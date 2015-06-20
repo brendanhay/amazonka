@@ -60,6 +60,11 @@ getHostedZone pId = GetHostedZone'{_ghzId = pId};
 ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetHostedZone where
         type Sv GetHostedZone = Route53
         type Rs GetHostedZone = GetHostedZoneResponse

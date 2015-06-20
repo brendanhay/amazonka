@@ -73,6 +73,11 @@ prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
 prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PurchaseReservedNodeOffering
          where
         type Sv PurchaseReservedNodeOffering = Redshift

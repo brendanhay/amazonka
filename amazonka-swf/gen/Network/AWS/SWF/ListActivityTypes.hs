@@ -127,6 +127,11 @@ latDomain = lens _latDomain (\ s a -> s{_latDomain = a});
 latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus = lens _latRegistrationStatus (\ s a -> s{_latRegistrationStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListActivityTypes where
         type Sv ListActivityTypes = SWF
         type Rs ListActivityTypes = ListActivityTypesResponse

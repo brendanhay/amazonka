@@ -56,6 +56,11 @@ deletePipeline pId = DeletePipeline'{_delId = pId};
 delId :: Lens' DeletePipeline Text
 delId = lens _delId (\ s a -> s{_delId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = ElasticTranscoder
         type Rs DeletePipeline = DeletePipelineResponse

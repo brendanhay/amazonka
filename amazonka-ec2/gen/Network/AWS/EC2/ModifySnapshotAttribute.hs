@@ -107,6 +107,11 @@ msaDryRun = lens _msaDryRun (\ s a -> s{_msaDryRun = a});
 msaSnapshotId :: Lens' ModifySnapshotAttribute Text
 msaSnapshotId = lens _msaSnapshotId (\ s a -> s{_msaSnapshotId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifySnapshotAttribute where
         type Sv ModifySnapshotAttribute = EC2
         type Rs ModifySnapshotAttribute =

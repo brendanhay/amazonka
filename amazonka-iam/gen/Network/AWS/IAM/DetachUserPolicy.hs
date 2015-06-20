@@ -65,6 +65,11 @@ detUserName = lens _detUserName (\ s a -> s{_detUserName = a});
 detPolicyARN :: Lens' DetachUserPolicy Text
 detPolicyARN = lens _detPolicyARN (\ s a -> s{_detPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachUserPolicy where
         type Sv DetachUserPolicy = IAM
         type Rs DetachUserPolicy = DetachUserPolicyResponse

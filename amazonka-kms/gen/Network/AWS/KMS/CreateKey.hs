@@ -76,6 +76,11 @@ ckPolicy = lens _ckPolicy (\ s a -> s{_ckPolicy = a});
 ckDescription :: Lens' CreateKey (Maybe Text)
 ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateKey where
         type Sv CreateKey = KMS
         type Rs CreateKey = CreateKeyResponse

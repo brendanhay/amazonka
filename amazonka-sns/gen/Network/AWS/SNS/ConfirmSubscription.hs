@@ -75,6 +75,11 @@ csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a});
 csToken :: Lens' ConfirmSubscription Text
 csToken = lens _csToken (\ s a -> s{_csToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ConfirmSubscription where
         type Sv ConfirmSubscription = SNS
         type Rs ConfirmSubscription =

@@ -61,6 +61,11 @@ describeStackProvisioningParameters pStackId = DescribeStackProvisioningParamete
 dsppStackId :: Lens' DescribeStackProvisioningParameters Text
 dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeStackProvisioningParameters where
         type Sv DescribeStackProvisioningParameters =

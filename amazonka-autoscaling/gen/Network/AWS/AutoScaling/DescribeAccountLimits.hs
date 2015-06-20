@@ -49,6 +49,11 @@ data DescribeAccountLimits = DescribeAccountLimits' deriving (Eq, Read, Show)
 describeAccountLimits :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAccountLimits where
         type Sv DescribeAccountLimits = AutoScaling
         type Rs DescribeAccountLimits =

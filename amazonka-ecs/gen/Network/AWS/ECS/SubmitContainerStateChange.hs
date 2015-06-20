@@ -101,6 +101,11 @@ scscExitCode = lens _scscExitCode (\ s a -> s{_scscExitCode = a});
 scscTask :: Lens' SubmitContainerStateChange (Maybe Text)
 scscTask = lens _scscTask (\ s a -> s{_scscTask = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SubmitContainerStateChange where
         type Sv SubmitContainerStateChange = ECS
         type Rs SubmitContainerStateChange =

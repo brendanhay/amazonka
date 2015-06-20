@@ -97,6 +97,11 @@ allOwnerAccount = lens _allOwnerAccount (\ s a -> s{_allOwnerAccount = a});
 allNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
 allNewPublicVirtualInterfaceAllocation = lens _allNewPublicVirtualInterfaceAllocation (\ s a -> s{_allNewPublicVirtualInterfaceAllocation = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AllocatePublicVirtualInterface
          where
         type Sv AllocatePublicVirtualInterface =

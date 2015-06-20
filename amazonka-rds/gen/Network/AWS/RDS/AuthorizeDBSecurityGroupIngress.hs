@@ -106,6 +106,11 @@ adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2Sec
 adsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
 adsgiDBSecurityGroupName = lens _adsgiDBSecurityGroupName (\ s a -> s{_adsgiDBSecurityGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AuthorizeDBSecurityGroupIngress
          where
         type Sv AuthorizeDBSecurityGroupIngress = RDS

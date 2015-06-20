@@ -64,6 +64,11 @@ lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
 lbaClusterId :: Lens' ListBootstrapActions Text
 lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListBootstrapActions where
         type Sv ListBootstrapActions = EMR
         type Rs ListBootstrapActions =

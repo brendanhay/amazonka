@@ -73,6 +73,11 @@ ccpgCacheParameterGroupFamily = lens _ccpgCacheParameterGroupFamily (\ s a -> s{
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateCacheParameterGroup where
         type Sv CreateCacheParameterGroup = ElastiCache
         type Rs CreateCacheParameterGroup =

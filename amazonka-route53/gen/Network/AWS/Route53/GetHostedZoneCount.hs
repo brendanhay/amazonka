@@ -45,6 +45,11 @@ data GetHostedZoneCount = GetHostedZoneCount' deriving (Eq, Read, Show)
 getHostedZoneCount :: GetHostedZoneCount
 getHostedZoneCount = GetHostedZoneCount';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetHostedZoneCount where
         type Sv GetHostedZoneCount = Route53
         type Rs GetHostedZoneCount =

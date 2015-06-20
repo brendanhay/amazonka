@@ -91,6 +91,11 @@ cvAccountId = lens _cvAccountId (\ s a -> s{_cvAccountId = a});
 cvVaultName :: Lens' CreateVault Text
 cvVaultName = lens _cvVaultName (\ s a -> s{_cvVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateVault where
         type Sv CreateVault = Glacier
         type Rs CreateVault = CreateVaultResponse

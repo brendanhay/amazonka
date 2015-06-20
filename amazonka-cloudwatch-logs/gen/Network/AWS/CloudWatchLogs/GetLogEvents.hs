@@ -113,6 +113,11 @@ gleLogGroupName = lens _gleLogGroupName (\ s a -> s{_gleLogGroupName = a});
 gleLogStreamName :: Lens' GetLogEvents Text
 gleLogStreamName = lens _gleLogStreamName (\ s a -> s{_gleLogStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetLogEvents where
         type Sv GetLogEvents = CloudWatchLogs
         type Rs GetLogEvents = GetLogEventsResponse

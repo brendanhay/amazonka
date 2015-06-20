@@ -81,6 +81,11 @@ ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
 ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ChangeTagsForResource where
         type Sv ChangeTagsForResource = Route53
         type Rs ChangeTagsForResource =

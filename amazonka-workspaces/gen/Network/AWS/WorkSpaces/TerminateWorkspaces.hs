@@ -64,6 +64,11 @@ terminateWorkspaces pTerminateWorkspaceRequests = TerminateWorkspaces'{_twTermin
 twTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
 twTerminateWorkspaceRequests = lens _twTerminateWorkspaceRequests (\ s a -> s{_twTerminateWorkspaceRequests = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest TerminateWorkspaces where
         type Sv TerminateWorkspaces = WorkSpaces
         type Rs TerminateWorkspaces =

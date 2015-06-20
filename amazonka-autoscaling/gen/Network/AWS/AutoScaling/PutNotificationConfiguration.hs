@@ -77,6 +77,11 @@ pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a});
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutNotificationConfiguration
          where
         type Sv PutNotificationConfiguration = AutoScaling

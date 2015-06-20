@@ -78,6 +78,11 @@ rmdAuthenticationCode1 = lens _rmdAuthenticationCode1 (\ s a -> s{_rmdAuthentica
 rmdAuthenticationCode2 :: Lens' ResyncMFADevice Text
 rmdAuthenticationCode2 = lens _rmdAuthenticationCode2 (\ s a -> s{_rmdAuthenticationCode2 = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResyncMFADevice where
         type Sv ResyncMFADevice = IAM
         type Rs ResyncMFADevice = ResyncMFADeviceResponse

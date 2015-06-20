@@ -87,6 +87,11 @@ dweDomain = lens _dweDomain (\ s a -> s{_dweDomain = a});
 dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
 dweExecution = lens _dweExecution (\ s a -> s{_dweExecution = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeWorkflowExecution where
         type Sv DescribeWorkflowExecution = SWF
         type Rs DescribeWorkflowExecution =

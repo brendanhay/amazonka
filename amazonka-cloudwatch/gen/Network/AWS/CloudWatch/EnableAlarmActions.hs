@@ -52,6 +52,11 @@ enableAlarmActions = EnableAlarmActions'{_eaaAlarmNames = mempty};
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
 eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableAlarmActions where
         type Sv EnableAlarmActions = CloudWatch
         type Rs EnableAlarmActions =

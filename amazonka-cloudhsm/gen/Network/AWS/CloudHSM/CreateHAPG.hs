@@ -56,6 +56,11 @@ createHAPG pLabel = CreateHAPG'{_chLabel = pLabel};
 chLabel :: Lens' CreateHAPG Text
 chLabel = lens _chLabel (\ s a -> s{_chLabel = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateHAPG where
         type Sv CreateHAPG = CloudHSM
         type Rs CreateHAPG = CreateHAPGResponse

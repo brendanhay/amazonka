@@ -103,6 +103,11 @@ crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = 
 crilClientToken :: Lens' CreateReservedInstancesListing Text
 crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateReservedInstancesListing
          where
         type Sv CreateReservedInstancesListing = EC2

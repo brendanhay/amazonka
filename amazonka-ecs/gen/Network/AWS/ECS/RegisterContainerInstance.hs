@@ -95,6 +95,11 @@ rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 rciTotalResources :: Lens' RegisterContainerInstance [Resource]
 rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterContainerInstance where
         type Sv RegisterContainerInstance = ECS
         type Rs RegisterContainerInstance =

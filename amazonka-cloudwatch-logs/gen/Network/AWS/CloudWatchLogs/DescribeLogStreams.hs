@@ -109,6 +109,11 @@ desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . mapping _Nat;
 desLogGroupName :: Lens' DescribeLogStreams Text
 desLogGroupName = lens _desLogGroupName (\ s a -> s{_desLogGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLogStreams where
         type Sv DescribeLogStreams = CloudWatchLogs
         type Rs DescribeLogStreams =

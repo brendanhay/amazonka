@@ -90,6 +90,11 @@ rgGrantId = lens _rgGrantId (\ s a -> s{_rgGrantId = a});
 rgGrantToken :: Lens' RetireGrant (Maybe Text)
 rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RetireGrant where
         type Sv RetireGrant = KMS
         type Rs RetireGrant = RetireGrantResponse

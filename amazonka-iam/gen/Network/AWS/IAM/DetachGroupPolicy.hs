@@ -66,6 +66,11 @@ dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
 dgpPolicyARN :: Lens' DetachGroupPolicy Text
 dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachGroupPolicy where
         type Sv DetachGroupPolicy = IAM
         type Rs DetachGroupPolicy = DetachGroupPolicyResponse

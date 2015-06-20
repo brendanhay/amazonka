@@ -112,6 +112,11 @@ cs1Description = lens _cs1Description (\ s a -> s{_cs1Description = a});
 cs1VolumeId :: Lens' CreateSnapshot Text
 cs1VolumeId = lens _cs1VolumeId (\ s a -> s{_cs1VolumeId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = EC2
         type Rs CreateSnapshot = Snapshot

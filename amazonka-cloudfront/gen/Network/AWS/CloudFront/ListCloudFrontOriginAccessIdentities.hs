@@ -66,6 +66,11 @@ lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where
         type Sv ListCloudFrontOriginAccessIdentities =

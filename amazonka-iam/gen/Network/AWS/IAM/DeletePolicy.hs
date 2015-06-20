@@ -73,6 +73,11 @@ deletePolicy pPolicyARN = DeletePolicy'{_dpPolicyARN = pPolicyARN};
 dpPolicyARN :: Lens' DeletePolicy Text
 dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeletePolicy where
         type Sv DeletePolicy = IAM
         type Rs DeletePolicy = DeletePolicyResponse

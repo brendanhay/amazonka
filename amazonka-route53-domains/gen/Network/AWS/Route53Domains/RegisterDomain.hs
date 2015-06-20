@@ -226,6 +226,11 @@ rdRegistrantContact = lens _rdRegistrantContact (\ s a -> s{_rdRegistrantContact
 rdTechContact :: Lens' RegisterDomain ContactDetail
 rdTechContact = lens _rdTechContact (\ s a -> s{_rdTechContact = a}) . _Sensitive;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterDomain where
         type Sv RegisterDomain = Route53Domains
         type Rs RegisterDomain = RegisterDomainResponse

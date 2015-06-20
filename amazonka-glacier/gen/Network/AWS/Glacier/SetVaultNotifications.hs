@@ -104,6 +104,11 @@ svnAccountId = lens _svnAccountId (\ s a -> s{_svnAccountId = a});
 svnVaultName :: Lens' SetVaultNotifications Text
 svnVaultName = lens _svnVaultName (\ s a -> s{_svnVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetVaultNotifications where
         type Sv SetVaultNotifications = Glacier
         type Rs SetVaultNotifications =

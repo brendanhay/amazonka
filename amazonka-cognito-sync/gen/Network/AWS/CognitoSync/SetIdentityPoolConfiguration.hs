@@ -72,6 +72,11 @@ sipcPushSync = lens _sipcPushSync (\ s a -> s{_sipcPushSync = a});
 sipcIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
 sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetIdentityPoolConfiguration
          where
         type Sv SetIdentityPoolConfiguration = CognitoSync

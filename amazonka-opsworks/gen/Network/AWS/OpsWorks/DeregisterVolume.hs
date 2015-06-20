@@ -62,6 +62,11 @@ deregisterVolume pVolumeId = DeregisterVolume'{_dvVolumeId = pVolumeId};
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeregisterVolume where
         type Sv DeregisterVolume = OpsWorks
         type Rs DeregisterVolume = DeregisterVolumeResponse

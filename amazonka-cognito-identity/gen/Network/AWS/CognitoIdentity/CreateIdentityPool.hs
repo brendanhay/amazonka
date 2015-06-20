@@ -97,6 +97,11 @@ cipIdentityPoolName = lens _cipIdentityPoolName (\ s a -> s{_cipIdentityPoolName
 cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
 cipAllowUnauthenticatedIdentities = lens _cipAllowUnauthenticatedIdentities (\ s a -> s{_cipAllowUnauthenticatedIdentities = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateIdentityPool where
         type Sv CreateIdentityPool = CognitoIdentity
         type Rs CreateIdentityPool = IdentityPool

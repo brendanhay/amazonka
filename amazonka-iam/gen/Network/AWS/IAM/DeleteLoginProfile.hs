@@ -60,6 +60,11 @@ deleteLoginProfile pUserName = DeleteLoginProfile'{_dlpUserName = pUserName};
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\ s a -> s{_dlpUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteLoginProfile where
         type Sv DeleteLoginProfile = IAM
         type Rs DeleteLoginProfile =

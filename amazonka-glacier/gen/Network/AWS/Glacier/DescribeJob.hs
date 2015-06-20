@@ -110,6 +110,11 @@ djVaultName = lens _djVaultName (\ s a -> s{_djVaultName = a});
 djJobId :: Lens' DescribeJob Text
 djJobId = lens _djJobId (\ s a -> s{_djJobId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeJob where
         type Sv DescribeJob = Glacier
         type Rs DescribeJob = GlacierJobDescription

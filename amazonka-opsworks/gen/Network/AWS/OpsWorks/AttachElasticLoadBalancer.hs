@@ -73,6 +73,11 @@ aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\ s a -> s{_ael
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachElasticLoadBalancer where
         type Sv AttachElasticLoadBalancer = OpsWorks
         type Rs AttachElasticLoadBalancer =

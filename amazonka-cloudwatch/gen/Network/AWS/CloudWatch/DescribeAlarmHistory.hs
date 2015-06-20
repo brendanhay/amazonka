@@ -93,6 +93,11 @@ dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a});
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
 dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAlarmHistory where
         type Sv DescribeAlarmHistory = CloudWatch
         type Rs DescribeAlarmHistory =

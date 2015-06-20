@@ -55,6 +55,11 @@ getDeploymentConfig pDeploymentConfigName = GetDeploymentConfig'{_gdcDeploymentC
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDeploymentConfig where
         type Sv GetDeploymentConfig = CodeDeploy
         type Rs GetDeploymentConfig =

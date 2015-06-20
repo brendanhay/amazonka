@@ -71,6 +71,11 @@ digInternetGatewayId = lens _digInternetGatewayId (\ s a -> s{_digInternetGatewa
 digVPCId :: Lens' DetachInternetGateway Text
 digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachInternetGateway where
         type Sv DetachInternetGateway = EC2
         type Rs DetachInternetGateway =

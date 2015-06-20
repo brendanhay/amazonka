@@ -62,6 +62,11 @@ gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = 
 gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
 gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\ s a -> s{_gdgDeploymentGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDeploymentGroup where
         type Sv GetDeploymentGroup = CodeDeploy
         type Rs GetDeploymentGroup =

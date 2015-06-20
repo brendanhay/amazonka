@@ -62,6 +62,11 @@ ligMarker = lens _ligMarker (\ s a -> s{_ligMarker = a});
 ligClusterId :: Lens' ListInstanceGroups Text
 ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListInstanceGroups where
         type Sv ListInstanceGroups = EMR
         type Rs ListInstanceGroups =

@@ -109,6 +109,11 @@ urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a});
 urSyncSessionToken :: Lens' UpdateRecords Text
 urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateRecords where
         type Sv UpdateRecords = CognitoSync
         type Rs UpdateRecords = UpdateRecordsResponse

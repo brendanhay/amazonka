@@ -115,6 +115,11 @@ avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachVolume where
         type Sv AttachVolume = EC2
         type Rs AttachVolume = VolumeAttachment

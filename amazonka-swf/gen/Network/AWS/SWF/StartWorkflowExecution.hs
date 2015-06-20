@@ -228,6 +228,11 @@ staWorkflowId = lens _staWorkflowId (\ s a -> s{_staWorkflowId = a});
 staWorkflowType :: Lens' StartWorkflowExecution WorkflowType
 staWorkflowType = lens _staWorkflowType (\ s a -> s{_staWorkflowType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StartWorkflowExecution where
         type Sv StartWorkflowExecution = SWF
         type Rs StartWorkflowExecution =

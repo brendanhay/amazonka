@@ -73,6 +73,11 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 lcMaxResults :: Lens' ListClusters (Maybe Int)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListClusters where
         type Sv ListClusters = ECS
         type Rs ListClusters = ListClustersResponse

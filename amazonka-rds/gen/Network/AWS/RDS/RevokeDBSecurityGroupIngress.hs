@@ -98,6 +98,11 @@ rdsgiEC2SecurityGroupId = lens _rdsgiEC2SecurityGroupId (\ s a -> s{_rdsgiEC2Sec
 rdsgiDBSecurityGroupName :: Lens' RevokeDBSecurityGroupIngress Text
 rdsgiDBSecurityGroupName = lens _rdsgiDBSecurityGroupName (\ s a -> s{_rdsgiDBSecurityGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RevokeDBSecurityGroupIngress
          where
         type Sv RevokeDBSecurityGroupIngress = RDS

@@ -109,6 +109,11 @@ lglStartCountryCode = lens _lglStartCountryCode (\ s a -> s{_lglStartCountryCode
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode = lens _lglStartContinentCode (\ s a -> s{_lglStartContinentCode = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListGeoLocations where
         type Sv ListGeoLocations = Route53
         type Rs ListGeoLocations = ListGeoLocationsResponse

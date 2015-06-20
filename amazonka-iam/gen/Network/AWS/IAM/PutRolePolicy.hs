@@ -91,6 +91,11 @@ prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a});
 prpPolicyDocument :: Lens' PutRolePolicy Text
 prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutRolePolicy where
         type Sv PutRolePolicy = IAM
         type Rs PutRolePolicy = PutRolePolicyResponse

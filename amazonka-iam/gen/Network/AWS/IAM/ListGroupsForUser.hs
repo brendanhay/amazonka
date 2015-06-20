@@ -80,6 +80,11 @@ lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\ s a -> s{_lgfuUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListGroupsForUser where
         type Sv ListGroupsForUser = IAM
         type Rs ListGroupsForUser = ListGroupsForUserResponse

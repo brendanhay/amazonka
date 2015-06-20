@@ -85,6 +85,11 @@ dpg1Filters = lens _dpg1Filters (\ s a -> s{_dpg1Filters = a}) . _Default;
 dpg1DryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpg1DryRun = lens _dpg1DryRun (\ s a -> s{_dpg1DryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribePlacementGroups where
         type Sv DescribePlacementGroups = EC2
         type Rs DescribePlacementGroups =

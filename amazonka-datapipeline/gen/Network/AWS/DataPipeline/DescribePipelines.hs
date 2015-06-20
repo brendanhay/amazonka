@@ -65,6 +65,11 @@ describePipelines = DescribePipelines'{_dpPipelineIds = mempty};
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribePipelines where
         type Sv DescribePipelines = DataPipeline
         type Rs DescribePipelines = DescribePipelinesResponse

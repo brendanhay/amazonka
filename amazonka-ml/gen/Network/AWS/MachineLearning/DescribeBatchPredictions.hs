@@ -173,6 +173,11 @@ dbpFilterVariable = lens _dbpFilterVariable (\ s a -> s{_dbpFilterVariable = a})
 dbpLE :: Lens' DescribeBatchPredictions (Maybe Text)
 dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning
         type Rs DescribeBatchPredictions =

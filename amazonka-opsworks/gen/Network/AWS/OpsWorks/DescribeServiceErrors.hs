@@ -79,6 +79,11 @@ dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = 
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeServiceErrors where
         type Sv DescribeServiceErrors = OpsWorks
         type Rs DescribeServiceErrors =

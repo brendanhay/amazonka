@@ -65,6 +65,11 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDistributions where
         type Sv ListDistributions = CloudFront
         type Rs ListDistributions = ListDistributionsResponse

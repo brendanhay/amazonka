@@ -58,6 +58,11 @@ unsubscribe pSubscriptionARN = Unsubscribe'{_unsSubscriptionARN = pSubscriptionA
 unsSubscriptionARN :: Lens' Unsubscribe Text
 unsSubscriptionARN = lens _unsSubscriptionARN (\ s a -> s{_unsSubscriptionARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest Unsubscribe where
         type Sv Unsubscribe = SNS
         type Rs Unsubscribe = UnsubscribeResponse

@@ -87,6 +87,11 @@ dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default;
 dtGatewayARN :: Lens' DescribeTapes Text
 dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway
         type Rs DescribeTapes = DescribeTapesResponse

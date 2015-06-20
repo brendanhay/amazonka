@@ -56,6 +56,11 @@ createDistribution pDistributionConfig = CreateDistribution'{_cdDistributionConf
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDistribution where
         type Sv CreateDistribution = CloudFront
         type Rs CreateDistribution =

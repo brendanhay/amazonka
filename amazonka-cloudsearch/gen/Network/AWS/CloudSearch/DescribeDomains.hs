@@ -61,6 +61,11 @@ describeDomains = DescribeDomains'{_ddDomainNames = Nothing};
 ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDomains where
         type Sv DescribeDomains = CloudSearch
         type Rs DescribeDomains = DescribeDomainsResponse

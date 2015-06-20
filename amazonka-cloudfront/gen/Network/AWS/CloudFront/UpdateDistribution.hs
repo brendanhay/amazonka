@@ -70,6 +70,11 @@ udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionCon
 udId :: Lens' UpdateDistribution Text
 udId = lens _udId (\ s a -> s{_udId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateDistribution where
         type Sv UpdateDistribution = CloudFront
         type Rs UpdateDistribution =

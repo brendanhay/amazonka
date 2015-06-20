@@ -94,6 +94,11 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 dcMarker :: Lens' DescribeCertificates (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCertificates where
         type Sv DescribeCertificates = RDS
         type Rs DescribeCertificates =

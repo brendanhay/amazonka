@@ -85,6 +85,11 @@ dsfLimit = lens _dsfLimit (\ s a -> s{_dsfLimit = a}) . mapping _Nat;
 dsfLogGroupName :: Lens' DescribeSubscriptionFilters Text
 dsfLogGroupName = lens _dsfLogGroupName (\ s a -> s{_dsfLogGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSubscriptionFilters where
         type Sv DescribeSubscriptionFilters = CloudWatchLogs
         type Rs DescribeSubscriptionFilters =

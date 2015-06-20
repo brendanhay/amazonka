@@ -169,6 +169,11 @@ descDryRun = lens _descDryRun (\ s a -> s{_descDryRun = a});
 descMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
 descMaxResults = lens _descMaxResults (\ s a -> s{_descMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeInstanceStatus where
         type Sv DescribeInstanceStatus = EC2
         type Rs DescribeInstanceStatus =

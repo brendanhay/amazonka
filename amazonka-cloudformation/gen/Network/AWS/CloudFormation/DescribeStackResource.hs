@@ -73,6 +73,11 @@ dStackName = lens _dStackName (\ s a -> s{_dStackName = a});
 dLogicalResourceId :: Lens' DescribeStackResource Text
 dLogicalResourceId = lens _dLogicalResourceId (\ s a -> s{_dLogicalResourceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStackResource where
         type Sv DescribeStackResource = CloudFormation
         type Rs DescribeStackResource =

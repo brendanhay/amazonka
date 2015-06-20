@@ -83,6 +83,11 @@ lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
 lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListContainerInstances where
         type Sv ListContainerInstances = ECS
         type Rs ListContainerInstances =

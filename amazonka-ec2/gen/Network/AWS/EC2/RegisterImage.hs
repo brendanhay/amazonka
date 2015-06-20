@@ -164,6 +164,11 @@ riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
 riName :: Lens' RegisterImage Text
 riName = lens _riName (\ s a -> s{_riName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterImage where
         type Sv RegisterImage = EC2
         type Rs RegisterImage = RegisterImageResponse

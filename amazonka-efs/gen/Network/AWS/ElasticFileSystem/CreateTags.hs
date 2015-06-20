@@ -68,6 +68,11 @@ ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateTags where
         type Sv CreateTags = ElasticFileSystem
         type Rs CreateTags = CreateTagsResponse

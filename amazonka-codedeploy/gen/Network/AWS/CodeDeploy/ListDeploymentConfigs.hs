@@ -58,6 +58,11 @@ listDeploymentConfigs = ListDeploymentConfigs'{_ldcNextToken = Nothing};
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDeploymentConfigs where
         type Sv ListDeploymentConfigs = CodeDeploy
         type Rs ListDeploymentConfigs =

@@ -69,6 +69,11 @@ reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a})
 reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RebuildEnvironment where
         type Sv RebuildEnvironment = ElasticBeanstalk
         type Rs RebuildEnvironment =

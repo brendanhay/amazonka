@@ -103,6 +103,11 @@ gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetTemplateSummary where
         type Sv GetTemplateSummary = CloudFormation
         type Rs GetTemplateSummary =

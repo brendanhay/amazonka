@@ -81,6 +81,11 @@ avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a})
 avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssociateVPCWithHostedZone where
         type Sv AssociateVPCWithHostedZone = Route53
         type Rs AssociateVPCWithHostedZone =

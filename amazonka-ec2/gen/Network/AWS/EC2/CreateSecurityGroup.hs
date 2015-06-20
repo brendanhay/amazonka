@@ -120,6 +120,11 @@ csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSecurityGroup where
         type Sv CreateSecurityGroup = EC2
         type Rs CreateSecurityGroup =

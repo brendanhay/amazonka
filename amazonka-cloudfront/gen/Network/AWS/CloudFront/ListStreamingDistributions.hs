@@ -66,6 +66,11 @@ lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListStreamingDistributions where
         type Sv ListStreamingDistributions = CloudFront
         type Rs ListStreamingDistributions =

@@ -201,6 +201,11 @@ clName = lens _clName (\ s a -> s{_clName = a});
 clShortname :: Lens' CreateLayer Text
 clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateLayer where
         type Sv CreateLayer = OpsWorks
         type Rs CreateLayer = CreateLayerResponse

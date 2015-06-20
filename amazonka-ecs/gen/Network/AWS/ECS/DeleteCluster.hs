@@ -58,6 +58,11 @@ deleteCluster pCluster = DeleteCluster'{_dcCluster = pCluster};
 dcCluster :: Lens' DeleteCluster Text
 dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteCluster where
         type Sv DeleteCluster = ECS
         type Rs DeleteCluster = DeleteClusterResponse

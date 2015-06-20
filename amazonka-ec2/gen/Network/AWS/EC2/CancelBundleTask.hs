@@ -65,6 +65,11 @@ cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
 cbtBundleId :: Lens' CancelBundleTask Text
 cbtBundleId = lens _cbtBundleId (\ s a -> s{_cbtBundleId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CancelBundleTask where
         type Sv CancelBundleTask = EC2
         type Rs CancelBundleTask = CancelBundleTaskResponse

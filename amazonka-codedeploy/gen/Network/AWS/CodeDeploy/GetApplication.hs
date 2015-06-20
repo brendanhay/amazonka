@@ -55,6 +55,11 @@ getApplication pApplicationName = GetApplication'{_gaApplicationName = pApplicat
 gaApplicationName :: Lens' GetApplication Text
 gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetApplication where
         type Sv GetApplication = CodeDeploy
         type Rs GetApplication = GetApplicationResponse

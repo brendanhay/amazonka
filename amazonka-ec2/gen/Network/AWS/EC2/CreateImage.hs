@@ -112,6 +112,11 @@ ci1InstanceId = lens _ci1InstanceId (\ s a -> s{_ci1InstanceId = a});
 ci1Name :: Lens' CreateImage Text
 ci1Name = lens _ci1Name (\ s a -> s{_ci1Name = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateImage where
         type Sv CreateImage = EC2
         type Rs CreateImage = CreateImageResponse

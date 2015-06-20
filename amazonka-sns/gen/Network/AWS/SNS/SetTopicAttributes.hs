@@ -69,6 +69,11 @@ staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a});
 staAttributeName :: Lens' SetTopicAttributes Text
 staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetTopicAttributes where
         type Sv SetTopicAttributes = SNS
         type Rs SetTopicAttributes =

@@ -55,6 +55,11 @@ getDistributionConfig pId = GetDistributionConfig'{_gdcId = pId};
 gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDistributionConfig where
         type Sv GetDistributionConfig = CloudFront
         type Rs GetDistributionConfig =

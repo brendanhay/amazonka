@@ -323,6 +323,11 @@ runMinCount = lens _runMinCount (\ s a -> s{_runMinCount = a});
 runMaxCount :: Lens' RunInstances Int
 runMaxCount = lens _runMaxCount (\ s a -> s{_runMaxCount = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RunInstances where
         type Sv RunInstances = EC2
         type Rs RunInstances = Reservation

@@ -65,6 +65,11 @@ defiDomainName = lens _defiDomainName (\ s a -> s{_defiDomainName = a});
 defiAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
 defiAnalysisScheme = lens _defiAnalysisScheme (\ s a -> s{_defiAnalysisScheme = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DefineAnalysisScheme where
         type Sv DefineAnalysisScheme = CloudSearch
         type Rs DefineAnalysisScheme =

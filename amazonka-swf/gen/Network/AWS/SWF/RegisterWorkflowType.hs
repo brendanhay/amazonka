@@ -194,6 +194,11 @@ rwtName = lens _rwtName (\ s a -> s{_rwtName = a});
 rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\ s a -> s{_rwtVersion = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterWorkflowType where
         type Sv RegisterWorkflowType = SWF
         type Rs RegisterWorkflowType =

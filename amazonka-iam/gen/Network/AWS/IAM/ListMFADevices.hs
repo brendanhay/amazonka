@@ -83,6 +83,11 @@ lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 lmdMarker :: Lens' ListMFADevices (Maybe Text)
 lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListMFADevices where
         type Sv ListMFADevices = IAM
         type Rs ListMFADevices = ListMFADevicesResponse

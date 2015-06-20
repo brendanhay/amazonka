@@ -55,6 +55,11 @@ getCognitoEvents pIdentityPoolId = GetCognitoEvents'{_gceIdentityPoolId = pIdent
 gceIdentityPoolId :: Lens' GetCognitoEvents Text
 gceIdentityPoolId = lens _gceIdentityPoolId (\ s a -> s{_gceIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetCognitoEvents where
         type Sv GetCognitoEvents = CognitoSync
         type Rs GetCognitoEvents = GetCognitoEventsResponse

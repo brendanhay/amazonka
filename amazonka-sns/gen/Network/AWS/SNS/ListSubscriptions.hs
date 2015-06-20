@@ -58,6 +58,11 @@ listSubscriptions = ListSubscriptions'{_lsNextToken = Nothing};
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListSubscriptions where
         type Sv ListSubscriptions = SNS
         type Rs ListSubscriptions = ListSubscriptionsResponse

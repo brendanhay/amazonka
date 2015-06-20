@@ -80,6 +80,11 @@ dcsg1MaxRecords = lens _dcsg1MaxRecords (\ s a -> s{_dcsg1MaxRecords = a});
 dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\ s a -> s{_dcsg1Marker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCacheSecurityGroups where
         type Sv DescribeCacheSecurityGroups = ElastiCache
         type Rs DescribeCacheSecurityGroups =

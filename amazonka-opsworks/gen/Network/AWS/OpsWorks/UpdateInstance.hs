@@ -167,6 +167,11 @@ uiAMIId = lens _uiAMIId (\ s a -> s{_uiAMIId = a});
 uiInstanceId :: Lens' UpdateInstance Text
 uiInstanceId = lens _uiInstanceId (\ s a -> s{_uiInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateInstance where
         type Sv UpdateInstance = OpsWorks
         type Rs UpdateInstance = UpdateInstanceResponse

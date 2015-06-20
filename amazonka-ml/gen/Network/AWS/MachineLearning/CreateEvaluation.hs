@@ -96,6 +96,11 @@ ceMLModelId = lens _ceMLModelId (\ s a -> s{_ceMLModelId = a});
 ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
 ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateEvaluation where
         type Sv CreateEvaluation = MachineLearning
         type Rs CreateEvaluation = CreateEvaluationResponse

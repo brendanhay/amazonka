@@ -120,6 +120,11 @@ dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 dMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusterSubnetGroups where
         type Sv DescribeClusterSubnetGroups = Redshift
         type Rs DescribeClusterSubnetGroups =

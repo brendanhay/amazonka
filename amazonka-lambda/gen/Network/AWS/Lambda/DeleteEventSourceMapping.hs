@@ -65,6 +65,11 @@ deleteEventSourceMapping pUUID = DeleteEventSourceMapping'{_desmUUID = pUUID};
 desmUUID :: Lens' DeleteEventSourceMapping Text
 desmUUID = lens _desmUUID (\ s a -> s{_desmUUID = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteEventSourceMapping where
         type Sv DeleteEventSourceMapping = Lambda
         type Rs DeleteEventSourceMapping =

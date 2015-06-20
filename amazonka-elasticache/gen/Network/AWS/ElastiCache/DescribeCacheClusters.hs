@@ -111,6 +111,11 @@ desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
 desShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 desShowCacheNodeInfo = lens _desShowCacheNodeInfo (\ s a -> s{_desShowCacheNodeInfo = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCacheClusters where
         type Sv DescribeCacheClusters = ElastiCache
         type Rs DescribeCacheClusters =

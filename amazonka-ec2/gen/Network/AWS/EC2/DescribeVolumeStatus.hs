@@ -170,6 +170,11 @@ dvsDryRun = lens _dvsDryRun (\ s a -> s{_dvsDryRun = a});
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
 dvsMaxResults = lens _dvsMaxResults (\ s a -> s{_dvsMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVolumeStatus where
         type Sv DescribeVolumeStatus = EC2
         type Rs DescribeVolumeStatus =

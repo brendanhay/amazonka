@@ -91,6 +91,11 @@ riwlbLoadBalancerName = lens _riwlbLoadBalancerName (\ s a -> s{_riwlbLoadBalanc
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
 riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterInstancesWithLoadBalancer
          where
         type Sv RegisterInstancesWithLoadBalancer = ELB

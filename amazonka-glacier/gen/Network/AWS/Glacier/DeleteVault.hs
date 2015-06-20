@@ -87,6 +87,11 @@ delAccountId = lens _delAccountId (\ s a -> s{_delAccountId = a});
 delVaultName :: Lens' DeleteVault Text
 delVaultName = lens _delVaultName (\ s a -> s{_delVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVault where
         type Sv DeleteVault = Glacier
         type Rs DeleteVault = DeleteVaultResponse

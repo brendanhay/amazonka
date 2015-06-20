@@ -66,6 +66,11 @@ resetCache pGatewayARN = ResetCache'{_rcGatewayARN = pGatewayARN};
 rcGatewayARN :: Lens' ResetCache Text
 rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResetCache where
         type Sv ResetCache = StorageGateway
         type Rs ResetCache = ResetCacheResponse

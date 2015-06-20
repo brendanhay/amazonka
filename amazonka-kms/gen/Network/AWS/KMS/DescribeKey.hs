@@ -64,6 +64,11 @@ describeKey pKeyId = DescribeKey'{_desKeyId = pKeyId};
 desKeyId :: Lens' DescribeKey Text
 desKeyId = lens _desKeyId (\ s a -> s{_desKeyId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeKey where
         type Sv DescribeKey = KMS
         type Rs DescribeKey = DescribeKeyResponse

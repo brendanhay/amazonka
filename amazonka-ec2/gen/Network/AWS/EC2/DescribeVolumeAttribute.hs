@@ -78,6 +78,11 @@ dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
 dvaVolumeId :: Lens' DescribeVolumeAttribute Text
 dvaVolumeId = lens _dvaVolumeId (\ s a -> s{_dvaVolumeId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVolumeAttribute where
         type Sv DescribeVolumeAttribute = EC2
         type Rs DescribeVolumeAttribute =

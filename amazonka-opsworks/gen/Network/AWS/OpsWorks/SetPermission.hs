@@ -98,6 +98,11 @@ spStackId = lens _spStackId (\ s a -> s{_spStackId = a});
 spIAMUserARN :: Lens' SetPermission Text
 spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetPermission where
         type Sv SetPermission = OpsWorks
         type Rs SetPermission = SetPermissionResponse

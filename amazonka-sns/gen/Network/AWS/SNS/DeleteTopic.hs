@@ -55,6 +55,11 @@ deleteTopic pTopicARN = DeleteTopic'{_dtTopicARN = pTopicARN};
 dtTopicARN :: Lens' DeleteTopic Text
 dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteTopic where
         type Sv DeleteTopic = SNS
         type Rs DeleteTopic = DeleteTopicResponse

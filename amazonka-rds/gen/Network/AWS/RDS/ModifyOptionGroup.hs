@@ -84,6 +84,11 @@ mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately
 mogOptionGroupName :: Lens' ModifyOptionGroup Text
 mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyOptionGroup where
         type Sv ModifyOptionGroup = RDS
         type Rs ModifyOptionGroup = ModifyOptionGroupResponse

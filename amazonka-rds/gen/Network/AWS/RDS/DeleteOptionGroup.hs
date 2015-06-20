@@ -54,6 +54,11 @@ deleteOptionGroup pOptionGroupName = DeleteOptionGroup'{_delOptionGroupName = pO
 delOptionGroupName :: Lens' DeleteOptionGroup Text
 delOptionGroupName = lens _delOptionGroupName (\ s a -> s{_delOptionGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteOptionGroup where
         type Sv DeleteOptionGroup = RDS
         type Rs DeleteOptionGroup = DeleteOptionGroupResponse

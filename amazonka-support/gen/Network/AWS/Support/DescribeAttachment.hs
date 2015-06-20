@@ -59,6 +59,11 @@ describeAttachment pAttachmentId = DescribeAttachment'{_daAttachmentId = pAttach
 daAttachmentId :: Lens' DescribeAttachment Text
 daAttachmentId = lens _daAttachmentId (\ s a -> s{_daAttachmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAttachment where
         type Sv DescribeAttachment = Support
         type Rs DescribeAttachment =

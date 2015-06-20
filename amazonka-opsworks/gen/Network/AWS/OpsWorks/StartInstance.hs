@@ -59,6 +59,11 @@ startInstance pInstanceId = StartInstance'{_staInstanceId = pInstanceId};
 staInstanceId :: Lens' StartInstance Text
 staInstanceId = lens _staInstanceId (\ s a -> s{_staInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StartInstance where
         type Sv StartInstance = OpsWorks
         type Rs StartInstance = StartInstanceResponse

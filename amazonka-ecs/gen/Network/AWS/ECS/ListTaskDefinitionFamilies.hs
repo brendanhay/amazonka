@@ -87,6 +87,11 @@ ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
 ltdfMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
 ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListTaskDefinitionFamilies where
         type Sv ListTaskDefinitionFamilies = ECS
         type Rs ListTaskDefinitionFamilies =

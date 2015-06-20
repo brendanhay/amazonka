@@ -63,6 +63,11 @@ csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a});
 csSnapshotName :: Lens' CreateSnapshot Text
 csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = ElastiCache
         type Rs CreateSnapshot = CreateSnapshotResponse

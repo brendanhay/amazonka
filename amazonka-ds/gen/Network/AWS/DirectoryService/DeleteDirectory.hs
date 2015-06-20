@@ -54,6 +54,11 @@ deleteDirectory pDirectoryId = DeleteDirectory'{_delDirectoryId = pDirectoryId};
 delDirectoryId :: Lens' DeleteDirectory Text
 delDirectoryId = lens _delDirectoryId (\ s a -> s{_delDirectoryId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDirectory where
         type Sv DeleteDirectory = DirectoryService
         type Rs DeleteDirectory = DeleteDirectoryResponse

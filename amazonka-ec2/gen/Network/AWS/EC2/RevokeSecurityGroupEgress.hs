@@ -131,6 +131,11 @@ rsgeDryRun = lens _rsgeDryRun (\ s a -> s{_rsgeDryRun = a});
 rsgeGroupId :: Lens' RevokeSecurityGroupEgress Text
 rsgeGroupId = lens _rsgeGroupId (\ s a -> s{_rsgeGroupId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RevokeSecurityGroupEgress where
         type Sv RevokeSecurityGroupEgress = EC2
         type Rs RevokeSecurityGroupEgress =

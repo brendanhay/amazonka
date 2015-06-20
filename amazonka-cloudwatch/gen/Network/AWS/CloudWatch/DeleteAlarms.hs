@@ -53,6 +53,11 @@ deleteAlarms = DeleteAlarms'{_delAlarmNames = mempty};
 delAlarmNames :: Lens' DeleteAlarms [Text]
 delAlarmNames = lens _delAlarmNames (\ s a -> s{_delAlarmNames = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteAlarms where
         type Sv DeleteAlarms = CloudWatch
         type Rs DeleteAlarms = DeleteAlarmsResponse

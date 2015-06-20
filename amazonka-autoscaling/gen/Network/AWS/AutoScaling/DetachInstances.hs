@@ -75,6 +75,11 @@ diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScaling
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachInstances where
         type Sv DetachInstances = AutoScaling
         type Rs DetachInstances = DetachInstancesResponse

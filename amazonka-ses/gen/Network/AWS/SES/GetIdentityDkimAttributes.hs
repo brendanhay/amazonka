@@ -75,6 +75,11 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes'{_gidaIdentities = mempty}
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetIdentityDkimAttributes where
         type Sv GetIdentityDkimAttributes = SES
         type Rs GetIdentityDkimAttributes =

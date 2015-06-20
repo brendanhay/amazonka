@@ -78,6 +78,11 @@ aniInstanceId = lens _aniInstanceId (\ s a -> s{_aniInstanceId = a});
 aniDeviceIndex :: Lens' AttachNetworkInterface Int
 aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachNetworkInterface where
         type Sv AttachNetworkInterface = EC2
         type Rs AttachNetworkInterface =

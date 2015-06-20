@@ -56,6 +56,11 @@ createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig = Cre
 ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
 ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ccfoaiCloudFrontOriginAccessIdentityConfig = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          CreateCloudFrontOriginAccessIdentity where
         type Sv CreateCloudFrontOriginAccessIdentity =

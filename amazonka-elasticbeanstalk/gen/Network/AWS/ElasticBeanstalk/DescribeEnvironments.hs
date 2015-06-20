@@ -99,6 +99,11 @@ desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = 
 desIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 desIncludeDeleted = lens _desIncludeDeleted (\ s a -> s{_desIncludeDeleted = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEnvironments where
         type Sv DescribeEnvironments = ElasticBeanstalk
         type Rs DescribeEnvironments =

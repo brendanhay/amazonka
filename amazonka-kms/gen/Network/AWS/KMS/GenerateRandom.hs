@@ -55,6 +55,11 @@ generateRandom = GenerateRandom'{_grNumberOfBytes = Nothing};
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
 grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GenerateRandom where
         type Sv GenerateRandom = KMS
         type Rs GenerateRandom = GenerateRandomResponse

@@ -54,6 +54,11 @@ deleteSnapshot pSnapshotId = DeleteSnapshot'{_dsSnapshotId = pSnapshotId};
 dsSnapshotId :: Lens' DeleteSnapshot Text
 dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = DirectoryService
         type Rs DeleteSnapshot = DeleteSnapshotResponse

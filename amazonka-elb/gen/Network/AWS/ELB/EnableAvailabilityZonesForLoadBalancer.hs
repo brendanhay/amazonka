@@ -70,6 +70,11 @@ eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBal
 eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
 eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          EnableAvailabilityZonesForLoadBalancer where
         type Sv EnableAvailabilityZonesForLoadBalancer = ELB

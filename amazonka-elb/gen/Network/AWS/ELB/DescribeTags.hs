@@ -54,6 +54,11 @@ describeTags pLoadBalancerNames = DescribeTags'{_dtLoadBalancerNames = _List1 # 
 dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames = lens _dtLoadBalancerNames (\ s a -> s{_dtLoadBalancerNames = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = ELB
         type Rs DescribeTags = DescribeTagsResponse

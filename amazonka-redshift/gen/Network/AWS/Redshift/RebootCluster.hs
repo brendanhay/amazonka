@@ -61,6 +61,11 @@ rebootCluster pClusterIdentifier = RebootCluster'{_rcClusterIdentifier = pCluste
 rcClusterIdentifier :: Lens' RebootCluster Text
 rcClusterIdentifier = lens _rcClusterIdentifier (\ s a -> s{_rcClusterIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RebootCluster where
         type Sv RebootCluster = Redshift
         type Rs RebootCluster = RebootClusterResponse

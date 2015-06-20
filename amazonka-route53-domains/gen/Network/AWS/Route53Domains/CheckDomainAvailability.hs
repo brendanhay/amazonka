@@ -74,6 +74,11 @@ cdaIDNLangCode = lens _cdaIDNLangCode (\ s a -> s{_cdaIDNLangCode = a});
 cdaDomainName :: Lens' CheckDomainAvailability Text
 cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CheckDomainAvailability where
         type Sv CheckDomainAvailability = Route53Domains
         type Rs CheckDomainAvailability =

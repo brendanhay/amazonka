@@ -77,6 +77,11 @@ shutdownGateway pGatewayARN = ShutdownGateway'{_shuGatewayARN = pGatewayARN};
 shuGatewayARN :: Lens' ShutdownGateway Text
 shuGatewayARN = lens _shuGatewayARN (\ s a -> s{_shuGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ShutdownGateway where
         type Sv ShutdownGateway = StorageGateway
         type Rs ShutdownGateway = ShutdownGatewayResponse

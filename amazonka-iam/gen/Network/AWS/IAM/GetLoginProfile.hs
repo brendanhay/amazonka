@@ -56,6 +56,11 @@ getLoginProfile pUserName = GetLoginProfile'{_glpUserName = pUserName};
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetLoginProfile where
         type Sv GetLoginProfile = IAM
         type Rs GetLoginProfile = GetLoginProfileResponse

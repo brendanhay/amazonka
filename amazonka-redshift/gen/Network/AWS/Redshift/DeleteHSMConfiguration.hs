@@ -52,6 +52,11 @@ deleteHSMConfiguration pHSMConfigurationIdentifier = DeleteHSMConfiguration'{_dh
 dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
 dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteHSMConfiguration where
         type Sv DeleteHSMConfiguration = Redshift
         type Rs DeleteHSMConfiguration =

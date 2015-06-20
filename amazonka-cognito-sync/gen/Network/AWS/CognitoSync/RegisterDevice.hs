@@ -77,6 +77,11 @@ rdPlatform = lens _rdPlatform (\ s a -> s{_rdPlatform = a});
 rdToken :: Lens' RegisterDevice Text
 rdToken = lens _rdToken (\ s a -> s{_rdToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterDevice where
         type Sv RegisterDevice = CognitoSync
         type Rs RegisterDevice = RegisterDeviceResponse

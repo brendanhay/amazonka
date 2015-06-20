@@ -92,6 +92,11 @@ aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
 aclvGroups :: Lens' AttachClassicLinkVPC [Text]
 aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachClassicLinkVPC where
         type Sv AttachClassicLinkVPC = EC2
         type Rs AttachClassicLinkVPC =

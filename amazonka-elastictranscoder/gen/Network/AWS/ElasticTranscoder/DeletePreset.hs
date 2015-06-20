@@ -57,6 +57,11 @@ deletePreset pId = DeletePreset'{_dpId = pId};
 dpId :: Lens' DeletePreset Text
 dpId = lens _dpId (\ s a -> s{_dpId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeletePreset where
         type Sv DeletePreset = ElasticTranscoder
         type Rs DeletePreset = DeletePresetResponse

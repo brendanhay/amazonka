@@ -59,6 +59,11 @@ cancelJob pId = CancelJob'{_cjId = pId};
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\ s a -> s{_cjId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CancelJob where
         type Sv CancelJob = ElasticTranscoder
         type Rs CancelJob = CancelJobResponse

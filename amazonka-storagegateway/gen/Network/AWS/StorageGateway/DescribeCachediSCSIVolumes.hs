@@ -60,6 +60,11 @@ describeCachediSCSIVolumes = DescribeCachediSCSIVolumes'{_dcscsivVolumeARNs = me
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
 dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCachediSCSIVolumes where
         type Sv DescribeCachediSCSIVolumes = StorageGateway
         type Rs DescribeCachediSCSIVolumes =

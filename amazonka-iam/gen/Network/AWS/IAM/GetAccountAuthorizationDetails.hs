@@ -86,6 +86,11 @@ gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
 gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetAccountAuthorizationDetails
          where
         type Sv GetAccountAuthorizationDetails = IAM

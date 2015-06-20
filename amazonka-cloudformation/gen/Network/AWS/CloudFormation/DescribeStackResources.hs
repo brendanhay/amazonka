@@ -110,6 +110,11 @@ dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\ s a -> s{_dsrPhysicalReso
 dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStackResources where
         type Sv DescribeStackResources = CloudFormation
         type Rs DescribeStackResources =

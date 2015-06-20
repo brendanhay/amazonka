@@ -88,6 +88,11 @@ lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . mapping _Nat;
 lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
 lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListInstanceProfiles where
         type Sv ListInstanceProfiles = IAM
         type Rs ListInstanceProfiles =

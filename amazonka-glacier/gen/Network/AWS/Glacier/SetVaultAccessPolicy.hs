@@ -76,6 +76,11 @@ svapAccountId = lens _svapAccountId (\ s a -> s{_svapAccountId = a});
 svapVaultName :: Lens' SetVaultAccessPolicy Text
 svapVaultName = lens _svapVaultName (\ s a -> s{_svapVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetVaultAccessPolicy where
         type Sv SetVaultAccessPolicy = Glacier
         type Rs SetVaultAccessPolicy =

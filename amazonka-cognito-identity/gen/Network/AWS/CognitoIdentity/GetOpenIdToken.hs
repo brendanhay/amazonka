@@ -72,6 +72,11 @@ goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 goitIdentityId :: Lens' GetOpenIdToken Text
 goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetOpenIdToken where
         type Sv GetOpenIdToken = CognitoIdentity
         type Rs GetOpenIdToken = GetOpenIdTokenResponse

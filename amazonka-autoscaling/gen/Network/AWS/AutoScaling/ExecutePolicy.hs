@@ -76,6 +76,11 @@ epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScaling
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\ s a -> s{_epPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ExecutePolicy where
         type Sv ExecutePolicy = AutoScaling
         type Rs ExecutePolicy = ExecutePolicyResponse

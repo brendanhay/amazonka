@@ -66,6 +66,11 @@ dvgDryRun = lens _dvgDryRun (\ s a -> s{_dvgDryRun = a});
 dvgVPNGatewayId :: Lens' DeleteVPNGateway Text
 dvgVPNGatewayId = lens _dvgVPNGatewayId (\ s a -> s{_dvgVPNGatewayId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVPNGateway where
         type Sv DeleteVPNGateway = EC2
         type Rs DeleteVPNGateway = DeleteVPNGatewayResponse

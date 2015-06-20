@@ -85,6 +85,11 @@ gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetGeoLocation where
         type Sv GetGeoLocation = Route53
         type Rs GetGeoLocation = GetGeoLocationResponse

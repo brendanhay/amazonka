@@ -134,6 +134,11 @@ dcLanguage = lens _dcLanguage (\ s a -> s{_dcLanguage = a});
 dcMaxResults :: Lens' DescribeCases (Maybe Natural)
 dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCases where
         type Sv DescribeCases = Support
         type Rs DescribeCases = DescribeCasesResponse

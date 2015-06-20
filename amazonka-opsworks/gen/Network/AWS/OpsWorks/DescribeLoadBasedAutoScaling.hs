@@ -62,6 +62,11 @@ describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'{_dlbasLayerIds = me
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
 dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLoadBasedAutoScaling
          where
         type Sv DescribeLoadBasedAutoScaling = OpsWorks

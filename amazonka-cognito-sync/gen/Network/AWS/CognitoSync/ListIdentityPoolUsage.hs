@@ -68,6 +68,11 @@ lipuNextToken = lens _lipuNextToken (\ s a -> s{_lipuNextToken = a});
 lipuMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
 lipuMaxResults = lens _lipuMaxResults (\ s a -> s{_lipuMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListIdentityPoolUsage where
         type Sv ListIdentityPoolUsage = CognitoSync
         type Rs ListIdentityPoolUsage =

@@ -42,6 +42,11 @@ data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy' deriving (Eq, Re
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteAccountPasswordPolicy where
         type Sv DeleteAccountPasswordPolicy = IAM
         type Rs DeleteAccountPasswordPolicy =

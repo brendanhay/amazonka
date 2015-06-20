@@ -477,6 +477,11 @@ mdiStorageType = lens _mdiStorageType (\ s a -> s{_mdiStorageType = a});
 mdiDBInstanceIdentifier :: Lens' ModifyDBInstance Text
 mdiDBInstanceIdentifier = lens _mdiDBInstanceIdentifier (\ s a -> s{_mdiDBInstanceIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyDBInstance where
         type Sv ModifyDBInstance = RDS
         type Rs ModifyDBInstance = ModifyDBInstanceResponse

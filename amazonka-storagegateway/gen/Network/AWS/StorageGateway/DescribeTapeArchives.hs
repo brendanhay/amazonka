@@ -77,6 +77,11 @@ dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat;
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
 dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTapeArchives where
         type Sv DescribeTapeArchives = StorageGateway
         type Rs DescribeTapeArchives =

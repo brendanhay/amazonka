@@ -67,6 +67,11 @@ stbasAutoScalingSchedule = lens _stbasAutoScalingSchedule (\ s a -> s{_stbasAuto
 stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\ s a -> s{_stbasInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetTimeBasedAutoScaling where
         type Sv SetTimeBasedAutoScaling = OpsWorks
         type Rs SetTimeBasedAutoScaling =

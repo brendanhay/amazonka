@@ -296,6 +296,11 @@ csServiceRoleARN = lens _csServiceRoleARN (\ s a -> s{_csServiceRoleARN = a});
 csDefaultInstanceProfileARN :: Lens' CreateStack Text
 csDefaultInstanceProfileARN = lens _csDefaultInstanceProfileARN (\ s a -> s{_csDefaultInstanceProfileARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateStack where
         type Sv CreateStack = OpsWorks
         type Rs CreateStack = CreateStackResponse

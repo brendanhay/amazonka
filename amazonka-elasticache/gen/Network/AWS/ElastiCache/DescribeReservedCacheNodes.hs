@@ -156,6 +156,11 @@ drcnDuration = lens _drcnDuration (\ s a -> s{_drcnDuration = a});
 drcnReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnReservedCacheNodesOfferingId = lens _drcnReservedCacheNodesOfferingId (\ s a -> s{_drcnReservedCacheNodesOfferingId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeReservedCacheNodes where
         type Sv DescribeReservedCacheNodes = ElastiCache
         type Rs DescribeReservedCacheNodes =

@@ -66,6 +66,11 @@ decApplicationName = lens _decApplicationName (\ s a -> s{_decApplicationName = 
 decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
 decEnvironmentName = lens _decEnvironmentName (\ s a -> s{_decEnvironmentName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteEnvironmentConfiguration
          where
         type Sv DeleteEnvironmentConfiguration =

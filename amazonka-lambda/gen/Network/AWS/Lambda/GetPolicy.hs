@@ -66,6 +66,11 @@ getPolicy pFunctionName = GetPolicy'{_gpFunctionName = pFunctionName};
 gpFunctionName :: Lens' GetPolicy Text
 gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetPolicy where
         type Sv GetPolicy = Lambda
         type Rs GetPolicy = GetPolicyResponse

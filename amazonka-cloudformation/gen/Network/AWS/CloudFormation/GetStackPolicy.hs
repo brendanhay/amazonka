@@ -56,6 +56,11 @@ getStackPolicy pStackName = GetStackPolicy'{_gspStackName = pStackName};
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\ s a -> s{_gspStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetStackPolicy where
         type Sv GetStackPolicy = CloudFormation
         type Rs GetStackPolicy = GetStackPolicyResponse

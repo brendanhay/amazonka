@@ -91,6 +91,11 @@ dvAccountId = lens _dvAccountId (\ s a -> s{_dvAccountId = a});
 dvVaultName :: Lens' DescribeVault Text
 dvVaultName = lens _dvVaultName (\ s a -> s{_dvVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVault where
         type Sv DescribeVault = Glacier
         type Rs DescribeVault = DescribeVaultOutput

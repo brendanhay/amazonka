@@ -77,6 +77,11 @@ ljbsPageToken = lens _ljbsPageToken (\ s a -> s{_ljbsPageToken = a});
 ljbsStatus :: Lens' ListJobsByStatus Text
 ljbsStatus = lens _ljbsStatus (\ s a -> s{_ljbsStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListJobsByStatus where
         type Sv ListJobsByStatus = ElasticTranscoder
         type Rs ListJobsByStatus = ListJobsByStatusResponse

@@ -83,6 +83,11 @@ lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
 lvGatewayARN :: Lens' ListVolumes Text
 lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway
         type Rs ListVolumes = ListVolumesResponse

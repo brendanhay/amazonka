@@ -108,6 +108,11 @@ daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAddresses where
         type Sv DescribeAddresses = EC2
         type Rs DescribeAddresses = DescribeAddressesResponse

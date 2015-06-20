@@ -86,6 +86,11 @@ selNextToken = lens _selNextToken (\ s a -> s{_selNextToken = a});
 selSelectExpression :: Lens' Select Text
 selSelectExpression = lens _selSelectExpression (\ s a -> s{_selSelectExpression = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest Select where
         type Sv Select = SDB
         type Rs Select = SelectResponse

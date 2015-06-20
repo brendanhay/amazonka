@@ -71,6 +71,11 @@ desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 desStackName :: Lens' DescribeStacks (Maybe Text)
 desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation
         type Rs DescribeStacks = DescribeStacksResponse

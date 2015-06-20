@@ -81,6 +81,11 @@ drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPr
 drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
 drgReplicationGroupId = lens _drgReplicationGroupId (\ s a -> s{_drgReplicationGroupId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteReplicationGroup where
         type Sv DeleteReplicationGroup = ElastiCache
         type Rs DeleteReplicationGroup =

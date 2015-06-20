@@ -75,6 +75,11 @@ seaEndpointARN = lens _seaEndpointARN (\ s a -> s{_seaEndpointARN = a});
 seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
 seaAttributes = lens _seaAttributes (\ s a -> s{_seaAttributes = a}) . _Map;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetEndpointAttributes where
         type Sv SetEndpointAttributes = SNS
         type Rs SetEndpointAttributes =

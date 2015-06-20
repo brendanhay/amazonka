@@ -70,6 +70,11 @@ disableDomainTransferLock pDomainName = DisableDomainTransferLock'{_ddtlDomainNa
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
 ddtlDomainName = lens _ddtlDomainName (\ s a -> s{_ddtlDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DisableDomainTransferLock where
         type Sv DisableDomainTransferLock = Route53Domains
         type Rs DisableDomainTransferLock =

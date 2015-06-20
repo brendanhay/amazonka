@@ -54,6 +54,11 @@ stopConfigurationRecorder pConfigurationRecorderName = StopConfigurationRecorder
 scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
 scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\ s a -> s{_scrConfigurationRecorderName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StopConfigurationRecorder where
         type Sv StopConfigurationRecorder = Config
         type Rs StopConfigurationRecorder =

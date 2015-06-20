@@ -160,6 +160,11 @@ des1DryRun = lens _des1DryRun (\ s a -> s{_des1DryRun = a});
 des1MaxResults :: Lens' DescribeVolumes (Maybe Int)
 des1MaxResults = lens _des1MaxResults (\ s a -> s{_des1MaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVolumes where
         type Sv DescribeVolumes = EC2
         type Rs DescribeVolumes = DescribeVolumesResponse

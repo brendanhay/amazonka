@@ -67,6 +67,11 @@ ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a});
 ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDeploymentGroups where
         type Sv ListDeploymentGroups = CodeDeploy
         type Rs ListDeploymentGroups =

@@ -78,6 +78,11 @@ cdcMinimumHealthyHosts = lens _cdcMinimumHealthyHosts (\ s a -> s{_cdcMinimumHea
 cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
 cdcDeploymentConfigName = lens _cdcDeploymentConfigName (\ s a -> s{_cdcDeploymentConfigName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDeploymentConfig where
         type Sv CreateDeploymentConfig = CodeDeploy
         type Rs CreateDeploymentConfig =

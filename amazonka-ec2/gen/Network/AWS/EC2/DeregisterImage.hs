@@ -65,6 +65,11 @@ diDryRun = lens _diDryRun (\ s a -> s{_diDryRun = a});
 diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\ s a -> s{_diImageId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeregisterImage where
         type Sv DeregisterImage = EC2
         type Rs DeregisterImage = DeregisterImageResponse

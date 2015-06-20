@@ -106,6 +106,11 @@ bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a});
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest BatchPutAttributes where
         type Sv BatchPutAttributes = SDB
         type Rs BatchPutAttributes =

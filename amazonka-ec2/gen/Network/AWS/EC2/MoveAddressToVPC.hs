@@ -71,6 +71,11 @@ matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a});
 matvPublicIP :: Lens' MoveAddressToVPC Text
 matvPublicIP = lens _matvPublicIP (\ s a -> s{_matvPublicIP = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest MoveAddressToVPC where
         type Sv MoveAddressToVPC = EC2
         type Rs MoveAddressToVPC = MoveAddressToVPCResponse

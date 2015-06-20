@@ -95,6 +95,11 @@ dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
 dpmaResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
 dpmaResourceIdentifier = lens _dpmaResourceIdentifier (\ s a -> s{_dpmaResourceIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribePendingMaintenanceActions
          where
         type Sv DescribePendingMaintenanceActions = RDS

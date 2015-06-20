@@ -99,6 +99,11 @@ lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
 lvAccountId :: Lens' ListVaults Text
 lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListVaults where
         type Sv ListVaults = Glacier
         type Rs ListVaults = ListVaultsResponse

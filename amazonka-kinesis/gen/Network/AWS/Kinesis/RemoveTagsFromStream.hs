@@ -61,6 +61,11 @@ rtfsStreamName = lens _rtfsStreamName (\ s a -> s{_rtfsStreamName = a});
 rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\ s a -> s{_rtfsTagKeys = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RemoveTagsFromStream where
         type Sv RemoveTagsFromStream = Kinesis
         type Rs RemoveTagsFromStream =

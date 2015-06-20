@@ -91,6 +91,11 @@ cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
 cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ConnectDirectory where
         type Sv ConnectDirectory = DirectoryService
         type Rs ConnectDirectory = ConnectDirectoryResponse

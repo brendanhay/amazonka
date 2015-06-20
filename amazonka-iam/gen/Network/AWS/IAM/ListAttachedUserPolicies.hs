@@ -99,6 +99,11 @@ laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 laupUserName :: Lens' ListAttachedUserPolicies Text
 laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListAttachedUserPolicies where
         type Sv ListAttachedUserPolicies = IAM
         type Rs ListAttachedUserPolicies =

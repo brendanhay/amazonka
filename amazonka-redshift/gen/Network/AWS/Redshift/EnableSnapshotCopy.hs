@@ -82,6 +82,11 @@ escClusterIdentifier = lens _escClusterIdentifier (\ s a -> s{_escClusterIdentif
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion = lens _escDestinationRegion (\ s a -> s{_escDestinationRegion = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableSnapshotCopy where
         type Sv EnableSnapshotCopy = Redshift
         type Rs EnableSnapshotCopy =

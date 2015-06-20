@@ -74,6 +74,11 @@ cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualIn
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
         type Sv ConfirmPrivateVirtualInterface =

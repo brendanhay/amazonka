@@ -82,6 +82,11 @@ csfvrpVolumeARN = lens _csfvrpVolumeARN (\ s a -> s{_csfvrpVolumeARN = a});
 csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          CreateSnapshotFromVolumeRecoveryPoint where
         type Sv CreateSnapshotFromVolumeRecoveryPoint =

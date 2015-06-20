@@ -101,6 +101,11 @@ mniaDescription = lens _mniaDescription (\ s a -> s{_mniaDescription = a});
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
 mniaNetworkInterfaceId = lens _mniaNetworkInterfaceId (\ s a -> s{_mniaNetworkInterfaceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyNetworkInterfaceAttribute
          where
         type Sv ModifyNetworkInterfaceAttribute = EC2

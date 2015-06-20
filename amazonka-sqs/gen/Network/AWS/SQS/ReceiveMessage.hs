@@ -167,6 +167,11 @@ rmMaxNumberOfMessages = lens _rmMaxNumberOfMessages (\ s a -> s{_rmMaxNumberOfMe
 rmQueueURL :: Lens' ReceiveMessage Text
 rmQueueURL = lens _rmQueueURL (\ s a -> s{_rmQueueURL = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ReceiveMessage where
         type Sv ReceiveMessage = SQS
         type Rs ReceiveMessage = ReceiveMessageResponse

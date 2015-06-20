@@ -109,6 +109,11 @@ updS3Bucket = lens _updS3Bucket (\ s a -> s{_updS3Bucket = a});
 updFunctionName :: Lens' UpdateFunctionCode Text
 updFunctionName = lens _updFunctionName (\ s a -> s{_updFunctionName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateFunctionCode where
         type Sv UpdateFunctionCode = Lambda
         type Rs UpdateFunctionCode = FunctionConfiguration

@@ -79,6 +79,11 @@ cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a});
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\ s a -> s{_cmvbEntries = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ChangeMessageVisibilityBatch
          where
         type Sv ChangeMessageVisibilityBatch = SQS

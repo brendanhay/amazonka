@@ -62,6 +62,11 @@ describeStacks = DescribeStacks'{_dsStackIds = Nothing};
 dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = OpsWorks
         type Rs DescribeStacks = DescribeStacksResponse

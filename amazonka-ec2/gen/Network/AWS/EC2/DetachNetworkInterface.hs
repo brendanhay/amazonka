@@ -69,6 +69,11 @@ dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
 dniAttachmentId :: Lens' DetachNetworkInterface Text
 dniAttachmentId = lens _dniAttachmentId (\ s a -> s{_dniAttachmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachNetworkInterface where
         type Sv DetachNetworkInterface = EC2
         type Rs DetachNetworkInterface =

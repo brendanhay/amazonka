@@ -85,6 +85,11 @@ doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 doObjectIds :: Lens' DescribeObjects [Text]
 doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeObjects where
         type Sv DescribeObjects = DataPipeline
         type Rs DescribeObjects = DescribeObjectsResponse

@@ -81,6 +81,11 @@ rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
 rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ReportTaskRunnerHeartbeat where
         type Sv ReportTaskRunnerHeartbeat = DataPipeline
         type Rs ReportTaskRunnerHeartbeat =

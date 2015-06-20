@@ -79,6 +79,11 @@ rrdiDBUser = lens _rrdiDBUser (\ s a -> s{_rrdiDBUser = a});
 rrdiDBPassword :: Lens' RegisterRDSDBInstance Text
 rrdiDBPassword = lens _rrdiDBPassword (\ s a -> s{_rrdiDBPassword = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterRDSDBInstance where
         type Sv RegisterRDSDBInstance = OpsWorks
         type Rs RegisterRDSDBInstance =

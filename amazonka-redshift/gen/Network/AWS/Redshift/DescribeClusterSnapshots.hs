@@ -175,6 +175,11 @@ desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
 desOwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
 desOwnerAccount = lens _desOwnerAccount (\ s a -> s{_desOwnerAccount = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusterSnapshots where
         type Sv DescribeClusterSnapshots = Redshift
         type Rs DescribeClusterSnapshots =

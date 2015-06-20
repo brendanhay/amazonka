@@ -58,6 +58,11 @@ describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyT
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLoadBalancerPolicyTypes
          where
         type Sv DescribeLoadBalancerPolicyTypes = ELB

@@ -82,6 +82,11 @@ dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 dcCommandIds :: Lens' DescribeCommands [Text]
 dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCommands where
         type Sv DescribeCommands = OpsWorks
         type Rs DescribeCommands = DescribeCommandsResponse

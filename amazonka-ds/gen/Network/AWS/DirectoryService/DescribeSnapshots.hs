@@ -88,6 +88,11 @@ dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default;
 dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
 dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = DirectoryService
         type Rs DescribeSnapshots = DescribeSnapshotsResponse

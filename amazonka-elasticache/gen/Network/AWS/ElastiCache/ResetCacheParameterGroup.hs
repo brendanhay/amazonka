@@ -77,6 +77,11 @@ rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcp
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResetCacheParameterGroup where
         type Sv ResetCacheParameterGroup = ElastiCache
         type Rs ResetCacheParameterGroup =

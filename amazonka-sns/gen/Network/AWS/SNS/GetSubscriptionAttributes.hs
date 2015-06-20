@@ -54,6 +54,11 @@ getSubscriptionAttributes pSubscriptionARN = GetSubscriptionAttributes'{_gsaSubs
 gsaSubscriptionARN :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionARN = lens _gsaSubscriptionARN (\ s a -> s{_gsaSubscriptionARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetSubscriptionAttributes where
         type Sv GetSubscriptionAttributes = SNS
         type Rs GetSubscriptionAttributes =

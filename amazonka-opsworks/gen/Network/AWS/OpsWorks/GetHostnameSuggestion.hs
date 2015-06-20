@@ -62,6 +62,11 @@ getHostnameSuggestion pLayerId = GetHostnameSuggestion'{_ghsLayerId = pLayerId};
 ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetHostnameSuggestion where
         type Sv GetHostnameSuggestion = OpsWorks
         type Rs GetHostnameSuggestion =

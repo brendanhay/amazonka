@@ -127,6 +127,11 @@ miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
 miaImageId :: Lens' ModifyImageAttribute Text
 miaImageId = lens _miaImageId (\ s a -> s{_miaImageId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyImageAttribute where
         type Sv ModifyImageAttribute = EC2
         type Rs ModifyImageAttribute =

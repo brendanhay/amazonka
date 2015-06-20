@@ -68,6 +68,11 @@ dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a});
 dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\ s a -> s{_dpStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribePermissions where
         type Sv DescribePermissions = OpsWorks
         type Rs DescribePermissions =

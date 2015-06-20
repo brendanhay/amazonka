@@ -168,6 +168,11 @@ pfdtDomain = lens _pfdtDomain (\ s a -> s{_pfdtDomain = a});
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\ s a -> s{_pfdtTaskList = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PollForDecisionTask where
         type Sv PollForDecisionTask = SWF
         type Rs PollForDecisionTask =

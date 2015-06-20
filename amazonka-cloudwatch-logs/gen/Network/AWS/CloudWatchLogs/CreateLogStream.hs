@@ -66,6 +66,11 @@ clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a});
 clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateLogStream where
         type Sv CreateLogStream = CloudWatchLogs
         type Rs CreateLogStream = CreateLogStreamResponse

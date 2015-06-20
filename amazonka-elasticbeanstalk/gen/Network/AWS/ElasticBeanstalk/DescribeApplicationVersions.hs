@@ -63,6 +63,11 @@ dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Defau
 dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeApplicationVersions where
         type Sv DescribeApplicationVersions =
              ElasticBeanstalk

@@ -87,6 +87,11 @@ ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a});
 ldIdentityPoolId :: Lens' ListDatasets Text
 ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDatasets where
         type Sv ListDatasets = CognitoSync
         type Rs ListDatasets = ListDatasetsResponse

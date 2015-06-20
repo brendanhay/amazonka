@@ -62,6 +62,11 @@ createDomain pDomainName = CreateDomain'{_cdDomainName = pDomainName};
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDomain where
         type Sv CreateDomain = SDB
         type Rs CreateDomain = CreateDomainResponse

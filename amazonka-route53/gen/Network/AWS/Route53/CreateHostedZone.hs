@@ -128,6 +128,11 @@ chzName = lens _chzName (\ s a -> s{_chzName = a});
 chzCallerReference :: Lens' CreateHostedZone Text
 chzCallerReference = lens _chzCallerReference (\ s a -> s{_chzCallerReference = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateHostedZone where
         type Sv CreateHostedZone = Route53
         type Rs CreateHostedZone = CreateHostedZoneResponse

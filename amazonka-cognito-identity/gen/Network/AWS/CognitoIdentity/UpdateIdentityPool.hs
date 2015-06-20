@@ -96,6 +96,11 @@ uipIdentityPoolName = lens _uipIdentityPoolName (\ s a -> s{_uipIdentityPoolName
 uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
 uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s a -> s{_uipAllowUnauthenticatedIdentities = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateIdentityPool where
         type Sv UpdateIdentityPool = CognitoIdentity
         type Rs UpdateIdentityPool = IdentityPool

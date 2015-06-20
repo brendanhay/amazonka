@@ -64,6 +64,11 @@ getTrailStatus pName = GetTrailStatus'{_gtsName = pName};
 gtsName :: Lens' GetTrailStatus Text
 gtsName = lens _gtsName (\ s a -> s{_gtsName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetTrailStatus where
         type Sv GetTrailStatus = CloudTrail
         type Rs GetTrailStatus = GetTrailStatusResponse

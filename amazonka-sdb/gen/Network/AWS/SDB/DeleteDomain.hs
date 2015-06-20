@@ -54,6 +54,11 @@ deleteDomain pDomainName = DeleteDomain'{_ddDomainName = pDomainName};
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDomain where
         type Sv DeleteDomain = SDB
         type Rs DeleteDomain = DeleteDomainResponse

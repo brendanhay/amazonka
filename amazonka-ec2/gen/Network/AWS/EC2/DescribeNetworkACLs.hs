@@ -132,6 +132,11 @@ dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
 dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
         type Rs DescribeNetworkACLs =

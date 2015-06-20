@@ -57,6 +57,11 @@ describeConnections = DescribeConnections'{_desConnectionId = Nothing};
 desConnectionId :: Lens' DescribeConnections (Maybe Text)
 desConnectionId = lens _desConnectionId (\ s a -> s{_desConnectionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeConnections where
         type Sv DescribeConnections = DirectConnect
         type Rs DescribeConnections = Connections

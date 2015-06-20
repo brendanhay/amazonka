@@ -120,6 +120,11 @@ pRecordEntries = lens _pRecordEntries (\ s a -> s{_pRecordEntries = a}) . _List1
 pStreamName :: Lens' PutRecords Text
 pStreamName = lens _pStreamName (\ s a -> s{_pStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutRecords where
         type Sv PutRecords = Kinesis
         type Rs PutRecords = PutRecordsResponse

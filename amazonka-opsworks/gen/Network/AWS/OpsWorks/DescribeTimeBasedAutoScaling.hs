@@ -63,6 +63,11 @@ describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'{_dtbasInstanceIds =
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
 dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTimeBasedAutoScaling
          where
         type Sv DescribeTimeBasedAutoScaling = OpsWorks

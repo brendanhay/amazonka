@@ -61,6 +61,11 @@ rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = SQS
         type Rs RemovePermission = RemovePermissionResponse

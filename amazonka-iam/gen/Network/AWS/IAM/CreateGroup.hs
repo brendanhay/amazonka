@@ -70,6 +70,11 @@ cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateGroup where
         type Sv CreateGroup = IAM
         type Rs CreateGroup = CreateGroupResponse

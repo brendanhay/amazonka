@@ -75,6 +75,11 @@ liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListInvalidations where
         type Sv ListInvalidations = CloudFront
         type Rs ListInvalidations = ListInvalidationsResponse

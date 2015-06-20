@@ -62,6 +62,11 @@ clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a});
 clcCertificate :: Lens' CreateLunaClient Text
 clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateLunaClient where
         type Sv CreateLunaClient = CloudHSM
         type Rs CreateLunaClient = CreateLunaClientResponse

@@ -64,6 +64,11 @@ describeGatewayInformation pGatewayARN = DescribeGatewayInformation'{_dgiGateway
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
 dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeGatewayInformation where
         type Sv DescribeGatewayInformation = StorageGateway
         type Rs DescribeGatewayInformation =

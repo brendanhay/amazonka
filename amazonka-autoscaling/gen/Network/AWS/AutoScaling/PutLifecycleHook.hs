@@ -166,6 +166,11 @@ plhLifecycleHookName = lens _plhLifecycleHookName (\ s a -> s{_plhLifecycleHookN
 plhAutoScalingGroupName :: Lens' PutLifecycleHook Text
 plhAutoScalingGroupName = lens _plhAutoScalingGroupName (\ s a -> s{_plhAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutLifecycleHook where
         type Sv PutLifecycleHook = AutoScaling
         type Rs PutLifecycleHook = PutLifecycleHookResponse

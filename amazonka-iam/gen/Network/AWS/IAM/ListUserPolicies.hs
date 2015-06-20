@@ -87,6 +87,11 @@ lupMarker = lens _lupMarker (\ s a -> s{_lupMarker = a});
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\ s a -> s{_lupUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListUserPolicies where
         type Sv ListUserPolicies = IAM
         type Rs ListUserPolicies = ListUserPoliciesResponse

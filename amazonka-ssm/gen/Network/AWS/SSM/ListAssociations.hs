@@ -74,6 +74,11 @@ laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
 laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
 laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListAssociations where
         type Sv ListAssociations = SSM
         type Rs ListAssociations = ListAssociationsResponse

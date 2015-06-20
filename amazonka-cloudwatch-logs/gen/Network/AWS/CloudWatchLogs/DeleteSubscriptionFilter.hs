@@ -60,6 +60,11 @@ delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a});
 delFilterName :: Lens' DeleteSubscriptionFilter Text
 delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteSubscriptionFilter where
         type Sv DeleteSubscriptionFilter = CloudWatchLogs
         type Rs DeleteSubscriptionFilter =

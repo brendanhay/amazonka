@@ -78,6 +78,11 @@ disaPublicIP = lens _disaPublicIP (\ s a -> s{_disaPublicIP = a});
 disaDryRun :: Lens' DisassociateAddress (Maybe Bool)
 disaDryRun = lens _disaDryRun (\ s a -> s{_disaDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DisassociateAddress where
         type Sv DisassociateAddress = EC2
         type Rs DisassociateAddress =

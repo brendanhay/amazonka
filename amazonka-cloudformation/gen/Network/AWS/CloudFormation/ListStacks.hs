@@ -72,6 +72,11 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation
         type Rs ListStacks = ListStacksResponse

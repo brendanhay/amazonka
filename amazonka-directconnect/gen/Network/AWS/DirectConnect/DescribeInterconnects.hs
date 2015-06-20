@@ -57,6 +57,11 @@ describeInterconnects = DescribeInterconnects'{_diInterconnectId = Nothing};
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeInterconnects where
         type Sv DescribeInterconnects = DirectConnect
         type Rs DescribeInterconnects =

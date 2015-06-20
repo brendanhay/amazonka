@@ -77,6 +77,11 @@ dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a})
 dsLanguage :: Lens' DescribeServices (Maybe Text)
 dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = Support
         type Rs DescribeServices = DescribeServicesResponse

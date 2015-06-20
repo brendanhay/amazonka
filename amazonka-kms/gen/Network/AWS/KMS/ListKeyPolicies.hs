@@ -86,6 +86,11 @@ lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 lkpKeyId :: Lens' ListKeyPolicies Text
 lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListKeyPolicies where
         type Sv ListKeyPolicies = KMS
         type Rs ListKeyPolicies = ListKeyPoliciesResponse

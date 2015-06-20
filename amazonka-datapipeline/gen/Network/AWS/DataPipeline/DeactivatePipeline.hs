@@ -66,6 +66,11 @@ deaCancelActive = lens _deaCancelActive (\ s a -> s{_deaCancelActive = a});
 deaPipelineId :: Lens' DeactivatePipeline Text
 deaPipelineId = lens _deaPipelineId (\ s a -> s{_deaPipelineId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeactivatePipeline where
         type Sv DeactivatePipeline = DataPipeline
         type Rs DeactivatePipeline =

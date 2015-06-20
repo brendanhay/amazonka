@@ -74,6 +74,11 @@ rtaTapeARN = lens _rtaTapeARN (\ s a -> s{_rtaTapeARN = a});
 rtaGatewayARN :: Lens' RetrieveTapeArchive Text
 rtaGatewayARN = lens _rtaGatewayARN (\ s a -> s{_rtaGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RetrieveTapeArchive where
         type Sv RetrieveTapeArchive = StorageGateway
         type Rs RetrieveTapeArchive =

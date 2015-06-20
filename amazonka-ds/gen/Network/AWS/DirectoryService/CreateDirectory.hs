@@ -92,6 +92,11 @@ crePassword = lens _crePassword (\ s a -> s{_crePassword = a}) . _Sensitive;
 creSize :: Lens' CreateDirectory DirectorySize
 creSize = lens _creSize (\ s a -> s{_creSize = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDirectory where
         type Sv CreateDirectory = DirectoryService
         type Rs CreateDirectory = CreateDirectoryResponse

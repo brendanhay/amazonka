@@ -69,6 +69,11 @@ uasInstanceId = lens _uasInstanceId (\ s a -> s{_uasInstanceId = a});
 uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
 uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateAssociationStatus where
         type Sv UpdateAssociationStatus = SSM
         type Rs UpdateAssociationStatus =

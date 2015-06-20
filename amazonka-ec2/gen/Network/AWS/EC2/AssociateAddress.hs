@@ -128,6 +128,11 @@ assPublicIP = lens _assPublicIP (\ s a -> s{_assPublicIP = a});
 assDryRun :: Lens' AssociateAddress (Maybe Bool)
 assDryRun = lens _assDryRun (\ s a -> s{_assDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssociateAddress where
         type Sv AssociateAddress = EC2
         type Rs AssociateAddress = AssociateAddressResponse

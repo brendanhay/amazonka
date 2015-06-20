@@ -147,6 +147,11 @@ dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = Redshift
         type Rs DescribeTags = DescribeTagsResponse

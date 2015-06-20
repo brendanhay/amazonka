@@ -119,6 +119,11 @@ deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElastiCache
         type Rs DescribeEvents = DescribeEventsResponse

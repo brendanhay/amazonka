@@ -44,6 +44,11 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes' deriving (
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTerminationPolicyTypes
          where
         type Sv DescribeTerminationPolicyTypes = AutoScaling

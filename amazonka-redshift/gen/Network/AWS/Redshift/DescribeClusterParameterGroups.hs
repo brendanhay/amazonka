@@ -129,6 +129,11 @@ dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgParameterGroupName = lens _dcpgParameterGroupName (\ s a -> s{_dcpgParameterGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusterParameterGroups
          where
         type Sv DescribeClusterParameterGroups = Redshift

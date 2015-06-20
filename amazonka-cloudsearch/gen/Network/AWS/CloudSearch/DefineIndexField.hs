@@ -69,6 +69,11 @@ def1DomainName = lens _def1DomainName (\ s a -> s{_def1DomainName = a});
 def1IndexField :: Lens' DefineIndexField IndexField
 def1IndexField = lens _def1IndexField (\ s a -> s{_def1IndexField = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DefineIndexField where
         type Sv DefineIndexField = CloudSearch
         type Rs DefineIndexField = DefineIndexFieldResponse

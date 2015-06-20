@@ -62,6 +62,11 @@ aeuEnvironmentName = lens _aeuEnvironmentName (\ s a -> s{_aeuEnvironmentName = 
 aeuEnvironmentId :: Lens' AbortEnvironmentUpdate (Maybe Text)
 aeuEnvironmentId = lens _aeuEnvironmentId (\ s a -> s{_aeuEnvironmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AbortEnvironmentUpdate where
         type Sv AbortEnvironmentUpdate = ElasticBeanstalk
         type Rs AbortEnvironmentUpdate =

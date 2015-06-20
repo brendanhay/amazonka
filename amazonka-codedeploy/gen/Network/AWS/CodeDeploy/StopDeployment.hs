@@ -55,6 +55,11 @@ stopDeployment pDeploymentId = StopDeployment'{_sdDeploymentId = pDeploymentId};
 sdDeploymentId :: Lens' StopDeployment Text
 sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StopDeployment where
         type Sv StopDeployment = CodeDeploy
         type Rs StopDeployment = StopDeploymentResponse

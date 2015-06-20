@@ -76,6 +76,11 @@ desSuggesterNames = lens _desSuggesterNames (\ s a -> s{_desSuggesterNames = a})
 desDomainName :: Lens' DescribeSuggesters Text
 desDomainName = lens _desDomainName (\ s a -> s{_desDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSuggesters where
         type Sv DescribeSuggesters = CloudSearch
         type Rs DescribeSuggesters =

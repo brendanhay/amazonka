@@ -91,6 +91,11 @@ cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
 cvCIDRBlock :: Lens' CreateVPC Text
 cvCIDRBlock = lens _cvCIDRBlock (\ s a -> s{_cvCIDRBlock = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateVPC where
         type Sv CreateVPC = EC2
         type Rs CreateVPC = CreateVPCResponse

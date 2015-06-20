@@ -59,6 +59,11 @@ describeConnectionsOnInterconnect pInterconnectId = DescribeConnectionsOnInterco
 dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
 dcoiInterconnectId = lens _dcoiInterconnectId (\ s a -> s{_dcoiInterconnectId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeConnectionsOnInterconnect
          where
         type Sv DescribeConnectionsOnInterconnect =

@@ -54,6 +54,11 @@ deleteEndpoint pEndpointARN = DeleteEndpoint'{_deEndpointARN = pEndpointARN};
 deEndpointARN :: Lens' DeleteEndpoint Text
 deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteEndpoint where
         type Sv DeleteEndpoint = SNS
         type Rs DeleteEndpoint = DeleteEndpointResponse

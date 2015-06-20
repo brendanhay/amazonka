@@ -200,6 +200,11 @@ usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Defau
 usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\ s a -> s{_usStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = CloudFormation
         type Rs UpdateStack = UpdateStackResponse

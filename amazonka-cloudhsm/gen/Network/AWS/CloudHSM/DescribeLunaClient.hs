@@ -65,6 +65,11 @@ dlcClientARN = lens _dlcClientARN (\ s a -> s{_dlcClientARN = a});
 dlcCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
 dlcCertificateFingerprint = lens _dlcCertificateFingerprint (\ s a -> s{_dlcCertificateFingerprint = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLunaClient where
         type Sv DescribeLunaClient = CloudHSM
         type Rs DescribeLunaClient =

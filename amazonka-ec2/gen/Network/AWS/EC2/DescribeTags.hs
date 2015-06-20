@@ -101,6 +101,11 @@ dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EC2
         type Rs DescribeTags = DescribeTagsResponse

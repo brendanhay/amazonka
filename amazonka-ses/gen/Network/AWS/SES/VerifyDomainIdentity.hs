@@ -56,6 +56,11 @@ verifyDomainIdentity pDomain = VerifyDomainIdentity'{_vdiDomain = pDomain};
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\ s a -> s{_vdiDomain = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest VerifyDomainIdentity where
         type Sv VerifyDomainIdentity = SES
         type Rs VerifyDomainIdentity =

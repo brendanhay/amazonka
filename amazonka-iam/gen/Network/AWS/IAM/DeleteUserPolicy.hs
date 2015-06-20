@@ -67,6 +67,11 @@ dupUserName = lens _dupUserName (\ s a -> s{_dupUserName = a});
 dupPolicyName :: Lens' DeleteUserPolicy Text
 dupPolicyName = lens _dupPolicyName (\ s a -> s{_dupPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteUserPolicy where
         type Sv DeleteUserPolicy = IAM
         type Rs DeleteUserPolicy = DeleteUserPolicyResponse

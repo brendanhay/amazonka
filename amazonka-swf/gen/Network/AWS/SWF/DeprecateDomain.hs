@@ -78,6 +78,11 @@ deprecateDomain pName = DeprecateDomain'{_depName = pName};
 depName :: Lens' DeprecateDomain Text
 depName = lens _depName (\ s a -> s{_depName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeprecateDomain where
         type Sv DeprecateDomain = SWF
         type Rs DeprecateDomain = DeprecateDomainResponse

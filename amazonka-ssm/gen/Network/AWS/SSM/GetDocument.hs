@@ -55,6 +55,11 @@ getDocument pName = GetDocument'{_gdName = pName};
 gdName :: Lens' GetDocument Text
 gdName = lens _gdName (\ s a -> s{_gdName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDocument where
         type Sv GetDocument = SSM
         type Rs GetDocument = GetDocumentResponse

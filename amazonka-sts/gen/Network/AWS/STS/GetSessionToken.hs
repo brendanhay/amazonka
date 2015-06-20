@@ -119,6 +119,11 @@ gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = 
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstSerialNumber = lens _gstSerialNumber (\ s a -> s{_gstSerialNumber = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetSessionToken where
         type Sv GetSessionToken = STS
         type Rs GetSessionToken = GetSessionTokenResponse

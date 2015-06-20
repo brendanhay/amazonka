@@ -103,6 +103,11 @@ dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
 dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
 dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeOptionGroups where
         type Sv DescribeOptionGroups = RDS
         type Rs DescribeOptionGroups =

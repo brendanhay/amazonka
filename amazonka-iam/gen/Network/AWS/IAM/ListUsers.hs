@@ -87,6 +87,11 @@ luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
 luMarker :: Lens' ListUsers (Maybe Text)
 luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListUsers where
         type Sv ListUsers = IAM
         type Rs ListUsers = ListUsersResponse

@@ -74,6 +74,11 @@ dclvInstanceId = lens _dclvInstanceId (\ s a -> s{_dclvInstanceId = a});
 dclvVPCId :: Lens' DetachClassicLinkVPC Text
 dclvVPCId = lens _dclvVPCId (\ s a -> s{_dclvVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachClassicLinkVPC where
         type Sv DetachClassicLinkVPC = EC2
         type Rs DetachClassicLinkVPC =

@@ -107,6 +107,11 @@ leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time;
 leMaxResults :: Lens' LookupEvents (Maybe Natural)
 leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest LookupEvents where
         type Sv LookupEvents = CloudTrail
         type Rs LookupEvents = LookupEventsResponse

@@ -198,6 +198,11 @@ ds1DryRun = lens _ds1DryRun (\ s a -> s{_ds1DryRun = a});
 ds1MaxResults :: Lens' DescribeSnapshots (Maybe Int)
 ds1MaxResults = lens _ds1MaxResults (\ s a -> s{_ds1MaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2
         type Rs DescribeSnapshots = DescribeSnapshotsResponse

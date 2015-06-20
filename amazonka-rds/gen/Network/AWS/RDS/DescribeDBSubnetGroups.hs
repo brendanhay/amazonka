@@ -91,6 +91,11 @@ ddsgMaxRecords = lens _ddsgMaxRecords (\ s a -> s{_ddsgMaxRecords = a});
 ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDBSubnetGroups where
         type Sv DescribeDBSubnetGroups = RDS
         type Rs DescribeDBSubnetGroups =

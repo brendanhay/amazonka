@@ -77,6 +77,11 @@ cpgGroupName = lens _cpgGroupName (\ s a -> s{_cpgGroupName = a});
 cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
 cpgStrategy = lens _cpgStrategy (\ s a -> s{_cpgStrategy = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreatePlacementGroup where
         type Sv CreatePlacementGroup = EC2
         type Rs CreatePlacementGroup =

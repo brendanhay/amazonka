@@ -78,6 +78,11 @@ d1DryRun = lens _d1DryRun (\ s a -> s{_d1DryRun = a});
 d1SnapshotId :: Lens' DeleteSnapshot Text
 d1SnapshotId = lens _d1SnapshotId (\ s a -> s{_d1SnapshotId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = EC2
         type Rs DeleteSnapshot = DeleteSnapshotResponse

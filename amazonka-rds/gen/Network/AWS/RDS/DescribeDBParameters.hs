@@ -103,6 +103,11 @@ ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a});
 ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
 ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDBParameters where
         type Sv DescribeDBParameters = RDS
         type Rs DescribeDBParameters =

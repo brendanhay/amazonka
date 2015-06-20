@@ -77,6 +77,11 @@ detVPNGatewayId = lens _detVPNGatewayId (\ s a -> s{_detVPNGatewayId = a});
 detVPCId :: Lens' DetachVPNGateway Text
 detVPCId = lens _detVPCId (\ s a -> s{_detVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachVPNGateway where
         type Sv DetachVPNGateway = EC2
         type Rs DetachVPNGateway = DetachVPNGatewayResponse

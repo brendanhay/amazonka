@@ -57,6 +57,11 @@ startConfigurationRecorder pConfigurationRecorderName = StartConfigurationRecord
 staConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
 staConfigurationRecorderName = lens _staConfigurationRecorderName (\ s a -> s{_staConfigurationRecorderName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StartConfigurationRecorder where
         type Sv StartConfigurationRecorder = Config
         type Rs StartConfigurationRecorder =

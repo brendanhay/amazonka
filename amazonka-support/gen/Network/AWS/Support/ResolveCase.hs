@@ -58,6 +58,11 @@ resolveCase = ResolveCase'{_rcCaseId = Nothing};
 rcCaseId :: Lens' ResolveCase (Maybe Text)
 rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResolveCase where
         type Sv ResolveCase = Support
         type Rs ResolveCase = ResolveCaseResponse

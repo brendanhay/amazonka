@@ -73,6 +73,11 @@ pkpPolicyName = lens _pkpPolicyName (\ s a -> s{_pkpPolicyName = a});
 pkpPolicy :: Lens' PutKeyPolicy Text
 pkpPolicy = lens _pkpPolicy (\ s a -> s{_pkpPolicy = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutKeyPolicy where
         type Sv PutKeyPolicy = KMS
         type Rs PutKeyPolicy = PutKeyPolicyResponse

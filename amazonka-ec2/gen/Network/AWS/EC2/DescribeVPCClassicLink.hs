@@ -89,6 +89,11 @@ dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default;
 dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
 dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVPCClassicLink where
         type Sv DescribeVPCClassicLink = EC2
         type Rs DescribeVPCClassicLink =

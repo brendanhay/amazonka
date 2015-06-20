@@ -61,6 +61,11 @@ dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHoo
 dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
 dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLifecycleHooks where
         type Sv DescribeLifecycleHooks = AutoScaling
         type Rs DescribeLifecycleHooks =

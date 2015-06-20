@@ -89,6 +89,11 @@ depDomain = lens _depDomain (\ s a -> s{_depDomain = a});
 depWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
 depWorkflowType = lens _depWorkflowType (\ s a -> s{_depWorkflowType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeprecateWorkflowType where
         type Sv DeprecateWorkflowType = SWF
         type Rs DeprecateWorkflowType =

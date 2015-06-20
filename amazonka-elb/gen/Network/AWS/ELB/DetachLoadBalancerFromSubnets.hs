@@ -67,6 +67,11 @@ dlbfsLoadBalancerName = lens _dlbfsLoadBalancerName (\ s a -> s{_dlbfsLoadBalanc
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachLoadBalancerFromSubnets
          where
         type Sv DetachLoadBalancerFromSubnets = ELB

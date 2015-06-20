@@ -78,6 +78,11 @@ lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
 lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExclusiveStartStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListStreams where
         type Sv ListStreams = Kinesis
         type Rs ListStreams = ListStreamsResponse

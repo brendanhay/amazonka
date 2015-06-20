@@ -69,6 +69,11 @@ dv2DryRun = lens _dv2DryRun (\ s a -> s{_dv2DryRun = a});
 dv2VolumeId :: Lens' DeleteVolume Text
 dv2VolumeId = lens _dv2VolumeId (\ s a -> s{_dv2VolumeId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = EC2
         type Rs DeleteVolume = DeleteVolumeResponse

@@ -148,6 +148,11 @@ uappRequireUppercaseCharacters = lens _uappRequireUppercaseCharacters (\ s a -> 
 uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword = lens _uappAllowUsersToChangePassword (\ s a -> s{_uappAllowUsersToChangePassword = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateAccountPasswordPolicy where
         type Sv UpdateAccountPasswordPolicy = IAM
         type Rs UpdateAccountPasswordPolicy =

@@ -89,6 +89,11 @@ ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
 ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
 ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateSnapshotSchedule where
         type Sv UpdateSnapshotSchedule = StorageGateway
         type Rs UpdateSnapshotSchedule =

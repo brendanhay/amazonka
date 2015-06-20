@@ -78,6 +78,11 @@ ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
 ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListJobsByPipeline where
         type Sv ListJobsByPipeline = ElasticTranscoder
         type Rs ListJobsByPipeline =

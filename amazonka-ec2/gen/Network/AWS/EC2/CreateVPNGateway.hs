@@ -77,6 +77,11 @@ cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
 cvgType :: Lens' CreateVPNGateway GatewayType
 cvgType = lens _cvgType (\ s a -> s{_cvgType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateVPNGateway where
         type Sv CreateVPNGateway = EC2
         type Rs CreateVPNGateway = CreateVPNGatewayResponse

@@ -122,6 +122,11 @@ dhsmcMaxRecords = lens _dhsmcMaxRecords (\ s a -> s{_dhsmcMaxRecords = a});
 dhsmcMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
 dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeHSMConfigurations where
         type Sv DescribeHSMConfigurations = Redshift
         type Rs DescribeHSMConfigurations =

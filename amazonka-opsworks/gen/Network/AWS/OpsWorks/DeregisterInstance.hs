@@ -61,6 +61,11 @@ deregisterInstance pInstanceId = DeregisterInstance'{_derInstanceId = pInstanceI
 derInstanceId :: Lens' DeregisterInstance Text
 derInstanceId = lens _derInstanceId (\ s a -> s{_derInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeregisterInstance where
         type Sv DeregisterInstance = OpsWorks
         type Rs DeregisterInstance =

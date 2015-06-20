@@ -72,6 +72,11 @@ slblscLoadBalancerPort = lens _slblscLoadBalancerPort (\ s a -> s{_slblscLoadBal
 slblscSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblscSSLCertificateId = lens _slblscSSLCertificateId (\ s a -> s{_slblscSSLCertificateId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          SetLoadBalancerListenerSSLCertificate where
         type Sv SetLoadBalancerListenerSSLCertificate = ELB

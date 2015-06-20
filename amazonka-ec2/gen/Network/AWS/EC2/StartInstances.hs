@@ -91,6 +91,11 @@ staDryRun = lens _staDryRun (\ s a -> s{_staDryRun = a});
 staInstanceIds :: Lens' StartInstances [Text]
 staInstanceIds = lens _staInstanceIds (\ s a -> s{_staInstanceIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StartInstances where
         type Sv StartInstances = EC2
         type Rs StartInstances = StartInstancesResponse

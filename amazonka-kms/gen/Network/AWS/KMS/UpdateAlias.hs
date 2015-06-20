@@ -81,6 +81,11 @@ uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 uaTargetKeyId :: Lens' UpdateAlias Text
 uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateAlias where
         type Sv UpdateAlias = KMS
         type Rs UpdateAlias = UpdateAliasResponse

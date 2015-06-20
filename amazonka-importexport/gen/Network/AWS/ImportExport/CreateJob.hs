@@ -92,6 +92,11 @@ cjManifest = lens _cjManifest (\ s a -> s{_cjManifest = a});
 cjValidateOnly :: Lens' CreateJob Bool
 cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateJob where
         type Sv CreateJob = ImportExport
         type Rs CreateJob = CreateJobResponse

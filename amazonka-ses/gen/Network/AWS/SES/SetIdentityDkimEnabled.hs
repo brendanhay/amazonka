@@ -76,6 +76,11 @@ sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetIdentityDkimEnabled where
         type Sv SetIdentityDkimEnabled = SES
         type Rs SetIdentityDkimEnabled =

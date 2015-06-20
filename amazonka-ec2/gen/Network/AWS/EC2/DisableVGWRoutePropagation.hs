@@ -60,6 +60,11 @@ dvrpRouteTableId = lens _dvrpRouteTableId (\ s a -> s{_dvrpRouteTableId = a});
 dvrpGatewayId :: Lens' DisableVGWRoutePropagation Text
 dvrpGatewayId = lens _dvrpGatewayId (\ s a -> s{_dvrpGatewayId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DisableVGWRoutePropagation where
         type Sv DisableVGWRoutePropagation = EC2
         type Rs DisableVGWRoutePropagation =

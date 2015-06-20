@@ -61,6 +61,11 @@ csSourceSnapshotName = lens _csSourceSnapshotName (\ s a -> s{_csSourceSnapshotN
 csTargetSnapshotName :: Lens' CopySnapshot Text
 csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = ElastiCache
         type Rs CopySnapshot = CopySnapshotResponse

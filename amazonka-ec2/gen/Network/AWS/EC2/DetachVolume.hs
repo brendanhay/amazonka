@@ -110,6 +110,11 @@ dvDryRun = lens _dvDryRun (\ s a -> s{_dvDryRun = a});
 dvVolumeId :: Lens' DetachVolume Text
 dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachVolume where
         type Sv DetachVolume = EC2
         type Rs DetachVolume = VolumeAttachment

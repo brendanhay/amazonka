@@ -111,6 +111,11 @@ encKeyId = lens _encKeyId (\ s a -> s{_encKeyId = a});
 encPlaintext :: Lens' Encrypt Base64
 encPlaintext = lens _encPlaintext (\ s a -> s{_encPlaintext = a}) . _Sensitive;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest Encrypt where
         type Sv Encrypt = KMS
         type Rs Encrypt = EncryptResponse

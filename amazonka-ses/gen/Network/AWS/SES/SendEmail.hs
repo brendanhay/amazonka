@@ -117,6 +117,11 @@ seDestination = lens _seDestination (\ s a -> s{_seDestination = a});
 seMessage :: Lens' SendEmail Message
 seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SendEmail where
         type Sv SendEmail = SES
         type Rs SendEmail = SendEmailResponse

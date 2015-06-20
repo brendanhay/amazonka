@@ -59,6 +59,11 @@ dpAutoScalingGroupName = lens _dpAutoScalingGroupName (\ s a -> s{_dpAutoScaling
 dpPolicyName :: Lens' DeletePolicy Text
 dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeletePolicy where
         type Sv DeletePolicy = AutoScaling
         type Rs DeletePolicy = DeletePolicyResponse

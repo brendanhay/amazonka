@@ -56,6 +56,11 @@ createStreamingDistribution pStreamingDistributionConfig = CreateStreamingDistri
 csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
 csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateStreamingDistribution where
         type Sv CreateStreamingDistribution = CloudFront
         type Rs CreateStreamingDistribution =

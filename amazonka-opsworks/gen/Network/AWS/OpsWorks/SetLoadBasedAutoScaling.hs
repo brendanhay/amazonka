@@ -90,6 +90,11 @@ slbasDownScaling = lens _slbasDownScaling (\ s a -> s{_slbasDownScaling = a});
 slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
 slbasLayerId = lens _slbasLayerId (\ s a -> s{_slbasLayerId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetLoadBasedAutoScaling where
         type Sv SetLoadBasedAutoScaling = OpsWorks
         type Rs SetLoadBasedAutoScaling =

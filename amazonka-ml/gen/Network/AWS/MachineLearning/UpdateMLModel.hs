@@ -77,6 +77,11 @@ umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = 
 umlmMLModelId :: Lens' UpdateMLModel Text
 umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateMLModel where
         type Sv UpdateMLModel = MachineLearning
         type Rs UpdateMLModel = UpdateMLModelResponse

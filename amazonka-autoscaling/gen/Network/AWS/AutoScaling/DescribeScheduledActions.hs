@@ -102,6 +102,11 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 desScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desScheduledActionNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
         type Rs DescribeScheduledActions =

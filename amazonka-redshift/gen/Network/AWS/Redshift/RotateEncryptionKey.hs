@@ -58,6 +58,11 @@ rotateEncryptionKey pClusterIdentifier = RotateEncryptionKey'{_rekClusterIdentif
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RotateEncryptionKey where
         type Sv RotateEncryptionKey = Redshift
         type Rs RotateEncryptionKey =

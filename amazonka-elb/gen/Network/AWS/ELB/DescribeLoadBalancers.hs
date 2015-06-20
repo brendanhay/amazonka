@@ -72,6 +72,11 @@ dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
 dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
 dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB
         type Rs DescribeLoadBalancers =

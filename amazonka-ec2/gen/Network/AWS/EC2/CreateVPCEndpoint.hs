@@ -106,6 +106,11 @@ cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 cveServiceName :: Lens' CreateVPCEndpoint Text
 cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateVPCEndpoint where
         type Sv CreateVPCEndpoint = EC2
         type Rs CreateVPCEndpoint = CreateVPCEndpointResponse

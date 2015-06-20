@@ -124,6 +124,11 @@ lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a});
 lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF
         type Rs ListWorkflowTypes = ListWorkflowTypesResponse

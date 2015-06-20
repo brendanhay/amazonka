@@ -93,6 +93,11 @@ qoPipelineId = lens _qoPipelineId (\ s a -> s{_qoPipelineId = a});
 qoSphere :: Lens' QueryObjects Text
 qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest QueryObjects where
         type Sv QueryObjects = DataPipeline
         type Rs QueryObjects = QueryObjectsResponse

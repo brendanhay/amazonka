@@ -66,6 +66,11 @@ atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddTags where
         type Sv AddTags = EMR
         type Rs AddTags = AddTagsResponse

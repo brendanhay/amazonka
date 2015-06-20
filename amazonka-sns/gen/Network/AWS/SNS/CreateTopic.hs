@@ -63,6 +63,11 @@ createTopic pName = CreateTopic'{_ctName = pName};
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\ s a -> s{_ctName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateTopic where
         type Sv CreateTopic = SNS
         type Rs CreateTopic = CreateTopicResponse

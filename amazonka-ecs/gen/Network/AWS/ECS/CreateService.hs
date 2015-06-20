@@ -111,6 +111,11 @@ creTaskDefinition = lens _creTaskDefinition (\ s a -> s{_creTaskDefinition = a})
 creDesiredCount :: Lens' CreateService Int
 creDesiredCount = lens _creDesiredCount (\ s a -> s{_creDesiredCount = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateService where
         type Sv CreateService = ECS
         type Rs CreateService = CreateServiceResponse

@@ -64,6 +64,11 @@ daTerminateEnvByForce = lens _daTerminateEnvByForce (\ s a -> s{_daTerminateEnvB
 daApplicationName :: Lens' DeleteApplication Text
 daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteApplication where
         type Sv DeleteApplication = ElasticBeanstalk
         type Rs DeleteApplication = DeleteApplicationResponse

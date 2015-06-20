@@ -173,6 +173,11 @@ dmlmFilterVariable = lens _dmlmFilterVariable (\ s a -> s{_dmlmFilterVariable = 
 dmlmLE :: Lens' DescribeMLModels (Maybe Text)
 dmlmLE = lens _dmlmLE (\ s a -> s{_dmlmLE = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning
         type Rs DescribeMLModels = DescribeMLModelsResponse

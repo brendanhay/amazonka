@@ -63,6 +63,11 @@ deleteBatchPrediction pBatchPredictionId = DeleteBatchPrediction'{_dbpBatchPredi
 dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
 dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteBatchPrediction where
         type Sv DeleteBatchPrediction = MachineLearning
         type Rs DeleteBatchPrediction =

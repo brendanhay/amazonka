@@ -59,6 +59,11 @@ rufgGroupName = lens _rufgGroupName (\ s a -> s{_rufgGroupName = a});
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RemoveUserFromGroup where
         type Sv RemoveUserFromGroup = IAM
         type Rs RemoveUserFromGroup =

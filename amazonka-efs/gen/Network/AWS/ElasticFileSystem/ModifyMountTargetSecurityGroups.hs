@@ -74,6 +74,11 @@ mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups
 mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
 mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyMountTargetSecurityGroups
          where
         type Sv ModifyMountTargetSecurityGroups =

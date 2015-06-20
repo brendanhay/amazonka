@@ -95,6 +95,11 @@ stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a});
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetTaskStatus where
         type Sv SetTaskStatus = DataPipeline
         type Rs SetTaskStatus = SetTaskStatusResponse

@@ -60,6 +60,11 @@ deleteDBSnapshot pDBSnapshotIdentifier = DeleteDBSnapshot'{_delDBSnapshotIdentif
 delDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 delDBSnapshotIdentifier = lens _delDBSnapshotIdentifier (\ s a -> s{_delDBSnapshotIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDBSnapshot where
         type Sv DeleteDBSnapshot = RDS
         type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse

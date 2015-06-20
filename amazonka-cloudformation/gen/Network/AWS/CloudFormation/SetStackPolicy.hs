@@ -72,6 +72,11 @@ sspStackPolicyURL = lens _sspStackPolicyURL (\ s a -> s{_sspStackPolicyURL = a})
 sspStackName :: Lens' SetStackPolicy Text
 sspStackName = lens _sspStackName (\ s a -> s{_sspStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetStackPolicy where
         type Sv SetStackPolicy = CloudFormation
         type Rs SetStackPolicy = SetStackPolicyResponse

@@ -82,6 +82,11 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 lsMaxResults :: Lens' ListServices (Maybe Int)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListServices where
         type Sv ListServices = ECS
         type Rs ListServices = ListServicesResponse

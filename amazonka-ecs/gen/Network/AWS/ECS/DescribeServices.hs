@@ -62,6 +62,11 @@ desCluster = lens _desCluster (\ s a -> s{_desCluster = a});
 desServices :: Lens' DescribeServices [Text]
 desServices = lens _desServices (\ s a -> s{_desServices = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = ECS
         type Rs DescribeServices = DescribeServicesResponse

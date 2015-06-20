@@ -59,6 +59,11 @@ deleteRole pRoleName = DeleteRole'{_drRoleName = pRoleName};
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteRole where
         type Sv DeleteRole = IAM
         type Rs DeleteRole = DeleteRoleResponse

@@ -44,6 +44,11 @@ data ListAvailableZones = ListAvailableZones' deriving (Eq, Read, Show)
 listAvailableZones :: ListAvailableZones
 listAvailableZones = ListAvailableZones';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListAvailableZones where
         type Sv ListAvailableZones = CloudHSM
         type Rs ListAvailableZones =

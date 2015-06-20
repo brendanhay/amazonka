@@ -100,6 +100,11 @@ dsSnapshotName = lens _dsSnapshotName (\ s a -> s{_dsSnapshotName = a});
 dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
         type Rs DescribeSnapshots = DescribeSnapshotsResponse

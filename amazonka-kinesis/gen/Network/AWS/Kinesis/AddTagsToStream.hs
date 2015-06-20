@@ -63,6 +63,11 @@ attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a});
 attsTags :: Lens' AddTagsToStream (HashMap Text Text)
 attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddTagsToStream where
         type Sv AddTagsToStream = Kinesis
         type Rs AddTagsToStream = AddTagsToStreamResponse

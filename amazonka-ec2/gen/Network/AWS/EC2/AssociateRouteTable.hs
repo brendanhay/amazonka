@@ -80,6 +80,11 @@ artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a});
 artRouteTableId :: Lens' AssociateRouteTable Text
 artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssociateRouteTable where
         type Sv AssociateRouteTable = EC2
         type Rs AssociateRouteTable =

@@ -59,6 +59,11 @@ describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'{_dsdsDryRun
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
 dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSpotDatafeedSubscription
          where
         type Sv DescribeSpotDatafeedSubscription = EC2

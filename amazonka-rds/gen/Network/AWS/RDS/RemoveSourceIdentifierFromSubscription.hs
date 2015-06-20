@@ -65,6 +65,11 @@ rsifsSubscriptionName = lens _rsifsSubscriptionName (\ s a -> s{_rsifsSubscripti
 rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          RemoveSourceIdentifierFromSubscription where
         type Sv RemoveSourceIdentifierFromSubscription = RDS

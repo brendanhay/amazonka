@@ -125,6 +125,11 @@ ufcDescription = lens _ufcDescription (\ s a -> s{_ufcDescription = a});
 ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
 ufcFunctionName = lens _ufcFunctionName (\ s a -> s{_ufcFunctionName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateFunctionConfiguration where
         type Sv UpdateFunctionConfiguration = Lambda
         type Rs UpdateFunctionConfiguration =

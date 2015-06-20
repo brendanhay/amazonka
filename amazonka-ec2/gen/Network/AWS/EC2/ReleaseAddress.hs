@@ -85,6 +85,11 @@ raPublicIP = lens _raPublicIP (\ s a -> s{_raPublicIP = a});
 raDryRun :: Lens' ReleaseAddress (Maybe Bool)
 raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ReleaseAddress where
         type Sv ReleaseAddress = EC2
         type Rs ReleaseAddress = ReleaseAddressResponse

@@ -87,6 +87,11 @@ tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest TerminateInstances where
         type Sv TerminateInstances = EC2
         type Rs TerminateInstances =

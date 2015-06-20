@@ -131,6 +131,11 @@ fleInterleaved = lens _fleInterleaved (\ s a -> s{_fleInterleaved = a});
 fleLogGroupName :: Lens' FilterLogEvents Text
 fleLogGroupName = lens _fleLogGroupName (\ s a -> s{_fleLogGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest FilterLogEvents where
         type Sv FilterLogEvents = CloudWatchLogs
         type Rs FilterLogEvents = FilterLogEventsResponse

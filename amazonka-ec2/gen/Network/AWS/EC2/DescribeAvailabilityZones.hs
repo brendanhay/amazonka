@@ -91,6 +91,11 @@ dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default;
 dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
 dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAvailabilityZones where
         type Sv DescribeAvailabilityZones = EC2
         type Rs DescribeAvailabilityZones =

@@ -82,6 +82,11 @@ cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{
 cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
 cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDBSubnetGroup where
         type Sv CreateDBSubnetGroup = RDS
         type Rs CreateDBSubnetGroup =

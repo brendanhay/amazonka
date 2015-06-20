@@ -46,6 +46,11 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy' deriving (Eq, Read, Sh
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetAccountPasswordPolicy where
         type Sv GetAccountPasswordPolicy = IAM
         type Rs GetAccountPasswordPolicy =

@@ -61,6 +61,11 @@ getSAMLProvider pSAMLProviderARN = GetSAMLProvider'{_gsamlpSAMLProviderARN = pSA
 gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetSAMLProvider where
         type Sv GetSAMLProvider = IAM
         type Rs GetSAMLProvider = GetSAMLProviderResponse

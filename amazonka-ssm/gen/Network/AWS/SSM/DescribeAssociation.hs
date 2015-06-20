@@ -62,6 +62,11 @@ daName = lens _daName (\ s a -> s{_daName = a});
 daInstanceId :: Lens' DescribeAssociation Text
 daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAssociation where
         type Sv DescribeAssociation = SSM
         type Rs DescribeAssociation =

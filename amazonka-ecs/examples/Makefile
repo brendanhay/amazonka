@@ -1,4 +1,7 @@
-TOP    := ../..
-PARENT := amazonka-ecs
+SHELL := /usr/bin/env bash
 
-include $(TOP)/share/examples.mk
+build:
+	stack build
+
+clean:
+	stack clean

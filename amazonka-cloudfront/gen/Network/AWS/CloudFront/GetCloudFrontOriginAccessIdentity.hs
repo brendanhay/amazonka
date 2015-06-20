@@ -55,6 +55,11 @@ getCloudFrontOriginAccessIdentity pId = GetCloudFrontOriginAccessIdentity'{_gcfo
 gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
 gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetCloudFrontOriginAccessIdentity
          where
         type Sv GetCloudFrontOriginAccessIdentity =

@@ -78,6 +78,11 @@ dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
 dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSnapshotAttribute where
         type Sv DescribeSnapshotAttribute = EC2
         type Rs DescribeSnapshotAttribute =

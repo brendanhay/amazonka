@@ -85,6 +85,11 @@ lgMaxItems = lens _lgMaxItems (\ s a -> s{_lgMaxItems = a}) . mapping _Nat;
 lgMarker :: Lens' ListGroups (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListGroups where
         type Sv ListGroups = IAM
         type Rs ListGroups = ListGroupsResponse

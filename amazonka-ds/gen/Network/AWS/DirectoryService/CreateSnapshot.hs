@@ -63,6 +63,11 @@ csName = lens _csName (\ s a -> s{_csName = a});
 csDirectoryId :: Lens' CreateSnapshot Text
 csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = DirectoryService
         type Rs CreateSnapshot = CreateSnapshotResponse

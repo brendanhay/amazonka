@@ -64,6 +64,11 @@ putDeliveryChannel pDeliveryChannel = PutDeliveryChannel'{_pdcDeliveryChannel = 
 pdcDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
 pdcDeliveryChannel = lens _pdcDeliveryChannel (\ s a -> s{_pdcDeliveryChannel = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutDeliveryChannel where
         type Sv PutDeliveryChannel = Config
         type Rs PutDeliveryChannel =

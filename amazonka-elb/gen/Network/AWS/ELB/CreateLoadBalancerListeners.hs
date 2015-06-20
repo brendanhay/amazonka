@@ -66,6 +66,11 @@ clblLoadBalancerName = lens _clblLoadBalancerName (\ s a -> s{_clblLoadBalancerN
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
 clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateLoadBalancerListeners where
         type Sv CreateLoadBalancerListeners = ELB
         type Rs CreateLoadBalancerListeners =

@@ -74,6 +74,11 @@ rebuildWorkspaces pRebuildWorkspaceRequests = RebuildWorkspaces'{_rwRebuildWorks
 rwRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
 rwRebuildWorkspaceRequests = lens _rwRebuildWorkspaceRequests (\ s a -> s{_rwRebuildWorkspaceRequests = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RebuildWorkspaces where
         type Sv RebuildWorkspaces = WorkSpaces
         type Rs RebuildWorkspaces = RebuildWorkspacesResponse

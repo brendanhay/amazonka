@@ -65,6 +65,11 @@ mcpgCacheParameterGroupName = lens _mcpgCacheParameterGroupName (\ s a -> s{_mcp
 mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyCacheParameterGroup where
         type Sv ModifyCacheParameterGroup = ElastiCache
         type Rs ModifyCacheParameterGroup =

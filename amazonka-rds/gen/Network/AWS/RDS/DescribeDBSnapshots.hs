@@ -120,6 +120,11 @@ ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDBSnapshots where
         type Sv DescribeDBSnapshots = RDS
         type Rs DescribeDBSnapshots =

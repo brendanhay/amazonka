@@ -61,6 +61,11 @@ describeTrustedAdvisorChecks pLanguage = DescribeTrustedAdvisorChecks'{_dtacLang
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
 dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTrustedAdvisorChecks
          where
         type Sv DescribeTrustedAdvisorChecks = Support

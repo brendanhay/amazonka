@@ -89,6 +89,11 @@ cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreatePolicyVersion where
         type Sv CreatePolicyVersion = IAM
         type Rs CreatePolicyVersion =

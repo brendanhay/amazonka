@@ -91,6 +91,11 @@ mdiDeveloperProviderName = lens _mdiDeveloperProviderName (\ s a -> s{_mdiDevelo
 mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
 mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest MergeDeveloperIdentities where
         type Sv MergeDeveloperIdentities = CognitoIdentity
         type Rs MergeDeveloperIdentities =

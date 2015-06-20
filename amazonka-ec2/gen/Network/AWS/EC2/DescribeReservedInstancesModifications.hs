@@ -113,6 +113,11 @@ drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationId
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeReservedInstancesModifications where
         type Sv DescribeReservedInstancesModifications = EC2

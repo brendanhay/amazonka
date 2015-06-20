@@ -58,6 +58,11 @@ createWorkspaces pWorkspaces = CreateWorkspaces'{_cwWorkspaces = _List1 # pWorks
 cwWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
 cwWorkspaces = lens _cwWorkspaces (\ s a -> s{_cwWorkspaces = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateWorkspaces where
         type Sv CreateWorkspaces = WorkSpaces
         type Rs CreateWorkspaces = CreateWorkspacesResponse

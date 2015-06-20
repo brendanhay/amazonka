@@ -61,6 +61,11 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes'{_ginaIden
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetIdentityNotificationAttributes
          where
         type Sv GetIdentityNotificationAttributes = SES

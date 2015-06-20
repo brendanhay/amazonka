@@ -85,6 +85,11 @@ dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 dReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
 dReplicationGroupId = lens _dReplicationGroupId (\ s a -> s{_dReplicationGroupId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeReplicationGroups where
         type Sv DescribeReplicationGroups = ElastiCache
         type Rs DescribeReplicationGroups =

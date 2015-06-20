@@ -109,6 +109,11 @@ chcHSMPartitionPassword = lens _chcHSMPartitionPassword (\ s a -> s{_chcHSMParti
 chcHSMServerPublicCertificate :: Lens' CreateHSMConfiguration Text
 chcHSMServerPublicCertificate = lens _chcHSMServerPublicCertificate (\ s a -> s{_chcHSMServerPublicCertificate = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateHSMConfiguration where
         type Sv CreateHSMConfiguration = Redshift
         type Rs CreateHSMConfiguration =

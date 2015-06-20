@@ -57,6 +57,11 @@ createRealtimeEndpoint pMLModelId = CreateRealtimeEndpoint'{_creMLModelId = pMLM
 creMLModelId :: Lens' CreateRealtimeEndpoint Text
 creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateRealtimeEndpoint where
         type Sv CreateRealtimeEndpoint = MachineLearning
         type Rs CreateRealtimeEndpoint =

@@ -55,6 +55,11 @@ deleteAccountAlias pAccountAlias = DeleteAccountAlias'{_daaAccountAlias = pAccou
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteAccountAlias where
         type Sv DeleteAccountAlias = IAM
         type Rs DeleteAccountAlias =

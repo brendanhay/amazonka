@@ -65,6 +65,11 @@ deleteDBSecurityGroup pDBSecurityGroupName = DeleteDBSecurityGroup'{_ddsgDBSecur
 ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
 ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDBSecurityGroup where
         type Sv DeleteDBSecurityGroup = RDS
         type Rs DeleteDBSecurityGroup =

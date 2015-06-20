@@ -119,6 +119,11 @@ dodioVPC = lens _dodioVPC (\ s a -> s{_dodioVPC = a});
 dodioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
 dodioEngine = lens _dodioEngine (\ s a -> s{_dodioEngine = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeOrderableDBInstanceOptions where
         type Sv DescribeOrderableDBInstanceOptions = RDS

@@ -67,6 +67,11 @@ albAutoScalingGroupName = lens _albAutoScalingGroupName (\ s a -> s{_albAutoScal
 albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
 albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachLoadBalancers where
         type Sv AttachLoadBalancers = AutoScaling
         type Rs AttachLoadBalancers =

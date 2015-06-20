@@ -66,6 +66,11 @@ dmdUserName = lens _dmdUserName (\ s a -> s{_dmdUserName = a});
 dmdSerialNumber :: Lens' DeactivateMFADevice Text
 dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeactivateMFADevice where
         type Sv DeactivateMFADevice = IAM
         type Rs DeactivateMFADevice =

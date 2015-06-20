@@ -66,6 +66,11 @@ chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName
 chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
 chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ConfigureHealthCheck where
         type Sv ConfigureHealthCheck = ELB
         type Rs ConfigureHealthCheck =

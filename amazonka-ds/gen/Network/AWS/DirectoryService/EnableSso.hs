@@ -76,6 +76,11 @@ esPassword = lens _esPassword (\ s a -> s{_esPassword = a}) . mapping _Sensitive
 esDirectoryId :: Lens' EnableSso Text
 esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableSso where
         type Sv EnableSso = DirectoryService
         type Rs EnableSso = EnableSsoResponse

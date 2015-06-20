@@ -75,6 +75,11 @@ lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway
         type Rs ListGateways = ListGatewaysResponse

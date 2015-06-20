@@ -64,6 +64,11 @@ deleteSnapshotSchedule pVolumeARN = DeleteSnapshotSchedule'{_delVolumeARN = pVol
 delVolumeARN :: Lens' DeleteSnapshotSchedule Text
 delVolumeARN = lens _delVolumeARN (\ s a -> s{_delVolumeARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteSnapshotSchedule where
         type Sv DeleteSnapshotSchedule = StorageGateway
         type Rs DeleteSnapshotSchedule =

@@ -81,6 +81,11 @@ spaaPlatformApplicationARN = lens _spaaPlatformApplicationARN (\ s a -> s{_spaaP
 spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
 spaaAttributes = lens _spaaAttributes (\ s a -> s{_spaaAttributes = a}) . _Map;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetPlatformApplicationAttributes
          where
         type Sv SetPlatformApplicationAttributes = SNS

@@ -86,6 +86,11 @@ sigUniqueId = lens _sigUniqueId (\ s a -> s{_sigUniqueId = a});
 sigStatus :: Lens' SignalResource ResourceSignalStatus
 sigStatus = lens _sigStatus (\ s a -> s{_sigStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SignalResource where
         type Sv SignalResource = CloudFormation
         type Rs SignalResource = SignalResourceResponse

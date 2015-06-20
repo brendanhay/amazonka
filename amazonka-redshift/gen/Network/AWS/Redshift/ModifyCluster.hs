@@ -288,6 +288,11 @@ mcClusterParameterGroupName = lens _mcClusterParameterGroupName (\ s a -> s{_mcC
 mcClusterIdentifier :: Lens' ModifyCluster Text
 mcClusterIdentifier = lens _mcClusterIdentifier (\ s a -> s{_mcClusterIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyCluster where
         type Sv ModifyCluster = Redshift
         type Rs ModifyCluster = ModifyClusterResponse

@@ -124,6 +124,11 @@ coweDomain = lens _coweDomain (\ s a -> s{_coweDomain = a});
 coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
 coweStartTimeFilter = lens _coweStartTimeFilter (\ s a -> s{_coweStartTimeFilter = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CountOpenWorkflowExecutions where
         type Sv CountOpenWorkflowExecutions = SWF
         type Rs CountOpenWorkflowExecutions =

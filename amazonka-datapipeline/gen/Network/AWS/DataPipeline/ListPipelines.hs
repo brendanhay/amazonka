@@ -60,6 +60,11 @@ listPipelines = ListPipelines'{_lpMarker = Nothing};
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = DataPipeline
         type Rs ListPipelines = ListPipelinesResponse

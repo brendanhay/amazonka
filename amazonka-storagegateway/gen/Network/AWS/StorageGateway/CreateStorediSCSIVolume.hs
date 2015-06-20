@@ -122,6 +122,11 @@ csscsivTargetName = lens _csscsivTargetName (\ s a -> s{_csscsivTargetName = a})
 csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
 csscsivNetworkInterfaceId = lens _csscsivNetworkInterfaceId (\ s a -> s{_csscsivNetworkInterfaceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateStorediSCSIVolume where
         type Sv CreateStorediSCSIVolume = StorageGateway
         type Rs CreateStorediSCSIVolume =

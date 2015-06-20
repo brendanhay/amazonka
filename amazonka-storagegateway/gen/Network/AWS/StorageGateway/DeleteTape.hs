@@ -63,6 +63,11 @@ dt1GatewayARN = lens _dt1GatewayARN (\ s a -> s{_dt1GatewayARN = a});
 dt1TapeARN :: Lens' DeleteTape Text
 dt1TapeARN = lens _dt1TapeARN (\ s a -> s{_dt1TapeARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteTape where
         type Sv DeleteTape = StorageGateway
         type Rs DeleteTape = DeleteTapeResponse

@@ -94,6 +94,11 @@ dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
 dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeOptionGroupOptions where
         type Sv DescribeOptionGroupOptions = RDS
         type Rs DescribeOptionGroupOptions =

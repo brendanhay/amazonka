@@ -94,6 +94,11 @@ ddbiMaxRecords = lens _ddbiMaxRecords (\ s a -> s{_ddbiMaxRecords = a});
 ddbiMarker :: Lens' DescribeDBInstances (Maybe Text)
 ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS
         type Rs DescribeDBInstances =

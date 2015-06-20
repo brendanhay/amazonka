@@ -76,6 +76,11 @@ lsMarker = lens _lsMarker (\ s a -> s{_lsMarker = a});
 lsClusterId :: Lens' ListSteps Text
 lsClusterId = lens _lsClusterId (\ s a -> s{_lsClusterId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListSteps where
         type Sv ListSteps = EMR
         type Rs ListSteps = ListStepsResponse

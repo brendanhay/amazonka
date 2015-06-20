@@ -54,6 +54,11 @@ describeExportTasks = DescribeExportTasks'{_detExportTaskIds = Nothing};
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeExportTasks where
         type Sv DescribeExportTasks = EC2
         type Rs DescribeExportTasks =

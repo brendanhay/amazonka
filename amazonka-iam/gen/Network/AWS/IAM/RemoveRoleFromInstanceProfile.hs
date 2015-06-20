@@ -69,6 +69,11 @@ rrfipInstanceProfileName = lens _rrfipInstanceProfileName (\ s a -> s{_rrfipInst
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\ s a -> s{_rrfipRoleName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RemoveRoleFromInstanceProfile
          where
         type Sv RemoveRoleFromInstanceProfile = IAM

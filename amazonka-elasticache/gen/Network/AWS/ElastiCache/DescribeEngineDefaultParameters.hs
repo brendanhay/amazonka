@@ -79,6 +79,11 @@ dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{_dedpCacheParameterGroupFamily = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEngineDefaultParameters
          where
         type Sv DescribeEngineDefaultParameters = ElastiCache

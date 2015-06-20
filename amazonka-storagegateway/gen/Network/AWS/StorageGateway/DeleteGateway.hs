@@ -71,6 +71,11 @@ deleteGateway pGatewayARN = DeleteGateway'{_dgGatewayARN = pGatewayARN};
 dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteGateway where
         type Sv DeleteGateway = StorageGateway
         type Rs DeleteGateway = DeleteGatewayResponse

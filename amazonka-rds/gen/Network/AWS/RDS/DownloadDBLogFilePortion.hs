@@ -107,6 +107,11 @@ ddlfpDBInstanceIdentifier = lens _ddlfpDBInstanceIdentifier (\ s a -> s{_ddlfpDB
 ddlfpLogFileName :: Lens' DownloadDBLogFilePortion Text
 ddlfpLogFileName = lens _ddlfpLogFileName (\ s a -> s{_ddlfpLogFileName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DownloadDBLogFilePortion where
         type Sv DownloadDBLogFilePortion = RDS
         type Rs DownloadDBLogFilePortion =

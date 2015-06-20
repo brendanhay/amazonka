@@ -55,6 +55,11 @@ modifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups = Nothing};
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyInstanceGroups where
         type Sv ModifyInstanceGroups = EMR
         type Rs ModifyInstanceGroups =

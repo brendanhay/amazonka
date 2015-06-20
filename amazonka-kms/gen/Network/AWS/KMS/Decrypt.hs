@@ -87,6 +87,11 @@ decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Defau
 decCiphertextBlob :: Lens' Decrypt Base64
 decCiphertextBlob = lens _decCiphertextBlob (\ s a -> s{_decCiphertextBlob = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest Decrypt where
         type Sv Decrypt = KMS
         type Rs Decrypt = DecryptResponse

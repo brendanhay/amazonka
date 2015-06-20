@@ -63,6 +63,11 @@ tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a});
 tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
 tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest TestMetricFilter where
         type Sv TestMetricFilter = CloudWatchLogs
         type Rs TestMetricFilter = TestMetricFilterResponse

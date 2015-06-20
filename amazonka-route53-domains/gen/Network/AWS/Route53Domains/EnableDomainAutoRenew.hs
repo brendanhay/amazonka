@@ -61,6 +61,11 @@ enableDomainAutoRenew pDomainName = EnableDomainAutoRenew'{_edarDomainName = pDo
 edarDomainName :: Lens' EnableDomainAutoRenew Text
 edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableDomainAutoRenew where
         type Sv EnableDomainAutoRenew = Route53Domains
         type Rs EnableDomainAutoRenew =

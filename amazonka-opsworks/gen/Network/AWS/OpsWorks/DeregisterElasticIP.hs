@@ -60,6 +60,11 @@ deregisterElasticIP pElasticIP = DeregisterElasticIP'{_derElasticIP = pElasticIP
 derElasticIP :: Lens' DeregisterElasticIP Text
 derElasticIP = lens _derElasticIP (\ s a -> s{_derElasticIP = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeregisterElasticIP where
         type Sv DeregisterElasticIP = OpsWorks
         type Rs DeregisterElasticIP =

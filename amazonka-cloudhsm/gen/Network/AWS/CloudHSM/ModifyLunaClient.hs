@@ -64,6 +64,11 @@ mlcClientARN = lens _mlcClientARN (\ s a -> s{_mlcClientARN = a});
 mlcCertificate :: Lens' ModifyLunaClient Text
 mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyLunaClient where
         type Sv ModifyLunaClient = CloudHSM
         type Rs ModifyLunaClient = ModifyLunaClientResponse

@@ -111,6 +111,11 @@ pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 pspAdjustmentType :: Lens' PutScalingPolicy Text
 pspAdjustmentType = lens _pspAdjustmentType (\ s a -> s{_pspAdjustmentType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutScalingPolicy where
         type Sv PutScalingPolicy = AutoScaling
         type Rs PutScalingPolicy = PutScalingPolicyResponse

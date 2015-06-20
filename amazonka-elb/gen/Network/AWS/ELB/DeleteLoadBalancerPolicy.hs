@@ -60,6 +60,11 @@ delLoadBalancerName = lens _delLoadBalancerName (\ s a -> s{_delLoadBalancerName
 delPolicyName :: Lens' DeleteLoadBalancerPolicy Text
 delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteLoadBalancerPolicy where
         type Sv DeleteLoadBalancerPolicy = ELB
         type Rs DeleteLoadBalancerPolicy =

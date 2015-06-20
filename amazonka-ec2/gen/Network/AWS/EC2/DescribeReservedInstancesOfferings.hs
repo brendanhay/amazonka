@@ -216,6 +216,11 @@ drioMaxResults = lens _drioMaxResults (\ s a -> s{_drioMaxResults = a});
 drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
 drioMaxInstanceCount = lens _drioMaxInstanceCount (\ s a -> s{_drioMaxInstanceCount = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeReservedInstancesOfferings where
         type Sv DescribeReservedInstancesOfferings = EC2

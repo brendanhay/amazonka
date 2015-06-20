@@ -120,6 +120,11 @@ gwehDomain = lens _gwehDomain (\ s a -> s{_gwehDomain = a});
 gwehExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
 gwehExecution = lens _gwehExecution (\ s a -> s{_gwehExecution = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetWorkflowExecutionHistory where
         type Sv GetWorkflowExecutionHistory = SWF
         type Rs GetWorkflowExecutionHistory =

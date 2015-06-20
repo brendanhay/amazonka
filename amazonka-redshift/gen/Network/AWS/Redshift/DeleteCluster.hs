@@ -109,6 +109,11 @@ delFinalClusterSnapshotIdentifier = lens _delFinalClusterSnapshotIdentifier (\ s
 delClusterIdentifier :: Lens' DeleteCluster Text
 delClusterIdentifier = lens _delClusterIdentifier (\ s a -> s{_delClusterIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteCluster where
         type Sv DeleteCluster = Redshift
         type Rs DeleteCluster = DeleteClusterResponse

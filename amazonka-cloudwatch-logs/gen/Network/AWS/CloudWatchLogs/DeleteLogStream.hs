@@ -60,6 +60,11 @@ dlsLogGroupName = lens _dlsLogGroupName (\ s a -> s{_dlsLogGroupName = a});
 dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteLogStream where
         type Sv DeleteLogStream = CloudWatchLogs
         type Rs DeleteLogStream = DeleteLogStreamResponse

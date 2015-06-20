@@ -94,6 +94,11 @@ ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
 ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDBParameterGroups where
         type Sv DescribeDBParameterGroups = RDS
         type Rs DescribeDBParameterGroups =

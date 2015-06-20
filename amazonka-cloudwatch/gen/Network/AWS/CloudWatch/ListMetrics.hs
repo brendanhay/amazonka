@@ -79,6 +79,11 @@ lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 lmDimensions :: Lens' ListMetrics [DimensionFilter]
 lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListMetrics where
         type Sv ListMetrics = CloudWatch
         type Rs ListMetrics = ListMetricsResponse

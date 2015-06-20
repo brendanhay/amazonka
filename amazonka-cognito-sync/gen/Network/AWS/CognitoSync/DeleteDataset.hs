@@ -79,6 +79,11 @@ delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a});
 delDatasetName :: Lens' DeleteDataset Text
 delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDataset where
         type Sv DeleteDataset = CognitoSync
         type Rs DeleteDataset = DeleteDatasetResponse

@@ -99,6 +99,11 @@ lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
 lagpGroupName :: Lens' ListAttachedGroupPolicies Text
 lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListAttachedGroupPolicies where
         type Sv ListAttachedGroupPolicies = IAM
         type Rs ListAttachedGroupPolicies =

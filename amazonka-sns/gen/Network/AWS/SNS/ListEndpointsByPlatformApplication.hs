@@ -74,6 +74,11 @@ lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a});
 lebpaPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
 lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          ListEndpointsByPlatformApplication where
         type Sv ListEndpointsByPlatformApplication = SNS

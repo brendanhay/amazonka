@@ -67,6 +67,11 @@ ueiName = lens _ueiName (\ s a -> s{_ueiName = a});
 ueiElasticIP :: Lens' UpdateElasticIP Text
 ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateElasticIP where
         type Sv UpdateElasticIP = OpsWorks
         type Rs UpdateElasticIP = UpdateElasticIPResponse

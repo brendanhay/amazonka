@@ -88,6 +88,11 @@ ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a});
 ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateJob where
         type Sv UpdateJob = ImportExport
         type Rs UpdateJob = UpdateJobResponse

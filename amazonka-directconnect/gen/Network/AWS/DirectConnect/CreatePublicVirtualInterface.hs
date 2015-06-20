@@ -80,6 +80,11 @@ cpviConnectionId = lens _cpviConnectionId (\ s a -> s{_cpviConnectionId = a});
 cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
 cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{_cpviNewPublicVirtualInterface = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreatePublicVirtualInterface
          where
         type Sv CreatePublicVirtualInterface = DirectConnect

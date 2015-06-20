@@ -73,6 +73,11 @@ sdrpPolicy = lens _sdrpPolicy (\ s a -> s{_sdrpPolicy = a});
 sdrpAccountId :: Lens' SetDataRetrievalPolicy Text
 sdrpAccountId = lens _sdrpAccountId (\ s a -> s{_sdrpAccountId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetDataRetrievalPolicy where
         type Sv SetDataRetrievalPolicy = Glacier
         type Rs SetDataRetrievalPolicy =

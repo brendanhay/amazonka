@@ -64,6 +64,11 @@ describeMountTargetSecurityGroups pMountTargetId = DescribeMountTargetSecurityGr
 dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
 dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeMountTargetSecurityGroups
          where
         type Sv DescribeMountTargetSecurityGroups =

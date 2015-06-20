@@ -54,6 +54,11 @@ deleteFlowLogs = DeleteFlowLogs'{_dflFlowLogIds = mempty};
 dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
 dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteFlowLogs where
         type Sv DeleteFlowLogs = EC2
         type Rs DeleteFlowLogs = DeleteFlowLogsResponse

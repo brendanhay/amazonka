@@ -62,6 +62,11 @@ describeIdentityPool pIdentityPoolId = DescribeIdentityPool'{_dipIdentityPoolId 
 dipIdentityPoolId :: Lens' DescribeIdentityPool Text
 dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeIdentityPool where
         type Sv DescribeIdentityPool = CognitoIdentity
         type Rs DescribeIdentityPool = IdentityPool

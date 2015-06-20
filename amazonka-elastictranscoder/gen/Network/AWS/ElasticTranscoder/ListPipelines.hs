@@ -67,6 +67,11 @@ lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = ElasticTranscoder
         type Rs ListPipelines = ListPipelinesResponse

@@ -58,6 +58,11 @@ describeDeliveryChannelStatus = DescribeDeliveryChannelStatus'{_ddcsDeliveryChan
 ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
 ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDeliveryChannelStatus
          where
         type Sv DescribeDeliveryChannelStatus = Config

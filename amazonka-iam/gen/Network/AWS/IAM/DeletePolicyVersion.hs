@@ -72,6 +72,11 @@ dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
 dpvVersionId :: Lens' DeletePolicyVersion Text
 dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeletePolicyVersion where
         type Sv DeletePolicyVersion = IAM
         type Rs DeletePolicyVersion =

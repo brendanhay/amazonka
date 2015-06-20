@@ -65,6 +65,11 @@ disDryRun = lens _disDryRun (\ s a -> s{_disDryRun = a});
 disVPCId :: Lens' DisableVPCClassicLink Text
 disVPCId = lens _disVPCId (\ s a -> s{_disVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DisableVPCClassicLink where
         type Sv DisableVPCClassicLink = EC2
         type Rs DisableVPCClassicLink =

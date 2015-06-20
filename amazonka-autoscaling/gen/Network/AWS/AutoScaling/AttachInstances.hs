@@ -63,6 +63,11 @@ aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default;
 aiAutoScalingGroupName :: Lens' AttachInstances Text
 aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\ s a -> s{_aiAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachInstances where
         type Sv AttachInstances = AutoScaling
         type Rs AttachInstances = AttachInstancesResponse

@@ -78,6 +78,11 @@ dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default;
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
 dmcAutoScalingGroupName = lens _dmcAutoScalingGroupName (\ s a -> s{_dmcAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DisableMetricsCollection where
         type Sv DisableMetricsCollection = AutoScaling
         type Rs DisableMetricsCollection =

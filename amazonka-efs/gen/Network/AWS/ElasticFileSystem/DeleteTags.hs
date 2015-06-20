@@ -67,6 +67,11 @@ delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
 delTagKeys :: Lens' DeleteTags [Text]
 delTagKeys = lens _delTagKeys (\ s a -> s{_delTagKeys = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = ElasticFileSystem
         type Rs DeleteTags = DeleteTagsResponse

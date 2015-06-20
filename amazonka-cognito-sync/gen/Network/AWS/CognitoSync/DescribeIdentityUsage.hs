@@ -69,6 +69,11 @@ diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a})
 diuIdentityId :: Lens' DescribeIdentityUsage Text
 diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeIdentityUsage where
         type Sv DescribeIdentityUsage = CognitoSync
         type Rs DescribeIdentityUsage =

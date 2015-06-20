@@ -381,6 +381,11 @@ ccMasterUsername = lens _ccMasterUsername (\ s a -> s{_ccMasterUsername = a});
 ccMasterUserPassword :: Lens' CreateCluster Text
 ccMasterUserPassword = lens _ccMasterUserPassword (\ s a -> s{_ccMasterUserPassword = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateCluster where
         type Sv CreateCluster = Redshift
         type Rs CreateCluster = CreateClusterResponse

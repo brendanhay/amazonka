@@ -138,6 +138,11 @@ tweDomain = lens _tweDomain (\ s a -> s{_tweDomain = a});
 tweWorkflowId :: Lens' TerminateWorkflowExecution Text
 tweWorkflowId = lens _tweWorkflowId (\ s a -> s{_tweWorkflowId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest TerminateWorkflowExecution where
         type Sv TerminateWorkflowExecution = SWF
         type Rs TerminateWorkflowExecution =

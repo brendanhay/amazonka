@@ -95,6 +95,11 @@ daVaultName = lens _daVaultName (\ s a -> s{_daVaultName = a});
 daArchiveId :: Lens' DeleteArchive Text
 daArchiveId = lens _daArchiveId (\ s a -> s{_daArchiveId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteArchive where
         type Sv DeleteArchive = Glacier
         type Rs DeleteArchive = DeleteArchiveResponse

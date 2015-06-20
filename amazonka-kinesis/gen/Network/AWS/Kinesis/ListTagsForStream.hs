@@ -74,6 +74,11 @@ ltfsExclusiveStartTagKey = lens _ltfsExclusiveStartTagKey (\ s a -> s{_ltfsExclu
 ltfsStreamName :: Lens' ListTagsForStream Text
 ltfsStreamName = lens _ltfsStreamName (\ s a -> s{_ltfsStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListTagsForStream where
         type Sv ListTagsForStream = Kinesis
         type Rs ListTagsForStream = ListTagsForStreamResponse

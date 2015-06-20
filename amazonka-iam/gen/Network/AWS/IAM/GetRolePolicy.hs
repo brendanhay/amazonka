@@ -76,6 +76,11 @@ grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a});
 grpPolicyName :: Lens' GetRolePolicy Text
 grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetRolePolicy where
         type Sv GetRolePolicy = IAM
         type Rs GetRolePolicy = GetRolePolicyResponse

@@ -89,6 +89,11 @@ biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest BundleInstance where
         type Sv BundleInstance = EC2
         type Rs BundleInstance = BundleInstanceResponse

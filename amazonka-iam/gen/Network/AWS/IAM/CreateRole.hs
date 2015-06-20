@@ -82,6 +82,11 @@ crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAssumeRolePolicyDocument = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateRole where
         type Sv CreateRole = IAM
         type Rs CreateRole = CreateRoleResponse

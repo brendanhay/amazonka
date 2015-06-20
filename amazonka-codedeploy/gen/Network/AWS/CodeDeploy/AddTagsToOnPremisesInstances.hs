@@ -62,6 +62,11 @@ attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a});
 attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
 attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddTagsToOnPremisesInstances
          where
         type Sv AddTagsToOnPremisesInstances = CodeDeploy

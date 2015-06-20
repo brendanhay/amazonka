@@ -76,6 +76,11 @@ difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default;
 difDomainName :: Lens' DescribeIndexFields Text
 difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeIndexFields where
         type Sv DescribeIndexFields = CloudSearch
         type Rs DescribeIndexFields =

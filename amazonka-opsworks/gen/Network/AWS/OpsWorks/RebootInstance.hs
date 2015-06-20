@@ -59,6 +59,11 @@ rebootInstance pInstanceId = RebootInstance'{_riInstanceId = pInstanceId};
 riInstanceId :: Lens' RebootInstance Text
 riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RebootInstance where
         type Sv RebootInstance = OpsWorks
         type Rs RebootInstance = RebootInstanceResponse

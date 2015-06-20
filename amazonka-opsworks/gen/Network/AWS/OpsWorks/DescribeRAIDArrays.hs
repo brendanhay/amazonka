@@ -79,6 +79,11 @@ draRAIDArrayIds = lens _draRAIDArrayIds (\ s a -> s{_draRAIDArrayIds = a}) . _De
 draStackId :: Lens' DescribeRAIDArrays (Maybe Text)
 draStackId = lens _draStackId (\ s a -> s{_draStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeRAIDArrays where
         type Sv DescribeRAIDArrays = OpsWorks
         type Rs DescribeRAIDArrays =

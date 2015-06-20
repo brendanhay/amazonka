@@ -85,6 +85,11 @@ gmlmVerbose = lens _gmlmVerbose (\ s a -> s{_gmlmVerbose = a});
 gmlmMLModelId :: Lens' GetMLModel Text
 gmlmMLModelId = lens _gmlmMLModelId (\ s a -> s{_gmlmMLModelId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetMLModel where
         type Sv GetMLModel = MachineLearning
         type Rs GetMLModel = GetMLModelResponse

@@ -91,6 +91,11 @@ dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = 
 dcsApplicationName :: Lens' DescribeConfigurationSettings Text
 dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeConfigurationSettings
          where
         type Sv DescribeConfigurationSettings =

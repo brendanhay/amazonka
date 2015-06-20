@@ -58,6 +58,11 @@ describeScalingParameters pDomainName = DescribeScalingParameters'{_dspDomainNam
 dspDomainName :: Lens' DescribeScalingParameters Text
 dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeScalingParameters where
         type Sv DescribeScalingParameters = CloudSearch
         type Rs DescribeScalingParameters =

@@ -80,6 +80,11 @@ udiDeveloperProviderName = lens _udiDeveloperProviderName (\ s a -> s{_udiDevelo
 udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UnlinkDeveloperIdentity where
         type Sv UnlinkDeveloperIdentity = CognitoIdentity
         type Rs UnlinkDeveloperIdentity =

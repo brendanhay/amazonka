@@ -80,6 +80,11 @@ descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
 descAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 descAutoScalingGroupName = lens _descAutoScalingGroupName (\ s a -> s{_descAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling
         type Rs DescribePolicies = DescribePoliciesResponse

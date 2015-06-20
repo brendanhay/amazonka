@@ -65,6 +65,11 @@ delTargetARN = lens _delTargetARN (\ s a -> s{_delTargetARN = a});
 delInitiatorName :: Lens' DeleteChapCredentials Text
 delInitiatorName = lens _delInitiatorName (\ s a -> s{_delInitiatorName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteChapCredentials where
         type Sv DeleteChapCredentials = StorageGateway
         type Rs DeleteChapCredentials =

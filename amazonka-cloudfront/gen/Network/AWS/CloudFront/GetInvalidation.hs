@@ -61,6 +61,11 @@ giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a});
 giId :: Lens' GetInvalidation Text
 giId = lens _giId (\ s a -> s{_giId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetInvalidation where
         type Sv GetInvalidation = CloudFront
         type Rs GetInvalidation = GetInvalidationResponse

@@ -59,6 +59,11 @@ getOpenIDConnectProvider pOpenIDConnectProviderARN = GetOpenIDConnectProvider'{_
 goidcpOpenIDConnectProviderARN :: Lens' GetOpenIDConnectProvider Text
 goidcpOpenIDConnectProviderARN = lens _goidcpOpenIDConnectProviderARN (\ s a -> s{_goidcpOpenIDConnectProviderARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetOpenIDConnectProvider where
         type Sv GetOpenIDConnectProvider = IAM
         type Rs GetOpenIDConnectProvider =

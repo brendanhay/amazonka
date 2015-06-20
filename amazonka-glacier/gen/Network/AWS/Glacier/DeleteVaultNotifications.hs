@@ -79,6 +79,11 @@ dvnAccountId = lens _dvnAccountId (\ s a -> s{_dvnAccountId = a});
 dvnVaultName :: Lens' DeleteVaultNotifications Text
 dvnVaultName = lens _dvnVaultName (\ s a -> s{_dvnVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVaultNotifications where
         type Sv DeleteVaultNotifications = Glacier
         type Rs DeleteVaultNotifications =

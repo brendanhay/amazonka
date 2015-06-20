@@ -73,6 +73,11 @@ dazflbLoadBalancerName = lens _dazflbLoadBalancerName (\ s a -> s{_dazflbLoadBal
 dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
 dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DisableAvailabilityZonesForLoadBalancer where
         type Sv DisableAvailabilityZonesForLoadBalancer = ELB

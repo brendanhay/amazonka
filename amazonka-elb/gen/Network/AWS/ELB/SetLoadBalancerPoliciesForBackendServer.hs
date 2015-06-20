@@ -78,6 +78,11 @@ slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          SetLoadBalancerPoliciesForBackendServer where
         type Sv SetLoadBalancerPoliciesForBackendServer = ELB

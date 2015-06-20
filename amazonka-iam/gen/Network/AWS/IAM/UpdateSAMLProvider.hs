@@ -69,6 +69,11 @@ usamlpSAMLMetadataDocument = lens _usamlpSAMLMetadataDocument (\ s a -> s{_usaml
 usamlpSAMLProviderARN :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderARN = lens _usamlpSAMLProviderARN (\ s a -> s{_usamlpSAMLProviderARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateSAMLProvider where
         type Sv UpdateSAMLProvider = IAM
         type Rs UpdateSAMLProvider =

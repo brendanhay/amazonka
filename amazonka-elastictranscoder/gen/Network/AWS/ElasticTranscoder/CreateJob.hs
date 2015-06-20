@@ -120,6 +120,11 @@ cjPipelineId = lens _cjPipelineId (\ s a -> s{_cjPipelineId = a});
 cjInput :: Lens' CreateJob JobInput
 cjInput = lens _cjInput (\ s a -> s{_cjInput = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateJob where
         type Sv CreateJob = ElasticTranscoder
         type Rs CreateJob = CreateJobResponse

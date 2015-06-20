@@ -81,6 +81,11 @@ rrtaAssociationId = lens _rrtaAssociationId (\ s a -> s{_rrtaAssociationId = a})
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ReplaceRouteTableAssociation
          where
         type Sv ReplaceRouteTableAssociation = EC2

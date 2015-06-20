@@ -112,6 +112,11 @@ grchResourceType = lens _grchResourceType (\ s a -> s{_grchResourceType = a});
 grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetResourceConfigHistory where
         type Sv GetResourceConfigHistory = Config
         type Rs GetResourceConfigHistory =

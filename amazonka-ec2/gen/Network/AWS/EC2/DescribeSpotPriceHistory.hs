@@ -150,6 +150,11 @@ dsphDryRun = lens _dsphDryRun (\ s a -> s{_dsphDryRun = a});
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\ s a -> s{_dsphMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeSpotPriceHistory where
         type Sv DescribeSpotPriceHistory = EC2
         type Rs DescribeSpotPriceHistory =

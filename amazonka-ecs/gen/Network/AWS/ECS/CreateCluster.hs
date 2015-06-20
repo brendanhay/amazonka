@@ -59,6 +59,11 @@ createCluster = CreateCluster'{_ccClusterName = Nothing};
 ccClusterName :: Lens' CreateCluster (Maybe Text)
 ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateCluster where
         type Sv CreateCluster = ECS
         type Rs CreateCluster = CreateClusterResponse

@@ -58,6 +58,11 @@ describeChapCredentials pTargetARN = DescribeChapCredentials'{_dccTargetARN = pT
 dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeChapCredentials where
         type Sv DescribeChapCredentials = StorageGateway
         type Rs DescribeChapCredentials =

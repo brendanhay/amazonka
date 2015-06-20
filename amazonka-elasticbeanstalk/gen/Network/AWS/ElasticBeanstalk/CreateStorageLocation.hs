@@ -46,6 +46,11 @@ data CreateStorageLocation = CreateStorageLocation' deriving (Eq, Read, Show)
 createStorageLocation :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateStorageLocation where
         type Sv CreateStorageLocation = ElasticBeanstalk
         type Rs CreateStorageLocation =

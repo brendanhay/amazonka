@@ -109,6 +109,11 @@ ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
 ltdMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
 ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListTaskDefinitions where
         type Sv ListTaskDefinitions = ECS
         type Rs ListTaskDefinitions =

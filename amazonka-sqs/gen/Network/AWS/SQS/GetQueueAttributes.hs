@@ -109,6 +109,11 @@ gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a})
 gqaQueueURL :: Lens' GetQueueAttributes Text
 gqaQueueURL = lens _gqaQueueURL (\ s a -> s{_gqaQueueURL = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetQueueAttributes where
         type Sv GetQueueAttributes = SQS
         type Rs GetQueueAttributes =

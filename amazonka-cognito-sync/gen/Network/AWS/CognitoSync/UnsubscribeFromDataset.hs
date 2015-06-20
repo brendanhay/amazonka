@@ -76,6 +76,11 @@ ufdDatasetName = lens _ufdDatasetName (\ s a -> s{_ufdDatasetName = a});
 ufdDeviceId :: Lens' UnsubscribeFromDataset Text
 ufdDeviceId = lens _ufdDeviceId (\ s a -> s{_ufdDeviceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UnsubscribeFromDataset where
         type Sv UnsubscribeFromDataset = CognitoSync
         type Rs UnsubscribeFromDataset =

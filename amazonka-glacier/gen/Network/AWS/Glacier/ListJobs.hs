@@ -145,6 +145,11 @@ ljAccountId = lens _ljAccountId (\ s a -> s{_ljAccountId = a});
 ljVaultName :: Lens' ListJobs Text
 ljVaultName = lens _ljVaultName (\ s a -> s{_ljVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListJobs where
         type Sv ListJobs = Glacier
         type Rs ListJobs = ListJobsResponse

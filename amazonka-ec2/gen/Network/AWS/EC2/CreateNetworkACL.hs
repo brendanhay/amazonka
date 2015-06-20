@@ -70,6 +70,11 @@ cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
 cnaVPCId :: Lens' CreateNetworkACL Text
 cnaVPCId = lens _cnaVPCId (\ s a -> s{_cnaVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateNetworkACL where
         type Sv CreateNetworkACL = EC2
         type Rs CreateNetworkACL = CreateNetworkACLResponse

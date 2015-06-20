@@ -65,6 +65,11 @@ drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a});
 drpPolicyARN :: Lens' DetachRolePolicy Text
 drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DetachRolePolicy where
         type Sv DetachRolePolicy = IAM
         type Rs DetachRolePolicy = DetachRolePolicyResponse

@@ -89,6 +89,11 @@ dcpSource = lens _dcpSource (\ s a -> s{_dcpSource = a});
 dcpCacheParameterGroupName :: Lens' DescribeCacheParameters Text
 dcpCacheParameterGroupName = lens _dcpCacheParameterGroupName (\ s a -> s{_dcpCacheParameterGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCacheParameters where
         type Sv DescribeCacheParameters = ElastiCache
         type Rs DescribeCacheParameters =

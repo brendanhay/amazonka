@@ -48,6 +48,11 @@ data GetCheckerIPRanges = GetCheckerIPRanges' deriving (Eq, Read, Show)
 getCheckerIPRanges :: GetCheckerIPRanges
 getCheckerIPRanges = GetCheckerIPRanges';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetCheckerIPRanges where
         type Sv GetCheckerIPRanges = Route53
         type Rs GetCheckerIPRanges =

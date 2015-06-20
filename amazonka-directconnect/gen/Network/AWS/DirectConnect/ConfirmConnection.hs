@@ -58,6 +58,11 @@ confirmConnection pConnectionId = ConfirmConnection'{_ccConnectionId = pConnecti
 ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ConfirmConnection where
         type Sv ConfirmConnection = DirectConnect
         type Rs ConfirmConnection = ConfirmConnectionResponse

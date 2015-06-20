@@ -95,6 +95,11 @@ smQueueURL = lens _smQueueURL (\ s a -> s{_smQueueURL = a});
 smMessageBody :: Lens' SendMessage Text
 smMessageBody = lens _smMessageBody (\ s a -> s{_smMessageBody = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SendMessage where
         type Sv SendMessage = SQS
         type Rs SendMessage = SendMessageResponse

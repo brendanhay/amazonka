@@ -92,6 +92,11 @@ ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateClusterSubnetGroup where
         type Sv CreateClusterSubnetGroup = Redshift
         type Rs CreateClusterSubnetGroup =

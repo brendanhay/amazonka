@@ -85,6 +85,11 @@ creDBSnapshotIdentifier = lens _creDBSnapshotIdentifier (\ s a -> s{_creDBSnapsh
 creDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
 creDBInstanceIdentifier = lens _creDBInstanceIdentifier (\ s a -> s{_creDBInstanceIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDBSnapshot where
         type Sv CreateDBSnapshot = RDS
         type Rs CreateDBSnapshot = CreateDBSnapshotResponse

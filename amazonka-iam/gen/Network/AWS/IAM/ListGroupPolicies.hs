@@ -88,6 +88,11 @@ lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 lgpGroupName :: Lens' ListGroupPolicies Text
 lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListGroupPolicies where
         type Sv ListGroupPolicies = IAM
         type Rs ListGroupPolicies = ListGroupPoliciesResponse

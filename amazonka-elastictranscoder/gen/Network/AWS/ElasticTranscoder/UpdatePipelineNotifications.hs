@@ -85,6 +85,11 @@ upnId = lens _upnId (\ s a -> s{_upnId = a});
 upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdatePipelineNotifications where
         type Sv UpdatePipelineNotifications =
              ElasticTranscoder

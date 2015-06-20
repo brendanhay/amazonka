@@ -72,6 +72,11 @@ evclDryRun = lens _evclDryRun (\ s a -> s{_evclDryRun = a});
 evclVPCId :: Lens' EnableVPCClassicLink Text
 evclVPCId = lens _evclVPCId (\ s a -> s{_evclVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableVPCClassicLink where
         type Sv EnableVPCClassicLink = EC2
         type Rs EnableVPCClassicLink =

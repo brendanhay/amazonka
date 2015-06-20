@@ -110,6 +110,11 @@ dcevMaxRecords = lens _dcevMaxRecords (\ s a -> s{_dcevMaxRecords = a});
 dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCacheEngineVersions where
         type Sv DescribeCacheEngineVersions = ElastiCache
         type Rs DescribeCacheEngineVersions =

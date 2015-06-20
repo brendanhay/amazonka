@@ -102,6 +102,11 @@ ciSourceImageId = lens _ciSourceImageId (\ s a -> s{_ciSourceImageId = a});
 ciName :: Lens' CopyImage Text
 ciName = lens _ciName (\ s a -> s{_ciName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CopyImage where
         type Sv CopyImage = EC2
         type Rs CopyImage = CopyImageResponse

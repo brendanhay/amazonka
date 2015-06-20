@@ -58,6 +58,11 @@ getHealthCheckLastFailureReason pHealthCheckId = GetHealthCheckLastFailureReason
 ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
 ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetHealthCheckLastFailureReason
          where
         type Sv GetHealthCheckLastFailureReason = Route53

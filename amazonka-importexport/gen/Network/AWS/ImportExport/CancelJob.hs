@@ -62,6 +62,11 @@ canAPIVersion = lens _canAPIVersion (\ s a -> s{_canAPIVersion = a});
 canJobId :: Lens' CancelJob Text
 canJobId = lens _canJobId (\ s a -> s{_canJobId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CancelJob where
         type Sv CancelJob = ImportExport
         type Rs CancelJob = CancelJobResponse

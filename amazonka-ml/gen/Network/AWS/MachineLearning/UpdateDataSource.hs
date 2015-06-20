@@ -65,6 +65,11 @@ udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a});
 udsDataSourceName :: Lens' UpdateDataSource Text
 udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateDataSource where
         type Sv UpdateDataSource = MachineLearning
         type Rs UpdateDataSource = UpdateDataSourceResponse

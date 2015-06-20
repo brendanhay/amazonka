@@ -58,6 +58,11 @@ listApplications = ListApplications'{_laNextToken = Nothing};
 laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListApplications where
         type Sv ListApplications = CodeDeploy
         type Rs ListApplications = ListApplicationsResponse

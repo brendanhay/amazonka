@@ -127,6 +127,11 @@ cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a})
 cdsfsDataSpec :: Lens' CreateDataSourceFromS S3DataSpec
 cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDataSourceFromS where
         type Sv CreateDataSourceFromS = MachineLearning
         type Rs CreateDataSourceFromS =

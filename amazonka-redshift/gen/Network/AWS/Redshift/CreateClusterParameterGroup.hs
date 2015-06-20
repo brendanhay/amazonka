@@ -104,6 +104,11 @@ ccpgParameterGroupFamily = lens _ccpgParameterGroupFamily (\ s a -> s{_ccpgParam
 ccpgDescription :: Lens' CreateClusterParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateClusterParameterGroup where
         type Sv CreateClusterParameterGroup = Redshift
         type Rs CreateClusterParameterGroup =

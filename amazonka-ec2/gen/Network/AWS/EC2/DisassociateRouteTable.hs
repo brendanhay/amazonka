@@ -69,6 +69,11 @@ drtDryRun = lens _drtDryRun (\ s a -> s{_drtDryRun = a});
 drtAssociationId :: Lens' DisassociateRouteTable Text
 drtAssociationId = lens _drtAssociationId (\ s a -> s{_drtAssociationId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DisassociateRouteTable where
         type Sv DisassociateRouteTable = EC2
         type Rs DisassociateRouteTable =

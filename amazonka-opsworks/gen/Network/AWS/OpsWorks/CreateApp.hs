@@ -159,6 +159,11 @@ caName = lens _caName (\ s a -> s{_caName = a});
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\ s a -> s{_caType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateApp where
         type Sv CreateApp = OpsWorks
         type Rs CreateApp = CreateAppResponse

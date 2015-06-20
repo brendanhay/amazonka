@@ -83,6 +83,11 @@ creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_cre
 creDescription :: Lens' CreateClusterSecurityGroup Text
 creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateClusterSecurityGroup where
         type Sv CreateClusterSecurityGroup = Redshift
         type Rs CreateClusterSecurityGroup =

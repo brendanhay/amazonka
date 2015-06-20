@@ -80,6 +80,11 @@ derForce = lens _derForce (\ s a -> s{_derForce = a});
 derContainerInstance :: Lens' DeregisterContainerInstance Text
 derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeregisterContainerInstance where
         type Sv DeregisterContainerInstance = ECS
         type Rs DeregisterContainerInstance =

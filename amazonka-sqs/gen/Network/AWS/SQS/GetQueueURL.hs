@@ -71,6 +71,11 @@ gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueu
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetQueueURL where
         type Sv GetQueueURL = SQS
         type Rs GetQueueURL = GetQueueURLResponse

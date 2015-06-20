@@ -58,6 +58,11 @@ deleteVerifiedEmailAddress pEmailAddress = DeleteVerifiedEmailAddress'{_dveaEmai
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteVerifiedEmailAddress where
         type Sv DeleteVerifiedEmailAddress = SES
         type Rs DeleteVerifiedEmailAddress =

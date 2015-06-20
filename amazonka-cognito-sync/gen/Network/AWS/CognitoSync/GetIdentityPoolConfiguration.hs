@@ -58,6 +58,11 @@ getIdentityPoolConfiguration pIdentityPoolId = GetIdentityPoolConfiguration'{_gi
 gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
 gipcIdentityPoolId = lens _gipcIdentityPoolId (\ s a -> s{_gipcIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetIdentityPoolConfiguration
          where
         type Sv GetIdentityPoolConfiguration = CognitoSync

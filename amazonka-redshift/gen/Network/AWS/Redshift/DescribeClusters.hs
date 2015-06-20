@@ -127,6 +127,11 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 dcMarker :: Lens' DescribeClusters (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = Redshift
         type Rs DescribeClusters = DescribeClustersResponse

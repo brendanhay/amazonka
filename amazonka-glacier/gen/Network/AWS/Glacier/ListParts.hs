@@ -124,6 +124,11 @@ lpVaultName = lens _lpVaultName (\ s a -> s{_lpVaultName = a});
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListParts where
         type Sv ListParts = Glacier
         type Rs ListParts = ListPartsResponse

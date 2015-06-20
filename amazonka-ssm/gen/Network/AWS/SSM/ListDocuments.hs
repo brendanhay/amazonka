@@ -73,6 +73,11 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 ldMaxResults :: Lens' ListDocuments (Maybe Natural)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDocuments where
         type Sv ListDocuments = SSM
         type Rs ListDocuments = ListDocumentsResponse

@@ -55,6 +55,11 @@ verifyEmailIdentity pEmailAddress = VerifyEmailIdentity'{_veiEmailAddress = pEma
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest VerifyEmailIdentity where
         type Sv VerifyEmailIdentity = SES
         type Rs VerifyEmailIdentity =

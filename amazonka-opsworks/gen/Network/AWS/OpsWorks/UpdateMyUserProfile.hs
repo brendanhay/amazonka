@@ -57,6 +57,11 @@ updateMyUserProfile = UpdateMyUserProfile'{_umupSSHPublicKey = Nothing};
 umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateMyUserProfile where
         type Sv UpdateMyUserProfile = OpsWorks
         type Rs UpdateMyUserProfile =

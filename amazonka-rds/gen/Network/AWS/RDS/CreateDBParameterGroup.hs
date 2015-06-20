@@ -108,6 +108,11 @@ cDBParameterGroupFamily = lens _cDBParameterGroupFamily (\ s a -> s{_cDBParamete
 cDescription :: Lens' CreateDBParameterGroup Text
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDBParameterGroup where
         type Sv CreateDBParameterGroup = RDS
         type Rs CreateDBParameterGroup =

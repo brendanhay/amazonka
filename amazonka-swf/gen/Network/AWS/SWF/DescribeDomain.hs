@@ -74,6 +74,11 @@ describeDomain pName = DescribeDomain'{_ddName = pName};
 ddName :: Lens' DescribeDomain Text
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDomain where
         type Sv DescribeDomain = SWF
         type Rs DescribeDomain = DescribeDomainResponse

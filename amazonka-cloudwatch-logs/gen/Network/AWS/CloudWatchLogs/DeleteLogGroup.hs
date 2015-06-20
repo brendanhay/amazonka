@@ -53,6 +53,11 @@ deleteLogGroup pLogGroupName = DeleteLogGroup'{_dlgLogGroupName = pLogGroupName}
 dlgLogGroupName :: Lens' DeleteLogGroup Text
 dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteLogGroup where
         type Sv DeleteLogGroup = CloudWatchLogs
         type Rs DeleteLogGroup = DeleteLogGroupResponse

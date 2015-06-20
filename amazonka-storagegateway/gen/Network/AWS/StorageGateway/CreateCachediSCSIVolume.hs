@@ -103,6 +103,11 @@ ccscsivNetworkInterfaceId = lens _ccscsivNetworkInterfaceId (\ s a -> s{_ccscsiv
 ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
 ccscsivClientToken = lens _ccscsivClientToken (\ s a -> s{_ccscsivClientToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateCachediSCSIVolume where
         type Sv CreateCachediSCSIVolume = StorageGateway
         type Rs CreateCachediSCSIVolume =

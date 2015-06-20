@@ -86,6 +86,11 @@ ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a});
 ccConnectionName :: Lens' CreateConnection Text
 ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateConnection where
         type Sv CreateConnection = DirectConnect
         type Rs CreateConnection = Connection

@@ -84,6 +84,11 @@ dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
 dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
 dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteTagsForDomain where
         type Sv DeleteTagsForDomain = Route53Domains
         type Rs DeleteTagsForDomain =

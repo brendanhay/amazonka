@@ -90,6 +90,11 @@ desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . mapping _Nat;
 desStreamName :: Lens' DescribeStream Text
 desStreamName = lens _desStreamName (\ s a -> s{_desStreamName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis
         type Rs DescribeStream = DescribeStreamResponse

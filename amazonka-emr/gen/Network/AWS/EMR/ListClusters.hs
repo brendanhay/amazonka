@@ -80,6 +80,11 @@ lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _De
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
 lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListClusters where
         type Sv ListClusters = EMR
         type Rs ListClusters = ListClustersResponse

@@ -60,6 +60,11 @@ dLogGroupName = lens _dLogGroupName (\ s a -> s{_dLogGroupName = a});
 dFilterName :: Lens' DeleteMetricFilter Text
 dFilterName = lens _dFilterName (\ s a -> s{_dFilterName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteMetricFilter where
         type Sv DeleteMetricFilter = CloudWatchLogs
         type Rs DeleteMetricFilter =

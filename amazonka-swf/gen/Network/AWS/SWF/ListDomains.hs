@@ -115,6 +115,11 @@ ldMaximumPageSize = lens _ldMaximumPageSize (\ s a -> s{_ldMaximumPageSize = a})
 ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
 ldRegistrationStatus = lens _ldRegistrationStatus (\ s a -> s{_ldRegistrationStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListDomains where
         type Sv ListDomains = SWF
         type Rs ListDomains = ListDomainsResponse

@@ -96,6 +96,11 @@ desInternetGatewayIds = lens _desInternetGatewayIds (\ s a -> s{_desInternetGate
 desDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
 desDryRun = lens _desDryRun (\ s a -> s{_desDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeInternetGateways where
         type Sv DescribeInternetGateways = EC2
         type Rs DescribeInternetGateways =

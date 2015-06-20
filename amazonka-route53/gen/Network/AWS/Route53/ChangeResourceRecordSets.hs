@@ -93,6 +93,11 @@ crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ChangeResourceRecordSets where
         type Sv ChangeResourceRecordSets = Route53
         type Rs ChangeResourceRecordSets =

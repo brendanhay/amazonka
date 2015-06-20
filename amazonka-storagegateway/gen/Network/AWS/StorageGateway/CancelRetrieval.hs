@@ -64,6 +64,11 @@ crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a});
 crTapeARN :: Lens' CancelRetrieval Text
 crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CancelRetrieval where
         type Sv CancelRetrieval = StorageGateway
         type Rs CancelRetrieval = CancelRetrievalResponse

@@ -76,6 +76,11 @@ describeResize pClusterIdentifier = DescribeResize'{_drClusterIdentifier = pClus
 drClusterIdentifier :: Lens' DescribeResize Text
 drClusterIdentifier = lens _drClusterIdentifier (\ s a -> s{_drClusterIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeResize where
         type Sv DescribeResize = Redshift
         type Rs DescribeResize = DescribeResizeResponse

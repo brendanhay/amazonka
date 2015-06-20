@@ -52,6 +52,11 @@ startLogging pName = StartLogging'{_staName = pName};
 staName :: Lens' StartLogging Text
 staName = lens _staName (\ s a -> s{_staName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StartLogging where
         type Sv StartLogging = CloudTrail
         type Rs StartLogging = StartLoggingResponse

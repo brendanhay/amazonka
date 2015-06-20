@@ -61,6 +61,11 @@ delResourceName = lens _delResourceName (\ s a -> s{_delResourceName = a});
 delTagKeys :: Lens' DeleteTags [Text]
 delTagKeys = lens _delTagKeys (\ s a -> s{_delTagKeys = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = Redshift
         type Rs DeleteTags = DeleteTagsResponse

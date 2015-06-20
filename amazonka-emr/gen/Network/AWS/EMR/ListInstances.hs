@@ -80,6 +80,11 @@ liInstanceGroupId = lens _liInstanceGroupId (\ s a -> s{_liInstanceGroupId = a})
 liClusterId :: Lens' ListInstances Text
 liClusterId = lens _liClusterId (\ s a -> s{_liClusterId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListInstances where
         type Sv ListInstances = EMR
         type Rs ListInstances = ListInstancesResponse

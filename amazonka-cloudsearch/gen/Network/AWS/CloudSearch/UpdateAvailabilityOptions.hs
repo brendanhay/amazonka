@@ -70,6 +70,11 @@ uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateAvailabilityOptions where
         type Sv UpdateAvailabilityOptions = CloudSearch
         type Rs UpdateAvailabilityOptions =

@@ -79,6 +79,11 @@ ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 ggGroupName :: Lens' GetGroup Text
 ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetGroup where
         type Sv GetGroup = IAM
         type Rs GetGroup = GetGroupResponse

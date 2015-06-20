@@ -134,6 +134,11 @@ drdioOfferingType = lens _drdioOfferingType (\ s a -> s{_drdioOfferingType = a})
 drdioDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdioDuration = lens _drdioDuration (\ s a -> s{_drdioDuration = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeReservedDBInstancesOfferings where
         type Sv DescribeReservedDBInstancesOfferings = RDS

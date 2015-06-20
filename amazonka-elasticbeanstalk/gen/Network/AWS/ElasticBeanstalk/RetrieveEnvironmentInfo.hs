@@ -87,6 +87,11 @@ retEnvironmentId = lens _retEnvironmentId (\ s a -> s{_retEnvironmentId = a});
 retInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
 retInfoType = lens _retInfoType (\ s a -> s{_retInfoType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RetrieveEnvironmentInfo where
         type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
         type Rs RetrieveEnvironmentInfo =

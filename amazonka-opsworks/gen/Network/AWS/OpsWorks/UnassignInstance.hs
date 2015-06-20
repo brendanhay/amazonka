@@ -61,6 +61,11 @@ unassignInstance pInstanceId = UnassignInstance'{_unaInstanceId = pInstanceId};
 unaInstanceId :: Lens' UnassignInstance Text
 unaInstanceId = lens _unaInstanceId (\ s a -> s{_unaInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UnassignInstance where
         type Sv UnassignInstance = OpsWorks
         type Rs UnassignInstance = UnassignInstanceResponse

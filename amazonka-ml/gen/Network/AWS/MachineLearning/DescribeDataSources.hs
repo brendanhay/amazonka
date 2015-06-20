@@ -167,6 +167,11 @@ ddsFilterVariable = lens _ddsFilterVariable (\ s a -> s{_ddsFilterVariable = a})
 ddsLE :: Lens' DescribeDataSources (Maybe Text)
 ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning
         type Rs DescribeDataSources =

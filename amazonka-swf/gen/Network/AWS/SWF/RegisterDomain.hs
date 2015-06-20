@@ -103,6 +103,11 @@ rdName = lens _rdName (\ s a -> s{_rdName = a});
 rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
 rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdWorkflowExecutionRetentionPeriodInDays = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RegisterDomain where
         type Sv RegisterDomain = SWF
         type Rs RegisterDomain = RegisterDomainResponse

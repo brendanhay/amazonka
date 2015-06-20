@@ -66,6 +66,11 @@ getBatchPrediction pBatchPredictionId = GetBatchPrediction'{_gbpBatchPredictionI
 gbpBatchPredictionId :: Lens' GetBatchPrediction Text
 gbpBatchPredictionId = lens _gbpBatchPredictionId (\ s a -> s{_gbpBatchPredictionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetBatchPrediction where
         type Sv GetBatchPrediction = MachineLearning
         type Rs GetBatchPrediction =

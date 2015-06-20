@@ -71,6 +71,11 @@ arpRoleName = lens _arpRoleName (\ s a -> s{_arpRoleName = a});
 arpPolicyARN :: Lens' AttachRolePolicy Text
 arpPolicyARN = lens _arpPolicyARN (\ s a -> s{_arpPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachRolePolicy where
         type Sv AttachRolePolicy = IAM
         type Rs AttachRolePolicy = AttachRolePolicyResponse

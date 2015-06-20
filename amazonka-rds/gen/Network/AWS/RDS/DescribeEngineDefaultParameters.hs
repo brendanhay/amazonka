@@ -86,6 +86,11 @@ dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEngineDefaultParameters
          where
         type Sv DescribeEngineDefaultParameters = RDS

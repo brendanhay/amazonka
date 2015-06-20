@@ -68,6 +68,11 @@ getOperationDetail pOperationId = GetOperationDetail'{_godOperationId = pOperati
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetOperationDetail where
         type Sv GetOperationDetail = Route53Domains
         type Rs GetOperationDetail =

@@ -64,6 +64,11 @@ ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictio
 ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
 ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateBatchPrediction where
         type Sv UpdateBatchPrediction = MachineLearning
         type Rs UpdateBatchPrediction =

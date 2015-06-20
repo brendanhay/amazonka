@@ -161,6 +161,11 @@ loweDomain = lens _loweDomain (\ s a -> s{_loweDomain = a});
 loweStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
 loweStartTimeFilter = lens _loweStartTimeFilter (\ s a -> s{_loweStartTimeFilter = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF
         type Rs ListOpenWorkflowExecutions =

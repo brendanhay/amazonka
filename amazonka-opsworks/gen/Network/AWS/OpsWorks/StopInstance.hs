@@ -62,6 +62,11 @@ stopInstance pInstanceId = StopInstance'{_siInstanceId = pInstanceId};
 siInstanceId :: Lens' StopInstance Text
 siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StopInstance where
         type Sv StopInstance = OpsWorks
         type Rs StopInstance = StopInstanceResponse

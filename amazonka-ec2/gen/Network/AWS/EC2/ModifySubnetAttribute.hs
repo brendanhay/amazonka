@@ -60,6 +60,11 @@ msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\ s a -> s{_msaMapPublicI
 msaSubnetId :: Lens' ModifySubnetAttribute Text
 msaSubnetId = lens _msaSubnetId (\ s a -> s{_msaSubnetId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifySubnetAttribute where
         type Sv ModifySubnetAttribute = EC2
         type Rs ModifySubnetAttribute =

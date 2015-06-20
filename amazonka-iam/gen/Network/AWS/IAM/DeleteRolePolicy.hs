@@ -67,6 +67,11 @@ dRoleName = lens _dRoleName (\ s a -> s{_dRoleName = a});
 dPolicyName :: Lens' DeleteRolePolicy Text
 dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteRolePolicy where
         type Sv DeleteRolePolicy = IAM
         type Rs DeleteRolePolicy = DeleteRolePolicyResponse

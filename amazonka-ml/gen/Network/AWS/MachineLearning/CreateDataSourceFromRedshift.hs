@@ -156,6 +156,11 @@ cdsfrDataSpec = lens _cdsfrDataSpec (\ s a -> s{_cdsfrDataSpec = a});
 cdsfrRoleARN :: Lens' CreateDataSourceFromRedshift Text
 cdsfrRoleARN = lens _cdsfrRoleARN (\ s a -> s{_cdsfrRoleARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDataSourceFromRedshift
          where
         type Sv CreateDataSourceFromRedshift =

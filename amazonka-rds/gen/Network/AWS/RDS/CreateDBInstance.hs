@@ -702,6 +702,11 @@ cdiMasterUsername = lens _cdiMasterUsername (\ s a -> s{_cdiMasterUsername = a})
 cdiMasterUserPassword :: Lens' CreateDBInstance Text
 cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPassword = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDBInstance where
         type Sv CreateDBInstance = RDS
         type Rs CreateDBInstance = CreateDBInstanceResponse

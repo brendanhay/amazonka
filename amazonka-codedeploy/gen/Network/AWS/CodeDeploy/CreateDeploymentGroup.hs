@@ -133,6 +133,11 @@ cdgDeploymentGroupName = lens _cdgDeploymentGroupName (\ s a -> s{_cdgDeployment
 cdgServiceRoleARN :: Lens' CreateDeploymentGroup Text
 cdgServiceRoleARN = lens _cdgServiceRoleARN (\ s a -> s{_cdgServiceRoleARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateDeploymentGroup where
         type Sv CreateDeploymentGroup = CodeDeploy
         type Rs CreateDeploymentGroup =

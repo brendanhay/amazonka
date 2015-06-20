@@ -282,6 +282,11 @@ clcBlockDeviceMappings = lens _clcBlockDeviceMappings (\ s a -> s{_clcBlockDevic
 clcLaunchConfigurationName :: Lens' CreateLaunchConfiguration Text
 clcLaunchConfigurationName = lens _clcLaunchConfigurationName (\ s a -> s{_clcLaunchConfigurationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateLaunchConfiguration where
         type Sv CreateLaunchConfiguration = AutoScaling
         type Rs CreateLaunchConfiguration =

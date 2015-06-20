@@ -68,6 +68,11 @@ rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = 
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RestartAppServer where
         type Sv RestartAppServer = ElasticBeanstalk
         type Rs RestartAppServer = RestartAppServerResponse

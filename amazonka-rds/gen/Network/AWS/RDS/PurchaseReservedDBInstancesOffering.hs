@@ -81,6 +81,11 @@ prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default;
 prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
 prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          PurchaseReservedDBInstancesOffering where
         type Sv PurchaseReservedDBInstancesOffering = RDS

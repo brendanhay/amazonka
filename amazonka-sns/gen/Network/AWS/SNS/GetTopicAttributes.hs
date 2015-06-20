@@ -55,6 +55,11 @@ getTopicAttributes pTopicARN = GetTopicAttributes'{_gtaTopicARN = pTopicARN};
 gtaTopicARN :: Lens' GetTopicAttributes Text
 gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetTopicAttributes where
         type Sv GetTopicAttributes = SNS
         type Rs GetTopicAttributes =

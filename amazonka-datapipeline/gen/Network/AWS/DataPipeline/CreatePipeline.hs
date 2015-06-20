@@ -92,6 +92,11 @@ cpName = lens _cpName (\ s a -> s{_cpName = a});
 cpUniqueId :: Lens' CreatePipeline Text
 cpUniqueId = lens _cpUniqueId (\ s a -> s{_cpUniqueId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = DataPipeline
         type Rs CreatePipeline = CreatePipelineResponse

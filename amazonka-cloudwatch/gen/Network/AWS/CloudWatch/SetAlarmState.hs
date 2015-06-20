@@ -80,6 +80,11 @@ sasStateValue = lens _sasStateValue (\ s a -> s{_sasStateValue = a});
 sasStateReason :: Lens' SetAlarmState Text
 sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetAlarmState where
         type Sv SetAlarmState = CloudWatch
         type Rs SetAlarmState = SetAlarmStateResponse

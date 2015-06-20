@@ -146,6 +146,11 @@ lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
 lrrsHostedZoneId = lens _lrrsHostedZoneId (\ s a -> s{_lrrsHostedZoneId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListResourceRecordSets where
         type Sv ListResourceRecordSets = Route53
         type Rs ListResourceRecordSets =

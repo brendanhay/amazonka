@@ -60,6 +60,11 @@ dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
 dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
 dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DeleteCloudFrontOriginAccessIdentity where
         type Sv DeleteCloudFrontOriginAccessIdentity =

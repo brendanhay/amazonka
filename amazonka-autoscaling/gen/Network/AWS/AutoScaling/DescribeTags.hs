@@ -79,6 +79,11 @@ dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = AutoScaling
         type Rs DescribeTags = DescribeTagsResponse

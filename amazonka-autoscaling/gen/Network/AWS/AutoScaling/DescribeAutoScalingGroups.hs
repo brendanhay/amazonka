@@ -71,6 +71,11 @@ dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
 dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAutoScalingGroups where
         type Sv DescribeAutoScalingGroups = AutoScaling
         type Rs DescribeAutoScalingGroups =

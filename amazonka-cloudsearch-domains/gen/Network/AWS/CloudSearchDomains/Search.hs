@@ -448,6 +448,11 @@ seaPartial = lens _seaPartial (\ s a -> s{_seaPartial = a});
 seaQuery :: Lens' Search Text
 seaQuery = lens _seaQuery (\ s a -> s{_seaQuery = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest Search where
         type Sv Search = CloudSearchDomains
         type Rs Search = SearchResponse

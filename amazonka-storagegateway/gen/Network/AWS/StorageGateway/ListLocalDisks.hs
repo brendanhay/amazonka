@@ -64,6 +64,11 @@ listLocalDisks pGatewayARN = ListLocalDisks'{_lldGatewayARN = pGatewayARN};
 lldGatewayARN :: Lens' ListLocalDisks Text
 lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListLocalDisks where
         type Sv ListLocalDisks = StorageGateway
         type Rs ListLocalDisks = ListLocalDisksResponse

@@ -326,6 +326,11 @@ mccCacheSecurityGroupNames = lens _mccCacheSecurityGroupNames (\ s a -> s{_mccCa
 mccCacheClusterId :: Lens' ModifyCacheCluster Text
 mccCacheClusterId = lens _mccCacheClusterId (\ s a -> s{_mccCacheClusterId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyCacheCluster where
         type Sv ModifyCacheCluster = ElastiCache
         type Rs ModifyCacheCluster =

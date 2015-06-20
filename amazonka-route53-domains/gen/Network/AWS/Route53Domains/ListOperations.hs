@@ -82,6 +82,11 @@ loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListOperations where
         type Sv ListOperations = Route53Domains
         type Rs ListOperations = ListOperationsResponse

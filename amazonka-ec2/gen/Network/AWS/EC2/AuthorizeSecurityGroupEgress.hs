@@ -142,6 +142,11 @@ asgeDryRun = lens _asgeDryRun (\ s a -> s{_asgeDryRun = a});
 asgeGroupId :: Lens' AuthorizeSecurityGroupEgress Text
 asgeGroupId = lens _asgeGroupId (\ s a -> s{_asgeGroupId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AuthorizeSecurityGroupEgress
          where
         type Sv AuthorizeSecurityGroupEgress = EC2

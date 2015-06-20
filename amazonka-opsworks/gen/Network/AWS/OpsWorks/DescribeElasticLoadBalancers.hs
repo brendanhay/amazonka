@@ -71,6 +71,11 @@ delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default;
 delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
 delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeElasticLoadBalancers
          where
         type Sv DescribeElasticLoadBalancers = OpsWorks

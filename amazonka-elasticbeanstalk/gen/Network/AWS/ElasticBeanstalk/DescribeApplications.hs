@@ -55,6 +55,11 @@ describeApplications = DescribeApplications'{_daApplicationNames = Nothing};
 daApplicationNames :: Lens' DescribeApplications [Text]
 daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeApplications where
         type Sv DescribeApplications = ElasticBeanstalk
         type Rs DescribeApplications =

@@ -88,6 +88,11 @@ spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = 
 spAutoScalingGroupName :: Lens' SuspendProcesses Text
 spAutoScalingGroupName = lens _spAutoScalingGroupName (\ s a -> s{_spAutoScalingGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SuspendProcesses where
         type Sv SuspendProcesses = AutoScaling
         type Rs SuspendProcesses = SuspendProcessesResponse

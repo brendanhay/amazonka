@@ -54,6 +54,11 @@ deleteHAPG pHAPGARN = DeleteHAPG'{_dhHAPGARN = pHAPGARN};
 dhHAPGARN :: Lens' DeleteHAPG Text
 dhHAPGARN = lens _dhHAPGARN (\ s a -> s{_dhHAPGARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteHAPG where
         type Sv DeleteHAPG = CloudHSM
         type Rs DeleteHAPG = DeleteHAPGResponse

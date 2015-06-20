@@ -88,6 +88,11 @@ dvRAIDArrayId = lens _dvRAIDArrayId (\ s a -> s{_dvRAIDArrayId = a});
 dvStackId :: Lens' DescribeVolumes (Maybe Text)
 dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVolumes where
         type Sv DescribeVolumes = OpsWorks
         type Rs DescribeVolumes = DescribeVolumesResponse

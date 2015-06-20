@@ -75,6 +75,11 @@ mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGro
 mdsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
 mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyDBSubnetGroup where
         type Sv ModifyDBSubnetGroup = RDS
         type Rs ModifyDBSubnetGroup =

@@ -66,6 +66,11 @@ dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
 dscCertificateId :: Lens' DeleteSigningCertificate Text
 dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteSigningCertificate where
         type Sv DeleteSigningCertificate = IAM
         type Rs DeleteSigningCertificate =

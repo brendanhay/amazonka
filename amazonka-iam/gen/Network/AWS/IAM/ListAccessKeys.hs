@@ -90,6 +90,11 @@ lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
 lakMarker :: Lens' ListAccessKeys (Maybe Text)
 lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListAccessKeys where
         type Sv ListAccessKeys = IAM
         type Rs ListAccessKeys = ListAccessKeysResponse

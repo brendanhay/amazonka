@@ -57,6 +57,11 @@ getEndpointAttributes pEndpointARN = GetEndpointAttributes'{_geaEndpointARN = pE
 geaEndpointARN :: Lens' GetEndpointAttributes Text
 geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetEndpointAttributes where
         type Sv GetEndpointAttributes = SNS
         type Rs GetEndpointAttributes =

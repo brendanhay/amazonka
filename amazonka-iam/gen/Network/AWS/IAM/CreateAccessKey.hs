@@ -71,6 +71,11 @@ createAccessKey = CreateAccessKey'{_cakUserName = Nothing};
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateAccessKey where
         type Sv CreateAccessKey = IAM
         type Rs CreateAccessKey = CreateAccessKeyResponse

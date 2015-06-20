@@ -82,6 +82,11 @@ lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 lpvPolicyARN :: Lens' ListPolicyVersions Text
 lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListPolicyVersions where
         type Sv ListPolicyVersions = IAM
         type Rs ListPolicyVersions =

@@ -96,6 +96,11 @@ mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
 mveVPCEndpointId :: Lens' ModifyVPCEndpoint Text
 mveVPCEndpointId = lens _mveVPCEndpointId (\ s a -> s{_mveVPCEndpointId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyVPCEndpoint where
         type Sv ModifyVPCEndpoint = EC2
         type Rs ModifyVPCEndpoint = ModifyVPCEndpointResponse

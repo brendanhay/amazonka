@@ -61,6 +61,11 @@ getUser = GetUser'{_guUserName = Nothing};
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetUser where
         type Sv GetUser = IAM
         type Rs GetUser = GetUserResponse

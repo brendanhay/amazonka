@@ -82,6 +82,11 @@ adoDHCPOptionsId = lens _adoDHCPOptionsId (\ s a -> s{_adoDHCPOptionsId = a});
 adoVPCId :: Lens' AssociateDHCPOptions Text
 adoVPCId = lens _adoVPCId (\ s a -> s{_adoVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssociateDHCPOptions where
         type Sv AssociateDHCPOptions = EC2
         type Rs AssociateDHCPOptions =

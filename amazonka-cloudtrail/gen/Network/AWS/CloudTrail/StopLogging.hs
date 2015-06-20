@@ -56,6 +56,11 @@ stopLogging pName = StopLogging'{_slName = pName};
 slName :: Lens' StopLogging Text
 slName = lens _slName (\ s a -> s{_slName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StopLogging where
         type Sv StopLogging = CloudTrail
         type Rs StopLogging = StopLoggingResponse

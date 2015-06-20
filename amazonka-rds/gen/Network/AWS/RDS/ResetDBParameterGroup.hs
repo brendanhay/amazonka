@@ -99,6 +99,11 @@ rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Defau
 rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResetDBParameterGroup where
         type Sv ResetDBParameterGroup = RDS
         type Rs ResetDBParameterGroup =

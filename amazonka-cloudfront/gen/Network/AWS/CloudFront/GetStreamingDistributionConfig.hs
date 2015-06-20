@@ -55,6 +55,11 @@ getStreamingDistributionConfig pId = GetStreamingDistributionConfig'{_gsdcId = p
 gsdcId :: Lens' GetStreamingDistributionConfig Text
 gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetStreamingDistributionConfig
          where
         type Sv GetStreamingDistributionConfig = CloudFront

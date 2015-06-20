@@ -172,6 +172,11 @@ deFilterVariable = lens _deFilterVariable (\ s a -> s{_deFilterVariable = a});
 deLE :: Lens' DescribeEvaluations (Maybe Text)
 deLE = lens _deLE (\ s a -> s{_deLE = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning
         type Rs DescribeEvaluations =

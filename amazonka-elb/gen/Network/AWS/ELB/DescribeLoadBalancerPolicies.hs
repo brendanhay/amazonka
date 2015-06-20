@@ -69,6 +69,11 @@ dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _De
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
 dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\ s a -> s{_dlbpLoadBalancerName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLoadBalancerPolicies
          where
         type Sv DescribeLoadBalancerPolicies = ELB

@@ -101,6 +101,11 @@ createFileSystem pCreationToken = CreateFileSystem'{_cfsCreationToken = pCreatio
 cfsCreationToken :: Lens' CreateFileSystem Text
 cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateFileSystem where
         type Sv CreateFileSystem = ElasticFileSystem
         type Rs CreateFileSystem = FileSystemDescription

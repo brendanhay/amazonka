@@ -232,6 +232,11 @@ mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCa
 mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text
 mrgReplicationGroupId = lens _mrgReplicationGroupId (\ s a -> s{_mrgReplicationGroupId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyReplicationGroup where
         type Sv ModifyReplicationGroup = ElastiCache
         type Rs ModifyReplicationGroup =

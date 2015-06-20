@@ -58,6 +58,11 @@ getAccessKeyLastUsed pAccessKeyId = GetAccessKeyLastUsed'{_gakluAccessKeyId = pA
 gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
 gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetAccessKeyLastUsed where
         type Sv GetAccessKeyLastUsed = IAM
         type Rs GetAccessKeyLastUsed =

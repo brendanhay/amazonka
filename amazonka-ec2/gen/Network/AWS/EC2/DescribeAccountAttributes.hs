@@ -84,6 +84,11 @@ daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a})
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = EC2
         type Rs DescribeAccountAttributes =

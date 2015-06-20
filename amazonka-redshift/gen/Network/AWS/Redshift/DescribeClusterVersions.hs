@@ -103,6 +103,11 @@ dcvClusterParameterGroupFamily = lens _dcvClusterParameterGroupFamily (\ s a -> 
 dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterVersion = lens _dcvClusterVersion (\ s a -> s{_dcvClusterVersion = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusterVersions where
         type Sv DescribeClusterVersions = Redshift
         type Rs DescribeClusterVersions =

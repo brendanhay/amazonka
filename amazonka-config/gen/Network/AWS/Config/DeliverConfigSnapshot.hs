@@ -64,6 +64,11 @@ deliverConfigSnapshot pDeliveryChannelName = DeliverConfigSnapshot'{_dcsDelivery
 dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
 dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeliverConfigSnapshot where
         type Sv DeliverConfigSnapshot = Config
         type Rs DeliverConfigSnapshot =

@@ -102,6 +102,11 @@ dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default;
 dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
 dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeBundleTasks where
         type Sv DescribeBundleTasks = EC2
         type Rs DescribeBundleTasks =

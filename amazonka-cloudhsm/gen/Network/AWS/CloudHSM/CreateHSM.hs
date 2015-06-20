@@ -107,6 +107,11 @@ chIAMRoleARN = lens _chIAMRoleARN (\ s a -> s{_chIAMRoleARN = a});
 chSubscriptionType :: Lens' CreateHSM SubscriptionType
 chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateHSM where
         type Sv CreateHSM = CloudHSM
         type Rs CreateHSM = CreateHSMResponse

@@ -74,6 +74,11 @@ ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a});
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetStatus where
         type Sv SetStatus = DataPipeline
         type Rs SetStatus = SetStatusResponse

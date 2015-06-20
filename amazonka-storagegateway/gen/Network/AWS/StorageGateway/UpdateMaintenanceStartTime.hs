@@ -81,6 +81,11 @@ umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . 
 umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
 umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateMaintenanceStartTime where
         type Sv UpdateMaintenanceStartTime = StorageGateway
         type Rs UpdateMaintenanceStartTime =

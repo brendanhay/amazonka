@@ -78,6 +78,11 @@ dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
 dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
 dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeTapeRecoveryPoints where
         type Sv DescribeTapeRecoveryPoints = StorageGateway
         type Rs DescribeTapeRecoveryPoints =

@@ -171,6 +171,11 @@ pmaThreshold = lens _pmaThreshold (\ s a -> s{_pmaThreshold = a});
 pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
 pmaComparisonOperator = lens _pmaComparisonOperator (\ s a -> s{_pmaComparisonOperator = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutMetricAlarm where
         type Sv PutMetricAlarm = CloudWatch
         type Rs PutMetricAlarm = PutMetricAlarmResponse

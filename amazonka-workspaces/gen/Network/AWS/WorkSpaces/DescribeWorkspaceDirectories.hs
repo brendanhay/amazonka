@@ -71,6 +71,11 @@ dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a});
 dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
 dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . mapping _List1;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeWorkspaceDirectories
          where
         type Sv DescribeWorkspaceDirectories = WorkSpaces

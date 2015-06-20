@@ -103,6 +103,11 @@ cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a});
 cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
 cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateFlowLogs where
         type Sv CreateFlowLogs = EC2
         type Rs CreateFlowLogs = CreateFlowLogsResponse

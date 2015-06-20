@@ -88,6 +88,11 @@ lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListRolePolicies where
         type Sv ListRolePolicies = IAM
         type Rs ListRolePolicies = ListRolePoliciesResponse

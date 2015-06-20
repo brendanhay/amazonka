@@ -105,6 +105,11 @@ ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnaps
 ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
 ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDBInstance where
         type Sv DeleteDBInstance = RDS
         type Rs DeleteDBInstance = DeleteDBInstanceResponse

@@ -75,6 +75,11 @@ dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a});
 dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
 dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteSecurityGroup where
         type Sv DeleteSecurityGroup = EC2
         type Rs DeleteSecurityGroup =

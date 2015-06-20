@@ -107,6 +107,11 @@ creaVPCId = lens _creaVPCId (\ s a -> s{_creaVPCId = a});
 creaCIDRBlock :: Lens' CreateSubnet Text
 creaCIDRBlock = lens _creaCIDRBlock (\ s a -> s{_creaCIDRBlock = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSubnet where
         type Sv CreateSubnet = EC2
         type Rs CreateSubnet = CreateSubnetResponse

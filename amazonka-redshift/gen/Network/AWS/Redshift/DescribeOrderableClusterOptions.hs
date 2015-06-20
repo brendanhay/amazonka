@@ -106,6 +106,11 @@ docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = 
 docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoNodeType = lens _docoNodeType (\ s a -> s{_docoNodeType = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeOrderableClusterOptions
          where
         type Sv DescribeOrderableClusterOptions = Redshift

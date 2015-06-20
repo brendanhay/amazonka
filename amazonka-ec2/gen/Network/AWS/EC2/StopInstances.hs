@@ -109,6 +109,11 @@ siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
 siInstanceIds :: Lens' StopInstances [Text]
 siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest StopInstances where
         type Sv StopInstances = EC2
         type Rs StopInstances = StopInstancesResponse

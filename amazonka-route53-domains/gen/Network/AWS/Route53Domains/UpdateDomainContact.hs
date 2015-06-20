@@ -116,6 +116,11 @@ udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mappin
 udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateDomainContact where
         type Sv UpdateDomainContact = Route53Domains
         type Rs UpdateDomainContact =

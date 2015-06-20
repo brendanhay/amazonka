@@ -80,6 +80,11 @@ diStackId = lens _diStackId (\ s a -> s{_diStackId = a});
 diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = OpsWorks
         type Rs DescribeInstances = DescribeInstancesResponse

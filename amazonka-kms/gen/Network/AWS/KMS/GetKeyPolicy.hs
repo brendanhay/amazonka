@@ -68,6 +68,11 @@ gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a});
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetKeyPolicy where
         type Sv GetKeyPolicy = KMS
         type Rs GetKeyPolicy = GetKeyPolicyResponse

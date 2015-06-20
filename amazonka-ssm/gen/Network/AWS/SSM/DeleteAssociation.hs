@@ -66,6 +66,11 @@ delName = lens _delName (\ s a -> s{_delName = a});
 delInstanceId :: Lens' DeleteAssociation Text
 delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteAssociation where
         type Sv DeleteAssociation = SSM
         type Rs DeleteAssociation = DeleteAssociationResponse

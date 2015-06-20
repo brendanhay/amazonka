@@ -86,6 +86,11 @@ ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddJobFlowSteps where
         type Sv AddJobFlowSteps = EMR
         type Rs AddJobFlowSteps = AddJobFlowStepsResponse

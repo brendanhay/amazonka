@@ -97,6 +97,11 @@ lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
 lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
 lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListEventSourceMappings where
         type Sv ListEventSourceMappings = Lambda
         type Rs ListEventSourceMappings =

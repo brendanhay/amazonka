@@ -90,6 +90,11 @@ rdtcExecutionContext = lens _rdtcExecutionContext (\ s a -> s{_rdtcExecutionCont
 rdtcTaskToken :: Lens' RespondDecisionTaskCompleted Text
 rdtcTaskToken = lens _rdtcTaskToken (\ s a -> s{_rdtcTaskToken = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RespondDecisionTaskCompleted
          where
         type Sv RespondDecisionTaskCompleted = SWF

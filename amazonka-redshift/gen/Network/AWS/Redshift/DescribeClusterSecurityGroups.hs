@@ -130,6 +130,11 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClusterSecurityGroups
          where
         type Sv DescribeClusterSecurityGroups = Redshift

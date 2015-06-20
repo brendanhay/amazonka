@@ -72,6 +72,11 @@ daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default;
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeApps where
         type Sv DescribeApps = OpsWorks
         type Rs DescribeApps = DescribeAppsResponse

@@ -76,6 +76,11 @@ rnaaAssociationId = lens _rnaaAssociationId (\ s a -> s{_rnaaAssociationId = a})
 rnaaNetworkACLId :: Lens' ReplaceNetworkACLAssociation Text
 rnaaNetworkACLId = lens _rnaaNetworkACLId (\ s a -> s{_rnaaNetworkACLId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ReplaceNetworkACLAssociation
          where
         type Sv ReplaceNetworkACLAssociation = EC2

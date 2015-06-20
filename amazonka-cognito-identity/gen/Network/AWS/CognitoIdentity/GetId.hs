@@ -82,6 +82,11 @@ giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
 giIdentityPoolId :: Lens' GetId Text
 giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetId where
         type Sv GetId = CognitoIdentity
         type Rs GetId = GetIdResponse

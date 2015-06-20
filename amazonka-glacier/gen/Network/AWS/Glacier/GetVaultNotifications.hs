@@ -84,6 +84,11 @@ gvnAccountId = lens _gvnAccountId (\ s a -> s{_gvnAccountId = a});
 gvnVaultName :: Lens' GetVaultNotifications Text
 gvnVaultName = lens _gvnVaultName (\ s a -> s{_gvnVaultName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetVaultNotifications where
         type Sv GetVaultNotifications = Glacier
         type Rs GetVaultNotifications =

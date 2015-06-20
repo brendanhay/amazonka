@@ -100,6 +100,11 @@ dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
 dCaseId :: Lens' DescribeCommunications Text
 dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support
         type Rs DescribeCommunications =

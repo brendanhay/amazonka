@@ -60,6 +60,11 @@ putConfigurationRecorder pConfigurationRecorder = PutConfigurationRecorder'{_pcr
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
 pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest PutConfigurationRecorder where
         type Sv PutConfigurationRecorder = Config
         type Rs PutConfigurationRecorder =

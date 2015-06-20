@@ -119,6 +119,11 @@ dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnect
 dvpncDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
 dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeVPNConnections where
         type Sv DescribeVPNConnections = EC2
         type Rs DescribeVPNConnections =

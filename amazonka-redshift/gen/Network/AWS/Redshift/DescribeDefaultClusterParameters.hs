@@ -87,6 +87,11 @@ ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
 ddcpParameterGroupFamily = lens _ddcpParameterGroupFamily (\ s a -> s{_ddcpParameterGroupFamily = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeDefaultClusterParameters
          where
         type Sv DescribeDefaultClusterParameters = Redshift

@@ -61,6 +61,11 @@ dsClusterId = lens _dsClusterId (\ s a -> s{_dsClusterId = a});
 dsStepId :: Lens' DescribeStep Text
 dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeStep where
         type Sv DescribeStep = EMR
         type Rs DescribeStep = DescribeStepResponse

@@ -66,6 +66,11 @@ agpGroupName = lens _agpGroupName (\ s a -> s{_agpGroupName = a});
 agpPolicyARN :: Lens' AttachGroupPolicy Text
 agpPolicyARN = lens _agpPolicyARN (\ s a -> s{_agpPolicyARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachGroupPolicy where
         type Sv AttachGroupPolicy = IAM
         type Rs AttachGroupPolicy = AttachGroupPolicyResponse

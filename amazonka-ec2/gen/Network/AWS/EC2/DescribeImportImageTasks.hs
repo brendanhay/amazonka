@@ -87,6 +87,11 @@ diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
 diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
 diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeImportImageTasks where
         type Sv DescribeImportImageTasks = EC2
         type Rs DescribeImportImageTasks =

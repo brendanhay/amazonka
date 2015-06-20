@@ -72,6 +72,11 @@ resImageId = lens _resImageId (\ s a -> s{_resImageId = a});
 resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
 resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResetImageAttribute where
         type Sv ResetImageAttribute = EC2
         type Rs ResetImageAttribute =

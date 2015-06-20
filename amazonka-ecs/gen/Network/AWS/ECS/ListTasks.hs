@@ -133,6 +133,11 @@ ltContainerInstance = lens _ltContainerInstance (\ s a -> s{_ltContainerInstance
 ltMaxResults :: Lens' ListTasks (Maybe Int)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListTasks where
         type Sv ListTasks = ECS
         type Rs ListTasks = ListTasksResponse

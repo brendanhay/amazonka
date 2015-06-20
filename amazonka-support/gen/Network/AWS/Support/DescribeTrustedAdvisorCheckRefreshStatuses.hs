@@ -56,6 +56,11 @@ describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshS
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeTrustedAdvisorCheckRefreshStatuses where
         type Sv DescribeTrustedAdvisorCheckRefreshStatuses =

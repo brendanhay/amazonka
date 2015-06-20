@@ -85,6 +85,11 @@ descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
 descMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift
         type Rs DescribeEventSubscriptions =

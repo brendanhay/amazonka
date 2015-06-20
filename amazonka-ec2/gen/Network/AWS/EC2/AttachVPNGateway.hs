@@ -73,6 +73,11 @@ avgVPNGatewayId = lens _avgVPNGatewayId (\ s a -> s{_avgVPNGatewayId = a});
 avgVPCId :: Lens' AttachVPNGateway Text
 avgVPCId = lens _avgVPCId (\ s a -> s{_avgVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AttachVPNGateway where
         type Sv AttachVPNGateway = EC2
         type Rs AttachVPNGateway = AttachVPNGatewayResponse

@@ -95,6 +95,11 @@ daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default;
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
 daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch
         type Rs DescribeAlarms = DescribeAlarmsResponse

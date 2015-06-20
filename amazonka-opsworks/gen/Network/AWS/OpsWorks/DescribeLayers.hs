@@ -71,6 +71,11 @@ dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default;
 dlStackId :: Lens' DescribeLayers (Maybe Text)
 dlStackId = lens _dlStackId (\ s a -> s{_dlStackId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLayers where
         type Sv DescribeLayers = OpsWorks
         type Rs DescribeLayers = DescribeLayersResponse

@@ -66,6 +66,11 @@ rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = EMR
         type Rs RemoveTags = RemoveTagsResponse

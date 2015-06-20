@@ -56,6 +56,11 @@ getReusableDelegationSet pId = GetReusableDelegationSet'{_grdsId = pId};
 grdsId :: Lens' GetReusableDelegationSet Text
 grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetReusableDelegationSet where
         type Sv GetReusableDelegationSet = Route53
         type Rs GetReusableDelegationSet =

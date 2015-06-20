@@ -63,6 +63,11 @@ artipInstanceProfileName = lens _artipInstanceProfileName (\ s a -> s{_artipInst
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\ s a -> s{_artipRoleName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddRoleToInstanceProfile where
         type Sv AddRoleToInstanceProfile = IAM
         type Rs AddRoleToInstanceProfile =

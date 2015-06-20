@@ -59,6 +59,11 @@ autgGroupName = lens _autgGroupName (\ s a -> s{_autgGroupName = a});
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AddUserToGroup where
         type Sv AddUserToGroup = IAM
         type Rs AddUserToGroup = AddUserToGroupResponse

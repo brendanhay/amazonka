@@ -361,6 +361,11 @@ cccPort = lens _cccPort (\ s a -> s{_cccPort = a});
 cccCacheClusterId :: Lens' CreateCacheCluster Text
 cccCacheClusterId = lens _cccCacheClusterId (\ s a -> s{_cccCacheClusterId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateCacheCluster where
         type Sv CreateCacheCluster = ElastiCache
         type Rs CreateCacheCluster =

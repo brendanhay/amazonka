@@ -48,6 +48,11 @@ data GetSendQuota = GetSendQuota' deriving (Eq, Read, Show)
 getSendQuota :: GetSendQuota
 getSendQuota = GetSendQuota';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetSendQuota where
         type Sv GetSendQuota = SES
         type Rs GetSendQuota = GetSendQuotaResponse

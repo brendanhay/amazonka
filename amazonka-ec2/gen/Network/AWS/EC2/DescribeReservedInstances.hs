@@ -140,6 +140,11 @@ driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReserved
 driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
 driDryRun = lens _driDryRun (\ s a -> s{_driDryRun = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeReservedInstances where
         type Sv DescribeReservedInstances = EC2
         type Rs DescribeReservedInstances =

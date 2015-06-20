@@ -85,6 +85,11 @@ dsa1AutoScalingGroupName = lens _dsa1AutoScalingGroupName (\ s a -> s{_dsa1AutoS
 dsa1ActivityIds :: Lens' DescribeScalingActivities [Text]
 dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a}) . _Default;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
         type Rs DescribeScalingActivities =

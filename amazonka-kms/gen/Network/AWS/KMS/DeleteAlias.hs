@@ -55,6 +55,11 @@ deleteAlias pAliasName = DeleteAlias'{_daAliasName = pAliasName};
 daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteAlias where
         type Sv DeleteAlias = KMS
         type Rs DeleteAlias = DeleteAliasResponse

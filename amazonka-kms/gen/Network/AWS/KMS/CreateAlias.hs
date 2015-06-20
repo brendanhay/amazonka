@@ -80,6 +80,11 @@ caAliasName = lens _caAliasName (\ s a -> s{_caAliasName = a});
 caTargetKeyId :: Lens' CreateAlias Text
 caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateAlias where
         type Sv CreateAlias = KMS
         type Rs CreateAlias = CreateAliasResponse

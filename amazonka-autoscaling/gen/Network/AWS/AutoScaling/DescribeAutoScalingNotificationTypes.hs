@@ -44,6 +44,11 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest
          DescribeAutoScalingNotificationTypes where
         type Sv DescribeAutoScalingNotificationTypes =

@@ -78,6 +78,11 @@ lrdsMaxItems = lens _lrdsMaxItems (\ s a -> s{_lrdsMaxItems = a});
 lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMarker = lens _lrdsMarker (\ s a -> s{_lrdsMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ListReusableDelegationSets where
         type Sv ListReusableDelegationSets = Route53
         type Rs ListReusableDelegationSets =

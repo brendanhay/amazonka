@@ -97,6 +97,11 @@ mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBPar
 mdpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ModifyDBParameterGroup where
         type Sv ModifyDBParameterGroup = RDS
         type Rs ModifyDBParameterGroup =

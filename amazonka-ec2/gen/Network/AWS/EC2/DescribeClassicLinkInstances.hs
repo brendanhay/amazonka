@@ -120,6 +120,11 @@ dcliDryRun = lens _dcliDryRun (\ s a -> s{_dcliDryRun = a});
 dcliMaxResults :: Lens' DescribeClassicLinkInstances (Maybe Int)
 dcliMaxResults = lens _dcliMaxResults (\ s a -> s{_dcliMaxResults = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeClassicLinkInstances
          where
         type Sv DescribeClassicLinkInstances = EC2

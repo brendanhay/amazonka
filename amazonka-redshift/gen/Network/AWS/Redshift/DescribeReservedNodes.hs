@@ -82,6 +82,11 @@ drnMaxRecords = lens _drnMaxRecords (\ s a -> s{_drnMaxRecords = a});
 drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
 drnMarker = lens _drnMarker (\ s a -> s{_drnMarker = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeReservedNodes where
         type Sv DescribeReservedNodes = Redshift
         type Rs DescribeReservedNodes =

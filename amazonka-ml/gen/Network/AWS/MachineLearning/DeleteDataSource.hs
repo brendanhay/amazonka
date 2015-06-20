@@ -62,6 +62,11 @@ deleteDataSource pDataSourceId = DeleteDataSource'{_ddsDataSourceId = pDataSourc
 ddsDataSourceId :: Lens' DeleteDataSource Text
 ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDataSource where
         type Sv DeleteDataSource = MachineLearning
         type Rs DeleteDataSource = DeleteDataSourceResponse

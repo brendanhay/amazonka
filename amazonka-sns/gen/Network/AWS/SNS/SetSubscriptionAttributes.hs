@@ -70,6 +70,11 @@ ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = 
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text
 ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest SetSubscriptionAttributes where
         type Sv SetSubscriptionAttributes = SNS
         type Rs SetSubscriptionAttributes =

@@ -64,6 +64,11 @@ dctApplicationName = lens _dctApplicationName (\ s a -> s{_dctApplicationName = 
 dctTemplateName :: Lens' DeleteConfigurationTemplate Text
 dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteConfigurationTemplate where
         type Sv DeleteConfigurationTemplate =
              ElasticBeanstalk

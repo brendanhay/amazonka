@@ -81,6 +81,11 @@ dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupName
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
 dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLogGroups where
         type Sv DescribeLogGroups = CloudWatchLogs
         type Rs DescribeLogGroups = DescribeLogGroupsResponse

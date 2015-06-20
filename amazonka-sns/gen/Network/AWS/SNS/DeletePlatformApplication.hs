@@ -54,6 +54,11 @@ deletePlatformApplication pPlatformApplicationARN = DeletePlatformApplication'{_
 dpaPlatformApplicationARN :: Lens' DeletePlatformApplication Text
 dpaPlatformApplicationARN = lens _dpaPlatformApplicationARN (\ s a -> s{_dpaPlatformApplicationARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeletePlatformApplication where
         type Sv DeletePlatformApplication = SNS
         type Rs DeletePlatformApplication =

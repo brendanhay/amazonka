@@ -69,6 +69,11 @@ crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
 crtVPCId :: Lens' CreateRouteTable Text
 crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateRouteTable where
         type Sv CreateRouteTable = EC2
         type Rs CreateRouteTable = CreateRouteTableResponse

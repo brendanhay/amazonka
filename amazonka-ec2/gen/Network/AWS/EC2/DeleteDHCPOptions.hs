@@ -65,6 +65,11 @@ ddhcpoDryRun = lens _ddhcpoDryRun (\ s a -> s{_ddhcpoDryRun = a});
 ddhcpoDHCPOptionsId :: Lens' DeleteDHCPOptions Text
 ddhcpoDHCPOptionsId = lens _ddhcpoDHCPOptionsId (\ s a -> s{_ddhcpoDHCPOptionsId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteDHCPOptions where
         type Sv DeleteDHCPOptions = EC2
         type Rs DeleteDHCPOptions = DeleteDHCPOptionsResponse

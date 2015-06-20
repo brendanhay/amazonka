@@ -77,6 +77,11 @@ chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = 
 chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateHealthCheck where
         type Sv CreateHealthCheck = Route53
         type Rs CreateHealthCheck = CreateHealthCheckResponse

@@ -44,6 +44,11 @@ data GetDirectoryLimits = GetDirectoryLimits' deriving (Eq, Read, Show)
 getDirectoryLimits :: GetDirectoryLimits
 getDirectoryLimits = GetDirectoryLimits';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetDirectoryLimits where
         type Sv GetDirectoryLimits = DirectoryService
         type Rs GetDirectoryLimits =

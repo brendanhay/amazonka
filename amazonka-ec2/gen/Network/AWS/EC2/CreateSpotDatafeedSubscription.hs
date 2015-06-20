@@ -75,6 +75,11 @@ csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
 csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
 csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSpotDatafeedSubscription
          where
         type Sv CreateSpotDatafeedSubscription = EC2

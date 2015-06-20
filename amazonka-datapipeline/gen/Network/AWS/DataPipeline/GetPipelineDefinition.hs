@@ -67,6 +67,11 @@ gpdVersion = lens _gpdVersion (\ s a -> s{_gpdVersion = a});
 gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\ s a -> s{_gpdPipelineId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetPipelineDefinition where
         type Sv GetPipelineDefinition = DataPipeline
         type Rs GetPipelineDefinition =

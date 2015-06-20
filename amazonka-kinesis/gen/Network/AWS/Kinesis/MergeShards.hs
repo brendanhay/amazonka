@@ -106,6 +106,11 @@ msShardToMerge = lens _msShardToMerge (\ s a -> s{_msShardToMerge = a});
 msAdjacentShardToMerge :: Lens' MergeShards Text
 msAdjacentShardToMerge = lens _msAdjacentShardToMerge (\ s a -> s{_msAdjacentShardToMerge = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest MergeShards where
         type Sv MergeShards = Kinesis
         type Rs MergeShards = MergeShardsResponse

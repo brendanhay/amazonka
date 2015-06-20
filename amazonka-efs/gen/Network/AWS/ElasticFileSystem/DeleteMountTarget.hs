@@ -77,6 +77,11 @@ deleteMountTarget pMountTargetId = DeleteMountTarget'{_dmtMountTargetId = pMount
 dmtMountTargetId :: Lens' DeleteMountTarget Text
 dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteMountTarget where
         type Sv DeleteMountTarget = ElasticFileSystem
         type Rs DeleteMountTarget = DeleteMountTargetResponse

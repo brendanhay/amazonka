@@ -56,6 +56,11 @@ deleteLaunchConfiguration pLaunchConfigurationName = DeleteLaunchConfiguration'{
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
 dlcLaunchConfigurationName = lens _dlcLaunchConfigurationName (\ s a -> s{_dlcLaunchConfigurationName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteLaunchConfiguration where
         type Sv DeleteLaunchConfiguration = AutoScaling
         type Rs DeleteLaunchConfiguration =

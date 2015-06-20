@@ -76,6 +76,11 @@ davApplicationName = lens _davApplicationName (\ s a -> s{_davApplicationName = 
 davVersionLabel :: Lens' DeleteApplicationVersion Text
 davVersionLabel = lens _davVersionLabel (\ s a -> s{_davVersionLabel = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteApplicationVersion where
         type Sv DeleteApplicationVersion = ElasticBeanstalk
         type Rs DeleteApplicationVersion =

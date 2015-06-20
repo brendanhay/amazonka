@@ -52,6 +52,11 @@ deleteTrail pName = DeleteTrail'{_dtName = pName};
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteTrail where
         type Sv DeleteTrail = CloudTrail
         type Rs DeleteTrail = DeleteTrailResponse

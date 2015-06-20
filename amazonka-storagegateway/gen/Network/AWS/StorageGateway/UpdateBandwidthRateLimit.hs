@@ -79,6 +79,11 @@ ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInB
 ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
 ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest UpdateBandwidthRateLimit where
         type Sv UpdateBandwidthRateLimit = StorageGateway
         type Rs UpdateBandwidthRateLimit =

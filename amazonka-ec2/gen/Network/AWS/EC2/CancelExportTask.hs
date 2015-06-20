@@ -56,6 +56,11 @@ cancelExportTask pExportTaskId = CancelExportTask'{_cetExportTaskId = pExportTas
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CancelExportTask where
         type Sv CancelExportTask = EC2
         type Rs CancelExportTask = CancelExportTaskResponse

@@ -128,6 +128,11 @@ cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a});
 cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
 cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateEventSourceMapping where
         type Sv CreateEventSourceMapping = Lambda
         type Rs CreateEventSourceMapping =

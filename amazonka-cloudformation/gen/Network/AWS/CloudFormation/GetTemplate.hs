@@ -67,6 +67,11 @@ getTemplate pStackName = GetTemplate'{_gtStackName = pStackName};
 gtStackName :: Lens' GetTemplate Text
 gtStackName = lens _gtStackName (\ s a -> s{_gtStackName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest GetTemplate where
         type Sv GetTemplate = CloudFormation
         type Rs GetTemplate = GetTemplateResponse

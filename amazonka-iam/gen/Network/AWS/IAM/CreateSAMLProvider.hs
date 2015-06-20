@@ -93,6 +93,11 @@ csamlpSAMLMetadataDocument = lens _csamlpSAMLMetadataDocument (\ s a -> s{_csaml
 csamlpName :: Lens' CreateSAMLProvider Text
 csamlpName = lens _csamlpName (\ s a -> s{_csamlpName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest CreateSAMLProvider where
         type Sv CreateSAMLProvider = IAM
         type Rs CreateSAMLProvider =

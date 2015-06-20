@@ -67,6 +67,11 @@ deleteConnection pConnectionId = DeleteConnection'{_dcConnectionId = pConnection
 dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeleteConnection where
         type Sv DeleteConnection = DirectConnect
         type Rs DeleteConnection = Connection

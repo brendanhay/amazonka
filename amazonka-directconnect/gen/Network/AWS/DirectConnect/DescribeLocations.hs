@@ -46,6 +46,11 @@ data DescribeLocations = DescribeLocations' deriving (Eq, Read, Show)
 describeLocations :: DescribeLocations
 describeLocations = DescribeLocations';
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLocations where
         type Sv DescribeLocations = DirectConnect
         type Rs DescribeLocations = DescribeLocationsResponse

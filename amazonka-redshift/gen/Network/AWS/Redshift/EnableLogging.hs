@@ -93,6 +93,11 @@ elClusterIdentifier = lens _elClusterIdentifier (\ s a -> s{_elClusterIdentifier
 elBucketName :: Lens' EnableLogging Text
 elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest EnableLogging where
         type Sv EnableLogging = Redshift
         type Rs EnableLogging = LoggingStatus

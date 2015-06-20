@@ -88,6 +88,11 @@ rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
 rdiDBInstanceIdentifier :: Lens' RebootDBInstance Text
 rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstanceIdentifier = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest RebootDBInstance where
         type Sv RebootDBInstance = RDS
         type Rs RebootDBInstance = RebootDBInstanceResponse

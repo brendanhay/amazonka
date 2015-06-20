@@ -70,6 +70,11 @@ rniaDryRun = lens _rniaDryRun (\ s a -> s{_rniaDryRun = a});
 rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
 rniaNetworkInterfaceId = lens _rniaNetworkInterfaceId (\ s a -> s{_rniaNetworkInterfaceId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest ResetNetworkInterfaceAttribute
          where
         type Sv ResetNetworkInterfaceAttribute = EC2

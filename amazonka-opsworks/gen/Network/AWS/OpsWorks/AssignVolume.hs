@@ -70,6 +70,11 @@ avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
 avVolumeId :: Lens' AssignVolume Text
 avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest AssignVolume where
         type Sv AssignVolume = OpsWorks
         type Rs AssignVolume = AssignVolumeResponse

@@ -58,6 +58,11 @@ deregisterRDSDBInstance pRDSDBInstanceARN = DeregisterRDSDBInstance'{_drdiRDSDBI
 drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
 drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DeregisterRDSDBInstance where
         type Sv DeregisterRDSDBInstance = OpsWorks
         type Rs DeregisterRDSDBInstance =

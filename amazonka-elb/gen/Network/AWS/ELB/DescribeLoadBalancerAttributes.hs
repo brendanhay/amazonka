@@ -54,6 +54,11 @@ describeLoadBalancerAttributes pLoadBalancerName = DescribeLoadBalancerAttribute
 dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
 dlbaLoadBalancerName = lens _dlbaLoadBalancerName (\ s a -> s{_dlbaLoadBalancerName = a});
 
+instance AWSPager A where
+        page rq rs
+          | stop True = Nothing
+          | otherwise = Just
+
 instance AWSRequest DescribeLoadBalancerAttributes
          where
         type Sv DescribeLoadBalancerAttributes = ELB

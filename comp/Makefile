@@ -75,7 +75,7 @@ format: compile
  -exec stylish-haskell -i {} \;
 
 compile: build
-	dist/build/compile/compile \
+	./bin/compile \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \
  --client-version=$(VERSION) \

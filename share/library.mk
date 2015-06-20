@@ -6,4 +6,4 @@ sdist:
 	cabal sdist
 
 upload:
-	cabal upload dist/$(NAME)-$(VERSION).tar.gz
+	stack upload dist/$(NAME)-$(VERSION).tar.gz

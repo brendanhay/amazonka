@@ -13,6 +13,7 @@ cabal.config
 dist
 vendor
 .vagrant.d
+.stack-work
 
 # CTAGS
 TAGS

@@ -15,7 +15,7 @@ module Network.AWS.Pagers
     ( AWSPager     (..)
     , AWSTruncated (..)
     , stop
-    , index
+    , select
     , choice
     ) where
 
@@ -57,11 +57,17 @@ instance AWSTruncated (HashMap k v) where
 stop :: AWSTruncated a => a -> Bool
 stop = not . truncated
 
-index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
-index f g = f . to lastMay . to (fmap (toText . view g))
+select :: Getter [a] (Maybe a)
+select = to lastMay
 
-choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
-choice f g x = f x <|> g x
+choice :: (Alternative f, ToText a, ToText b)
+       => (s -> f a)
+       -> (s -> f b)
+       -> Getter s (f Text)
+choice f g = to $ \x -> (toText <$> f x) <|> (toText <$> g x)
+
+-- choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
+-- choice f g x = f x <|> g x
 
 lastMay :: [a] -> Maybe a
 lastMay []     = Nothing

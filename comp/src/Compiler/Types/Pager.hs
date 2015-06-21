@@ -48,23 +48,23 @@ instance FromJSON (Token Id) where
 
 data Pager a
     = Next (Notation a) (Token a)
-    | One  (Notation a) (Token a)
+--    | One  (Notation a) (Token a)
     | Many (Notation a) (NonEmpty (Token a))
       deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Pager Id) where
-    parseJSON = withObject "pager" $ \o -> one o <|> many o <|> next o
+    parseJSON = withObject "pager" $ \o -> many o <|> next o
       where
         next o = Next
             <$> o .: "result_key"
             <*> parseJSON (Object o)
 
-        one o = One
-            <$> o .: "more_results"
-            <*> parseJSON (Object o)
+        -- one o = One
+        --     <$> o .: "more_results"
+        --     <*> parseJSON (Object o)
 
         many o = do
-            let f k = o .: k <|> (:|[]) <$> o .: k
+            let f k = o .: k <|> ((:|[]) <$> o .: k)
 
             inp <- f "input_token"
             out <- f "output_token"

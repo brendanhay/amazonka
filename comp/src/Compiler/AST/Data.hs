@@ -40,6 +40,7 @@ import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.List                    (find)
+import           Data.List.NonEmpty           (NonEmpty (..))
 import           Data.Monoid                  ((<>))
 import           Data.String
 import           Data.Text                    (Text)
@@ -218,7 +219,7 @@ pagerFields m o = sequenceA (go <$> o ^. opPager)
     go :: Pager Id -> Either Error (Pager Field)
     go = \case
         Next x t  -> Next <$> notation m out x <*> token t
-        One  x t  -> One  <$> notation m out x <*> token t
+--        One  x t  -> One  <$> notation m out x <*> token t
         Many x ts -> Many <$> notation m out x <*> traverse token ts
 
     token :: Token Id -> Either Error (Token Field)
@@ -235,13 +236,15 @@ notation m = go
   where
     go :: Shape Solved -> Notation Id -> Either Error (Notation Field)
     go s = \case
-        Label    k   -> Label    <$> key s k
-        NonEmpty x   -> NonEmpty <$> field x s
+        NonEmpty k   -> NonEmpty <$> key s k
         Choice   x y -> Choice   <$> go s x <*> go s y
-        Apply    k e -> do
-            k' <- key s k
-            e' <- go (skip (shape k')) e
-            return $! Apply k' e'
+        Access   ks  -> fmap Access
+            . flip evalStateT s
+            . forM ks
+            $ \x -> do
+                k <- get >>= lift . (`key` x)
+                put (skip (shape k))
+                return k
 
     key :: Shape Solved -> Key Id -> Either Error (Key Field)
     key s = \case

@@ -126,58 +126,64 @@ pagerD n p = instD "AWSPager" n
 
     rhs = \case
         Next k t -> GuardedRhss
-            [ stop (infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation))
-            , other . infixApp (var "rq") "&"
-                    . infixApp (t ^. tokenInput . to notation) "?~"
-                    $ infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
-            ]
-
-        One  k t -> GuardedRhss
-            [ stop  (infixApp  (var "rs") (viw k) (notation k))
-            , other . infixApp (var "Just") "$"
-                    . infixApp (var "rq") "&"
-                    . infixApp (t ^. tokenInput . to notation) ".~"
-                    $ infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
+            [ stop $ infixApp (var "rs") "^." (t ^. tokenOutput . to notation)
+            -- , other . infixApp (var "Just") "$"
+            --         . infixApp (var "rq") "&"
+            --         . infixApp (t ^. tokenInput . to notation) ".~"
+            --         $ infixApp (var "rs") "^." (t ^. tokenOutput . to notation)
             ]
 
         Many k (t :| ts) -> GuardedRhss
-            [ stop (infixApp (var "rs") (viw k) (notation k))
+            [ stop  $ infixApp (var "rs") "^." (notation k)
             , guard (Fold.foldl' checkRs (negate t) ts) (var "Nothing")
-            , other (Fold.foldl' setRs (infixApp (var "Just") "$" (var "rq")) (t:ts))
+            , other $ Fold.foldl' setRs (infixApp (var "Just") "$" (var "rq")) (t:ts)
             ]
           where
+            checkRs e x = infixApp e "&&" (negate x)
+
+            negate t = app (var "isNothing") $
+                 infixApp (var "rs") "^." (t ^. tokenOutput . to notation)
+
             setRs :: Exp -> Token Field -> Exp
             setRs e t =
                   infixApp e "&"
                 . infixApp (t ^. tokenInput . to notation) ".~"
-                $ infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
+                . infixApp (var "rs") "^."
+                $ (t ^. tokenOutput . to notation)
 
--- FIXME: Need a combination of the right setter (.~ vs ?~), and no _Just chaining
-
-            checkRs e x = infixApp e "&&" (negate x)
-
-            negate t = app (var "isNothing") $
-                 infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
-
-    viw n -- | any (view fieldMaybe) n = "^?"
-          | otherwise               = "^."
+    getter :: Exp -> Text
+    getter e = if go e then "^?" else "^."
+      where
+        go = \case
+            Exts.App x y                      -> go x || go y
+            Exts.InfixApp x _ y               -> go x || go y
+            Exts.Var (UnQual (Ident "_last")) -> True
+            Exts.Var (UnQual (Ident "_Just")) -> True
+            _                                 -> False
 
     -- FIXME: doesn't support Maybe fields currently.
+    notation :: Notation Field -> Exp
     notation = \case
-        Label    k   -> label k
-        NonEmpty f   -> app (var "nonEmpty") (key f)
-        Apply    k x -> infixApp (label k)    "."  (notation x)
-        Choice   x y -> appFun (var "choice") [paren (notation x), paren (notation y)]
+        Access   (k :| ks) -> labels k ks
+        NonEmpty k         -> app (var "nonEmpty") (label False k)
+        Choice   x y       -> appFun (var "choice") [branch x, branch y]
       where
-        label = \case
-            Key  f -> key f
-            Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
-            Last f -> app (var "index") (jkey f)
+        branch x = let e = notation x in paren $ app (var (getter e)) e
 
-        jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
-               | otherwise       = key f
+        labels k [] = label False k
+        labels k ks = Fold.foldl' f (label True k) ks
+          where
+             f e x = infixApp e "." (label True x)
 
-        key f = f ^. fieldLens . to var
+        label b = \case
+            Key  f -> key b f
+            Each f -> app (var "folding") . paren $ app (var "concatOf") (key False f)
+            Last f -> infixApp (key False f) "." (var "_last")
+
+        key False f = f ^. fieldLens . to var
+        key True  f
+            | f ^. fieldMaybe = infixApp (key False f) "." (var "_Just")
+            | otherwise       = key False f
 
 requestD :: HasMetadata a f
          => a
@@ -583,21 +589,22 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Textual {} -> \c -> infixApp c "." (app (var "to") (var "toText"))
             _          -> id
 
-    notation = \case
-        Label    k   -> label k
-        NonEmpty f   -> app (var "nonEmpty") (key f)
-        Apply    k x -> infixApp (label k) "."  (notation x)
-        Choice   x y -> infixApp (notation x) "||" (notation y)
-      where
-        key f = f ^. fieldLens . to var
+    notation = undefined
+    -- notation = \case
+    --     Label    k   -> label k
+    --     NonEmpty f   -> app (var "nonEmpty") (key f)
+    --     Apply    k x -> infixApp (label k) "."  (notation x)
+    --     Choice   x y -> infixApp (notation x) "||" (notation y)
+    --   where
+    --     key f = f ^. fieldLens . to var
 
-        label = \case
-            Key  f -> jkey f
-            Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
-            Last f -> jkey f
+    --     label = \case
+    --         Key  f -> jkey f
+    --         Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
+    --         Last f -> jkey f
 
-        jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
-               | otherwise       = key f
+    --     jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
+    --            | otherwise       = key f
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing

@@ -443,7 +443,7 @@ instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
                 <*> o .:  "documentation"
                 <*> (o .: "operations" <&> Map.map (pager ps))
                 <*> o .:  "shapes"
-                <*> o .:? "waiters" .!= mempty
+                <*> pure mempty -- o .:? "waiters" .!= mempty
       where
         pager :: Map Id (Pager Id)
               -> Operation f a ()

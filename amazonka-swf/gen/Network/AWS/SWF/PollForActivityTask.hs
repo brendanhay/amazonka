@@ -113,11 +113,6 @@ pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
 pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PollForActivityTask where
         type Sv PollForActivityTask = SWF
         type Rs PollForActivityTask =

@@ -86,11 +86,6 @@ distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
 distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
 distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeImportSnapshotTasks where
         type Sv DescribeImportSnapshotTasks = EC2
         type Rs DescribeImportSnapshotTasks =

@@ -99,11 +99,6 @@ ratcResult = lens _ratcResult (\ s a -> s{_ratcResult = a});
 ratcTaskToken :: Lens' RespondActivityTaskCompleted Text
 ratcTaskToken = lens _ratcTaskToken (\ s a -> s{_ratcTaskToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RespondActivityTaskCompleted
          where
         type Sv RespondActivityTaskCompleted = SWF

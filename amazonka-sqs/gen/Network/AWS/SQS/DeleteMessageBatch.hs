@@ -76,11 +76,6 @@ dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
 dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
 dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteMessageBatch where
         type Sv DeleteMessageBatch = SQS
         type Rs DeleteMessageBatch =

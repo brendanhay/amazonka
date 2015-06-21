@@ -84,11 +84,6 @@ deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a}) . _Default;
 deiStackId :: Lens' DescribeElasticIPs (Maybe Text)
 deiStackId = lens _deiStackId (\ s a -> s{_deiStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeElasticIPs where
         type Sv DescribeElasticIPs = OpsWorks
         type Rs DescribeElasticIPs =

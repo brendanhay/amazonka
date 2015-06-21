@@ -108,11 +108,6 @@ ccgPublicIP = lens _ccgPublicIP (\ s a -> s{_ccgPublicIP = a});
 ccgBGPASN :: Lens' CreateCustomerGateway Int
 ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateCustomerGateway where
         type Sv CreateCustomerGateway = EC2
         type Rs CreateCustomerGateway =

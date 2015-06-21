@@ -68,11 +68,6 @@ acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a});
 acDiskIds :: Lens' AddCache [Text]
 acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddCache where
         type Sv AddCache = StorageGateway
         type Rs AddCache = AddCacheResponse

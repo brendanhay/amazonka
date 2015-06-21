@@ -85,11 +85,6 @@ ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 ldiDeploymentId :: Lens' ListDeploymentInstances Text
 ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListDeploymentInstances where
         type Sv ListDeploymentInstances = CodeDeploy
         type Rs ListDeploymentInstances =

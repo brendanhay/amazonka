@@ -92,11 +92,6 @@ cogMajorEngineVersion = lens _cogMajorEngineVersion (\ s a -> s{_cogMajorEngineV
 cogOptionGroupDescription :: Lens' CreateOptionGroup Text
 cogOptionGroupDescription = lens _cogOptionGroupDescription (\ s a -> s{_cogOptionGroupDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateOptionGroup where
         type Sv CreateOptionGroup = RDS
         type Rs CreateOptionGroup = CreateOptionGroupResponse

@@ -42,6 +42,7 @@ module Network.AWS.ImportExport.ListJobs
     ) where
 
 import Network.AWS.ImportExport.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,10 +74,13 @@ ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 ljMaxJobs :: Lens' ListJobs (Maybe Int)
 ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 
-instance AWSPager A where
+instance AWSPager ListJobs where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ljrIsTruncated) = Nothing
+          | otherwise =
+            Just $
+              rq &
+                ljMarker .~ rs ^. index (ljrJobs . _Just) . jobJobId
 
 instance AWSRequest ListJobs where
         type Sv ListJobs = ImportExport

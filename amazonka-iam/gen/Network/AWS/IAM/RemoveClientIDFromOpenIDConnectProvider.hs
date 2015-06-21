@@ -67,11 +67,6 @@ rcidfoidcpOpenIDConnectProviderARN = lens _rcidfoidcpOpenIDConnectProviderARN (\
 rcidfoidcpClientID :: Lens' RemoveClientIDFromOpenIDConnectProvider Text
 rcidfoidcpClientID = lens _rcidfoidcpClientID (\ s a -> s{_rcidfoidcpClientID = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          RemoveClientIDFromOpenIDConnectProvider where
         type Sv RemoveClientIDFromOpenIDConnectProvider = IAM

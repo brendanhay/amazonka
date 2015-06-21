@@ -85,11 +85,6 @@ vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = 
 vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
 vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ValidateConfigurationSettings
          where
         type Sv ValidateConfigurationSettings =

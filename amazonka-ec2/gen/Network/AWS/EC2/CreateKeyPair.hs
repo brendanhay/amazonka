@@ -82,11 +82,6 @@ ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateKeyPair where
         type Sv CreateKeyPair = EC2
         type Rs CreateKeyPair = CreateKeyPairResponse

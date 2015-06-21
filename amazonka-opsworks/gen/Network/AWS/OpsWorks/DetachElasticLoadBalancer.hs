@@ -66,11 +66,6 @@ delbElasticLoadBalancerName = lens _delbElasticLoadBalancerName (\ s a -> s{_del
 delbLayerId :: Lens' DetachElasticLoadBalancer Text
 delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DetachElasticLoadBalancer where
         type Sv DetachElasticLoadBalancer = OpsWorks
         type Rs DetachElasticLoadBalancer =

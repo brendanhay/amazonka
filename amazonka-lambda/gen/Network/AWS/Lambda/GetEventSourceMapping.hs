@@ -65,11 +65,6 @@ getEventSourceMapping pUUID = GetEventSourceMapping'{_gesmUUID = pUUID};
 gesmUUID :: Lens' GetEventSourceMapping Text
 gesmUUID = lens _gesmUUID (\ s a -> s{_gesmUUID = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetEventSourceMapping where
         type Sv GetEventSourceMapping = Lambda
         type Rs GetEventSourceMapping =

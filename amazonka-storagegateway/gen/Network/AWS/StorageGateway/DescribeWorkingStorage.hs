@@ -67,11 +67,6 @@ describeWorkingStorage pGatewayARN = DescribeWorkingStorage'{_dwsGatewayARN = pG
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
 dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeWorkingStorage where
         type Sv DescribeWorkingStorage = StorageGateway
         type Rs DescribeWorkingStorage =

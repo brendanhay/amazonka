@@ -61,11 +61,6 @@ erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 erRadiusSettings :: Lens' EnableRadius RadiusSettings
 erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableRadius where
         type Sv EnableRadius = DirectoryService
         type Rs EnableRadius = EnableRadiusResponse

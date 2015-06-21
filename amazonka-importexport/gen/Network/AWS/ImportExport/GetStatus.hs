@@ -79,11 +79,6 @@ gsAPIVersion = lens _gsAPIVersion (\ s a -> s{_gsAPIVersion = a});
 gsJobId :: Lens' GetStatus Text
 gsJobId = lens _gsJobId (\ s a -> s{_gsJobId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetStatus where
         type Sv GetStatus = ImportExport
         type Rs GetStatus = GetStatusResponse

@@ -51,6 +51,7 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     , dhcrHSMConfigurations
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -122,10 +123,10 @@ dhsmcMaxRecords = lens _dhsmcMaxRecords (\ s a -> s{_dhsmcMaxRecords = a});
 dhsmcMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
 dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeHSMConfigurations where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dhcrMarker) = Nothing
+          | otherwise = rq & dhsmcMarker ?~ rs ^. dhcrMarker
 
 instance AWSRequest DescribeHSMConfigurations where
         type Sv DescribeHSMConfigurations = Redshift

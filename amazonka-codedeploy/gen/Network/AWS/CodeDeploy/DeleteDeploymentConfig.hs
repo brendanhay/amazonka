@@ -56,11 +56,6 @@ deleteDeploymentConfig pDeploymentConfigName = DeleteDeploymentConfig'{_ddcDeplo
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteDeploymentConfig where
         type Sv DeleteDeploymentConfig = CodeDeploy
         type Rs DeleteDeploymentConfig =

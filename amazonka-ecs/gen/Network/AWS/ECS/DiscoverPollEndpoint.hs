@@ -71,11 +71,6 @@ dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DiscoverPollEndpoint where
         type Sv DiscoverPollEndpoint = ECS
         type Rs DiscoverPollEndpoint =

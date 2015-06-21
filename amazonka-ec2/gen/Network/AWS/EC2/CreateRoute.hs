@@ -133,11 +133,6 @@ crRouteTableId = lens _crRouteTableId (\ s a -> s{_crRouteTableId = a});
 crDestinationCIDRBlock :: Lens' CreateRoute Text
 crDestinationCIDRBlock = lens _crDestinationCIDRBlock (\ s a -> s{_crDestinationCIDRBlock = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateRoute where
         type Sv CreateRoute = EC2
         type Rs CreateRoute = CreateRouteResponse

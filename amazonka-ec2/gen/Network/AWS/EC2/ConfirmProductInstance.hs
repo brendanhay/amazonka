@@ -74,11 +74,6 @@ cpiProductCode = lens _cpiProductCode (\ s a -> s{_cpiProductCode = a});
 cpiInstanceId :: Lens' ConfirmProductInstance Text
 cpiInstanceId = lens _cpiInstanceId (\ s a -> s{_cpiInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ConfirmProductInstance where
         type Sv ConfirmProductInstance = EC2
         type Rs ConfirmProductInstance =

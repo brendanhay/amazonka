@@ -61,11 +61,6 @@ createInternetGateway = CreateInternetGateway'{_cigDryRun = Nothing};
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateInternetGateway where
         type Sv CreateInternetGateway = EC2
         type Rs CreateInternetGateway =

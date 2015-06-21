@@ -94,11 +94,6 @@ apiaSecondaryPrivateIPAddressCount = lens _apiaSecondaryPrivateIPAddressCount (\
 apiaNetworkInterfaceId :: Lens' AssignPrivateIPAddresses Text
 apiaNetworkInterfaceId = lens _apiaNetworkInterfaceId (\ s a -> s{_apiaNetworkInterfaceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AssignPrivateIPAddresses where
         type Sv AssignPrivateIPAddresses = EC2
         type Rs AssignPrivateIPAddresses =

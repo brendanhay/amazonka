@@ -47,6 +47,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     , docorOrderableClusterOptions
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -106,10 +107,11 @@ docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = 
 docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoNodeType = lens _docoNodeType (\ s a -> s{_docoNodeType = a});
 
-instance AWSPager A where
+instance AWSPager DescribeOrderableClusterOptions
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. docorMarker) = Nothing
+          | otherwise = rq & docoMarker ?~ rs ^. docorMarker
 
 instance AWSRequest DescribeOrderableClusterOptions
          where

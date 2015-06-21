@@ -66,11 +66,6 @@ uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
 uhzcId :: Lens' UpdateHostedZoneComment Text
 uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateHostedZoneComment where
         type Sv UpdateHostedZoneComment = Route53
         type Rs UpdateHostedZoneComment =

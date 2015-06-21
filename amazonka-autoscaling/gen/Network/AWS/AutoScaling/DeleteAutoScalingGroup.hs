@@ -68,11 +68,6 @@ dasgForceDelete = lens _dasgForceDelete (\ s a -> s{_dasgForceDelete = a});
 dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
 dasgAutoScalingGroupName = lens _dasgAutoScalingGroupName (\ s a -> s{_dasgAutoScalingGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteAutoScalingGroup where
         type Sv DeleteAutoScalingGroup = AutoScaling
         type Rs DeleteAutoScalingGroup =

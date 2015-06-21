@@ -112,11 +112,6 @@ uscCertificateBody = lens _uscCertificateBody (\ s a -> s{_uscCertificateBody = 
 uscPrivateKey :: Lens' UploadServerCertificate Text
 uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitive;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UploadServerCertificate where
         type Sv UploadServerCertificate = IAM
         type Rs UploadServerCertificate =

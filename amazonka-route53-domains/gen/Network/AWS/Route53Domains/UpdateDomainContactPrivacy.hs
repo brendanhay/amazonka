@@ -129,11 +129,6 @@ udcpAdminPrivacy = lens _udcpAdminPrivacy (\ s a -> s{_udcpAdminPrivacy = a});
 udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
 udcpDomainName = lens _udcpDomainName (\ s a -> s{_udcpDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateDomainContactPrivacy where
         type Sv UpdateDomainContactPrivacy = Route53Domains
         type Rs UpdateDomainContactPrivacy =

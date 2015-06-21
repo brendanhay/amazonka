@@ -128,11 +128,6 @@ uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a});
 uaBody :: Lens' UploadArchive RqBody
 uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UploadArchive where
         type Sv UploadArchive = Glacier
         type Rs UploadArchive = ArchiveCreationOutput

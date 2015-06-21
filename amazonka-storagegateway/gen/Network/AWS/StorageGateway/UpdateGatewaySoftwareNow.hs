@@ -69,11 +69,6 @@ updateGatewaySoftwareNow pGatewayARN = UpdateGatewaySoftwareNow'{_ugsnGatewayARN
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
 ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateGatewaySoftwareNow where
         type Sv UpdateGatewaySoftwareNow = StorageGateway
         type Rs UpdateGatewaySoftwareNow =

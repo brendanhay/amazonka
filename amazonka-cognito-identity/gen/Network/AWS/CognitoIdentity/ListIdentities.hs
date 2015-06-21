@@ -81,11 +81,6 @@ liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a});
 liMaxResults :: Lens' ListIdentities Natural
 liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = CognitoIdentity
         type Rs ListIdentities = ListIdentitiesResponse

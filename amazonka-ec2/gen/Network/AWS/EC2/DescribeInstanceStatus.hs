@@ -64,6 +64,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -169,10 +170,11 @@ descDryRun = lens _descDryRun (\ s a -> s{_descDryRun = a});
 descMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
 descMaxResults = lens _descMaxResults (\ s a -> s{_descMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager DescribeInstanceStatus where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. disrNextToken) = Nothing
+          | otherwise =
+            rq & descNextToken ?~ rs ^. disrNextToken
 
 instance AWSRequest DescribeInstanceStatus where
         type Sv DescribeInstanceStatus = EC2

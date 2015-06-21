@@ -112,11 +112,6 @@ dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a});
 dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
 dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeFileSystems where
         type Sv DescribeFileSystems = ElasticFileSystem
         type Rs DescribeFileSystems =

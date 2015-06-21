@@ -45,6 +45,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , drdirMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -140,10 +141,10 @@ drdiOfferingType = lens _drdiOfferingType (\ s a -> s{_drdiOfferingType = a});
 drdiDuration :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiDuration = lens _drdiDuration (\ s a -> s{_drdiDuration = a});
 
-instance AWSPager A where
+instance AWSPager DescribeReservedDBInstances where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. drdirMarker) = Nothing
+          | otherwise = rq & drdiMarker ?~ rs ^. drdirMarker
 
 instance AWSRequest DescribeReservedDBInstances where
         type Sv DescribeReservedDBInstances = RDS

@@ -68,11 +68,6 @@ uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateApplication where
         type Sv UpdateApplication = ElasticBeanstalk
         type Rs UpdateApplication =

@@ -41,6 +41,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     , ddlfrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -112,10 +113,10 @@ ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
 ddlfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
 ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBLogFiles where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddlfrMarker) = Nothing
+          | otherwise = rq & ddlfMarker ?~ rs ^. ddlfrMarker
 
 instance AWSRequest DescribeDBLogFiles where
         type Sv DescribeDBLogFiles = RDS

@@ -63,11 +63,6 @@ dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
 dkpKeyName :: Lens' DeleteKeyPair Text
 dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteKeyPair where
         type Sv DeleteKeyPair = EC2
         type Rs DeleteKeyPair = DeleteKeyPairResponse

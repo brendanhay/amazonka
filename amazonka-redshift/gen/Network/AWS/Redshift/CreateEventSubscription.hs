@@ -157,11 +157,6 @@ cesSubscriptionName = lens _cesSubscriptionName (\ s a -> s{_cesSubscriptionName
 cesSNSTopicARN :: Lens' CreateEventSubscription Text
 cesSNSTopicARN = lens _cesSNSTopicARN (\ s a -> s{_cesSNSTopicARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateEventSubscription where
         type Sv CreateEventSubscription = Redshift
         type Rs CreateEventSubscription =

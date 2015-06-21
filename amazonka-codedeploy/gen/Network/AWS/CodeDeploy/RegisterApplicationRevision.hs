@@ -68,11 +68,6 @@ rarApplicationName = lens _rarApplicationName (\ s a -> s{_rarApplicationName = 
 rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RegisterApplicationRevision where
         type Sv RegisterApplicationRevision = CodeDeploy
         type Rs RegisterApplicationRevision =

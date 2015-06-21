@@ -84,6 +84,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsrMaxItems
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -146,10 +147,20 @@ lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
 lrrsHostedZoneId = lens _lrrsHostedZoneId (\ s a -> s{_lrrsHostedZoneId = a});
 
-instance AWSPager A where
+instance AWSPager ListResourceRecordSets where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lrrsrIsTruncated) = Nothing
+          | isNothing (rs ^. lrrsrNextRecordName) &&
+              isNothing (rs ^. lrrsrNextRecordType)
+              && isNothing (rs ^. lrrsrNextRecordIdentifier)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              lrrsStartRecordName .~ rs ^. lrrsrNextRecordName
+              & lrrsStartRecordType .~ rs ^. lrrsrNextRecordType
+              &
+              lrrsStartRecordIdentifier .~
+                rs ^. lrrsrNextRecordIdentifier
 
 instance AWSRequest ListResourceRecordSets where
         type Sv ListResourceRecordSets = Route53

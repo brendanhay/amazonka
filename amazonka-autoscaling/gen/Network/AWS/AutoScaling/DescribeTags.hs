@@ -47,6 +47,7 @@ module Network.AWS.AutoScaling.DescribeTags
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -79,10 +80,10 @@ dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 
-instance AWSPager A where
+instance AWSPager DescribeTags where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dtrNextToken) = Nothing
+          | otherwise = rq & dtNextToken ?~ rs ^. dtrNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = AutoScaling

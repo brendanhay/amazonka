@@ -128,11 +128,6 @@ lisSortBy = lens _lisSortBy (\ s a -> s{_lisSortBy = a});
 lisApplicationName :: Lens' ListApplicationRevisions Text
 lisApplicationName = lens _lisApplicationName (\ s a -> s{_lisApplicationName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListApplicationRevisions where
         type Sv ListApplicationRevisions = CodeDeploy
         type Rs ListApplicationRevisions =

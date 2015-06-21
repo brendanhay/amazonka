@@ -118,11 +118,6 @@ rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
 rnaeCIDRBlock :: Lens' ReplaceNetworkACLEntry Text
 rnaeCIDRBlock = lens _rnaeCIDRBlock (\ s a -> s{_rnaeCIDRBlock = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ReplaceNetworkACLEntry where
         type Sv ReplaceNetworkACLEntry = EC2
         type Rs ReplaceNetworkACLEntry =

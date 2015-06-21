@@ -68,11 +68,6 @@ svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a});
 svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetVisibleToAllUsers where
         type Sv SetVisibleToAllUsers = EMR
         type Rs SetVisibleToAllUsers =

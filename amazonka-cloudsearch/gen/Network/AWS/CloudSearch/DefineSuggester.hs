@@ -67,11 +67,6 @@ dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 dSuggester :: Lens' DefineSuggester Suggester
 dSuggester = lens _dSuggester (\ s a -> s{_dSuggester = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DefineSuggester where
         type Sv DefineSuggester = CloudSearch
         type Rs DefineSuggester = DefineSuggesterResponse

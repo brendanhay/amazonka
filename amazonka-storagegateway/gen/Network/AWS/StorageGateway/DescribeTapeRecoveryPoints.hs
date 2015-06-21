@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     , dtrprMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,10 +79,10 @@ dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
 dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
 dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
 
-instance AWSPager A where
+instance AWSPager DescribeTapeRecoveryPoints where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dtrprMarker) = Nothing
+          | otherwise = rq & dtrpMarker ?~ rs ^. dtrprMarker
 
 instance AWSRequest DescribeTapeRecoveryPoints where
         type Sv DescribeTapeRecoveryPoints = StorageGateway

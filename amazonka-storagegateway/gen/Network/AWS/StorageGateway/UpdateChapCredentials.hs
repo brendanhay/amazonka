@@ -92,11 +92,6 @@ uccSecretToAuthenticateInitiator = lens _uccSecretToAuthenticateInitiator (\ s a
 uccInitiatorName :: Lens' UpdateChapCredentials Text
 uccInitiatorName = lens _uccInitiatorName (\ s a -> s{_uccInitiatorName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateChapCredentials where
         type Sv UpdateChapCredentials = StorageGateway
         type Rs UpdateChapCredentials =

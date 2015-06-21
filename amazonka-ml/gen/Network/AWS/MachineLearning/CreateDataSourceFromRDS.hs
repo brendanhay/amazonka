@@ -151,11 +151,6 @@ creRDSData = lens _creRDSData (\ s a -> s{_creRDSData = a});
 creRoleARN :: Lens' CreateDataSourceFromRDS Text
 creRoleARN = lens _creRoleARN (\ s a -> s{_creRoleARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDataSourceFromRDS where
         type Sv CreateDataSourceFromRDS = MachineLearning
         type Rs CreateDataSourceFromRDS =

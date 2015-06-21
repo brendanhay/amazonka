@@ -83,11 +83,6 @@ cacspPolicyName = lens _cacspPolicyName (\ s a -> s{_cacspPolicyName = a});
 cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspCookieName = lens _cacspCookieName (\ s a -> s{_cacspCookieName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateAppCookieStickinessPolicy
          where
         type Sv CreateAppCookieStickinessPolicy = ELB

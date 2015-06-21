@@ -76,11 +76,6 @@ esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScaling
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnterStandby where
         type Sv EnterStandby = AutoScaling
         type Rs EnterStandby = EnterStandbyResponse

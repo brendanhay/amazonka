@@ -67,11 +67,6 @@ deregisterTaskDefinition pTaskDefinition = DeregisterTaskDefinition'{_derTaskDef
 derTaskDefinition :: Lens' DeregisterTaskDefinition Text
 derTaskDefinition = lens _derTaskDefinition (\ s a -> s{_derTaskDefinition = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeregisterTaskDefinition where
         type Sv DeregisterTaskDefinition = ECS
         type Rs DeregisterTaskDefinition =

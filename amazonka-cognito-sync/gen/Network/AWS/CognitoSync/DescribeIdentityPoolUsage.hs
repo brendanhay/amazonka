@@ -61,11 +61,6 @@ describeIdentityPoolUsage pIdentityPoolId = DescribeIdentityPoolUsage'{_dipuIden
 dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
 dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeIdentityPoolUsage where
         type Sv DescribeIdentityPoolUsage = CognitoSync
         type Rs DescribeIdentityPoolUsage =

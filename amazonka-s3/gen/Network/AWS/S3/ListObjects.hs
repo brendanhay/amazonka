@@ -50,6 +50,7 @@ module Network.AWS.S3.ListObjects
     , lorDelimiter
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -100,6 +101,17 @@ loDelimiter = lens _loDelimiter (\ s a -> s{_loDelimiter = a});
 -- | FIXME: Undocumented member.
 loBucket :: Lens' ListObjects BucketName
 loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
+
+instance AWSPager ListObjects where
+        page rq rs
+          | stop (rs ^. lorIsTruncated) = Nothing
+          | otherwise =
+            Just $
+              rq &
+                loMarker .~
+                  rs ^.
+                    choice (lorNextMarker)
+                      (index (lorContents . _Just) . objKey)
 
 instance AWSRequest ListObjects where
         type Sv ListObjects = S3

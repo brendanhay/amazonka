@@ -115,11 +115,6 @@ utS3BucketName = lens _utS3BucketName (\ s a -> s{_utS3BucketName = a});
 utName :: Lens' UpdateTrail Text
 utName = lens _utName (\ s a -> s{_utName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateTrail where
         type Sv UpdateTrail = CloudTrail
         type Rs UpdateTrail = UpdateTrailResponse

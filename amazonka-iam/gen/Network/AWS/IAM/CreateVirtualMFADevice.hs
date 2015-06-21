@@ -84,11 +84,6 @@ cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a});
 cvmdVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateVirtualMFADevice where
         type Sv CreateVirtualMFADevice = IAM
         type Rs CreateVirtualMFADevice =

@@ -37,6 +37,7 @@ module Network.AWS.Route53Domains.ListOperations
     , lorOperations
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,10 +83,11 @@ loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListOperations where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lorNextPageMarker) = Nothing
+          | otherwise =
+            rq & loMarker ?~ rs ^. lorNextPageMarker
 
 instance AWSRequest ListOperations where
         type Sv ListOperations = Route53Domains

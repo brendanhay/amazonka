@@ -73,11 +73,6 @@ cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateInstanceProfile where
         type Sv CreateInstanceProfile = IAM
         type Rs CreateInstanceProfile =

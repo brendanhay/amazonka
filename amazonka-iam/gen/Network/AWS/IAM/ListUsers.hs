@@ -44,6 +44,7 @@ module Network.AWS.IAM.ListUsers
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,10 +88,10 @@ luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
 luMarker :: Lens' ListUsers (Maybe Text)
 luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListUsers where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lurIsTruncated) = Nothing
+          | otherwise = Just $ rq & luMarker .~ rs ^. lurMarker
 
 instance AWSRequest ListUsers where
         type Sv ListUsers = IAM

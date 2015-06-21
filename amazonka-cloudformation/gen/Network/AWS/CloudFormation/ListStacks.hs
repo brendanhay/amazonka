@@ -41,6 +41,7 @@ module Network.AWS.CloudFormation.ListStacks
     ) where
 
 import Network.AWS.CloudFormation.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,10 +73,10 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default;
 
-instance AWSPager A where
+instance AWSPager ListStacks where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lisNextToken) = Nothing
+          | otherwise = rq & lsNextToken ?~ rs ^. lisNextToken
 
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation

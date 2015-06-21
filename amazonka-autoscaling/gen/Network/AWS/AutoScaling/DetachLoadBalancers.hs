@@ -65,11 +65,6 @@ detAutoScalingGroupName = lens _detAutoScalingGroupName (\ s a -> s{_detAutoScal
 detLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
 detLoadBalancerNames = lens _detLoadBalancerNames (\ s a -> s{_detLoadBalancerNames = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DetachLoadBalancers where
         type Sv DetachLoadBalancers = AutoScaling
         type Rs DetachLoadBalancers =

@@ -50,11 +50,6 @@ data DescribeVirtualGateways = DescribeVirtualGateways' deriving (Eq, Read, Show
 describeVirtualGateways :: DescribeVirtualGateways
 describeVirtualGateways = DescribeVirtualGateways';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeVirtualGateways where
         type Sv DescribeVirtualGateways = DirectConnect
         type Rs DescribeVirtualGateways =

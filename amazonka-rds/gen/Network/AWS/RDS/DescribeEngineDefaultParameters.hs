@@ -38,6 +38,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , dedprEngineDefaults
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -86,10 +87,14 @@ dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEngineDefaultParameters
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dedprEngineDefaults . edMarker) =
+            Nothing
+          | otherwise =
+            rq &
+              dedpMarker ?~ rs ^. dedprEngineDefaults . edMarker
 
 instance AWSRequest DescribeEngineDefaultParameters
          where

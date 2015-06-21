@@ -182,11 +182,6 @@ ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a})
 ceEnvironmentName :: Lens' CreateEnvironment Text
 ceEnvironmentName = lens _ceEnvironmentName (\ s a -> s{_ceEnvironmentName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateEnvironment where
         type Sv CreateEnvironment = ElasticBeanstalk
         type Rs CreateEnvironment = EnvironmentDescription

@@ -115,11 +115,6 @@ dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{
 dvpcpcDryRun :: Lens' DescribeVPCPeeringConnections (Maybe Bool)
 dvpcpcDryRun = lens _dvpcpcDryRun (\ s a -> s{_dvpcpcDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeVPCPeeringConnections
          where
         type Sv DescribeVPCPeeringConnections = EC2

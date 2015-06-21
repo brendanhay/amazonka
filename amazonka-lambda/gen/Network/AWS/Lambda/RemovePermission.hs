@@ -75,11 +75,6 @@ rpFunctionName = lens _rpFunctionName (\ s a -> s{_rpFunctionName = a});
 rpStatementId :: Lens' RemovePermission Text
 rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = Lambda
         type Rs RemovePermission = RemovePermissionResponse

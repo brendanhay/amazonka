@@ -102,11 +102,6 @@ ldiMaxResults = lens _ldiMaxResults (\ s a -> s{_ldiMaxResults = a}) . mapping _
 ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
 ldiIdentityPoolId = lens _ldiIdentityPoolId (\ s a -> s{_ldiIdentityPoolId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest LookupDeveloperIdentity where
         type Sv LookupDeveloperIdentity = CognitoIdentity
         type Rs LookupDeveloperIdentity =

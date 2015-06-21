@@ -112,11 +112,6 @@ ctName = lens _ctName (\ s a -> s{_ctName = a});
 ctS3BucketName :: Lens' CreateTrail Text
 ctS3BucketName = lens _ctS3BucketName (\ s a -> s{_ctS3BucketName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateTrail where
         type Sv CreateTrail = CloudTrail
         type Rs CreateTrail = CreateTrailResponse

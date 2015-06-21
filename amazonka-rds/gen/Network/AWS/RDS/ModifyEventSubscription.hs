@@ -103,11 +103,6 @@ mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = 
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
 mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyEventSubscription where
         type Sv ModifyEventSubscription = RDS
         type Rs ModifyEventSubscription =

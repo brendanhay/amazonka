@@ -57,11 +57,6 @@ getHealthCheckStatus pHealthCheckId = GetHealthCheckStatus'{_ghcsHealthCheckId =
 ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
 ghcsHealthCheckId = lens _ghcsHealthCheckId (\ s a -> s{_ghcsHealthCheckId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetHealthCheckStatus where
         type Sv GetHealthCheckStatus = Route53
         type Rs GetHealthCheckStatus =

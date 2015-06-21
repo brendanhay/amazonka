@@ -102,11 +102,6 @@ drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReserve
 drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeReservedInstancesListings
          where
         type Sv DescribeReservedInstancesListings = EC2

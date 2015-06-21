@@ -55,11 +55,6 @@ deleteDocument pName = DeleteDocument'{_dName = pName};
 dName :: Lens' DeleteDocument Text
 dName = lens _dName (\ s a -> s{_dName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteDocument where
         type Sv DeleteDocument = SSM
         type Rs DeleteDocument = DeleteDocumentResponse

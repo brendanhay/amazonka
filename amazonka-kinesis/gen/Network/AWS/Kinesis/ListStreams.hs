@@ -53,6 +53,7 @@ module Network.AWS.Kinesis.ListStreams
     ) where
 
 import Network.AWS.Kinesis.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,10 +79,14 @@ lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
 lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExclusiveStartStreamName = a});
 
-instance AWSPager A where
+instance AWSPager ListStreams where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lsrHasMoreStreams) = Nothing
+          | otherwise =
+            Just $
+              rq &
+                lsExclusiveStartStreamName .~
+                  rs ^. index lsrStreamNames
 
 instance AWSRequest ListStreams where
         type Sv ListStreams = Kinesis

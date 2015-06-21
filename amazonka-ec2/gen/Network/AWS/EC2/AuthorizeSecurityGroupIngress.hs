@@ -150,11 +150,6 @@ asgiSourceSecurityGroupName = lens _asgiSourceSecurityGroupName (\ s a -> s{_asg
 asgiDryRun :: Lens' AuthorizeSecurityGroupIngress (Maybe Bool)
 asgiDryRun = lens _asgiDryRun (\ s a -> s{_asgiDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AuthorizeSecurityGroupIngress
          where
         type Sv AuthorizeSecurityGroupIngress = EC2

@@ -48,6 +48,7 @@ module Network.AWS.Lambda.ListEventSourceMappings
     ) where
 
 import Network.AWS.Lambda.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -97,10 +98,11 @@ lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
 lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
 lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 
-instance AWSPager A where
+instance AWSPager ListEventSourceMappings where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lesmrNextMarker) = Nothing
+          | otherwise =
+            rq & lesmMarker ?~ rs ^. lesmrNextMarker
 
 instance AWSRequest ListEventSourceMappings where
         type Sv ListEventSourceMappings = Lambda

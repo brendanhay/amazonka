@@ -76,11 +76,6 @@ dniaDryRun = lens _dniaDryRun (\ s a -> s{_dniaDryRun = a});
 dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId = lens _dniaNetworkInterfaceId (\ s a -> s{_dniaNetworkInterfaceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeNetworkInterfaceAttribute
          where
         type Sv DescribeNetworkInterfaceAttribute = EC2

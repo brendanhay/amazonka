@@ -59,11 +59,6 @@ describeSeverityLevels = DescribeSeverityLevels'{_dslLanguage = Nothing};
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSeverityLevels where
         type Sv DescribeSeverityLevels = Support
         type Rs DescribeSeverityLevels =

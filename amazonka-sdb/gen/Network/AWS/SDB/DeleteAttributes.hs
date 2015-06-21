@@ -87,11 +87,6 @@ daDomainName = lens _daDomainName (\ s a -> s{_daDomainName = a});
 daItemName :: Lens' DeleteAttributes Text
 daItemName = lens _daItemName (\ s a -> s{_daItemName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteAttributes where
         type Sv DeleteAttributes = SDB
         type Rs DeleteAttributes = DeleteAttributesResponse

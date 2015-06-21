@@ -70,11 +70,6 @@ eeObjectId = lens _eeObjectId (\ s a -> s{_eeObjectId = a});
 eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EvaluateExpression where
         type Sv EvaluateExpression = DataPipeline
         type Rs EvaluateExpression =

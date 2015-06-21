@@ -113,11 +113,6 @@ dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default;
 dsDryRun :: Lens' DescribeSubnets (Maybe Bool)
 dsDryRun = lens _dsDryRun (\ s a -> s{_dsDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSubnets where
         type Sv DescribeSubnets = EC2
         type Rs DescribeSubnets = DescribeSubnetsResponse

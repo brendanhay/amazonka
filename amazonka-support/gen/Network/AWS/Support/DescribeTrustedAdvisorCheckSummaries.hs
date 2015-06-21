@@ -58,11 +58,6 @@ describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'{_dt
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
 dtacsCheckIds = lens _dtacsCheckIds (\ s a -> s{_dtacsCheckIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          DescribeTrustedAdvisorCheckSummaries where
         type Sv DescribeTrustedAdvisorCheckSummaries =

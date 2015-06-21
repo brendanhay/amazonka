@@ -74,11 +74,6 @@ rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default;
 rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ReportTaskProgress where
         type Sv ReportTaskProgress = DataPipeline
         type Rs ReportTaskProgress =

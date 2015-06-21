@@ -119,11 +119,6 @@ sreSource = lens _sreSource (\ s a -> s{_sreSource = a});
 sreRawMessage :: Lens' SendRawEmail RawMessage
 sreRawMessage = lens _sreRawMessage (\ s a -> s{_sreRawMessage = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SendRawEmail where
         type Sv SendRawEmail = SES
         type Rs SendRawEmail = SendRawEmailResponse

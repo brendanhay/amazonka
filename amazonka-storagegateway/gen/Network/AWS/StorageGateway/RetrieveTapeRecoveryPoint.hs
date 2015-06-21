@@ -70,11 +70,6 @@ rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a});
 rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RetrieveTapeRecoveryPoint where
         type Sv RetrieveTapeRecoveryPoint = StorageGateway
         type Rs RetrieveTapeRecoveryPoint =

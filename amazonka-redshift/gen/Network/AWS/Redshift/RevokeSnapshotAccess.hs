@@ -78,11 +78,6 @@ rsaSnapshotIdentifier = lens _rsaSnapshotIdentifier (\ s a -> s{_rsaSnapshotIden
 rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
 rsaAccountWithRestoreAccess = lens _rsaAccountWithRestoreAccess (\ s a -> s{_rsaAccountWithRestoreAccess = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RevokeSnapshotAccess where
         type Sv RevokeSnapshotAccess = Redshift
         type Rs RevokeSnapshotAccess =

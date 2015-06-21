@@ -68,11 +68,6 @@ atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames
 atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddTags where
         type Sv AddTags = ELB
         type Rs AddTags = AddTagsResponse

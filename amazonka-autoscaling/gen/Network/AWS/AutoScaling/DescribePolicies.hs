@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,10 +81,11 @@ descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
 descAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 descAutoScalingGroupName = lens _descAutoScalingGroupName (\ s a -> s{_descAutoScalingGroupName = a});
 
-instance AWSPager A where
+instance AWSPager DescribePolicies where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dprNextToken) = Nothing
+          | otherwise =
+            rq & descNextToken ?~ rs ^. dprNextToken
 
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling

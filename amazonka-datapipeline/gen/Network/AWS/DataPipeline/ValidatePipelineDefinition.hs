@@ -79,11 +79,6 @@ vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a});
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ValidatePipelineDefinition where
         type Sv ValidatePipelineDefinition = DataPipeline
         type Rs ValidatePipelineDefinition =

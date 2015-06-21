@@ -45,6 +45,7 @@ module Network.AWS.IAM.ListVirtualMFADevices
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,10 +86,11 @@ lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat
 lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListVirtualMFADevices where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lvmdrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lvmdMarker .~ rs ^. lvmdrMarker
 
 instance AWSRequest ListVirtualMFADevices where
         type Sv ListVirtualMFADevices = IAM

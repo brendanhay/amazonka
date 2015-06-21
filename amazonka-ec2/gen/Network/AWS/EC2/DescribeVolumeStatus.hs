@@ -78,6 +78,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -170,10 +171,11 @@ dvsDryRun = lens _dvsDryRun (\ s a -> s{_dvsDryRun = a});
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
 dvsMaxResults = lens _dvsMaxResults (\ s a -> s{_dvsMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager DescribeVolumeStatus where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dvsrNextToken) = Nothing
+          | otherwise =
+            rq & dvsNextToken ?~ rs ^. dvsrNextToken
 
 instance AWSRequest DescribeVolumeStatus where
         type Sv DescribeVolumeStatus = EC2

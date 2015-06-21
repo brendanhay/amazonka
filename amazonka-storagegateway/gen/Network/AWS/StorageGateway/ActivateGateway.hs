@@ -132,11 +132,6 @@ agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a})
 agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ActivateGateway where
         type Sv ActivateGateway = StorageGateway
         type Rs ActivateGateway = ActivateGatewayResponse

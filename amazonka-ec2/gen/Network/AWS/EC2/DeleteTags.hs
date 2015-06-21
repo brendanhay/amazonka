@@ -78,11 +78,6 @@ delTags = lens _delTags (\ s a -> s{_delTags = a}) . _Default;
 delResources :: Lens' DeleteTags [Text]
 delResources = lens _delResources (\ s a -> s{_delResources = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EC2
         type Rs DeleteTags = DeleteTagsResponse

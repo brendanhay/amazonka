@@ -66,11 +66,6 @@ lisResourceType = lens _lisResourceType (\ s a -> s{_lisResourceType = a});
 lisResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
 lisResourceIds = lens _lisResourceIds (\ s a -> s{_lisResourceIds = a}) . _List1;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListTagsForResources where
         type Sv ListTagsForResources = Route53
         type Rs ListTagsForResources =

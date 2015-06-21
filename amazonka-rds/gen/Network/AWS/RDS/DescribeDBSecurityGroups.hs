@@ -40,6 +40,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     , desMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -88,10 +89,10 @@ ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 ddbsgDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsgDBSecurityGroupName = lens _ddbsgDBSecurityGroupName (\ s a -> s{_ddbsgDBSecurityGroupName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBSecurityGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. desMarker) = Nothing
+          | otherwise = rq & ddbsgMarker ?~ rs ^. desMarker
 
 instance AWSRequest DescribeDBSecurityGroups where
         type Sv DescribeDBSecurityGroups = RDS

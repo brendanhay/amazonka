@@ -60,11 +60,6 @@ describeMaintenanceStartTime pGatewayARN = DescribeMaintenanceStartTime'{_dmstGa
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
 dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeMaintenanceStartTime
          where
         type Sv DescribeMaintenanceStartTime = StorageGateway

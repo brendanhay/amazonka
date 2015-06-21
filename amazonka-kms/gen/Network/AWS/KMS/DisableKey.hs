@@ -58,11 +58,6 @@ disableKey pKeyId = DisableKey'{_dkKeyId = pKeyId};
 dkKeyId :: Lens' DisableKey Text
 dkKeyId = lens _dkKeyId (\ s a -> s{_dkKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableKey where
         type Sv DisableKey = KMS
         type Rs DisableKey = DisableKeyResponse

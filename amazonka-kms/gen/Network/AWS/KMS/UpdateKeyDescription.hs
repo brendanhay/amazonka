@@ -65,11 +65,6 @@ ukdKeyId = lens _ukdKeyId (\ s a -> s{_ukdKeyId = a});
 ukdDescription :: Lens' UpdateKeyDescription Text
 ukdDescription = lens _ukdDescription (\ s a -> s{_ukdDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateKeyDescription where
         type Sv UpdateKeyDescription = KMS
         type Rs UpdateKeyDescription =

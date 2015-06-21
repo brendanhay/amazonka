@@ -73,11 +73,6 @@ csfrSpotFleetRequestIds = lens _csfrSpotFleetRequestIds (\ s a -> s{_csfrSpotFle
 csfrTerminateInstances :: Lens' CancelSpotFleetRequests Bool
 csfrTerminateInstances = lens _csfrTerminateInstances (\ s a -> s{_csfrTerminateInstances = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelSpotFleetRequests where
         type Sv CancelSpotFleetRequests = EC2
         type Rs CancelSpotFleetRequests =

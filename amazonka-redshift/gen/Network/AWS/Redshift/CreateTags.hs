@@ -72,11 +72,6 @@ ctResourceName = lens _ctResourceName (\ s a -> s{_ctResourceName = a});
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateTags where
         type Sv CreateTags = Redshift
         type Rs CreateTags = CreateTagsResponse

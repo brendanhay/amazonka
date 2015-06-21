@@ -67,11 +67,6 @@ deleteFunction pFunctionName = DeleteFunction'{_dfFunctionName = pFunctionName};
 dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\ s a -> s{_dfFunctionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteFunction where
         type Sv DeleteFunction = Lambda
         type Rs DeleteFunction = DeleteFunctionResponse

@@ -65,11 +65,6 @@ dif1DomainName = lens _dif1DomainName (\ s a -> s{_dif1DomainName = a});
 dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName = lens _dif1IndexFieldName (\ s a -> s{_dif1IndexFieldName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteIndexField where
         type Sv DeleteIndexField = CloudSearch
         type Rs DeleteIndexField = DeleteIndexFieldResponse

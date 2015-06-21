@@ -39,6 +39,7 @@ module Network.AWS.EMR.ListSteps
     ) where
 
 import Network.AWS.EMR.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,10 +77,10 @@ lsMarker = lens _lsMarker (\ s a -> s{_lsMarker = a});
 lsClusterId :: Lens' ListSteps Text
 lsClusterId = lens _lsClusterId (\ s a -> s{_lsClusterId = a});
 
-instance AWSPager A where
+instance AWSPager ListSteps where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lsrMarker) = Nothing
+          | otherwise = rq & lsMarker ?~ rs ^. lsrMarker
 
 instance AWSRequest ListSteps where
         type Sv ListSteps = EMR

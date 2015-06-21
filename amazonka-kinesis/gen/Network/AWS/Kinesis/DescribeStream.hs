@@ -59,6 +59,7 @@ module Network.AWS.Kinesis.DescribeStream
     ) where
 
 import Network.AWS.Kinesis.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,10 +91,16 @@ desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . mapping _Nat;
 desStreamName :: Lens' DescribeStream Text
 desStreamName = lens _desStreamName (\ s a -> s{_desStreamName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeStream where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dsrStreamDescription . sdHasMoreShards)
+            = Nothing
+          | otherwise =
+            Just $
+              rq &
+                desExclusiveStartShardId .~
+                  rs ^.
+                    dsrStreamDescription . index sdShards . shaShardId
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis

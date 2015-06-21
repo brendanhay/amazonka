@@ -119,11 +119,6 @@ utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . 
 utfdDomainName :: Lens' UpdateTagsForDomain Text
 utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateTagsForDomain where
         type Sv UpdateTagsForDomain = Route53Domains
         type Rs UpdateTagsForDomain =

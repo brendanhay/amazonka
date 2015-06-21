@@ -38,6 +38,7 @@ module Network.AWS.SNS.ListTopics
     , ltrNextToken
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -58,10 +59,10 @@ listTopics = ListTopics'{_ltNextToken = Nothing};
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
-instance AWSPager A where
+instance AWSPager ListTopics where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ltrNextToken) = Nothing
+          | otherwise = rq & ltNextToken ?~ rs ^. ltrNextToken
 
 instance AWSRequest ListTopics where
         type Sv ListTopics = SNS

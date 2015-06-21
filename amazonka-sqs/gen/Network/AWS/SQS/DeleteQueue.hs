@@ -69,11 +69,6 @@ deleteQueue pQueueURL = DeleteQueue'{_dqQueueURL = pQueueURL};
 dqQueueURL :: Lens' DeleteQueue Text
 dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteQueue where
         type Sv DeleteQueue = SQS
         type Rs DeleteQueue = DeleteQueueResponse

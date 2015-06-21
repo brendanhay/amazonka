@@ -87,11 +87,6 @@ trOutputBucket = lens _trOutputBucket (\ s a -> s{_trOutputBucket = a});
 trTopics :: Lens' TestRole [Text]
 trTopics = lens _trTopics (\ s a -> s{_trTopics = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest TestRole where
         type Sv TestRole = ElasticTranscoder
         type Rs TestRole = TestRoleResponse

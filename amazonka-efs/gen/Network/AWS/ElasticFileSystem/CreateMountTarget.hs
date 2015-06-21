@@ -181,11 +181,6 @@ cmtFileSystemId = lens _cmtFileSystemId (\ s a -> s{_cmtFileSystemId = a});
 cmtSubnetId :: Lens' CreateMountTarget Text
 cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateMountTarget where
         type Sv CreateMountTarget = ElasticFileSystem
         type Rs CreateMountTarget = MountTargetDescription

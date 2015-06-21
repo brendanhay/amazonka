@@ -90,11 +90,6 @@ dafmMetricName = lens _dafmMetricName (\ s a -> s{_dafmMetricName = a});
 dafmNamespace :: Lens' DescribeAlarmsForMetric Text
 dafmNamespace = lens _dafmNamespace (\ s a -> s{_dafmNamespace = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeAlarmsForMetric where
         type Sv DescribeAlarmsForMetric = CloudWatch
         type Rs DescribeAlarmsForMetric =

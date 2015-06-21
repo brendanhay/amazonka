@@ -61,11 +61,6 @@ deleteReusableDelegationSet pId = DeleteReusableDelegationSet'{_drdsId = pId};
 drdsId :: Lens' DeleteReusableDelegationSet Text
 drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteReusableDelegationSet where
         type Sv DeleteReusableDelegationSet = Route53
         type Rs DeleteReusableDelegationSet =

@@ -75,6 +75,7 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     , weiExecutionInfos
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -191,10 +192,11 @@ lcweMaximumPageSize = lens _lcweMaximumPageSize (\ s a -> s{_lcweMaximumPageSize
 lcweDomain :: Lens' ListClosedWorkflowExecutions Text
 lcweDomain = lens _lcweDomain (\ s a -> s{_lcweDomain = a});
 
-instance AWSPager A where
+instance AWSPager ListClosedWorkflowExecutions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. weiNextPageToken) = Nothing
+          | otherwise =
+            rq & lcweNextPageToken ?~ rs ^. weiNextPageToken
 
 instance AWSRequest ListClosedWorkflowExecutions
          where

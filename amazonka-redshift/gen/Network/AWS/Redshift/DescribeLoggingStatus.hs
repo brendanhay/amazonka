@@ -62,11 +62,6 @@ describeLoggingStatus pClusterIdentifier = DescribeLoggingStatus'{_dlsClusterIde
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeLoggingStatus where
         type Sv DescribeLoggingStatus = Redshift
         type Rs DescribeLoggingStatus = LoggingStatus

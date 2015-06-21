@@ -133,11 +133,6 @@ dsg1GroupIds = lens _dsg1GroupIds (\ s a -> s{_dsg1GroupIds = a}) . _Default;
 dsg1DryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
 dsg1DryRun = lens _dsg1DryRun (\ s a -> s{_dsg1DryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSecurityGroups where
         type Sv DescribeSecurityGroups = EC2
         type Rs DescribeSecurityGroups =

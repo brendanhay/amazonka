@@ -70,11 +70,6 @@ caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
 caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateAlias where
         type Sv CreateAlias = DirectoryService
         type Rs CreateAlias = CreateAliasResponse

@@ -97,11 +97,6 @@ acsgiCIDRIP = lens _acsgiCIDRIP (\ s a -> s{_acsgiCIDRIP = a});
 acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
 acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{_acsgiClusterSecurityGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          AuthorizeClusterSecurityGroupIngress where
         type Sv AuthorizeClusterSecurityGroupIngress =

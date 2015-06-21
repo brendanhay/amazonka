@@ -62,11 +62,6 @@ disableLogging pClusterIdentifier = DisableLogging'{_dlClusterIdentifier = pClus
 dlClusterIdentifier :: Lens' DisableLogging Text
 dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableLogging where
         type Sv DisableLogging = Redshift
         type Rs DisableLogging = LoggingStatus

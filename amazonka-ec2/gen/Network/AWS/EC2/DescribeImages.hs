@@ -178,11 +178,6 @@ di2ImageIds = lens _di2ImageIds (\ s a -> s{_di2ImageIds = a}) . _Default;
 di2DryRun :: Lens' DescribeImages (Maybe Bool)
 di2DryRun = lens _di2DryRun (\ s a -> s{_di2DryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeImages where
         type Sv DescribeImages = EC2
         type Rs DescribeImages = DescribeImagesResponse

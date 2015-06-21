@@ -78,11 +78,6 @@ getFunctionConfiguration pFunctionName = GetFunctionConfiguration'{_gfcFunctionN
 gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\ s a -> s{_gfcFunctionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetFunctionConfiguration where
         type Sv GetFunctionConfiguration = Lambda
         type Rs GetFunctionConfiguration =

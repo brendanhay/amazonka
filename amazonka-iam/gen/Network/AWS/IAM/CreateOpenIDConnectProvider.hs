@@ -126,11 +126,6 @@ coidcpURL = lens _coidcpURL (\ s a -> s{_coidcpURL = a});
 coidcpThumbprintList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpThumbprintList = lens _coidcpThumbprintList (\ s a -> s{_coidcpThumbprintList = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateOpenIDConnectProvider where
         type Sv CreateOpenIDConnectProvider = IAM
         type Rs CreateOpenIDConnectProvider =

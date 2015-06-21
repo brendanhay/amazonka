@@ -118,11 +118,6 @@ lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a});
 lmuVaultName :: Lens' ListMultipartUploads Text
 lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = Glacier
         type Rs ListMultipartUploads =

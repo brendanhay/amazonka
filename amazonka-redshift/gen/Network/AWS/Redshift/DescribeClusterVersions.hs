@@ -43,6 +43,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     , dcvrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -103,10 +104,10 @@ dcvClusterParameterGroupFamily = lens _dcvClusterParameterGroupFamily (\ s a -> 
 dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterVersion = lens _dcvClusterVersion (\ s a -> s{_dcvClusterVersion = a});
 
-instance AWSPager A where
+instance AWSPager DescribeClusterVersions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcvrMarker) = Nothing
+          | otherwise = rq & dcvMarker ?~ rs ^. dcvrMarker
 
 instance AWSRequest DescribeClusterVersions where
         type Sv DescribeClusterVersions = Redshift

@@ -76,11 +76,6 @@ diDeleteElasticIP = lens _diDeleteElasticIP (\ s a -> s{_diDeleteElasticIP = a})
 diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteInstance where
         type Sv DeleteInstance = OpsWorks
         type Rs DeleteInstance = DeleteInstanceResponse

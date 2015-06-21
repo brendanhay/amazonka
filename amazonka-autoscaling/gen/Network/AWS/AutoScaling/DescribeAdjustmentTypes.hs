@@ -44,11 +44,6 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes' deriving (Eq, Read, Show
 describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeAdjustmentTypes where
         type Sv DescribeAdjustmentTypes = AutoScaling
         type Rs DescribeAdjustmentTypes =

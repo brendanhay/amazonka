@@ -69,11 +69,6 @@ deleteVolume pVolumeARN = DeleteVolume'{_dvVolumeARN = pVolumeARN};
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = StorageGateway
         type Rs DeleteVolume = DeleteVolumeResponse

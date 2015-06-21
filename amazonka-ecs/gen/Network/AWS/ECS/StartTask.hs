@@ -110,11 +110,6 @@ staTaskDefinition = lens _staTaskDefinition (\ s a -> s{_staTaskDefinition = a})
 staContainerInstances :: Lens' StartTask [Text]
 staContainerInstances = lens _staContainerInstances (\ s a -> s{_staContainerInstances = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest StartTask where
         type Sv StartTask = ECS
         type Rs StartTask = StartTaskResponse

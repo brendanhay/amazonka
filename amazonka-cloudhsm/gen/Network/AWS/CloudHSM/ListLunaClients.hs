@@ -61,11 +61,6 @@ listLunaClients = ListLunaClients'{_llcNextToken = Nothing};
 llcNextToken :: Lens' ListLunaClients (Maybe Text)
 llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListLunaClients where
         type Sv ListLunaClients = CloudHSM
         type Rs ListLunaClients = ListLunaClientsResponse

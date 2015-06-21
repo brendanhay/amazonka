@@ -59,11 +59,6 @@ cancelReservedInstancesListing pReservedInstancesListingId = CancelReservedInsta
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelReservedInstancesListing
          where
         type Sv CancelReservedInstancesListing = EC2

@@ -55,11 +55,6 @@ getDistribution pId = GetDistribution'{_gdId = pId};
 gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\ s a -> s{_gdId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetDistribution where
         type Sv GetDistribution = CloudFront
         type Rs GetDistribution = GetDistributionResponse

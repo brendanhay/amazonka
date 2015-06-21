@@ -74,11 +74,6 @@ updMountPoint = lens _updMountPoint (\ s a -> s{_updMountPoint = a});
 updVolumeId :: Lens' UpdateVolume Text
 updVolumeId = lens _updVolumeId (\ s a -> s{_updVolumeId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateVolume where
         type Sv UpdateVolume = OpsWorks
         type Rs UpdateVolume = UpdateVolumeResponse

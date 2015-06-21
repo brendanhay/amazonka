@@ -59,11 +59,6 @@ deletePipeline pPipelineId = DeletePipeline'{_dpPipelineId = pPipelineId};
 dpPipelineId :: Lens' DeletePipeline Text
 dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = DataPipeline
         type Rs DeletePipeline = DeletePipelineResponse

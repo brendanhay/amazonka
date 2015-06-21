@@ -89,11 +89,6 @@ rlahAutoScalingGroupName = lens _rlahAutoScalingGroupName (\ s a -> s{_rlahAutoS
 rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat Text
 rlahLifecycleActionToken = lens _rlahLifecycleActionToken (\ s a -> s{_rlahLifecycleActionToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RecordLifecycleActionHeartbeat
          where
         type Sv RecordLifecycleActionHeartbeat = AutoScaling

@@ -62,11 +62,6 @@ sceIdentityPoolId = lens _sceIdentityPoolId (\ s a -> s{_sceIdentityPoolId = a})
 sceEvents :: Lens' SetCognitoEvents (HashMap Text Text)
 sceEvents = lens _sceEvents (\ s a -> s{_sceEvents = a}) . _Map;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetCognitoEvents where
         type Sv SetCognitoEvents = CognitoSync
         type Rs SetCognitoEvents = SetCognitoEventsResponse

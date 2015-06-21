@@ -60,11 +60,6 @@ unassignVolume pVolumeId = UnassignVolume'{_uvVolumeId = pVolumeId};
 uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\ s a -> s{_uvVolumeId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UnassignVolume where
         type Sv UnassignVolume = OpsWorks
         type Rs UnassignVolume = UnassignVolumeResponse

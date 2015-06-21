@@ -103,11 +103,6 @@ ciBandwidth = lens _ciBandwidth (\ s a -> s{_ciBandwidth = a});
 ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateInterconnect where
         type Sv CreateInterconnect = DirectConnect
         type Rs CreateInterconnect = Interconnect

@@ -51,6 +51,7 @@ module Network.AWS.S3.ListMultipartUploads
     , lmurDelimiter
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -112,6 +113,16 @@ lmuDelimiter = lens _lmuDelimiter (\ s a -> s{_lmuDelimiter = a});
 -- | FIXME: Undocumented member.
 lmuBucket :: Lens' ListMultipartUploads BucketName
 lmuBucket = lens _lmuBucket (\ s a -> s{_lmuBucket = a});
+
+instance AWSPager ListMultipartUploads where
+        page rq rs
+          | stop (rs ^. lmurIsTruncated) = Nothing
+          | isNothing (rs ^. lmurNextKeyMarker) &&
+              isNothing (rs ^. lmurNextUploadIdMarker)
+            = Nothing
+          | otherwise =
+            Just $ rq & lmuKeyMarker .~ rs ^. lmurNextKeyMarker &
+              lmuUploadIdMarker .~ rs ^. lmurNextUploadIdMarker
 
 instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = S3

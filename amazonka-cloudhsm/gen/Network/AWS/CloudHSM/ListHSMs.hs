@@ -62,11 +62,6 @@ listHSMs = ListHSMs'{_lNextToken = Nothing};
 lNextToken :: Lens' ListHSMs (Maybe Text)
 lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListHSMs where
         type Sv ListHSMs = CloudHSM
         type Rs ListHSMs = ListHSMsResponse

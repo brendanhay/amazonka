@@ -59,11 +59,6 @@ enableKey pKeyId = EnableKey'{_ekKeyId = pKeyId};
 ekKeyId :: Lens' EnableKey Text
 ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableKey where
         type Sv EnableKey = KMS
         type Rs EnableKey = EnableKeyResponse

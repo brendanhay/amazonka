@@ -36,6 +36,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     ) where
 
 import Network.AWS.CloudFront.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -66,10 +67,17 @@ lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListStreamingDistributions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop
+              (rs ^.
+                 lsdrStreamingDistributionList . sdlIsTruncated)
+            = Nothing
+          | otherwise =
+            Just $
+              rq &
+                lsdMarker .~
+                  rs ^. lsdrStreamingDistributionList . sdlNextMarker
 
 instance AWSRequest ListStreamingDistributions where
         type Sv ListStreamingDistributions = CloudFront

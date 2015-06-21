@@ -44,11 +44,6 @@ data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes' deriving (Eq, Read
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeLifecycleHookTypes where
         type Sv DescribeLifecycleHookTypes = AutoScaling
         type Rs DescribeLifecycleHookTypes =

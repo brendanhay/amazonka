@@ -56,11 +56,6 @@ cancelUpdateStack pStackName = CancelUpdateStack'{_cusStackName = pStackName};
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\ s a -> s{_cusStackName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelUpdateStack where
         type Sv CancelUpdateStack = CloudFormation
         type Rs CancelUpdateStack = CancelUpdateStackResponse

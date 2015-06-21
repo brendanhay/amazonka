@@ -54,11 +54,6 @@ deleteStack pStackName = DeleteStack'{_dsStackName = pStackName};
 dsStackName :: Lens' DeleteStack Text
 dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteStack where
         type Sv DeleteStack = CloudFormation
         type Rs DeleteStack = DeleteStackResponse

@@ -164,11 +164,6 @@ cmlmMLModelType = lens _cmlmMLModelType (\ s a -> s{_cmlmMLModelType = a});
 cmlmTrainingDataSourceId :: Lens' CreateMLModel Text
 cmlmTrainingDataSourceId = lens _cmlmTrainingDataSourceId (\ s a -> s{_cmlmTrainingDataSourceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateMLModel where
         type Sv CreateMLModel = MachineLearning
         type Rs CreateMLModel = CreateMLModelResponse

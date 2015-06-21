@@ -49,6 +49,7 @@ module Network.AWS.Route53.ListHostedZones
     , lhzrMaxItems
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,10 +85,11 @@ lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
 lhzMarker :: Lens' ListHostedZones (Maybe Text)
 lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListHostedZones where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lhzrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lhzMarker .~ rs ^. lhzrNextMarker
 
 instance AWSRequest ListHostedZones where
         type Sv ListHostedZones = Route53

@@ -63,11 +63,6 @@ dcg1DryRun = lens _dcg1DryRun (\ s a -> s{_dcg1DryRun = a});
 dcg1CustomerGatewayId :: Lens' DeleteCustomerGateway Text
 dcg1CustomerGatewayId = lens _dcg1CustomerGatewayId (\ s a -> s{_dcg1CustomerGatewayId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteCustomerGateway where
         type Sv DeleteCustomerGateway = EC2
         type Rs DeleteCustomerGateway =

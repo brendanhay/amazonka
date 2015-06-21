@@ -76,11 +76,6 @@ disPassword = lens _disPassword (\ s a -> s{_disPassword = a}) . mapping _Sensit
 disDirectoryId :: Lens' DisableSso Text
 disDirectoryId = lens _disDirectoryId (\ s a -> s{_disDirectoryId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableSso where
         type Sv DisableSso = DirectoryService
         type Rs DisableSso = DisableSsoResponse

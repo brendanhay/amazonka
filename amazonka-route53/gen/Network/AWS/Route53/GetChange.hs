@@ -64,11 +64,6 @@ getChange pId = GetChange'{_gcId = pId};
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\ s a -> s{_gcId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetChange where
         type Sv GetChange = Route53
         type Rs GetChange = GetChangeResponse

@@ -74,11 +74,6 @@ preRecord = lens _preRecord (\ s a -> s{_preRecord = a}) . _Map;
 prePredictEndpoint :: Lens' Predict Text
 prePredictEndpoint = lens _prePredictEndpoint (\ s a -> s{_prePredictEndpoint = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest Predict where
         type Sv Predict = MachineLearning
         type Rs Predict = PredictResponse

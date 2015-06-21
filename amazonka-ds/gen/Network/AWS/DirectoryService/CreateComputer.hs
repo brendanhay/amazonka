@@ -86,11 +86,6 @@ ccComputerName = lens _ccComputerName (\ s a -> s{_ccComputerName = a});
 ccPassword :: Lens' CreateComputer Text
 ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateComputer where
         type Sv CreateComputer = DirectoryService
         type Rs CreateComputer = CreateComputerResponse

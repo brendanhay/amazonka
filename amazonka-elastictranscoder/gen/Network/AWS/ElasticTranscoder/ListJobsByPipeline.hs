@@ -43,6 +43,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,10 +79,11 @@ ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
 ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
 
-instance AWSPager A where
+instance AWSPager ListJobsByPipeline where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ljbprNextPageToken) = Nothing
+          | otherwise =
+            rq & ljbpPageToken ?~ rs ^. ljbprNextPageToken
 
 instance AWSRequest ListJobsByPipeline where
         type Sv ListJobsByPipeline = ElasticTranscoder

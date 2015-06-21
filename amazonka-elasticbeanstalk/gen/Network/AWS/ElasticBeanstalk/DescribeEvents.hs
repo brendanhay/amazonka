@@ -50,6 +50,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -140,10 +141,10 @@ deApplicationName = lens _deApplicationName (\ s a -> s{_deApplicationName = a})
 deEnvironmentId :: Lens' DescribeEvents (Maybe Text)
 deEnvironmentId = lens _deEnvironmentId (\ s a -> s{_deEnvironmentId = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEvents where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. derNextToken) = Nothing
+          | otherwise = rq & deNextToken ?~ rs ^. derNextToken
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElasticBeanstalk

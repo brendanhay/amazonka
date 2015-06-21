@@ -57,11 +57,6 @@ deleteCacheParameterGroup pCacheParameterGroupName = DeleteCacheParameterGroup'{
 delCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 delCacheParameterGroupName = lens _delCacheParameterGroupName (\ s a -> s{_delCacheParameterGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteCacheParameterGroup where
         type Sv DeleteCacheParameterGroup = ElastiCache
         type Rs DeleteCacheParameterGroup =

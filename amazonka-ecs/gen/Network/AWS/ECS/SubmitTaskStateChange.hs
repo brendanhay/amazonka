@@ -80,11 +80,6 @@ stscReason = lens _stscReason (\ s a -> s{_stscReason = a});
 stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
 stscTask = lens _stscTask (\ s a -> s{_stscTask = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SubmitTaskStateChange where
         type Sv SubmitTaskStateChange = ECS
         type Rs SubmitTaskStateChange =

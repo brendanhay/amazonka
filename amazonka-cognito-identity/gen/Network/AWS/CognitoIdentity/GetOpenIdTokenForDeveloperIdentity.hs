@@ -109,11 +109,6 @@ goitfdiIdentityPoolId = lens _goitfdiIdentityPoolId (\ s a -> s{_goitfdiIdentity
 goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
 goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          GetOpenIdTokenForDeveloperIdentity where
         type Sv GetOpenIdTokenForDeveloperIdentity =

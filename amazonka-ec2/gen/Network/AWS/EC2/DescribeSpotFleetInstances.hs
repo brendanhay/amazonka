@@ -83,11 +83,6 @@ dsfiMaxResults = lens _dsfiMaxResults (\ s a -> s{_dsfiMaxResults = a});
 dsfiSpotFleetRequestId :: Lens' DescribeSpotFleetInstances Text
 dsfiSpotFleetRequestId = lens _dsfiSpotFleetRequestId (\ s a -> s{_dsfiSpotFleetRequestId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSpotFleetInstances where
         type Sv DescribeSpotFleetInstances = EC2
         type Rs DescribeSpotFleetInstances =

@@ -76,11 +76,6 @@ deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a})
 deDomainName :: Lens' DescribeExpressions Text
 deDomainName = lens _deDomainName (\ s a -> s{_deDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeExpressions where
         type Sv DescribeExpressions = CloudSearch
         type Rs DescribeExpressions =

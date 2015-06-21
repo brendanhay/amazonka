@@ -52,6 +52,7 @@ module Network.AWS.S3.ListObjectVersions
     , lovrDelimiter
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -108,6 +109,16 @@ lovDelimiter = lens _lovDelimiter (\ s a -> s{_lovDelimiter = a});
 -- | FIXME: Undocumented member.
 lovBucket :: Lens' ListObjectVersions BucketName
 lovBucket = lens _lovBucket (\ s a -> s{_lovBucket = a});
+
+instance AWSPager ListObjectVersions where
+        page rq rs
+          | stop (rs ^. lovrIsTruncated) = Nothing
+          | isNothing (rs ^. lovrNextKeyMarker) &&
+              isNothing (rs ^. lovrNextVersionIdMarker)
+            = Nothing
+          | otherwise =
+            Just $ rq & lovKeyMarker .~ rs ^. lovrNextKeyMarker &
+              lovVersionIdMarker .~ rs ^. lovrNextVersionIdMarker
 
 instance AWSRequest ListObjectVersions where
         type Sv ListObjectVersions = S3

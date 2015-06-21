@@ -38,6 +38,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -67,10 +68,11 @@ lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
 
-instance AWSPager A where
+instance AWSPager ListPipelines where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lprNextPageToken) = Nothing
+          | otherwise =
+            rq & lpPageToken ?~ rs ^. lprNextPageToken
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = ElasticTranscoder

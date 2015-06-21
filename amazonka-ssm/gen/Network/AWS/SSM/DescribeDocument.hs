@@ -54,11 +54,6 @@ describeDocument pName = DescribeDocument'{_ddName = pName};
 ddName :: Lens' DescribeDocument Text
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeDocument where
         type Sv DescribeDocument = SSM
         type Rs DescribeDocument = DescribeDocumentResponse

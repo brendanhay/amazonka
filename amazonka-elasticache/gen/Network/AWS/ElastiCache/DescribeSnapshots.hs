@@ -43,6 +43,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -100,10 +101,10 @@ dsSnapshotName = lens _dsSnapshotName (\ s a -> s{_dsSnapshotName = a});
 dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 
-instance AWSPager A where
+instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dsrMarker) = Nothing
+          | otherwise = rq & dsMarker ?~ rs ^. dsrMarker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache

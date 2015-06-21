@@ -79,11 +79,6 @@ dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 dtFileSystemId :: Lens' DescribeTags Text
 dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = ElasticFileSystem
         type Rs DescribeTags = DescribeTagsResponse

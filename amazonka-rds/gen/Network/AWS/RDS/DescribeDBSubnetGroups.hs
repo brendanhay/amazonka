@@ -43,6 +43,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     , ddsgrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -91,10 +92,10 @@ ddsgMaxRecords = lens _ddsgMaxRecords (\ s a -> s{_ddsgMaxRecords = a});
 ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBSubnetGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddsgrMarker) = Nothing
+          | otherwise = rq & ddsgMarker ?~ rs ^. ddsgrMarker
 
 instance AWSRequest DescribeDBSubnetGroups where
         type Sv DescribeDBSubnetGroups = RDS

@@ -80,11 +80,6 @@ dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a})
 dvfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
 dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisassociateVPCFromHostedZone
          where
         type Sv DisassociateVPCFromHostedZone = Route53

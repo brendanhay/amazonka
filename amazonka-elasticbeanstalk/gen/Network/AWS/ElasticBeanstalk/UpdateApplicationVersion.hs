@@ -78,11 +78,6 @@ uavApplicationName = lens _uavApplicationName (\ s a -> s{_uavApplicationName = 
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateApplicationVersion where
         type Sv UpdateApplicationVersion = ElasticBeanstalk
         type Rs UpdateApplicationVersion =

@@ -67,11 +67,6 @@ daoDeployed = lens _daoDeployed (\ s a -> s{_daoDeployed = a});
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\ s a -> s{_daoDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeAvailabilityOptions where
         type Sv DescribeAvailabilityOptions = CloudSearch
         type Rs DescribeAvailabilityOptions =

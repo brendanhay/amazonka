@@ -102,11 +102,6 @@ cmvReceiptHandle = lens _cmvReceiptHandle (\ s a -> s{_cmvReceiptHandle = a});
 cmvVisibilityTimeout :: Lens' ChangeMessageVisibility Int
 cmvVisibilityTimeout = lens _cmvVisibilityTimeout (\ s a -> s{_cmvVisibilityTimeout = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ChangeMessageVisibility where
         type Sv ChangeMessageVisibility = SQS
         type Rs ChangeMessageVisibility =

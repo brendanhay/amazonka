@@ -61,11 +61,6 @@ restoreFromSnapshot pSnapshotId = RestoreFromSnapshot'{_rfsSnapshotId = pSnapsho
 rfsSnapshotId :: Lens' RestoreFromSnapshot Text
 rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RestoreFromSnapshot where
         type Sv RestoreFromSnapshot = DirectoryService
         type Rs RestoreFromSnapshot =

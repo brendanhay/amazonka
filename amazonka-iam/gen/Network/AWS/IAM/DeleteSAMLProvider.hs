@@ -59,11 +59,6 @@ deleteSAMLProvider pSAMLProviderARN = DeleteSAMLProvider'{_dsamlpSAMLProviderARN
 dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteSAMLProvider where
         type Sv DeleteSAMLProvider = IAM
         type Rs DeleteSAMLProvider =

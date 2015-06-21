@@ -52,11 +52,6 @@ deleteClusterSubnetGroup pClusterSubnetGroupName = DeleteClusterSubnetGroup'{_dc
 dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
 dcsgClusterSubnetGroupName = lens _dcsgClusterSubnetGroupName (\ s a -> s{_dcsgClusterSubnetGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteClusterSubnetGroup where
         type Sv DeleteClusterSubnetGroup = Redshift
         type Rs DeleteClusterSubnetGroup =

@@ -63,11 +63,6 @@ delLifecycleHookName = lens _delLifecycleHookName (\ s a -> s{_delLifecycleHookN
 delAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
 delAutoScalingGroupName = lens _delAutoScalingGroupName (\ s a -> s{_delAutoScalingGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteLifecycleHook where
         type Sv DeleteLifecycleHook = AutoScaling
         type Rs DeleteLifecycleHook =

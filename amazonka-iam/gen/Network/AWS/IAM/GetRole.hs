@@ -59,11 +59,6 @@ getRole pRoleName = GetRole'{_grRoleName = pRoleName};
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetRole where
         type Sv GetRole = IAM
         type Rs GetRole = GetRoleResponse

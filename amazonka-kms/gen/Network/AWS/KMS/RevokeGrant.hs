@@ -67,11 +67,6 @@ revKeyId = lens _revKeyId (\ s a -> s{_revKeyId = a});
 revGrantId :: Lens' RevokeGrant Text
 revGrantId = lens _revGrantId (\ s a -> s{_revGrantId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RevokeGrant where
         type Sv RevokeGrant = KMS
         type Rs RevokeGrant = RevokeGrantResponse

@@ -49,11 +49,6 @@ data DescribeMyUserProfile = DescribeMyUserProfile' deriving (Eq, Read, Show)
 describeMyUserProfile :: DescribeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeMyUserProfile where
         type Sv DescribeMyUserProfile = OpsWorks
         type Rs DescribeMyUserProfile =

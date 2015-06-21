@@ -94,11 +94,6 @@ sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 sProtocol :: Lens' Subscribe Text
 sProtocol = lens _sProtocol (\ s a -> s{_sProtocol = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest Subscribe where
         type Sv Subscribe = SNS
         type Rs Subscribe = SubscribeResponse

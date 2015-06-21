@@ -78,11 +78,6 @@ dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
 dmtFileSystemId :: Lens' DescribeMountTargets Text
 dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeMountTargets where
         type Sv DescribeMountTargets = ElasticFileSystem
         type Rs DescribeMountTargets =

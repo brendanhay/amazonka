@@ -78,11 +78,6 @@ creResources = lens _creResources (\ s a -> s{_creResources = a});
 creTags :: Lens' CreateTags [Tag]
 creTags = lens _creTags (\ s a -> s{_creTags = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateTags where
         type Sv CreateTags = EC2
         type Rs CreateTags = CreateTagsResponse

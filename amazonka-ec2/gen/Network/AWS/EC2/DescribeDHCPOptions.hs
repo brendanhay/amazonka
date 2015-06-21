@@ -98,11 +98,6 @@ ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a})
 ddoDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\ s a -> s{_ddoDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeDHCPOptions where
         type Sv DescribeDHCPOptions = EC2
         type Rs DescribeDHCPOptions =

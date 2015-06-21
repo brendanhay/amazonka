@@ -66,11 +66,6 @@ cvcrVPNConnectionId = lens _cvcrVPNConnectionId (\ s a -> s{_cvcrVPNConnectionId
 cvcrDestinationCIDRBlock :: Lens' CreateVPNConnectionRoute Text
 cvcrDestinationCIDRBlock = lens _cvcrDestinationCIDRBlock (\ s a -> s{_cvcrDestinationCIDRBlock = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateVPNConnectionRoute where
         type Sv CreateVPNConnectionRoute = EC2
         type Rs CreateVPNConnectionRoute =

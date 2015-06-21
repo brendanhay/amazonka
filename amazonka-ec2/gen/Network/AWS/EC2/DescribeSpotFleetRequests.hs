@@ -82,11 +82,6 @@ dsfrDryRun = lens _dsfrDryRun (\ s a -> s{_dsfrDryRun = a});
 dsfrMaxResults :: Lens' DescribeSpotFleetRequests (Maybe Int)
 dsfrMaxResults = lens _dsfrMaxResults (\ s a -> s{_dsfrMaxResults = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSpotFleetRequests where
         type Sv DescribeSpotFleetRequests = EC2
         type Rs DescribeSpotFleetRequests =

@@ -65,11 +65,6 @@ refreshTrustedAdvisorCheck pCheckId = RefreshTrustedAdvisorCheck'{_rtacCheckId =
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RefreshTrustedAdvisorCheck where
         type Sv RefreshTrustedAdvisorCheck = Support
         type Rs RefreshTrustedAdvisorCheck =

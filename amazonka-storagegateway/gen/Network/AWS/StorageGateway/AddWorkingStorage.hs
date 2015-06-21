@@ -74,11 +74,6 @@ awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
 awsDiskIds :: Lens' AddWorkingStorage [Text]
 awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddWorkingStorage where
         type Sv AddWorkingStorage = StorageGateway
         type Rs AddWorkingStorage = AddWorkingStorageResponse

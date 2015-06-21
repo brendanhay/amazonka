@@ -84,11 +84,6 @@ dHSMSerialNumber = lens _dHSMSerialNumber (\ s a -> s{_dHSMSerialNumber = a});
 dHSMARN :: Lens' DescribeHSM (Maybe Text)
 dHSMARN = lens _dHSMARN (\ s a -> s{_dHSMARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeHSM where
         type Sv DescribeHSM = CloudHSM
         type Rs DescribeHSM = DescribeHSMResponse

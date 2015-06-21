@@ -80,11 +80,6 @@ clbpPolicyName = lens _clbpPolicyName (\ s a -> s{_clbpPolicyName = a});
 clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateLoadBalancerPolicy where
         type Sv CreateLoadBalancerPolicy = ELB
         type Rs CreateLoadBalancerPolicy =

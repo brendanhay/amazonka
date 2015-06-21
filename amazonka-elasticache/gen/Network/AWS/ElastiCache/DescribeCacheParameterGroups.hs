@@ -40,6 +40,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,10 +81,10 @@ dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a});
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCacheParameterGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcpgrMarker) = Nothing
+          | otherwise = rq & dcpgMarker ?~ rs ^. dcpgrMarker
 
 instance AWSRequest DescribeCacheParameterGroups
          where

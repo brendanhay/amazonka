@@ -73,11 +73,6 @@ clpUserName = lens _clpUserName (\ s a -> s{_clpUserName = a});
 clpPassword :: Lens' CreateLoginProfile Text
 clpPassword = lens _clpPassword (\ s a -> s{_clpPassword = a}) . _Sensitive;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateLoginProfile where
         type Sv CreateLoginProfile = IAM
         type Rs CreateLoginProfile =

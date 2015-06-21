@@ -82,11 +82,6 @@ lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 lgKeyId :: Lens' ListGrants Text
 lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListGrants where
         type Sv ListGrants = KMS
         type Rs ListGrants = ListGrantsResponse

@@ -99,11 +99,6 @@ ctNumTapesToCreate = lens _ctNumTapesToCreate (\ s a -> s{_ctNumTapesToCreate = 
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateTapes where
         type Sv CreateTapes = StorageGateway
         type Rs CreateTapes = CreateTapesResponse

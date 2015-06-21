@@ -52,11 +52,6 @@ deregisterOnPremisesInstance pInstanceName = DeregisterOnPremisesInstance'{_dopi
 dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
 dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeregisterOnPremisesInstance
          where
         type Sv DeregisterOnPremisesInstance = CodeDeploy

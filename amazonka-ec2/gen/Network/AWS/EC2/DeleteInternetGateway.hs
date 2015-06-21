@@ -63,11 +63,6 @@ dig1DryRun = lens _dig1DryRun (\ s a -> s{_dig1DryRun = a});
 dig1InternetGatewayId :: Lens' DeleteInternetGateway Text
 dig1InternetGatewayId = lens _dig1InternetGatewayId (\ s a -> s{_dig1InternetGatewayId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteInternetGateway where
         type Sv DeleteInternetGateway = EC2
         type Rs DeleteInternetGateway =

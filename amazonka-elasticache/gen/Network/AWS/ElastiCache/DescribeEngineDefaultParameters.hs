@@ -38,6 +38,7 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -79,10 +80,14 @@ dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{_dedpCacheParameterGroupFamily = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEngineDefaultParameters
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dedprEngineDefaults . edMarker) =
+            Nothing
+          | otherwise =
+            rq &
+              dedpMarker ?~ rs ^. dedprEngineDefaults . edMarker
 
 instance AWSRequest DescribeEngineDefaultParameters
          where

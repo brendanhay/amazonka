@@ -132,11 +132,6 @@ apAction = lens _apAction (\ s a -> s{_apAction = a});
 apPrincipal :: Lens' AddPermission Text
 apPrincipal = lens _apPrincipal (\ s a -> s{_apPrincipal = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddPermission where
         type Sv AddPermission = Lambda
         type Rs AddPermission = AddPermissionResponse

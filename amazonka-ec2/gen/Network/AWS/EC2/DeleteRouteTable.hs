@@ -64,11 +64,6 @@ drt1DryRun = lens _drt1DryRun (\ s a -> s{_drt1DryRun = a});
 drt1RouteTableId :: Lens' DeleteRouteTable Text
 drt1RouteTableId = lens _drt1RouteTableId (\ s a -> s{_drt1RouteTableId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteRouteTable where
         type Sv DeleteRouteTable = EC2
         type Rs DeleteRouteTable = DeleteRouteTableResponse

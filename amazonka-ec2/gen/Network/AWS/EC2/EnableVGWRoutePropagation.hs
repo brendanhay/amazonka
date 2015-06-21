@@ -60,11 +60,6 @@ evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a});
 evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableVGWRoutePropagation where
         type Sv EnableVGWRoutePropagation = EC2
         type Rs EnableVGWRoutePropagation =

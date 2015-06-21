@@ -58,11 +58,6 @@ disableKeyRotation pKeyId = DisableKeyRotation'{_dkrKeyId = pKeyId};
 dkrKeyId :: Lens' DisableKeyRotation Text
 dkrKeyId = lens _dkrKeyId (\ s a -> s{_dkrKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableKeyRotation where
         type Sv DisableKeyRotation = KMS
         type Rs DisableKeyRotation =

@@ -98,11 +98,6 @@ cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreatePolicy where
         type Sv CreatePolicy = IAM
         type Rs CreatePolicy = CreatePolicyResponse

@@ -62,11 +62,6 @@ describeHAPG pHAPGARN = DescribeHAPG'{_desHAPGARN = pHAPGARN};
 desHAPGARN :: Lens' DescribeHAPG Text
 desHAPGARN = lens _desHAPGARN (\ s a -> s{_desHAPGARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeHAPG where
         type Sv DescribeHAPG = CloudHSM
         type Rs DescribeHAPG = DescribeHAPGResponse

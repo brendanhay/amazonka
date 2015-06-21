@@ -57,11 +57,6 @@ deleteUserProfile pIAMUserARN = DeleteUserProfile'{_dupIAMUserARN = pIAMUserARN}
 dupIAMUserARN :: Lens' DeleteUserProfile Text
 dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteUserProfile where
         type Sv DeleteUserProfile = OpsWorks
         type Rs DeleteUserProfile = DeleteUserProfileResponse

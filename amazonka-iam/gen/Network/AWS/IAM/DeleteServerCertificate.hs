@@ -63,11 +63,6 @@ deleteServerCertificate pServerCertificateName = DeleteServerCertificate'{_dscSe
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName = lens _dscServerCertificateName (\ s a -> s{_dscServerCertificateName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteServerCertificate where
         type Sv DeleteServerCertificate = IAM
         type Rs DeleteServerCertificate =

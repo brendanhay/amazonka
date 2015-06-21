@@ -67,11 +67,6 @@ miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest MonitorInstances where
         type Sv MonitorInstances = EC2
         type Rs MonitorInstances = MonitorInstancesResponse

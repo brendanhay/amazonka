@@ -115,11 +115,6 @@ invClientContext = lens _invClientContext (\ s a -> s{_invClientContext = a});
 invFunctionName :: Lens' Invoke Text
 invFunctionName = lens _invFunctionName (\ s a -> s{_invFunctionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest Invoke where
         type Sv Invoke = Lambda
         type Rs Invoke = InvokeResponse

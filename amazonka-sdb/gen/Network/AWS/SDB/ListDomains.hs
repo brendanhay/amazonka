@@ -42,6 +42,7 @@ module Network.AWS.SDB.ListDomains
     , ldrNextToken
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,10 +71,10 @@ ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\ s a -> s{_ldMaxNumberOfDoma
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
-instance AWSPager A where
+instance AWSPager ListDomains where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ldrNextToken) = Nothing
+          | otherwise = rq & ldNextToken ?~ rs ^. ldrNextToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SDB

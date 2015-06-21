@@ -73,11 +73,6 @@ citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
 citDryRun :: Lens' CancelImportTask (Maybe Bool)
 citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelImportTask where
         type Sv CancelImportTask = EC2
         type Rs CancelImportTask = CancelImportTaskResponse

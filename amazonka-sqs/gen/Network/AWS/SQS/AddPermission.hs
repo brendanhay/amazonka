@@ -113,11 +113,6 @@ apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a});
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\ s a -> s{_apActions = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddPermission where
         type Sv AddPermission = SQS
         type Rs AddPermission = AddPermissionResponse

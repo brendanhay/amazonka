@@ -60,11 +60,6 @@ describeIdentity pIdentityId = DescribeIdentity'{_diIdentityId = pIdentityId};
 diIdentityId :: Lens' DescribeIdentity Text
 diIdentityId = lens _diIdentityId (\ s a -> s{_diIdentityId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeIdentity where
         type Sv DescribeIdentity = CognitoIdentity
         type Rs DescribeIdentity = IdentityDescription

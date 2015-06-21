@@ -80,11 +80,6 @@ dmQueueURL = lens _dmQueueURL (\ s a -> s{_dmQueueURL = a});
 dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\ s a -> s{_dmReceiptHandle = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteMessage where
         type Sv DeleteMessage = SQS
         type Rs DeleteMessage = DeleteMessageResponse

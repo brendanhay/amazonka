@@ -39,6 +39,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     , desrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -85,10 +86,10 @@ descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
 descMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEventSubscriptions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. desrMarker) = Nothing
+          | otherwise = rq & descMarker ?~ rs ^. desrMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift

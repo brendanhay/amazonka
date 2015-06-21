@@ -87,11 +87,6 @@ gdsVerbose = lens _gdsVerbose (\ s a -> s{_gdsVerbose = a});
 gdsDataSourceId :: Lens' GetDataSource Text
 gdsDataSourceId = lens _gdsDataSourceId (\ s a -> s{_gdsDataSourceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetDataSource where
         type Sv GetDataSource = MachineLearning
         type Rs GetDataSource = GetDataSourceResponse

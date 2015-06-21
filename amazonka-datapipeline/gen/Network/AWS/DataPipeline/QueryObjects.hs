@@ -42,6 +42,7 @@ module Network.AWS.DataPipeline.QueryObjects
     ) where
 
 import Network.AWS.DataPipeline.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -93,10 +94,10 @@ qoPipelineId = lens _qoPipelineId (\ s a -> s{_qoPipelineId = a});
 qoSphere :: Lens' QueryObjects Text
 qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
 
-instance AWSPager A where
+instance AWSPager QueryObjects where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. qorHasMoreResults) = Nothing
+          | otherwise = Just $ rq & qoMarker .~ rs ^. qorMarker
 
 instance AWSRequest QueryObjects where
         type Sv QueryObjects = DataPipeline

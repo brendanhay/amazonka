@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -113,10 +114,12 @@ drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationId
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a});
 
-instance AWSPager A where
+instance AWSPager
+         DescribeReservedInstancesModifications where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. drimrNextToken) = Nothing
+          | otherwise =
+            rq & drimNextToken ?~ rs ^. drimrNextToken
 
 instance AWSRequest
          DescribeReservedInstancesModifications where

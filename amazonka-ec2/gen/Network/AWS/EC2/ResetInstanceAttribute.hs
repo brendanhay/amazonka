@@ -78,11 +78,6 @@ riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ResetInstanceAttribute where
         type Sv ResetInstanceAttribute = EC2
         type Rs ResetInstanceAttribute =

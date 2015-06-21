@@ -122,11 +122,6 @@ imuAccountId = lens _imuAccountId (\ s a -> s{_imuAccountId = a});
 imuVaultName :: Lens' InitiateMultipartUpload Text
 imuVaultName = lens _imuVaultName (\ s a -> s{_imuVaultName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest InitiateMultipartUpload where
         type Sv InitiateMultipartUpload = Glacier
         type Rs InitiateMultipartUpload =

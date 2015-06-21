@@ -44,11 +44,6 @@ data ListOpenIDConnectProviders = ListOpenIDConnectProviders' deriving (Eq, Read
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
 listOpenIDConnectProviders = ListOpenIDConnectProviders';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListOpenIDConnectProviders where
         type Sv ListOpenIDConnectProviders = IAM
         type Rs ListOpenIDConnectProviders =

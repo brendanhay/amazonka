@@ -43,6 +43,7 @@ module Network.AWS.SNS.ListPlatformApplications
     , lparNextToken
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,10 +66,11 @@ listPlatformApplications = ListPlatformApplications'{_lpaNextToken = Nothing};
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 
-instance AWSPager A where
+instance AWSPager ListPlatformApplications where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lparNextToken) = Nothing
+          | otherwise =
+            rq & lpaNextToken ?~ rs ^. lparNextToken
 
 instance AWSRequest ListPlatformApplications where
         type Sv ListPlatformApplications = SNS

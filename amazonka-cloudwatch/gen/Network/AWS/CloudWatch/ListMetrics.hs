@@ -41,6 +41,7 @@ module Network.AWS.CloudWatch.ListMetrics
     ) where
 
 import Network.AWS.CloudWatch.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -79,10 +80,10 @@ lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 lmDimensions :: Lens' ListMetrics [DimensionFilter]
 lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default;
 
-instance AWSPager A where
+instance AWSPager ListMetrics where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lmrNextToken) = Nothing
+          | otherwise = rq & lmNextToken ?~ rs ^. lmrNextToken
 
 instance AWSRequest ListMetrics where
         type Sv ListMetrics = CloudWatch

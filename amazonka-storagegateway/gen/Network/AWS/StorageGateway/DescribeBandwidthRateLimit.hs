@@ -64,11 +64,6 @@ describeBandwidthRateLimit pGatewayARN = DescribeBandwidthRateLimit'{_dbrlGatewa
 dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
 dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeBandwidthRateLimit where
         type Sv DescribeBandwidthRateLimit = StorageGateway
         type Rs DescribeBandwidthRateLimit =

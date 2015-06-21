@@ -43,6 +43,7 @@ module Network.AWS.EMR.ListClusters
     ) where
 
 import Network.AWS.EMR.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,10 +81,10 @@ lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _De
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
 lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time;
 
-instance AWSPager A where
+instance AWSPager ListClusters where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lcrMarker) = Nothing
+          | otherwise = rq & lcMarker ?~ rs ^. lcrMarker
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = EMR

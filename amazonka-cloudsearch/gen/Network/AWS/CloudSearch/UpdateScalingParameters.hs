@@ -69,11 +69,6 @@ uspDomainName = lens _uspDomainName (\ s a -> s{_uspDomainName = a});
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters = lens _uspScalingParameters (\ s a -> s{_uspScalingParameters = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateScalingParameters where
         type Sv UpdateScalingParameters = CloudSearch
         type Rs UpdateScalingParameters =

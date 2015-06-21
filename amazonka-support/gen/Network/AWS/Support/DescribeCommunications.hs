@@ -51,6 +51,7 @@ module Network.AWS.Support.DescribeCommunications
     , dcrCommunications
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -100,10 +101,10 @@ dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
 dCaseId :: Lens' DescribeCommunications Text
 dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCommunications where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcrNextToken) = Nothing
+          | otherwise = rq & dNextToken ?~ rs ^. dcrNextToken
 
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support

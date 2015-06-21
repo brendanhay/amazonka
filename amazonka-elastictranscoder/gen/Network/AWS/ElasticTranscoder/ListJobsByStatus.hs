@@ -40,6 +40,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -77,10 +78,11 @@ ljbsPageToken = lens _ljbsPageToken (\ s a -> s{_ljbsPageToken = a});
 ljbsStatus :: Lens' ListJobsByStatus Text
 ljbsStatus = lens _ljbsStatus (\ s a -> s{_ljbsStatus = a});
 
-instance AWSPager A where
+instance AWSPager ListJobsByStatus where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ljbsrNextPageToken) = Nothing
+          | otherwise =
+            rq & ljbsPageToken ?~ rs ^. ljbsrNextPageToken
 
 instance AWSRequest ListJobsByStatus where
         type Sv ListJobsByStatus = ElasticTranscoder

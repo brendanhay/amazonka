@@ -55,11 +55,6 @@ readJob pId = ReadJob'{_rjId = pId};
 rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\ s a -> s{_rjId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ReadJob where
         type Sv ReadJob = ElasticTranscoder
         type Rs ReadJob = ReadJobResponse

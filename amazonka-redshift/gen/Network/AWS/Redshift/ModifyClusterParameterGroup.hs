@@ -74,11 +74,6 @@ mcpgParameterGroupName = lens _mcpgParameterGroupName (\ s a -> s{_mcpgParameter
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyClusterParameterGroup where
         type Sv ModifyClusterParameterGroup = Redshift
         type Rs ModifyClusterParameterGroup =

@@ -62,11 +62,6 @@ deleteHealthCheck pHealthCheckId = DeleteHealthCheck'{_dhcHealthCheckId = pHealt
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
 dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteHealthCheck where
         type Sv DeleteHealthCheck = Route53
         type Rs DeleteHealthCheck = DeleteHealthCheckResponse

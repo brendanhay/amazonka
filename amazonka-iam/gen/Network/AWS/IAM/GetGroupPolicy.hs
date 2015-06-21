@@ -73,11 +73,6 @@ ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a});
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetGroupPolicy where
         type Sv GetGroupPolicy = IAM
         type Rs GetGroupPolicy = GetGroupPolicyResponse

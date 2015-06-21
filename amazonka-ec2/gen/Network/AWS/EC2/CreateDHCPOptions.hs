@@ -102,11 +102,6 @@ cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a});
 cdoDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
 cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDHCPOptions where
         type Sv CreateDHCPOptions = EC2
         type Rs CreateDHCPOptions = CreateDHCPOptionsResponse

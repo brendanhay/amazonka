@@ -59,11 +59,6 @@ atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a});
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddTags where
         type Sv AddTags = DataPipeline
         type Rs AddTags = AddTagsResponse

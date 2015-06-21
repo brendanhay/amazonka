@@ -72,11 +72,6 @@ gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
 gcHAPGList :: Lens' GetConfig [Text]
 gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetConfig where
         type Sv GetConfig = CloudHSM
         type Rs GetConfig = GetConfigResponse

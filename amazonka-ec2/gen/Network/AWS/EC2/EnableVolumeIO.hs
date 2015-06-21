@@ -63,11 +63,6 @@ evioDryRun = lens _evioDryRun (\ s a -> s{_evioDryRun = a});
 evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\ s a -> s{_evioVolumeId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableVolumeIO where
         type Sv EnableVolumeIO = EC2
         type Rs EnableVolumeIO = EnableVolumeIOResponse

@@ -43,6 +43,7 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     , desrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -92,10 +93,10 @@ dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEventSubscriptions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. desrMarker) = Nothing
+          | otherwise = rq & dMarker ?~ rs ^. desrMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = RDS

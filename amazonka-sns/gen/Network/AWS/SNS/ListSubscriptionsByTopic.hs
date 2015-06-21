@@ -40,6 +40,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     , lsbtrSubscriptions
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -66,10 +67,11 @@ lsbtNextToken = lens _lsbtNextToken (\ s a -> s{_lsbtNextToken = a});
 lsbtTopicARN :: Lens' ListSubscriptionsByTopic Text
 lsbtTopicARN = lens _lsbtTopicARN (\ s a -> s{_lsbtTopicARN = a});
 
-instance AWSPager A where
+instance AWSPager ListSubscriptionsByTopic where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lsbtrNextToken) = Nothing
+          | otherwise =
+            rq & lsbtNextToken ?~ rs ^. lsbtrNextToken
 
 instance AWSRequest ListSubscriptionsByTopic where
         type Sv ListSubscriptionsByTopic = SNS

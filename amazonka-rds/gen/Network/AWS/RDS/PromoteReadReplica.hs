@@ -100,11 +100,6 @@ prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackup
 prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\ s a -> s{_prrDBInstanceIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PromoteReadReplica where
         type Sv PromoteReadReplica = RDS
         type Rs PromoteReadReplica =

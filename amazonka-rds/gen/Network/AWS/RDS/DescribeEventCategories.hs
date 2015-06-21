@@ -68,11 +68,6 @@ decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 decFilters :: Lens' DescribeEventCategories [Filter]
 decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = RDS
         type Rs DescribeEventCategories =

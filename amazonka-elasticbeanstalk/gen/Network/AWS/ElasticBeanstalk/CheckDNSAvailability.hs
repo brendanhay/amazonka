@@ -55,11 +55,6 @@ checkDNSAvailability pCNAMEPrefix = CheckDNSAvailability'{_cdaCNAMEPrefix = pCNA
 cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
 cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CheckDNSAvailability where
         type Sv CheckDNSAvailability = ElasticBeanstalk
         type Rs CheckDNSAvailability =

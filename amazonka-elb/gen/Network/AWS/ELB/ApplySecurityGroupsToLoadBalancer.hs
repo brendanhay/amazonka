@@ -68,11 +68,6 @@ asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBal
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ApplySecurityGroupsToLoadBalancer
          where
         type Sv ApplySecurityGroupsToLoadBalancer = ELB

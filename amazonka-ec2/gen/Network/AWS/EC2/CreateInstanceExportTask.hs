@@ -81,11 +81,6 @@ cietDescription = lens _cietDescription (\ s a -> s{_cietDescription = a});
 cietInstanceId :: Lens' CreateInstanceExportTask Text
 cietInstanceId = lens _cietInstanceId (\ s a -> s{_cietInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateInstanceExportTask where
         type Sv CreateInstanceExportTask = EC2
         type Rs CreateInstanceExportTask =

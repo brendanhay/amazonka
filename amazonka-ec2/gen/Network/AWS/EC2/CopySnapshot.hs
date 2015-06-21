@@ -125,11 +125,6 @@ csSourceRegion = lens _csSourceRegion (\ s a -> s{_csSourceRegion = a});
 csSourceSnapshotId :: Lens' CopySnapshot Text
 csSourceSnapshotId = lens _csSourceSnapshotId (\ s a -> s{_csSourceSnapshotId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = EC2
         type Rs CopySnapshot = CopySnapshotResponse

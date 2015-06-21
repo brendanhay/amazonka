@@ -74,11 +74,6 @@ dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default;
 dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
 dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeConversionTasks where
         type Sv DescribeConversionTasks = EC2
         type Rs DescribeConversionTasks =

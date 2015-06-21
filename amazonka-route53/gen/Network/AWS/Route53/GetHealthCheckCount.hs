@@ -45,11 +45,6 @@ data GetHealthCheckCount = GetHealthCheckCount' deriving (Eq, Read, Show)
 getHealthCheckCount :: GetHealthCheckCount
 getHealthCheckCount = GetHealthCheckCount';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetHealthCheckCount where
         type Sv GetHealthCheckCount = Route53
         type Rs GetHealthCheckCount =

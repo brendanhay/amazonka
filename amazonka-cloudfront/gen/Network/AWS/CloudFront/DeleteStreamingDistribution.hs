@@ -60,11 +60,6 @@ dsdIfMatch = lens _dsdIfMatch (\ s a -> s{_dsdIfMatch = a});
 dsdId :: Lens' DeleteStreamingDistribution Text
 dsdId = lens _dsdId (\ s a -> s{_dsdId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteStreamingDistribution where
         type Sv DeleteStreamingDistribution = CloudFront
         type Rs DeleteStreamingDistribution =

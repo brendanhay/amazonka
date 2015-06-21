@@ -40,6 +40,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,10 +81,10 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCacheSubnetGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcsgrMarker) = Nothing
+          | otherwise = rq & dcsgMarker ?~ rs ^. dcsgrMarker
 
 instance AWSRequest DescribeCacheSubnetGroups where
         type Sv DescribeCacheSubnetGroups = ElastiCache

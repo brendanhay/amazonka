@@ -61,11 +61,6 @@ dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
 dsService :: Lens' DeleteService Text
 dsService = lens _dsService (\ s a -> s{_dsService = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteService where
         type Sv DeleteService = ECS
         type Rs DeleteService = DeleteServiceResponse

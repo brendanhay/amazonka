@@ -57,11 +57,6 @@ getPlatformApplicationAttributes pPlatformApplicationARN = GetPlatformApplicatio
 gpaaPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
 gpaaPlatformApplicationARN = lens _gpaaPlatformApplicationARN (\ s a -> s{_gpaaPlatformApplicationARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetPlatformApplicationAttributes
          where
         type Sv GetPlatformApplicationAttributes = SNS

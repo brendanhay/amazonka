@@ -72,11 +72,6 @@ urdiDBPassword = lens _urdiDBPassword (\ s a -> s{_urdiDBPassword = a});
 urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
 urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateRDSDBInstance where
         type Sv UpdateRDSDBInstance = OpsWorks
         type Rs UpdateRDSDBInstance =

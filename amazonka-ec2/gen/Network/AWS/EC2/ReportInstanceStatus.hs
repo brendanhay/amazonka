@@ -131,11 +131,6 @@ risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
 risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ReportInstanceStatus where
         type Sv ReportInstanceStatus = EC2
         type Rs ReportInstanceStatus =

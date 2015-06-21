@@ -94,11 +94,6 @@ lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a});
 lhzbnDNSName :: Lens' ListHostedZonesByName (Maybe Text)
 lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListHostedZonesByName where
         type Sv ListHostedZonesByName = Route53
         type Rs ListHostedZonesByName =

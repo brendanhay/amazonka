@@ -120,11 +120,6 @@ mesSourceIds = lens _mesSourceIds (\ s a -> s{_mesSourceIds = a}) . _Default;
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
 mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyEventSubscription where
         type Sv ModifyEventSubscription = Redshift
         type Rs ModifyEventSubscription =

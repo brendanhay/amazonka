@@ -180,11 +180,6 @@ dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
 dDryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
 dDryRun = lens _dDryRun (\ s a -> s{_dDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeNetworkInterfaces where
         type Sv DescribeNetworkInterfaces = EC2
         type Rs DescribeNetworkInterfaces =

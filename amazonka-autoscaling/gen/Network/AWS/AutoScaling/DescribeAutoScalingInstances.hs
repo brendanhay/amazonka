@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,10 +74,11 @@ dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _De
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
 dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a});
 
-instance AWSPager A where
+instance AWSPager DescribeAutoScalingInstances where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dasirNextToken) = Nothing
+          | otherwise =
+            rq & dasiNextToken ?~ rs ^. dasirNextToken
 
 instance AWSRequest DescribeAutoScalingInstances
          where

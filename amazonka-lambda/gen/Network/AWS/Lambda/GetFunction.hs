@@ -70,11 +70,6 @@ getFunction pFunctionName = GetFunction'{_gfFunctionName = pFunctionName};
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetFunction where
         type Sv GetFunction = Lambda
         type Rs GetFunction = GetFunctionResponse

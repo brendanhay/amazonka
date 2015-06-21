@@ -69,11 +69,6 @@ rvpcDryRun = lens _rvpcDryRun (\ s a -> s{_rvpcDryRun = a});
 rvpcVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
 rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\ s a -> s{_rvpcVPCPeeringConnectionId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RejectVPCPeeringConnection where
         type Sv RejectVPCPeeringConnection = EC2
         type Rs RejectVPCPeeringConnection =

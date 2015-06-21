@@ -45,6 +45,7 @@ module Network.AWS.IAM.ListMFADevices
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,10 +84,11 @@ lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 lmdMarker :: Lens' ListMFADevices (Maybe Text)
 lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListMFADevices where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lmdrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lmdMarker .~ rs ^. lmdrMarker
 
 instance AWSRequest ListMFADevices where
         type Sv ListMFADevices = IAM

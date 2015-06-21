@@ -116,11 +116,6 @@ lrIdentityId = lens _lrIdentityId (\ s a -> s{_lrIdentityId = a});
 lrDatasetName :: Lens' ListRecords Text
 lrDatasetName = lens _lrDatasetName (\ s a -> s{_lrDatasetName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListRecords where
         type Sv ListRecords = CognitoSync
         type Rs ListRecords = ListRecordsResponse

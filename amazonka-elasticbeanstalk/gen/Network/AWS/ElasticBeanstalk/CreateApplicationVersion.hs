@@ -120,11 +120,6 @@ cavApplicationName = lens _cavApplicationName (\ s a -> s{_cavApplicationName = 
 cavVersionLabel :: Lens' CreateApplicationVersion Text
 cavVersionLabel = lens _cavVersionLabel (\ s a -> s{_cavVersionLabel = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateApplicationVersion where
         type Sv CreateApplicationVersion = ElasticBeanstalk
         type Rs CreateApplicationVersion =

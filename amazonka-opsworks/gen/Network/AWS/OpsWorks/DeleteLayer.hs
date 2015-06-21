@@ -61,11 +61,6 @@ deleteLayer pLayerId = DeleteLayer'{_dlLayerId = pLayerId};
 dlLayerId :: Lens' DeleteLayer Text
 dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteLayer where
         type Sv DeleteLayer = OpsWorks
         type Rs DeleteLayer = DeleteLayerResponse

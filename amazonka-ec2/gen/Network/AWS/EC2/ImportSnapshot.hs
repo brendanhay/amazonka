@@ -95,11 +95,6 @@ isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 isClientData :: Lens' ImportSnapshot (Maybe ClientData)
 isClientData = lens _isClientData (\ s a -> s{_isClientData = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ImportSnapshot where
         type Sv ImportSnapshot = EC2
         type Rs ImportSnapshot = ImportSnapshotResponse

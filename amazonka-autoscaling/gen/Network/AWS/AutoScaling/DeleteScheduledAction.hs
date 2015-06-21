@@ -59,11 +59,6 @@ dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScal
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName = lens _dsaScheduledActionName (\ s a -> s{_dsaScheduledActionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteScheduledAction where
         type Sv DeleteScheduledAction = AutoScaling
         type Rs DeleteScheduledAction =

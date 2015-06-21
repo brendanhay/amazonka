@@ -58,11 +58,6 @@ deleteApp pAppId = DeleteApp'{_daAppId = pAppId};
 daAppId :: Lens' DeleteApp Text
 daAppId = lens _daAppId (\ s a -> s{_daAppId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteApp where
         type Sv DeleteApp = OpsWorks
         type Rs DeleteApp = DeleteAppResponse

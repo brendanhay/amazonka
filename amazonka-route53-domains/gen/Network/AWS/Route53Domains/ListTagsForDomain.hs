@@ -58,11 +58,6 @@ listTagsForDomain pDomainName = ListTagsForDomain'{_ltfdDomainName = pDomainName
 ltfdDomainName :: Lens' ListTagsForDomain Text
 ltfdDomainName = lens _ltfdDomainName (\ s a -> s{_ltfdDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListTagsForDomain where
         type Sv ListTagsForDomain = Route53Domains
         type Rs ListTagsForDomain = ListTagsForDomainResponse

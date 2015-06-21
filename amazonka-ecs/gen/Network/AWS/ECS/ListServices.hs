@@ -38,6 +38,7 @@ module Network.AWS.ECS.ListServices
     ) where
 
 import Network.AWS.ECS.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,10 +83,10 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 lsMaxResults :: Lens' ListServices (Maybe Int)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager ListServices where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lsrNextToken) = Nothing
+          | otherwise = rq & lsNextToken ?~ rs ^. lsrNextToken
 
 instance AWSRequest ListServices where
         type Sv ListServices = ECS

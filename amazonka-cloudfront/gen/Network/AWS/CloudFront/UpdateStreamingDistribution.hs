@@ -70,11 +70,6 @@ usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> 
 usdId :: Lens' UpdateStreamingDistribution Text
 usdId = lens _usdId (\ s a -> s{_usdId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateStreamingDistribution where
         type Sv UpdateStreamingDistribution = CloudFront
         type Rs UpdateStreamingDistribution =

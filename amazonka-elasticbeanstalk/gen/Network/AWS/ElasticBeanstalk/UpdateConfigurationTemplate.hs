@@ -109,11 +109,6 @@ uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = 
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateConfigurationTemplate where
         type Sv UpdateConfigurationTemplate =
              ElasticBeanstalk

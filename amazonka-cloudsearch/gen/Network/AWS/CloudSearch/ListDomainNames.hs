@@ -44,11 +44,6 @@ data ListDomainNames = ListDomainNames' deriving (Eq, Read, Show)
 listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListDomainNames where
         type Sv ListDomainNames = CloudSearch
         type Rs ListDomainNames = ListDomainNamesResponse

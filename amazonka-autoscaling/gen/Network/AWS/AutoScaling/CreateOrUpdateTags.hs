@@ -67,11 +67,6 @@ createOrUpdateTags = CreateOrUpdateTags'{_coutTags = mempty};
 coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\ s a -> s{_coutTags = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateOrUpdateTags where
         type Sv CreateOrUpdateTags = AutoScaling
         type Rs CreateOrUpdateTags =

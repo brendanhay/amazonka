@@ -59,11 +59,6 @@ disableSnapshotCopy pClusterIdentifier = DisableSnapshotCopy'{_dscClusterIdentif
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableSnapshotCopy where
         type Sv DisableSnapshotCopy = Redshift
         type Rs DisableSnapshotCopy =

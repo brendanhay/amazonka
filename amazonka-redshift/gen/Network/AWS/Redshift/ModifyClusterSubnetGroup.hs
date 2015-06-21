@@ -71,11 +71,6 @@ mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\ s a -> s{_mcsgC
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyClusterSubnetGroup where
         type Sv ModifyClusterSubnetGroup = Redshift
         type Rs ModifyClusterSubnetGroup =

@@ -61,11 +61,6 @@ deleteLoadBalancer pLoadBalancerName = DeleteLoadBalancer'{_dlbLoadBalancerName 
 dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
 dlbLoadBalancerName = lens _dlbLoadBalancerName (\ s a -> s{_dlbLoadBalancerName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteLoadBalancer where
         type Sv DeleteLoadBalancer = ELB
         type Rs DeleteLoadBalancer =

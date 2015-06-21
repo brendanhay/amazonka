@@ -50,6 +50,7 @@ module Network.AWS.IAM.ListRolePolicies
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -88,10 +89,11 @@ lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
 
-instance AWSPager A where
+instance AWSPager ListRolePolicies where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lrprIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lrpMarker .~ rs ^. lrprMarker
 
 instance AWSRequest ListRolePolicies where
         type Sv ListRolePolicies = IAM

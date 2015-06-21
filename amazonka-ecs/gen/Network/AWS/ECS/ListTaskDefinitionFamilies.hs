@@ -41,6 +41,7 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     ) where
 
 import Network.AWS.ECS.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,10 +88,11 @@ ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
 ltdfMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
 ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager ListTaskDefinitionFamilies where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ltdfrNextToken) = Nothing
+          | otherwise =
+            rq & ltdfNextToken ?~ rs ^. ltdfrNextToken
 
 instance AWSRequest ListTaskDefinitionFamilies where
         type Sv ListTaskDefinitionFamilies = ECS

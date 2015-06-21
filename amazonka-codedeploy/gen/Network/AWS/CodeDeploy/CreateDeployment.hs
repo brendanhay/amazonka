@@ -106,11 +106,6 @@ cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGro
 cdApplicationName :: Lens' CreateDeployment Text
 cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = CodeDeploy
         type Rs CreateDeployment = CreateDeploymentResponse

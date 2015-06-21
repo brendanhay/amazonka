@@ -40,6 +40,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsrDBSnapshots
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -120,10 +121,10 @@ ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBSnapshots where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddsrMarker) = Nothing
+          | otherwise = rq & ddsMarker ?~ rs ^. ddsrMarker
 
 instance AWSRequest DescribeDBSnapshots where
         type Sv DescribeDBSnapshots = RDS

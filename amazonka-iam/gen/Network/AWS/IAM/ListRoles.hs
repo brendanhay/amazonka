@@ -45,6 +45,7 @@ module Network.AWS.IAM.ListRoles
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -88,10 +89,10 @@ lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 lrMarker :: Lens' ListRoles (Maybe Text)
 lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListRoles where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lrrIsTruncated) = Nothing
+          | otherwise = Just $ rq & lrMarker .~ rs ^. lrrMarker
 
 instance AWSRequest ListRoles where
         type Sv ListRoles = IAM

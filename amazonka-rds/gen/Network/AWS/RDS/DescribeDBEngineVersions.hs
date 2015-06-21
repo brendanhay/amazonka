@@ -42,6 +42,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     , ddevrDBEngineVersions
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -124,10 +125,10 @@ ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a});
 ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBEngineVersions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddevrMarker) = Nothing
+          | otherwise = rq & ddevMarker ?~ rs ^. ddevrMarker
 
 instance AWSRequest DescribeDBEngineVersions where
         type Sv DescribeDBEngineVersions = RDS

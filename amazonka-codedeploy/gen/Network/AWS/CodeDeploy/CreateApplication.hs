@@ -55,11 +55,6 @@ createApplication pApplicationName = CreateApplication'{_caApplicationName = pAp
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateApplication where
         type Sv CreateApplication = CodeDeploy
         type Rs CreateApplication = CreateApplicationResponse

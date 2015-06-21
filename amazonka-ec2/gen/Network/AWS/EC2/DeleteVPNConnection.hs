@@ -72,11 +72,6 @@ dvcDryRun = lens _dvcDryRun (\ s a -> s{_dvcDryRun = a});
 dvcVPNConnectionId :: Lens' DeleteVPNConnection Text
 dvcVPNConnectionId = lens _dvcVPNConnectionId (\ s a -> s{_dvcVPNConnectionId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVPNConnection where
         type Sv DeleteVPNConnection = EC2
         type Rs DeleteVPNConnection =

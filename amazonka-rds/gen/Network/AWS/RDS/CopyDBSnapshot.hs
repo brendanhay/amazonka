@@ -92,11 +92,6 @@ cdsSourceDBSnapshotIdentifier = lens _cdsSourceDBSnapshotIdentifier (\ s a -> s{
 cdsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdsTargetDBSnapshotIdentifier = lens _cdsTargetDBSnapshotIdentifier (\ s a -> s{_cdsTargetDBSnapshotIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CopyDBSnapshot where
         type Sv CopyDBSnapshot = RDS
         type Rs CopyDBSnapshot = CopyDBSnapshotResponse

@@ -95,11 +95,6 @@ desFlowLogIds = lens _desFlowLogIds (\ s a -> s{_desFlowLogIds = a}) . _Default;
 desMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
 desMaxResults = lens _desMaxResults (\ s a -> s{_desMaxResults = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeFlowLogs where
         type Sv DescribeFlowLogs = EC2
         type Rs DescribeFlowLogs = DescribeFlowLogsResponse

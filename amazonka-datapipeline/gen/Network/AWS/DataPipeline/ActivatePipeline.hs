@@ -74,11 +74,6 @@ apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a})
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\ s a -> s{_apPipelineId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ActivatePipeline where
         type Sv ActivatePipeline = DataPipeline
         type Rs ActivatePipeline = ActivatePipelineResponse

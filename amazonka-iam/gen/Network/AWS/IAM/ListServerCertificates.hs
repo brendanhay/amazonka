@@ -43,6 +43,7 @@ module Network.AWS.IAM.ListServerCertificates
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,10 +87,11 @@ lscMaxItems = lens _lscMaxItems (\ s a -> s{_lscMaxItems = a}) . mapping _Nat;
 lscMarker :: Lens' ListServerCertificates (Maybe Text)
 lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListServerCertificates where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lscrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lscMarker .~ rs ^. lscrMarker
 
 instance AWSRequest ListServerCertificates where
         type Sv ListServerCertificates = IAM

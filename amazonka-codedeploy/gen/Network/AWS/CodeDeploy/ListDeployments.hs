@@ -94,11 +94,6 @@ ldApplicationName = lens _ldApplicationName (\ s a -> s{_ldApplicationName = a})
 ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
 ldDeploymentGroupName = lens _ldDeploymentGroupName (\ s a -> s{_ldDeploymentGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListDeployments where
         type Sv ListDeployments = CodeDeploy
         type Rs ListDeployments = ListDeploymentsResponse

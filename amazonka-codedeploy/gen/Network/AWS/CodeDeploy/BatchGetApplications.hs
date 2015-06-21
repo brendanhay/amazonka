@@ -55,11 +55,6 @@ batchGetApplications = BatchGetApplications'{_bgaApplicationNames = Nothing};
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest BatchGetApplications where
         type Sv BatchGetApplications = CodeDeploy
         type Rs BatchGetApplications =

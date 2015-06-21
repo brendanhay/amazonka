@@ -76,11 +76,6 @@ asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscripti
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddSourceIdentifierToSubscription
          where
         type Sv AddSourceIdentifierToSubscription = RDS

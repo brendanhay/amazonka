@@ -59,11 +59,6 @@ deleteDBParameterGroup pDBParameterGroupName = DeleteDBParameterGroup'{_delDBPar
 delDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
 delDBParameterGroupName = lens _delDBParameterGroupName (\ s a -> s{_delDBParameterGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteDBParameterGroup where
         type Sv DeleteDBParameterGroup = RDS
         type Rs DeleteDBParameterGroup =

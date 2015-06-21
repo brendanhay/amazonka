@@ -37,6 +37,7 @@ module Network.AWS.CloudFront.ListInvalidations
     ) where
 
 import Network.AWS.CloudFront.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,10 +76,14 @@ liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
-instance AWSPager A where
+instance AWSPager ListInvalidations where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lirInvalidationList . ilIsTruncated) =
+            Nothing
+          | otherwise =
+            Just $
+              rq &
+                liMarker .~ rs ^. lirInvalidationList . ilNextMarker
 
 instance AWSRequest ListInvalidations where
         type Sv ListInvalidations = CloudFront

@@ -70,11 +70,6 @@ ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = 
 ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateGatewayInformation where
         type Sv UpdateGatewayInformation = StorageGateway
         type Rs UpdateGatewayInformation =

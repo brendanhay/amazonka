@@ -40,6 +40,7 @@ module Network.AWS.StorageGateway.DescribeTapes
     , dtrTapes
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,10 +88,10 @@ dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default;
 dtGatewayARN :: Lens' DescribeTapes Text
 dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
 
-instance AWSPager A where
+instance AWSPager DescribeTapes where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dtrMarker) = Nothing
+          | otherwise = rq & dtMarker ?~ rs ^. dtrMarker
 
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway

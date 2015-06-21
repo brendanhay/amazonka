@@ -47,6 +47,7 @@ module Network.AWS.StorageGateway.ListGateways
     , lgrGateways
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,10 +76,10 @@ lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
-instance AWSPager A where
+instance AWSPager ListGateways where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lgrMarker) = Nothing
+          | otherwise = rq & lgMarker ?~ rs ^. lgrMarker
 
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway

@@ -58,11 +58,6 @@ deleteClusterParameterGroup pParameterGroupName = DeleteClusterParameterGroup'{_
 delParameterGroupName :: Lens' DeleteClusterParameterGroup Text
 delParameterGroupName = lens _delParameterGroupName (\ s a -> s{_delParameterGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteClusterParameterGroup where
         type Sv DeleteClusterParameterGroup = Redshift
         type Rs DeleteClusterParameterGroup =

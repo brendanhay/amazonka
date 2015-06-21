@@ -41,6 +41,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,10 +86,10 @@ dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 dReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
 dReplicationGroupId = lens _dReplicationGroupId (\ s a -> s{_dReplicationGroupId = a});
 
-instance AWSPager A where
+instance AWSPager DescribeReplicationGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. drgrMarker) = Nothing
+          | otherwise = rq & dMarker ?~ rs ^. drgrMarker
 
 instance AWSRequest DescribeReplicationGroups where
         type Sv DescribeReplicationGroups = ElastiCache

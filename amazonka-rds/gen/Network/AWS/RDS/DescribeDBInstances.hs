@@ -39,6 +39,7 @@ module Network.AWS.RDS.DescribeDBInstances
     , ddirMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -94,10 +95,10 @@ ddbiMaxRecords = lens _ddbiMaxRecords (\ s a -> s{_ddbiMaxRecords = a});
 ddbiMarker :: Lens' DescribeDBInstances (Maybe Text)
 ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBInstances where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddirMarker) = Nothing
+          | otherwise = rq & ddbiMarker ?~ rs ^. ddirMarker
 
 instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS

@@ -55,11 +55,6 @@ deleteTapeArchive pTapeARN = DeleteTapeArchive'{_dtaTapeARN = pTapeARN};
 dtaTapeARN :: Lens' DeleteTapeArchive Text
 dtaTapeARN = lens _dtaTapeARN (\ s a -> s{_dtaTapeARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteTapeArchive where
         type Sv DeleteTapeArchive = StorageGateway
         type Rs DeleteTapeArchive = DeleteTapeArchiveResponse

@@ -87,11 +87,6 @@ cpaPlatform = lens _cpaPlatform (\ s a -> s{_cpaPlatform = a});
 cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
 cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreatePlatformApplication where
         type Sv CreatePlatformApplication = SNS
         type Rs CreatePlatformApplication =

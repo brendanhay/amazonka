@@ -42,6 +42,7 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     , dtarMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -77,10 +78,10 @@ dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat;
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
 dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default;
 
-instance AWSPager A where
+instance AWSPager DescribeTapeArchives where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dtarMarker) = Nothing
+          | otherwise = rq & dtaMarker ?~ rs ^. dtarMarker
 
 instance AWSRequest DescribeTapeArchives where
         type Sv DescribeTapeArchives = StorageGateway

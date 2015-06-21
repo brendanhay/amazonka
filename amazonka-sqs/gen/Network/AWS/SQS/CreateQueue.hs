@@ -116,11 +116,6 @@ cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Default . _
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\ s a -> s{_cqQueueName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateQueue where
         type Sv CreateQueue = SQS
         type Rs CreateQueue = CreateQueueResponse

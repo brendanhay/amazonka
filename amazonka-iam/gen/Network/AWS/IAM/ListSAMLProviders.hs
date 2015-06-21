@@ -47,11 +47,6 @@ data ListSAMLProviders = ListSAMLProviders' deriving (Eq, Read, Show)
 listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListSAMLProviders where
         type Sv ListSAMLProviders = IAM
         type Rs ListSAMLProviders = ListSAMLProvidersResponse

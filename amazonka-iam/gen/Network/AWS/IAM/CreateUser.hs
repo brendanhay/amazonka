@@ -71,11 +71,6 @@ cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateUser where
         type Sv CreateUser = IAM
         type Rs CreateUser = CreateUserResponse

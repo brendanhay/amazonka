@@ -63,6 +63,7 @@ module Network.AWS.SWF.ListDomains
     , ldrDomainInfos
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -115,10 +116,11 @@ ldMaximumPageSize = lens _ldMaximumPageSize (\ s a -> s{_ldMaximumPageSize = a})
 ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
 ldRegistrationStatus = lens _ldRegistrationStatus (\ s a -> s{_ldRegistrationStatus = a});
 
-instance AWSPager A where
+instance AWSPager ListDomains where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ldrNextPageToken) = Nothing
+          | otherwise =
+            rq & ldNextPageToken ?~ rs ^. ldrNextPageToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SWF

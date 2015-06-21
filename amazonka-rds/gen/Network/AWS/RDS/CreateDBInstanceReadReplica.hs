@@ -219,11 +219,6 @@ cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDB
 cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDBInstanceReadReplica where
         type Sv CreateDBInstanceReadReplica = RDS
         type Rs CreateDBInstanceReadReplica =

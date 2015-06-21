@@ -77,11 +77,6 @@ vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\ s a -> s{_vtTemplateURL = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ValidateTemplate where
         type Sv ValidateTemplate = CloudFormation
         type Rs ValidateTemplate = ValidateTemplateResponse

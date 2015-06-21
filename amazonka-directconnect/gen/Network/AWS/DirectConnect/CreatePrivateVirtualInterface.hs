@@ -79,11 +79,6 @@ creConnectionId = lens _creConnectionId (\ s a -> s{_creConnectionId = a});
 creNewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
 creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{_creNewPrivateVirtualInterface = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreatePrivateVirtualInterface
          where
         type Sv CreatePrivateVirtualInterface = DirectConnect

@@ -52,6 +52,7 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     , dhccrHSMClientCertificates
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -123,10 +124,10 @@ dhccMaxRecords = lens _dhccMaxRecords (\ s a -> s{_dhccMaxRecords = a});
 dhccMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
 dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeHSMClientCertificates where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dhccrMarker) = Nothing
+          | otherwise = rq & dhccMarker ?~ rs ^. dhccrMarker
 
 instance AWSRequest DescribeHSMClientCertificates
          where

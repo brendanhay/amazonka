@@ -48,6 +48,7 @@ module Network.AWS.ElastiCache.DescribeEvents
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -119,10 +120,10 @@ deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEvents where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. derMarker) = Nothing
+          | otherwise = rq & deMarker ?~ rs ^. derMarker
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElastiCache

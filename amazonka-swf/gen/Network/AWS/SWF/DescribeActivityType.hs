@@ -89,11 +89,6 @@ datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeActivityType where
         type Sv DescribeActivityType = SWF
         type Rs DescribeActivityType =

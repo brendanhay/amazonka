@@ -109,11 +109,6 @@ dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
 dvpngVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
 dvpngVPNGatewayIds = lens _dvpngVPNGatewayIds (\ s a -> s{_dvpngVPNGatewayIds = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeVPNGateways where
         type Sv DescribeVPNGateways = EC2
         type Rs DescribeVPNGateways =

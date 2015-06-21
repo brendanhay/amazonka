@@ -63,11 +63,6 @@ purgeQueue pQueueURL = PurgeQueue'{_pqQueueURL = pQueueURL};
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PurgeQueue where
         type Sv PurgeQueue = SQS
         type Rs PurgeQueue = PurgeQueueResponse

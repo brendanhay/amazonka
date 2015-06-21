@@ -47,6 +47,7 @@ module Network.AWS.MachineLearning.DescribeMLModels
     ) where
 
 import Network.AWS.MachineLearning.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -173,10 +174,11 @@ dmlmFilterVariable = lens _dmlmFilterVariable (\ s a -> s{_dmlmFilterVariable = 
 dmlmLE :: Lens' DescribeMLModels (Maybe Text)
 dmlmLE = lens _dmlmLE (\ s a -> s{_dmlmLE = a});
 
-instance AWSPager A where
+instance AWSPager DescribeMLModels where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dmlmrNextToken) = Nothing
+          | otherwise =
+            rq & dmlmNextToken ?~ rs ^. dmlmrNextToken
 
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning

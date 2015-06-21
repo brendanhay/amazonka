@@ -59,11 +59,6 @@ getIdentityVerificationAttributes = GetIdentityVerificationAttributes'{_givaIden
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetIdentityVerificationAttributes
          where
         type Sv GetIdentityVerificationAttributes = SES

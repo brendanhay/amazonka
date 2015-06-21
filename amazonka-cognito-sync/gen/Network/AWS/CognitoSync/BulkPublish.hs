@@ -60,11 +60,6 @@ bulkPublish pIdentityPoolId = BulkPublish'{_bpIdentityPoolId = pIdentityPoolId};
 bpIdentityPoolId :: Lens' BulkPublish Text
 bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest BulkPublish where
         type Sv BulkPublish = CognitoSync
         type Rs BulkPublish = BulkPublishResponse

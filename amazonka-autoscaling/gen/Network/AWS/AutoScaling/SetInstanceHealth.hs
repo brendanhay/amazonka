@@ -79,11 +79,6 @@ sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 sihHealthStatus :: Lens' SetInstanceHealth Text
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetInstanceHealth where
         type Sv SetInstanceHealth = AutoScaling
         type Rs SetInstanceHealth = SetInstanceHealthResponse

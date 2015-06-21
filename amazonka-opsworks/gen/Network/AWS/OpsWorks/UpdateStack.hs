@@ -264,11 +264,6 @@ usHostnameTheme = lens _usHostnameTheme (\ s a -> s{_usHostnameTheme = a});
 usStackId :: Lens' UpdateStack Text
 usStackId = lens _usStackId (\ s a -> s{_usStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = OpsWorks
         type Rs UpdateStack = UpdateStackResponse

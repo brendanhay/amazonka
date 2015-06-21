@@ -73,11 +73,6 @@ dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a});
 dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeVirtualInterfaces where
         type Sv DescribeVirtualInterfaces = DirectConnect
         type Rs DescribeVirtualInterfaces =

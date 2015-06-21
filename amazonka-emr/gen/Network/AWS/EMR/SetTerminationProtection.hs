@@ -82,11 +82,6 @@ stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a});
 stpTerminationProtected :: Lens' SetTerminationProtection Bool
 stpTerminationProtected = lens _stpTerminationProtected (\ s a -> s{_stpTerminationProtected = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetTerminationProtection where
         type Sv SetTerminationProtection = EMR
         type Rs SetTerminationProtection =

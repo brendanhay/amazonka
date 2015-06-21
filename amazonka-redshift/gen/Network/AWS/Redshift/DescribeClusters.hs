@@ -54,6 +54,7 @@ module Network.AWS.Redshift.DescribeClusters
     , dcrClusters
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -127,10 +128,10 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 dcMarker :: Lens' DescribeClusters (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeClusters where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcrMarker) = Nothing
+          | otherwise = rq & dcMarker ?~ rs ^. dcrMarker
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = Redshift

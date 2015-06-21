@@ -227,11 +227,6 @@ upNotifications = lens _upNotifications (\ s a -> s{_upNotifications = a});
 upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\ s a -> s{_upId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdatePipeline where
         type Sv UpdatePipeline = ElasticTranscoder
         type Rs UpdatePipeline = UpdatePipelineResponse

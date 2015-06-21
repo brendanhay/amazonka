@@ -70,11 +70,6 @@ ucfoaiCloudFrontOriginAccessIdentityConfig = lens _ucfoaiCloudFrontOriginAccessI
 ucfoaiId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
 ucfoaiId = lens _ucfoaiId (\ s a -> s{_ucfoaiId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          UpdateCloudFrontOriginAccessIdentity where
         type Sv UpdateCloudFrontOriginAccessIdentity =

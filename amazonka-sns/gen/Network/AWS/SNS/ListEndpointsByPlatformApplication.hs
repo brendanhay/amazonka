@@ -45,6 +45,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     , lebparEndpoints
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,10 +75,12 @@ lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a});
 lebpaPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
 lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a});
 
-instance AWSPager A where
+instance AWSPager ListEndpointsByPlatformApplication
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lebparNextToken) = Nothing
+          | otherwise =
+            rq & lebpaNextToken ?~ rs ^. lebparNextToken
 
 instance AWSRequest
          ListEndpointsByPlatformApplication where

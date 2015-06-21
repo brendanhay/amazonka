@@ -57,6 +57,7 @@ module Network.AWS.Support.DescribeCases
     , desNextToken
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -134,10 +135,10 @@ dcLanguage = lens _dcLanguage (\ s a -> s{_dcLanguage = a});
 dcMaxResults :: Lens' DescribeCases (Maybe Natural)
 dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a}) . mapping _Nat;
 
-instance AWSPager A where
+instance AWSPager DescribeCases where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. desNextToken) = Nothing
+          | otherwise = rq & dcNextToken ?~ rs ^. desNextToken
 
 instance AWSRequest DescribeCases where
         type Sv DescribeCases = Support

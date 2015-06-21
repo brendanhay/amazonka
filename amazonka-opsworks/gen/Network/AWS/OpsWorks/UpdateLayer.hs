@@ -182,11 +182,6 @@ ulAutoAssignElasticIPs = lens _ulAutoAssignElasticIPs (\ s a -> s{_ulAutoAssignE
 ulLayerId :: Lens' UpdateLayer Text
 ulLayerId = lens _ulLayerId (\ s a -> s{_ulLayerId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateLayer where
         type Sv UpdateLayer = OpsWorks
         type Rs UpdateLayer = UpdateLayerResponse

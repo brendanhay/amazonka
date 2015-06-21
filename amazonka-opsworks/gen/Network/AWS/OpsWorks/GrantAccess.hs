@@ -66,11 +66,6 @@ gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes
 gaInstanceId :: Lens' GrantAccess Text
 gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GrantAccess where
         type Sv GrantAccess = OpsWorks
         type Rs GrantAccess = GrantAccessResponse

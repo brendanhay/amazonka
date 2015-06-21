@@ -80,11 +80,6 @@ pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a});
 pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
 pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutMetricFilter where
         type Sv PutMetricFilter = CloudWatchLogs
         type Rs PutMetricFilter = PutMetricFilterResponse

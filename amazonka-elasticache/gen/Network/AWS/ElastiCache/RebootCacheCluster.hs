@@ -74,11 +74,6 @@ rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a})
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RebootCacheCluster where
         type Sv RebootCacheCluster = ElastiCache
         type Rs RebootCacheCluster =

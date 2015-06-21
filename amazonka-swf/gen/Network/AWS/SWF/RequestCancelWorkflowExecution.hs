@@ -96,11 +96,6 @@ rcweDomain = lens _rcweDomain (\ s a -> s{_rcweDomain = a});
 rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
 rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RequestCancelWorkflowExecution
          where
         type Sv RequestCancelWorkflowExecution = SWF

@@ -54,11 +54,6 @@ getSnapshotLimits pDirectoryId = GetSnapshotLimits'{_gslDirectoryId = pDirectory
 gslDirectoryId :: Lens' GetSnapshotLimits Text
 gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetSnapshotLimits where
         type Sv GetSnapshotLimits = DirectoryService
         type Rs GetSnapshotLimits = GetSnapshotLimitsResponse

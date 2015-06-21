@@ -40,6 +40,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,10 +81,10 @@ dcsg1MaxRecords = lens _dcsg1MaxRecords (\ s a -> s{_dcsg1MaxRecords = a});
 dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\ s a -> s{_dcsg1Marker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCacheSecurityGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. descMarker) = Nothing
+          | otherwise = rq & dcsg1Marker ?~ rs ^. descMarker
 
 instance AWSRequest DescribeCacheSecurityGroups where
         type Sv DescribeCacheSecurityGroups = ElastiCache

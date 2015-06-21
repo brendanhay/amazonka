@@ -62,11 +62,6 @@ ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = 
 ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
 ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteDeploymentGroup where
         type Sv DeleteDeploymentGroup = CodeDeploy
         type Rs DeleteDeploymentGroup =

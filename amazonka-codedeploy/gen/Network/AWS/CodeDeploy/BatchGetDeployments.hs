@@ -55,11 +55,6 @@ batchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds = Nothing};
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
 bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest BatchGetDeployments where
         type Sv BatchGetDeployments = CodeDeploy
         type Rs BatchGetDeployments =

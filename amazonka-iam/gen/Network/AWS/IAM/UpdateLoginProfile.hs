@@ -71,11 +71,6 @@ ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswo
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateLoginProfile where
         type Sv UpdateLoginProfile = IAM
         type Rs UpdateLoginProfile =

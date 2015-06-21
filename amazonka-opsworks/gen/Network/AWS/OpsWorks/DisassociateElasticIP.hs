@@ -60,11 +60,6 @@ disassociateElasticIP pElasticIP = DisassociateElasticIP'{_deiElasticIP = pElast
 deiElasticIP :: Lens' DisassociateElasticIP Text
 deiElasticIP = lens _deiElasticIP (\ s a -> s{_deiElasticIP = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisassociateElasticIP where
         type Sv DisassociateElasticIP = OpsWorks
         type Rs DisassociateElasticIP =

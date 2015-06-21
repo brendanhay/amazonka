@@ -63,11 +63,6 @@ caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a});
 caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelArchival where
         type Sv CancelArchival = StorageGateway
         type Rs CancelArchival = CancelArchivalResponse

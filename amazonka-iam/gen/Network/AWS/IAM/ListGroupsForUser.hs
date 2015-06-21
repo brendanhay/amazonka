@@ -42,6 +42,7 @@ module Network.AWS.IAM.ListGroupsForUser
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -80,10 +81,11 @@ lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\ s a -> s{_lgfuUserName = a});
 
-instance AWSPager A where
+instance AWSPager ListGroupsForUser where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lgfurIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lgfuMarker .~ rs ^. lgfurMarker
 
 instance AWSRequest ListGroupsForUser where
         type Sv ListGroupsForUser = IAM

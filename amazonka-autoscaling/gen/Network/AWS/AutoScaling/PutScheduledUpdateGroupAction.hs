@@ -130,11 +130,6 @@ psugaAutoScalingGroupName = lens _psugaAutoScalingGroupName (\ s a -> s{_psugaAu
 psugaScheduledActionName :: Lens' PutScheduledUpdateGroupAction Text
 psugaScheduledActionName = lens _psugaScheduledActionName (\ s a -> s{_psugaScheduledActionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutScheduledUpdateGroupAction
          where
         type Sv PutScheduledUpdateGroupAction = AutoScaling

@@ -94,11 +94,6 @@ cdpgTargetDBParameterGroupIdentifier = lens _cdpgTargetDBParameterGroupIdentifie
 cdpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
 cdpgTargetDBParameterGroupDescription = lens _cdpgTargetDBParameterGroupDescription (\ s a -> s{_cdpgTargetDBParameterGroupDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CopyDBParameterGroup where
         type Sv CopyDBParameterGroup = RDS
         type Rs CopyDBParameterGroup =

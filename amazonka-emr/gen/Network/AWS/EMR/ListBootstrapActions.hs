@@ -38,6 +38,7 @@ module Network.AWS.EMR.ListBootstrapActions
     ) where
 
 import Network.AWS.EMR.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -64,10 +65,10 @@ lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
 lbaClusterId :: Lens' ListBootstrapActions Text
 lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
 
-instance AWSPager A where
+instance AWSPager ListBootstrapActions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lbarMarker) = Nothing
+          | otherwise = rq & lbaMarker ?~ rs ^. lbarMarker
 
 instance AWSRequest ListBootstrapActions where
         type Sv ListBootstrapActions = EMR

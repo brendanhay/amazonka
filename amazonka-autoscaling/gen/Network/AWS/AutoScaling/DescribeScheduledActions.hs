@@ -43,6 +43,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -102,10 +103,11 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 desScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desScheduledActionNames = a}) . _Default;
 
-instance AWSPager A where
+instance AWSPager DescribeScheduledActions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dsarNextToken) = Nothing
+          | otherwise =
+            rq & desNextToken ?~ rs ^. dsarNextToken
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling

@@ -66,11 +66,6 @@ startGateway pGatewayARN = StartGateway'{_sgGatewayARN = pGatewayARN};
 sgGatewayARN :: Lens' StartGateway Text
 sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest StartGateway where
         type Sv StartGateway = StorageGateway
         type Rs StartGateway = StartGatewayResponse

@@ -65,11 +65,6 @@ ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a});
 ueEvaluationName :: Lens' UpdateEvaluation Text
 ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateEvaluation where
         type Sv UpdateEvaluation = MachineLearning
         type Rs UpdateEvaluation = UpdateEvaluationResponse

@@ -141,11 +141,6 @@ cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
 cfCode :: Lens' CreateFunction FunctionCode
 cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateFunction where
         type Sv CreateFunction = Lambda
         type Rs CreateFunction = FunctionConfiguration

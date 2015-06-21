@@ -119,11 +119,6 @@ lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 lpMarker :: Lens' ListPolicies (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListPolicies where
         type Sv ListPolicies = IAM
         type Rs ListPolicies = ListPoliciesResponse

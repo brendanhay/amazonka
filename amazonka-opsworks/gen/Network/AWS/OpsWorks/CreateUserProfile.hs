@@ -86,11 +86,6 @@ cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfM
 cupIAMUserARN :: Lens' CreateUserProfile Text
 cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateUserProfile where
         type Sv CreateUserProfile = OpsWorks
         type Rs CreateUserProfile = CreateUserProfileResponse

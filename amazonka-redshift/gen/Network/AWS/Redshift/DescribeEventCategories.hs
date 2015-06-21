@@ -60,11 +60,6 @@ describeEventCategories = DescribeEventCategories'{_decSourceType = Nothing};
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = Redshift
         type Rs DescribeEventCategories =

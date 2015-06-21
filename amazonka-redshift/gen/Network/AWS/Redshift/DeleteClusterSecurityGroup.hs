@@ -59,11 +59,6 @@ deleteClusterSecurityGroup pClusterSecurityGroupName = DeleteClusterSecurityGrou
 delClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
 delClusterSecurityGroupName = lens _delClusterSecurityGroupName (\ s a -> s{_delClusterSecurityGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteClusterSecurityGroup where
         type Sv DeleteClusterSecurityGroup = Redshift
         type Rs DeleteClusterSecurityGroup =

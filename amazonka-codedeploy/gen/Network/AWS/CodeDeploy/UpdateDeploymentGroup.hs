@@ -107,11 +107,6 @@ udgApplicationName = lens _udgApplicationName (\ s a -> s{_udgApplicationName = 
 udgCurrentDeploymentGroupName :: Lens' UpdateDeploymentGroup Text
 udgCurrentDeploymentGroupName = lens _udgCurrentDeploymentGroupName (\ s a -> s{_udgCurrentDeploymentGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateDeploymentGroup where
         type Sv UpdateDeploymentGroup = CodeDeploy
         type Rs UpdateDeploymentGroup =

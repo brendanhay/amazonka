@@ -170,11 +170,6 @@ gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 gftName :: Lens' GetFederationToken Text
 gftName = lens _gftName (\ s a -> s{_gftName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetFederationToken where
         type Sv GetFederationToken = STS
         type Rs GetFederationToken =

@@ -70,11 +70,6 @@ dlbMaxRecords = lens _dlbMaxRecords (\ s a -> s{_dlbMaxRecords = a});
 dlbAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
 dlbAutoScalingGroupName = lens _dlbAutoScalingGroupName (\ s a -> s{_dlbAutoScalingGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = AutoScaling
         type Rs DescribeLoadBalancers =

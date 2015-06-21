@@ -71,11 +71,6 @@ upsId = lens _upsId (\ s a -> s{_upsId = a});
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdatePipelineStatus where
         type Sv UpdatePipelineStatus = ElasticTranscoder
         type Rs UpdatePipelineStatus =

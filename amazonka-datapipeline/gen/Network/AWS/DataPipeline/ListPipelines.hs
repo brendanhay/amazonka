@@ -38,6 +38,7 @@ module Network.AWS.DataPipeline.ListPipelines
     ) where
 
 import Network.AWS.DataPipeline.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -60,10 +61,10 @@ listPipelines = ListPipelines'{_lpMarker = Nothing};
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListPipelines where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lprHasMoreResults) = Nothing
+          | otherwise = Just $ rq & lpMarker .~ rs ^. lprMarker
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = DataPipeline

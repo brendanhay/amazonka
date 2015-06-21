@@ -58,11 +58,6 @@ listQueues = ListQueues'{_lqQueueNamePrefix = Nothing};
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListQueues where
         type Sv ListQueues = SQS
         type Rs ListQueues = ListQueuesResponse

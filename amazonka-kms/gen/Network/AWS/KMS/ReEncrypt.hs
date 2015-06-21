@@ -109,11 +109,6 @@ reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a});
 reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ReEncrypt where
         type Sv ReEncrypt = KMS
         type Rs ReEncrypt = ReEncryptResponse

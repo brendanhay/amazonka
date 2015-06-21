@@ -99,11 +99,6 @@ ratfDetails = lens _ratfDetails (\ s a -> s{_ratfDetails = a});
 ratfTaskToken :: Lens' RespondActivityTaskFailed Text
 ratfTaskToken = lens _ratfTaskToken (\ s a -> s{_ratfTaskToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RespondActivityTaskFailed where
         type Sv RespondActivityTaskFailed = SWF
         type Rs RespondActivityTaskFailed =

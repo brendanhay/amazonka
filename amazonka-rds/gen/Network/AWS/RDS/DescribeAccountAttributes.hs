@@ -49,11 +49,6 @@ data DescribeAccountAttributes = DescribeAccountAttributes' deriving (Eq, Read, 
 describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = RDS
         type Rs DescribeAccountAttributes =

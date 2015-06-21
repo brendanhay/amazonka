@@ -55,11 +55,6 @@ getDeployment pDeploymentId = GetDeployment'{_gdDeploymentId = pDeploymentId};
 gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetDeployment where
         type Sv GetDeployment = CodeDeploy
         type Rs GetDeployment = GetDeploymentResponse

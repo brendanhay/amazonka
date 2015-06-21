@@ -68,11 +68,6 @@ gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
 gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
 gcfiIdentityId = lens _gcfiIdentityId (\ s a -> s{_gcfiIdentityId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetCredentialsForIdentity where
         type Sv GetCredentialsForIdentity = CognitoIdentity
         type Rs GetCredentialsForIdentity =

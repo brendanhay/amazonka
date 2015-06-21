@@ -55,11 +55,6 @@ getStreamingDistribution pId = GetStreamingDistribution'{_gsdId = pId};
 gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetStreamingDistribution where
         type Sv GetStreamingDistribution = CloudFront
         type Rs GetStreamingDistribution =

@@ -61,11 +61,6 @@ terminateJobFlows = TerminateJobFlows'{_tjfJobFlowIds = mempty};
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
 tjfJobFlowIds = lens _tjfJobFlowIds (\ s a -> s{_tjfJobFlowIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest TerminateJobFlows where
         type Sv TerminateJobFlows = EMR
         type Rs TerminateJobFlows = TerminateJobFlowsResponse

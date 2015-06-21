@@ -69,11 +69,6 @@ laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListAliases where
         type Sv ListAliases = KMS
         type Rs ListAliases = ListAliasesResponse

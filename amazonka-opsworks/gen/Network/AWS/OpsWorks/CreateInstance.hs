@@ -211,11 +211,6 @@ ciLayerIds = lens _ciLayerIds (\ s a -> s{_ciLayerIds = a});
 ciInstanceType :: Lens' CreateInstance Text
 ciInstanceType = lens _ciInstanceType (\ s a -> s{_ciInstanceType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateInstance where
         type Sv CreateInstance = OpsWorks
         type Rs CreateInstance = CreateInstanceResponse

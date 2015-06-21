@@ -56,11 +56,6 @@ describeCluster pClusterId = DescribeCluster'{_dcClusterId = pClusterId};
 dcClusterId :: Lens' DescribeCluster Text
 dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeCluster where
         type Sv DescribeCluster = EMR
         type Rs DescribeCluster = DescribeClusterResponse

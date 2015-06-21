@@ -37,6 +37,7 @@ module Network.AWS.EMR.ListInstanceGroups
     ) where
 
 import Network.AWS.EMR.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -62,10 +63,10 @@ ligMarker = lens _ligMarker (\ s a -> s{_ligMarker = a});
 ligClusterId :: Lens' ListInstanceGroups Text
 ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a});
 
-instance AWSPager A where
+instance AWSPager ListInstanceGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ligrMarker) = Nothing
+          | otherwise = rq & ligMarker ?~ rs ^. ligrMarker
 
 instance AWSRequest ListInstanceGroups where
         type Sv ListInstanceGroups = EMR

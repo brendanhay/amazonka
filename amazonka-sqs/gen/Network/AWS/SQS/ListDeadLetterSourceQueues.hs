@@ -58,11 +58,6 @@ listDeadLetterSourceQueues pQueueURL = ListDeadLetterSourceQueues'{_ldlsqQueueUR
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListDeadLetterSourceQueues where
         type Sv ListDeadLetterSourceQueues = SQS
         type Rs ListDeadLetterSourceQueues =

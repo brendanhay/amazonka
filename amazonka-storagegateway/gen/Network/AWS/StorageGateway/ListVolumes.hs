@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.ListVolumes
     , lvrVolumeInfos
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,10 +84,10 @@ lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
 lvGatewayARN :: Lens' ListVolumes Text
 lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
 
-instance AWSPager A where
+instance AWSPager ListVolumes where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lvrMarker) = Nothing
+          | otherwise = rq & lvMarker ?~ rs ^. lvrMarker
 
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway

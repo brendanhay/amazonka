@@ -73,11 +73,6 @@ aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AllocateAddress where
         type Sv AllocateAddress = EC2
         type Rs AllocateAddress = AllocateAddressResponse

@@ -88,6 +88,7 @@ module Network.AWS.SWF.PollForDecisionTask
     , pfdtrEvents
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -168,10 +169,11 @@ pfdtDomain = lens _pfdtDomain (\ s a -> s{_pfdtDomain = a});
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\ s a -> s{_pfdtTaskList = a});
 
-instance AWSPager A where
+instance AWSPager PollForDecisionTask where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. pfdtrNextPageToken) = Nothing
+          | otherwise =
+            rq & pfdtNextPageToken ?~ rs ^. pfdtrNextPageToken
 
 instance AWSRequest PollForDecisionTask where
         type Sv PollForDecisionTask = SWF

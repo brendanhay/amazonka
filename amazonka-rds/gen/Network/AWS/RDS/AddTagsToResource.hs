@@ -67,11 +67,6 @@ attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = RDS
         type Rs AddTagsToResource = AddTagsToResourceResponse

@@ -71,11 +71,6 @@ rvEC2VolumeId = lens _rvEC2VolumeId (\ s a -> s{_rvEC2VolumeId = a});
 rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RegisterVolume where
         type Sv RegisterVolume = OpsWorks
         type Rs RegisterVolume = RegisterVolumeResponse

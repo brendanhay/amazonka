@@ -42,6 +42,7 @@ module Network.AWS.Lambda.ListFunctions
     ) where
 
 import Network.AWS.Lambda.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,10 +71,10 @@ lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListFunctions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lfrNextMarker) = Nothing
+          | otherwise = rq & lfMarker ?~ rs ^. lfrNextMarker
 
 instance AWSRequest ListFunctions where
         type Sv ListFunctions = Lambda

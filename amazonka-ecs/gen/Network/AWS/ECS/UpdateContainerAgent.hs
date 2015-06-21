@@ -66,11 +66,6 @@ ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a});
 ucaContainerInstance :: Lens' UpdateContainerAgent Text
 ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateContainerAgent where
         type Sv UpdateContainerAgent = ECS
         type Rs UpdateContainerAgent =

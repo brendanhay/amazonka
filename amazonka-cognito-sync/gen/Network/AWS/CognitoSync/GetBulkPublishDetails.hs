@@ -60,11 +60,6 @@ getBulkPublishDetails pIdentityPoolId = GetBulkPublishDetails'{_gbpdIdentityPool
 gbpdIdentityPoolId :: Lens' GetBulkPublishDetails Text
 gbpdIdentityPoolId = lens _gbpdIdentityPoolId (\ s a -> s{_gbpdIdentityPoolId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetBulkPublishDetails where
         type Sv GetBulkPublishDetails = CognitoSync
         type Rs GetBulkPublishDetails =

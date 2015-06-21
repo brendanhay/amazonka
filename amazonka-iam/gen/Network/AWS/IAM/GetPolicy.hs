@@ -68,11 +68,6 @@ getPolicy pPolicyARN = GetPolicy'{_gpPolicyARN = pPolicyARN};
 gpPolicyARN :: Lens' GetPolicy Text
 gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetPolicy where
         type Sv GetPolicy = IAM
         type Rs GetPolicy = GetPolicyResponse

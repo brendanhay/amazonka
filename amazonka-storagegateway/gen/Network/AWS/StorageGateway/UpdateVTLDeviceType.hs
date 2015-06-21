@@ -66,11 +66,6 @@ uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = 
 uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
 uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateVTLDeviceType where
         type Sv UpdateVTLDeviceType = StorageGateway
         type Rs UpdateVTLDeviceType =

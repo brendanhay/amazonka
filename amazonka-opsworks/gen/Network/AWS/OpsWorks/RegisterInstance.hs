@@ -111,11 +111,6 @@ riRsaPublicKey = lens _riRsaPublicKey (\ s a -> s{_riRsaPublicKey = a});
 riStackId :: Lens' RegisterInstance Text
 riStackId = lens _riStackId (\ s a -> s{_riStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RegisterInstance where
         type Sv RegisterInstance = OpsWorks
         type Rs RegisterInstance = RegisterInstanceResponse

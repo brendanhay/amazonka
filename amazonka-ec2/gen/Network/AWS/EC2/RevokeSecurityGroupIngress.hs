@@ -140,11 +140,6 @@ rsgiSourceSecurityGroupName = lens _rsgiSourceSecurityGroupName (\ s a -> s{_rsg
 rsgiDryRun :: Lens' RevokeSecurityGroupIngress (Maybe Bool)
 rsgiDryRun = lens _rsgiDryRun (\ s a -> s{_rsgiDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RevokeSecurityGroupIngress where
         type Sv RevokeSecurityGroupIngress = EC2
         type Rs RevokeSecurityGroupIngress =

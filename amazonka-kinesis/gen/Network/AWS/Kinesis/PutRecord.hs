@@ -140,11 +140,6 @@ prData = lens _prData (\ s a -> s{_prData = a});
 prPartitionKey :: Lens' PutRecord Text
 prPartitionKey = lens _prPartitionKey (\ s a -> s{_prPartitionKey = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutRecord where
         type Sv PutRecord = Kinesis
         type Rs PutRecord = PutRecordResponse

@@ -106,11 +106,6 @@ cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\ s a -> 
 cbpOutputURI :: Lens' CreateBatchPrediction Text
 cbpOutputURI = lens _cbpOutputURI (\ s a -> s{_cbpOutputURI = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateBatchPrediction where
         type Sv CreateBatchPrediction = MachineLearning
         type Rs CreateBatchPrediction =

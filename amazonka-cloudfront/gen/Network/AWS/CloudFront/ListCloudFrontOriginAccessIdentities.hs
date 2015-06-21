@@ -36,6 +36,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     ) where
 
 import Network.AWS.CloudFront.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -66,10 +67,21 @@ lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
-instance AWSPager A where
+instance AWSPager
+         ListCloudFrontOriginAccessIdentities where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop
+              (rs ^.
+                 lcfoairCloudFrontOriginAccessIdentityList .
+                   cfoailIsTruncated)
+            = Nothing
+          | otherwise =
+            Just $
+              rq &
+                lcfoaiMarker .~
+                  rs ^.
+                    lcfoairCloudFrontOriginAccessIdentityList .
+                      cfoailNextMarker
 
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where

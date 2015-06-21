@@ -53,11 +53,6 @@ deleteEventSubscription pSubscriptionName = DeleteEventSubscription'{_desSubscri
 desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteEventSubscription where
         type Sv DeleteEventSubscription = Redshift
         type Rs DeleteEventSubscription =

@@ -135,11 +135,6 @@ cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
 cnaeCIDRBlock :: Lens' CreateNetworkACLEntry Text
 cnaeCIDRBlock = lens _cnaeCIDRBlock (\ s a -> s{_cnaeCIDRBlock = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateNetworkACLEntry where
         type Sv CreateNetworkACLEntry = EC2
         type Rs CreateNetworkACLEntry =

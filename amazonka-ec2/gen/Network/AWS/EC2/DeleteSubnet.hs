@@ -63,11 +63,6 @@ del1DryRun = lens _del1DryRun (\ s a -> s{_del1DryRun = a});
 del1SubnetId :: Lens' DeleteSubnet Text
 del1SubnetId = lens _del1SubnetId (\ s a -> s{_del1SubnetId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteSubnet where
         type Sv DeleteSubnet = EC2
         type Rs DeleteSubnet = DeleteSubnetResponse

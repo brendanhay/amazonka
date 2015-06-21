@@ -66,11 +66,6 @@ cpOldPassword = lens _cpOldPassword (\ s a -> s{_cpOldPassword = a}) . _Sensitiv
 cpNewPassword :: Lens' ChangePassword Text
 cpNewPassword = lens _cpNewPassword (\ s a -> s{_cpNewPassword = a}) . _Sensitive;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ChangePassword where
         type Sv ChangePassword = IAM
         type Rs ChangePassword = ChangePasswordResponse

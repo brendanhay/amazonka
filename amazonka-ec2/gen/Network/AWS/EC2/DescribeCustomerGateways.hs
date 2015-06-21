@@ -106,11 +106,6 @@ dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default;
 dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
 dcgDryRun = lens _dcgDryRun (\ s a -> s{_dcgDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeCustomerGateways where
         type Sv DescribeCustomerGateways = EC2
         type Rs DescribeCustomerGateways =

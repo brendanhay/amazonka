@@ -98,11 +98,6 @@ usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a});
 usService :: Lens' UpdateService Text
 usService = lens _usService (\ s a -> s{_usService = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateService where
         type Sv UpdateService = ECS
         type Rs UpdateService = UpdateServiceResponse

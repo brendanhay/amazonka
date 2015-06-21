@@ -61,11 +61,6 @@ describeSnapshotSchedule pVolumeARN = DescribeSnapshotSchedule'{_dssVolumeARN = 
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSnapshotSchedule where
         type Sv DescribeSnapshotSchedule = StorageGateway
         type Rs DescribeSnapshotSchedule =

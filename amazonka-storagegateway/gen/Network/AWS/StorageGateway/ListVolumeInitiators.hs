@@ -57,11 +57,6 @@ listVolumeInitiators pVolumeARN = ListVolumeInitiators'{_lviVolumeARN = pVolumeA
 lviVolumeARN :: Lens' ListVolumeInitiators Text
 lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListVolumeInitiators where
         type Sv ListVolumeInitiators = StorageGateway
         type Rs ListVolumeInitiators =

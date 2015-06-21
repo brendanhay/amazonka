@@ -54,11 +54,6 @@ disableAlarmActions = DisableAlarmActions'{_daaAlarmNames = mempty};
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableAlarmActions where
         type Sv DisableAlarmActions = CloudWatch
         type Rs DisableAlarmActions =

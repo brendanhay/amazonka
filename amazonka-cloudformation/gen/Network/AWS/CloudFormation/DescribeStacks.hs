@@ -38,6 +38,7 @@ module Network.AWS.CloudFormation.DescribeStacks
     ) where
 
 import Network.AWS.CloudFormation.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,10 +72,10 @@ desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 desStackName :: Lens' DescribeStacks (Maybe Text)
 desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeStacks where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dsrNextToken) = Nothing
+          | otherwise = rq & desNextToken ?~ rs ^. dsrNextToken
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation

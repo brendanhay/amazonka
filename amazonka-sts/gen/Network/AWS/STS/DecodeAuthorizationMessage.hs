@@ -82,11 +82,6 @@ decodeAuthorizationMessage pEncodedMessage = DecodeAuthorizationMessage'{_damEnc
 damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
 damEncodedMessage = lens _damEncodedMessage (\ s a -> s{_damEncodedMessage = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DecodeAuthorizationMessage where
         type Sv DecodeAuthorizationMessage = STS
         type Rs DecodeAuthorizationMessage =

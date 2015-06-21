@@ -114,11 +114,6 @@ acoiInterconnectId = lens _acoiInterconnectId (\ s a -> s{_acoiInterconnectId = 
 acoiVlan :: Lens' AllocateConnectionOnInterconnect Int
 acoiVlan = lens _acoiVlan (\ s a -> s{_acoiVlan = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AllocateConnectionOnInterconnect
          where
         type Sv AllocateConnectionOnInterconnect =

@@ -82,11 +82,6 @@ updNewPath = lens _updNewPath (\ s a -> s{_updNewPath = a});
 updServerCertificateName :: Lens' UpdateServerCertificate Text
 updServerCertificateName = lens _updServerCertificateName (\ s a -> s{_updServerCertificateName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateServerCertificate where
         type Sv UpdateServerCertificate = IAM
         type Rs UpdateServerCertificate =

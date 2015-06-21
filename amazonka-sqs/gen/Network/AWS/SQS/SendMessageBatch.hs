@@ -92,11 +92,6 @@ smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SendMessageBatch where
         type Sv SendMessageBatch = SQS
         type Rs SendMessageBatch = SendMessageBatchResponse

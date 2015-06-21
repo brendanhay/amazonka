@@ -56,11 +56,6 @@ indexDocuments pDomainName = IndexDocuments'{_idDomainName = pDomainName};
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest IndexDocuments where
         type Sv IndexDocuments = CloudSearch
         type Rs IndexDocuments = IndexDocumentsResponse

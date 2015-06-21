@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -88,10 +89,10 @@ dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = 
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
 dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
 
-instance AWSPager A where
+instance AWSPager DescribeVTLDevices where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dvtldrMarker) = Nothing
+          | otherwise = rq & dvtldMarker ?~ rs ^. dvtldrMarker
 
 instance AWSRequest DescribeVTLDevices where
         type Sv DescribeVTLDevices = StorageGateway

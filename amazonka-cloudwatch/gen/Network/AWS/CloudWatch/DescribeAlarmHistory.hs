@@ -43,6 +43,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     ) where
 
 import Network.AWS.CloudWatch.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -93,10 +94,11 @@ dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a});
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
 dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat;
 
-instance AWSPager A where
+instance AWSPager DescribeAlarmHistory where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dahrNextToken) = Nothing
+          | otherwise =
+            rq & dahNextToken ?~ rs ^. dahrNextToken
 
 instance AWSRequest DescribeAlarmHistory where
         type Sv DescribeAlarmHistory = CloudWatch

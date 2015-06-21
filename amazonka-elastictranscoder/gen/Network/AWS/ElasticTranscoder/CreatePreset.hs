@@ -111,11 +111,6 @@ cpName = lens _cpName (\ s a -> s{_cpName = a});
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreatePreset where
         type Sv CreatePreset = ElasticTranscoder
         type Rs CreatePreset = CreatePresetResponse

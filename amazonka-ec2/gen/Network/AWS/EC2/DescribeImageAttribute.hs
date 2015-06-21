@@ -84,11 +84,6 @@ dia1ImageId = lens _dia1ImageId (\ s a -> s{_dia1ImageId = a});
 dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
 dia1Attribute = lens _dia1Attribute (\ s a -> s{_dia1Attribute = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeImageAttribute where
         type Sv DescribeImageAttribute = EC2
         type Rs DescribeImageAttribute =

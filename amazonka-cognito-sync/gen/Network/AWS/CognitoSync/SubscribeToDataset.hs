@@ -76,11 +76,6 @@ stdDatasetName = lens _stdDatasetName (\ s a -> s{_stdDatasetName = a});
 stdDeviceId :: Lens' SubscribeToDataset Text
 stdDeviceId = lens _stdDeviceId (\ s a -> s{_stdDeviceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SubscribeToDataset where
         type Sv SubscribeToDataset = CognitoSync
         type Rs SubscribeToDataset =

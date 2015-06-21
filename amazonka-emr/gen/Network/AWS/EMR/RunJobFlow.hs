@@ -205,11 +205,6 @@ rjfName = lens _rjfName (\ s a -> s{_rjfName = a});
 rjfInstances :: Lens' RunJobFlow JobFlowInstancesConfig
 rjfInstances = lens _rjfInstances (\ s a -> s{_rjfInstances = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RunJobFlow where
         type Sv RunJobFlow = EMR
         type Rs RunJobFlow = RunJobFlowResponse

@@ -42,6 +42,7 @@ module Network.AWS.ECS.ListTaskDefinitions
     ) where
 
 import Network.AWS.ECS.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -109,10 +110,11 @@ ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
 ltdMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
 ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager ListTaskDefinitions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ltdrNextToken) = Nothing
+          | otherwise =
+            rq & ltdNextToken ?~ rs ^. ltdrNextToken
 
 instance AWSRequest ListTaskDefinitions where
         type Sv ListTaskDefinitions = ECS

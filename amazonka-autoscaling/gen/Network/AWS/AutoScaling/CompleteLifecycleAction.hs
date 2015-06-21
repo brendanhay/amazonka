@@ -97,11 +97,6 @@ claLifecycleActionToken = lens _claLifecycleActionToken (\ s a -> s{_claLifecycl
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CompleteLifecycleAction where
         type Sv CompleteLifecycleAction = AutoScaling
         type Rs CompleteLifecycleAction =

@@ -88,11 +88,6 @@ clbcspLoadBalancerName = lens _clbcspLoadBalancerName (\ s a -> s{_clbcspLoadBal
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateLBCookieStickinessPolicy
          where
         type Sv CreateLBCookieStickinessPolicy = ELB

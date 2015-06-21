@@ -75,11 +75,6 @@ sdcAutoScalingGroupName = lens _sdcAutoScalingGroupName (\ s a -> s{_sdcAutoScal
 sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity = lens _sdcDesiredCapacity (\ s a -> s{_sdcDesiredCapacity = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetDesiredCapacity where
         type Sv SetDesiredCapacity = AutoScaling
         type Rs SetDesiredCapacity =

@@ -73,11 +73,6 @@ csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
 csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelSpotInstanceRequests where
         type Sv CancelSpotInstanceRequests = EC2
         type Rs CancelSpotInstanceRequests =

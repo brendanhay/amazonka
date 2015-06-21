@@ -99,11 +99,6 @@ dmaDryRun = lens _dmaDryRun (\ s a -> s{_dmaDryRun = a});
 dmaMaxResults :: Lens' DescribeMovingAddresses (Maybe Int)
 dmaMaxResults = lens _dmaMaxResults (\ s a -> s{_dmaMaxResults = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeMovingAddresses where
         type Sv DescribeMovingAddresses = EC2
         type Rs DescribeMovingAddresses =

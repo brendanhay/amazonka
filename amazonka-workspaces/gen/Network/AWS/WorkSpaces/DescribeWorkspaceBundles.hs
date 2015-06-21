@@ -88,11 +88,6 @@ dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeWorkspaceBundles where
         type Sv DescribeWorkspaceBundles = WorkSpaces
         type Rs DescribeWorkspaceBundles =

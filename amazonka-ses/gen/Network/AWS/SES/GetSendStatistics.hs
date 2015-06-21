@@ -50,11 +50,6 @@ data GetSendStatistics = GetSendStatistics' deriving (Eq, Read, Show)
 getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetSendStatistics where
         type Sv GetSendStatistics = SES
         type Rs GetSendStatistics = GetSendStatisticsResponse

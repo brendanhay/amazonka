@@ -63,6 +63,7 @@ module Network.AWS.SWF.ListActivityTypes
     , latrTypeInfos
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -127,10 +128,11 @@ latDomain = lens _latDomain (\ s a -> s{_latDomain = a});
 latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus = lens _latRegistrationStatus (\ s a -> s{_latRegistrationStatus = a});
 
-instance AWSPager A where
+instance AWSPager ListActivityTypes where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. latrNextPageToken) = Nothing
+          | otherwise =
+            rq & latNextPageToken ?~ rs ^. latrNextPageToken
 
 instance AWSRequest ListActivityTypes where
         type Sv ListActivityTypes = SWF

@@ -73,11 +73,6 @@ gupUserName = lens _gupUserName (\ s a -> s{_gupUserName = a});
 gupPolicyName :: Lens' GetUserPolicy Text
 gupPolicyName = lens _gupPolicyName (\ s a -> s{_gupPolicyName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetUserPolicy where
         type Sv GetUserPolicy = IAM
         type Rs GetUserPolicy = GetUserPolicyResponse

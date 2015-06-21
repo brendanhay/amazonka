@@ -69,11 +69,6 @@ verifyDomainDkim pDomain = VerifyDomainDkim'{_vddDomain = pDomain};
 vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\ s a -> s{_vddDomain = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest VerifyDomainDkim where
         type Sv VerifyDomainDkim = SES
         type Rs VerifyDomainDkim = VerifyDomainDkimResponse

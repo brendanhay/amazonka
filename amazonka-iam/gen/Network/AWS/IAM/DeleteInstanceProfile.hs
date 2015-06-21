@@ -61,11 +61,6 @@ deleteInstanceProfile pInstanceProfileName = DeleteInstanceProfile'{_dipInstance
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstanceProfileName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteInstanceProfile where
         type Sv DeleteInstanceProfile = IAM
         type Rs DeleteInstanceProfile =

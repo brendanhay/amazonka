@@ -79,11 +79,6 @@ ugNewPath = lens _ugNewPath (\ s a -> s{_ugNewPath = a});
 ugGroupName :: Lens' UpdateGroup Text
 ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateGroup where
         type Sv UpdateGroup = IAM
         type Rs UpdateGroup = UpdateGroupResponse

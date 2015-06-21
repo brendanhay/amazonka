@@ -44,6 +44,7 @@ module Network.AWS.IAM.ListAccountAliases
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,10 +77,11 @@ laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListAccountAliases where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. laarIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & laaMarker .~ rs ^. laarMarker
 
 instance AWSRequest ListAccountAliases where
         type Sv ListAccountAliases = IAM

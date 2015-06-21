@@ -55,11 +55,6 @@ deleteIdentityPool pIdentityPoolId = DeleteIdentityPool'{_delIdentityPoolId = pI
 delIdentityPoolId :: Lens' DeleteIdentityPool Text
 delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteIdentityPool where
         type Sv DeleteIdentityPool = CognitoIdentity
         type Rs DeleteIdentityPool =

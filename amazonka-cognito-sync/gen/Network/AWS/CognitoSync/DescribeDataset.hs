@@ -80,11 +80,6 @@ ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a});
 ddDatasetName :: Lens' DescribeDataset Text
 ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeDataset where
         type Sv DescribeDataset = CognitoSync
         type Rs DescribeDataset = DescribeDatasetResponse

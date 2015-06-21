@@ -62,6 +62,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     , gwehrEvents
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -120,10 +121,11 @@ gwehDomain = lens _gwehDomain (\ s a -> s{_gwehDomain = a});
 gwehExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
 gwehExecution = lens _gwehExecution (\ s a -> s{_gwehExecution = a});
 
-instance AWSPager A where
+instance AWSPager GetWorkflowExecutionHistory where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. gwehrNextPageToken) = Nothing
+          | otherwise =
+            rq & gwehNextPageToken ?~ rs ^. gwehrNextPageToken
 
 instance AWSRequest GetWorkflowExecutionHistory where
         type Sv GetWorkflowExecutionHistory = SWF

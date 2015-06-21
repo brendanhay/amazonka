@@ -47,6 +47,7 @@ module Network.AWS.MachineLearning.DescribeDataSources
     ) where
 
 import Network.AWS.MachineLearning.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -167,10 +168,11 @@ ddsFilterVariable = lens _ddsFilterVariable (\ s a -> s{_ddsFilterVariable = a})
 ddsLE :: Lens' DescribeDataSources (Maybe Text)
 ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDataSources where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddsrNextToken) = Nothing
+          | otherwise =
+            rq & ddsNextToken ?~ rs ^. ddsrNextToken
 
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning

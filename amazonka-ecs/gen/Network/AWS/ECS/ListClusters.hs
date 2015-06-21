@@ -37,6 +37,7 @@ module Network.AWS.ECS.ListClusters
     ) where
 
 import Network.AWS.ECS.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,10 +74,10 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 lcMaxResults :: Lens' ListClusters (Maybe Int)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager ListClusters where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lcrNextToken) = Nothing
+          | otherwise = rq & lcNextToken ?~ rs ^. lcrNextToken
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = ECS

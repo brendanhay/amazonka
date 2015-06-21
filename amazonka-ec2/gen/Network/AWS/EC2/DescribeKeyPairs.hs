@@ -82,11 +82,6 @@ dkp1KeyNames = lens _dkp1KeyNames (\ s a -> s{_dkp1KeyNames = a}) . _Default;
 dkp1DryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkp1DryRun = lens _dkp1DryRun (\ s a -> s{_dkp1DryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeKeyPairs where
         type Sv DescribeKeyPairs = EC2
         type Rs DescribeKeyPairs = DescribeKeyPairsResponse

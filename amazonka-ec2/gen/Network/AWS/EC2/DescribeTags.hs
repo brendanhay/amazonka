@@ -43,6 +43,7 @@ module Network.AWS.EC2.DescribeTags
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -101,10 +102,10 @@ dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager DescribeTags where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dtrNextToken) = Nothing
+          | otherwise = rq & dtNextToken ?~ rs ^. dtrNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EC2

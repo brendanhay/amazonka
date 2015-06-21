@@ -40,6 +40,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     , dogrOptionGroupsList
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -103,10 +104,10 @@ dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
 dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
 dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeOptionGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dogrMarker) = Nothing
+          | otherwise = rq & dogMarker ?~ rs ^. dogrMarker
 
 instance AWSRequest DescribeOptionGroups where
         type Sv DescribeOptionGroups = RDS

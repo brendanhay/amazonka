@@ -63,11 +63,6 @@ deleteDBSubnetGroup pDBSubnetGroupName = DeleteDBSubnetGroup'{_delDBSubnetGroupN
 delDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 delDBSubnetGroupName = lens _delDBSubnetGroupName (\ s a -> s{_delDBSubnetGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteDBSubnetGroup where
         type Sv DeleteDBSubnetGroup = RDS
         type Rs DeleteDBSubnetGroup =

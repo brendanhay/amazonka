@@ -253,11 +253,6 @@ tdRegistrantContact = lens _tdRegistrantContact (\ s a -> s{_tdRegistrantContact
 tdTechContact :: Lens' TransferDomain ContactDetail
 tdTechContact = lens _tdTechContact (\ s a -> s{_tdTechContact = a}) . _Sensitive;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest TransferDomain where
         type Sv TransferDomain = Route53Domains
         type Rs TransferDomain = TransferDomainResponse

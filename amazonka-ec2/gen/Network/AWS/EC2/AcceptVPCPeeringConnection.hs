@@ -68,11 +68,6 @@ avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcV
 avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AcceptVPCPeeringConnection where
         type Sv AcceptVPCPeeringConnection = EC2
         type Rs AcceptVPCPeeringConnection =

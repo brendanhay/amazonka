@@ -80,11 +80,6 @@ dr1Filters = lens _dr1Filters (\ s a -> s{_dr1Filters = a}) . _Default;
 dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
 dr1DryRun = lens _dr1DryRun (\ s a -> s{_dr1DryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeRegions where
         type Sv DescribeRegions = EC2
         type Rs DescribeRegions = DescribeRegionsResponse

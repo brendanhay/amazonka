@@ -119,11 +119,6 @@ cgKeyId = lens _cgKeyId (\ s a -> s{_cgKeyId = a});
 cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal = lens _cgGranteePrincipal (\ s a -> s{_cgGranteePrincipal = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateGrant where
         type Sv CreateGrant = KMS
         type Rs CreateGrant = CreateGrantResponse

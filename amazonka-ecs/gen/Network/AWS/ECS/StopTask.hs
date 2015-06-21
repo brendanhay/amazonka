@@ -64,11 +64,6 @@ stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
 stTask :: Lens' StopTask Text
 stTask = lens _stTask (\ s a -> s{_stTask = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest StopTask where
         type Sv StopTask = ECS
         type Rs StopTask = StopTaskResponse

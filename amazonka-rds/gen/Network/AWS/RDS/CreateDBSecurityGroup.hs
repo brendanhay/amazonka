@@ -80,11 +80,6 @@ cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecur
 cdsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
 cdsgDBSecurityGroupDescription = lens _cdsgDBSecurityGroupDescription (\ s a -> s{_cdsgDBSecurityGroupDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDBSecurityGroup where
         type Sv CreateDBSecurityGroup = RDS
         type Rs CreateDBSecurityGroup =

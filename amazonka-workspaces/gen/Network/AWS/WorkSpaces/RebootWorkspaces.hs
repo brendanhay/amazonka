@@ -60,11 +60,6 @@ rebootWorkspaces pRebootWorkspaceRequests = RebootWorkspaces'{_rwRebootWorkspace
 rwRebootWorkspaceRequests :: Lens' RebootWorkspaces (NonEmpty RebootRequest)
 rwRebootWorkspaceRequests = lens _rwRebootWorkspaceRequests (\ s a -> s{_rwRebootWorkspaceRequests = a}) . _List1;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RebootWorkspaces where
         type Sv RebootWorkspaces = WorkSpaces
         type Rs RebootWorkspaces = RebootWorkspacesResponse

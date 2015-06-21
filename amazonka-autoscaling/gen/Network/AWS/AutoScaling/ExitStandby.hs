@@ -65,11 +65,6 @@ exiInstanceIds = lens _exiInstanceIds (\ s a -> s{_exiInstanceIds = a}) . _Defau
 exiAutoScalingGroupName :: Lens' ExitStandby Text
 exiAutoScalingGroupName = lens _exiAutoScalingGroupName (\ s a -> s{_exiAutoScalingGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ExitStandby where
         type Sv ExitStandby = AutoScaling
         type Rs ExitStandby = ExitStandbyResponse

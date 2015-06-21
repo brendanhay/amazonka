@@ -91,11 +91,6 @@ emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScal
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableMetricsCollection where
         type Sv EnableMetricsCollection = AutoScaling
         type Rs EnableMetricsCollection =

@@ -52,6 +52,7 @@ module Network.AWS.IAM.ListAccessKeys
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,10 +91,11 @@ lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
 lakMarker :: Lens' ListAccessKeys (Maybe Text)
 lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListAccessKeys where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lakrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lakMarker .~ rs ^. lakrMarker
 
 instance AWSRequest ListAccessKeys where
         type Sv ListAccessKeys = IAM

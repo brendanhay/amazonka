@@ -37,6 +37,7 @@ module Network.AWS.Route53Domains.ListDomains
     , ldrDomains
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,10 +86,11 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 ldMarker :: Lens' ListDomains (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListDomains where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ldrNextPageMarker) = Nothing
+          | otherwise =
+            rq & ldMarker ?~ rs ^. ldrNextPageMarker
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = Route53Domains

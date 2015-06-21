@@ -79,11 +79,6 @@ uoidcptOpenIDConnectProviderARN = lens _uoidcptOpenIDConnectProviderARN (\ s a -
 uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList = lens _uoidcptThumbprintList (\ s a -> s{_uoidcptThumbprintList = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          UpdateOpenIDConnectProviderThumbprint where
         type Sv UpdateOpenIDConnectProviderThumbprint = IAM

@@ -65,11 +65,6 @@ defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a});
 defExpression :: Lens' DefineExpression Expression
 defExpression = lens _defExpression (\ s a -> s{_defExpression = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DefineExpression where
         type Sv DefineExpression = CloudSearch
         type Rs DefineExpression = DefineExpressionResponse

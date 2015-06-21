@@ -96,11 +96,6 @@ sqaQueueURL = lens _sqaQueueURL (\ s a -> s{_sqaQueueURL = a});
 sqaAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
 sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Map;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetQueueAttributes where
         type Sv SetQueueAttributes = SQS
         type Rs SetQueueAttributes =

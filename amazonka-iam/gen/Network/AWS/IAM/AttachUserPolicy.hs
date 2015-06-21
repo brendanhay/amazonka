@@ -66,11 +66,6 @@ aupUserName = lens _aupUserName (\ s a -> s{_aupUserName = a});
 aupPolicyARN :: Lens' AttachUserPolicy Text
 aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AttachUserPolicy where
         type Sv AttachUserPolicy = IAM
         type Rs AttachUserPolicy = AttachUserPolicyResponse

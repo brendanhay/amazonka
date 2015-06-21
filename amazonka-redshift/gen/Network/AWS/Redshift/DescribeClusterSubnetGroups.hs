@@ -52,6 +52,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     , dcsgrMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -120,10 +121,10 @@ dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 dMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeClusterSubnetGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcsgrMarker) = Nothing
+          | otherwise = rq & dMarker ?~ rs ^. dcsgrMarker
 
 instance AWSRequest DescribeClusterSubnetGroups where
         type Sv DescribeClusterSubnetGroups = Redshift

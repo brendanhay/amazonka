@@ -165,11 +165,6 @@ ccSubject = lens _ccSubject (\ s a -> s{_ccSubject = a});
 ccCommunicationBody :: Lens' CreateCase Text
 ccCommunicationBody = lens _ccCommunicationBody (\ s a -> s{_ccCommunicationBody = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateCase where
         type Sv CreateCase = Support
         type Rs CreateCase = CreateCaseResponse

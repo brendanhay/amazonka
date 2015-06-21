@@ -41,6 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -89,10 +90,10 @@ dcpSource = lens _dcpSource (\ s a -> s{_dcpSource = a});
 dcpCacheParameterGroupName :: Lens' DescribeCacheParameters Text
 dcpCacheParameterGroupName = lens _dcpCacheParameterGroupName (\ s a -> s{_dcpCacheParameterGroupName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCacheParameters where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcprMarker) = Nothing
+          | otherwise = rq & dcpMarker ?~ rs ^. dcprMarker
 
 instance AWSRequest DescribeCacheParameters where
         type Sv DescribeCacheParameters = ElastiCache

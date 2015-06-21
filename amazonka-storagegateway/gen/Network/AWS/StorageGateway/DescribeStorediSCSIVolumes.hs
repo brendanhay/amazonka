@@ -59,11 +59,6 @@ describeStorediSCSIVolumes = DescribeStorediSCSIVolumes'{_dsscsivVolumeARNs = me
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeStorediSCSIVolumes where
         type Sv DescribeStorediSCSIVolumes = StorageGateway
         type Rs DescribeStorediSCSIVolumes =

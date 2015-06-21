@@ -75,11 +75,6 @@ mscrpClusterIdentifier = lens _mscrpClusterIdentifier (\ s a -> s{_mscrpClusterI
 mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Int
 mscrpRetentionPeriod = lens _mscrpRetentionPeriod (\ s a -> s{_mscrpRetentionPeriod = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifySnapshotCopyRetentionPeriod
          where
         type Sv ModifySnapshotCopyRetentionPeriod = Redshift

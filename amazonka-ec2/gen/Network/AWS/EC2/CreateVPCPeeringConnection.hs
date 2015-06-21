@@ -92,11 +92,6 @@ cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\ s a -> s{_cvpcPeerOwnerId = a});
 cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
 cvpcDryRun = lens _cvpcDryRun (\ s a -> s{_cvpcDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateVPCPeeringConnection where
         type Sv CreateVPCPeeringConnection = EC2
         type Rs CreateVPCPeeringConnection =

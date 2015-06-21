@@ -81,11 +81,6 @@ ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _De
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
 ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeDeployments where
         type Sv DescribeDeployments = OpsWorks
         type Rs DescribeDeployments =

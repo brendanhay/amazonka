@@ -42,6 +42,7 @@ module Network.AWS.DataPipeline.DescribeObjects
     ) where
 
 import Network.AWS.DataPipeline.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,10 +86,10 @@ doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 doObjectIds :: Lens' DescribeObjects [Text]
 doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a});
 
-instance AWSPager A where
+instance AWSPager DescribeObjects where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dorHasMoreResults) = Nothing
+          | otherwise = Just $ rq & doMarker .~ rs ^. dorMarker
 
 instance AWSRequest DescribeObjects where
         type Sv DescribeObjects = DataPipeline

@@ -76,11 +76,6 @@ uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateSigningCertificate where
         type Sv UpdateSigningCertificate = IAM
         type Rs UpdateSigningCertificate =

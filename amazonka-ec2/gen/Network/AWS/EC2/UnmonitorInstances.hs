@@ -67,11 +67,6 @@ uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UnmonitorInstances where
         type Sv UnmonitorInstances = EC2
         type Rs UnmonitorInstances =

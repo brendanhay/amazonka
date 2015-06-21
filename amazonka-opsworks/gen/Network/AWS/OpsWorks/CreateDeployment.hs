@@ -108,11 +108,6 @@ cdStackId = lens _cdStackId (\ s a -> s{_cdStackId = a});
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = OpsWorks
         type Rs CreateDeployment = CreateDeploymentResponse

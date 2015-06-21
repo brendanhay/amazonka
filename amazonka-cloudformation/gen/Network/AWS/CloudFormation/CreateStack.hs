@@ -191,11 +191,6 @@ csTimeoutInMinutes = lens _csTimeoutInMinutes (\ s a -> s{_csTimeoutInMinutes = 
 csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\ s a -> s{_csStackName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateStack where
         type Sv CreateStack = CloudFormation
         type Rs CreateStack = CreateStackResponse

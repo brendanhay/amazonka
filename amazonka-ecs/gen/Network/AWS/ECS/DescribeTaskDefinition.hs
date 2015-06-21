@@ -62,11 +62,6 @@ describeTaskDefinition pTaskDefinition = DescribeTaskDefinition'{_dtdTaskDefinit
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
 dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeTaskDefinition where
         type Sv DescribeTaskDefinition = ECS
         type Rs DescribeTaskDefinition =

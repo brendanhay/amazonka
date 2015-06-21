@@ -84,11 +84,6 @@ uupAllowSelfManagement = lens _uupAllowSelfManagement (\ s a -> s{_uupAllowSelfM
 uupIAMUserARN :: Lens' UpdateUserProfile Text
 uupIAMUserARN = lens _uupIAMUserARN (\ s a -> s{_uupIAMUserARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateUserProfile where
         type Sv UpdateUserProfile = OpsWorks
         type Rs UpdateUserProfile = UpdateUserProfileResponse

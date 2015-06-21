@@ -65,11 +65,6 @@ deleGatewayARN = lens _deleGatewayARN (\ s a -> s{_deleGatewayARN = a});
 deleBandwidthType :: Lens' DeleteBandwidthRateLimit Text
 deleBandwidthType = lens _deleBandwidthType (\ s a -> s{_deleBandwidthType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteBandwidthRateLimit where
         type Sv DeleteBandwidthRateLimit = StorageGateway
         type Rs DeleteBandwidthRateLimit =

@@ -59,11 +59,6 @@ dlblLoadBalancerName = lens _dlblLoadBalancerName (\ s a -> s{_dlblLoadBalancerN
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteLoadBalancerListeners where
         type Sv DeleteLoadBalancerListeners = ELB
         type Rs DeleteLoadBalancerListeners =

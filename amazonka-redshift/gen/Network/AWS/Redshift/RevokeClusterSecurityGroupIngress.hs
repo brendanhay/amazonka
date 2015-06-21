@@ -91,11 +91,6 @@ rcsgiCIDRIP = lens _rcsgiCIDRIP (\ s a -> s{_rcsgiCIDRIP = a});
 rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
 rcsgiClusterSecurityGroupName = lens _rcsgiClusterSecurityGroupName (\ s a -> s{_rcsgiClusterSecurityGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RevokeClusterSecurityGroupIngress
          where
         type Sv RevokeClusterSecurityGroupIngress = Redshift

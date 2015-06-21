@@ -54,11 +54,6 @@ deleteLunaClient pClientARN = DeleteLunaClient'{_delClientARN = pClientARN};
 delClientARN :: Lens' DeleteLunaClient Text
 delClientARN = lens _delClientARN (\ s a -> s{_delClientARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteLunaClient where
         type Sv DeleteLunaClient = CloudHSM
         type Rs DeleteLunaClient = DeleteLunaClientResponse

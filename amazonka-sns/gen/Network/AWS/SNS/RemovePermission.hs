@@ -59,11 +59,6 @@ rpTopicARN = lens _rpTopicARN (\ s a -> s{_rpTopicARN = a});
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = SNS
         type Rs RemovePermission = RemovePermissionResponse

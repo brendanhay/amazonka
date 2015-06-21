@@ -63,11 +63,6 @@ dni1DryRun = lens _dni1DryRun (\ s a -> s{_dni1DryRun = a});
 dni1NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dni1NetworkInterfaceId = lens _dni1NetworkInterfaceId (\ s a -> s{_dni1NetworkInterfaceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteNetworkInterface where
         type Sv DeleteNetworkInterface = EC2
         type Rs DeleteNetworkInterface =

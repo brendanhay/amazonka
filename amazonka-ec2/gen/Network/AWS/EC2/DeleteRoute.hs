@@ -70,11 +70,6 @@ drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a});
 drDestinationCIDRBlock :: Lens' DeleteRoute Text
 drDestinationCIDRBlock = lens _drDestinationCIDRBlock (\ s a -> s{_drDestinationCIDRBlock = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteRoute where
         type Sv DeleteRoute = EC2
         type Rs DeleteRoute = DeleteRouteResponse

@@ -61,11 +61,6 @@ disableGateway pGatewayARN = DisableGateway'{_disGatewayARN = pGatewayARN};
 disGatewayARN :: Lens' DisableGateway Text
 disGatewayARN = lens _disGatewayARN (\ s a -> s{_disGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableGateway where
         type Sv DisableGateway = StorageGateway
         type Rs DisableGateway = DisableGatewayResponse

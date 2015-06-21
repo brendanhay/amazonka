@@ -62,6 +62,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -111,10 +112,10 @@ desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
 desShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 desShowCacheNodeInfo = lens _desShowCacheNodeInfo (\ s a -> s{_desShowCacheNodeInfo = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCacheClusters where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dccrMarker) = Nothing
+          | otherwise = rq & desMarker ?~ rs ^. dccrMarker
 
 instance AWSRequest DescribeCacheClusters where
         type Sv DescribeCacheClusters = ElastiCache

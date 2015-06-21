@@ -90,11 +90,6 @@ mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
 mhHSMARN :: Lens' ModifyHSM Text
 mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyHSM where
         type Sv ModifyHSM = CloudHSM
         type Rs ModifyHSM = ModifyHSMResponse

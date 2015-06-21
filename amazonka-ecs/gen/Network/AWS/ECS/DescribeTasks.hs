@@ -65,11 +65,6 @@ dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
 dtTasks :: Lens' DescribeTasks [Text]
 dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeTasks where
         type Sv DescribeTasks = ECS
         type Rs DescribeTasks = DescribeTasksResponse

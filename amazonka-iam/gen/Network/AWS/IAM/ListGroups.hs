@@ -42,6 +42,7 @@ module Network.AWS.IAM.ListGroups
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,10 +86,10 @@ lgMaxItems = lens _lgMaxItems (\ s a -> s{_lgMaxItems = a}) . mapping _Nat;
 lgMarker :: Lens' ListGroups (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lgrIsTruncated) = Nothing
+          | otherwise = Just $ rq & lgMarker .~ rs ^. lgrMarker
 
 instance AWSRequest ListGroups where
         type Sv ListGroups = IAM

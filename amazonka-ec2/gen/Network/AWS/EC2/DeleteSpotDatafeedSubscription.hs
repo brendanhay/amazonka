@@ -57,11 +57,6 @@ deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'{_dsds1DryRun = 
 dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsds1DryRun = lens _dsds1DryRun (\ s a -> s{_dsds1DryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteSpotDatafeedSubscription
          where
         type Sv DeleteSpotDatafeedSubscription = EC2

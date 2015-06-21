@@ -85,11 +85,6 @@ gcoDryRun = lens _gcoDryRun (\ s a -> s{_gcoDryRun = a});
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\ s a -> s{_gcoInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetConsoleOutput where
         type Sv GetConsoleOutput = EC2
         type Rs GetConsoleOutput = GetConsoleOutputResponse

@@ -60,11 +60,6 @@ dncAutoScalingGroupName = lens _dncAutoScalingGroupName (\ s a -> s{_dncAutoScal
 dncTopicARN :: Lens' DeleteNotificationConfiguration Text
 dncTopicARN = lens _dncTopicARN (\ s a -> s{_dncTopicARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteNotificationConfiguration
          where
         type Sv DeleteNotificationConfiguration = AutoScaling

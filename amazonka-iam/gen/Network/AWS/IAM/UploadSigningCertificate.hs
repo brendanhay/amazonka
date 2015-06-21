@@ -80,11 +80,6 @@ uplUserName = lens _uplUserName (\ s a -> s{_uplUserName = a});
 uplCertificateBody :: Lens' UploadSigningCertificate Text
 uplCertificateBody = lens _uplCertificateBody (\ s a -> s{_uplCertificateBody = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UploadSigningCertificate where
         type Sv UploadSigningCertificate = IAM
         type Rs UploadSigningCertificate =

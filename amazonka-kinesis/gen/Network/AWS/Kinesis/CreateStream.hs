@@ -108,11 +108,6 @@ csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
 csShardCount :: Lens' CreateStream Natural
 csShardCount = lens _csShardCount (\ s a -> s{_csShardCount = a}) . _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateStream where
         type Sv CreateStream = Kinesis
         type Rs CreateStream = CreateStreamResponse

@@ -72,11 +72,6 @@ rebDryRun = lens _rebDryRun (\ s a -> s{_rebDryRun = a});
 rebInstanceIds :: Lens' RebootInstances [Text]
 rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RebootInstances where
         type Sv RebootInstances = EC2
         type Rs RebootInstances = RebootInstancesResponse

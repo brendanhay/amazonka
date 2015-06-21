@@ -54,11 +54,6 @@ getOnPremisesInstance pInstanceName = GetOnPremisesInstance'{_gopiInstanceName =
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
 gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetOnPremisesInstance where
         type Sv GetOnPremisesInstance = CodeDeploy
         type Rs GetOnPremisesInstance =

@@ -86,11 +86,6 @@ csVolumeARN = lens _csVolumeARN (\ s a -> s{_csVolumeARN = a});
 csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription = lens _csSnapshotDescription (\ s a -> s{_csSnapshotDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = StorageGateway
         type Rs CreateSnapshot = CreateSnapshotResponse

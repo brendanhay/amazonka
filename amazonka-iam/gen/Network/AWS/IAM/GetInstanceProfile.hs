@@ -59,11 +59,6 @@ getInstanceProfile pInstanceProfileName = GetInstanceProfile'{_gipInstanceProfil
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetInstanceProfile where
         type Sv GetInstanceProfile = IAM
         type Rs GetInstanceProfile =

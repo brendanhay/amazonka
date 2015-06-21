@@ -39,6 +39,7 @@ module Network.AWS.RDS.DescribeDBParameters
     , ddprMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -103,10 +104,10 @@ ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a});
 ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
 ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBParameters where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddprMarker) = Nothing
+          | otherwise = rq & ddpMarker ?~ rs ^. ddprMarker
 
 instance AWSRequest DescribeDBParameters where
         type Sv DescribeDBParameters = RDS

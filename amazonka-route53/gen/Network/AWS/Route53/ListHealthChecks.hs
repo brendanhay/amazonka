@@ -48,6 +48,7 @@ module Network.AWS.Route53.ListHealthChecks
     , lhcrMaxItems
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -77,10 +78,11 @@ lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListHealthChecks where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lhcrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lhcMarker .~ rs ^. lhcrNextMarker
 
 instance AWSRequest ListHealthChecks where
         type Sv ListHealthChecks = Route53

@@ -62,11 +62,6 @@ listVolumeRecoveryPoints pGatewayARN = ListVolumeRecoveryPoints'{_lvrpGatewayARN
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
 lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListVolumeRecoveryPoints where
         type Sv ListVolumeRecoveryPoints = StorageGateway
         type Rs ListVolumeRecoveryPoints =

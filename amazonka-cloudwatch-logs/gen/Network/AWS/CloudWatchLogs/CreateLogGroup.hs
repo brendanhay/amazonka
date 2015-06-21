@@ -60,11 +60,6 @@ createLogGroup pLogGroupName = CreateLogGroup'{_clgLogGroupName = pLogGroupName}
 clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\ s a -> s{_clgLogGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateLogGroup where
         type Sv CreateLogGroup = CloudWatchLogs
         type Rs CreateLogGroup = CreateLogGroupResponse

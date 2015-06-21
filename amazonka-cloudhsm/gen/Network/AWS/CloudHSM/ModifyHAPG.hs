@@ -69,11 +69,6 @@ mhLabel = lens _mhLabel (\ s a -> s{_mhLabel = a});
 mhHAPGARN :: Lens' ModifyHAPG Text
 mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyHAPG where
         type Sv ModifyHAPG = CloudHSM
         type Rs ModifyHAPG = ModifyHAPGResponse

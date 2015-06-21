@@ -68,11 +68,6 @@ rsfDryRun = lens _rsfDryRun (\ s a -> s{_rsfDryRun = a});
 rsfSpotFleetRequestConfig :: Lens' RequestSpotFleet SpotFleetRequestConfigData
 rsfSpotFleetRequestConfig = lens _rsfSpotFleetRequestConfig (\ s a -> s{_rsfSpotFleetRequestConfig = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RequestSpotFleet where
         type Sv RequestSpotFleet = EC2
         type Rs RequestSpotFleet = RequestSpotFleetResponse

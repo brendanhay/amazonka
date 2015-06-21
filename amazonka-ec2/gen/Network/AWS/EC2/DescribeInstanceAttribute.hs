@@ -89,11 +89,6 @@ diaInstanceId = lens _diaInstanceId (\ s a -> s{_diaInstanceId = a});
 diaAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 diaAttribute = lens _diaAttribute (\ s a -> s{_diaAttribute = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeInstanceAttribute where
         type Sv DescribeInstanceAttribute = EC2
         type Rs DescribeInstanceAttribute =

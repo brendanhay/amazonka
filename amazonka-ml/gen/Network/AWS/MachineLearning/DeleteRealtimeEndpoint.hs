@@ -55,11 +55,6 @@ deleteRealtimeEndpoint pMLModelId = DeleteRealtimeEndpoint'{_dreMLModelId = pMLM
 dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
 dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteRealtimeEndpoint where
         type Sv DeleteRealtimeEndpoint = MachineLearning
         type Rs DeleteRealtimeEndpoint =

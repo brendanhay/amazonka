@@ -68,11 +68,6 @@ albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalanc
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
 albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AttachLoadBalancerToSubnets where
         type Sv AttachLoadBalancerToSubnets = ELB
         type Rs AttachLoadBalancerToSubnets =

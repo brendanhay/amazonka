@@ -51,11 +51,6 @@ data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses' deriving (Eq, Read
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListVerifiedEmailAddresses where
         type Sv ListVerifiedEmailAddresses = SES
         type Rs ListVerifiedEmailAddresses =

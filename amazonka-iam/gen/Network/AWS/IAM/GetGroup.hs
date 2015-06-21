@@ -41,6 +41,7 @@ module Network.AWS.IAM.GetGroup
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -79,10 +80,10 @@ ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 ggGroupName :: Lens' GetGroup Text
 ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
-instance AWSPager A where
+instance AWSPager GetGroup where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ggrIsTruncated) = Nothing
+          | otherwise = Just $ rq & ggMarker .~ rs ^. ggrMarker
 
 instance AWSRequest GetGroup where
         type Sv GetGroup = IAM

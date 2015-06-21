@@ -74,11 +74,6 @@ rsaSnapshotId = lens _rsaSnapshotId (\ s a -> s{_rsaSnapshotId = a});
 rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = lens _rsaAttribute (\ s a -> s{_rsaAttribute = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ResetSnapshotAttribute where
         type Sv ResetSnapshotAttribute = EC2
         type Rs ResetSnapshotAttribute =

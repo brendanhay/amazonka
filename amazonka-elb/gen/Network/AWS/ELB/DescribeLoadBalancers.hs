@@ -39,6 +39,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     ) where
 
 import Network.AWS.ELB.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,10 +73,10 @@ dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
 dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
 dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default;
 
-instance AWSPager A where
+instance AWSPager DescribeLoadBalancers where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dlbrNextMarker) = Nothing
+          | otherwise = rq & dlbMarker ?~ rs ^. dlbrNextMarker
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB

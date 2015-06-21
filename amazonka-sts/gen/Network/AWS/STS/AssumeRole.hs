@@ -207,11 +207,6 @@ arRoleARN = lens _arRoleARN (\ s a -> s{_arRoleARN = a});
 arRoleSessionName :: Lens' AssumeRole Text
 arRoleSessionName = lens _arRoleSessionName (\ s a -> s{_arRoleSessionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AssumeRole where
         type Sv AssumeRole = STS
         type Rs AssumeRole = AssumeRoleResponse

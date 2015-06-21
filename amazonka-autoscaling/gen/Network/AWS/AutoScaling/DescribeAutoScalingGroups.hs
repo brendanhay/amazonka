@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,10 +72,11 @@ dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
 dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a});
 
-instance AWSPager A where
+instance AWSPager DescribeAutoScalingGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dasgrNextToken) = Nothing
+          | otherwise =
+            rq & dasgNextToken ?~ rs ^. dasgrNextToken
 
 instance AWSRequest DescribeAutoScalingGroups where
         type Sv DescribeAutoScalingGroups = AutoScaling

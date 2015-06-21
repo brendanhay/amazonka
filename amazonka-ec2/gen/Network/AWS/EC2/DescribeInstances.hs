@@ -50,6 +50,7 @@ module Network.AWS.EC2.DescribeInstances
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -347,10 +348,10 @@ di1DryRun = lens _di1DryRun (\ s a -> s{_di1DryRun = a});
 di1MaxResults :: Lens' DescribeInstances (Maybe Int)
 di1MaxResults = lens _di1MaxResults (\ s a -> s{_di1MaxResults = a});
 
-instance AWSPager A where
+instance AWSPager DescribeInstances where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dirNextToken) = Nothing
+          | otherwise = rq & di1NextToken ?~ rs ^. dirNextToken
 
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = EC2

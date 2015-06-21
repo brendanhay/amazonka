@@ -56,11 +56,6 @@ deleteSnapshot pSnapshotName = DeleteSnapshot'{_delSnapshotName = pSnapshotName}
 delSnapshotName :: Lens' DeleteSnapshot Text
 delSnapshotName = lens _delSnapshotName (\ s a -> s{_delSnapshotName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = ElastiCache
         type Rs DeleteSnapshot = DeleteSnapshotResponse

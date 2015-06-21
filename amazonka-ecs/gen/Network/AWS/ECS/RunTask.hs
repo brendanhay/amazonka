@@ -110,11 +110,6 @@ rtStartedBy = lens _rtStartedBy (\ s a -> s{_rtStartedBy = a});
 rtTaskDefinition :: Lens' RunTask Text
 rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RunTask where
         type Sv RunTask = ECS
         type Rs RunTask = RunTaskResponse

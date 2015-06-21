@@ -90,11 +90,6 @@ psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a})
 psfRoleARN :: Lens' PutSubscriptionFilter Text
 psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutSubscriptionFilter where
         type Sv PutSubscriptionFilter = CloudWatchLogs
         type Rs PutSubscriptionFilter =

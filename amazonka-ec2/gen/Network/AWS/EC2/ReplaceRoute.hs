@@ -104,11 +104,6 @@ rrRouteTableId = lens _rrRouteTableId (\ s a -> s{_rrRouteTableId = a});
 rrDestinationCIDRBlock :: Lens' ReplaceRoute Text
 rrDestinationCIDRBlock = lens _rrDestinationCIDRBlock (\ s a -> s{_rrDestinationCIDRBlock = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ReplaceRoute where
         type Sv ReplaceRoute = EC2
         type Rs ReplaceRoute = ReplaceRouteResponse

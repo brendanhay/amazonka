@@ -40,6 +40,7 @@ module Network.AWS.SES.ListIdentities
     , lirIdentities
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,10 +76,10 @@ liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 liMaxItems :: Lens' ListIdentities (Maybe Int)
 liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
-instance AWSPager A where
+instance AWSPager ListIdentities where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lirNextToken) = Nothing
+          | otherwise = rq & liNextToken ?~ rs ^. lirNextToken
 
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = SES

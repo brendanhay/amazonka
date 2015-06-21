@@ -98,11 +98,6 @@ resDetails = lens _resDetails (\ s a -> s{_resDetails = a});
 resTaskToken :: Lens' RespondActivityTaskCanceled Text
 resTaskToken = lens _resTaskToken (\ s a -> s{_resTaskToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RespondActivityTaskCanceled where
         type Sv RespondActivityTaskCanceled = SWF
         type Rs RespondActivityTaskCanceled =

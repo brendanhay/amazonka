@@ -66,11 +66,6 @@ dpgDryRun = lens _dpgDryRun (\ s a -> s{_dpgDryRun = a});
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeletePlacementGroup where
         type Sv DeletePlacementGroup = EC2
         type Rs DeletePlacementGroup =

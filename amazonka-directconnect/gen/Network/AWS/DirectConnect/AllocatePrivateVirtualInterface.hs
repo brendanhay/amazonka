@@ -98,11 +98,6 @@ apviOwnerAccount = lens _apviOwnerAccount (\ s a -> s{_apviOwnerAccount = a});
 apviNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
 apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceAllocation (\ s a -> s{_apviNewPrivateVirtualInterfaceAllocation = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AllocatePrivateVirtualInterface
          where
         type Sv AllocatePrivateVirtualInterface =

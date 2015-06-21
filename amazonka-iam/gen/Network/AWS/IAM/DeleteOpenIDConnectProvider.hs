@@ -61,11 +61,6 @@ deleteOpenIDConnectProvider pOpenIDConnectProviderARN = DeleteOpenIDConnectProvi
 doidcpOpenIDConnectProviderARN :: Lens' DeleteOpenIDConnectProvider Text
 doidcpOpenIDConnectProviderARN = lens _doidcpOpenIDConnectProviderARN (\ s a -> s{_doidcpOpenIDConnectProviderARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteOpenIDConnectProvider where
         type Sv DeleteOpenIDConnectProvider = IAM
         type Rs DeleteOpenIDConnectProvider =

@@ -45,6 +45,7 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,10 +84,11 @@ lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
-instance AWSPager A where
+instance AWSPager ListInstanceProfilesForRole where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lipfrrIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lipfrMarker .~ rs ^. lipfrrMarker
 
 instance AWSRequest ListInstanceProfilesForRole where
         type Sv ListInstanceProfilesForRole = IAM

@@ -67,11 +67,6 @@ dvpcDryRun = lens _dvpcDryRun (\ s a -> s{_dvpcDryRun = a});
 dvpcVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
 dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\ s a -> s{_dvpcVPCPeeringConnectionId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVPCPeeringConnection where
         type Sv DeleteVPCPeeringConnection = EC2
         type Rs DeleteVPCPeeringConnection =

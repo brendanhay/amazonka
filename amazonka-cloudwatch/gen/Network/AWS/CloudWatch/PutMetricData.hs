@@ -76,11 +76,6 @@ pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
 pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutMetricData where
         type Sv PutMetricData = CloudWatch
         type Rs PutMetricData = PutMetricDataResponse

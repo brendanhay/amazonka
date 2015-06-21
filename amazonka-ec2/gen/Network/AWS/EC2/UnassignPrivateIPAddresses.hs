@@ -62,11 +62,6 @@ upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\ s a -> s{_upiaNetworkIn
 upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
 upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UnassignPrivateIPAddresses where
         type Sv UnassignPrivateIPAddresses = EC2
         type Rs UnassignPrivateIPAddresses =

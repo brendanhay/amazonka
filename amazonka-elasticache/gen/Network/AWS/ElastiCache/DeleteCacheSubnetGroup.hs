@@ -58,11 +58,6 @@ deleteCacheSubnetGroup pCacheSubnetGroupName = DeleteCacheSubnetGroup'{_delCache
 delCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
 delCacheSubnetGroupName = lens _delCacheSubnetGroupName (\ s a -> s{_delCacheSubnetGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteCacheSubnetGroup where
         type Sv DeleteCacheSubnetGroup = ElastiCache
         type Rs DeleteCacheSubnetGroup =

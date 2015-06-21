@@ -69,11 +69,6 @@ lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 lkLimit :: Lens' ListKeys (Maybe Natural)
 lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListKeys where
         type Sv ListKeys = KMS
         type Rs ListKeys = ListKeysResponse

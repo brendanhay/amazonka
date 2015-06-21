@@ -67,11 +67,6 @@ deleDryRun = lens _deleDryRun (\ s a -> s{_deleDryRun = a});
 deleVPCId :: Lens' DeleteVPC Text
 deleVPCId = lens _deleVPCId (\ s a -> s{_deleVPCId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVPC where
         type Sv DeleteVPC = EC2
         type Rs DeleteVPC = DeleteVPCResponse

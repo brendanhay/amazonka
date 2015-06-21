@@ -78,11 +78,6 @@ siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a});
 siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
 siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          SetIdentityFeedbackForwardingEnabled where
         type Sv SetIdentityFeedbackForwardingEnabled = SES

@@ -67,11 +67,6 @@ aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a});
 aubDiskIds :: Lens' AddUploadBuffer [Text]
 aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddUploadBuffer where
         type Sv AddUploadBuffer = StorageGateway
         type Rs AddUploadBuffer = AddUploadBufferResponse

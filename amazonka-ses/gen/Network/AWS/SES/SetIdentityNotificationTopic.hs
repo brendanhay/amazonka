@@ -82,11 +82,6 @@ sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a});
 sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
 sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetIdentityNotificationTopic
          where
         type Sv SetIdentityNotificationTopic = SES

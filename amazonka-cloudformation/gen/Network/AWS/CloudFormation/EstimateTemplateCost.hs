@@ -83,11 +83,6 @@ etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EstimateTemplateCost where
         type Sv EstimateTemplateCost = CloudFormation
         type Rs EstimateTemplateCost =

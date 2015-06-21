@@ -62,11 +62,6 @@ domainMetadata pDomainName = DomainMetadata'{_dmDomainName = pDomainName};
 dmDomainName :: Lens' DomainMetadata Text
 dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DomainMetadata where
         type Sv DomainMetadata = SDB
         type Rs DomainMetadata = DomainMetadataResponse

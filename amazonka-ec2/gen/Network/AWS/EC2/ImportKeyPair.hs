@@ -81,11 +81,6 @@ ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
 ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
 ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ImportKeyPair where
         type Sv ImportKeyPair = EC2
         type Rs ImportKeyPair = ImportKeyPairResponse

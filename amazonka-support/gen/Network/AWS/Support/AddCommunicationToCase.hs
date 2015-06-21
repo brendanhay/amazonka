@@ -88,11 +88,6 @@ actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId
 actcCommunicationBody :: Lens' AddCommunicationToCase Text
 actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddCommunicationToCase where
         type Sv AddCommunicationToCase = Support
         type Rs AddCommunicationToCase =

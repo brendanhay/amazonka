@@ -193,11 +193,6 @@ ratName = lens _ratName (\ s a -> s{_ratName = a});
 ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RegisterActivityType where
         type Sv RegisterActivityType = SWF
         type Rs RegisterActivityType =

@@ -53,11 +53,6 @@ disableRadius pDirectoryId = DisableRadius'{_drDirectoryId = pDirectoryId};
 drDirectoryId :: Lens' DisableRadius Text
 drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableRadius where
         type Sv DisableRadius = DirectoryService
         type Rs DisableRadius = DisableRadiusResponse

@@ -148,11 +148,6 @@ cctApplicationName = lens _cctApplicationName (\ s a -> s{_cctApplicationName = 
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\ s a -> s{_cctTemplateName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateConfigurationTemplate where
         type Sv CreateConfigurationTemplate =
              ElasticBeanstalk

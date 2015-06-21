@@ -121,11 +121,6 @@ ssShardToSplit = lens _ssShardToSplit (\ s a -> s{_ssShardToSplit = a});
 ssNewStartingHashKey :: Lens' SplitShard Text
 ssNewStartingHashKey = lens _ssNewStartingHashKey (\ s a -> s{_ssNewStartingHashKey = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SplitShard where
         type Sv SplitShard = Kinesis
         type Rs SplitShard = SplitShardResponse

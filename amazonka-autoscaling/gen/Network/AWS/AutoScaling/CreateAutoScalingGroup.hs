@@ -227,11 +227,6 @@ casgMinSize = lens _casgMinSize (\ s a -> s{_casgMinSize = a});
 casgMaxSize :: Lens' CreateAutoScalingGroup Int
 casgMaxSize = lens _casgMaxSize (\ s a -> s{_casgMaxSize = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateAutoScalingGroup where
         type Sv CreateAutoScalingGroup = AutoScaling
         type Rs CreateAutoScalingGroup =

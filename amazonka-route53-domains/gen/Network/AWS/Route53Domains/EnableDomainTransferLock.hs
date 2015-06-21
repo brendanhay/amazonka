@@ -68,11 +68,6 @@ enableDomainTransferLock pDomainName = EnableDomainTransferLock'{_edtlDomainName
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\ s a -> s{_edtlDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableDomainTransferLock where
         type Sv EnableDomainTransferLock = Route53Domains
         type Rs EnableDomainTransferLock =

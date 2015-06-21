@@ -143,11 +143,6 @@ umpUploadId = lens _umpUploadId (\ s a -> s{_umpUploadId = a});
 umpBody :: Lens' UploadMultipartPart RqBody
 umpBody = lens _umpBody (\ s a -> s{_umpBody = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UploadMultipartPart where
         type Sv UploadMultipartPart = Glacier
         type Rs UploadMultipartPart =

@@ -66,11 +66,6 @@ bdaDomainName = lens _bdaDomainName (\ s a -> s{_bdaDomainName = a});
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest BatchDeleteAttributes where
         type Sv BatchDeleteAttributes = SDB
         type Rs BatchDeleteAttributes =

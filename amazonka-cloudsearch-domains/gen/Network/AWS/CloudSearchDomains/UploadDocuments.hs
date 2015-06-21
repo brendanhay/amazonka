@@ -93,11 +93,6 @@ udContentType = lens _udContentType (\ s a -> s{_udContentType = a});
 udDocuments :: Lens' UploadDocuments RqBody
 udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UploadDocuments where
         type Sv UploadDocuments = CloudSearchDomains
         type Rs UploadDocuments = UploadDocumentsResponse

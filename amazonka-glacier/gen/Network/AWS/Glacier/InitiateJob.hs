@@ -200,11 +200,6 @@ ijAccountId = lens _ijAccountId (\ s a -> s{_ijAccountId = a});
 ijVaultName :: Lens' InitiateJob Text
 ijVaultName = lens _ijVaultName (\ s a -> s{_ijVaultName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest InitiateJob where
         type Sv InitiateJob = Glacier
         type Rs InitiateJob = InitiateJobResponse

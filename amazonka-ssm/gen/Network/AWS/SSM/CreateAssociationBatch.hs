@@ -64,11 +64,6 @@ createAssociationBatch = CreateAssociationBatch'{_cabEntries = mempty};
 cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
 cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateAssociationBatch where
         type Sv CreateAssociationBatch = SSM
         type Rs CreateAssociationBatch =

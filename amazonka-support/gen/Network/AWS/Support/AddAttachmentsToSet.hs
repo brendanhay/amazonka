@@ -76,11 +76,6 @@ aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AddAttachmentsToSet where
         type Sv AddAttachmentsToSet = Support
         type Rs AddAttachmentsToSet =

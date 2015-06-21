@@ -68,11 +68,6 @@ dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a});
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
 dsapDomainName = lens _dsapDomainName (\ s a -> s{_dsapDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeServiceAccessPolicies
          where
         type Sv DescribeServiceAccessPolicies = CloudSearch

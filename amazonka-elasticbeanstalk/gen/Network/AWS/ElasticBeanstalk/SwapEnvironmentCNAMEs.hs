@@ -91,11 +91,6 @@ secnameSourceEnvironmentName = lens _secnameSourceEnvironmentName (\ s a -> s{_s
 secnameSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnameSourceEnvironmentId = lens _secnameSourceEnvironmentId (\ s a -> s{_secnameSourceEnvironmentId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SwapEnvironmentCNAMEs where
         type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
         type Rs SwapEnvironmentCNAMEs =

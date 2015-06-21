@@ -80,11 +80,6 @@ gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\ s a -> s{_gpdInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetPasswordData where
         type Sv GetPasswordData = EC2
         type Rs GetPasswordData = GetPasswordDataResponse

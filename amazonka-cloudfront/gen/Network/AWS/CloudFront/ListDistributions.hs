@@ -36,6 +36,7 @@ module Network.AWS.CloudFront.ListDistributions
     ) where
 
 import Network.AWS.CloudFront.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,10 +66,14 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
-instance AWSPager A where
+instance AWSPager ListDistributions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ldrDistributionList . dlIsTruncated) =
+            Nothing
+          | otherwise =
+            Just $
+              rq &
+                ldMarker .~ rs ^. ldrDistributionList . dlNextMarker
 
 instance AWSRequest ListDistributions where
         type Sv ListDistributions = CloudFront

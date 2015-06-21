@@ -68,11 +68,6 @@ deleteFileSystem pFileSystemId = DeleteFileSystem'{_dFileSystemId = pFileSystemI
 dFileSystemId :: Lens' DeleteFileSystem Text
 dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteFileSystem where
         type Sv DeleteFileSystem = ElasticFileSystem
         type Rs DeleteFileSystem = DeleteFileSystemResponse

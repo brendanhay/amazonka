@@ -102,11 +102,6 @@ dvpceDryRun = lens _dvpceDryRun (\ s a -> s{_dvpceDryRun = a});
 dvpceMaxResults :: Lens' DescribeVPCEndpoints (Maybe Int)
 dvpceMaxResults = lens _dvpceMaxResults (\ s a -> s{_dvpceMaxResults = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeVPCEndpoints where
         type Sv DescribeVPCEndpoints = EC2
         type Rs DescribeVPCEndpoints =

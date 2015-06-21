@@ -116,11 +116,6 @@ cniDescription = lens _cniDescription (\ s a -> s{_cniDescription = a});
 cniSubnetId :: Lens' CreateNetworkInterface Text
 cniSubnetId = lens _cniSubnetId (\ s a -> s{_cniSubnetId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateNetworkInterface where
         type Sv CreateNetworkInterface = EC2
         type Rs CreateNetworkInterface =

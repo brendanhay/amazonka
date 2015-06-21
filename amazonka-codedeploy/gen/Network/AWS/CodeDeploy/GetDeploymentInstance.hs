@@ -61,11 +61,6 @@ gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
 gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetDeploymentInstance where
         type Sv GetDeploymentInstance = CodeDeploy
         type Rs GetDeploymentInstance =

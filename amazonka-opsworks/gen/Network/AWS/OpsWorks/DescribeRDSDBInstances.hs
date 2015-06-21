@@ -68,11 +68,6 @@ drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstan
 drdiStackId :: Lens' DescribeRDSDBInstances Text
 drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeRDSDBInstances where
         type Sv DescribeRDSDBInstances = OpsWorks
         type Rs DescribeRDSDBInstances =

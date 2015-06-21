@@ -70,11 +70,6 @@ caName = lens _caName (\ s a -> s{_caName = a});
 caInstanceId :: Lens' CreateAssociation Text
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateAssociation where
         type Sv CreateAssociation = SSM
         type Rs CreateAssociation = CreateAssociationResponse

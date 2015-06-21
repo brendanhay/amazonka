@@ -47,6 +47,7 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     ) where
 
 import Network.AWS.MachineLearning.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -172,10 +173,10 @@ deFilterVariable = lens _deFilterVariable (\ s a -> s{_deFilterVariable = a});
 deLE :: Lens' DescribeEvaluations (Maybe Text)
 deLE = lens _deLE (\ s a -> s{_deLE = a});
 
-instance AWSPager A where
+instance AWSPager DescribeEvaluations where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. derNextToken) = Nothing
+          | otherwise = rq & deNextToken ?~ rs ^. derNextToken
 
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning

@@ -66,11 +66,6 @@ ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default;
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = RDS
         type Rs ListTagsForResource =

@@ -68,11 +68,6 @@ getEvaluation pEvaluationId = GetEvaluation'{_geEvaluationId = pEvaluationId};
 geEvaluationId :: Lens' GetEvaluation Text
 geEvaluationId = lens _geEvaluationId (\ s a -> s{_geEvaluationId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetEvaluation where
         type Sv GetEvaluation = MachineLearning
         type Rs GetEvaluation = GetEvaluationResponse

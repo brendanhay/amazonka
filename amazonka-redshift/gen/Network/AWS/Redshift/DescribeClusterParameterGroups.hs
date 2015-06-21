@@ -57,6 +57,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     , dcpgrParameterGroups
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -129,10 +130,11 @@ dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgParameterGroupName = lens _dcpgParameterGroupName (\ s a -> s{_dcpgParameterGroupName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeClusterParameterGroups
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcpgrMarker) = Nothing
+          | otherwise = rq & dcpgMarker ?~ rs ^. dcpgrMarker
 
 instance AWSRequest DescribeClusterParameterGroups
          where

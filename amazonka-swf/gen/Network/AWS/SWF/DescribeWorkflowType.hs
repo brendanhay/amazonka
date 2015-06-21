@@ -87,11 +87,6 @@ dwtDomain = lens _dwtDomain (\ s a -> s{_dwtDomain = a});
 dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
 dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeWorkflowType where
         type Sv DescribeWorkflowType = SWF
         type Rs DescribeWorkflowType =

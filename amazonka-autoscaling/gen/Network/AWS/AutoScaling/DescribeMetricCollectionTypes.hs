@@ -49,11 +49,6 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes' deriving (Eq
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeMetricCollectionTypes
          where
         type Sv DescribeMetricCollectionTypes = AutoScaling

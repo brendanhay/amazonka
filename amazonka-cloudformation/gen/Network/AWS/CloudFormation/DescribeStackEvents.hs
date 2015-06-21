@@ -43,6 +43,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     ) where
 
 import Network.AWS.CloudFormation.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,10 +79,11 @@ dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 dseStackName :: Lens' DescribeStackEvents (Maybe Text)
 dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeStackEvents where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dserNextToken) = Nothing
+          | otherwise =
+            rq & dseNextToken ?~ rs ^. dserNextToken
 
 instance AWSRequest DescribeStackEvents where
         type Sv DescribeStackEvents = CloudFormation

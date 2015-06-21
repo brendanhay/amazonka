@@ -64,11 +64,6 @@ garApplicationName = lens _garApplicationName (\ s a -> s{_garApplicationName = 
 garRevision :: Lens' GetApplicationRevision RevisionLocation
 garRevision = lens _garRevision (\ s a -> s{_garRevision = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetApplicationRevision where
         type Sv GetApplicationRevision = CodeDeploy
         type Rs GetApplicationRevision =

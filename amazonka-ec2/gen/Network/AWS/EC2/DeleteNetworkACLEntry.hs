@@ -77,11 +77,6 @@ dnaeRuleNumber = lens _dnaeRuleNumber (\ s a -> s{_dnaeRuleNumber = a});
 dnaeEgress :: Lens' DeleteNetworkACLEntry Bool
 dnaeEgress = lens _dnaeEgress (\ s a -> s{_dnaeEgress = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteNetworkACLEntry where
         type Sv DeleteNetworkACLEntry = EC2
         type Rs DeleteNetworkACLEntry =

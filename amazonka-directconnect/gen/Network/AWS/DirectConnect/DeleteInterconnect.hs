@@ -54,11 +54,6 @@ deleteInterconnect pInterconnectId = DeleteInterconnect'{_delInterconnectId = pI
 delInterconnectId :: Lens' DeleteInterconnect Text
 delInterconnectId = lens _delInterconnectId (\ s a -> s{_delInterconnectId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteInterconnect where
         type Sv DeleteInterconnect = DirectConnect
         type Rs DeleteInterconnect =

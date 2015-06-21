@@ -64,11 +64,6 @@ delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
 delExpressionName :: Lens' DeleteExpression Text
 delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteExpression where
         type Sv DeleteExpression = CloudSearch
         type Rs DeleteExpression = DeleteExpressionResponse

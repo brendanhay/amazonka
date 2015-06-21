@@ -294,11 +294,6 @@ rditpitSourceDBInstanceIdentifier = lens _rditpitSourceDBInstanceIdentifier (\ s
 rditpitTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
 rditpitTargetDBInstanceIdentifier = lens _rditpitTargetDBInstanceIdentifier (\ s a -> s{_rditpitTargetDBInstanceIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RestoreDBInstanceToPointInTime
          where
         type Sv RestoreDBInstanceToPointInTime = RDS

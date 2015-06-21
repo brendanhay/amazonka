@@ -68,11 +68,6 @@ ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a});
 ratcPublicIP :: Lens' RestoreAddressToClassic Text
 ratcPublicIP = lens _ratcPublicIP (\ s a -> s{_ratcPublicIP = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RestoreAddressToClassic where
         type Sv RestoreAddressToClassic = EC2
         type Rs RestoreAddressToClassic =

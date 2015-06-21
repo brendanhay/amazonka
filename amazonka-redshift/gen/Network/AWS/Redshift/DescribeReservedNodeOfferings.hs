@@ -47,6 +47,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     , drnorMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -92,10 +93,10 @@ drnoMaxRecords = lens _drnoMaxRecords (\ s a -> s{_drnoMaxRecords = a});
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeReservedNodeOfferings where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. drnorMarker) = Nothing
+          | otherwise = rq & drnoMarker ?~ rs ^. drnorMarker
 
 instance AWSRequest DescribeReservedNodeOfferings
          where

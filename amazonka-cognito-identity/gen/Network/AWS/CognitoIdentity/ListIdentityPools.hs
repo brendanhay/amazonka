@@ -64,11 +64,6 @@ lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a});
 lipMaxResults :: Lens' ListIdentityPools Natural
 lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListIdentityPools where
         type Sv ListIdentityPools = CognitoIdentity
         type Rs ListIdentityPools = ListIdentityPoolsResponse

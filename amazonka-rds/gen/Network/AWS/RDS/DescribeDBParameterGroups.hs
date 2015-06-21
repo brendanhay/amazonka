@@ -40,6 +40,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     , ddpgrDBParameterGroups
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -94,10 +95,10 @@ ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
 ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDBParameterGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ddpgrMarker) = Nothing
+          | otherwise = rq & ddpgMarker ?~ rs ^. ddpgrMarker
 
 instance AWSRequest DescribeDBParameterGroups where
         type Sv DescribeDBParameterGroups = RDS

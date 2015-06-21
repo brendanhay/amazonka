@@ -42,6 +42,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,10 +86,10 @@ dsa1AutoScalingGroupName = lens _dsa1AutoScalingGroupName (\ s a -> s{_dsa1AutoS
 dsa1ActivityIds :: Lens' DescribeScalingActivities [Text]
 dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a}) . _Default;
 
-instance AWSPager A where
+instance AWSPager DescribeScalingActivities where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dNextToken) = Nothing
+          | otherwise = rq & dsa1NextToken ?~ rs ^. dNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling

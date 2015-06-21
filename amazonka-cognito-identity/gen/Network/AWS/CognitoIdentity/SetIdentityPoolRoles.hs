@@ -64,11 +64,6 @@ siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = 
 siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
 siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetIdentityPoolRoles where
         type Sv SetIdentityPoolRoles = CognitoIdentity
         type Rs SetIdentityPoolRoles =

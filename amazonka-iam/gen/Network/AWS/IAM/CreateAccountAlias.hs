@@ -55,11 +55,6 @@ createAccountAlias pAccountAlias = CreateAccountAlias'{_caaAccountAlias = pAccou
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\ s a -> s{_caaAccountAlias = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateAccountAlias where
         type Sv CreateAccountAlias = IAM
         type Rs CreateAccountAlias =

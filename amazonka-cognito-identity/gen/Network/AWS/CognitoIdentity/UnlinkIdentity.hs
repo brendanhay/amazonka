@@ -71,11 +71,6 @@ uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
 uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UnlinkIdentity where
         type Sv UnlinkIdentity = CognitoIdentity
         type Rs UnlinkIdentity = UnlinkIdentityResponse

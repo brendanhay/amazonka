@@ -196,11 +196,6 @@ modDryRun = lens _modDryRun (\ s a -> s{_modDryRun = a});
 modInstanceId :: Lens' ModifyInstanceAttribute Text
 modInstanceId = lens _modInstanceId (\ s a -> s{_modInstanceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyInstanceAttribute where
         type Sv ModifyInstanceAttribute = EC2
         type Rs ModifyInstanceAttribute =

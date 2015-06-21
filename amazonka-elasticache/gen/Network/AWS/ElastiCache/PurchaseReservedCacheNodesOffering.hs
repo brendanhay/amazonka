@@ -75,11 +75,6 @@ prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoRese
 prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
 prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          PurchaseReservedCacheNodesOffering where
         type Sv PurchaseReservedCacheNodesOffering =

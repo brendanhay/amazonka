@@ -57,6 +57,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -216,10 +217,12 @@ drioMaxResults = lens _drioMaxResults (\ s a -> s{_drioMaxResults = a});
 drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
 drioMaxInstanceCount = lens _drioMaxInstanceCount (\ s a -> s{_drioMaxInstanceCount = a});
 
-instance AWSPager A where
+instance AWSPager DescribeReservedInstancesOfferings
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. driorNextToken) = Nothing
+          | otherwise =
+            rq & drioNextToken ?~ rs ^. driorNextToken
 
 instance AWSRequest
          DescribeReservedInstancesOfferings where

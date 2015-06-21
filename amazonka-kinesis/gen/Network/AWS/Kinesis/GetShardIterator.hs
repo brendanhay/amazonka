@@ -128,11 +128,6 @@ gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
 gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetShardIterator where
         type Sv GetShardIterator = Kinesis
         type Rs GetShardIterator = GetShardIteratorResponse

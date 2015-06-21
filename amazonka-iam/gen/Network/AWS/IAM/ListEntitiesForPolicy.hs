@@ -109,11 +109,6 @@ lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
 lefpPolicyARN = lens _lefpPolicyARN (\ s a -> s{_lefpPolicyARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListEntitiesForPolicy where
         type Sv ListEntitiesForPolicy = IAM
         type Rs ListEntitiesForPolicy =

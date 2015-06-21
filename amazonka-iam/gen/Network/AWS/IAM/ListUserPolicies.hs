@@ -49,6 +49,7 @@ module Network.AWS.IAM.ListUserPolicies
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,10 +88,11 @@ lupMarker = lens _lupMarker (\ s a -> s{_lupMarker = a});
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\ s a -> s{_lupUserName = a});
 
-instance AWSPager A where
+instance AWSPager ListUserPolicies where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. luprIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lupMarker .~ rs ^. luprMarker
 
 instance AWSRequest ListUserPolicies where
         type Sv ListUserPolicies = IAM

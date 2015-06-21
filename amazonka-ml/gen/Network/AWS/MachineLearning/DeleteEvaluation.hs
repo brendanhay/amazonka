@@ -62,11 +62,6 @@ deleteEvaluation pEvaluationId = DeleteEvaluation'{_deEvaluationId = pEvaluation
 deEvaluationId :: Lens' DeleteEvaluation Text
 deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteEvaluation where
         type Sv DeleteEvaluation = MachineLearning
         type Rs DeleteEvaluation = DeleteEvaluationResponse

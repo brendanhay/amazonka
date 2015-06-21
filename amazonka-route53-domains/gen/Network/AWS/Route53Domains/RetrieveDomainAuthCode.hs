@@ -65,11 +65,6 @@ retrieveDomainAuthCode pDomainName = RetrieveDomainAuthCode'{_rdacDomainName = p
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RetrieveDomainAuthCode where
         type Sv RetrieveDomainAuthCode = Route53Domains
         type Rs RetrieveDomainAuthCode =

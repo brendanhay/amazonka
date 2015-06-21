@@ -48,11 +48,6 @@ data GenerateCredentialReport = GenerateCredentialReport' deriving (Eq, Read, Sh
 generateCredentialReport :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GenerateCredentialReport where
         type Sv GenerateCredentialReport = IAM
         type Rs GenerateCredentialReport =

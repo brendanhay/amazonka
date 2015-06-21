@@ -44,6 +44,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     ) where
 
 import Network.AWS.CloudWatch.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,10 +96,10 @@ daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default;
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
 daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat;
 
-instance AWSPager A where
+instance AWSPager DescribeAlarms where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. darNextToken) = Nothing
+          | otherwise = rq & daNextToken ?~ rs ^. darNextToken
 
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch

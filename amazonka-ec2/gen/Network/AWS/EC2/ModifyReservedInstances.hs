@@ -77,11 +77,6 @@ mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReserved
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyReservedInstances where
         type Sv ModifyReservedInstances = EC2
         type Rs ModifyReservedInstances =

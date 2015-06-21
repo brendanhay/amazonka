@@ -77,11 +77,6 @@ cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
 cctConversionTaskId :: Lens' CancelConversionTask Text
 cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CancelConversionTask where
         type Sv CancelConversionTask = EC2
         type Rs CancelConversionTask =

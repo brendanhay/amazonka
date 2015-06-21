@@ -57,11 +57,6 @@ deleteCacheSecurityGroup pCacheSecurityGroupName = DeleteCacheSecurityGroup'{_dc
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteCacheSecurityGroup where
         type Sv DeleteCacheSecurityGroup = ElastiCache
         type Rs DeleteCacheSecurityGroup =

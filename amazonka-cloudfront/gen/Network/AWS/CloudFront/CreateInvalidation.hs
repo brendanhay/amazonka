@@ -62,11 +62,6 @@ ciDistributionId = lens _ciDistributionId (\ s a -> s{_ciDistributionId = a});
 ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
 ciInvalidationBatch = lens _ciInvalidationBatch (\ s a -> s{_ciInvalidationBatch = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateInvalidation where
         type Sv CreateInvalidation = CloudFront
         type Rs CreateInvalidation =

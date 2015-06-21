@@ -112,11 +112,6 @@ dwNextToken = lens _dwNextToken (\ s a -> s{_dwNextToken = a});
 dwLimit :: Lens' DescribeWorkspaces (Maybe Natural)
 dwLimit = lens _dwLimit (\ s a -> s{_dwLimit = a}) . mapping _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeWorkspaces where
         type Sv DescribeWorkspaces = WorkSpaces
         type Rs DescribeWorkspaces =

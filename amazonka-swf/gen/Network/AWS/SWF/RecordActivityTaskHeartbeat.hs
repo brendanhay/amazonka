@@ -113,11 +113,6 @@ rathDetails = lens _rathDetails (\ s a -> s{_rathDetails = a});
 rathTaskToken :: Lens' RecordActivityTaskHeartbeat Text
 rathTaskToken = lens _rathTaskToken (\ s a -> s{_rathTaskToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RecordActivityTaskHeartbeat where
         type Sv RecordActivityTaskHeartbeat = SWF
         type Rs RecordActivityTaskHeartbeat =

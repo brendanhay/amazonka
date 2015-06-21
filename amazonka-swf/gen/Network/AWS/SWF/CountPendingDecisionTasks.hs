@@ -85,11 +85,6 @@ cpdtDomain = lens _cpdtDomain (\ s a -> s{_cpdtDomain = a});
 cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CountPendingDecisionTasks where
         type Sv CountPendingDecisionTasks = SWF
         type Rs CountPendingDecisionTasks = PendingTaskCount

@@ -59,11 +59,6 @@ rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a});
 rtfopiInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
 rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RemoveTagsFromOnPremisesInstances
          where
         type Sv RemoveTagsFromOnPremisesInstances =

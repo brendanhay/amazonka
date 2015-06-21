@@ -69,11 +69,6 @@ derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = 
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeEnvironmentResources
          where
         type Sv DescribeEnvironmentResources =

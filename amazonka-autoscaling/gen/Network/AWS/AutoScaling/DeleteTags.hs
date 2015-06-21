@@ -55,11 +55,6 @@ deleteTags = DeleteTags'{_dtTags = mempty};
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\ s a -> s{_dtTags = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = AutoScaling
         type Rs DeleteTags = DeleteTagsResponse

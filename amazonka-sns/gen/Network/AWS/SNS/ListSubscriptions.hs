@@ -38,6 +38,7 @@ module Network.AWS.SNS.ListSubscriptions
     , lsrSubscriptions
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -58,10 +59,10 @@ listSubscriptions = ListSubscriptions'{_lsNextToken = Nothing};
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
-instance AWSPager A where
+instance AWSPager ListSubscriptions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lsrNextToken) = Nothing
+          | otherwise = rq & lsNextToken ?~ rs ^. lsrNextToken
 
 instance AWSRequest ListSubscriptions where
         type Sv ListSubscriptions = SNS

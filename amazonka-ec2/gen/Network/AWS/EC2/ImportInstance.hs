@@ -91,11 +91,6 @@ iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
 iiPlatform :: Lens' ImportInstance PlatformValues
 iiPlatform = lens _iiPlatform (\ s a -> s{_iiPlatform = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ImportInstance where
         type Sv ImportInstance = EC2
         type Rs ImportInstance = ImportInstanceResponse

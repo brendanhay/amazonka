@@ -94,11 +94,6 @@ pftInstanceIdentity = lens _pftInstanceIdentity (\ s a -> s{_pftInstanceIdentity
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PollForTask where
         type Sv PollForTask = DataPipeline
         type Rs PollForTask = PollForTaskResponse

@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,10 +72,12 @@ dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
 dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a});
 
-instance AWSPager A where
+instance AWSPager DescribeNotificationConfigurations
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dncrNextToken) = Nothing
+          | otherwise =
+            rq & dncNextToken ?~ rs ^. dncrNextToken
 
 instance AWSRequest
          DescribeNotificationConfigurations where

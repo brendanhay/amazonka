@@ -66,11 +66,6 @@ dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a});
 dakAccessKeyId :: Lens' DeleteAccessKey Text
 dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteAccessKey where
         type Sv DeleteAccessKey = IAM
         type Rs DeleteAccessKey = DeleteAccessKeyResponse

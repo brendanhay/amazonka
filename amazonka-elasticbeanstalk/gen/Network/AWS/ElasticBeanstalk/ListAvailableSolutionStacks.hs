@@ -45,11 +45,6 @@ data ListAvailableSolutionStacks = ListAvailableSolutionStacks' deriving (Eq, Re
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListAvailableSolutionStacks where
         type Sv ListAvailableSolutionStacks =
              ElasticBeanstalk

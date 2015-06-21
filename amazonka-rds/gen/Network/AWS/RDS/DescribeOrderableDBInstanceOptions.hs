@@ -43,6 +43,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     , dodiorMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -119,10 +120,11 @@ dodioVPC = lens _dodioVPC (\ s a -> s{_dodioVPC = a});
 dodioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
 dodioEngine = lens _dodioEngine (\ s a -> s{_dodioEngine = a});
 
-instance AWSPager A where
+instance AWSPager DescribeOrderableDBInstanceOptions
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dodiorMarker) = Nothing
+          | otherwise = rq & dodioMarker ?~ rs ^. dodiorMarker
 
 instance AWSRequest
          DescribeOrderableDBInstanceOptions where

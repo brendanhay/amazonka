@@ -88,11 +88,6 @@ dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
 dmfLogGroupName :: Lens' DescribeMetricFilters Text
 dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeMetricFilters where
         type Sv DescribeMetricFilters = CloudWatchLogs
         type Rs DescribeMetricFilters =

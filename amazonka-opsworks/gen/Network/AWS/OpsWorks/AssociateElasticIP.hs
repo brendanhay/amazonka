@@ -68,11 +68,6 @@ aeiInstanceId = lens _aeiInstanceId (\ s a -> s{_aeiInstanceId = a});
 aeiElasticIP :: Lens' AssociateElasticIP Text
 aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AssociateElasticIP where
         type Sv AssociateElasticIP = OpsWorks
         type Rs AssociateElasticIP =

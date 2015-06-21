@@ -88,6 +88,7 @@ module Network.AWS.EC2.DescribeSnapshots
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -198,10 +199,10 @@ ds1DryRun = lens _ds1DryRun (\ s a -> s{_ds1DryRun = a});
 ds1MaxResults :: Lens' DescribeSnapshots (Maybe Int)
 ds1MaxResults = lens _ds1MaxResults (\ s a -> s{_ds1MaxResults = a});
 
-instance AWSPager A where
+instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dsrNextToken) = Nothing
+          | otherwise = rq & ds1NextToken ?~ rs ^. dsrNextToken
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2

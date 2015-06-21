@@ -80,11 +80,6 @@ uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\ s a -> s{_uakStatus = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateAccessKey where
         type Sv UpdateAccessKey = IAM
         type Rs UpdateAccessKey = UpdateAccessKeyResponse

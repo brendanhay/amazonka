@@ -151,11 +151,6 @@ ccweStartTimeFilter = lens _ccweStartTimeFilter (\ s a -> s{_ccweStartTimeFilter
 ccweDomain :: Lens' CountClosedWorkflowExecutions Text
 ccweDomain = lens _ccweDomain (\ s a -> s{_ccweDomain = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CountClosedWorkflowExecutions
          where
         type Sv CountClosedWorkflowExecutions = SWF

@@ -39,6 +39,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     , dogorMarker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -94,10 +95,10 @@ dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
 dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
 
-instance AWSPager A where
+instance AWSPager DescribeOptionGroupOptions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dogorMarker) = Nothing
+          | otherwise = rq & dogoMarker ?~ rs ^. dogorMarker
 
 instance AWSRequest DescribeOptionGroupOptions where
         type Sv DescribeOptionGroupOptions = RDS

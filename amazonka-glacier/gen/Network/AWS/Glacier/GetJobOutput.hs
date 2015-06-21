@@ -134,11 +134,6 @@ gjoVaultName = lens _gjoVaultName (\ s a -> s{_gjoVaultName = a});
 gjoJobId :: Lens' GetJobOutput Text
 gjoJobId = lens _gjoJobId (\ s a -> s{_gjoJobId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetJobOutput where
         type Sv GetJobOutput = Glacier
         type Rs GetJobOutput = GetJobOutputResponse

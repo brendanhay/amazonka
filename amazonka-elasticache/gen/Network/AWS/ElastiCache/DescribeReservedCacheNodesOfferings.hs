@@ -43,6 +43,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -150,10 +151,11 @@ drcnoDuration = lens _drcnoDuration (\ s a -> s{_drcnoDuration = a});
 drcnoReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoReservedCacheNodesOfferingId = lens _drcnoReservedCacheNodesOfferingId (\ s a -> s{_drcnoReservedCacheNodesOfferingId = a});
 
-instance AWSPager A where
+instance AWSPager DescribeReservedCacheNodesOfferings
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. drcnorMarker) = Nothing
+          | otherwise = rq & drcnoMarker ?~ rs ^. drcnorMarker
 
 instance AWSRequest
          DescribeReservedCacheNodesOfferings where

@@ -41,6 +41,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     , ddcprDefaultClusterParameters
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -87,10 +88,16 @@ ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
 ddcpParameterGroupFamily = lens _ddcpParameterGroupFamily (\ s a -> s{_ddcpParameterGroupFamily = a});
 
-instance AWSPager A where
+instance AWSPager DescribeDefaultClusterParameters
+         where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop
+              (rs ^. ddcprDefaultClusterParameters . dcpMarker)
+            = Nothing
+          | otherwise =
+            rq &
+              ddcpMarker ?~
+                rs ^. ddcprDefaultClusterParameters . dcpMarker
 
 instance AWSRequest DescribeDefaultClusterParameters
          where

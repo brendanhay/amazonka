@@ -50,6 +50,7 @@ module Network.AWS.S3.ListParts
     , lprUploadId
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -100,6 +101,14 @@ lpKey = lens _lpKey (\ s a -> s{_lpKey = a});
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
+
+instance AWSPager ListParts where
+        page rq rs
+          | stop (rs ^. lprIsTruncated) = Nothing
+          | otherwise =
+            Just $
+              rq &
+                lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker
 
 instance AWSRequest ListParts where
         type Sv ListParts = S3

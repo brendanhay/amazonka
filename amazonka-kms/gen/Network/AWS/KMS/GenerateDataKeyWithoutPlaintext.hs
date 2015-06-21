@@ -102,11 +102,6 @@ gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a}) . 
 gdkwpKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
 gdkwpKeyId = lens _gdkwpKeyId (\ s a -> s{_gdkwpKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GenerateDataKeyWithoutPlaintext
          where
         type Sv GenerateDataKeyWithoutPlaintext = KMS

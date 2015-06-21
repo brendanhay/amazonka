@@ -58,11 +58,6 @@ startStack pStackId = StartStack'{_sStackId = pStackId};
 sStackId :: Lens' StartStack Text
 sStackId = lens _sStackId (\ s a -> s{_sStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest StartStack where
         type Sv StartStack = OpsWorks
         type Rs StartStack = StartStackResponse

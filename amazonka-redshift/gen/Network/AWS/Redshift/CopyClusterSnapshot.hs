@@ -101,11 +101,6 @@ ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccs
 ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CopyClusterSnapshot where
         type Sv CopyClusterSnapshot = Redshift
         type Rs CopyClusterSnapshot =

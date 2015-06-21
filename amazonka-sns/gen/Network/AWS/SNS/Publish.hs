@@ -153,11 +153,6 @@ pubMessageStructure = lens _pubMessageStructure (\ s a -> s{_pubMessageStructure
 pubMessage :: Lens' Publish Text
 pubMessage = lens _pubMessage (\ s a -> s{_pubMessage = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest Publish where
         type Sv Publish = SNS
         type Rs Publish = PublishResponse

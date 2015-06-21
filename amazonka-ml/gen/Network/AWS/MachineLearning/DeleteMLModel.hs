@@ -61,11 +61,6 @@ deleteMLModel pMLModelId = DeleteMLModel'{_dmlmMLModelId = pMLModelId};
 dmlmMLModelId :: Lens' DeleteMLModel Text
 dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteMLModel where
         type Sv DeleteMLModel = MachineLearning
         type Rs DeleteMLModel = DeleteMLModelResponse

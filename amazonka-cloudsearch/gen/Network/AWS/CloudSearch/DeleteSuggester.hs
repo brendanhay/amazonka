@@ -63,11 +63,6 @@ deleDomainName = lens _deleDomainName (\ s a -> s{_deleDomainName = a});
 deleSuggesterName :: Lens' DeleteSuggester Text
 deleSuggesterName = lens _deleSuggesterName (\ s a -> s{_deleSuggesterName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteSuggester where
         type Sv DeleteSuggester = CloudSearch
         type Rs DeleteSuggester = DeleteSuggesterResponse

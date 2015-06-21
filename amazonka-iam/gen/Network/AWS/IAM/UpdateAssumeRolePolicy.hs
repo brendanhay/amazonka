@@ -61,11 +61,6 @@ uarpRoleName = lens _uarpRoleName (\ s a -> s{_uarpRoleName = a});
 uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
 uarpPolicyDocument = lens _uarpPolicyDocument (\ s a -> s{_uarpPolicyDocument = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateAssumeRolePolicy where
         type Sv UpdateAssumeRolePolicy = IAM
         type Rs UpdateAssumeRolePolicy =

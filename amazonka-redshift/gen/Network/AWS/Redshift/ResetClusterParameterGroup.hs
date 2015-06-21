@@ -80,11 +80,6 @@ rcpgParameters = lens _rcpgParameters (\ s a -> s{_rcpgParameters = a}) . _Defau
 rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
 rcpgParameterGroupName = lens _rcpgParameterGroupName (\ s a -> s{_rcpgParameterGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ResetClusterParameterGroup where
         type Sv ResetClusterParameterGroup = Redshift
         type Rs ResetClusterParameterGroup =

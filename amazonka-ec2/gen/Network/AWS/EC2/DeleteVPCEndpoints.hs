@@ -66,11 +66,6 @@ dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
 dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
 dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVPCEndpoints where
         type Sv DeleteVPCEndpoints = EC2
         type Rs DeleteVPCEndpoints =

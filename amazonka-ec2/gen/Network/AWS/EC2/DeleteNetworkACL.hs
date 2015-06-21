@@ -63,11 +63,6 @@ dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a});
 dnaNetworkACLId :: Lens' DeleteNetworkACL Text
 dnaNetworkACLId = lens _dnaNetworkACLId (\ s a -> s{_dnaNetworkACLId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteNetworkACL where
         type Sv DeleteNetworkACL = EC2
         type Rs DeleteNetworkACL = DeleteNetworkACLResponse

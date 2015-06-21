@@ -55,11 +55,6 @@ getServerCertificate pServerCertificateName = GetServerCertificate'{_gscServerCe
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetServerCertificate where
         type Sv GetServerCertificate = IAM
         type Rs GetServerCertificate =

@@ -46,6 +46,7 @@ module Network.AWS.ECS.ListTasks
     ) where
 
 import Network.AWS.ECS.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -133,10 +134,10 @@ ltContainerInstance = lens _ltContainerInstance (\ s a -> s{_ltContainerInstance
 ltMaxResults :: Lens' ListTasks (Maybe Int)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager ListTasks where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. ltrNextToken) = Nothing
+          | otherwise = rq & ltNextToken ?~ rs ^. ltrNextToken
 
 instance AWSRequest ListTasks where
         type Sv ListTasks = ECS

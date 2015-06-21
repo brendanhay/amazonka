@@ -181,11 +181,6 @@ uasgPlacementGroup = lens _uasgPlacementGroup (\ s a -> s{_uasgPlacementGroup = 
 uasgAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
 uasgAutoScalingGroupName = lens _uasgAutoScalingGroupName (\ s a -> s{_uasgAutoScalingGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateAutoScalingGroup where
         type Sv UpdateAutoScalingGroup = AutoScaling
         type Rs UpdateAutoScalingGroup =

@@ -49,11 +49,6 @@ data GetAccountSummary = GetAccountSummary' deriving (Eq, Read, Show)
 getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetAccountSummary where
         type Sv GetAccountSummary = IAM
         type Rs GetAccountSummary = GetAccountSummaryResponse

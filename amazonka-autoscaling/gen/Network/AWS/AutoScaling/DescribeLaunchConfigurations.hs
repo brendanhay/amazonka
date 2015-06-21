@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     ) where
 
 import Network.AWS.AutoScaling.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,10 +73,11 @@ dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
 dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 
-instance AWSPager A where
+instance AWSPager DescribeLaunchConfigurations where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dlcrNextToken) = Nothing
+          | otherwise =
+            rq & dlcNextToken ?~ rs ^. dlcrNextToken
 
 instance AWSRequest DescribeLaunchConfigurations
          where

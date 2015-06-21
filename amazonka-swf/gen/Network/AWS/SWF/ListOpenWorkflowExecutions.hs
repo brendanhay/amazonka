@@ -73,6 +73,7 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     , weiExecutionInfos
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -161,10 +162,11 @@ loweDomain = lens _loweDomain (\ s a -> s{_loweDomain = a});
 loweStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
 loweStartTimeFilter = lens _loweStartTimeFilter (\ s a -> s{_loweStartTimeFilter = a});
 
-instance AWSPager A where
+instance AWSPager ListOpenWorkflowExecutions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. weiNextPageToken) = Nothing
+          | otherwise =
+            rq & loweNextPageToken ?~ rs ^. weiNextPageToken
 
 instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF

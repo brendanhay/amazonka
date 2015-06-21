@@ -39,6 +39,7 @@ module Network.AWS.ElasticTranscoder.ListPresets
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,10 +69,11 @@ lisAscending = lens _lisAscending (\ s a -> s{_lisAscending = a});
 lisPageToken :: Lens' ListPresets (Maybe Text)
 lisPageToken = lens _lisPageToken (\ s a -> s{_lisPageToken = a});
 
-instance AWSPager A where
+instance AWSPager ListPresets where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lisNextPageToken) = Nothing
+          | otherwise =
+            rq & lisPageToken ?~ rs ^. lisNextPageToken
 
 instance AWSRequest ListPresets where
         type Sv ListPresets = ElasticTranscoder

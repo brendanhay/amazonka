@@ -45,11 +45,6 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes' deriving (Eq, Re
 describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes';
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeScalingProcessTypes where
         type Sv DescribeScalingProcessTypes = AutoScaling
         type Rs DescribeScalingProcessTypes =

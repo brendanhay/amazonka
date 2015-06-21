@@ -81,11 +81,6 @@ lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
 lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
 lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ListOnPremisesInstances where
         type Sv ListOnPremisesInstances = CodeDeploy
         type Rs ListOnPremisesInstances =

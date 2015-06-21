@@ -84,11 +84,6 @@ pupPolicyName = lens _pupPolicyName (\ s a -> s{_pupPolicyName = a});
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument = lens _pupPolicyDocument (\ s a -> s{_pupPolicyDocument = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutUserPolicy where
         type Sv PutUserPolicy = IAM
         type Rs PutUserPolicy = PutUserPolicyResponse

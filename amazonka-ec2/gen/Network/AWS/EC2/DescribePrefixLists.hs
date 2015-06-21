@@ -101,11 +101,6 @@ dplDryRun = lens _dplDryRun (\ s a -> s{_dplDryRun = a});
 dplMaxResults :: Lens' DescribePrefixLists (Maybe Int)
 dplMaxResults = lens _dplMaxResults (\ s a -> s{_dplMaxResults = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribePrefixLists where
         type Sv DescribePrefixLists = EC2
         type Rs DescribePrefixLists =

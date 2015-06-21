@@ -323,11 +323,6 @@ cloSourceStackId = lens _cloSourceStackId (\ s a -> s{_cloSourceStackId = a});
 cloServiceRoleARN :: Lens' CloneStack Text
 cloServiceRoleARN = lens _cloServiceRoleARN (\ s a -> s{_cloServiceRoleARN = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CloneStack where
         type Sv CloneStack = OpsWorks
         type Rs CloneStack = CloneStackResponse

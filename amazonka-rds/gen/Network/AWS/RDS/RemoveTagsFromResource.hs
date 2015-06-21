@@ -64,11 +64,6 @@ rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = RDS
         type Rs RemoveTagsFromResource =

@@ -105,11 +105,6 @@ dsfrhSpotFleetRequestId = lens _dsfrhSpotFleetRequestId (\ s a -> s{_dsfrhSpotFl
 dsfrhStartTime :: Lens' DescribeSpotFleetRequestHistory UTCTime
 dsfrhStartTime = lens _dsfrhStartTime (\ s a -> s{_dsfrhStartTime = a}) . _Time;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSpotFleetRequestHistory
          where
         type Sv DescribeSpotFleetRequestHistory = EC2

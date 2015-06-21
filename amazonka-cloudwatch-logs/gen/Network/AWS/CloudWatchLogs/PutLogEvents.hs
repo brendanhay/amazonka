@@ -94,11 +94,6 @@ pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutLogEvents where
         type Sv PutLogEvents = CloudWatchLogs
         type Rs PutLogEvents = PutLogEventsResponse

@@ -66,11 +66,6 @@ acidtoidcpOpenIDConnectProviderARN = lens _acidtoidcpOpenIDConnectProviderARN (\
 acidtoidcpClientID :: Lens' AddClientIDToOpenIDConnectProvider Text
 acidtoidcpClientID = lens _acidtoidcpClientID (\ s a -> s{_acidtoidcpClientID = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          AddClientIDToOpenIDConnectProvider where
         type Sv AddClientIDToOpenIDConnectProvider = IAM

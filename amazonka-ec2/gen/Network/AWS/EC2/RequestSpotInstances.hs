@@ -167,11 +167,6 @@ rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\ s a -> s{_rsiSpotPrice = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest RequestSpotInstances where
         type Sv RequestSpotInstances = EC2
         type Rs RequestSpotInstances =

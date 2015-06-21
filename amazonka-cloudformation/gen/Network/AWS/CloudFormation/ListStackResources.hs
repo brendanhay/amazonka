@@ -40,6 +40,7 @@ module Network.AWS.CloudFormation.ListStackResources
     ) where
 
 import Network.AWS.CloudFormation.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,10 +76,11 @@ lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a});
 
-instance AWSPager A where
+instance AWSPager ListStackResources where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lsrrNextToken) = Nothing
+          | otherwise =
+            rq & lsrNextToken ?~ rs ^. lsrrNextToken
 
 instance AWSRequest ListStackResources where
         type Sv ListStackResources = CloudFormation

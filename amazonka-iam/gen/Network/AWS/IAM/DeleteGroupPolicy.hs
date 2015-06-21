@@ -67,11 +67,6 @@ delGroupName = lens _delGroupName (\ s a -> s{_delGroupName = a});
 delPolicyName :: Lens' DeleteGroupPolicy Text
 delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteGroupPolicy where
         type Sv DeleteGroupPolicy = IAM
         type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse

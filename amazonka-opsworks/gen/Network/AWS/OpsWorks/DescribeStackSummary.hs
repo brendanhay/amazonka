@@ -61,11 +61,6 @@ describeStackSummary pStackId = DescribeStackSummary'{_dssStackId = pStackId};
 dssStackId :: Lens' DescribeStackSummary Text
 dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeStackSummary where
         type Sv DescribeStackSummary = OpsWorks
         type Rs DescribeStackSummary =

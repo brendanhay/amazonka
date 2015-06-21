@@ -71,11 +71,6 @@ deleteStream pStreamName = DeleteStream'{_dsStreamName = pStreamName};
 dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\ s a -> s{_dsStreamName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteStream where
         type Sv DeleteStream = Kinesis
         type Rs DeleteStream = DeleteStreamResponse

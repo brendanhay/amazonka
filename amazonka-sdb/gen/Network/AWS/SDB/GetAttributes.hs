@@ -85,11 +85,6 @@ gaDomainName = lens _gaDomainName (\ s a -> s{_gaDomainName = a});
 gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\ s a -> s{_gaItemName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetAttributes where
         type Sv GetAttributes = SDB
         type Rs GetAttributes = GetAttributesResponse

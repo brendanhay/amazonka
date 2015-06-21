@@ -59,11 +59,6 @@ describeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs = Nothing};
 dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
 dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeUserProfiles where
         type Sv DescribeUserProfiles = OpsWorks
         type Rs DescribeUserProfiles =

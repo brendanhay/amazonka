@@ -111,11 +111,6 @@ paItemName = lens _paItemName (\ s a -> s{_paItemName = a});
 paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
 paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutAttributes where
         type Sv PutAttributes = SDB
         type Rs PutAttributes = PutAttributesResponse

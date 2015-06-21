@@ -50,6 +50,7 @@ module Network.AWS.IAM.ListGroupPolicies
     ) where
 
 import Network.AWS.IAM.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -88,10 +89,11 @@ lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 lgpGroupName :: Lens' ListGroupPolicies Text
 lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 
-instance AWSPager A where
+instance AWSPager ListGroupPolicies where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lgprIsTruncated) = Nothing
+          | otherwise =
+            Just $ rq & lgpMarker .~ rs ^. lgprMarker
 
 instance AWSRequest ListGroupPolicies where
         type Sv ListGroupPolicies = IAM

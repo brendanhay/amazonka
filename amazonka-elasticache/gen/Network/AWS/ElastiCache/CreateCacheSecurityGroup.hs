@@ -75,11 +75,6 @@ ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgC
 ccsgDescription :: Lens' CreateCacheSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateCacheSecurityGroup where
         type Sv CreateCacheSecurityGroup = ElastiCache
         type Rs CreateCacheSecurityGroup =

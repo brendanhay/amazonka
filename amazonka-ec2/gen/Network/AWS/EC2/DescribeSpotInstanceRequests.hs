@@ -202,11 +202,6 @@ dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirS
 dsirDryRun :: Lens' DescribeSpotInstanceRequests (Maybe Bool)
 dsirDryRun = lens _dsirDryRun (\ s a -> s{_dsirDryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeSpotInstanceRequests
          where
         type Sv DescribeSpotInstanceRequests = EC2

@@ -55,11 +55,6 @@ describeTrails = DescribeTrails'{_dtTrailNameList = Nothing};
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeTrails where
         type Sv DescribeTrails = CloudTrail
         type Rs DescribeTrails = DescribeTrailsResponse

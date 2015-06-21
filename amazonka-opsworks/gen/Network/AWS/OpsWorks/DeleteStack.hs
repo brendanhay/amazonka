@@ -60,11 +60,6 @@ deleteStack pStackId = DeleteStack'{_dsStackId = pStackId};
 dsStackId :: Lens' DeleteStack Text
 dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteStack where
         type Sv DeleteStack = OpsWorks
         type Rs DeleteStack = DeleteStackResponse

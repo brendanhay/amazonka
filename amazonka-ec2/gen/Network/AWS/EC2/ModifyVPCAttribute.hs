@@ -75,11 +75,6 @@ mvaEnableDNSSupport = lens _mvaEnableDNSSupport (\ s a -> s{_mvaEnableDNSSupport
 mvaVPCId :: Lens' ModifyVPCAttribute Text
 mvaVPCId = lens _mvaVPCId (\ s a -> s{_mvaVPCId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyVPCAttribute where
         type Sv ModifyVPCAttribute = EC2
         type Rs ModifyVPCAttribute =

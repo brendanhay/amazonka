@@ -54,11 +54,6 @@ deleteVirtualInterface pVirtualInterfaceId = DeleteVirtualInterface'{_delVirtual
 delVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
 delVirtualInterfaceId = lens _delVirtualInterfaceId (\ s a -> s{_delVirtualInterfaceId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVirtualInterface where
         type Sv DeleteVirtualInterface = DirectConnect
         type Rs DeleteVirtualInterface =

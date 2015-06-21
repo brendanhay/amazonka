@@ -66,11 +66,6 @@ cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 cdName :: Lens' CreateDocument Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateDocument where
         type Sv CreateDocument = SSM
         type Rs CreateDocument = CreateDocumentResponse

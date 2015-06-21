@@ -92,11 +92,6 @@ ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a});
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutPipelineDefinition where
         type Sv PutPipelineDefinition = DataPipeline
         type Rs PutPipelineDefinition =

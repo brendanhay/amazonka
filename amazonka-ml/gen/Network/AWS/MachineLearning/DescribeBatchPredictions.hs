@@ -47,6 +47,7 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     ) where
 
 import Network.AWS.MachineLearning.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -173,10 +174,11 @@ dbpFilterVariable = lens _dbpFilterVariable (\ s a -> s{_dbpFilterVariable = a})
 dbpLE :: Lens' DescribeBatchPredictions (Maybe Text)
 dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
 
-instance AWSPager A where
+instance AWSPager DescribeBatchPredictions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dbprNextToken) = Nothing
+          | otherwise =
+            rq & dbpNextToken ?~ rs ^. dbprNextToken
 
 instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning

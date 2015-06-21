@@ -59,11 +59,6 @@ uaNewApplicationName = lens _uaNewApplicationName (\ s a -> s{_uaNewApplicationN
 uaApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateApplication where
         type Sv UpdateApplication = CodeDeploy
         type Rs UpdateApplication = UpdateApplicationResponse

@@ -71,11 +71,6 @@ dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFi
 dccCacheClusterId :: Lens' DeleteCacheCluster Text
 dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteCacheCluster where
         type Sv DeleteCacheCluster = ElastiCache
         type Rs DeleteCacheCluster =

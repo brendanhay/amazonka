@@ -269,11 +269,6 @@ creInputBucket = lens _creInputBucket (\ s a -> s{_creInputBucket = a});
 creRole :: Lens' CreatePipeline Text
 creRole = lens _creRole (\ s a -> s{_creRole = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = ElasticTranscoder
         type Rs CreatePipeline = CreatePipelineResponse

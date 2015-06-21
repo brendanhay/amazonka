@@ -90,11 +90,6 @@ ivImage = lens _ivImage (\ s a -> s{_ivImage = a});
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ImportVolume where
         type Sv ImportVolume = EC2
         type Rs ImportVolume = ImportVolumeResponse

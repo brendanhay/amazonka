@@ -98,11 +98,6 @@ cpePlatformApplicationARN = lens _cpePlatformApplicationARN (\ s a -> s{_cpePlat
 cpeToken :: Lens' CreatePlatformEndpoint Text
 cpeToken = lens _cpeToken (\ s a -> s{_cpeToken = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreatePlatformEndpoint where
         type Sv CreatePlatformEndpoint = SNS
         type Rs CreatePlatformEndpoint =

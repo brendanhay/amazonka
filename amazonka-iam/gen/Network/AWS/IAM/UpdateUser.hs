@@ -81,11 +81,6 @@ uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a});
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateUser where
         type Sv UpdateUser = IAM
         type Rs UpdateUser = UpdateUserResponse

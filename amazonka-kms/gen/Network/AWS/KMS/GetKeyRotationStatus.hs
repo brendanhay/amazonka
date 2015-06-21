@@ -61,11 +61,6 @@ getKeyRotationStatus pKeyId = GetKeyRotationStatus'{_gkrsKeyId = pKeyId};
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetKeyRotationStatus where
         type Sv GetKeyRotationStatus = KMS
         type Rs GetKeyRotationStatus =

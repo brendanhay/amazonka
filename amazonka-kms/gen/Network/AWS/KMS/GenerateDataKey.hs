@@ -134,11 +134,6 @@ gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Defau
 gdkKeyId :: Lens' GenerateDataKey Text
 gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GenerateDataKey where
         type Sv GenerateDataKey = KMS
         type Rs GenerateDataKey = GenerateDataKeyResponse

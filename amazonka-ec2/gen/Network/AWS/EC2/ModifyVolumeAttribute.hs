@@ -79,11 +79,6 @@ mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
 mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ModifyVolumeAttribute where
         type Sv ModifyVolumeAttribute = EC2
         type Rs ModifyVolumeAttribute =

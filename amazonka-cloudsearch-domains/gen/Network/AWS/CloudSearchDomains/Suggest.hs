@@ -87,11 +87,6 @@ sugQuery = lens _sugQuery (\ s a -> s{_sugQuery = a});
 sugSuggester :: Lens' Suggest Text
 sugSuggester = lens _sugSuggester (\ s a -> s{_sugSuggester = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest Suggest where
         type Sv Suggest = CloudSearchDomains
         type Rs Suggest = SuggestResponse

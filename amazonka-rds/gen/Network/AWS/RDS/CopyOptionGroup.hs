@@ -94,11 +94,6 @@ copTargetOptionGroupIdentifier = lens _copTargetOptionGroupIdentifier (\ s a -> 
 copTargetOptionGroupDescription :: Lens' CopyOptionGroup Text
 copTargetOptionGroupDescription = lens _copTargetOptionGroupDescription (\ s a -> s{_copTargetOptionGroupDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CopyOptionGroup where
         type Sv CopyOptionGroup = RDS
         type Rs CopyOptionGroup = CopyOptionGroupResponse

@@ -349,11 +349,6 @@ crgReplicationGroupId = lens _crgReplicationGroupId (\ s a -> s{_crgReplicationG
 crgReplicationGroupDescription :: Lens' CreateReplicationGroup Text
 crgReplicationGroupDescription = lens _crgReplicationGroupDescription (\ s a -> s{_crgReplicationGroupDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateReplicationGroup where
         type Sv CreateReplicationGroup = ElastiCache
         type Rs CreateReplicationGroup =

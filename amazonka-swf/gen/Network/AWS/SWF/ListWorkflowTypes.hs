@@ -60,6 +60,7 @@ module Network.AWS.SWF.ListWorkflowTypes
     , lwtrTypeInfos
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -124,10 +125,11 @@ lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a});
 lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a});
 
-instance AWSPager A where
+instance AWSPager ListWorkflowTypes where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lwtrNextPageToken) = Nothing
+          | otherwise =
+            rq & lwtNextPageToken ?~ rs ^. lwtrNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF

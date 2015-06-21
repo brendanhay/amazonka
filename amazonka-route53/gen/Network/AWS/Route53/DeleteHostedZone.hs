@@ -68,11 +68,6 @@ deleteHostedZone pId = DeleteHostedZone'{_dhzId = pId};
 dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\ s a -> s{_dhzId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteHostedZone where
         type Sv DeleteHostedZone = Route53
         type Rs DeleteHostedZone = DeleteHostedZoneResponse

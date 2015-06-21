@@ -147,11 +147,6 @@ impClientData = lens _impClientData (\ s a -> s{_impClientData = a});
 impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
 impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest ImportImage where
         type Sv ImportImage = EC2
         type Rs ImportImage = ImportImageResponse

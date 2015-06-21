@@ -162,11 +162,6 @@ ueSolutionStackName = lens _ueSolutionStackName (\ s a -> s{_ueSolutionStackName
 ueDescription :: Lens' UpdateEnvironment (Maybe Text)
 ueDescription = lens _ueDescription (\ s a -> s{_ueDescription = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateEnvironment where
         type Sv UpdateEnvironment = ElasticBeanstalk
         type Rs UpdateEnvironment = EnvironmentDescription

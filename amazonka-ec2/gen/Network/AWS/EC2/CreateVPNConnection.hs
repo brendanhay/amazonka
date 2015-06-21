@@ -105,11 +105,6 @@ cvcCustomerGatewayId = lens _cvcCustomerGatewayId (\ s a -> s{_cvcCustomerGatewa
 cvcVPNGatewayId :: Lens' CreateVPNConnection Text
 cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateVPNConnection where
         type Sv CreateVPNConnection = EC2
         type Rs CreateVPNConnection =

@@ -167,11 +167,6 @@ cSnapshotId = lens _cSnapshotId (\ s a -> s{_cSnapshotId = a});
 cAvailabilityZone :: Lens' CreateVolume Text
 cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateVolume where
         type Sv CreateVolume = EC2
         type Rs CreateVolume = Volume

@@ -72,11 +72,6 @@ gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a});
 gpvVersionId :: Lens' GetPolicyVersion Text
 gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetPolicyVersion where
         type Sv GetPolicyVersion = IAM
         type Rs GetPolicyVersion = GetPolicyVersionResponse

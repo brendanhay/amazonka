@@ -70,11 +70,6 @@ diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalanc
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
 diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest
          DeregisterInstancesFromLoadBalancer where
         type Sv DeregisterInstancesFromLoadBalancer = ELB

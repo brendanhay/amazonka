@@ -54,11 +54,6 @@ batchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames =
 bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
 bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest BatchGetOnPremisesInstances where
         type Sv BatchGetOnPremisesInstances = CodeDeploy
         type Rs BatchGetOnPremisesInstances =

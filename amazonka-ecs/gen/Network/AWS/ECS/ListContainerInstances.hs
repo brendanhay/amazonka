@@ -38,6 +38,7 @@ module Network.AWS.ECS.ListContainerInstances
     ) where
 
 import Network.AWS.ECS.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,10 +84,11 @@ lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
 lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager ListContainerInstances where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. lcirNextToken) = Nothing
+          | otherwise =
+            rq & lciNextToken ?~ rs ^. lcirNextToken
 
 instance AWSRequest ListContainerInstances where
         type Sv ListContainerInstances = ECS

@@ -54,6 +54,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     ) where
 
 import Network.AWS.EC2.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -150,10 +151,11 @@ dsphDryRun = lens _dsphDryRun (\ s a -> s{_dsphDryRun = a});
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\ s a -> s{_dsphMaxResults = a});
 
-instance AWSPager A where
+instance AWSPager DescribeSpotPriceHistory where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dsphrNextToken) = Nothing
+          | otherwise =
+            rq & dsphNextToken ?~ rs ^. dsphrNextToken
 
 instance AWSRequest DescribeSpotPriceHistory where
         type Sv DescribeSpotPriceHistory = EC2

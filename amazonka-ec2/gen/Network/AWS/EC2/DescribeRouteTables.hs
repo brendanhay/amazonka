@@ -136,11 +136,6 @@ drt2DryRun = lens _drt2DryRun (\ s a -> s{_drt2DryRun = a});
 drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
 drt2RouteTableIds = lens _drt2RouteTableIds (\ s a -> s{_drt2RouteTableIds = a}) . _Default;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeRouteTables where
         type Sv DescribeRouteTables = EC2
         type Rs DescribeRouteTables =

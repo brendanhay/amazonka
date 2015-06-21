@@ -52,11 +52,6 @@ deleteHSMClientCertificate pHSMClientCertificateIdentifier = DeleteHSMClientCert
 delHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
 delHSMClientCertificateIdentifier = lens _delHSMClientCertificateIdentifier (\ s a -> s{_delHSMClientCertificateIdentifier = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteHSMClientCertificate where
         type Sv DeleteHSMClientCertificate = Redshift
         type Rs DeleteHSMClientCertificate =

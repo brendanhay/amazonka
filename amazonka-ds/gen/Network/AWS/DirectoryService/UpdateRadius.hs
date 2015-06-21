@@ -62,11 +62,6 @@ urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
 urRadiusSettings :: Lens' UpdateRadius RadiusSettings
 urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateRadius where
         type Sv UpdateRadius = DirectoryService
         type Rs UpdateRadius = UpdateRadiusResponse

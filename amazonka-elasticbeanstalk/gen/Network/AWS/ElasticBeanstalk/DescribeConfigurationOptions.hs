@@ -93,11 +93,6 @@ dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default;
 dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoSolutionStackName = lens _dcoSolutionStackName (\ s a -> s{_dcoSolutionStackName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeConfigurationOptions
          where
         type Sv DescribeConfigurationOptions =

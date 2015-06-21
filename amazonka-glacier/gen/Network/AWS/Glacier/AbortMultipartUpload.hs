@@ -91,11 +91,6 @@ amuVaultName = lens _amuVaultName (\ s a -> s{_amuVaultName = a});
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest AbortMultipartUpload where
         type Sv AbortMultipartUpload = Glacier
         type Rs AbortMultipartUpload =

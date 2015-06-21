@@ -43,6 +43,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , drdiorReservedDBInstancesOfferings
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -134,10 +135,11 @@ drdioOfferingType = lens _drdioOfferingType (\ s a -> s{_drdioOfferingType = a})
 drdioDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdioDuration = lens _drdioDuration (\ s a -> s{_drdioDuration = a});
 
-instance AWSPager A where
+instance AWSPager
+         DescribeReservedDBInstancesOfferings where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. drdiorMarker) = Nothing
+          | otherwise = rq & drdioMarker ?~ rs ^. drdiorMarker
 
 instance AWSRequest
          DescribeReservedDBInstancesOfferings where

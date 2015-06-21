@@ -56,11 +56,6 @@ buildSuggesters pDomainName = BuildSuggesters'{_bsDomainName = pDomainName};
 bsDomainName :: Lens' BuildSuggesters Text
 bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest BuildSuggesters where
         type Sv BuildSuggesters = CloudSearch
         type Rs BuildSuggesters = BuildSuggestersResponse

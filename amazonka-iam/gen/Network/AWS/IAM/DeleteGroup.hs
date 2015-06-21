@@ -53,11 +53,6 @@ deleteGroup pGroupName = DeleteGroup'{_dgGroupName = pGroupName};
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteGroup where
         type Sv DeleteGroup = IAM
         type Rs DeleteGroup = DeleteGroupResponse

@@ -85,11 +85,6 @@ pgpPolicyName = lens _pgpPolicyName (\ s a -> s{_pgpPolicyName = a});
 pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument = lens _pgpPolicyDocument (\ s a -> s{_pgpPolicyDocument = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest PutGroupPolicy where
         type Sv PutGroupPolicy = IAM
         type Rs PutGroupPolicy = PutGroupPolicyResponse

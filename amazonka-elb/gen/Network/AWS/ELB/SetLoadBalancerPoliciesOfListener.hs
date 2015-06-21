@@ -69,11 +69,6 @@ slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBal
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest SetLoadBalancerPoliciesOfListener
          where
         type Sv SetLoadBalancerPoliciesOfListener = ELB

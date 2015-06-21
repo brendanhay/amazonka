@@ -145,11 +145,6 @@ uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 uaAppId :: Lens' UpdateApp Text
 uaAppId = lens _uaAppId (\ s a -> s{_uaAppId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateApp where
         type Sv UpdateApp = OpsWorks
         type Rs UpdateApp = UpdateAppResponse

@@ -55,6 +55,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , dcsgr1Marker
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -130,10 +131,10 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeClusterSecurityGroups where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcsgr1Marker) = Nothing
+          | otherwise = rq & dcsgMarker ?~ rs ^. dcsgr1Marker
 
 instance AWSRequest DescribeClusterSecurityGroups
          where

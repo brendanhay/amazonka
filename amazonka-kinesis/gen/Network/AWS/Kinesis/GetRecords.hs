@@ -114,11 +114,6 @@ grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
 grShardIterator :: Lens' GetRecords Text
 grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest GetRecords where
         type Sv GetRecords = Kinesis
         type Rs GetRecords = GetRecordsResponse

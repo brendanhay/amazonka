@@ -64,11 +64,6 @@ usapDomainName = lens _usapDomainName (\ s a -> s{_usapDomainName = a});
 usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
 usapAccessPolicies = lens _usapAccessPolicies (\ s a -> s{_usapAccessPolicies = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest UpdateServiceAccessPolicies where
         type Sv UpdateServiceAccessPolicies = CloudSearch
         type Rs UpdateServiceAccessPolicies =

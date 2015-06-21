@@ -89,11 +89,6 @@ ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Defau
 ddLimit :: Lens' DescribeDirectories (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeDirectories where
         type Sv DescribeDirectories = DirectoryService
         type Rs DescribeDirectories =

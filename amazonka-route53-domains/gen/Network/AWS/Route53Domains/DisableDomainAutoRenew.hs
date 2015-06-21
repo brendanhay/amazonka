@@ -58,11 +58,6 @@ disableDomainAutoRenew pDomainName = DisableDomainAutoRenew'{_ddarDomainName = p
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
 ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DisableDomainAutoRenew where
         type Sv DisableDomainAutoRenew = Route53Domains
         type Rs DisableDomainAutoRenew =

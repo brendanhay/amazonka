@@ -49,6 +49,7 @@ module Network.AWS.SDB.Select
     , srNextToken
     ) where
 
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,10 +87,10 @@ selNextToken = lens _selNextToken (\ s a -> s{_selNextToken = a});
 selSelectExpression :: Lens' Select Text
 selSelectExpression = lens _selSelectExpression (\ s a -> s{_selSelectExpression = a});
 
-instance AWSPager A where
+instance AWSPager Select where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. srNextToken) = Nothing
+          | otherwise = rq & selNextToken ?~ rs ^. srNextToken
 
 instance AWSRequest Select where
         type Sv Select = SDB

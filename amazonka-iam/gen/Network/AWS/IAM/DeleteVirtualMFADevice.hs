@@ -57,11 +57,6 @@ deleteVirtualMFADevice pSerialNumber = DeleteVirtualMFADevice'{_dvmdSerialNumber
 dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteVirtualMFADevice where
         type Sv DeleteVirtualMFADevice = IAM
         type Rs DeleteVirtualMFADevice =

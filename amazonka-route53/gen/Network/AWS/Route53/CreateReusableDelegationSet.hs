@@ -81,11 +81,6 @@ crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 crdsCallerReference :: Lens' CreateReusableDelegationSet Text
 crdsCallerReference = lens _crdsCallerReference (\ s a -> s{_crdsCallerReference = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest CreateReusableDelegationSet where
         type Sv CreateReusableDelegationSet = Route53
         type Rs CreateReusableDelegationSet =

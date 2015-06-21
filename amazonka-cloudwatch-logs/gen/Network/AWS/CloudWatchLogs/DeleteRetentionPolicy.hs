@@ -55,11 +55,6 @@ deleteRetentionPolicy pLogGroupName = DeleteRetentionPolicy'{_drpLogGroupName = 
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
 drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteRetentionPolicy where
         type Sv DeleteRetentionPolicy = CloudWatchLogs
         type Rs DeleteRetentionPolicy =

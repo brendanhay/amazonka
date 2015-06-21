@@ -42,6 +42,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     ) where
 
 import Network.AWS.ElastiCache.Types
+import Network.AWS.Pagers
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -110,10 +111,10 @@ dcevMaxRecords = lens _dcevMaxRecords (\ s a -> s{_dcevMaxRecords = a});
 dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
 
-instance AWSPager A where
+instance AWSPager DescribeCacheEngineVersions where
         page rq rs
-          | stop True = Nothing
-          | otherwise = Just
+          | stop (rs ^. dcevrMarker) = Nothing
+          | otherwise = rq & dcevMarker ?~ rs ^. dcevrMarker
 
 instance AWSRequest DescribeCacheEngineVersions where
         type Sv DescribeCacheEngineVersions = ElastiCache

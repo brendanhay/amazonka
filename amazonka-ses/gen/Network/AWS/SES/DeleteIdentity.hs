@@ -56,11 +56,6 @@ deleteIdentity pIdentity = DeleteIdentity'{_diIdentity = pIdentity};
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeleteIdentity where
         type Sv DeleteIdentity = SES
         type Rs DeleteIdentity = DeleteIdentityResponse

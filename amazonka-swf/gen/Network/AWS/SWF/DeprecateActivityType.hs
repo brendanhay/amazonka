@@ -88,11 +88,6 @@ dDomain = lens _dDomain (\ s a -> s{_dDomain = a});
 dActivityType :: Lens' DeprecateActivityType ActivityType
 dActivityType = lens _dActivityType (\ s a -> s{_dActivityType = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DeprecateActivityType where
         type Sv DeprecateActivityType = SWF
         type Rs DeprecateActivityType =

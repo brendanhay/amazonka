@@ -101,11 +101,6 @@ dv1VPCIds = lens _dv1VPCIds (\ s a -> s{_dv1VPCIds = a}) . _Default;
 dv1DryRun :: Lens' DescribeVPCs (Maybe Bool)
 dv1DryRun = lens _dv1DryRun (\ s a -> s{_dv1DryRun = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest DescribeVPCs where
         type Sv DescribeVPCs = EC2
         type Rs DescribeVPCs = DescribeVPCsResponse

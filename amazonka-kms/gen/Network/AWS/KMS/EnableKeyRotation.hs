@@ -58,11 +58,6 @@ enableKeyRotation pKeyId = EnableKeyRotation'{_ekrKeyId = pKeyId};
 ekrKeyId :: Lens' EnableKeyRotation Text
 ekrKeyId = lens _ekrKeyId (\ s a -> s{_ekrKeyId = a});
 
-instance AWSPager A where
-        page rq rs
-          | stop True = Nothing
-          | otherwise = Just
-
 instance AWSRequest EnableKeyRotation where
         type Sv EnableKeyRotation = KMS
         type Rs EnableKeyRotation = EnableKeyRotationResponse

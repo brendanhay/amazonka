@@ -93,7 +93,7 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
     svc = fromText (l ^. serviceAbbrev)
     lib = fromText (l ^. libraryName)
 
-    op :: Operation Identity SData -> DirTree (Either Error LText.Text)
+    op :: Operation Identity SData a -> DirTree (Either Error LText.Text)
     op = operation' l operationTemplate
 
     mod :: NS -> [NS] -> Template -> DirTree (Either Error LText.Text)
@@ -107,7 +107,7 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
 
 operation' :: Library
            -> Template
-           -> Operation Identity SData
+           -> Operation Identity SData a
            -> DirTree (Either Error Rendered)
 operation' l t o = module' n is t $ do
     x <- JS.objectErr (show n) o

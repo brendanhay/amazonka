@@ -156,7 +156,7 @@ instance FromJSON Config where
 data Library = Library
     { _versions' :: Versions
     , _config'   :: Config
-    , _service'  :: Service Identity SData SData WData ()
+    , _service'  :: Service Identity SData SData WData
     }
 
 makeLenses ''Library
@@ -164,7 +164,7 @@ makeLenses ''Library
 instance HasMetadata Library Identity where
     metadata = service' . metadata'
 
-instance HasService Library Identity SData SData WData () where
+instance HasService Library Identity SData SData WData where
     service = service'
 
 instance HasConfig Library where

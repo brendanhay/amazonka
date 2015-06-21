@@ -21,10 +21,17 @@ import           Control.Monad
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Bifunctor
+import           Data.List.NonEmpty    (NonEmpty (..))
+import qualified Data.List.NonEmpty    as NE
 import           Data.Scientific       (floatingOrInteger)
 import           Data.String
 import qualified Language.Haskell.Exts as Exts
 import           Numeric.Natural
+
+instance FromJSON a => FromJSON (NonEmpty a) where
+    parseJSON = parseJSON >=> maybe (fail msg) pure . NE.nonEmpty
+      where
+        msg = "Empty list when expecting at least one element."
 
 instance FromJSON a => FromJSON (Map Id a) where
     parseJSON = parseJSON >=> return . (kvTraversal %~ first mkId)

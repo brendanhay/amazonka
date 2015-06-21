@@ -23,7 +23,7 @@
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>44
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
@@ -333,13 +333,14 @@ instance FromJSON (ShapeF ()) where
                 f = Enum i . Map.fromList . map (first mkId . renameBranch)
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
-data Operation f a = Operation
+data Operation f a b = Operation
     { _opName          :: Id
     , _opDocumentation :: f Help
     , _opDeprecated    :: !Bool
     , _opHTTP          :: HTTP f
     , _opInput         :: f a
     , _opOutput        :: f a
+    , _opPager         :: Maybe b
     }
 
 makeLenses ''Operation
@@ -347,14 +348,14 @@ makeLenses ''Operation
 operationNS :: NS -> Id -> NS
 operationNS ns n = n ^. typeId . to (mappend ns . mkNS)
 
-inputName, outputName :: HasId a => Getter (Operation Identity a) Id
+inputName, outputName :: HasId a => Getter (Operation Identity a b) Id
 inputName  = opInput  . _Identity . to identifier
 outputName = opOutput . _Identity . to identifier
 
-instance HasHTTP (Operation f a) f where
+instance HasHTTP (Operation f a b) f where
     hTTP = opHTTP
 
-instance FromJSON (Operation Maybe (RefF ())) where
+instance FromJSON (Operation Maybe (RefF ()) ()) where
     parseJSON = withObject "operation" $ \o -> Operation
         <$> (o .: "name" <&> mkId . renameOperation)
         <*> o .:? "documentation"
@@ -362,8 +363,9 @@ instance FromJSON (Operation Maybe (RefF ())) where
         <*> o .:  "http"
         <*> o .:? "input"
         <*> o .:? "output"
+        <*> pure Nothing
 
-instance ToJSON a => ToJSON (Operation Identity a) where
+instance ToJSON a => ToJSON (Operation Identity a b) where
     toJSON o = object
         [ "name"          .= (o ^. opName)
         , "documentation" .= (o ^. opDocumentation)
@@ -421,28 +423,32 @@ instance ToJSON (Metadata Identity) where
 
         (e, f) = m ^. serviceError
 
-data Service f a b c d = Service
+data Service f a b c = Service
     { _metadata'     :: Metadata f
     , _documentation :: Help
-    , _operations    :: Map Id (Operation f a)
+    , _operations    :: Map Id (Operation f a (Pager Id))
     , _shapes        :: Map Id b
     , _waiters       :: Map Id c
-    , _pagers        :: Map Id d
     } deriving (Generic)
 
 makeClassy ''Service
 
-instance HasMetadata (Service f a b c d) f where
+instance HasMetadata (Service f a b c) f where
     metadata = metadata'
 
-instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) (Pager Id)) where
-    parseJSON = withObject "service" $ \o -> Service
-        <$> o .:  "metadata"
-        <*> o .:  "documentation"
-        <*> o .:  "operations"
-        <*> o .:  "shapes"
-        <*> o .:? "waiters"    .!= mempty
-        <*> o .:? "pagination" .!= mempty
+instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
+    parseJSON = withObject "service" $ \o -> do
+        ps <- o .:? "pagination" .!= mempty
+        Service <$> o .:  "metadata"
+                <*> o .:  "documentation"
+                <*> (o .: "operations" <&> Map.map (pager ps))
+                <*> o .:  "shapes"
+                <*> o .:? "waiters" .!= mempty
+      where
+        pager :: Map Id (Pager Id)
+              -> Operation f a ()
+              -> Operation f a (Pager Id)
+        pager ps o = o & opPager .~ Map.lookup (o ^. opName) ps
 
 type Shape = Cofree ShapeF
 type Ref   = RefF (Shape Solved)

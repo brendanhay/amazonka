@@ -40,14 +40,13 @@ import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.List                    (find)
-import           Data.Monoid                  hiding (Product, Sum)
+import           Data.Monoid                  ((<>))
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
 import           Data.Traversable             (mapAccumL)
-import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
@@ -58,8 +57,8 @@ import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
 operationData :: HasMetadata a Identity
               => a
-              -> Operation Identity Ref
-              -> Either Error (Operation Identity SData)
+              -> Operation Identity Ref (Pager Id)
+              -> Either Error (Operation Identity SData (Pager Id))
 operationData m o = do
     (xa, x)  <- struct (xr ^. refAnn)
     (ya, y)  <- struct (yr ^. refAnn)
@@ -70,10 +69,11 @@ operationData m o = do
     is       <- requestInsts m h xr xs
 
     cls      <- pp Print $ requestD m h (xr, is) (yr, ys)
-    mpage    <- pp Print $ pagerD
 
-    is' <- -- Map.insert "AWSPager" mpage .
-          Map.insert "AWSRequest" cls
+    mpage    <- pagerFields m o >>= sequenceA . fmap (pp Print . pagerD xn)
+
+    is' <- maybe id (Map.insert "AWSPager") mpage
+         . Map.insert "AWSRequest" cls
         <$> renderInsts p xn is
 
     return $! o
@@ -174,7 +174,7 @@ renderInsts p n = fmap Map.fromList . traverse go
 
 waiterData :: HasMetadata a Identity
            => a
-           -> Map Id (Operation Identity Ref)
+           -> Map Id (Operation Identity Ref b)
            -> Id
            -> Waiter Id
            -> Either Error WData
@@ -194,42 +194,86 @@ waiterData m os n w = do
 
 waiterFields :: HasMetadata a Identity
              => a
-             -> Operation Identity Ref
+             -> Operation Identity Ref b
              -> Waiter Id
              -> Either Error (Waiter Field)
 waiterFields m o = traverseOf (waitAcceptors . each) go
   where
+    out = o ^. opOutput . _Identity . refAnn
+
     go :: Accept Id -> Either Error (Accept Field)
     go x = do
-        y <- case x ^. acceptArgument of
-            Nothing -> pure Nothing
-            Just ns -> do
-                let s = o ^. opOutput . _Identity . refAnn
-                Just <$> evalStateT (traverse ref ns) s
-        return $! x & acceptArgument .~ y
+        n <- sequenceA $ notation m out <$> x ^. acceptArgument
+        return $! x & acceptArgument .~ n
 
-    ref :: Id -> StateT (Shape Solved) (Either Error) Field
-    ref k = do
-        a :< s <- skip <$> get
-        r <- case s of
-            Struct st ->
-                lift . note (missingErr k (identifier a) (Map.keys (st ^. members)))
-                     . find ((k ==) . _fieldId)
-                     $ mkFields m a st
-            _         -> throwError (descendErr k)
-        put (r ^. fieldRef . refAnn)
-        return r
+pagerFields :: HasMetadata a Identity
+            => a
+            -> Operation Identity Ref (Pager Id)
+            -> Either Error (Maybe (Pager Field))
+pagerFields m o = sequenceA (go <$> o ^. opPager)
+  where
+    inp = o ^. opInput  . _Identity . refAnn
+    out = o ^. opOutput . _Identity . refAnn
+
+    go :: Pager Id -> Either Error (Pager Field)
+    go = \case
+        Next x t  -> Next <$> notation m out x <*> token t
+        One  x t  -> One  <$> notation m out x <*> token t
+        Many x ts -> Many <$> notation m out x <*> traverse token ts
+
+    token :: Token Id -> Either Error (Token Field)
+    token (Token x y) = Token
+        <$> notation m inp x
+        <*> notation m out y
+
+notation :: HasMetadata a Identity
+         => a
+         -> Shape Solved
+         -> Notation Id
+         -> Either Error (Notation Field)
+notation m = go
+  where
+    go :: Shape Solved -> Notation Id -> Either Error (Notation Field)
+    go s = \case
+        Label    k   -> Label    <$> key s k
+        NonEmpty x   -> NonEmpty <$> field x s
+        Choice   x y -> Choice   <$> go s x <*> go s y
+        Apply    k e -> do
+            k' <- key s k
+            e' <- go (skip (shape k')) e
+            return $! Apply k' e'
+
+    key :: Shape Solved -> Key Id -> Either Error (Key Field)
+    key s = \case
+        Key  n -> Key  <$> field n s
+        Each n -> Each <$> field n s
+        Last n -> Last <$> field n s
+
+    field :: Id -> Shape Solved -> Either Error Field
+    field n = \case
+        a :< Struct st ->
+            note (missingErr n (identifier a) (Map.keys (st ^. members)))
+                . find ((n ==) . _fieldId)
+                $ mkFields m a st
+        _ -> throwError (descendErr n)
+
+    shape :: Key Field -> Shape Solved
+    shape = view (fieldRef . refAnn) . \case
+        Key  f -> f
+        Each f -> f
+        Last f -> f
 
     skip :: Shape a -> Shape a
-    skip s = case unwrap s of
-        List   l  -> l ^. listItem . refAnn
-        Map    m  -> m ^. mapValue . refAnn
-        _         -> s
+    skip = \case
+        _ :< List x -> x ^. listItem . refAnn
+        _ :< Map  x -> x ^. mapValue . refAnn
+        x           -> x
 
     missingErr =
         format ("Unable to find " % iprimary % " in members of " % iprimary % " " % shown)
+
     descendErr =
-        format ("Unable to descend into nested waiter reference " % iprimary)
+        format ("Unable to descend into nested reference " % iprimary)
 
 data Ident
     = Indent

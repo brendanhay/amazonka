@@ -53,8 +53,8 @@ type MemoS a = StateT (Env a) (Either Error)
 -- by either adding any empty request or response shapes,
 -- or creating a wrapper type for the request/response pointing to a
 -- potentially shared shape.
-substitute :: Service Maybe (RefF ()) (Shape Related) a b
-           -> Either Error (Service Identity (RefF ()) (Shape Related) a b)
+substitute :: Service Maybe (RefF ()) (Shape Related) a
+           -> Either Error (Service Identity (RefF ()) (Shape Related) a)
 substitute svc@Service{..} = do
     (os, e) <- runStateT (traverse operation _operations) (Env mempty _shapes)
     return $! override (e ^. overrides) $ svc
@@ -72,8 +72,8 @@ substitute svc@Service{..} = do
     ts :: Timestamp
     ts = fromMaybe (timestamp (svc ^. protocol)) (svc ^. timestampFormat)
 
-    operation :: Operation Maybe (RefF ())
-              -> MemoS Related (Operation Identity (RefF ()))
+    operation :: Operation Maybe (RefF ()) a
+              -> MemoS Related (Operation Identity (RefF ()) a)
     operation o@Operation{..} = do
         let h = http _opHTTP
 

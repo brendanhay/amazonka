@@ -21,14 +21,16 @@ module Compiler.Import
 import           Compiler.Types
 import           Control.Lens
 import           Data.List      (sort)
+import           Data.Maybe
 
-operationImports :: Library -> Operation Identity SData -> [NS]
+operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o = sort $
       "Network.AWS.Request"
     : "Network.AWS.Response"
     : "Network.AWS.Prelude"
     : l ^. typesNS
     : l ^. operationModules
+   ++ maybeToList (const "Network.AWS.Pagers" <$> o ^. opPager)
 
 typeImports :: Library -> [NS]
 typeImports l = sort $

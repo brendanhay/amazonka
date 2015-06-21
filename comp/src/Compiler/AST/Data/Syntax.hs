@@ -36,7 +36,8 @@ import qualified Data.Foldable                as Fold
 import           Data.Function                ((&))
 import qualified Data.HashMap.Strict          as Map
 import           Data.List                    (nub)
-import           Data.Monoid
+import           Data.List.NonEmpty           (NonEmpty (..))
+import           Data.Monoid                  ((<>))
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Debug.Trace
@@ -111,24 +112,72 @@ recordD ts n fs = QualConDecl noLoc [] [] $
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
-pagerD :: Decl
-pagerD = instD "AWSPager" (mkId "a")
+pagerD :: Id -> Pager Field -> Decl
+pagerD n p = instD "AWSPager" n
     [ InsDecl fun
     ]
   where
-    fun = sfun noLoc (ident "page") [ident "rq", ident "rs"] rhs noBinds
-    rhs = GuardedRhss [stop, other]
+    fun = sfun noLoc (ident "page") [ident "rq", ident "rs"] (rhs p) noBinds
 
-    stop  = guard (app (var "stop") (var "True")) (var "Nothing")
-    other = guard (var "otherwise") (var "Just")
+    stop x = guard (app (var "stop") x) (var "Nothing")
+    other  = guard (var "otherwise") -- (var "Just")
 
     guard x = GuardedRhs noLoc [Qualifier x]
 
--- instance AWSPager ListObjects where
---     page rq rs
---         | stop (rs ^. lorIsTruncated) = Nothing
---         | otherwise = Just $ rq
---             & loMarker .~ rs ^. lorNextMarker
+    rhs = \case
+        Next k t -> GuardedRhss
+            [ stop (infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation))
+            , other . infixApp (var "rq") "&"
+                    . infixApp (t ^. tokenInput . to notation) "?~"
+                    $ infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
+            ]
+
+        One  k t -> GuardedRhss
+            [ stop  (infixApp  (var "rs") (viw k) (notation k))
+            , other . infixApp (var "Just") "$"
+                    . infixApp (var "rq") "&"
+                    . infixApp (t ^. tokenInput . to notation) ".~"
+                    $ infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
+            ]
+
+        Many k (t :| ts) -> GuardedRhss
+            [ stop (infixApp (var "rs") (viw k) (notation k))
+            , guard (Fold.foldl' checkRs (negate t) ts) (var "Nothing")
+            , other (Fold.foldl' setRs (infixApp (var "Just") "$" (var "rq")) (t:ts))
+            ]
+          where
+            setRs :: Exp -> Token Field -> Exp
+            setRs e t =
+                  infixApp e "&"
+                . infixApp (t ^. tokenInput . to notation) ".~"
+                $ infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
+
+-- FIXME: Need a combination of the right setter (.~ vs ?~), and no _Just chaining
+
+            checkRs e x = infixApp e "&&" (negate x)
+
+            negate t = app (var "isNothing") $
+                 infixApp (var "rs") (viw t) (t ^. tokenOutput . to notation)
+
+    viw n -- | any (view fieldMaybe) n = "^?"
+          | otherwise               = "^."
+
+    -- FIXME: doesn't support Maybe fields currently.
+    notation = \case
+        Label    k   -> label k
+        NonEmpty f   -> app (var "nonEmpty") (key f)
+        Apply    k x -> infixApp (label k)    "."  (notation x)
+        Choice   x y -> appFun (var "choice") [paren (notation x), paren (notation y)]
+      where
+        label = \case
+            Key  f -> key f
+            Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
+            Last f -> app (var "index") (jkey f)
+
+        jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
+               | otherwise       = key f
+
+        key f = f ^. fieldLens . to var
 
 requestD :: HasMetadata a f
          => a
@@ -536,17 +585,20 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
 
     -- FIXME: doesn't support Maybe fields currently.
     notation = \case
-        Key      f   -> jkey f
+        Label    k   -> label k
         NonEmpty f   -> app (var "nonEmpty") (key f)
-        Each     f   -> app (var "folding") . paren $ app (var "concatOf") (key f)
-        Apply    x y -> infixApp (notation x) "."  (notation y)
+        Apply    k x -> infixApp (label k) "."  (notation x)
         Choice   x y -> infixApp (notation x) "||" (notation y)
-        e             -> error "FIXME: Not implemented: notation"
       where
+        key f = f ^. fieldLens . to var
+
+        label = \case
+            Key  f -> jkey f
+            Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
+            Last f -> jkey f
+
         jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
                | otherwise       = key f
-
-        key f = f ^. fieldLens . to var
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing

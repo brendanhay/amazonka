@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveFoldable    #-}
 {-# LANGUAGE DeriveFunctor     #-}
-{-# LANGUAGE DeriveTraversable #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Compiler.Types.Pager
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,6 +27,8 @@ import           Data.Aeson
 import           Data.Attoparsec.Text    (Parser, parseOnly)
 import qualified Data.Attoparsec.Text    as A
 import           Data.Foldable           (foldl')
+import           Data.List.NonEmpty      (NonEmpty (..))
+import qualified Data.List.NonEmpty      as NE
 import           Data.Ord
 import           Data.Text               (Text)
 import qualified Data.Text               as Text
@@ -35,7 +37,9 @@ import           GHC.Generics
 data Token a = Token
     { _tokenInput  :: Notation a
     , _tokenOutput :: Notation a
-    } deriving (Eq, Show, Functor, Foldable, Traversable)
+    } deriving (Eq, Show, Functor, Foldable)
+
+makeLenses ''Token
 
 instance FromJSON (Token Id) where
     parseJSON = withObject "token" $ \o -> Token
@@ -43,91 +47,30 @@ instance FromJSON (Token Id) where
         <*> o .: "output_token"
 
 data Pager a
-    = More (Notation a) [Token a]
-    | Next (Notation a) (Token a)
-      deriving (Eq, Show, Functor, Foldable, Traversable)
+    = Next (Notation a) (Token a)
+    | One  (Notation a) (Token a)
+    | Many (Notation a) (NonEmpty (Token a))
+      deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Pager Id) where
-    parseJSON = withObject "pager" $ \o -> more o <|> next o
+    parseJSON = withObject "pager" $ \o -> one o <|> many o <|> next o
       where
         next o = Next
             <$> o .: "result_key"
             <*> parseJSON (Object o)
 
-        more o = do
-            let f k = o .: k <|> (:[]) <$> o .: k
+        one o = One
+            <$> o .: "more_results"
+            <*> parseJSON (Object o)
+
+        many o = do
+            let f k = o .: k <|> (:|[]) <$> o .: k
 
             inp <- f "input_token"
             out <- f "output_token"
 
-            unless (length inp == length out) $
+            unless (NE.length inp == NE.length out) $
                 fail "input_token and output_token contain differing number of keys."
 
-            More <$> o .: "more_results"
-                 <*> pure (zipWith Token inp out)
-
--- EC2
--- "input_token": "NextToken",
--- "output_token": "NextToken",
--- "limit_key": "MaxResults",
--- "result_key": "ReservedInstancesOfferings"
-
--- S3
--- "limit_key": "MaxUploads",
--- "more_results": "IsTruncated",
--- "output_token": [
--- "NextKeyMarker",
--- "NextUploadIdMarker"
--- ],
--- "input_token": [
--- "KeyMarker",
--- "UploadIdMarker"
--- ],
--- "result_key": [
--- "Uploads",
--- "CommonPrefixes"
--- ]
-
--- RDS
--- "input_token": "Marker",
--- "output_token": "Marker",
--- "limit_key": "MaxRecords",
--- "result_key": "ReservedDBInstancesOfferings"
-
--- Kinesis
--- "input_token": "ExclusiveStartShardId",
---   "limit_key": "Limit",
---   "more_results": "StreamDescription.HasMoreShards",
---   "output_token": "StreamDescription.Shards[-1].ShardId",
---   "result_key": "StreamDescription.Shards",
---   "non_aggregate_keys": [
---     "StreamDescription.StreamARN",
---     "StreamDescription.StreamName",
---     "StreamDescription.StreamStatus"
---   ]
-
-
-
--- pagerKeys :: Traversal' (Pager a) Key
--- pagerKeys f = \case
---     More k ts -> More <$> f k <*> traverse (tokenKeys f) ts
---     Next k t  -> Next <$> f k <*> tokenKeys f t
-
--- instance FromJSON (Pager ()) where
---     parseJSON = withObject "pager" $ \o -> more o <|> next o
---       where
---         more o = do
---             xs <- f "input_token"
---             ys <- f "output_token"
-
---             unless (length xs == length ys) $
---                 fail "input_token and output_token don't contain same number of keys."
-
---             More <$> o .: "more_results"
---                  <*> pure (zipWith (Token () ()) xs ys)
---           where
---             f k = o .: k <|> (:[]) <$> o .: k
-
---         next o = Next
---             <$> o .: "result_key"
---             <*> (Token () () <$> o .: "input_token" <*> o .: "output_token")
+            Many <$> o .: "more_results"
+                 <*> pure (NE.zipWith Token inp out)

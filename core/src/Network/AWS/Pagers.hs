@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Pagers
-    ( AWSPage     (..)
-    , AWSContinue (..)
+    ( AWSPager     (..)
+    , AWSTruncated (..)
     , stop
     , index
     , choice
@@ -29,33 +29,33 @@ import           Network.AWS.Types
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.
-class AWSRequest a => AWSPage a where
+class AWSRequest a => AWSPager a where
     page :: a -> Rs a -> Maybe a
 
 -- | Generalise IsTruncated and other optional/required
 -- response pagination fields.
-class AWSContinue a where
-    continue :: a -> Bool
+class AWSTruncated a where
+    truncated :: a -> Bool
 
-instance AWSContinue Bool where
-    continue = id
+instance AWSTruncated Bool where
+    truncated = id
 
-instance AWSContinue (Maybe Bool) where
-    continue (Just x) = x
-    continue Nothing  = False
+instance AWSTruncated (Maybe Bool) where
+    truncated (Just x) = x
+    truncated Nothing  = False
 
-instance AWSContinue (Maybe Text) where
-    continue (Just _) = True
-    continue Nothing  = False
+instance AWSTruncated (Maybe Text) where
+    truncated (Just _) = True
+    truncated Nothing  = False
 
-instance AWSContinue [a] where
-    continue = not . null
+instance AWSTruncated [a] where
+    truncated = not . null
 
-instance AWSContinue (HashMap k v) where
-    continue = not . Map.null
+instance AWSTruncated (HashMap k v) where
+    truncated = not . Map.null
 
-stop :: AWSContinue a => a -> Bool
-stop = not . continue
+stop :: AWSTruncated a => a -> Bool
+stop = not . truncated
 
 index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
 index f g = f . to lastMay . to (fmap (toText . view g))

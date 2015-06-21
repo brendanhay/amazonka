@@ -583,7 +583,6 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Textual {} -> \c -> infixApp c "." (app (var "to") (var "toText"))
             _          -> id
 
-    -- FIXME: doesn't support Maybe fields currently.
     notation = \case
         Label    k   -> label k
         NonEmpty f   -> app (var "nonEmpty") (key f)
@@ -607,8 +606,7 @@ internal, external :: Timestamp -> Field -> Type
 internal ts f = directed True  ts (f ^. fieldDirection) f
 external ts f = directed False ts (f ^. fieldDirection) f
 
--- split again into internal/external
-
+-- FIXME: split again into internal/external
 directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
 directed i ts d (typeOf -> t) = case t of
     TType      x _    -> tycon x

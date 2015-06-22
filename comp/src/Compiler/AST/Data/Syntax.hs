@@ -38,6 +38,7 @@ import qualified Data.HashMap.Strict          as Map
 import           Data.List                    (nub)
 import           Data.List.NonEmpty           (NonEmpty (..))
 import           Data.Monoid                  ((<>))
+import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Debug.Trace
@@ -114,42 +115,40 @@ recordD ts n fs = QualConDecl noLoc [] [] $
 
 pagerD :: Id -> Pager Field -> Decl
 pagerD n p = instD "AWSPager" n
-    [ InsDecl fun
+    [ InsDecl $ sfun noLoc (ident "page") [ident "rq", ident "rs"] (rhs p) noBinds
     ]
   where
-    fun = sfun noLoc (ident "page") [ident "rq", ident "rs"] (rhs p) noBinds
-
-    stop x = guard (app (var "stop") x) (var "Nothing")
-    other  = guard (var "otherwise") -- (var "Just")
-
-    guard x = GuardedRhs noLoc [Qualifier x]
-
     rhs = \case
         Next k t -> GuardedRhss
-            [ stop $ infixApp (var "rs") "^." (t ^. tokenOutput . to notation)
-            -- , other . infixApp (var "Just") "$"
-            --         . infixApp (var "rq") "&"
-            --         . infixApp (t ^. tokenInput . to notation) ".~"
-            --         $ infixApp (var "rs") "^." (t ^. tokenOutput . to notation)
+            [ stop (t ^. tokenOutput . to notation)
+            , stop (notation k)
+            , other [t]
             ]
 
         Many k (t :| ts) -> GuardedRhss
-            [ stop  $ infixApp (var "rs") "^." (notation k)
-            , guard (Fold.foldl' checkRs (negate t) ts) (var "Nothing")
-            , other $ Fold.foldl' setRs (infixApp (var "Just") "$" (var "rq")) (t:ts)
+            [ stop  (notation k)
+            , check t ts
+            , other (t:ts)
             ]
-          where
-            checkRs e x = infixApp e "&&" (negate x)
 
-            negate t = app (var "isNothing") $
-                 infixApp (var "rs") "^." (t ^. tokenOutput . to notation)
+    stop x = guard (app (var "stop") (rs x)) (var "Nothing")
 
-            setRs :: Exp -> Token Field -> Exp
-            setRs e t =
-                  infixApp e "&"
-                . infixApp (t ^. tokenInput . to notation) ".~"
-                . infixApp (var "rs") "^."
-                $ (t ^. tokenOutput . to notation)
+    other = guard (var "otherwise") . Fold.foldl' f rq
+      where
+        f :: Exp -> Token Field -> Exp
+        f e x = infixApp e "&"
+              . infixApp (x ^. tokenInput . to notation) ".~"
+              $ rs (x ^. tokenOutput . to notation)
+
+    check t ts = guard (Fold.foldl' f (g t) ts) (var "Nothing")
+      where
+        f x = infixApp x "&&" . g
+        g y = app (var "isNothing") $ rs (y ^. tokenOutput . to notation)
+
+    guard x = GuardedRhs noLoc [Qualifier x]
+
+    rq   = infixApp (var "Just") "$" (var "rq")
+    rs x = infixApp (var "rs") (qop (getter x)) x
 
     getter :: Exp -> Text
     getter e = if go e then "^?" else "^."
@@ -182,8 +181,9 @@ pagerD n p = instD "AWSPager" n
 
         key False f = f ^. fieldLens . to var
         key True  f
-            | f ^. fieldMaybe = infixApp (key False f) "." (var "_Just")
-            | otherwise       = key False f
+            | f ^. fieldMonoid = key False f
+            | f ^. fieldMaybe  = infixApp (key False f) "." (var "_Just")
+            | otherwise        = key False f
 
 requestD :: HasMetadata a f
          => a
@@ -691,6 +691,9 @@ tycon = TyCon . unqual
 
 con :: Text -> Exp
 con = Con . unqual
+
+qop :: Text -> QOp
+qop = fromString . Text.unpack
 
 str :: Text -> Exp
 str = Exts.Lit . String . Text.unpack

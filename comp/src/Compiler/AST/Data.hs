@@ -71,7 +71,7 @@ operationData m o = do
 
     cls      <- pp Print $ requestD m h (xr, is) (yr, ys)
 
-    mpage    <- pagerFields m o >>= sequenceA . fmap (pp Print . pagerD xn)
+    mpage    <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
     is' <- maybe id (Map.insert "AWSPager") mpage
          . Map.insert "AWSRequest" cls
@@ -204,14 +204,14 @@ waiterFields m o = traverseOf (waitAcceptors . each) go
 
     go :: Accept Id -> Either Error (Accept Field)
     go x = do
-        n <- sequenceA $ notation m out <$> x ^. acceptArgument
+        n <- traverse (notation m out) (x ^. acceptArgument)
         return $! x & acceptArgument .~ n
 
 pagerFields :: HasMetadata a Identity
             => a
             -> Operation Identity Ref (Pager Id)
             -> Either Error (Maybe (Pager Field))
-pagerFields m o = sequenceA (go <$> o ^. opPager)
+pagerFields m o = traverse go (o ^. opPager)
   where
     inp = o ^. opInput  . _Identity . refAnn
     out = o ^. opOutput . _Identity . refAnn

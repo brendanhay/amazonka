@@ -93,7 +93,9 @@ dcpCacheParameterGroupName = lens _dcpCacheParameterGroupName (\ s a -> s{_dcpCa
 instance AWSPager DescribeCacheParameters where
         page rq rs
           | stop (rs ^. dcprMarker) = Nothing
-          | otherwise = rq & dcpMarker ?~ rs ^. dcprMarker
+          | stop (rs ^. dcprParameters) = Nothing
+          | otherwise =
+            Just $ rq & dcpMarker .~ rs ^. dcprMarker
 
 instance AWSRequest DescribeCacheParameters where
         type Sv DescribeCacheParameters = ElastiCache

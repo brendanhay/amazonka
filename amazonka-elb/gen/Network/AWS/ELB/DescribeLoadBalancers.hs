@@ -76,7 +76,9 @@ dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNa
 instance AWSPager DescribeLoadBalancers where
         page rq rs
           | stop (rs ^. dlbrNextMarker) = Nothing
-          | otherwise = rq & dlbMarker ?~ rs ^. dlbrNextMarker
+          | stop (rs ^. dlbrLoadBalancerDescriptions) = Nothing
+          | otherwise =
+            Just $ rq & dlbMarker .~ rs ^. dlbrNextMarker
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB

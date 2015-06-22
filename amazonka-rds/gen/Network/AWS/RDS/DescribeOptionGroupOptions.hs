@@ -98,7 +98,9 @@ dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
 instance AWSPager DescribeOptionGroupOptions where
         page rq rs
           | stop (rs ^. dogorMarker) = Nothing
-          | otherwise = rq & dogoMarker ?~ rs ^. dogorMarker
+          | stop (rs ^. dogorOptionGroupOptions) = Nothing
+          | otherwise =
+            Just $ rq & dogoMarker .~ rs ^. dogorMarker
 
 instance AWSRequest DescribeOptionGroupOptions where
         type Sv DescribeOptionGroupOptions = RDS

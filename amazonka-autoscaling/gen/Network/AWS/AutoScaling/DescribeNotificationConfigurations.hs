@@ -76,8 +76,10 @@ instance AWSPager DescribeNotificationConfigurations
          where
         page rq rs
           | stop (rs ^. dncrNextToken) = Nothing
+          | stop (rs ^. dncrNotificationConfigurations) =
+            Nothing
           | otherwise =
-            rq & dncNextToken ?~ rs ^. dncrNextToken
+            Just $ rq & dncNextToken .~ rs ^. dncrNextToken
 
 instance AWSRequest
          DescribeNotificationConfigurations where

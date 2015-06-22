@@ -165,8 +165,10 @@ loweStartTimeFilter = lens _loweStartTimeFilter (\ s a -> s{_loweStartTimeFilter
 instance AWSPager ListOpenWorkflowExecutions where
         page rq rs
           | stop (rs ^. weiNextPageToken) = Nothing
+          | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
-            rq & loweNextPageToken ?~ rs ^. weiNextPageToken
+            Just $
+              rq & loweNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF

@@ -92,6 +92,7 @@ lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
 instance AWSPager ListInstanceProfiles where
         page rq rs
           | stop (rs ^. liprIsTruncated) = Nothing
+          | isNothing (rs ^. liprMarker) = Nothing
           | otherwise =
             Just $ rq & lipMarker .~ rs ^. liprMarker
 

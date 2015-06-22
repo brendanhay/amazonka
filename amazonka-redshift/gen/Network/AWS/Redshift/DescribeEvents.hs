@@ -158,7 +158,8 @@ deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 instance AWSPager DescribeEvents where
         page rq rs
           | stop (rs ^. derMarker) = Nothing
-          | otherwise = rq & deMarker ?~ rs ^. derMarker
+          | stop (rs ^. derEvents) = Nothing
+          | otherwise = Just $ rq & deMarker .~ rs ^. derMarker
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = Redshift

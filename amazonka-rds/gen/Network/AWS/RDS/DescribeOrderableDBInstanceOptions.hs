@@ -124,7 +124,10 @@ instance AWSPager DescribeOrderableDBInstanceOptions
          where
         page rq rs
           | stop (rs ^. dodiorMarker) = Nothing
-          | otherwise = rq & dodioMarker ?~ rs ^. dodiorMarker
+          | stop (rs ^. dodiorOrderableDBInstanceOptions) =
+            Nothing
+          | otherwise =
+            Just $ rq & dodioMarker .~ rs ^. dodiorMarker
 
 instance AWSRequest
          DescribeOrderableDBInstanceOptions where

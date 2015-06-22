@@ -128,7 +128,9 @@ ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
 instance AWSPager DescribeDBEngineVersions where
         page rq rs
           | stop (rs ^. ddevrMarker) = Nothing
-          | otherwise = rq & ddevMarker ?~ rs ^. ddevrMarker
+          | stop (rs ^. ddevrDBEngineVersions) = Nothing
+          | otherwise =
+            Just $ rq & ddevMarker .~ rs ^. ddevrMarker
 
 instance AWSRequest DescribeDBEngineVersions where
         type Sv DescribeDBEngineVersions = RDS

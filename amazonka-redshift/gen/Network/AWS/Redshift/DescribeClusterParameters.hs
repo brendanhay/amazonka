@@ -111,7 +111,9 @@ dcp1ParameterGroupName = lens _dcp1ParameterGroupName (\ s a -> s{_dcp1Parameter
 instance AWSPager DescribeClusterParameters where
         page rq rs
           | stop (rs ^. dcprMarker) = Nothing
-          | otherwise = rq & dcp1Marker ?~ rs ^. dcprMarker
+          | stop (rs ^. dcprParameters) = Nothing
+          | otherwise =
+            Just $ rq & dcp1Marker .~ rs ^. dcprMarker
 
 instance AWSRequest DescribeClusterParameters where
         type Sv DescribeClusterParameters = Redshift

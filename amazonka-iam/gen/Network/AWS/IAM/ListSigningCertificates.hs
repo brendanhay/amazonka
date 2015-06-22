@@ -92,6 +92,7 @@ lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 instance AWSPager ListSigningCertificates where
         page rq rs
           | stop (rs ^. lisIsTruncated) = Nothing
+          | isNothing (rs ^. lisMarker) = Nothing
           | otherwise = Just $ rq & lMarker .~ rs ^. lisMarker
 
 instance AWSRequest ListSigningCertificates where

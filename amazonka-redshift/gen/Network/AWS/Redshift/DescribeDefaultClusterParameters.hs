@@ -92,12 +92,18 @@ instance AWSPager DescribeDefaultClusterParameters
          where
         page rq rs
           | stop
-              (rs ^. ddcprDefaultClusterParameters . dcpMarker)
+              (rs ^?
+                 ddcprDefaultClusterParameters . dcpMarker . _Just)
+            = Nothing
+          | stop
+              (rs ^. ddcprDefaultClusterParameters . dcpParameters)
             = Nothing
           | otherwise =
-            rq &
-              ddcpMarker ?~
-                rs ^. ddcprDefaultClusterParameters . dcpMarker
+            Just $
+              rq &
+                ddcpMarker .~
+                  rs ^?
+                    ddcprDefaultClusterParameters . dcpMarker . _Just
 
 instance AWSRequest DescribeDefaultClusterParameters
          where

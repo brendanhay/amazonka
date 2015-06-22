@@ -82,8 +82,9 @@ ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
 instance AWSPager ListJobsByPipeline where
         page rq rs
           | stop (rs ^. ljbprNextPageToken) = Nothing
+          | stop (rs ^. ljbprJobs) = Nothing
           | otherwise =
-            rq & ljbpPageToken ?~ rs ^. ljbprNextPageToken
+            Just $ rq & ljbpPageToken .~ rs ^. ljbprNextPageToken
 
 instance AWSRequest ListJobsByPipeline where
         type Sv ListJobsByPipeline = ElasticTranscoder

@@ -351,7 +351,9 @@ di1MaxResults = lens _di1MaxResults (\ s a -> s{_di1MaxResults = a});
 instance AWSPager DescribeInstances where
         page rq rs
           | stop (rs ^. dirNextToken) = Nothing
-          | otherwise = rq & di1NextToken ?~ rs ^. dirNextToken
+          | stop (rs ^. dirReservations) = Nothing
+          | otherwise =
+            Just $ rq & di1NextToken .~ rs ^. dirNextToken
 
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = EC2

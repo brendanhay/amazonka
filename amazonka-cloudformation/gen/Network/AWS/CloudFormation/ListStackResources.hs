@@ -79,8 +79,9 @@ lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a});
 instance AWSPager ListStackResources where
         page rq rs
           | stop (rs ^. lsrrNextToken) = Nothing
+          | stop (rs ^. lsrrStackResourceSummaries) = Nothing
           | otherwise =
-            rq & lsrNextToken ?~ rs ^. lsrrNextToken
+            Just $ rq & lsrNextToken .~ rs ^. lsrrNextToken
 
 instance AWSRequest ListStackResources where
         type Sv ListStackResources = CloudFormation

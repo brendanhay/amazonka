@@ -91,6 +91,7 @@ luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
 instance AWSPager ListUsers where
         page rq rs
           | stop (rs ^. lurIsTruncated) = Nothing
+          | isNothing (rs ^. lurMarker) = Nothing
           | otherwise = Just $ rq & luMarker .~ rs ^. lurMarker
 
 instance AWSRequest ListUsers where

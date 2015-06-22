@@ -174,8 +174,9 @@ dvsMaxResults = lens _dvsMaxResults (\ s a -> s{_dvsMaxResults = a});
 instance AWSPager DescribeVolumeStatus where
         page rq rs
           | stop (rs ^. dvsrNextToken) = Nothing
+          | stop (rs ^. dvsrVolumeStatuses) = Nothing
           | otherwise =
-            rq & dvsNextToken ?~ rs ^. dvsrNextToken
+            Just $ rq & dvsNextToken .~ rs ^. dvsrNextToken
 
 instance AWSRequest DescribeVolumeStatus where
         type Sv DescribeVolumeStatus = EC2

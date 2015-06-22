@@ -82,7 +82,9 @@ dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
 instance AWSPager DescribeTapeRecoveryPoints where
         page rq rs
           | stop (rs ^. dtrprMarker) = Nothing
-          | otherwise = rq & dtrpMarker ?~ rs ^. dtrprMarker
+          | stop (rs ^. dtrprTapeRecoveryPointInfos) = Nothing
+          | otherwise =
+            Just $ rq & dtrpMarker .~ rs ^. dtrprMarker
 
 instance AWSRequest DescribeTapeRecoveryPoints where
         type Sv DescribeTapeRecoveryPoints = StorageGateway

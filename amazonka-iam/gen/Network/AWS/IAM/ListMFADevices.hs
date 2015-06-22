@@ -87,6 +87,7 @@ lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 instance AWSPager ListMFADevices where
         page rq rs
           | stop (rs ^. lmdrIsTruncated) = Nothing
+          | isNothing (rs ^. lmdrMarker) = Nothing
           | otherwise =
             Just $ rq & lmdMarker .~ rs ^. lmdrMarker
 

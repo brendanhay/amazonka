@@ -89,6 +89,7 @@ doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a});
 instance AWSPager DescribeObjects where
         page rq rs
           | stop (rs ^. dorHasMoreResults) = Nothing
+          | isNothing (rs ^. dorMarker) = Nothing
           | otherwise = Just $ rq & doMarker .~ rs ^. dorMarker
 
 instance AWSRequest DescribeObjects where

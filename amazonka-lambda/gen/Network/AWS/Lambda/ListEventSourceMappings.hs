@@ -101,8 +101,9 @@ lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 instance AWSPager ListEventSourceMappings where
         page rq rs
           | stop (rs ^. lesmrNextMarker) = Nothing
+          | stop (rs ^. lesmrEventSourceMappings) = Nothing
           | otherwise =
-            rq & lesmMarker ?~ rs ^. lesmrNextMarker
+            Just $ rq & lesmMarker .~ rs ^. lesmrNextMarker
 
 instance AWSRequest ListEventSourceMappings where
         type Sv ListEventSourceMappings = Lambda

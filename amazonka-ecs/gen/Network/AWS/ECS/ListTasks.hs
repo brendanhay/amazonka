@@ -137,7 +137,9 @@ ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a});
 instance AWSPager ListTasks where
         page rq rs
           | stop (rs ^. ltrNextToken) = Nothing
-          | otherwise = rq & ltNextToken ?~ rs ^. ltrNextToken
+          | stop (rs ^. ltrTaskARNs) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrNextToken
 
 instance AWSRequest ListTasks where
         type Sv ListTasks = ECS

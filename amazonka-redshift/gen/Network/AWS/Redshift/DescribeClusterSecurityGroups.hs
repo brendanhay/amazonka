@@ -134,7 +134,9 @@ dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 instance AWSPager DescribeClusterSecurityGroups where
         page rq rs
           | stop (rs ^. dcsgr1Marker) = Nothing
-          | otherwise = rq & dcsgMarker ?~ rs ^. dcsgr1Marker
+          | stop (rs ^. dcsgr1ClusterSecurityGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcsgMarker .~ rs ^. dcsgr1Marker
 
 instance AWSRequest DescribeClusterSecurityGroups
          where

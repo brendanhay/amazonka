@@ -74,7 +74,9 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 instance AWSPager ListDomains where
         page rq rs
           | stop (rs ^. ldrNextToken) = Nothing
-          | otherwise = rq & ldNextToken ?~ rs ^. ldrNextToken
+          | stop (rs ^. ldrDomainNames) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrNextToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SDB

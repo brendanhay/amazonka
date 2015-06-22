@@ -177,8 +177,9 @@ dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
 instance AWSPager DescribeBatchPredictions where
         page rq rs
           | stop (rs ^. dbprNextToken) = Nothing
+          | stop (rs ^. dbprResults) = Nothing
           | otherwise =
-            rq & dbpNextToken ?~ rs ^. dbprNextToken
+            Just $ rq & dbpNextToken .~ rs ^. dbprNextToken
 
 instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning

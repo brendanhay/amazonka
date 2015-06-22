@@ -81,6 +81,7 @@ lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
 instance AWSPager ListHealthChecks where
         page rq rs
           | stop (rs ^. lhcrIsTruncated) = Nothing
+          | isNothing (rs ^. lhcrNextMarker) = Nothing
           | otherwise =
             Just $ rq & lhcMarker .~ rs ^. lhcrNextMarker
 

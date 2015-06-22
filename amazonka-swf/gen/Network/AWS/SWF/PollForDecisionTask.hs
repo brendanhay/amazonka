@@ -172,8 +172,10 @@ pfdtTaskList = lens _pfdtTaskList (\ s a -> s{_pfdtTaskList = a});
 instance AWSPager PollForDecisionTask where
         page rq rs
           | stop (rs ^. pfdtrNextPageToken) = Nothing
+          | stop (rs ^. pfdtrEvents) = Nothing
           | otherwise =
-            rq & pfdtNextPageToken ?~ rs ^. pfdtrNextPageToken
+            Just $
+              rq & pfdtNextPageToken .~ rs ^. pfdtrNextPageToken
 
 instance AWSRequest PollForDecisionTask where
         type Sv PollForDecisionTask = SWF

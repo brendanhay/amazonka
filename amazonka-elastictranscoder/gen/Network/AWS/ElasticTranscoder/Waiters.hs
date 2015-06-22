@@ -15,10 +15,6 @@
 
 module Network.AWS.ElasticTranscoder.Waiters where
 
-import Network.AWS.ElasticTranscoder.ReadJob
 import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
 import Network.AWS.Waiters
-
-jobComplete :: Wait ReadJob
-jobComplete = Wait{_waitName = "JobComplete", _waitAttempts = 120, _waitDelay = 30, _waitAcceptors = [matchAll "Complete" AcceptSuccess (rjrJob . jStatus . _Just . to toText), matchAll "Canceled" AcceptFailure (rjrJob . jStatus . _Just . to toText), matchAll "Error" AcceptFailure (rjrJob . jStatus . _Just . to toText)]};

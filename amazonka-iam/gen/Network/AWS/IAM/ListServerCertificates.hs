@@ -90,6 +90,7 @@ lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
 instance AWSPager ListServerCertificates where
         page rq rs
           | stop (rs ^. lscrIsTruncated) = Nothing
+          | isNothing (rs ^. lscrMarker) = Nothing
           | otherwise =
             Just $ rq & lscMarker .~ rs ^. lscrMarker
 

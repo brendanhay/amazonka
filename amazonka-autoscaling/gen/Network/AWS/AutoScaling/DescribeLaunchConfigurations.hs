@@ -76,8 +76,9 @@ dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 instance AWSPager DescribeLaunchConfigurations where
         page rq rs
           | stop (rs ^. dlcrNextToken) = Nothing
+          | stop (rs ^. dlcrLaunchConfigurations) = Nothing
           | otherwise =
-            rq & dlcNextToken ?~ rs ^. dlcrNextToken
+            Just $ rq & dlcNextToken .~ rs ^. dlcrNextToken
 
 instance AWSRequest DescribeLaunchConfigurations
          where

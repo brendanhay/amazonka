@@ -84,7 +84,9 @@ dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 instance AWSPager DescribeCacheParameterGroups where
         page rq rs
           | stop (rs ^. dcpgrMarker) = Nothing
-          | otherwise = rq & dcpgMarker ?~ rs ^. dcpgrMarker
+          | stop (rs ^. dcpgrCacheParameterGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcpgMarker .~ rs ^. dcpgrMarker
 
 instance AWSRequest DescribeCacheParameterGroups
          where

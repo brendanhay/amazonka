@@ -71,8 +71,9 @@ lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
 instance AWSPager ListPipelines where
         page rq rs
           | stop (rs ^. lprNextPageToken) = Nothing
+          | stop (rs ^. lprPipelines) = Nothing
           | otherwise =
-            rq & lpPageToken ?~ rs ^. lprNextPageToken
+            Just $ rq & lpPageToken .~ rs ^. lprNextPageToken
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = ElasticTranscoder

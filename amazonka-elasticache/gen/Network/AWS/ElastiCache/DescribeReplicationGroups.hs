@@ -89,7 +89,8 @@ dReplicationGroupId = lens _dReplicationGroupId (\ s a -> s{_dReplicationGroupId
 instance AWSPager DescribeReplicationGroups where
         page rq rs
           | stop (rs ^. drgrMarker) = Nothing
-          | otherwise = rq & dMarker ?~ rs ^. drgrMarker
+          | stop (rs ^. drgrReplicationGroups) = Nothing
+          | otherwise = Just $ rq & dMarker .~ rs ^. drgrMarker
 
 instance AWSRequest DescribeReplicationGroups where
         type Sv DescribeReplicationGroups = ElastiCache

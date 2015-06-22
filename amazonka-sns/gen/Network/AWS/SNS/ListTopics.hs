@@ -62,7 +62,9 @@ ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 instance AWSPager ListTopics where
         page rq rs
           | stop (rs ^. ltrNextToken) = Nothing
-          | otherwise = rq & ltNextToken ?~ rs ^. ltrNextToken
+          | stop (rs ^. ltrTopics) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrNextToken
 
 instance AWSRequest ListTopics where
         type Sv ListTopics = SNS

@@ -107,7 +107,9 @@ dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = 
 instance AWSPager DescribeOptionGroups where
         page rq rs
           | stop (rs ^. dogrMarker) = Nothing
-          | otherwise = rq & dogMarker ?~ rs ^. dogrMarker
+          | stop (rs ^. dogrOptionGroupsList) = Nothing
+          | otherwise =
+            Just $ rq & dogMarker .~ rs ^. dogrMarker
 
 instance AWSRequest DescribeOptionGroups where
         type Sv DescribeOptionGroups = RDS

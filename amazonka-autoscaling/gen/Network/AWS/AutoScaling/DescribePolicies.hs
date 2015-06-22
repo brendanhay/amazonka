@@ -84,8 +84,9 @@ descAutoScalingGroupName = lens _descAutoScalingGroupName (\ s a -> s{_descAutoS
 instance AWSPager DescribePolicies where
         page rq rs
           | stop (rs ^. dprNextToken) = Nothing
+          | stop (rs ^. dprScalingPolicies) = Nothing
           | otherwise =
-            rq & descNextToken ?~ rs ^. dprNextToken
+            Just $ rq & descNextToken .~ rs ^. dprNextToken
 
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling

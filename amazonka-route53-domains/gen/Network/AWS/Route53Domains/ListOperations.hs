@@ -86,8 +86,9 @@ loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 instance AWSPager ListOperations where
         page rq rs
           | stop (rs ^. lorNextPageMarker) = Nothing
+          | stop (rs ^. lorOperations) = Nothing
           | otherwise =
-            rq & loMarker ?~ rs ^. lorNextPageMarker
+            Just $ rq & loMarker .~ rs ^. lorNextPageMarker
 
 instance AWSRequest ListOperations where
         type Sv ListOperations = Route53Domains

@@ -97,6 +97,7 @@ qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
 instance AWSPager QueryObjects where
         page rq rs
           | stop (rs ^. qorHasMoreResults) = Nothing
+          | isNothing (rs ^. qorMarker) = Nothing
           | otherwise = Just $ rq & qoMarker .~ rs ^. qorMarker
 
 instance AWSRequest QueryObjects where

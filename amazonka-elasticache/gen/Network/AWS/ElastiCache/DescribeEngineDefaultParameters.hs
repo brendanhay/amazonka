@@ -83,11 +83,14 @@ dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{
 instance AWSPager DescribeEngineDefaultParameters
          where
         page rq rs
-          | stop (rs ^. dedprEngineDefaults . edMarker) =
+          | stop (rs ^? dedprEngineDefaults . edMarker . _Just)
+            = Nothing
+          | stop (rs ^. dedprEngineDefaults . edParameters) =
             Nothing
           | otherwise =
-            rq &
-              dedpMarker ?~ rs ^. dedprEngineDefaults . edMarker
+            Just $ rq &
+              dedpMarker .~
+                rs ^? dedprEngineDefaults . edMarker . _Just
 
 instance AWSRequest DescribeEngineDefaultParameters
          where

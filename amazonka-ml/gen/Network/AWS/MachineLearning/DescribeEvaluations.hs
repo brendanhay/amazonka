@@ -176,7 +176,9 @@ deLE = lens _deLE (\ s a -> s{_deLE = a});
 instance AWSPager DescribeEvaluations where
         page rq rs
           | stop (rs ^. derNextToken) = Nothing
-          | otherwise = rq & deNextToken ?~ rs ^. derNextToken
+          | stop (rs ^. derResults) = Nothing
+          | otherwise =
+            Just $ rq & deNextToken .~ rs ^. derNextToken
 
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning

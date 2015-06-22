@@ -111,7 +111,9 @@ instance AWSPager DescribeOrderableClusterOptions
          where
         page rq rs
           | stop (rs ^. docorMarker) = Nothing
-          | otherwise = rq & docoMarker ?~ rs ^. docorMarker
+          | stop (rs ^. docorOrderableClusterOptions) = Nothing
+          | otherwise =
+            Just $ rq & docoMarker .~ rs ^. docorMarker
 
 instance AWSRequest DescribeOrderableClusterOptions
          where

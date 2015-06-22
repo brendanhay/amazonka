@@ -113,8 +113,9 @@ ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a});
 instance AWSPager ListTaskDefinitions where
         page rq rs
           | stop (rs ^. ltdrNextToken) = Nothing
+          | stop (rs ^. ltdrTaskDefinitionARNs) = Nothing
           | otherwise =
-            rq & ltdNextToken ?~ rs ^. ltdrNextToken
+            Just $ rq & ltdNextToken .~ rs ^. ltdrNextToken
 
 instance AWSRequest ListTaskDefinitions where
         type Sv ListTaskDefinitions = ECS

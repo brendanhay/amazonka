@@ -86,7 +86,9 @@ lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
 instance AWSPager ListServices where
         page rq rs
           | stop (rs ^. lsrNextToken) = Nothing
-          | otherwise = rq & lsNextToken ?~ rs ^. lsrNextToken
+          | stop (rs ^. lsrServiceARNs) = Nothing
+          | otherwise =
+            Just $ rq & lsNextToken .~ rs ^. lsrNextToken
 
 instance AWSRequest ListServices where
         type Sv ListServices = ECS

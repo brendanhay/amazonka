@@ -124,7 +124,9 @@ dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 instance AWSPager DescribeClusterSubnetGroups where
         page rq rs
           | stop (rs ^. dcsgrMarker) = Nothing
-          | otherwise = rq & dMarker ?~ rs ^. dcsgrMarker
+          | stop (rs ^. dcsgrClusterSubnetGroups) = Nothing
+          | otherwise =
+            Just $ rq & dMarker .~ rs ^. dcsgrMarker
 
 instance AWSRequest DescribeClusterSubnetGroups where
         type Sv DescribeClusterSubnetGroups = Redshift

@@ -99,7 +99,9 @@ daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat
 instance AWSPager DescribeAlarms where
         page rq rs
           | stop (rs ^. darNextToken) = Nothing
-          | otherwise = rq & daNextToken ?~ rs ^. darNextToken
+          | stop (rs ^. darMetricAlarms) = Nothing
+          | otherwise =
+            Just $ rq & daNextToken .~ rs ^. darNextToken
 
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch

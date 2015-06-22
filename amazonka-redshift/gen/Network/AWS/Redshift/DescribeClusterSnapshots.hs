@@ -179,7 +179,9 @@ desOwnerAccount = lens _desOwnerAccount (\ s a -> s{_desOwnerAccount = a});
 instance AWSPager DescribeClusterSnapshots where
         page rq rs
           | stop (rs ^. dcsrMarker) = Nothing
-          | otherwise = rq & desMarker ?~ rs ^. dcsrMarker
+          | stop (rs ^. dcsrSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & desMarker .~ rs ^. dcsrMarker
 
 instance AWSRequest DescribeClusterSnapshots where
         type Sv DescribeClusterSnapshots = Redshift

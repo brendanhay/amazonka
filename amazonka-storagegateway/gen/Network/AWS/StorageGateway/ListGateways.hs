@@ -79,7 +79,8 @@ lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 instance AWSPager ListGateways where
         page rq rs
           | stop (rs ^. lgrMarker) = Nothing
-          | otherwise = rq & lgMarker ?~ rs ^. lgrMarker
+          | stop (rs ^. lgrGateways) = Nothing
+          | otherwise = Just $ rq & lgMarker .~ rs ^. lgrMarker
 
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway

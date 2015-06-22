@@ -89,7 +89,9 @@ dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a}) . _De
 instance AWSPager DescribeScalingActivities where
         page rq rs
           | stop (rs ^. dNextToken) = Nothing
-          | otherwise = rq & dsa1NextToken ?~ rs ^. dNextToken
+          | stop (rs ^. dActivities) = Nothing
+          | otherwise =
+            Just $ rq & dsa1NextToken .~ rs ^. dNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling

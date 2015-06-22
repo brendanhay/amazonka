@@ -76,7 +76,9 @@ lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter
 instance AWSPager ListStacks where
         page rq rs
           | stop (rs ^. lisNextToken) = Nothing
-          | otherwise = rq & lsNextToken ?~ rs ^. lisNextToken
+          | stop (rs ^. lisStackSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lsNextToken .~ rs ^. lisNextToken
 
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation

@@ -80,6 +80,7 @@ laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 instance AWSPager ListAccountAliases where
         page rq rs
           | stop (rs ^. laarIsTruncated) = Nothing
+          | isNothing (rs ^. laarMarker) = Nothing
           | otherwise =
             Just $ rq & laaMarker .~ rs ^. laarMarker
 

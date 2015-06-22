@@ -124,8 +124,10 @@ gwehExecution = lens _gwehExecution (\ s a -> s{_gwehExecution = a});
 instance AWSPager GetWorkflowExecutionHistory where
         page rq rs
           | stop (rs ^. gwehrNextPageToken) = Nothing
+          | stop (rs ^. gwehrEvents) = Nothing
           | otherwise =
-            rq & gwehNextPageToken ?~ rs ^. gwehrNextPageToken
+            Just $
+              rq & gwehNextPageToken .~ rs ^. gwehrNextPageToken
 
 instance AWSRequest GetWorkflowExecutionHistory where
         type Sv GetWorkflowExecutionHistory = SWF

@@ -106,8 +106,10 @@ desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desSchedule
 instance AWSPager DescribeScheduledActions where
         page rq rs
           | stop (rs ^. dsarNextToken) = Nothing
+          | stop (rs ^. dsarScheduledUpdateGroupActions) =
+            Nothing
           | otherwise =
-            rq & desNextToken ?~ rs ^. dsarNextToken
+            Just $ rq & desNextToken .~ rs ^. dsarNextToken
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling

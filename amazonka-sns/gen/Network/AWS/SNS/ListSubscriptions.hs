@@ -62,7 +62,9 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 instance AWSPager ListSubscriptions where
         page rq rs
           | stop (rs ^. lsrNextToken) = Nothing
-          | otherwise = rq & lsNextToken ?~ rs ^. lsrNextToken
+          | stop (rs ^. lsrSubscriptions) = Nothing
+          | otherwise =
+            Just $ rq & lsNextToken .~ rs ^. lsrNextToken
 
 instance AWSRequest ListSubscriptions where
         type Sv ListSubscriptions = SNS

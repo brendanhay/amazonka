@@ -144,7 +144,9 @@ drdiDuration = lens _drdiDuration (\ s a -> s{_drdiDuration = a});
 instance AWSPager DescribeReservedDBInstances where
         page rq rs
           | stop (rs ^. drdirMarker) = Nothing
-          | otherwise = rq & drdiMarker ?~ rs ^. drdirMarker
+          | stop (rs ^. drdirReservedDBInstances) = Nothing
+          | otherwise =
+            Just $ rq & drdiMarker .~ rs ^. drdirMarker
 
 instance AWSRequest DescribeReservedDBInstances where
         type Sv DescribeReservedDBInstances = RDS

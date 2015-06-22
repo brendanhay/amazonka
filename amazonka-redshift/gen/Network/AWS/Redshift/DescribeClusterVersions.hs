@@ -107,7 +107,9 @@ dcvClusterVersion = lens _dcvClusterVersion (\ s a -> s{_dcvClusterVersion = a})
 instance AWSPager DescribeClusterVersions where
         page rq rs
           | stop (rs ^. dcvrMarker) = Nothing
-          | otherwise = rq & dcvMarker ?~ rs ^. dcvrMarker
+          | stop (rs ^. dcvrClusterVersions) = Nothing
+          | otherwise =
+            Just $ rq & dcvMarker .~ rs ^. dcvrMarker
 
 instance AWSRequest DescribeClusterVersions where
         type Sv DescribeClusterVersions = Redshift

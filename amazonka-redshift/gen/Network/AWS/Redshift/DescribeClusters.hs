@@ -131,7 +131,8 @@ dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 instance AWSPager DescribeClusters where
         page rq rs
           | stop (rs ^. dcrMarker) = Nothing
-          | otherwise = rq & dcMarker ?~ rs ^. dcrMarker
+          | stop (rs ^. dcrClusters) = Nothing
+          | otherwise = Just $ rq & dcMarker .~ rs ^. dcrMarker
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = Redshift

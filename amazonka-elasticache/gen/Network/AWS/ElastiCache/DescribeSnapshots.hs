@@ -104,7 +104,8 @@ dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 instance AWSPager DescribeSnapshots where
         page rq rs
           | stop (rs ^. dsrMarker) = Nothing
-          | otherwise = rq & dsMarker ?~ rs ^. dsrMarker
+          | stop (rs ^. dsrSnapshots) = Nothing
+          | otherwise = Just $ rq & dsMarker .~ rs ^. dsrMarker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache

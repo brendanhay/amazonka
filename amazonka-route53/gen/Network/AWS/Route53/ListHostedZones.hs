@@ -88,6 +88,7 @@ lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
 instance AWSPager ListHostedZones where
         page rq rs
           | stop (rs ^. lhzrIsTruncated) = Nothing
+          | isNothing (rs ^. lhzrNextMarker) = Nothing
           | otherwise =
             Just $ rq & lhzMarker .~ rs ^. lhzrNextMarker
 

@@ -92,6 +92,7 @@ lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 instance AWSPager ListGroupPolicies where
         page rq rs
           | stop (rs ^. lgprIsTruncated) = Nothing
+          | isNothing (rs ^. lgprMarker) = Nothing
           | otherwise =
             Just $ rq & lgpMarker .~ rs ^. lgprMarker
 

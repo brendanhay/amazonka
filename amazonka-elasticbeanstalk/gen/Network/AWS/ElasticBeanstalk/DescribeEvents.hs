@@ -144,7 +144,9 @@ deEnvironmentId = lens _deEnvironmentId (\ s a -> s{_deEnvironmentId = a});
 instance AWSPager DescribeEvents where
         page rq rs
           | stop (rs ^. derNextToken) = Nothing
-          | otherwise = rq & deNextToken ?~ rs ^. derNextToken
+          | stop (rs ^. derEvents) = Nothing
+          | otherwise =
+            Just $ rq & deNextToken .~ rs ^. derNextToken
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElasticBeanstalk

@@ -138,7 +138,9 @@ dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a}) . mapping _Nat
 instance AWSPager DescribeCases where
         page rq rs
           | stop (rs ^. desNextToken) = Nothing
-          | otherwise = rq & dcNextToken ?~ rs ^. desNextToken
+          | stop (rs ^. desCases) = Nothing
+          | otherwise =
+            Just $ rq & dcNextToken .~ rs ^. desNextToken
 
 instance AWSRequest DescribeCases where
         type Sv DescribeCases = Support

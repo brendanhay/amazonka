@@ -105,7 +105,9 @@ dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 instance AWSPager DescribeTags where
         page rq rs
           | stop (rs ^. dtrNextToken) = Nothing
-          | otherwise = rq & dtNextToken ?~ rs ^. dtrNextToken
+          | stop (rs ^. dtrTags) = Nothing
+          | otherwise =
+            Just $ rq & dtNextToken .~ rs ^. dtrNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EC2

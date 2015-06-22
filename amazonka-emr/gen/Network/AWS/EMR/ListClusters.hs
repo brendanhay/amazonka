@@ -84,7 +84,8 @@ lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . map
 instance AWSPager ListClusters where
         page rq rs
           | stop (rs ^. lcrMarker) = Nothing
-          | otherwise = rq & lcMarker ?~ rs ^. lcrMarker
+          | stop (rs ^. lcrClusters) = Nothing
+          | otherwise = Just $ rq & lcMarker .~ rs ^. lcrMarker
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = EMR

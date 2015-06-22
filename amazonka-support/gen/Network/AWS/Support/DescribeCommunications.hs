@@ -104,7 +104,9 @@ dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
 instance AWSPager DescribeCommunications where
         page rq rs
           | stop (rs ^. dcrNextToken) = Nothing
-          | otherwise = rq & dNextToken ?~ rs ^. dcrNextToken
+          | stop (rs ^. dcrCommunications) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. dcrNextToken
 
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support

@@ -16,21 +16,5 @@
 module Network.AWS.S3.Waiters where
 
 import Network.AWS.Prelude
-import Network.AWS.S3.HeadBucket
-import Network.AWS.S3.HeadBucket
-import Network.AWS.S3.HeadObject
-import Network.AWS.S3.HeadObject
 import Network.AWS.S3.Types
 import Network.AWS.Waiters
-
-objectNotExists :: Wait HeadObject
-objectNotExists = Wait{_waitName = "ObjectNotExists", _waitAttempts = 20, _waitDelay = 5, _waitAcceptors = [matchStatus 404 AcceptSuccess]};
-
-bucketExists :: Wait HeadBucket
-bucketExists = Wait{_waitName = "BucketExists", _waitAttempts = 20, _waitDelay = 5, _waitAcceptors = [matchStatus 200 AcceptSuccess, matchStatus 404 AcceptRetry]};
-
-objectExists :: Wait HeadObject
-objectExists = Wait{_waitName = "ObjectExists", _waitAttempts = 20, _waitDelay = 5, _waitAcceptors = [matchStatus 200 AcceptSuccess, matchStatus 404 AcceptRetry]};
-
-bucketNotExists :: Wait HeadBucket
-bucketNotExists = Wait{_waitName = "BucketNotExists", _waitAttempts = 20, _waitDelay = 5, _waitAcceptors = [matchStatus 404 AcceptSuccess]};

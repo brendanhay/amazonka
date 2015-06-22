@@ -75,13 +75,17 @@ instance AWSPager
                  lcfoairCloudFrontOriginAccessIdentityList .
                    cfoailIsTruncated)
             = Nothing
+          | isNothing
+              (rs ^?
+                 lcfoairCloudFrontOriginAccessIdentityList .
+                   cfoailNextMarker . _Just)
+            = Nothing
           | otherwise =
-            Just $
-              rq &
-                lcfoaiMarker .~
-                  rs ^.
-                    lcfoairCloudFrontOriginAccessIdentityList .
-                      cfoailNextMarker
+            Just $ rq &
+              lcfoaiMarker .~
+                rs ^?
+                  lcfoairCloudFrontOriginAccessIdentityList .
+                    cfoailNextMarker . _Just
 
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where

@@ -68,7 +68,9 @@ lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
 instance AWSPager ListBootstrapActions where
         page rq rs
           | stop (rs ^. lbarMarker) = Nothing
-          | otherwise = rq & lbaMarker ?~ rs ^. lbarMarker
+          | stop (rs ^. lbarBootstrapActions) = Nothing
+          | otherwise =
+            Just $ rq & lbaMarker .~ rs ^. lbarMarker
 
 instance AWSRequest ListBootstrapActions where
         type Sv ListBootstrapActions = EMR

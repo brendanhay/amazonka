@@ -98,7 +98,9 @@ ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 instance AWSPager DescribeDBInstances where
         page rq rs
           | stop (rs ^. ddirMarker) = Nothing
-          | otherwise = rq & ddbiMarker ?~ rs ^. ddirMarker
+          | stop (rs ^. ddirDBInstances) = Nothing
+          | otherwise =
+            Just $ rq & ddbiMarker .~ rs ^. ddirMarker
 
 instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS

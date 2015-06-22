@@ -97,8 +97,9 @@ dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _
 instance AWSPager DescribeAlarmHistory where
         page rq rs
           | stop (rs ^. dahrNextToken) = Nothing
+          | stop (rs ^. dahrAlarmHistoryItems) = Nothing
           | otherwise =
-            rq & dahNextToken ?~ rs ^. dahrNextToken
+            Just $ rq & dahNextToken .~ rs ^. dahrNextToken
 
 instance AWSRequest DescribeAlarmHistory where
         type Sv DescribeAlarmHistory = CloudWatch

@@ -73,11 +73,16 @@ instance AWSPager ListStreamingDistributions where
               (rs ^.
                  lsdrStreamingDistributionList . sdlIsTruncated)
             = Nothing
+          | isNothing
+              (rs ^?
+                 lsdrStreamingDistributionList .
+                   sdlNextMarker . _Just)
+            = Nothing
           | otherwise =
-            Just $
-              rq &
-                lsdMarker .~
-                  rs ^. lsdrStreamingDistributionList . sdlNextMarker
+            Just $ rq &
+              lsdMarker .~
+                rs ^?
+                  lsdrStreamingDistributionList . sdlNextMarker . _Just
 
 instance AWSRequest ListStreamingDistributions where
         type Sv ListStreamingDistributions = CloudFront

@@ -77,8 +77,9 @@ dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a});
 instance AWSPager DescribeAutoScalingInstances where
         page rq rs
           | stop (rs ^. dasirNextToken) = Nothing
+          | stop (rs ^. dasirAutoScalingInstances) = Nothing
           | otherwise =
-            rq & dasiNextToken ?~ rs ^. dasirNextToken
+            Just $ rq & dasiNextToken .~ rs ^. dasirNextToken
 
 instance AWSRequest DescribeAutoScalingInstances
          where

@@ -128,8 +128,10 @@ lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistration
 instance AWSPager ListWorkflowTypes where
         page rq rs
           | stop (rs ^. lwtrNextPageToken) = Nothing
+          | stop (rs ^. lwtrTypeInfos) = Nothing
           | otherwise =
-            rq & lwtNextPageToken ?~ rs ^. lwtrNextPageToken
+            Just $
+              rq & lwtNextPageToken .~ rs ^. lwtrNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF

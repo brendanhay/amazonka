@@ -119,8 +119,9 @@ ldRegistrationStatus = lens _ldRegistrationStatus (\ s a -> s{_ldRegistrationSta
 instance AWSPager ListDomains where
         page rq rs
           | stop (rs ^. ldrNextPageToken) = Nothing
+          | stop (rs ^. ldrDomainInfos) = Nothing
           | otherwise =
-            rq & ldNextPageToken ?~ rs ^. ldrNextPageToken
+            Just $ rq & ldNextPageToken .~ rs ^. ldrNextPageToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SWF

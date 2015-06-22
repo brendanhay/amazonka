@@ -134,7 +134,9 @@ instance AWSPager DescribeClusterParameterGroups
          where
         page rq rs
           | stop (rs ^. dcpgrMarker) = Nothing
-          | otherwise = rq & dcpgMarker ?~ rs ^. dcpgrMarker
+          | stop (rs ^. dcpgrParameterGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcpgMarker .~ rs ^. dcpgrMarker
 
 instance AWSRequest DescribeClusterParameterGroups
          where

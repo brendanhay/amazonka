@@ -91,8 +91,9 @@ ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a});
 instance AWSPager ListTaskDefinitionFamilies where
         page rq rs
           | stop (rs ^. ltdfrNextToken) = Nothing
+          | stop (rs ^. ltdfrFamilies) = Nothing
           | otherwise =
-            rq & ltdfNextToken ?~ rs ^. ltdfrNextToken
+            Just $ rq & ltdfNextToken .~ rs ^. ltdfrNextToken
 
 instance AWSRequest ListTaskDefinitionFamilies where
         type Sv ListTaskDefinitionFamilies = ECS

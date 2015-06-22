@@ -89,6 +89,7 @@ lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 instance AWSPager ListGroups where
         page rq rs
           | stop (rs ^. lgrIsTruncated) = Nothing
+          | isNothing (rs ^. lgrMarker) = Nothing
           | otherwise = Just $ rq & lgMarker .~ rs ^. lgrMarker
 
 instance AWSRequest ListGroups where

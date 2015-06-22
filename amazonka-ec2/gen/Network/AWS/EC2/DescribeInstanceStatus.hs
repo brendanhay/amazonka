@@ -173,8 +173,9 @@ descMaxResults = lens _descMaxResults (\ s a -> s{_descMaxResults = a});
 instance AWSPager DescribeInstanceStatus where
         page rq rs
           | stop (rs ^. disrNextToken) = Nothing
+          | stop (rs ^. disrInstanceStatuses) = Nothing
           | otherwise =
-            rq & descNextToken ?~ rs ^. disrNextToken
+            Just $ rq & descNextToken .~ rs ^. disrNextToken
 
 instance AWSRequest DescribeInstanceStatus where
         type Sv DescribeInstanceStatus = EC2

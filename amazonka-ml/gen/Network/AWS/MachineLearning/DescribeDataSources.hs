@@ -171,8 +171,9 @@ ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a});
 instance AWSPager DescribeDataSources where
         page rq rs
           | stop (rs ^. ddsrNextToken) = Nothing
+          | stop (rs ^. ddsrResults) = Nothing
           | otherwise =
-            rq & ddsNextToken ?~ rs ^. ddsrNextToken
+            Just $ rq & ddsNextToken .~ rs ^. ddsrNextToken
 
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning

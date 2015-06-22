@@ -95,7 +95,9 @@ ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 instance AWSPager DescribeDBSubnetGroups where
         page rq rs
           | stop (rs ^. ddsgrMarker) = Nothing
-          | otherwise = rq & ddsgMarker ?~ rs ^. ddsgrMarker
+          | stop (rs ^. ddsgrDBSubnetGroups) = Nothing
+          | otherwise =
+            Just $ rq & ddsgMarker .~ rs ^. ddsgrMarker
 
 instance AWSRequest DescribeDBSubnetGroups where
         type Sv DescribeDBSubnetGroups = RDS

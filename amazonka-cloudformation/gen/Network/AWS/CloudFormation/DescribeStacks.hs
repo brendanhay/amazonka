@@ -75,7 +75,9 @@ desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 instance AWSPager DescribeStacks where
         page rq rs
           | stop (rs ^. dsrNextToken) = Nothing
-          | otherwise = rq & desNextToken ?~ rs ^. dsrNextToken
+          | stop (rs ^. dsrStacks) = Nothing
+          | otherwise =
+            Just $ rq & desNextToken .~ rs ^. dsrNextToken
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation

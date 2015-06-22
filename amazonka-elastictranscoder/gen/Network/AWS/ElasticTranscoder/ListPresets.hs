@@ -72,8 +72,9 @@ lisPageToken = lens _lisPageToken (\ s a -> s{_lisPageToken = a});
 instance AWSPager ListPresets where
         page rq rs
           | stop (rs ^. lisNextPageToken) = Nothing
+          | stop (rs ^. lisPresets) = Nothing
           | otherwise =
-            rq & lisPageToken ?~ rs ^. lisNextPageToken
+            Just $ rq & lisPageToken .~ rs ^. lisNextPageToken
 
 instance AWSRequest ListPresets where
         type Sv ListPresets = ElasticTranscoder

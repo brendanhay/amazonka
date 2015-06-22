@@ -131,8 +131,10 @@ latRegistrationStatus = lens _latRegistrationStatus (\ s a -> s{_latRegistration
 instance AWSPager ListActivityTypes where
         page rq rs
           | stop (rs ^. latrNextPageToken) = Nothing
+          | stop (rs ^. latrTypeInfos) = Nothing
           | otherwise =
-            rq & latNextPageToken ?~ rs ^. latrNextPageToken
+            Just $
+              rq & latNextPageToken .~ rs ^. latrNextPageToken
 
 instance AWSRequest ListActivityTypes where
         type Sv ListActivityTypes = SWF

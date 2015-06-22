@@ -79,8 +79,9 @@ instance AWSPager ListEndpointsByPlatformApplication
          where
         page rq rs
           | stop (rs ^. lebparNextToken) = Nothing
+          | stop (rs ^. lebparEndpoints) = Nothing
           | otherwise =
-            rq & lebpaNextToken ?~ rs ^. lebparNextToken
+            Just $ rq & lebpaNextToken .~ rs ^. lebparNextToken
 
 instance AWSRequest
          ListEndpointsByPlatformApplication where

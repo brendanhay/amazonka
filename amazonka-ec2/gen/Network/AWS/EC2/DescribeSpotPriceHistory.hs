@@ -154,8 +154,9 @@ dsphMaxResults = lens _dsphMaxResults (\ s a -> s{_dsphMaxResults = a});
 instance AWSPager DescribeSpotPriceHistory where
         page rq rs
           | stop (rs ^. dsphrNextToken) = Nothing
+          | stop (rs ^. dsphrSpotPriceHistory) = Nothing
           | otherwise =
-            rq & dsphNextToken ?~ rs ^. dsphrNextToken
+            Just $ rq & dsphNextToken .~ rs ^. dsphrNextToken
 
 instance AWSRequest DescribeSpotPriceHistory where
         type Sv DescribeSpotPriceHistory = EC2

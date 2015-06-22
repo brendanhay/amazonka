@@ -74,7 +74,9 @@ lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
 instance AWSPager ListFunctions where
         page rq rs
           | stop (rs ^. lfrNextMarker) = Nothing
-          | otherwise = rq & lfMarker ?~ rs ^. lfrNextMarker
+          | stop (rs ^. lfrFunctions) = Nothing
+          | otherwise =
+            Just $ rq & lfMarker .~ rs ^. lfrNextMarker
 
 instance AWSRequest ListFunctions where
         type Sv ListFunctions = Lambda

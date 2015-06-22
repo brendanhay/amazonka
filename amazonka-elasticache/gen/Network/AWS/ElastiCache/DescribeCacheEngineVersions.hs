@@ -114,7 +114,9 @@ dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
 instance AWSPager DescribeCacheEngineVersions where
         page rq rs
           | stop (rs ^. dcevrMarker) = Nothing
-          | otherwise = rq & dcevMarker ?~ rs ^. dcevrMarker
+          | stop (rs ^. dcevrCacheEngineVersions) = Nothing
+          | otherwise =
+            Just $ rq & dcevMarker .~ rs ^. dcevrMarker
 
 instance AWSRequest DescribeCacheEngineVersions where
         type Sv DescribeCacheEngineVersions = ElastiCache

@@ -105,10 +105,10 @@ lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 instance AWSPager ListParts where
         page rq rs
           | stop (rs ^. lprIsTruncated) = Nothing
+          | isNothing (rs ^. lprNextPartNumberMarker) = Nothing
           | otherwise =
-            Just $
-              rq &
-                lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker
+            Just $ rq &
+              lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker
 
 instance AWSRequest ListParts where
         type Sv ListParts = S3

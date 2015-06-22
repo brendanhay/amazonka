@@ -107,7 +107,9 @@ ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParame
 instance AWSPager DescribeDBParameters where
         page rq rs
           | stop (rs ^. ddprMarker) = Nothing
-          | otherwise = rq & ddpMarker ?~ rs ^. ddprMarker
+          | stop (rs ^. ddprParameters) = Nothing
+          | otherwise =
+            Just $ rq & ddpMarker .~ rs ^. ddprMarker
 
 instance AWSRequest DescribeDBParameters where
         type Sv DescribeDBParameters = RDS

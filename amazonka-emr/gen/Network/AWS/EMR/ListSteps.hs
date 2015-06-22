@@ -80,7 +80,8 @@ lsClusterId = lens _lsClusterId (\ s a -> s{_lsClusterId = a});
 instance AWSPager ListSteps where
         page rq rs
           | stop (rs ^. lsrMarker) = Nothing
-          | otherwise = rq & lsMarker ?~ rs ^. lsrMarker
+          | stop (rs ^. lsrSteps) = Nothing
+          | otherwise = Just $ rq & lsMarker .~ rs ^. lsrMarker
 
 instance AWSRequest ListSteps where
         type Sv ListSteps = EMR

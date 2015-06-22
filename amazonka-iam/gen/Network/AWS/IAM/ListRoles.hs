@@ -92,6 +92,7 @@ lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 instance AWSPager ListRoles where
         page rq rs
           | stop (rs ^. lrrIsTruncated) = Nothing
+          | isNothing (rs ^. lrrMarker) = Nothing
           | otherwise = Just $ rq & lrMarker .~ rs ^. lrrMarker
 
 instance AWSRequest ListRoles where

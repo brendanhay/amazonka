@@ -160,7 +160,9 @@ drcnReservedCacheNodesOfferingId = lens _drcnReservedCacheNodesOfferingId (\ s a
 instance AWSPager DescribeReservedCacheNodes where
         page rq rs
           | stop (rs ^. drcnrMarker) = Nothing
-          | otherwise = rq & drcnMarker ?~ rs ^. drcnrMarker
+          | stop (rs ^. drcnrReservedCacheNodes) = Nothing
+          | otherwise =
+            Just $ rq & drcnMarker .~ rs ^. drcnrMarker
 
 instance AWSRequest DescribeReservedCacheNodes where
         type Sv DescribeReservedCacheNodes = ElastiCache

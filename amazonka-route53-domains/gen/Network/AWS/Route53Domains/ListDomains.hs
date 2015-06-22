@@ -89,8 +89,9 @@ ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 instance AWSPager ListDomains where
         page rq rs
           | stop (rs ^. ldrNextPageMarker) = Nothing
+          | stop (rs ^. ldrDomains) = Nothing
           | otherwise =
-            rq & ldMarker ?~ rs ^. ldrNextPageMarker
+            Just $ rq & ldMarker .~ rs ^. ldrNextPageMarker
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = Route53Domains

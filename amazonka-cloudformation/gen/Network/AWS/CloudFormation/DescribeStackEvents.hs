@@ -82,8 +82,9 @@ dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a});
 instance AWSPager DescribeStackEvents where
         page rq rs
           | stop (rs ^. dserNextToken) = Nothing
+          | stop (rs ^. dserStackEvents) = Nothing
           | otherwise =
-            rq & dseNextToken ?~ rs ^. dserNextToken
+            Just $ rq & dseNextToken .~ rs ^. dserNextToken
 
 instance AWSRequest DescribeStackEvents where
         type Sv DescribeStackEvents = CloudFormation

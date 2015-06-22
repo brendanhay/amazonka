@@ -92,6 +92,7 @@ lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
 instance AWSPager ListRolePolicies where
         page rq rs
           | stop (rs ^. lrprIsTruncated) = Nothing
+          | isNothing (rs ^. lrprMarker) = Nothing
           | otherwise =
             Just $ rq & lrpMarker .~ rs ^. lrprMarker
 

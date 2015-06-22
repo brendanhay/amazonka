@@ -91,6 +91,7 @@ lupUserName = lens _lupUserName (\ s a -> s{_lupUserName = a});
 instance AWSPager ListUserPolicies where
         page rq rs
           | stop (rs ^. luprIsTruncated) = Nothing
+          | isNothing (rs ^. luprMarker) = Nothing
           | otherwise =
             Just $ rq & lupMarker .~ rs ^. luprMarker
 

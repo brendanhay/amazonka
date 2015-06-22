@@ -77,7 +77,9 @@ lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
 instance AWSPager ListClusters where
         page rq rs
           | stop (rs ^. lcrNextToken) = Nothing
-          | otherwise = rq & lcNextToken ?~ rs ^. lcrNextToken
+          | stop (rs ^. lcrClusterARNs) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrNextToken
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = ECS

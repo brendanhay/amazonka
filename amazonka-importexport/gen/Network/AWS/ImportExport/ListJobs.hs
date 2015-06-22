@@ -77,10 +77,11 @@ ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 instance AWSPager ListJobs where
         page rq rs
           | stop (rs ^. ljrIsTruncated) = Nothing
+          | isNothing (rs ^? ljrJobs . _last . jobJobId) =
+            Nothing
           | otherwise =
-            Just $
-              rq &
-                ljMarker .~ rs ^. index (ljrJobs . _Just) . jobJobId
+            Just $ rq &
+              ljMarker .~ rs ^? ljrJobs . _last . jobJobId
 
 instance AWSRequest ListJobs where
         type Sv ListJobs = ImportExport

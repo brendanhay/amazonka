@@ -70,8 +70,9 @@ lsbtTopicARN = lens _lsbtTopicARN (\ s a -> s{_lsbtTopicARN = a});
 instance AWSPager ListSubscriptionsByTopic where
         page rq rs
           | stop (rs ^. lsbtrNextToken) = Nothing
+          | stop (rs ^. lsbtrSubscriptions) = Nothing
           | otherwise =
-            rq & lsbtNextToken ?~ rs ^. lsbtrNextToken
+            Just $ rq & lsbtNextToken .~ rs ^. lsbtrNextToken
 
 instance AWSRequest ListSubscriptionsByTopic where
         type Sv ListSubscriptionsByTopic = SNS

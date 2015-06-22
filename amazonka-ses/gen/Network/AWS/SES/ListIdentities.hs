@@ -79,7 +79,9 @@ liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 instance AWSPager ListIdentities where
         page rq rs
           | stop (rs ^. lirNextToken) = Nothing
-          | otherwise = rq & liNextToken ?~ rs ^. lirNextToken
+          | stop (rs ^. lirIdentities) = Nothing
+          | otherwise =
+            Just $ rq & liNextToken .~ rs ^. lirNextToken
 
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = SES

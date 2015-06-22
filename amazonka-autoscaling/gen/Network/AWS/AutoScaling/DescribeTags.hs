@@ -83,7 +83,9 @@ dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 instance AWSPager DescribeTags where
         page rq rs
           | stop (rs ^. dtrNextToken) = Nothing
-          | otherwise = rq & dtNextToken ?~ rs ^. dtrNextToken
+          | stop (rs ^. dtrTags) = Nothing
+          | otherwise =
+            Just $ rq & dtNextToken .~ rs ^. dtrNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = AutoScaling

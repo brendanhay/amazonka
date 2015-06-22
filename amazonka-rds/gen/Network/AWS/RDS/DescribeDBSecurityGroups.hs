@@ -92,7 +92,9 @@ ddbsgDBSecurityGroupName = lens _ddbsgDBSecurityGroupName (\ s a -> s{_ddbsgDBSe
 instance AWSPager DescribeDBSecurityGroups where
         page rq rs
           | stop (rs ^. desMarker) = Nothing
-          | otherwise = rq & ddbsgMarker ?~ rs ^. desMarker
+          | stop (rs ^. desDBSecurityGroups) = Nothing
+          | otherwise =
+            Just $ rq & ddbsgMarker .~ rs ^. desMarker
 
 instance AWSRequest DescribeDBSecurityGroups where
         type Sv DescribeDBSecurityGroups = RDS

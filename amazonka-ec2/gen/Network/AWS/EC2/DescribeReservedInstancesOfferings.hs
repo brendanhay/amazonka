@@ -221,8 +221,10 @@ instance AWSPager DescribeReservedInstancesOfferings
          where
         page rq rs
           | stop (rs ^. driorNextToken) = Nothing
+          | stop (rs ^. driorReservedInstancesOfferings) =
+            Nothing
           | otherwise =
-            rq & drioNextToken ?~ rs ^. driorNextToken
+            Just $ rq & drioNextToken .~ rs ^. driorNextToken
 
 instance AWSRequest
          DescribeReservedInstancesOfferings where

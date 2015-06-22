@@ -91,7 +91,8 @@ dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
 instance AWSPager DescribeTapes where
         page rq rs
           | stop (rs ^. dtrMarker) = Nothing
-          | otherwise = rq & dtMarker ?~ rs ^. dtrMarker
+          | stop (rs ^. dtrTapes) = Nothing
+          | otherwise = Just $ rq & dtMarker .~ rs ^. dtrMarker
 
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway

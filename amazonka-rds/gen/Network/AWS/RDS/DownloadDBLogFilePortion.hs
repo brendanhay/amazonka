@@ -111,6 +111,7 @@ ddlfpLogFileName = lens _ddlfpLogFileName (\ s a -> s{_ddlfpLogFileName = a});
 instance AWSPager DownloadDBLogFilePortion where
         page rq rs
           | stop (rs ^. ddlfprAdditionalDataPending) = Nothing
+          | isNothing (rs ^. ddlfprMarker) = Nothing
           | otherwise =
             Just $ rq & ddlfpMarker .~ rs ^. ddlfprMarker
 

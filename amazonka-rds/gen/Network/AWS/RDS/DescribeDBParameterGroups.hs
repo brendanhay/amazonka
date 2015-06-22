@@ -98,7 +98,9 @@ ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
 instance AWSPager DescribeDBParameterGroups where
         page rq rs
           | stop (rs ^. ddpgrMarker) = Nothing
-          | otherwise = rq & ddpgMarker ?~ rs ^. ddpgrMarker
+          | stop (rs ^. ddpgrDBParameterGroups) = Nothing
+          | otherwise =
+            Just $ rq & ddpgMarker .~ rs ^. ddpgrMarker
 
 instance AWSRequest DescribeDBParameterGroups where
         type Sv DescribeDBParameterGroups = RDS

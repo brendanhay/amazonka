@@ -81,8 +81,9 @@ ljbsStatus = lens _ljbsStatus (\ s a -> s{_ljbsStatus = a});
 instance AWSPager ListJobsByStatus where
         page rq rs
           | stop (rs ^. ljbsrNextPageToken) = Nothing
+          | stop (rs ^. ljbsrJobs) = Nothing
           | otherwise =
-            rq & ljbsPageToken ?~ rs ^. ljbsrNextPageToken
+            Just $ rq & ljbsPageToken .~ rs ^. ljbsrNextPageToken
 
 instance AWSRequest ListJobsByStatus where
         type Sv ListJobsByStatus = ElasticTranscoder

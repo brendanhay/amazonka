@@ -139,7 +139,10 @@ instance AWSPager
          DescribeReservedDBInstancesOfferings where
         page rq rs
           | stop (rs ^. drdiorMarker) = Nothing
-          | otherwise = rq & drdioMarker ?~ rs ^. drdiorMarker
+          | stop (rs ^. drdiorReservedDBInstancesOfferings) =
+            Nothing
+          | otherwise =
+            Just $ rq & drdioMarker .~ rs ^. drdiorMarker
 
 instance AWSRequest
          DescribeReservedDBInstancesOfferings where

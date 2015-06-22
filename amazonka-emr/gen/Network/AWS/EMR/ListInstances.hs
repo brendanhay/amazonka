@@ -84,7 +84,8 @@ liClusterId = lens _liClusterId (\ s a -> s{_liClusterId = a});
 instance AWSPager ListInstances where
         page rq rs
           | stop (rs ^. lirMarker) = Nothing
-          | otherwise = rq & liMarker ?~ rs ^. lirMarker
+          | stop (rs ^. lirInstances) = Nothing
+          | otherwise = Just $ rq & liMarker .~ rs ^. lirMarker
 
 instance AWSRequest ListInstances where
         type Sv ListInstances = EMR

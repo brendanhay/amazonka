@@ -80,10 +80,13 @@ instance AWSPager ListInvalidations where
         page rq rs
           | stop (rs ^. lirInvalidationList . ilIsTruncated) =
             Nothing
+          | isNothing
+              (rs ^? lirInvalidationList . ilNextMarker . _Just)
+            = Nothing
           | otherwise =
-            Just $
-              rq &
-                liMarker .~ rs ^. lirInvalidationList . ilNextMarker
+            Just $ rq &
+              liMarker .~
+                rs ^? lirInvalidationList . ilNextMarker . _Just
 
 instance AWSRequest ListInvalidations where
         type Sv ListInvalidations = CloudFront

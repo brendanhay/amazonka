@@ -16,17 +16,5 @@
 module Network.AWS.RDS.Waiters where
 
 import Network.AWS.Prelude
-import Network.AWS.RDS.DescribeDBInstances
-import Network.AWS.RDS.DescribeDBInstances
-import Network.AWS.RDS.DescribeDBSnapshots
 import Network.AWS.RDS.Types
 import Network.AWS.Waiters
-
-dbInstanceAvailable :: Wait DescribeDBInstances
-dbInstanceAvailable = Wait{_waitName = "DBInstanceAvailable", _waitAttempts = 60, _waitDelay = 30, _waitAcceptors = [matchAll "available" AcceptSuccess (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "deleted" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "deleting" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "failed" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "incompatible-restore" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "incompatible-parameters" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "incompatible-parameters" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "incompatible-restore" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText)]};
-
-dbSnapshotCompleted :: Wait DescribeDBSnapshots
-dbSnapshotCompleted = Wait{_waitName = "DBSnapshotCompleted", _waitAttempts = 40, _waitDelay = 15, _waitAcceptors = [matchError "DBSnapshotNotFound" AcceptSuccess, matchAll "available" AcceptSuccess (folding (concatOf ddsrDBSnapshots) . dsStatus . _Just . to toText)]};
-
-dbInstanceDeleted :: Wait DescribeDBInstances
-dbInstanceDeleted = Wait{_waitName = "DBInstanceDeleted", _waitAttempts = 60, _waitDelay = 30, _waitAcceptors = [matchError "DBInstanceNotFound" AcceptSuccess, matchAll "deleted" AcceptSuccess (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "creating" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "modifying" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "rebooting" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText), matchAny "resetting-master-credentials" AcceptFailure (folding (concatOf ddirDBInstances) . diDBInstanceStatus . _Just . to toText)]};

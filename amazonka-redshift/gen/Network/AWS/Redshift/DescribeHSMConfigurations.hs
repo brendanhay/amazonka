@@ -126,7 +126,9 @@ dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
 instance AWSPager DescribeHSMConfigurations where
         page rq rs
           | stop (rs ^. dhcrMarker) = Nothing
-          | otherwise = rq & dhsmcMarker ?~ rs ^. dhcrMarker
+          | stop (rs ^. dhcrHSMConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & dhsmcMarker .~ rs ^. dhcrMarker
 
 instance AWSRequest DescribeHSMConfigurations where
         type Sv DescribeHSMConfigurations = Redshift

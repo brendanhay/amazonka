@@ -92,7 +92,9 @@ dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
 instance AWSPager DescribeVTLDevices where
         page rq rs
           | stop (rs ^. dvtldrMarker) = Nothing
-          | otherwise = rq & dvtldMarker ?~ rs ^. dvtldrMarker
+          | stop (rs ^. dvtldrVTLDevices) = Nothing
+          | otherwise =
+            Just $ rq & dvtldMarker .~ rs ^. dvtldrMarker
 
 instance AWSRequest DescribeVTLDevices where
         type Sv DescribeVTLDevices = StorageGateway

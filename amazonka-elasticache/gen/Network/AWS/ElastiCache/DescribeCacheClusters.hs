@@ -115,7 +115,9 @@ desShowCacheNodeInfo = lens _desShowCacheNodeInfo (\ s a -> s{_desShowCacheNodeI
 instance AWSPager DescribeCacheClusters where
         page rq rs
           | stop (rs ^. dccrMarker) = Nothing
-          | otherwise = rq & desMarker ?~ rs ^. dccrMarker
+          | stop (rs ^. dccrCacheClusters) = Nothing
+          | otherwise =
+            Just $ rq & desMarker .~ rs ^. dccrMarker
 
 instance AWSRequest DescribeCacheClusters where
         type Sv DescribeCacheClusters = ElastiCache

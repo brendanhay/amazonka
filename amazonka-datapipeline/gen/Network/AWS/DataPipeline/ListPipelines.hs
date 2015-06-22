@@ -64,6 +64,7 @@ lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 instance AWSPager ListPipelines where
         page rq rs
           | stop (rs ^. lprHasMoreResults) = Nothing
+          | isNothing (rs ^. lprMarker) = Nothing
           | otherwise = Just $ rq & lpMarker .~ rs ^. lprMarker
 
 instance AWSRequest ListPipelines where

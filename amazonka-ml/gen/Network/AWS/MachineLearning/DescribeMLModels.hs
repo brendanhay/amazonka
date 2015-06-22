@@ -177,8 +177,9 @@ dmlmLE = lens _dmlmLE (\ s a -> s{_dmlmLE = a});
 instance AWSPager DescribeMLModels where
         page rq rs
           | stop (rs ^. dmlmrNextToken) = Nothing
+          | stop (rs ^. dmlmrResults) = Nothing
           | otherwise =
-            rq & dmlmNextToken ?~ rs ^. dmlmrNextToken
+            Just $ rq & dmlmNextToken .~ rs ^. dmlmrNextToken
 
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning

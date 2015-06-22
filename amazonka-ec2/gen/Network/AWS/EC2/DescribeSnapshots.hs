@@ -202,7 +202,9 @@ ds1MaxResults = lens _ds1MaxResults (\ s a -> s{_ds1MaxResults = a});
 instance AWSPager DescribeSnapshots where
         page rq rs
           | stop (rs ^. dsrNextToken) = Nothing
-          | otherwise = rq & ds1NextToken ?~ rs ^. dsrNextToken
+          | stop (rs ^. dsrSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & ds1NextToken .~ rs ^. dsrNextToken
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2

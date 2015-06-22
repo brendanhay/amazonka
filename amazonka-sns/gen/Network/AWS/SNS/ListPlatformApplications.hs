@@ -69,8 +69,9 @@ lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 instance AWSPager ListPlatformApplications where
         page rq rs
           | stop (rs ^. lparNextToken) = Nothing
+          | stop (rs ^. lparPlatformApplications) = Nothing
           | otherwise =
-            rq & lpaNextToken ?~ rs ^. lparNextToken
+            Just $ rq & lpaNextToken .~ rs ^. lparNextToken
 
 instance AWSRequest ListPlatformApplications where
         type Sv ListPlatformApplications = SNS

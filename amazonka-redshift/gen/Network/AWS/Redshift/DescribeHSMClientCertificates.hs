@@ -127,7 +127,9 @@ dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
 instance AWSPager DescribeHSMClientCertificates where
         page rq rs
           | stop (rs ^. dhccrMarker) = Nothing
-          | otherwise = rq & dhccMarker ?~ rs ^. dhccrMarker
+          | stop (rs ^. dhccrHSMClientCertificates) = Nothing
+          | otherwise =
+            Just $ rq & dhccMarker .~ rs ^. dhccrMarker
 
 instance AWSRequest DescribeHSMClientCertificates
          where

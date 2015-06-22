@@ -116,7 +116,9 @@ ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBIns
 instance AWSPager DescribeDBLogFiles where
         page rq rs
           | stop (rs ^. ddlfrMarker) = Nothing
-          | otherwise = rq & ddlfMarker ?~ rs ^. ddlfrMarker
+          | stop (rs ^. ddlfrDescribeDBLogFiles) = Nothing
+          | otherwise =
+            Just $ rq & ddlfMarker .~ rs ^. ddlfrMarker
 
 instance AWSRequest DescribeDBLogFiles where
         type Sv DescribeDBLogFiles = RDS

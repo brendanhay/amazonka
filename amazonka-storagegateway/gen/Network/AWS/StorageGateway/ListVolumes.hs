@@ -87,7 +87,8 @@ lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
 instance AWSPager ListVolumes where
         page rq rs
           | stop (rs ^. lvrMarker) = Nothing
-          | otherwise = rq & lvMarker ?~ rs ^. lvrMarker
+          | stop (rs ^. lvrVolumeInfos) = Nothing
+          | otherwise = Just $ rq & lvMarker .~ rs ^. lvrMarker
 
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway

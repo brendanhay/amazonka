@@ -84,7 +84,9 @@ dcsg1Marker = lens _dcsg1Marker (\ s a -> s{_dcsg1Marker = a});
 instance AWSPager DescribeCacheSecurityGroups where
         page rq rs
           | stop (rs ^. descMarker) = Nothing
-          | otherwise = rq & dcsg1Marker ?~ rs ^. descMarker
+          | stop (rs ^. descCacheSecurityGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcsg1Marker .~ rs ^. descMarker
 
 instance AWSRequest DescribeCacheSecurityGroups where
         type Sv DescribeCacheSecurityGroups = ElastiCache

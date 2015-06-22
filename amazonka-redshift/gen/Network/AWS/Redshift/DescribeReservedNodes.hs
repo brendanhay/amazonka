@@ -86,7 +86,9 @@ drnMarker = lens _drnMarker (\ s a -> s{_drnMarker = a});
 instance AWSPager DescribeReservedNodes where
         page rq rs
           | stop (rs ^. drnrMarker) = Nothing
-          | otherwise = rq & drnMarker ?~ rs ^. drnrMarker
+          | stop (rs ^. drnrReservedNodes) = Nothing
+          | otherwise =
+            Just $ rq & drnMarker .~ rs ^. drnrMarker
 
 instance AWSRequest DescribeReservedNodes where
         type Sv DescribeReservedNodes = Redshift

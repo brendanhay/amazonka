@@ -81,7 +81,9 @@ dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default;
 instance AWSPager DescribeTapeArchives where
         page rq rs
           | stop (rs ^. dtarMarker) = Nothing
-          | otherwise = rq & dtaMarker ?~ rs ^. dtarMarker
+          | stop (rs ^. dtarTapeArchives) = Nothing
+          | otherwise =
+            Just $ rq & dtaMarker .~ rs ^. dtarMarker
 
 instance AWSRequest DescribeTapeArchives where
         type Sv DescribeTapeArchives = StorageGateway

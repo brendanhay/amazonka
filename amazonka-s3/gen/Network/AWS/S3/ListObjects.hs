@@ -105,13 +105,17 @@ loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
 instance AWSPager ListObjects where
         page rq rs
           | stop (rs ^. lorIsTruncated) = Nothing
+          | isNothing
+              (rs ^.
+                 choice (^. lorNextMarker)
+                   (^? (lorContents . _last . objKey)))
+            = Nothing
           | otherwise =
-            Just $
-              rq &
-                loMarker .~
-                  rs ^.
-                    choice (lorNextMarker)
-                      (index (lorContents . _Just) . objKey)
+            Just $ rq &
+              loMarker .~
+                rs ^.
+                  choice (^. lorNextMarker)
+                    (^? (lorContents . _last . objKey))
 
 instance AWSRequest ListObjects where
         type Sv ListObjects = S3

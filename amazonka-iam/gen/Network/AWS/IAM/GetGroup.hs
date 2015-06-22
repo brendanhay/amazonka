@@ -83,6 +83,7 @@ ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 instance AWSPager GetGroup where
         page rq rs
           | stop (rs ^. ggrIsTruncated) = Nothing
+          | isNothing (rs ^. ggrMarker) = Nothing
           | otherwise = Just $ rq & ggMarker .~ rs ^. ggrMarker
 
 instance AWSRequest GetGroup where

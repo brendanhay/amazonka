@@ -124,7 +124,9 @@ ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 instance AWSPager DescribeDBSnapshots where
         page rq rs
           | stop (rs ^. ddsrMarker) = Nothing
-          | otherwise = rq & ddsMarker ?~ rs ^. ddsrMarker
+          | stop (rs ^. ddsrDBSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & ddsMarker .~ rs ^. ddsrMarker
 
 instance AWSRequest DescribeDBSnapshots where
         type Sv DescribeDBSnapshots = RDS

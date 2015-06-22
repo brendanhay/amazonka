@@ -195,8 +195,10 @@ lcweDomain = lens _lcweDomain (\ s a -> s{_lcweDomain = a});
 instance AWSPager ListClosedWorkflowExecutions where
         page rq rs
           | stop (rs ^. weiNextPageToken) = Nothing
+          | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
-            rq & lcweNextPageToken ?~ rs ^. weiNextPageToken
+            Just $
+              rq & lcweNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListClosedWorkflowExecutions
          where

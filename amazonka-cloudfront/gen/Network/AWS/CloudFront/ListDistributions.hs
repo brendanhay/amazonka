@@ -70,10 +70,13 @@ instance AWSPager ListDistributions where
         page rq rs
           | stop (rs ^. ldrDistributionList . dlIsTruncated) =
             Nothing
+          | isNothing
+              (rs ^? ldrDistributionList . dlNextMarker . _Just)
+            = Nothing
           | otherwise =
-            Just $
-              rq &
-                ldMarker .~ rs ^. ldrDistributionList . dlNextMarker
+            Just $ rq &
+              ldMarker .~
+                rs ^? ldrDistributionList . dlNextMarker . _Just
 
 instance AWSRequest ListDistributions where
         type Sv ListDistributions = CloudFront

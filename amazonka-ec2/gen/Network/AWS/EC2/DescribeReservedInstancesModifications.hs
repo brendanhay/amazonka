@@ -118,8 +118,10 @@ instance AWSPager
          DescribeReservedInstancesModifications where
         page rq rs
           | stop (rs ^. drimrNextToken) = Nothing
+          | stop (rs ^. drimrReservedInstancesModifications) =
+            Nothing
           | otherwise =
-            rq & drimNextToken ?~ rs ^. drimrNextToken
+            Just $ rq & drimNextToken .~ rs ^. drimrNextToken
 
 instance AWSRequest
          DescribeReservedInstancesModifications where

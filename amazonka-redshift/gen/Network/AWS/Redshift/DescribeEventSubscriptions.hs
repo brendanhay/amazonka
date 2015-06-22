@@ -89,7 +89,9 @@ descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
           | stop (rs ^. desrMarker) = Nothing
-          | otherwise = rq & descMarker ?~ rs ^. desrMarker
+          | stop (rs ^. desrEventSubscriptionsList) = Nothing
+          | otherwise =
+            Just $ rq & descMarker .~ rs ^. desrMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift

@@ -90,7 +90,9 @@ selSelectExpression = lens _selSelectExpression (\ s a -> s{_selSelectExpression
 instance AWSPager Select where
         page rq rs
           | stop (rs ^. srNextToken) = Nothing
-          | otherwise = rq & selNextToken ?~ rs ^. srNextToken
+          | stop (rs ^. srItems) = Nothing
+          | otherwise =
+            Just $ rq & selNextToken .~ rs ^. srNextToken
 
 instance AWSRequest Select where
         type Sv Select = SDB

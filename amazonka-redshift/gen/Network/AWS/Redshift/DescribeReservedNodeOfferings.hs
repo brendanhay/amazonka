@@ -96,7 +96,9 @@ drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
 instance AWSPager DescribeReservedNodeOfferings where
         page rq rs
           | stop (rs ^. drnorMarker) = Nothing
-          | otherwise = rq & drnoMarker ?~ rs ^. drnorMarker
+          | stop (rs ^. drnorReservedNodeOfferings) = Nothing
+          | otherwise =
+            Just $ rq & drnoMarker .~ rs ^. drnorMarker
 
 instance AWSRequest DescribeReservedNodeOfferings
          where

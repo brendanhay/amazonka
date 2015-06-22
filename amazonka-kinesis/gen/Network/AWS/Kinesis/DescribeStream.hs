@@ -95,12 +95,15 @@ instance AWSPager DescribeStream where
         page rq rs
           | stop (rs ^. dsrStreamDescription . sdHasMoreShards)
             = Nothing
+          | isNothing
+              (rs ^?
+                 dsrStreamDescription . sdShards . _last . shaShardId)
+            = Nothing
           | otherwise =
-            Just $
-              rq &
-                desExclusiveStartShardId .~
-                  rs ^.
-                    dsrStreamDescription . index sdShards . shaShardId
+            Just $ rq &
+              desExclusiveStartShardId .~
+                rs ^?
+                  dsrStreamDescription . sdShards . _last . shaShardId
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis

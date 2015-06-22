@@ -87,8 +87,9 @@ lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a});
 instance AWSPager ListContainerInstances where
         page rq rs
           | stop (rs ^. lcirNextToken) = Nothing
+          | stop (rs ^. lcirContainerInstanceARNs) = Nothing
           | otherwise =
-            rq & lciNextToken ?~ rs ^. lcirNextToken
+            Just $ rq & lciNextToken .~ rs ^. lcirNextToken
 
 instance AWSRequest ListContainerInstances where
         type Sv ListContainerInstances = ECS

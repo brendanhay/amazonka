@@ -94,6 +94,7 @@ lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 instance AWSPager ListAccessKeys where
         page rq rs
           | stop (rs ^. lakrIsTruncated) = Nothing
+          | isNothing (rs ^. lakrMarker) = Nothing
           | otherwise =
             Just $ rq & lakMarker .~ rs ^. lakrMarker
 

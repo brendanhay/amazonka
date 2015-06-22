@@ -155,7 +155,10 @@ instance AWSPager DescribeReservedCacheNodesOfferings
          where
         page rq rs
           | stop (rs ^. drcnorMarker) = Nothing
-          | otherwise = rq & drcnoMarker ?~ rs ^. drcnorMarker
+          | stop (rs ^. drcnorReservedCacheNodesOfferings) =
+            Nothing
+          | otherwise =
+            Just $ rq & drcnoMarker .~ rs ^. drcnorMarker
 
 instance AWSRequest
          DescribeReservedCacheNodesOfferings where

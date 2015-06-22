@@ -66,7 +66,9 @@ ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a});
 instance AWSPager ListInstanceGroups where
         page rq rs
           | stop (rs ^. ligrMarker) = Nothing
-          | otherwise = rq & ligMarker ?~ rs ^. ligrMarker
+          | stop (rs ^. ligrInstanceGroups) = Nothing
+          | otherwise =
+            Just $ rq & ligMarker .~ rs ^. ligrMarker
 
 instance AWSRequest ListInstanceGroups where
         type Sv ListInstanceGroups = EMR

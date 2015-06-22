@@ -30,6 +30,7 @@ import qualified Data.Attoparsec.Text              as AText
 import           Data.ByteString                   (ByteString)
 import           Data.CaseInsensitive              (CI)
 import qualified Data.CaseInsensitive              as CI
+import           Data.Double.Conversion.Text       (toShortest)
 import           Data.Int
 import           Data.Monoid
 import           Data.Scientific
@@ -111,7 +112,7 @@ instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal
 instance ToText Natural    where toText = shortText . Build.decimal
 instance ToText Scientific where toText = shortText . Build.scientificBuilder
-instance ToText Double     where toText = shortText . Build.realFloat
+instance ToText Double     where toText = toShortest
 instance ToText StdMethod  where toText = toText . renderStdMethod
 instance ToText (Digest a) where toText = toText . digestToHexByteString
 

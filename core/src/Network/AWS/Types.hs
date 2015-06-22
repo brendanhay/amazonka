@@ -162,11 +162,10 @@ serviceOf = const service
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.
 type Response  a = Either (ServiceError (Er (Sv a))) (Rs a)
-
 type Response' a = Either (ServiceError (Er (Sv a))) (Status, Rs a)
 
 data LogLevel
-    = Info  -- ^ Informational messages supplied by the user, not used by the library.
+    = Info  -- ^ Informational messages supplied+handled by the user, not used by the library.
     | Debug -- ^ Info level + debug messages + non-streaming response bodies.
     | Trace -- ^ Debug level + potentially sensitive signing metadata.
       deriving (Eq, Ord, Enum, Show)

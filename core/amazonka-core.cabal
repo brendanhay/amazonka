@@ -58,6 +58,7 @@ library
         , Network.AWS.Prelude
         , Network.AWS.Request
         , Network.AWS.Response
+        , Network.AWS.Logging
         , Network.AWS.Sign.V2
         , Network.AWS.Sign.V4
         , Network.AWS.Types
@@ -75,6 +76,7 @@ library
         , conduit              >= 1.1
         , conduit-extra        >= 1.1
         , cryptohash           >= 0.11
+        , double-conversion    >= 0.2
         , hashable             >= 1.2
         , http-client          >= 0.4.3
         , http-types           >= 0.8

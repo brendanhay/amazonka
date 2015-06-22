@@ -68,6 +68,7 @@ module Network.AWS
     , sourceFileIO
 
     -- * Types
+    , module Network.AWS.Types
     , module Network.AWS.Logger
     , module Network.AWS.Error
     ) where
@@ -96,6 +97,7 @@ import           Network.AWS.Internal.Retry
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude          hiding (presign)
+import           Network.AWS.Types            hiding (presign)
 import qualified Network.AWS.Types            as Types
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)
@@ -119,27 +121,17 @@ runAWS e m = runResourceT (runAWST e m)
 -- to expand/discover the supplied 'Credentials'.
 --
 -- Lenses such as 'envLogger' can be used to modify the 'Env' with a debug logger.
-newEnv :: (Functor m, MonadIO m)
+newEnv :: MonadIO m
        => Region
        -> Credentials
        -> Manager
        -> m (Either String Env)
-newEnv r c m =
-    runExceptT $ Env r logger check Nothing m `liftM` ExceptT (getAuth m c)
+newEnv r c m = runExceptT $ initial `liftM` ExceptT (getAuth m c)
   where
+    initial = Env r logger check Nothing m
+
     logger _ _ = return ()
     check  _ _ = return True
-
--- -- | Create a new environment in the specified 'Region' with silent log output
--- -- and a new 'Manager'.
--- --
--- -- Any errors are thrown using 'error'.
--- --
--- -- /See:/ 'newEnv' for safe 'Env' instantiation.
--- getEnv :: Region -> Credentials -> IO Env
--- getEnv r c = do
---     m <- newManager conduitManagerSettings
---     runExceptT (newEnv r c m) >>= either error return
 
 -- | Scope an action within the specific 'Region'.
 within :: (MonadReader r m, AWSEnv r) => Region -> m a -> m a

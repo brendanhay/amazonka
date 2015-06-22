@@ -3,6 +3,7 @@ flags:      {}
 extra-deps: []
 packages:
   - core
+  - amazonka
   - amazonka-autoscaling
   - amazonka-cloudformation
   - amazonka-cloudfront
@@ -51,4 +52,3 @@ packages:
   - amazonka-support
   - amazonka-swf
   - amazonka-workspaces
-  - amazonka

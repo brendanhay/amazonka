@@ -45,7 +45,6 @@ module Network.AWS.Request
     ) where
 
 import           Control.Lens
-import           Data.Default.Class
 import           Data.Monoid
 import qualified Data.Text.Encoding           as Text
 import           Network.AWS.Data.Body
@@ -109,10 +108,13 @@ putBody x = defaultRequest x
     & contentSHA256
 
 defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-defaultRequest x = def
-    & rqPath    .~ Text.encodeUtf8 (toPath x)
-    & rqQuery   .~ toQuery x
-    & rqHeaders .~ toHeaders x
+defaultRequest x = Request
+    { _rqMethod  = GET
+    , _rqPath    = Text.encodeUtf8 (toPath x)
+    , _rqQuery   = toQuery x
+    , _rqHeaders = toHeaders x
+    , _rqBody    = ""
+    }
 
 contentSHA256 :: Request a -> Request a
 contentSHA256 rq = rq

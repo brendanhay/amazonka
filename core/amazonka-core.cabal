@@ -75,7 +75,6 @@ library
         , conduit              >= 1.1
         , conduit-extra        >= 1.1
         , cryptohash           >= 0.11
-        , data-default-class   >= 0.0.1
         , hashable             >= 1.2
         , http-client          >= 0.4.3
         , http-types           >= 0.8
@@ -90,7 +89,6 @@ library
         , transformers         >= 0.2
         , transformers-compat  >= 0.3
         , unordered-containers >= 0.2.5
-        , vector               >= 0.10.9
         , xml-conduit          >= 1.2
 
     if !impl(ghc>=7.9)

@@ -104,7 +104,6 @@ import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString.Builder      (Builder)
 import           Data.Coerce
 import           Data.Conduit
-import           Data.Default.Class
 import           Data.Hashable
 import           Data.IORef
 import           Data.Monoid
@@ -123,6 +122,7 @@ import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
+import           Text.XML                     (def)
 
 -- | Abbreviated service name.
 type Abbrev = Text
@@ -310,9 +310,6 @@ data Request a = Request
     , _rqBody    :: RqBody
     }
 
-instance Default (Request a) where
-    def = Request GET "/" mempty mempty ""
-
 -- | The sum of available AWS regions.
 data Region
     = Ireland         -- ^ Europe / eu-west-1
@@ -330,9 +327,6 @@ data Region
       deriving (Eq, Ord, Read, Show, Generic)
 
 instance Hashable Region
-
-instance Default Region where
-    def = NorthVirginia
 
 instance FromText Region where
     parser = takeLowerText >>= \case

@@ -46,7 +46,6 @@ module Network.AWS.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
-import           Data.Default.Class
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map

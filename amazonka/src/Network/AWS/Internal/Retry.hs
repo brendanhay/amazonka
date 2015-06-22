@@ -19,22 +19,21 @@ module Network.AWS.Internal.Retry
     , waiter
     ) where
 
-import Control.Monad
-import Control.Monad.IO.Class
-import Control.Retry
-import Data.List                (intersperse)
-import Data.Monoid
-import Network.AWS.Internal.Env
-import Network.AWS.Internal.Log
-import Network.AWS.Prelude
-import Network.AWS.Types
-import Network.AWS.Waiters
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Retry
+import           Data.List                (intersperse)
+import           Data.Monoid
+import           Network.AWS.Internal.Env
+import           Network.AWS.Logger
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
 
 retrier :: (MonadIO m, AWSService (Sv a))
         => Env
         -> Request a
-        -> m (Response' a)
-        -> m (Response' a)
+        -> m (Response a)
+        -> m (Response a)
 retrier Env{..} rq = retrying (fromMaybe policy _envRetryPolicy) check
   where
     policy = limitRetries _retryAttempts
@@ -50,14 +49,16 @@ retrier Env{..} rq = retrying (fromMaybe policy _envRetryPolicy) check
             grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
 
     check n = \case
-        Left (ServiceError _ s e)
-            | _retryCheck s e -> msg n >> return True
-        Left (HttpError e)    -> do
+        Left (ServiceError _ s e) | _retryCheck s e ->
+            msg n >> return True
+
+        Left (HttpError e) -> do
             p <- liftIO (_envRetryCheck n e)
             when p (msg n) >> return p
-        _                     -> return False
 
-    msg n = debug _envLogger $
+        _                  -> return False
+
+    msg n = logDebug _envLogger $
         "[Retrying] after " <> build (n + 1) <> " attempts."
 
     Exponential{..} = _svcRetry (serviceOf rq)
@@ -66,8 +67,8 @@ waiter :: MonadIO m
        => Env
        -> Wait a
        -> Request a
-       -> m (Response' a)
-       -> m (Response' a)
+       -> m (Response a)
+       -> m (Response a)
 waiter Env{..} w@Wait{..} rq = retrying policy check
   where
     policy = limitRetries _waitAttempts <> constantDelay (_waitDelay * 1000000)
@@ -80,7 +81,7 @@ waiter Env{..} w@Wait{..} rq = retrying policy check
     retry AcceptFailure = False
     retry AcceptRetry   = True
 
-    msg n a = debug _envLogger
+    msg n a = logDebug _envLogger
         . mconcat
         . intersperse " "
         $ [ "[Await " <> build _waitName <> "]"

@@ -30,20 +30,19 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Control.Monad.Trans.AWS
-        , Network.AWS
+          Network.AWS
         , Network.AWS.EC2.Metadata
 
     other-modules:
           Network.AWS.Internal.Auth
         , Network.AWS.Internal.Body
         , Network.AWS.Internal.Env
-        , Network.AWS.Internal.Log
         , Network.AWS.Internal.Retry
 
     build-depends:
           amazonka-core       == 0.3.6.*
         , base                >= 4.7     && < 5
+        , bifunctors          >= 4.1
         , bytestring          >= 0.9
         , conduit             >= 1.1
         , conduit-extra       == 1.1.*
@@ -52,8 +51,8 @@ library
         , exceptions          >= 0.6
         , http-conduit        >= 2.1.4
         , lens                >= 4.4
-        , mmorph              >= 1       && < 2
-        , monad-control       >= 1       && < 2
+        , mmorph              >= 1
+        , monad-control       >= 1
         , mtl                 >= 2.1.3.1
         , resourcet           >= 1.1
         , retry               >= 0.5

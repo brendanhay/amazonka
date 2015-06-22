@@ -31,27 +31,30 @@ module Network.AWS.Waiter
 
     -- * Util
     , nonEmpty
-
-    -- * Lenses
-    , module Control.Lens
     ) where
 
 import           Control.Lens
-import           Data.ByteString    (ByteString)
 import           Data.Maybe
-import           Data.Text          (Text)
-import qualified Data.Text          as Text
+import           Data.Text                   (Text)
+import qualified Data.Text                   as Text
+import           Network.AWS.Data.ByteString
 import           Network.AWS.Error
 import           Network.AWS.Types
 import           Network.HTTP.Types
 
-type Acceptor a = Request a -> Response' a -> Maybe Accept
+type Acceptor a = Request a -> Response a -> Maybe Accept
 
 data Accept
     = AcceptSuccess
     | AcceptFailure
     | AcceptRetry
       deriving (Eq, Show)
+
+instance ToBuilder Accept where
+    build = \case
+        AcceptSuccess -> "Success"
+        AcceptFailure -> "Failure"
+        AcceptRetry   -> "Retry"
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait

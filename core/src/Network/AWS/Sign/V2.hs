@@ -20,6 +20,7 @@ import           Control.Applicative
 import           Control.Lens
 import qualified Data.ByteString.Base64      as Base64
 import qualified Data.ByteString.Char8       as BS8
+import           Data.List                   (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body
@@ -28,6 +29,7 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
 import           Network.AWS.Endpoint
+import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
 import           Network.HTTP.Types          hiding (toQuery)
@@ -39,13 +41,13 @@ data instance Meta V2 = Meta
     , _mTime      :: UTCTime
     }
 
--- instance ToBuilder (Meta V2) where
---     build Meta{..} = mconcat $ intersperse "\n"
---         [ "[Version 2 Metadata] {"
---         , "  signature = " <> build _mSignature
---         , "  time      = " <> build _mTime
---         , "}"
---         ]
+instance ToBuilder (Meta V2) where
+    build Meta{..} = mconcat $ intersperse "\n"
+        [ "[Version 2 Metadata] {"
+        , "  signature = " <> build _mSignature
+        , "  time      = " <> build _mTime
+        , "}"
+        ]
 
 instance AWSSigner V2 where
     signed AuthEnv{..} r x@Request{..} t = Signed meta rq

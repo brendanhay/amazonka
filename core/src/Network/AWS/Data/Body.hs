@@ -31,11 +31,8 @@ data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
 makePrisms ''RsBody
 
--- instance ToBuilder RsBody where
---     build = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
-
 instance Show RsBody where
-    show = const "RsBody { ResumableSource (ResourceT IO) ByteString }" -- LBS8.unpack . buildBS
+    show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
 connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
 connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
@@ -47,25 +44,14 @@ data RqBody = RqBody
 
 makeLenses ''RqBody
 
-bodyHash :: RqBody -> ByteString
-bodyHash = digestToHexByteString . _bdyHash
-
 instance Show RqBody where
     show bdy = "RqBody { RequestBody " ++ BS8.unpack (bodyHash bdy) ++ " }"
 
--- instance ToBuilder RqBody where
---     build x@(RqBody _ b) = mconcat $ intersperse "\n"
---         [ "    Body {"
---         , "      hash    = "  <> build (bodyHash x)
---         , "      payload =\n" <> build b
---         , "    }"
---         ]
-
--- instance Show RqBody where
---     show = .unpack . buildBS . _bdyBody
-
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
+
+bodyHash :: RqBody -> ByteString
+bodyHash = digestToHexByteString . _bdyHash
 
 isStreaming :: RqBody -> Bool
 isStreaming b =
@@ -91,3 +77,4 @@ instance ToBody ByteString where
 
 instance ToBody Value where
     toBody = toBody . encode
+

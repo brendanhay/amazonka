@@ -1,16 +1,22 @@
 {-# LANGUAGE DefaultSignatures          #-}
+{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE FunctionalDependencies     #-}
+{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
+
+{-# OPTIONS_GHC -ddump-splices #-}
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -44,11 +50,9 @@ module Network.AWS.Types
     , Retry         (..)
 
     -- * Errors
-    , ServiceError  (..)
-    , _HttpError
-    , _SerializerError
-    , _ServiceError
-    , _Errors
+    , AWSError
+    , AsError       (..)
+    , Error         (..)
 
     -- * Signing
     , AWSSigner     (..)
@@ -72,7 +76,6 @@ module Network.AWS.Types
 
     -- * Responses
     , Response
-    , Response'
 
     -- * Logging
     , LogLevel      (..)
@@ -95,12 +98,11 @@ import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (coerce)
-import           Control.Monad.IO.Class
+import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
 import qualified Crypto.Hash.SHA256           as SHA256
 import qualified Crypto.MAC.HMAC              as HMAC
 import           Data.Aeson                   hiding (Error)
-import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString.Builder      (Builder)
 import           Data.Coerce
 import           Data.Conduit
@@ -129,21 +131,78 @@ type Abbrev = Text
 
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
-data ServiceError a
-    = HttpError        HttpException
-    | SerializerError  Abbrev String
-    | ServiceError     Abbrev Status a
-    | Errors           [ServiceError a]
-      deriving (Show, Typeable)
+data Error a where
+    HttpError       ::           HttpException         -> Error a
+    SerializerError ::           Abbrev -> String      -> Error a
+    ServiceError    :: Show a => Abbrev -> Status -> a -> Error a
+    Errors          ::           [Error a]             -> Error a
 
-instance (Show a, Typeable a) => Exception (ServiceError a)
+deriving instance Show     (Error a)
+deriving instance Typeable (Error a)
 
-instance Monoid (ServiceError a) where
+instance (Show a, Typeable a) => Exception (Error a)
+
+instance Monoid (Error a) where
     mempty      = Errors []
     mappend a b = Errors (f a <> f b)
       where
         f (Errors xs) = xs
         f x           = [x]
+
+instance ToBuilder (Error a) where
+    build = \case
+        Errors          xs  -> buildLines (map build xs)
+        HttpError       x   -> build x
+        SerializerError a x -> buildLines
+            [ "[SerializerError] {"
+            , "  service = " <> build a
+            , "  message = " <> build x
+            ]
+        ServiceError   a s x -> buildLines
+            [ "[ServiceError] {"
+            , "  service = " <> build a
+            , "  status  = " <> build s
+            , "  message = " <> build (show x)
+            ]
+
+class AsError e a | e -> a where
+      _Error           ::           Prism' e (Error a)
+      _HttpError       ::           Prism' e HttpException
+      _SerializerError ::           Prism' e (Abbrev, String)
+      _ServiceError    :: Show a => Prism' e (Abbrev, Status, a)
+      _Errors          ::           Prism' e [Error a]
+
+      _HttpError       = _Error . _HttpError
+      _SerializerError = _Error . _SerializerError
+      _ServiceError    = _Error . _ServiceError
+      _Errors          = _Error . _Errors
+
+instance AsError (Error a) a where
+    _Error = id
+
+    _HttpError = prism
+        HttpError
+        (\case
+            HttpError ex -> Right ex
+            s            -> Left  s)
+
+    _SerializerError = prism
+        (uncurry SerializerError)
+        (\case
+            SerializerError a e -> Right (a, e)
+            s                   -> Left  s)
+
+    _ServiceError = prism
+        (\(a, s, e) -> ServiceError a s e)
+        (\case
+            ServiceError a s e -> Right (a, s, e)
+            s                  -> Left s)
+
+    _Errors = prism
+        Errors
+        (\case
+            Errors xs -> Right xs
+            s         -> Left s)
 
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
@@ -161,16 +220,39 @@ serviceOf = const service
 
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.
-type Response  a = Either (ServiceError (Er (Sv a))) (Rs a)
-type Response' a = Either (ServiceError (Er (Sv a))) (Status, Rs a)
+-- type Response  a = Either (Error (Er (Sv a))) (Rs a)
+-- type Response' a = Either (Error (Er (Sv a))) (Status, Rs a)
 
 data LogLevel
-    = Info  -- ^ Informational messages supplied+handled by the user, not used by the library.
-    | Debug -- ^ Info level + debug messages + non-streaming response bodies.
-    | Trace -- ^ Debug level + potentially sensitive signing metadata.
+    = Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
+    | Debug -- ^ Useful debug information + info + error levels.
+    | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    | Error -- ^ Error messages.
       deriving (Eq, Ord, Enum, Show)
 
 type Logger = LogLevel -> Builder -> IO ()
+
+-- | A convenience alias to avoid type ambiguity.
+type ClientRequest = Client.Request
+
+-- | A convenience alias encapsulating the common 'Response'.
+type ClientResponse = Client.Response ResponseBody
+
+-- | A convenience alias encapsulating the common 'Response' body.
+type ResponseBody = ResumableSource (ResourceT IO) ByteString
+
+-- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
+-- throwing errors when receiving erroneous status codes in respones.
+clientRequest :: ClientRequest
+clientRequest = def
+    { Client.secure      = True
+    , Client.port        = 443
+    , Client.checkStatus = \_ _ _ -> Nothing
+    }
+
+type Response a = Either (Error (Er (Sv a))) (Status, Rs a)
+
+type AWSError e a = AsError e (Er (Sv a))
 
 -- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
@@ -185,7 +267,7 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
              => Logger
              -> Request a
              -> Either HttpException ClientResponse
-             -> m (Response' a)
+             -> m (Response a)
 
 -- | Signing metadata data specific to a signing algorithm.
 --
@@ -194,15 +276,17 @@ data family Meta v :: *
 
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
 -- algorithm that was used.
-data Signed a v = Signed
-    { _sgMeta    :: Meta v
-    , _sgRequest :: ClientRequest
-    }
+data Signed a v where
+    Signed :: ToBuilder (Meta v)
+           => { _sgMeta    :: Meta v
+              , _sgRequest :: ClientRequest
+              }
+           -> Signed a v
 
 sgMeta :: Lens' (Signed a v) (Meta v)
 sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
 
--- Lens' specifically since 'a' cannot be changed.
+-- Lens' specifically since 'a' cannot be substituted.
 sgRequest :: Lens' (Signed a v) ClientRequest
 sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
 
@@ -245,7 +329,7 @@ hmacSHA256 = HMAC.hmac SHA256.hash 64
 
 -- | Access key credential.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString, ToText, ToByteString)
+    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
 
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
@@ -264,6 +348,16 @@ data AuthEnv = AuthEnv
     , _authExpiry :: Maybe UTCTime
     }
 
+instance ToBuilder AuthEnv where
+    build AuthEnv{..} = buildLines
+        [ "[Amazonka Auth] {"
+        , "  access key     = ****"
+        , "  secret key     = ****"
+        , "  security token = " <> build (const "****" <$> _authToken :: Maybe Builder)
+        , "  expiry         = " <> build _authExpiry
+        , "}"
+        ]
+
 instance FromJSON AuthEnv where
     parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
         <$> f AccessKey (o .: "AccessKeyId")
@@ -279,6 +373,10 @@ data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
 
+instance ToBuilder Auth where
+    build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
+    build (Auth  e) = build e
+
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
@@ -288,7 +386,7 @@ data Service a = Service
     { _svcAbbrev  :: Text
     , _svcPrefix  :: ByteString
     , _svcVersion :: ByteString
-    , _svcHandle  :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
+    , _svcHandle  :: Status -> Maybe (LazyByteString -> Error (Er a))
     , _svcRetry   :: Retry a
     }
 
@@ -308,6 +406,20 @@ data Request a = Request
     , _rqHeaders :: [Header]
     , _rqBody    :: RqBody
     }
+
+instance ToBuilder (Request a) where
+    build Request{..} = buildLines
+        [ "[Raw Request] {"
+        , "  method  = "  <> build _rqMethod
+        , "  path    = "  <> build _rqPath
+        , "  query   = "  <> build _rqQuery
+        , "  headers = "  <> build _rqHeaders
+        , "  body    = {"
+        , "    hash    = "  <> build (bodyHash _rqBody)
+        , "    payload =\n" <> build (_bdyBody _rqBody)
+        , "  }"
+        , "}"
+        ]
 
 -- | The sum of available AWS regions.
 data Region
@@ -361,26 +473,11 @@ instance ToText Region where
 
 instance ToByteString Region
 
+instance ToBuilder Region where
+    build = build . toBS
+
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
-
--- | A convenience alias to avoid type ambiguity.
-type ClientRequest = Client.Request
-
--- | A convenience alias encapsulating the common 'Response'.
-type ClientResponse = Client.Response ResponseBody
-
--- | A convenience alias encapsulating the common 'Response' body.
-type ResponseBody = ResumableSource (ResourceT IO) ByteString
-
--- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
--- throwing errors when receiving erroneous status codes in respones.
-clientRequest :: ClientRequest
-clientRequest = def
-    { Client.secure      = True
-    , Client.port        = 443
-    , Client.checkStatus = \_ _ _ -> Nothing
-    }
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce
@@ -393,5 +490,4 @@ _Default = iso f Just
     f (Just x) = x
     f Nothing  = mempty
 
-makePrisms ''ServiceError
 makeLenses ''Request

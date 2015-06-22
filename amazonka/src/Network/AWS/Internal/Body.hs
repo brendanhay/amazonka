@@ -19,7 +19,7 @@ import           Data.ByteString              (ByteString)
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Int
-import           Network.AWS.Data
+import           Network.AWS.Prelude
 import           Network.HTTP.Conduit
 import           System.IO
 

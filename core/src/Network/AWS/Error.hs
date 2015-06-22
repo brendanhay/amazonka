@@ -24,13 +24,14 @@ module Network.AWS.Error
       statusSuccess
 
     -- * Classes
-    , AWSError     (..)
+    , AsError      (..)
     , AWSErrorCode (..)
 
     -- * Types
+    , AWSError
+    , Error        (..)
     , ErrorCode    (..)
     , ErrorType    (..)
-    , ServiceError (..)
 
     -- * REST Errors
     , RESTError
@@ -63,15 +64,15 @@ import           Network.HTTP.Types
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 400
 
-class AWSError a where
-    awsError :: a -> ServiceError String
+-- class AWSError a where
+--     awsError :: a -> ServiceError String
 
-instance Show a => AWSError (ServiceError a) where
-    awsError = \case
-        HttpError       e     -> HttpError e
-        SerializerError a e   -> SerializerError a e
-        ServiceError    a s x -> ServiceError a s (show x)
-        Errors          xs    -> Errors (map awsError xs)
+-- instance Show a => AWSError (ServiceError a) where
+--     awsError = \case
+--         HttpError       e     -> HttpError e
+--         SerializerError a e   -> SerializerError a e
+--         APIError     a s x -> APIError a s (show x)
+--         Errors          xs    -> Errors (map awsError xs)
 
 newtype ErrorCode = ErrorCode Text
     deriving (Eq, Ord, Show, FromXML, FromJSON, IsString, Generic)
@@ -114,11 +115,11 @@ instance FromXML RESTError where
             <*> y .@? "Code"
             <*> y .@  "Message"
 
-restError :: FromXML (Er a)
+restError :: (FromXML (Er a), Show (Er a))
           => (Status -> Bool)
           -> Service a
           -> Status
-          -> Maybe (LBS.ByteString -> ServiceError (Er a))
+          -> Maybe (LBS.ByteString -> Error (Er a))
 restError f Service{..} s
     | f s       = Nothing
     | otherwise = Just go
@@ -126,7 +127,7 @@ restError f Service{..} s
     go x = either failure success (decodeXML x)
       where
         failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
-        success   = ServiceError _svcAbbrev s
+        success   = ServiceError    _svcAbbrev s
 
 data JSONError = JSONError
     { _jsonType    :: Maybe Text
@@ -152,11 +153,11 @@ instance FromJSON JSONError where
              <*> o .:? "code"
              <*> o .:  "message"
 
-jsonError :: FromJSON (Er a)
+jsonError :: (FromJSON (Er a), Show (Er a))
           => (Status -> Bool)
           -> Service a
           -> Status
-          -> Maybe (LBS.ByteString -> ServiceError (Er a))
+          -> Maybe (LBS.ByteString -> Error (Er a))
 jsonError f Service{..} s
     | f s       = Nothing
     | otherwise = Just go
@@ -164,4 +165,4 @@ jsonError f Service{..} s
     go x = either failure success (eitherDecode' x)
       where
         failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
-        success   = ServiceError _svcAbbrev s
+        success   = ServiceError    _svcAbbrev s

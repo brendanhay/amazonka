@@ -32,8 +32,8 @@ import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Data.Time                  (diffUTCTime, getCurrentTime)
-import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
+import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 import           System.Environment
@@ -87,32 +87,32 @@ instance ToBuilder Credentials where
         Discover          -> "Discover"
 
 instance Show Credentials where
-    show = LBS.unpack . buildBS
+    show = BS.unpack . toBS . build
 
 -- | Retrieve authentication information using the specified 'Credentials' style.
-getAuth :: (Functor m, MonadIO m)
+getAuth :: MonadIO m
         => Manager
         -> Credentials
-        -> ExceptT String m Auth
-getAuth m = \case
+        -> m (Either String Auth)
+getAuth m = runExceptT . \case
     FromKeys    a s   -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
-    FromProfile n     -> show `withExceptT` fromProfileName m n
-    FromEnv     a s   -> fromEnvVars a s
-    Discover          -> fromEnv `catchError` const (iam `catchError` const err)
+    FromProfile n     -> show `withExceptT` ExceptT (fromProfileName m n)
+    FromEnv     a s   -> ExceptT (fromEnvVars a s)
+    Discover          -> ExceptT fromEnv `catchError` const (iam `catchError` const err)
       where
-        iam = show `withExceptT` fromProfile m
+        iam = show `withExceptT` ExceptT (fromProfile m)
         err = throwError "Unable to read environment variables or IAM profile."
 
 -- | Retrieve access and secret keys from the default environment variables.
 --
 -- /See:/ 'accessKey' and 'secretKey'
-fromEnv :: (Functor m, MonadIO m) => ExceptT String m Auth
+fromEnv :: MonadIO m => m (Either String Auth)
 fromEnv = fromEnvVars accessKey secretKey
 
 -- | Retrieve access and secret keys from specific environment variables.
-fromEnvVars :: (Functor m, MonadIO m) => Text -> Text -> ExceptT String m Auth
-fromEnvVars a s = fmap Auth $ AuthEnv
+fromEnvVars :: MonadIO m => Text -> Text -> m (Either String Auth)
+fromEnvVars a s = runExceptT . liftM Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)
     <*> pure Nothing
@@ -129,12 +129,13 @@ fromEnvVars a s = fmap Auth $ AuthEnv
 --
 -- This determined by Amazon as the first IAM profile found in the response from:
 -- @http://169.254.169.254/latest/meta-data/iam/security-credentials/@
-fromProfile :: MonadIO m => Manager -> ExceptT HttpException m Auth
+fromProfile :: MonadIO m => Manager -> m (Either HttpException Auth)
 fromProfile m = do
-    !ls <- BS.lines `liftM` metadata m (IAM $ SecurityCredentials Nothing)
-    case ls of
-        (x:_) -> fromProfileName m (Text.decodeUtf8 x)
-        _     -> throwError $
+    ls <- metadata m (IAM $ SecurityCredentials Nothing)
+    case BS.lines `liftM` ls of
+        Right (x:_) -> fromProfileName m (Text.decodeUtf8 x)
+        Left  e     -> return (Left e)
+        _           -> return . Left $
            HttpParserException "Unable to get default IAM Profile from EC2 metadata"
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
@@ -151,18 +152,17 @@ fromProfile m = do
 fromProfileName :: MonadIO m
                 => Manager
                 -> Text
-                -> ExceptT HttpException m Auth
-fromProfileName m name = auth >>= start
+                -> m (Either HttpException Auth)
+fromProfileName m name = auth >>= either (return . Left) start
   where
-    auth :: MonadIO m => ExceptT HttpException m AuthEnv
+    auth :: MonadIO m => m (Either HttpException AuthEnv)
     auth = do
-        !lbs <- LBS.fromStrict `liftM` metadata m
-            (IAM . SecurityCredentials $ Just name)
-        either (throwError . HttpParserException)
-               return
-               (eitherDecode' lbs)
+        ebs <- metadata m (IAM . SecurityCredentials $ Just name)
+        return $! ebs >>= either (Left . HttpParserException) Right
+            . eitherDecode' . LBS.fromStrict
 
-    start !a = ExceptT . liftM Right . liftIO $
+    start :: MonadIO m => AuthEnv -> m (Either e Auth)
+    start !a = liftIO . liftM Right $
         case _authExpiry a of
             Nothing -> return (Auth a)
             Just x  -> do
@@ -171,14 +171,16 @@ fromProfileName m name = auth >>= start
                 s <- timer r p x
                 return (Ref s r)
 
-    timer r p x = forkIO $ do
+    timer :: IORef AuthEnv -> ThreadId -> UTCTime -> IO ThreadId
+    timer !r !p !x = forkIO $ do
         s <- myThreadId
         w <- mkWeakIORef r (killThread s)
         loop w p x
 
-    loop w p x = do
+    loop :: Weak (IORef AuthEnv) -> ThreadId -> UTCTime -> IO ()
+    loop w !p !x = do
         diff x <$> getCurrentTime >>= threadDelay
-        ea <- runExceptT auth
+        ea <- auth
         case ea of
             Left   e -> throwTo p e
             Right !a -> do
@@ -189,6 +191,6 @@ fromProfileName m name = auth >>= start
                          atomicWriteIORef r a
                          maybe (return ()) (loop w p) (_authExpiry a)
 
-    diff x y = (* 1000000) $
-        let n = truncate (diffUTCTime x y) - 60
-         in if n > 0 then n else 1
+    diff !x !y = (* 1000000) $ if n > 0 then n else 1
+      where
+        !n = truncate (diffUTCTime x y) - 60

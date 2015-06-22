@@ -47,7 +47,7 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
-import           Network.AWS.Data
+import           Network.AWS.Prelude        hiding (request)
 import           Network.HTTP.Conduit
 
 data Dynamic
@@ -257,7 +257,7 @@ instance ToPath Interface where
         IVPCIPV4_CIDRBlock    -> "vpc-ipv4-cidr-block"
 
 data Info
-    = Info
+    = Info'
     -- ^ Returns information about the last time the instance profile was updated,
     -- including the instance's LastUpdated date, InstanceProfileArn,
     -- and InstanceProfileId.
@@ -270,7 +270,7 @@ data Info
 
 instance ToPath Info where
     toPath x = case x of
-        Info                  -> "info"
+        Info'                 -> "info"
         SecurityCredentials r -> "security-credentials/" <> fromMaybe "" r
 
 -- | Test whether the host is running on EC2 by requesting the instance-data.
@@ -287,31 +287,32 @@ isEC2 m = liftIO (req `catch` err)
 dynamic :: MonadIO m
         => Manager
         -> Dynamic
-        -> ExceptT HttpException m ByteString
+        -> m (Either HttpException ByteString)
 dynamic m = get m . mappend "http://169.254.169.254/latest/dynamic/" . toPath
 
 metadata :: MonadIO m
          => Manager
          -> Metadata
-         -> ExceptT HttpException m ByteString
+         -> m (Either HttpException ByteString)
 metadata m = get m . mappend "http://169.254.169.254/latest/meta-data/" . toPath
 
 userdata :: MonadIO m
          => Manager
-         -> ExceptT HttpException m (Maybe ByteString)
-userdata m = Just
-    `liftM` get m "http://169.254.169.254/latest/user-data"
-    `catchError` err
-  where
-    err (StatusCodeException s _ _) | fromEnum s == 404
-          = return Nothing
-    err e = throwError e
+         -> m (Either HttpException (Maybe ByteString))
+userdata m = do
+    x <- get m "http://169.254.169.254/latest/user-data"
+    return $!
+        case x of
+            Right b                 -> Right (Just b)
+            Left (StatusCodeException s _ _)
+                | fromEnum s == 404 -> Right Nothing
+            Left e                  -> Left  e
 
 get :: MonadIO m
     => Manager
     -> Text
-    -> ExceptT HttpException m ByteString
-get m url = ExceptT . liftIO $ req `catch` err
+    -> m (Either HttpException ByteString)
+get m url = liftIO (req `catch` err)
   where
     req = Right . strip <$> request m url
 

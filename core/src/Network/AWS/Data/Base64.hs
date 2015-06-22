@@ -18,7 +18,6 @@ module Network.AWS.Data.Base64
 
 import           Data.Aeson.Types
 import qualified Data.Attoparsec.Text        as AText
-import           Data.ByteString             (ByteString)
 import qualified Data.ByteString.Base64      as Base64
 import qualified Data.Text.Encoding          as Text
 import           GHC.Generics
@@ -34,7 +33,7 @@ import           Network.AWS.Data.XML
 newtype Base64 = Base64 { unBase64 :: ByteString }
     deriving (Eq, Read, Ord, Generic)
 
--- FIXME: it's a bit of a misnomer to use a ByteString since
+-- FIXME: it's a mistake to wrap a ByteString since
 -- the underlying serialisers (JSON, XML) use Text internally.
 instance FromText Base64 where
     parser = AText.takeText >>=

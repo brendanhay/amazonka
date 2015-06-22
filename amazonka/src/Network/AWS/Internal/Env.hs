@@ -16,10 +16,9 @@ module Network.AWS.Internal.Env where
 
 import           Control.Lens
 import           Control.Retry
-import qualified Data.ByteString.Lazy.Char8 as LBS
-import           Data.List                  (intersperse)
 import           Data.Monoid
-import           Network.AWS.Data           (ToBuilder(..), buildBS)
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 
@@ -33,48 +32,44 @@ data Env = Env
     , _envAuth        :: Auth
     }
 
--- | The current region.
-envRegion :: Lens' Env Region
-envRegion = lens _envRegion (\s a -> s { _envRegion = a })
-{-# INLINE envRegion #-}
+class AWSEnv a where
+    env :: Lens' a Env
+    {-# MINIMAL env #-}
 
--- | The function used to output log messages.
-envLogger :: Lens' Env Logger
-envLogger = lens _envLogger (\s a -> s { _envLogger = a })
-{-# INLINE envLogger #-}
+    -- | The current region.
+    envRegion      :: Lens' a Region
 
--- | The function used to determine if an 'HttpException' should be retried.
-envRetryCheck :: Lens' Env (Int -> HttpException -> IO Bool)
-envRetryCheck = lens _envRetryCheck (\s a -> s { _envRetryCheck = a })
-{-# INLINE envRetryCheck #-}
+    -- | The function used to output log messages.
+    envLogger      :: Lens' a Logger
 
--- | The 'RetryPolicy' used to determine backoff/on and retry delay/growth.
-envRetryPolicy :: Lens' Env (Maybe RetryPolicy)
-envRetryPolicy = lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
-{-# INLINE envRetryPolicy #-}
+    -- | The function used to determine if an 'HttpException' should be retried.
+    envRetryCheck  :: Lens' a (Int -> HttpException -> IO Bool)
 
--- | The 'Manager' used to create and manage open HTTP connections.
-envManager :: Lens' Env Manager
-envManager = lens _envManager (\s a -> s { _envManager = a })
-{-# INLINE envManager #-}
+    -- | The 'RetryPolicy' used to determine backoff/on and retry delay/growth.
+    envRetryPolicy :: Lens' a (Maybe RetryPolicy)
 
--- | The credentials used to sign requests for authentication with AWS.
-envAuth :: Lens' Env Auth
-envAuth = lens _envAuth (\s a -> s { _envAuth = a })
-{-# INLINE envAuth #-}
+    -- | The 'Manager' used to create and manage open HTTP connections.
+    envManager     :: Lens' a Manager
+
+    -- | The credentials used to sign requests for authentication with AWS.
+    envAuth        :: Lens' a Auth
+
+    envRegion      = env . lens _envRegion      (\s a -> s { _envRegion      = a })
+    envLogger      = env . lens _envLogger      (\s a -> s { _envLogger      = a })
+    envRetryCheck  = env . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
+    envRetryPolicy = env . lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
+    envManager     = env . lens _envManager     (\s a -> s { _envManager     = a })
+    envAuth        = env . lens _envAuth        (\s a -> s { _envAuth        = a })
+
+instance AWSEnv Env where
+    env = id
 
 instance ToBuilder Env where
-    build Env{..} = mconcat $ intersperse "\n"
-        [ "[Amazonka Env] {"
-        , "  region      = " <> build _envRegion
-        , "  retry (n=0) = " <> maybe "Nothing" policy _envRetryPolicy
-        , build . indent $ buildBS _envAuth
-        , "}"
-        ]
+    build Env{..} = b <> "\n" <> build _envAuth
       where
-        policy (RetryPolicy f) = "Just " <> build (f 0)
-
-        indent = mappend "  "
-               . LBS.concat
-               . intersperse "\n  "
-               . LBS.lines
+        b = buildLines
+            [ "[Amazonka Env] {"
+            , "  region      = " <> build _envRegion
+            , "  retry (n=0) = " <> build _envRetryPolicy
+            , "}"
+            ]

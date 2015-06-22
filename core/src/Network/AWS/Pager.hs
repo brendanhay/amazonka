@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE RankNTypes        #-}
 
--- Module      : Network.AWS.Pagers
+-- Module      : Network.AWS.Pager
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -11,7 +11,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Pagers
+module Network.AWS.Pager
     ( AWSPager     (..)
     , AWSTruncated (..)
     , stop

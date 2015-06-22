@@ -30,7 +30,7 @@ operationImports l o = sort $
     : "Network.AWS.Prelude"
     : l ^. typesNS
     : l ^. operationModules
-   ++ maybeToList (const "Network.AWS.Pagers" <$> o ^. opPager)
+   ++ maybeToList (const "Network.AWS.Pager" <$> o ^. opPager)
 
 typeImports :: Library -> [NS]
 typeImports l = sort $
@@ -41,7 +41,7 @@ typeImports l = sort $
 waiterImports :: Library -> [NS]
 waiterImports l = sort $
       "Network.AWS.Prelude"
-    : "Network.AWS.Waiters"
+    : "Network.AWS.Waiter"
     : l ^. typesNS
     : map (operationNS ns . _waitOpName) (l ^.. waiters . each)
   where

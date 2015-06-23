@@ -115,7 +115,7 @@ instance FromXML RESTError where
             <*> y .@  "Message"
 
 restError :: FromXML a
-          => Service v a
+          => Service v s a
           -> (Status -> Bool)
           -> Status
           -> Maybe (LazyByteString -> Error a)
@@ -153,7 +153,7 @@ instance FromJSON JSONError where
              <*> o .:  "message"
 
 jsonError :: FromJSON a
-          => Service v a
+          => Service v s a
           -> (Status -> Bool)
           -> Status
           -> Maybe (LazyByteString -> Error a)

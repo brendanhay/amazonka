@@ -42,7 +42,7 @@ import           Text.XML                     (Node)
 receiveNull :: MonadResource m
             => Rs a
             -> Logger
-            -> Service v (Er a)
+            -> Service v s (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
@@ -53,7 +53,7 @@ receiveXMLWrapper :: MonadResource m
                   => Text
                   -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> Logger
-                  -> Service v (Er a)
+                  -> Service v s (Er a)
                   -> Request a
                   -> Either HttpException ClientResponse
                   -> m (Response a)
@@ -62,7 +62,7 @@ receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 receiveXML :: MonadResource m
            => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
            -> Logger
-           -> Service v (Er a)
+           -> Service v s (Er a)
            -> Request a
            -> Either HttpException ClientResponse
            -> m (Response a)
@@ -71,7 +71,7 @@ receiveXML = deserialise decodeXML
 receiveJSON :: MonadResource m
             => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
             -> Logger
-            -> Service v (Er a)
+            -> Service v s (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
@@ -80,7 +80,7 @@ receiveJSON = deserialise eitherDecode'
 receiveBody :: MonadResource m
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
-            -> Service v (Er a)
+            -> Service v s (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
@@ -91,7 +91,7 @@ deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
             -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
             -> Logger
-            -> Service v (Er a)
+            -> Service v s (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
@@ -110,7 +110,7 @@ receive :: MonadResource m
                    -> ResponseHeaders
                    -> ResponseBody
                    -> m (Either (Error (Er a)) (Rs a)))
-        -> Service v (Er a)
+        -> Service v s (Er a)
         -> Request a
         -> Either HttpException ClientResponse
         -> m (Response a)

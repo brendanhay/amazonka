@@ -115,7 +115,7 @@ algorithm = "AWS4-HMAC-SHA256"
 finalise :: AuthEnv
          -> Region
          -> UTCTime
-         -> Service V4 b
+         -> Service V4 s b
          -> Request a
          -> (ByteString -> ByteString -> QueryString -> QueryString)
          -> ByteString

@@ -211,7 +211,7 @@ data Retry a = Exponential
     }
 
 -- | Attributes and functions specific to an AWS service.
-data Service v a = Service
+data Service v s a = Service
     { _svcAbbrev   :: Text
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
@@ -247,7 +247,7 @@ class AWSSigner v where
     signed :: AuthEnv
            -> Region
            -> UTCTime
-           -> Service v (Er a)
+           -> Service v s (Er a)
            -> Request a
            -> Signed  v a
 
@@ -256,7 +256,7 @@ class AWSPresigner v where
               -> Region
               -> UTCTime
               -> Integer
-              -> Service v (Er a)
+              -> Service v s (Er a)
               -> Request a
               -> Signed  v a
 
@@ -281,8 +281,13 @@ sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
 sgRequest :: Lens' (Signed v a) ClientRequest
 sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
 
+class AWSSigner (Sg a) => AWSService a where
+    type Sg a :: *
+
+    service :: Sv p ~ a => p -> Service (Sg a) a (Er p)
+
 -- | Specify how a request can be de/serialised.
-class AWSRequest a where
+class AWSService (Sv a) => AWSRequest a where
     -- | The successful, expected response associated with a request.
     type Rs a :: *
 
@@ -290,12 +295,12 @@ class AWSRequest a where
     type Er a :: *
 
     -- | The default sevice configuration for the request.
-    service  :: AWSSigner v => a -> Service v (Er a)
+    type Sv a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Service v (Er a)
+             -> Service v s (Er a)
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response a)

@@ -1,4 +1,8 @@
 {-# LANGUAGE DefaultSignatures          #-}
+
+{-# LANGUAGE ScopedTypeVariables          #-}
+{-# LANGUAGE RankNTypes          #-}
+
 {-# LANGUAGE DeriveFoldable          #-}
 {-# LANGUAGE DeriveFunctor          #-}
 {-# LANGUAGE DeriveTraversable          #-}
@@ -29,71 +33,72 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types
-    (
-    -- * Authentication
-    -- ** Credentials
-      AccessKey     (..)
-    , SecretKey     (..)
-    , SecurityToken (..)
-    -- ** Environment
-    , AuthEnv       (..)
-    , Auth          (..)
-    , withAuth
+module Network.AWS.Types where
+    -- (
+    -- -- * Authentication
+    -- -- ** Credentials
+    --   AccessKey     (..)
+    -- , SecretKey     (..)
+    -- , SecurityToken (..)
+    -- -- ** Environment
+    -- , AuthEnv       (..)
+    -- , Auth          (..)
+    -- , withAuth
 
-    -- * Services
-    , AWSService    (..)
-    , Abbrev
-    , Service       (..)
-    , serviceOf
+    -- -- * Services
+    -- , AWSService    (..)
+    -- , Abbrev
+    -- , Service       (..)
+    -- , serviceOf
 
-    -- * Retries
-    , Retry         (..)
+    -- -- * Retries
+    -- , Retry         (..)
 
-    -- * Errors
-    , AsError       (..)
-    , Error         (..)
+    -- -- * Errors
+    -- , AsError       (..)
+    -- , Error         (..)
 
-    -- * Signing
-    , AWSSigner     (..)
-    , AWSPresigner  (..)
-    , Signed        (..)
-    , Meta
-    , sgMeta
-    , sgRequest
-    , sign
-    , presign
-    , hmacSHA256
+    -- -- * Signing
+    -- , AWSSigner     (..)
+    -- , AWSPresigner  (..)
+    -- , Signed        (..)
+    -- , Meta
+    -- , sgMeta
+    -- , sgRequest
+    -- , sign
+    -- , presign
+    -- , hmacSHA256
 
-    -- * Requests
-    , AWSRequest    (..)
-    , Request       (..)
-    , rqMethod
-    , rqHeaders
-    , rqPath
-    , rqQuery
-    , rqBody
+    -- -- * Requests
+    -- , AWSRequest    (..)
+    -- , Request       (..)
+    -- , rqMethod
+    -- , rqHeaders
+    -- , rqPath
+    -- , rqQuery
+    -- , rqBody
 
-    -- * Responses
-    , Response
+    -- -- * Responses
+    -- , Response
 
-    -- * Logging
-    , LogLevel      (..)
-    , Logger
+    -- -- * Logging
+    -- , LogLevel      (..)
+    -- , Logger
 
-    -- * Regions
-    , Region        (..)
+    -- -- * Regions
+    -- , Region        (..)
 
-    -- * Convenience
-    , ClientRequest
-    , ClientResponse
-    , ResponseBody
-    , clientRequest
+    -- -- * Convenience
+    -- , ClientRequest
+    -- , ClientResponse
+    -- , ResponseBody
+    -- , clientRequest
 
-    , _Coerce
-    , _Default
-    ) where
+    -- , _Coerce
+    -- , _Default
+    -- ) where
 
+import Data.Proxy
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception            (Exception)
@@ -112,14 +117,14 @@ import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
-import           Data.Typeable
+import           Data.Typeable (Typeable)
 import           GHC.Generics
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.HTTP.Client          hiding (Request, Response)
+import           Network.HTTP.Client          hiding (Request, Response, Proxy)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
@@ -137,6 +142,8 @@ data Error a
     | ServiceError    Abbrev Status a
     | Errors          [Error a]
       deriving (Show, Typeable, Functor, Foldable, Traversable)
+
+makeClassyPrisms ''Error
 
 instance (Show a, Typeable a) => Exception (Error a)
 
@@ -162,66 +169,6 @@ instance Show a => ToBuilder (Error a) where
             , "  status  = " <> build s
             , "  message = " <> build (show x)
             ]
-
-class AsError e a | e -> a where
-      _Error           :: Prism' e (Error a)
-      {-# MINIMAL _Error #-}
-
-      _HttpError       :: Prism' e HttpException
-      _SerializerError :: Prism' e (Abbrev, String)
-      _ServiceError    :: Prism' e (Abbrev, Status, a)
-      _Errors          :: Prism' e [Error a]
-
-      _HttpError       = _Error . _HttpError
-      _SerializerError = _Error . _SerializerError
-      _ServiceError    = _Error . _ServiceError
-      _Errors          = _Error . _Errors
-
-instance AsError (Error a) a where
-    _Error = id
-
-    _HttpError = prism
-        HttpError
-        (\case
-            HttpError ex -> Right ex
-            s            -> Left  s)
-
-    _SerializerError = prism
-        (uncurry SerializerError)
-        (\case
-            SerializerError a e -> Right (a, e)
-            s                   -> Left  s)
-
-    _ServiceError = prism
-        (\(a, s, e) -> ServiceError a s e)
-        (\case
-            ServiceError a s e -> Right (a, s, e)
-            s                  -> Left s)
-
-    _Errors = prism
-        Errors
-        (\case
-            Errors xs -> Right xs
-            s         -> Left s)
-
--- | The properties (such as endpoint) for a service, as well as it's
--- associated signing algorithm and error types.
-class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
-    -- | Signing algorithm supported by the service.
-    type Sg a :: *
-
-    -- | The general service error.
-    type Er a :: *
-
-    service :: Service a
-
-serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
-serviceOf = const service
-
--- | An alias for the common response 'Either' containing a service error in the
--- 'Left' case, or the expected response in the 'Right'.
--- type Response  a = Either (Error (Er (Sv a))) (Rs a)
--- type Response' a = Either (Error (Er (Sv a))) (Status, Rs a)
 
 data LogLevel
     = Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
@@ -250,22 +197,68 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
-type Response a = Either (Error (Er (Sv a))) (Status, Rs a)
+data Endpoint = Endpoint
+    { _endpointHost  :: ByteString
+    , _endpointScope :: ByteString
+    } deriving (Eq, Show)
 
--- | Specify how a request can be de/serialised.
-class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
-    -- | The service definition for a request.
-    type Sv a :: *
+-- | Constants and predicates used to create a 'RetryPolicy'.
+data Retry a = Exponential
+    { _retryBase     :: !Double
+    , _retryGrowth   :: !Int
+    , _retryAttempts :: !Int
+    , _retryCheck    :: Status -> a -> Bool
+    }
 
-    -- | The successful, expected response associated with a request.
-    type Rs a :: *
+-- | Attributes and functions specific to an AWS service.
+data Service v a = Service
+    { _svcAbbrev   :: Text
+    , _svcPrefix   :: ByteString
+    , _svcVersion  :: ByteString
+    , _svcEndpoint :: Region -> Endpoint
+    , _svcHandle   :: Status -> Maybe (LazyByteString -> Error a)
+    , _svcRetry    :: Retry a
+    }
 
-    request  :: a -> Request a
-    response :: MonadResource m
-             => Logger
-             -> Request a
-             -> Either HttpException ClientResponse
-             -> m (Response a)
+-- | An unsigned request.
+data Request a = Request
+    { _rqMethod  :: !StdMethod
+    , _rqPath    :: ByteString
+    , _rqQuery   :: QueryString
+    , _rqHeaders :: [Header]
+    , _rqBody    :: RqBody
+    }
+
+instance ToBuilder (Request a) where
+    build Request{..} = buildLines
+        [ "[Raw Request] {"
+        , "  method  = "  <> build _rqMethod
+        , "  path    = "  <> build _rqPath
+        , "  query   = "  <> build _rqQuery
+        , "  headers = "  <> build _rqHeaders
+        , "  body    = {"
+        , "    hash    = "  <> build (_rqBody ^. bodyHash)
+        , "    payload =\n" <> build (_bdyBody _rqBody)
+        , "  }"
+        , "}"
+        ]
+
+class AWSSigner v where
+    signed :: AuthEnv
+           -> Region
+           -> UTCTime
+           -> Service v (Er a)
+           -> Request a
+           -> Signed  v a
+
+class AWSPresigner v where
+    presigned :: AuthEnv
+              -> Region
+              -> UTCTime
+              -> Integer
+              -> Service v (Er a)
+              -> Request a
+              -> Signed  v a
 
 -- | Signing metadata data specific to a signing algorithm.
 --
@@ -274,53 +267,40 @@ data family Meta v :: *
 
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
 -- algorithm that was used.
-data Signed a v where
+data Signed v a where
     Signed :: ToBuilder (Meta v)
            => { _sgMeta    :: Meta v
               , _sgRequest :: ClientRequest
               }
-           -> Signed a v
+           -> Signed v a
 
-sgMeta :: Lens' (Signed a v) (Meta v)
+sgMeta :: Lens' (Signed v a) (Meta v)
 sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
 
 -- Lens' specifically since 'a' cannot be substituted.
-sgRequest :: Lens' (Signed a v) ClientRequest
+sgRequest :: Lens' (Signed v a) ClientRequest
 sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
 
-class AWSSigner v where
-    signed :: (AWSService (Sv a), v ~ Sg (Sv a))
-           => AuthEnv
-           -> Region
-           -> Request a
-           -> UTCTime
-           -> Signed a v
+-- | Specify how a request can be de/serialised.
+class AWSRequest a where
+    -- | The successful, expected response associated with a request.
+    type Rs a :: *
 
-class AWSPresigner v where
-    presigned :: (AWSService (Sv a), v ~ Sg (Sv a))
-              => AuthEnv
-              -> Region
-              -> Request a
-              -> UTCTime
-              -> Integer
-              -> Signed a v
+    -- | An unsuccessful error response.
+    type Er a :: *
 
-sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
-     => Auth      -- ^ AWS authentication credentials.
-     -> Region    -- ^ AWS Region.
-     -> Request a -- ^ Request to sign.
-     -> UTCTime   -- ^ Signing time.
-     -> m (Signed a (Sg (Sv a)))
-sign a r rq t = withAuth a $ \e -> return (signed e r rq t)
+    -- | The default sevice configuration for the request.
+    service  :: AWSSigner v => a -> Service v (Er a)
 
-presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
-        => Auth      -- ^ AWS authentication credentials.
-        -> Region    -- ^ AWS Region.
-        -> Request a -- ^ Request to presign.
-        -> UTCTime   -- ^ Signing time.
-        -> Integer   -- ^ Expiry time in seconds.
-        -> m (Signed a (Sg (Sv a)))
-presign a r rq t ex = withAuth a $ \e -> return (presigned e r rq t ex)
+    request  :: a -> Request a
+    response :: MonadResource m
+             => Logger
+             -> Service v (Er a)
+             -> Request a
+             -> Either HttpException ClientResponse
+             -> m (Response a)
+
+type Response a = Either (Error (Er a)) (Status, Rs a)
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64
@@ -376,48 +356,8 @@ instance ToBuilder Auth where
     build (Auth  e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
-withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
-
--- | Attributes specific to an AWS service.
-data Service a = Service
-    { _svcAbbrev  :: Text
-    , _svcPrefix  :: ByteString
-    , _svcVersion :: ByteString
-    , _svcHandle  :: Status -> Maybe (LazyByteString -> Error (Er a))
-    , _svcRetry   :: Retry a
-    }
-
--- | Constants and predicates used to create a 'RetryPolicy'.
-data Retry a = Exponential
-    { _retryBase     :: !Double
-    , _retryGrowth   :: !Int
-    , _retryAttempts :: !Int
-    , _retryCheck    :: Status -> Er a -> Bool
-    }
-
--- | An unsigned request.
-data Request a = Request
-    { _rqMethod  :: !StdMethod
-    , _rqPath    :: ByteString
-    , _rqQuery   :: QueryString
-    , _rqHeaders :: [Header]
-    , _rqBody    :: RqBody
-    }
-
-instance ToBuilder (Request a) where
-    build Request{..} = buildLines
-        [ "[Raw Request] {"
-        , "  method  = "  <> build _rqMethod
-        , "  path    = "  <> build _rqPath
-        , "  query   = "  <> build _rqQuery
-        , "  headers = "  <> build _rqHeaders
-        , "  body    = {"
-        , "    hash    = "  <> build (_rqBody ^. bodyHash)
-        , "    payload =\n" <> build (_bdyBody _rqBody)
-        , "  }"
-        , "}"
-        ]
+withAuth (Auth  e) f = f e
 
 -- | The sum of available AWS regions.
 data Region

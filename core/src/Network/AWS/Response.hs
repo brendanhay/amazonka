@@ -39,53 +39,59 @@ import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 
-receiveNull :: (MonadResource m, AWSService (Sv a))
+receiveNull :: MonadResource m
             => Rs a
             -> Logger
+            -> Service v (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
 receiveNull rs _ = receive $ \_ _ _ bdy ->
     liftResourceT (bdy $$+- return (Right rs))
 
-receiveXMLWrapper :: (MonadResource m, AWSService (Sv a))
+receiveXMLWrapper :: MonadResource m
                   => Text
                   -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> Logger
+                  -> Service v (Er a)
                   -> Request a
                   -> Either HttpException ClientResponse
                   -> m (Response a)
 receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
-receiveXML :: (MonadResource m, AWSService (Sv a))
+receiveXML :: MonadResource m
            => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
            -> Logger
+           -> Service v (Er a)
            -> Request a
            -> Either HttpException ClientResponse
            -> m (Response a)
 receiveXML = deserialise decodeXML
 
-receiveJSON :: (MonadResource m, AWSService (Sv a))
+receiveJSON :: MonadResource m
             => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
             -> Logger
+            -> Service v (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
 receiveJSON = deserialise eitherDecode'
 
-receiveBody :: (MonadResource m, AWSService (Sv a))
+receiveBody :: MonadResource m
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
+            -> Service v (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
 receiveBody f _ = receive $ \a s h x ->
     return (SerializerError a `first` f s h (RsBody x))
 
-deserialise :: (AWSService (Sv a), MonadResource m)
+deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
             -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
             -> Logger
+            -> Service v (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
@@ -99,21 +105,21 @@ deserialise g f l = receive $ \a s h x -> do
                 Left  e -> Left (SerializerError a e)
                 Right y -> Right y
 
-receive :: (MonadResource m, AWSService (Sv a))
+receive :: MonadResource m
         => (Abbrev -> Int
                    -> ResponseHeaders
                    -> ResponseBody
-                   -> m (Either (Error (Er (Sv a))) (Rs a)))
+                   -> m (Either (Error (Er a)) (Rs a)))
+        -> Service v (Er a)
         -> Request a
         -> Either HttpException ClientResponse
         -> m (Response a)
-receive f rq = either (return . Left . HttpError) success
+receive f svc _ = either (return . Left . HttpError) success
   where
     success rs = do
-        let svc = serviceOf       rq
-            s   = responseStatus  rs
-            h   = responseHeaders rs
-            x   = responseBody    rs
+        let s = responseStatus  rs
+            h = responseHeaders rs
+            x = responseBody    rs
         case _svcHandle svc s of
             Just g  -> Left . g <$> sinkLbs x
             Nothing -> do

@@ -51,10 +51,10 @@ module Network.AWS.Error
 import           Control.Applicative
 import           Control.Lens
 import           Data.Aeson
-import qualified Data.ByteString.Lazy       as LBS
-import           Data.ByteString.Lazy.Char8 (unpack)
+import qualified Data.ByteString.Lazy.Char8  as BS8
 import           Data.String
 import           GHC.Generics
+import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
@@ -114,18 +114,18 @@ instance FromXML RESTError where
             <*> y .@? "Code"
             <*> y .@  "Message"
 
-restError :: (FromXML (Er a), Show (Er a))
-          => (Status -> Bool)
-          -> Service a
+restError :: FromXML a
+          => Service v a
+          -> (Status -> Bool)
           -> Status
-          -> Maybe (LBS.ByteString -> Error (Er a))
-restError f Service{..} s
+          -> Maybe (LazyByteString -> Error a)
+restError Service{..} f s
     | f s       = Nothing
     | otherwise = Just go
   where
     go x = either failure success (decodeXML x)
       where
-        failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
+        failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ BS8.unpack x)
         success   = ServiceError    _svcAbbrev s
 
 data JSONError = JSONError
@@ -152,16 +152,16 @@ instance FromJSON JSONError where
              <*> o .:? "code"
              <*> o .:  "message"
 
-jsonError :: (FromJSON (Er a), Show (Er a))
-          => (Status -> Bool)
-          -> Service a
+jsonError :: FromJSON a
+          => Service v a
+          -> (Status -> Bool)
           -> Status
-          -> Maybe (LBS.ByteString -> Error (Er a))
-jsonError f Service{..} s
+          -> Maybe (LazyByteString -> Error a)
+jsonError Service{..} f s
     | f s       = Nothing
     | otherwise = Just go
   where
     go x = either failure success (eitherDecode' x)
       where
-        failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
+        failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ BS8.unpack x)
         success   = ServiceError    _svcAbbrev s

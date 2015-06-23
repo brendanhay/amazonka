@@ -21,14 +21,9 @@ import           Data.Monoid
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Types
 
-data Endpoint = Endpoint
-    { _endpointHost  :: ByteString
-    , _endpointScope :: ByteString
-    } deriving (Eq, Show)
-
 -- | Determine the full host address and credential scope for a 'Service' within
 -- the specified 'Region'.
-endpoint :: Service a -> Region -> Endpoint
+endpoint :: Service v a -> Region -> Endpoint
 endpoint Service{..} r = go (CI.mk _svcPrefix)
   where
     go = \case

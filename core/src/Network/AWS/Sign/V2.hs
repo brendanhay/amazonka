@@ -28,8 +28,6 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
-import           Network.AWS.Endpoint
-import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
 import           Network.HTTP.Types          hiding (toQuery)
@@ -50,7 +48,7 @@ instance ToBuilder (Meta V2) where
         ]
 
 instance AWSSigner V2 where
-    signed AuthEnv{..} r x@Request{..} t = Signed meta rq
+    signed AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
       where
         meta = Meta
             { _mSignature = signature
@@ -67,7 +65,7 @@ instance AWSSigner V2 where
 
         meth = toBS _rqMethod
 
-        Endpoint{..} = endpoint svc r
+        Endpoint {..} = _svcEndpoint r
 
         authorised = pair "Signature" (urlEncode True signature) query
 
@@ -81,7 +79,7 @@ instance AWSSigner V2 where
                 ]
 
         query =
-             pair "Version"          (_svcVersion svc)
+             pair "Version"          _svcVersion
            . pair "SignatureVersion" ("2"          :: ByteString)
            . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
            . pair "Timestamp"        time
@@ -93,5 +91,3 @@ instance AWSSigner V2 where
         headers = hdr hDate time _rqHeaders
 
         time = toBS (Time t :: ISO8601)
-
-        svc = serviceOf x

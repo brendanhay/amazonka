@@ -35,8 +35,6 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
-import           Network.AWS.Endpoint
-import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
@@ -69,10 +67,12 @@ instance ToBuilder (Meta V4) where
         ]
 
 instance AWSPresigner V4 where
-    presigned a r rq t ex = out & sgRequest
-        . queryString <>~ auth (out ^. sgMeta)
+    presigned a r t ex svc rq =
+        out & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise qry hash r service a inp t
+        out = finalise a r t svc inp qry hash
+
+        inp = rq & rqHeaders .~ []
 
         qry cs sh =
               pair (CI.original hAMZAlgorithm)     algorithm
@@ -82,17 +82,15 @@ instance AWSPresigner V4 where
             . pair (CI.original hAMZSignedHeaders) sh
             . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
 
-        inp  = rq & rqHeaders .~ []
-
         auth = mappend "&X-Amz-Signature=" . _mSignature
         hash = "UNSIGNED-PAYLOAD"
 
 instance AWSSigner V4 where
-    signed a r rq t = out & sgRequest
+    signed a r t svc rq = out & sgRequest
         %~ requestHeaders
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
-        out = finalise (\_ _ -> id) hash r service a inp t
+        out = finalise a r t svc inp (\_ _ -> id) hash
 
         inp = rq & rqHeaders %~ hdr hAMZDate date . hdrs (maybeToList tok)
 
@@ -114,15 +112,15 @@ authorisation Meta{..} = BS.concat
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
 
-finalise :: (ByteString -> ByteString -> QueryString -> QueryString)
-         -> ByteString
+finalise :: AuthEnv
          -> Region
-         -> Service (Sv a)
-         -> AuthEnv
-         -> Request a
          -> UTCTime
-         -> Signed a V4
-finalise qry hash r s@Service{..} AuthEnv{..} Request{..} t =
+         -> Service V4 b
+         -> Request a
+         -> (ByteString -> ByteString -> QueryString -> QueryString)
+         -> ByteString
+         -> Signed V4 a
+finalise AuthEnv{..} r t Service{..} Request{..} qry hash =
     Signed meta rq
   where
     meta = Meta
@@ -146,7 +144,7 @@ finalise qry hash r s@Service{..} AuthEnv{..} Request{..} t =
     meth  = toBS _rqMethod
     query = qry accessScope signedHeaders _rqQuery
 
-    Endpoint{..} = endpoint s r
+    Endpoint {..} = _svcEndpoint r
 
     canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
 

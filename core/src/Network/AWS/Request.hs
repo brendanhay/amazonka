@@ -92,7 +92,7 @@ postBody x = putBody x & rqMethod .~ POST
 putXML :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 putXML x = defaultRequest x
     & rqMethod .~ PUT
-    & rqBody   .~ toBody (encodeXML x)
+    & rqBody   .~ toBody (toElement x)
     & contentSHA256
 
 putJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
@@ -118,7 +118,7 @@ defaultRequest x = Request
 
 contentSHA256 :: Request a -> Request a
 contentSHA256 rq = rq
-    & rqHeaders %~ hdr hAMZContentSHA256 (bodyHash (rq ^. rqBody))
+    & rqHeaders %~ hdr hAMZContentSHA256 (rq ^. rqBody . bodyHash)
 
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }

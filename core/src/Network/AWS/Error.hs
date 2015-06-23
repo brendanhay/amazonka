@@ -28,7 +28,6 @@ module Network.AWS.Error
     , AWSErrorCode (..)
 
     -- * Types
-    , AWSError
     , Error        (..)
     , ErrorCode    (..)
     , ErrorType    (..)

@@ -7,6 +7,10 @@
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
+
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE RankNTypes        #-}
+
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -62,10 +66,7 @@ module Network.AWS
     , getAuth
 
     -- * Streaming body helpers
-    , sourceBody
-    , sourceHandle
-    , sourceFile
-    , sourceFileIO
+    , module Network.AWS.Internal.Body
 
     -- * Types
     , module Network.AWS.Types
@@ -103,19 +104,73 @@ import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)
 import qualified Network.HTTP.Conduit         as Client
 
+import           Control.Exception            (Exception)
+import           Network.AWS.Request          (defaultRequest)
+import           Network.AWS.Sign.V2
+
+
+
+data Baz = Baz deriving (Show, Generic)
+
+instance Exception Baz
+
+data Bar = Bar deriving (Show, Generic)
+
+instance Exception Bar
+
+instance AWSService Bar where
+    type Er Bar = Baz
+    type Sg Bar = V2
+
+data Foo = Foo deriving (Show, Generic)
+
+instance ToText Foo where toText = const "foo"
+instance ToPath Foo where toPath = const "/"
+instance ToQuery Foo
+instance ToHeaders Foo
+
+instance AWSRequest Foo where
+    type Sv Foo = Bar
+    type Rs Foo = Foo
+
+    request = defaultRequest
+
+    response _ _ _ = pure (Left mempty)
+
+data Qux = Qux deriving (Show, Generic)
+
+instance AWSService Foo where
+    type Er Foo = Bar
+    type Sg Foo = V2
+
+instance ToText Qux where toText = const "qux"
+instance ToPath Qux where toPath = const "/"
+instance ToQuery Qux
+instance ToHeaders Qux
+
+instance AWSRequest Qux where
+    type Sv Qux = Foo
+    type Rs Qux = Qux
+
+    request = defaultRequest
+    response _ _ _ = pure (Left mempty)
+
 -- FIXME: Add lengthy explanation about the use of constraints and
 -- how to built your own monad transformer stack, embed it, etc.
 
+type AWSError e a = (Show (Er (Sv a)), AsError e (Er (Sv a)))
+
 type AWST e m = ExceptT e (ReaderT Env m)
-type AWS  e   = AWST    e (ResourceT IO)
+
+type AWS e = AWST (Error e) (ResourceT IO)
 
 runAWST :: MonadResource m => Env -> AWST e m a -> m (Either e a)
 runAWST e m = runReaderT (runExceptT m) e
 
 -- | Run an 'AWS' monadic action, calling all of the registered 'ResourceT'
 -- release actions.
-runAWS :: Env -> AWS e a -> IO (Either e a)
-runAWS e m = runResourceT (runAWST e m)
+runAWS :: Show e => Env -> AWS e a -> IO (Either (Error String) a)
+runAWS e m = first (fmap show) <$> runResourceT (runAWST e m)
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.

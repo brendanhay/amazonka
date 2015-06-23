@@ -25,7 +25,9 @@ import           Data.Conduit
 import           Data.Monoid
 import           Data.String
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client
+import           Text.XML                     (Element)
 
 data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
@@ -34,24 +36,22 @@ makePrisms ''RsBody
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
-connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
-connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
+sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
+sinkBody (RsBody src) sink = hoist liftResourceT src $$+- sink
 
 data RqBody = RqBody
     { _bdyHash :: Digest SHA256
     , _bdyBody :: RequestBody
     }
 
-makeLenses ''RqBody
+bodyHash :: Getter RqBody ByteString
+bodyHash = to (digestToHexByteString . _bdyHash)
 
 instance Show RqBody where
-    show bdy = "RqBody { RequestBody " ++ BS8.unpack (bodyHash bdy) ++ " }"
+    show b = "RqBody { RequestBody " ++ BS8.unpack (b ^. bodyHash) ++ " }"
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
-
-bodyHash :: RqBody -> ByteString
-bodyHash = digestToHexByteString . _bdyHash
 
 isStreaming :: RqBody -> Bool
 isStreaming b =
@@ -64,7 +64,6 @@ isStreaming b =
 
 class ToBody a where
     toBody :: a -> RqBody
-    toBody = const (RqBody (hash "") (RequestBodyLBS mempty))
 
 instance ToBody RqBody where
     toBody = id
@@ -78,3 +77,5 @@ instance ToBody ByteString where
 instance ToBody Value where
     toBody = toBody . encode
 
+instance ToBody Element where
+    toBody = toBody . encodeXML

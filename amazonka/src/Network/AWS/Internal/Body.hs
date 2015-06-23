@@ -8,7 +8,21 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Body where
+module Network.AWS.Internal.Body
+    (
+    -- ** Requests
+      ToBody (..)
+    , RqBody
+    , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
+
+    -- ** Responses
+    , RsBody
+    , _RsBody
+    , sinkBody
+    ) where
 
 import           Control.Applicative
 import           Control.Monad.IO.Class
@@ -23,7 +37,7 @@ import           Network.AWS.Prelude
 import           Network.HTTP.Conduit
 import           System.IO
 
--- | Unsafely construct a 'RqBody' from a source, manually specifying the
+-- | Construct a 'RqBody' from a source, manually specifying the
 -- SHA256 hash and file size.
 sourceBody :: Digest SHA256
            -> Int64
@@ -31,17 +45,17 @@ sourceBody :: Digest SHA256
            -> RqBody
 sourceBody h n = RqBody h . requestBodySource n
 
--- | Unsafely construct a 'RqBody' from a 'Handle', manually specifying the
+-- | Construct a 'RqBody' from a 'Handle', manually specifying the
 -- SHA256 hash and file size.
 sourceHandle :: Digest SHA256 -> Int64 -> Handle -> RqBody
 sourceHandle h n = sourceBody h n . Conduit.sourceHandle
 
--- | Unsafely construct a 'RqBody' from a 'FilePath', manually specifying the
+-- | Construct a 'RqBody' from a 'FilePath', manually specifying the
 -- SHA256 hash and file size.
 sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
 sourceFile h n = sourceBody h n . Conduit.sourceFile
 
--- | Safely construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
+-- | Construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
 -- and file size.
 --
 -- /Note:/ While this function will perform in constant space, it will read the

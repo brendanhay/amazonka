@@ -1,4 +1,7 @@
 {-# LANGUAGE DefaultSignatures          #-}
+{-# LANGUAGE DeriveFoldable          #-}
+{-# LANGUAGE DeriveFunctor          #-}
+{-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
@@ -15,8 +18,6 @@
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
-
-{-# OPTIONS_GHC -ddump-splices #-}
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -50,7 +51,6 @@ module Network.AWS.Types
     , Retry         (..)
 
     -- * Errors
-    , AWSError
     , AsError       (..)
     , Error         (..)
 
@@ -131,14 +131,12 @@ type Abbrev = Text
 
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
-data Error a where
-    HttpError       ::           HttpException         -> Error a
-    SerializerError ::           Abbrev -> String      -> Error a
-    ServiceError    :: Show a => Abbrev -> Status -> a -> Error a
-    Errors          ::           [Error a]             -> Error a
-
-deriving instance Show     (Error a)
-deriving instance Typeable (Error a)
+data Error a
+    = HttpError       HttpException
+    | SerializerError Abbrev String
+    | ServiceError    Abbrev Status a
+    | Errors          [Error a]
+      deriving (Show, Typeable, Functor, Foldable, Traversable)
 
 instance (Show a, Typeable a) => Exception (Error a)
 
@@ -149,7 +147,7 @@ instance Monoid (Error a) where
         f (Errors xs) = xs
         f x           = [x]
 
-instance ToBuilder (Error a) where
+instance Show a => ToBuilder (Error a) where
     build = \case
         Errors          xs  -> buildLines (map build xs)
         HttpError       x   -> build x
@@ -166,11 +164,13 @@ instance ToBuilder (Error a) where
             ]
 
 class AsError e a | e -> a where
-      _Error           ::           Prism' e (Error a)
-      _HttpError       ::           Prism' e HttpException
-      _SerializerError ::           Prism' e (Abbrev, String)
-      _ServiceError    :: Show a => Prism' e (Abbrev, Status, a)
-      _Errors          ::           Prism' e [Error a]
+      _Error           :: Prism' e (Error a)
+      {-# MINIMAL _Error #-}
+
+      _HttpError       :: Prism' e HttpException
+      _SerializerError :: Prism' e (Abbrev, String)
+      _ServiceError    :: Prism' e (Abbrev, Status, a)
+      _Errors          :: Prism' e [Error a]
 
       _HttpError       = _Error . _HttpError
       _SerializerError = _Error . _SerializerError
@@ -251,8 +251,6 @@ clientRequest = def
     }
 
 type Response a = Either (Error (Er (Sv a))) (Status, Rs a)
-
-type AWSError e a = AsError e (Er (Sv a))
 
 -- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
@@ -415,7 +413,7 @@ instance ToBuilder (Request a) where
         , "  query   = "  <> build _rqQuery
         , "  headers = "  <> build _rqHeaders
         , "  body    = {"
-        , "    hash    = "  <> build (bodyHash _rqBody)
+        , "    hash    = "  <> build (_rqBody ^. bodyHash)
         , "    payload =\n" <> build (_bdyBody _rqBody)
         , "  }"
         , "}"

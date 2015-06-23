@@ -1,29 +1,28 @@
 -- | Version @{{ apiVersion }}@ of the {{ serviceFullName }}.
 data {{ serviceAbbrev }}
 
+type Er {{ serviceAbbrev }} = {{ serviceError }}
+
 instance AWSService {{ serviceAbbrev }} where
     type Sg {{ serviceAbbrev }} = {{ signatureVersion }}
-    type Er {{ serviceAbbrev }} = {{ serviceError }}
 
     service = service'
       where
         service' :: Service {{ serviceAbbrev }}
         service' = Service
-            { _svcAbbrev  = "{{ serviceAbbrev }}"
-            , _svcPrefix  = "{{ endpointPrefix }}"
-            , _svcVersion = "{{ apiVersion }}"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+            { _svcAbbrev   = "{{ serviceAbbrev }}"
+            , _svcPrefix   = "{{ endpointPrefix }}"
+            , _svcVersion  = "{{ apiVersion }}"
+            , _svcEndpoint = endpoint service'
+            , _svcHandle   = handle
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError {{ serviceError }})
-        handle = {{ serviceErrorFunction }} statusSuccess service'
+        handle :: Status -> Maybe (LazyByteString -> Error {{ serviceError }})
+        handle = {{ serviceErrorFunction }} service' statusSuccess
 
-        retry :: Retry {{ serviceAbbrev }}
+        retry :: Retry {{ serviceError }}
         retry = undefined
 
-        check :: Status
-              -> {{ serviceError }}
-              -> Bool
+        check :: Status -> {{ serviceError }} -> Bool
         check (statusCode -> s) (awsErrorCode -> e) = undefined

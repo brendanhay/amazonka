@@ -389,15 +389,6 @@ data Metadata f = Metadata
 
 makeClassy ''Metadata
 
-serviceError :: HasMetadata a f => Getter a (Text, Text)
-serviceError = protocol . to f
-  where
-    f = \case
-        JSON     -> ("JSONError", "jsonError")
-        RestJSON -> ("JSONError", "jsonError")
-        EC2      -> ("EC2Error",  "restError")
-        _        -> ("RESTError", "restError")
-
 instance FromJSON (Metadata Maybe) where
     parseJSON = withObject "meta" $ \o -> Metadata
         <$> o .:  "protocol"
@@ -417,11 +408,23 @@ instance ToJSON (Metadata Identity) where
       where
         Object x = gToJSON' camel m
         Object y = object
-            [ "serviceError"         .= e
-            , "serviceErrorFunction" .= f
+            [ "serviceError"         .= (m ^. serviceError)
+            , "serviceErrorFunction" .= (m ^. serviceErrorFunction)
             ]
 
-        (e, f) = m ^. serviceError
+serviceError :: HasMetadata a f => Getter a Text
+serviceError = to $ \m -> case m ^. protocol of
+    JSON     -> "JSONError"
+    RestJSON -> "JSONError"
+    EC2      -> "EC2Error"
+    _        -> "RESTError"
+
+serviceErrorFunction :: HasMetadata a f => Getter a Text
+serviceErrorFunction = to $ \m -> case m ^. protocol of
+    JSON     -> "jsonError"
+    RestJSON -> "jsonError"
+    EC2      -> "restError"
+    _        -> "restError"
 
 data Service f a b c = Service
     { _metadata'     :: Metadata f

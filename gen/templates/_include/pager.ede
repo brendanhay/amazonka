@@ -36,4 +36,8 @@ instance AWSPager {{ request.name }} where
         {{ token.key }} = rs ^. {{ token.value.output }}
    {% endfor %}
   {% endcase %}
+{% else %}
+
+instance AWSPager {{ request.name }} where
+  page _ _ = Nothing
 {% endif %}

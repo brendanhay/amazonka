@@ -54,7 +54,6 @@ import           Control.Exception
 import           Control.Lens
 import           Data.Aeson
 import           Data.Bifunctor
-import qualified Data.ByteString.Lazy.Char8  as BS8
 import           Data.Monoid
 import           Data.String
 import           Data.Typeable
@@ -80,18 +79,20 @@ newtype ErrorMessage = ErrorMessage Text
 data ErrorType
     = Receiver
     | Sender
-      deriving (Eq, Ord, Enum, Show, Generic)
+    | Unknown Text
+      deriving (Eq, Ord, Show, Generic)
 
 instance FromText ErrorType where
     parser = takeLowerText >>= \case
         "receiver" -> pure Receiver
         "sender"   -> pure Sender
-        e          -> fail $ "Failure parsing ErrorType from " ++ show e
+        t          -> pure (Unknown t)
 
 instance ToText ErrorType where
     toText = \case
-        Receiver -> "receiver"
-        Sender   -> "sender"
+        Receiver  -> "receiver"
+        Sender    -> "sender"
+        Unknown t -> t
 
 instance FromXML ErrorType where
     parseXML = parseXMLText "Type"

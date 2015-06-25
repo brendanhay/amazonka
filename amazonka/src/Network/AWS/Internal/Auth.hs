@@ -21,14 +21,13 @@ module Network.AWS.Internal.Auth where
 import           Control.Applicative
 import           Control.Concurrent
 import           Control.Monad
-import           Control.Monad.Error        (catchError, throwError)
+import           Control.Monad.Except       (catchError, throwError)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Except
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
 import           Data.Monoid
-import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Data.Time                  (diffUTCTime, getCurrentTime)

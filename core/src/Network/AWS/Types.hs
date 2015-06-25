@@ -153,7 +153,7 @@ data Service v s a = Service
     , _svcVersion  :: ByteString
     , _svcEndpoint :: Region -> Endpoint
     , _svcTimeout  :: !Int
-    , _svcHandle   :: Status -> Maybe (LazyByteString -> Either String a)
+    , _svcHandle   :: StdMethod -> Status -> Maybe (LazyByteString -> Either String a)
     , _svcError    :: Prism' Error a
     , _svcRetry    :: Retry a
     }
@@ -248,7 +248,7 @@ class AWSService (Sv a) => AWSRequest a where
     type Rs a :: *
 
     -- | An unsuccessful error response.
-    data Er a :: *
+    type Er a :: *
 
     -- | The default sevice configuration for the request.
     type Sv a :: *

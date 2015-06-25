@@ -1,3 +1,5 @@
+{-# LANGUAGE PackageImports #-}
+
 -- Module      : Network.AWS.Internal.Body
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -27,9 +29,8 @@ module Network.AWS.Internal.Body
 import           Control.Applicative
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
-import           Crypto.Hash
+import           "cryptohash" Crypto.Hash
 import qualified Crypto.Hash.Conduit          as Conduit
-import           Data.ByteString              (ByteString)
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Int

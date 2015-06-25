@@ -28,6 +28,7 @@ import           Control.Lens
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
+import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
@@ -102,31 +103,45 @@ deserialise g f l = receive $ \s h x -> do
     logDebug l $ "[Raw Response Body] {\n" <> lbs <> "\n}"
     return $! g lbs >>= f s h
 
+-- FIXME: Receive assumes too much regarding parsing of errors responses.
+
+-- The service svcHandle function should take on more work and
+-- more specific restError, jsonError, restJSONError etc should be used.
+
+-- Status code only errors seem common - cognito? definitely opsworks,
+-- compare others.
+
+
 receive :: MonadResource m
         => (Status -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
         -> Service v s (Er a)
         -> Request a
         -> Either HttpException ClientResponse
         -> m (Response a)
-receive f Service{..} _ = either (return . Left . HTTPError) go
+receive parse Service{..} _ = either (return . Left . HTTPError) go
   where
     go rs = do
         let s = responseStatus  rs
             h = responseHeaders rs
             x = responseBody    rs
         case _svcHandle s of
-            Just g  -> do
-                lbs <- sinkLBS x
-                return $!
-                    case g lbs of
-                        Left  e -> Left (SerializerError _svcAbbrev s e)
-                        Right e -> Left (_svcError # e)
+            Just f  -> serviceError s x f
             Nothing -> do
-                y <- f s h x
-                return $!
-                    case y of
-                        Left  e -> Left  (SerializerError _svcAbbrev s e)
-                        Right z -> Right (s, z)
+                y <- parse s h x
+                return $! case y of
+                    Left  e -> serialiserError s e
+                    Right z -> Right (s, z)
+
+    serviceError s x f = do
+        lbs <- sinkLBS x
+        return $!
+            if LBS.null lbs
+                then Left $ HTTPError (StatusCodeException s [] mempty)
+                else case f lbs of
+                    Left  e -> serialiserError s e
+                    Right e -> Left (_svcError # e)
+
+    serialiserError s e = Left (SerializerError _svcAbbrev s e)
 
 sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
 sinkLBS bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

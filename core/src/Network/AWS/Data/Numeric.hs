@@ -1,6 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
-{-# LANGUAGE TemplateHaskell            #-}
 
 -- Module      : Network.AWS.Data.Numeric
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,16 +13,16 @@
 
 module Network.AWS.Data.Numeric where
 
-import Control.Lens.TH
-import Control.Monad
-import Data.Aeson.Types
-import Data.Monoid
-import Data.Scientific
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text
-import Network.AWS.Data.XML
-import Numeric.Natural
+import           Control.Lens
+import           Control.Monad
+import           Data.Aeson.Types
+import           Data.Monoid
+import           Data.Scientific
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
+import           Numeric.Natural
 
 newtype Nat = Nat { unNat :: Natural }
     deriving
@@ -43,6 +42,9 @@ newtype Nat = Nat { unNat :: Natural }
         , ToQuery
         )
 
+_Nat :: Iso' Nat Natural
+_Nat = iso unNat Nat
+
 instance FromJSON Nat where
     parseJSON = parseJSON >=> go
       where
@@ -57,5 +59,3 @@ instance FromJSON Nat where
 
 instance ToJSON Nat where
     toJSON = Number . flip scientific 0 . toInteger . unNat
-
-makePrisms ''Nat

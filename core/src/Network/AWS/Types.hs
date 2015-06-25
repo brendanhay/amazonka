@@ -1,27 +1,14 @@
-{-# LANGUAGE DefaultSignatures          #-}
-
-{-# LANGUAGE ScopedTypeVariables          #-}
-{-# LANGUAGE RankNTypes          #-}
-
-{-# LANGUAGE DeriveFoldable          #-}
-{-# LANGUAGE DeriveFunctor          #-}
-{-# LANGUAGE DeriveTraversable          #-}
-{-# LANGUAGE ConstraintKinds            #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE StandaloneDeriving         #-}
-{-# LANGUAGE TemplateHaskell            #-}
-{-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 -- Module      : Network.AWS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,75 +20,71 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types where
-    -- (
-    -- -- * Authentication
-    -- -- ** Credentials
-    --   AccessKey     (..)
-    -- , SecretKey     (..)
-    -- , SecurityToken (..)
-    -- -- ** Environment
-    -- , AuthEnv       (..)
-    -- , Auth          (..)
-    -- , withAuth
+module Network.AWS.Types
+    (
+    -- * Authentication
+    -- ** Credentials
+      AccessKey     (..)
+    , SecretKey     (..)
+    , SecurityToken (..)
+    -- ** Environment
+    , AuthEnv       (..)
+    , Auth          (..)
+    , withAuth
 
-    -- -- * Services
-    -- , AWSService    (..)
-    -- , Abbrev
-    -- , Service       (..)
-    -- , serviceOf
+    -- * Services
+    , AWSService    (..)
+    , Abbrev
+    , Service       (..)
 
-    -- -- * Retries
-    -- , Retry         (..)
+    -- * Retries
+    , Retry         (..)
 
-    -- -- * Errors
-    -- , AsError       (..)
-    -- , Error         (..)
+    -- * Errors
+    , AsError       (..)
+    , Error         (..)
 
-    -- -- * Signing
-    -- , AWSSigner     (..)
-    -- , AWSPresigner  (..)
-    -- , Signed        (..)
-    -- , Meta
-    -- , sgMeta
-    -- , sgRequest
-    -- , sign
-    -- , presign
-    -- , hmacSHA256
+    -- * Signing
+    , AWSSigner     (..)
+    , AWSPresigner  (..)
+    , Meta
+    , Signed        (..)
+    , sgMeta
+    , sgRequest
+    , hmacSHA256
 
-    -- -- * Requests
-    -- , AWSRequest    (..)
-    -- , Request       (..)
-    -- , rqMethod
-    -- , rqHeaders
-    -- , rqPath
-    -- , rqQuery
-    -- , rqBody
+    -- * Requests
+    , AWSRequest    (..)
+    , Request       (..)
+    , rqMethod
+    , rqHeaders
+    , rqPath
+    , rqQuery
+    , rqBody
 
-    -- -- * Responses
-    -- , Response
+    -- * Responses
+    , Response
 
-    -- -- * Logging
-    -- , LogLevel      (..)
-    -- , Logger
+    -- * Logging
+    , LogLevel      (..)
+    , Logger
 
-    -- -- * Regions
-    -- , Region        (..)
+    -- * Regions
+    , Endpoint      (..)
+    , Region        (..)
 
-    -- -- * Convenience
-    -- , ClientRequest
-    -- , ClientResponse
-    -- , ResponseBody
-    -- , clientRequest
+    -- * Convenience
+    , ClientRequest
+    , ClientResponse
+    , ResponseBody
+    , clientRequest
 
-    -- , _Coerce
-    -- , _Default
-    -- ) where
+    , _Coerce
+    , _Default
+    ) where
 
-import Data.Proxy
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
-import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (coerce)
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
@@ -117,7 +100,6 @@ import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
-import           Data.Typeable (Typeable)
 import           GHC.Generics
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
@@ -130,54 +112,8 @@ import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           Text.XML                     (def)
-
--- | Abbreviated service name.
-type Abbrev = Text
-
--- | An error type representing the subset of errors that can be directly
--- attributed to this library.
-data Error a
-    = HttpError       HttpException
-    | SerializerError Abbrev String
-    | ServiceError    Abbrev Status a
-    | Errors          [Error a]
-      deriving (Show, Typeable, Functor, Foldable, Traversable)
-
-makeClassyPrisms ''Error
-
-instance (Show a, Typeable a) => Exception (Error a)
-
-instance Monoid (Error a) where
-    mempty      = Errors []
-    mappend a b = Errors (f a <> f b)
-      where
-        f (Errors xs) = xs
-        f x           = [x]
-
-instance Show a => ToBuilder (Error a) where
-    build = \case
-        Errors          xs  -> buildLines (map build xs)
-        HttpError       x   -> build x
-        SerializerError a x -> buildLines
-            [ "[SerializerError] {"
-            , "  service = " <> build a
-            , "  message = " <> build x
-            ]
-        ServiceError   a s x -> buildLines
-            [ "[ServiceError] {"
-            , "  service = " <> build a
-            , "  status  = " <> build s
-            , "  message = " <> build (show x)
-            ]
-
-data LogLevel
-    = Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
-    | Debug -- ^ Useful debug information + info + error levels.
-    | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
-    | Error -- ^ Error messages.
-      deriving (Eq, Ord, Enum, Show)
-
-type Logger = LogLevel -> Builder -> IO ()
+import Network.AWS.Logger
+import           Network.AWS.Error
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -216,9 +152,13 @@ data Service v s a = Service
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcEndpoint :: Region -> Endpoint
-    , _svcHandle   :: Status -> Maybe (LazyByteString -> Error a)
+    , _svcTimeout  :: !Int
+    , _svcHandle   :: Status -> Maybe (LazyByteString -> Either String a)
+    , _svcError    :: Prism' Error a
     , _svcRetry    :: Retry a
     }
+
+type Response a = Either Error (Status, Rs a)
 
 -- | An unsigned request.
 data Request a = Request
@@ -242,6 +182,21 @@ instance ToBuilder (Request a) where
         , "  }"
         , "}"
         ]
+
+rqBody :: Lens' (Request a) RqBody
+rqBody = lens _rqBody (\s a -> s { _rqBody = a })
+
+rqHeaders :: Lens' (Request a) [Header]
+rqHeaders = lens _rqHeaders (\s a -> s { _rqHeaders = a })
+
+rqMethod :: Lens' (Request a) StdMethod
+rqMethod = lens _rqMethod (\s a -> s { _rqMethod = a })
+
+rqPath :: Lens' (Request a) ByteString
+rqPath = lens _rqPath (\s a -> s { _rqPath = a })
+
+rqQuery :: Lens' (Request a) QueryString
+rqQuery = lens _rqQuery (\s a -> s { _rqQuery = a })
 
 class AWSSigner v where
     signed :: AuthEnv
@@ -282,6 +237,7 @@ sgRequest :: Lens' (Signed v a) ClientRequest
 sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
 
 class AWSSigner (Sg a) => AWSService a where
+    -- | The default signing algorithm for the service.
     type Sg a :: *
 
     service :: Sv p ~ a => p -> Service (Sg a) a (Er p)
@@ -292,7 +248,7 @@ class AWSService (Sv a) => AWSRequest a where
     type Rs a :: *
 
     -- | An unsuccessful error response.
-    type Er a :: *
+    data Er a :: *
 
     -- | The default sevice configuration for the request.
     type Sv a :: *
@@ -304,8 +260,6 @@ class AWSService (Sv a) => AWSRequest a where
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response a)
-
-type Response a = Either (Error (Er a)) (Status, Rs a)
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64
@@ -432,5 +386,3 @@ _Default = iso f Just
   where
     f (Just x) = x
     f Nothing  = mempty
-
-makeLenses ''Request

@@ -1,28 +1,37 @@
 -- | Version @{{ apiVersion }}@ of the {{ serviceFullName }}.
 data {{ serviceAbbrev }}
 
-type Er {{ serviceAbbrev }} = {{ serviceError }}
-
 instance AWSService {{ serviceAbbrev }} where
     type Sg {{ serviceAbbrev }} = {{ signatureVersion }}
 
-    service = service'
+    service = svc
       where
-        service' :: Service {{ serviceAbbrev }}
-        service' = Service
+        svc :: Service {{ serviceAbbrev }}
+        svc = Service
             { _svcAbbrev   = "{{ serviceAbbrev }}"
             , _svcPrefix   = "{{ endpointPrefix }}"
             , _svcVersion  = "{{ apiVersion }}"
-            , _svcEndpoint = endpoint service'
+            , _svcEndpoint = endpoint svc
+            , _svcTimeout  = 80000000
+            , _svcError    = _{{ serviceAbbrev }}Error
             , _svcHandle   = handle
             , _svcRetry    = retry
             }
 
-        handle :: Status -> Maybe (LazyByteString -> Error {{ serviceError }})
-        handle = {{ serviceErrorFunction }} service' statusSuccess
+        handle :: Status -> Maybe (LazyByteString -> Either String {{ serviceError }})
+        handle = {{ serviceErrorFunction }} statusSuccess (_svcAbbrev svc)
 
-        retry :: Retry {{ serviceError }}
-        retry = undefined
+        retry :: Retry
+        retry = Retry
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryError    = preview _{{ serviceAbbrev }}Error
+            , _retryCheck    = check
+            }
 
         check :: Status -> {{ serviceError }} -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+        check (statusCode -> s) (awsErrorCode -> e) = error "FIXME: Retry check not implemented."
+
+_{{ serviceAbbrev }}Error :: AsError a => Prism' a {{ serviceError }}
+_{{ serviceAbbrev }}Error = _{{ serviceError }}

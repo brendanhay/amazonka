@@ -426,8 +426,10 @@ parseHeadersE p f
 
 parseStatusE :: Field -> Exp
 parseStatusE f
-    | f ^. fieldMaybe = app (var "pure") (app (var "Just") (var "s"))
-    | otherwise       = app (var "pure") (var "s")
+    | f ^. fieldMaybe = app (var "pure") (app (var "Just") v)
+    | otherwise       = app (var "pure") v
+  where
+    v = paren $ app (var "fromEnum") (var "s")
 
 toXMLE :: Protocol -> Field -> Exp
 toXMLE p = toGenericE p toX "toXML" toXMap toXList

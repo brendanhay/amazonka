@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
@@ -13,16 +14,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Response
-    (
-    -- * Responses
-      receiveNull
-    , receiveXMLWrapper
-    , receiveXML
-    , receiveJSON
-    , receiveBody
-    ) where
+module Network.AWS.Response where
+    -- (
+    -- -- * Responses
+    --   receiveNull
+    -- , receiveXMLWrapper
+    -- , receiveXML
+    -- , receiveJSON
+    -- , receiveBody
+    -- ) where
 
+import           Control.Lens
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
@@ -39,94 +41,92 @@ import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 
-receiveNull :: MonadResource m
-            => Rs a
-            -> Logger
-            -> Service v s (Er a)
-            -> Request a
-            -> Either HttpException ClientResponse
-            -> m (Response a)
-receiveNull rs _ = receive $ \_ _ _ bdy ->
-    liftResourceT (bdy $$+- return (Right rs))
+-- receiveNull :: MonadResource m
+--             => Rs a
+--             -> Logger
+--             -> Service v s (Er a)
+--             -> Request a
+--             -> Either HttpException ClientResponse
+--             -> m (Response a)
+-- receiveNull rs _ = receive $ \_ _ _ bdy ->
+--     liftResourceT (bdy $$+- return (Right rs))
 
-receiveXMLWrapper :: MonadResource m
-                  => Text
-                  -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
-                  -> Logger
-                  -> Service v s (Er a)
-                  -> Request a
-                  -> Either HttpException ClientResponse
-                  -> m (Response a)
-receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
+-- receiveXMLWrapper :: MonadResource m
+--                   => Text
+--                   -> (Status -> ResponseHeaders -> [Node] -> Either String (Rs a))
+--                   -> Logger
+--                   -> Service v s (Er a)
+--                   -> Request a
+--                   -> Either HttpException ClientResponse
+--                   -> m (Response a)
+-- receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
-receiveXML :: MonadResource m
-           => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
-           -> Logger
-           -> Service v s (Er a)
-           -> Request a
-           -> Either HttpException ClientResponse
-           -> m (Response a)
-receiveXML = deserialise decodeXML
+-- receiveXML :: MonadResource m
+--            => (Status -> ResponseHeaders -> [Node] -> Either String (Rs a))
+--            -> Logger
+--            -> Service v s (Er a)
+--            -> Request a
+--            -> Either HttpException ClientResponse
+--            -> m (Response a)
+-- receiveXML = deserialise decodeXML
 
-receiveJSON :: MonadResource m
-            => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
-            -> Logger
-            -> Service v s (Er a)
-            -> Request a
-            -> Either HttpException ClientResponse
-            -> m (Response a)
-receiveJSON = deserialise eitherDecode'
+-- receiveJSON :: MonadResource m
+--             => (Status -> ResponseHeaders -> Object -> Either String (Rs a))
+--             -> Logger
+--             -> Service v s (Er a)
+--             -> Request a
+--             -> Either HttpException ClientResponse
+--             -> m (Response a)
+-- receiveJSON = deserialise eitherDecode'
 
-receiveBody :: MonadResource m
-            => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
-            -> Logger
-            -> Service v s (Er a)
-            -> Request a
-            -> Either HttpException ClientResponse
-            -> m (Response a)
-receiveBody f _ = receive $ \a s h x ->
-    return (SerializerError a `first` f s h (RsBody x))
+-- receiveBody :: MonadResource m
+--             => (Status -> ResponseHeaders -> RsBody -> Either String (Rs a))
+--             -> Logger
+--             -> Service v s (Er a)
+--             -> Request a
+--             -> Either HttpException ClientResponse
+--             -> m (Response a)
+-- receiveBody f _ = receive $ \a s h x ->
+--     return (SerializerError a s `first` f s h (RsBody x))
 
 deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
-            -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
+            -> (Status -> ResponseHeaders -> b -> Either String (Rs a))
             -> Logger
             -> Service v s (Er a)
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response a)
-deserialise g f l = receive $ \a s h x -> do
-    lbs <- sinkLbs x
+deserialise g f l = receive $ \s h x -> do
+    lbs <- sinkLBS x
     logDebug l $ "[Raw Response Body] {\n" <> lbs <> "\n}"
-    return $! case g lbs of
-        Left  e -> Left (SerializerError a e)
-        Right o ->
-            case f s h o of
-                Left  e -> Left (SerializerError a e)
-                Right y -> Right y
+    return $! g lbs >>= f s h
 
 receive :: MonadResource m
-        => (Abbrev -> Int
-                   -> ResponseHeaders
-                   -> ResponseBody
-                   -> m (Either (Error (Er a)) (Rs a)))
+        => (Status -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
         -> Service v s (Er a)
         -> Request a
         -> Either HttpException ClientResponse
         -> m (Response a)
-receive f svc _ = either (return . Left . HttpError) success
+receive f Service{..} _ = either (return . Left . HTTPError) go
   where
-    success rs = do
+    go rs = do
         let s = responseStatus  rs
             h = responseHeaders rs
             x = responseBody    rs
-        case _svcHandle svc s of
-            Just g  -> Left . g <$> sinkLbs x
+        case _svcHandle s of
+            Just g  -> do
+                lbs <- sinkLBS x
+                return $!
+                    case g lbs of
+                        Left  e -> Left (SerializerError _svcAbbrev s e)
+                        Right e -> Left (_svcError # e)
             Nothing -> do
-                y <- f (_svcAbbrev svc) (fromEnum s) h x
-                case y of
-                    Left  e -> return $! Left e
-                    Right z -> return $! Right (s, z)
+                y <- f s h x
+                return $!
+                    case y of
+                        Left  e -> Left  (SerializerError _svcAbbrev s e)
+                        Right z -> Right (s, z)
 
-sinkLbs :: MonadResource m => ResponseBody -> m LazyByteString
-sinkLbs bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)
+sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
+sinkLBS bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

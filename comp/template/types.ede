@@ -15,6 +15,7 @@ module {{ moduleName }}
       {{ serviceAbbrev }}
     -- ** Errors
     , {{ serviceError }}
+    , _{{ serviceAbbrev }}Error
 
   {% for shape in shapes %}
     -- * {{ shape.value.name }}

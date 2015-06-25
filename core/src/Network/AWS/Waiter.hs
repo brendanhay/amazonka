@@ -40,7 +40,6 @@ import qualified Data.Text                   as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Error
 import           Network.AWS.Types
-import           Network.HTTP.Types
 
 type Acceptor a = Request a -> Response a -> Maybe Accept
 
@@ -75,23 +74,19 @@ matchAny x a l = match (anyOf l (== x)) a
 
 matchStatus :: Int -> Accept -> Acceptor a
 matchStatus x a _ = \case
-    Left (ServiceError _ s _)
-        | x == statusCode s -> Just a
-    Right (s, _)
-        | x == statusCode s -> Just a
-    _                       -> Nothing
+    Right (s, _) | x == fromEnum s                          -> Just a
+    Left  e      | Just x == (fromEnum <$> e ^? httpStatus) -> Just a
+    _                                                       -> Nothing
 
-matchError :: AWSErrorCode (Er a) => ErrorCode -> Accept -> Acceptor a
+matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
-    Left (ServiceError _ _ e)
-        | Just c == awsErrorCode e -> Just a
-    _                              -> Nothing
+    Left e | Just c == e ^? errorCode -> Just a
+    _                                 -> Nothing
 
 match :: (Rs a -> Bool) -> Accept -> Acceptor a
 match f a _ = \case
-    Right (_, rs)
-        | f rs -> Just a
-    _          -> Nothing
+    Right (_, rs) | f rs -> Just a
+    _                    -> Nothing
 
 nonEmpty :: Fold a Text -> Fold a Bool
 nonEmpty l = l . to Text.null

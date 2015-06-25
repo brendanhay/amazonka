@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Network.AWS.Logger
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -55,11 +54,18 @@ import           Data.Time                    (UTCTime)
 import           Data.Word
 import           GHC.Float
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Types
 import           Network.HTTP.Client
 import qualified Network.HTTP.Client          as Client
-import           Network.HTTP.Types
 import           System.IO
+
+data LogLevel
+    = Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
+    | Debug -- ^ Useful debug information + info + error levels.
+    | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    | Error -- ^ Error messages.
+      deriving (Eq, Ord, Enum, Show)
+
+type Logger = LogLevel -> Builder -> IO ()
 
 -- | This is a primitive logger which can be used to log messages to a 'Handle'.
 --

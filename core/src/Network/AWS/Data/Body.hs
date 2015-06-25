@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Network.AWS.Data.Body
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,9 +28,10 @@ import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client
 import           Text.XML                     (Element)
 
-data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
+newtype RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
-makePrisms ''RsBody
+_RsBody :: Iso' RsBody (ResumableSource (ResourceT IO) ByteString)
+_RsBody = iso (\(RsBody x) -> x) RsBody
 
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"

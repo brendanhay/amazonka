@@ -5,7 +5,6 @@
 {-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TemplateHaskell     #-}
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE TypeOperators       #-}
 {-# LANGUAGE ViewPatterns        #-}
@@ -56,8 +55,6 @@ data QueryString
     | QValue (Maybe ByteString)
       deriving (Eq, Show, Data, Typeable)
 
-makePrisms ''QueryString
-
 instance Monoid QueryString where
     mempty = QList []
 
@@ -102,6 +99,12 @@ instance ToBuilder QueryString where
 
 valuesOf :: Traversal' QueryString (Maybe ByteString)
 valuesOf = deep _QValue
+  where
+    _QValue :: Prism' QueryString (Maybe ByteString)
+    _QValue = prism QValue $
+        \case
+            QValue m -> Right m
+            x        -> Left x
 
 pair :: ToQuery a => ByteString -> a -> QueryString -> QueryString
 pair k v = mappend (QPair k (toQuery v))

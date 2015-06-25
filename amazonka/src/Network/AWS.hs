@@ -30,6 +30,8 @@ module Network.AWS
     -- ** AWST
     , AWST
     , runAWST
+    -- ** Constraints
+    , MonadAWS
 
     -- * Requests
     -- ** Synchronous
@@ -45,6 +47,8 @@ module Network.AWS
     -- ** Pre-signing
     , presign
     , presignWith
+    -- ** Asynchronous
+    -- $async
 
     -- * Errors
     , AWSError  (..)
@@ -131,6 +135,16 @@ type AWS = AWST (ResourceT IO)
 runAWS :: Env -> AWS a -> IO (Either Error a)
 runAWS e = runResourceT . runAWST e
 
+-- | A type alias used to abbreviate the most commonly used constraints.
+type MonadAWS r e m =
+    ( MonadCatch      m
+    , MonadResource   m
+    , MonadReader   r m
+    , MonadError    e m
+    , AWSEnv        r
+    , AWSError      e
+    )
+
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
 --
@@ -158,24 +172,14 @@ once = local $ \e ->
     e & envRetryPolicy ?~ limitRetries 0
       & envRetryCheck  .~ (\_ _ -> return False)
 
-
--- $ async
+-- $async
 --
--- < lifted-async>
+-- /See:/ <http://hackage.haskell.org/package/lifted-async lifted-async>
 
 -- | A variant of 'send' which discards any successful response.
 --
 -- /See:/ 'send'
-send_ :: ( MonadCatch      m
-         , MonadResource   m
-         , MonadReader   r m
-         , MonadError    e m
-         , AWSEnv        r
-         , AWSError      e
-         , AWSRequest    a
-         )
-      => a
-      -> m ()
+send_ :: (MonadAWS r e m, AWSRequest a) => a -> m ()
 send_ = void . send
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
@@ -190,27 +194,10 @@ send_ = void . send
 -- streaming request bodies (such as S3's 'PutObject') are never considered for retries.
 --
 -- /See:/ 'sendWith'
-send :: ( MonadCatch      m
-        , MonadResource   m
-        , MonadReader   r m
-        , MonadError    e m
-        , AWSEnv        r
-        , AWSError      e
-        , AWSRequest    a
-        )
-     => a
-     -> m (Rs a)
+send :: (MonadAWS r e m, AWSRequest a) => a -> m (Rs a)
 send x = sendWith (service x) x
 
-sendWith :: ( MonadCatch      m
-            , MonadResource   m
-            , MonadReader   r m
-            , MonadError    e m
-            , AWSEnv        r
-            , AWSError      e
-            , AWSSigner     v
-            , AWSRequest    a
-            )
+sendWith :: (MonadAWS r e m, AWSSigner v, AWSRequest a)
          => Service v s
          -> a
          -> m (Rs a)
@@ -229,27 +216,10 @@ sendWith svc (request -> rq) =
 -- /See:/ 'runResourceT' for more information.
 --
 -- /See:/ 'paginateWith'
-paginate :: ( MonadCatch      m
-            , MonadResource   m
-            , MonadReader   r m
-            , MonadError    e m
-            , AWSEnv        r
-            , AWSError      e
-            , AWSPager      a
-            )
-         => a
-         -> Source m (Rs a)
+paginate :: (MonadAWS r e m, AWSPager a) => a -> Source m (Rs a)
 paginate x = paginateWith (service x) x
 
-paginateWith :: ( MonadCatch      m
-                , MonadResource   m
-                , MonadReader   r m
-                , MonadError    e m
-                , AWSEnv        r
-                , AWSError      e
-                , AWSSigner     v
-                , AWSPager      a
-                )
+paginateWith :: (MonadAWS r e m, AWSSigner v, AWSPager a)
              => Service v s
              -> a
              -> Source m (Rs a)
@@ -272,28 +242,10 @@ paginateWith svc = go
 -- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
 --
 -- /See:/ 'awaitWith'
-await :: ( MonadCatch      m
-         , MonadResource   m
-         , MonadReader   r m
-         , MonadError    e m
-         , AWSEnv        r
-         , AWSError      e
-         , AWSRequest    a
-         )
-      => Wait a
-      -> a
-      -> m (Rs a)
+await :: (MonadAWS r e m, AWSRequest a) => Wait a -> a -> m (Rs a)
 await w x = awaitWith w (service x) x
 
-awaitWith :: ( MonadCatch      m
-             , MonadResource   m
-             , MonadReader   r m
-             , MonadError    e m
-             , AWSEnv        r
-             , AWSError      e
-             , AWSSigner     v
-             , AWSRequest    a
-             )
+awaitWith :: (MonadAWS r e m, AWSSigner v, AWSRequest a)
           => Wait a
           -> Service v s
           -> a

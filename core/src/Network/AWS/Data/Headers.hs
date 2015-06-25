@@ -14,7 +14,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Headers where
+module Network.AWS.Data.Headers
+    ( module Network.AWS.Data.Headers
+    , HeaderName
+    , Header
+    ) where
 
 import           Data.Bifunctor
 import qualified Data.ByteString             as BS
@@ -97,11 +101,20 @@ hAMZSignedHeaders = "X-Amz-SignedHeaders"
 hAMZContentSHA256 :: HeaderName
 hAMZContentSHA256 = "X-Amz-Content-SHA256"
 
-hAMZAuth :: HeaderName
-hAMZAuth = "X-Amzn-Authorization"
-
 hAMZDate :: HeaderName
 hAMZDate = "X-Amz-Date"
 
 hMetaPrefix :: HeaderName
 hMetaPrefix = "X-Amz-"
+
+hAMZRequestId :: HeaderName
+hAMZRequestId = "X-Amz-Request-Id"
+
+hAMZNRequestId :: HeaderName
+hAMZNRequestId = "X-Amzn-RequestId"
+
+hAMZNErrorType :: HeaderName
+hAMZNErrorType = "X-Amzn-ErrorType"
+
+hAMZNAuth :: HeaderName
+hAMZNAuth = "X-Amzn-Authorization"

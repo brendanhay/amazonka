@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PackageImports    #-}
 {-# LANGUAGE RecordWildCards   #-}
 
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -30,7 +31,7 @@ module Network.AWS.Data.ByteString
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Retry
-import           Crypto.Hash
+import           "cryptohash" Crypto.Hash
 import           Data.ByteString                   (ByteString)
 import qualified Data.ByteString                   as BS
 import           Data.ByteString.Builder           (Builder)

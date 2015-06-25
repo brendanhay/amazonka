@@ -1,6 +1,7 @@
 {-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PackageImports    #-}
 
 -- Module      : Network.AWS.Data.Text
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,7 +25,7 @@ module Network.AWS.Data.Text
     ) where
 
 import           Control.Applicative
-import           Crypto.Hash
+import           "cryptohash" Crypto.Hash
 import           Data.Attoparsec.Text              (Parser)
 import qualified Data.Attoparsec.Text              as AText
 import           Data.ByteString                   (ByteString)
@@ -41,7 +42,6 @@ import qualified Data.Text.Lazy                    as LText
 import           Data.Text.Lazy.Builder            (Builder)
 import qualified Data.Text.Lazy.Builder            as Build
 import qualified Data.Text.Lazy.Builder.Int        as Build
-import qualified Data.Text.Lazy.Builder.RealFloat  as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
 import           Network.HTTP.Client
 import           Network.HTTP.Types

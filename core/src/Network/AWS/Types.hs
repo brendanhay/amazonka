@@ -41,7 +41,7 @@ module Network.AWS.Types
     , Retry         (..)
 
     -- * Errors
-    , AsError       (..)
+    , AWSError       (..)
     , Error         (..)
 
     -- * Signing
@@ -139,23 +139,23 @@ data Endpoint = Endpoint
     } deriving (Eq, Show)
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
-data Retry a = Exponential
+data Retry = Exponential
     { _retryBase     :: !Double
     , _retryGrowth   :: !Int
     , _retryAttempts :: !Int
-    , _retryCheck    :: Status -> a -> Bool
+    , _retryCheck    :: ServiceError -> Bool
     }
 
 -- | Attributes and functions specific to an AWS service.
-data Service v s a = Service
-    { _svcAbbrev   :: Text
+data Service v s = Service
+    { _svcAbbrev   :: Abbrev
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcEndpoint :: Region -> Endpoint
     , _svcTimeout  :: !Int
-    , _svcHandle   :: StdMethod -> Status -> Maybe (LazyByteString -> Either String a)
-    , _svcError    :: Prism' Error a
-    , _svcRetry    :: Retry a
+    , _svcStatus   :: Status -> Bool
+    , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
+    , _svcRetry    :: Retry
     }
 
 type Response a = Either Error (Status, Rs a)
@@ -202,7 +202,7 @@ class AWSSigner v where
     signed :: AuthEnv
            -> Region
            -> UTCTime
-           -> Service v s (Er a)
+           -> Service v s
            -> Request a
            -> Signed  v a
 
@@ -211,7 +211,7 @@ class AWSPresigner v where
               -> Region
               -> UTCTime
               -> Integer
-              -> Service v s (Er a)
+              -> Service v s
               -> Request a
               -> Signed  v a
 
@@ -240,15 +240,12 @@ class AWSSigner (Sg a) => AWSService a where
     -- | The default signing algorithm for the service.
     type Sg a :: *
 
-    service :: Sv p ~ a => p -> Service (Sg a) a (Er p)
+    service :: Sv p ~ a => p -> Service (Sg a) a
 
 -- | Specify how a request can be de/serialised.
 class AWSService (Sv a) => AWSRequest a where
     -- | The successful, expected response associated with a request.
     type Rs a :: *
-
-    -- | An unsuccessful error response.
-    type Er a :: *
 
     -- | The default sevice configuration for the request.
     type Sv a :: *
@@ -256,7 +253,7 @@ class AWSService (Sv a) => AWSRequest a where
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Service v s (Er a)
+             -> Service v s
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response a)

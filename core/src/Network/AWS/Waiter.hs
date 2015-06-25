@@ -80,8 +80,8 @@ matchStatus x a _ = \case
 
 matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
-    Left e | Just c == e ^? errorCode -> Just a
-    _                                 -> Nothing
+    Left e | Just c == e ^? _ServiceError . errorCode -> Just a
+    _                                                 -> Nothing
 
 match :: (Rs a -> Bool) -> Accept -> Acceptor a
 match f a _ = \case

@@ -4,6 +4,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE ViewPatterns               #-}
@@ -19,191 +20,109 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Error where
-    -- (
-    -- -- * Status Checks
-    --   statusSuccess
-    -- , httpStatus
-    -- , errorCode
-
-    -- -- * Classes
-    -- , AsError      (..)
-
-    -- -- * Types
-    -- , Error        (..)
-    -- , ErrorCode    (..)
-    -- , ErrorType    (..)
-
-    -- -- * REST Errors
-    -- , RESTError
-    -- , restRequestId
-    -- , restType
-    -- , restCode
-    -- , restMessage
-    -- , restError
-
-    -- -- * JSON Errors
-    -- , JSONError
-    -- , jsonType
-    -- , jsonCode
-    -- , jsonMessage
-    -- , jsonError
-    -- ) where
 
 import           Control.Applicative
 import           Control.Exception
 import           Control.Lens
+import           Control.Monad
 import           Data.Aeson
-import           Data.Bifunctor
+import           Data.Aeson.Types            (parseEither)
+import qualified Data.ByteString.Lazy        as LBS
+import           Data.Maybe
 import           Data.Monoid
 import           Data.String
+import qualified Data.Text                   as Text
+import qualified Data.Text.Encoding          as Text
 import           Data.Typeable
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 import           Network.HTTP.Client
 import           Network.HTTP.Types.Status   (Status (..))
 
--- | Abbreviated service name.
-type Abbrev = Text
+statusSuccess :: Status -> Bool
+statusSuccess (statusCode -> n) = n >= 200 && n < 300
 
-newtype RequestId = RequestId Text
-    deriving (Eq, Ord, Show, Generic, IsString, FromXML, FromJSON, ToText)
+-- | Abbreviated service name.
+newtype Abbrev = Abbrev Text
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromXML
+        , FromJSON
+        , FromText
+        , ToText
+        , ToBuilder
+        )
 
 newtype ErrorCode = ErrorCode Text
-    deriving (Eq, Ord, Show, Generic, IsString, FromXML, FromJSON, ToText)
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromXML
+        , FromJSON
+        , FromText
+        , ToText
+        , ToBuilder
+        )
 
 newtype ErrorMessage = ErrorMessage Text
-    deriving (Eq, Ord, Show, Generic, IsString, FromXML, FromJSON, ToText)
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromXML
+        , FromJSON
+        , FromText
+        , ToText
+        , ToBuilder
+        )
 
-data ErrorType
-    = Receiver
-    | Sender
-    | Unknown Text
-      deriving (Eq, Ord, Show, Generic)
-
-instance FromText ErrorType where
-    parser = takeLowerText >>= \case
-        "receiver" -> pure Receiver
-        "sender"   -> pure Sender
-        t          -> pure (Unknown t)
-
-instance ToText ErrorType where
-    toText = \case
-        Receiver  -> "receiver"
-        Sender    -> "sender"
-        Unknown t -> t
-
-instance FromXML ErrorType where
-    parseXML = parseXMLText "Type"
-
-data RESTError = RESTError
-    { _restService   :: Abbrev
-    , _restStatus    :: Status
-    , _restRequestId :: RequestId
-    , _restType      :: Maybe ErrorType
-    , _restCode      :: Maybe ErrorCode
-    , _restMessage   :: ErrorMessage
-    } deriving (Eq, Show, Generic)
-
-instance FromXML (Abbrev -> Status -> RESTError) where
-    parseXML x = withElement "Error" parse x <|> parse x
-      where
-        parse y = do
-            (r, t, c, m) <- (,,,)
-                <$> x .@  "RequestId"
-                <*> y .@? "Type"
-                <*> y .@? "Code"
-                <*> y .@  "Message"
-            return $ \a s ->
-                RESTError a s r t c m
-
-data JSONError = JSONError
-    { _jsonService :: Abbrev
-    , _jsonStatus  :: Status
-    , _jsonType    :: Maybe Text
-    , _jsonCode    :: Maybe ErrorCode
-    , _jsonMessage :: ErrorMessage
-    } deriving (Eq, Show, Generic)
-
-instance FromJSON (Abbrev -> Status -> JSONError) where
-    parseJSON = withObject "JSONServiceError" parse
-      where
-        parse o = do
-            (t, c, m) <- rest o <|> post o
-            return $ \a s ->
-                JSONError a s t c m
-
-        rest o = (,,)
-             <$> o .:? "Type"
-             <*> o .:? "Code"
-             <*> o .:  "Message"
-
-        post o = (,,)
-             <$> o .:? "__type"
-             <*> o .:? "code"
-             <*> o .:  "message"
+newtype RequestId = RequestId Text
+    deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , IsString
+        , FromXML
+        , FromJSON
+        , FromText
+        , ToText
+        , ToBuilder
+        )
 
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data Error
-    = HTTPError        HttpException
-    | SerializerError  Abbrev Status String
-    | RESTServiceError RESTError
-    | JSONServiceError JSONError
---    | EC2Error        Abbrev Status EC2Error
---    | Errors          [ServiceError]
+    = HTTPError       HttpException
+    | SerializerError Abbrev Status String
+    | ServiceError    ServiceError
       deriving (Show, Typeable)
 
 instance Exception Error
 
--- instance Monoid Error where
---     mempty      = Errors []
---     mappend a b = Errors (f a <> f b)
---       where
---         f (Errors xs) = xs
---         f x           = [x]
-
-instance ToBuilder Error where
-    build = \case
---        Errors          xs  -> buildLines (map build xs)
-        HTTPError       x   -> build x
-        SerializerError a s x -> buildLines
-            [ "[SerializerError] {"
-            , "  service = " <> build a
-            , "  status  = " <> build s
-            , "  message = " <> build x
-            ]
-        -- ServiceError   a s x -> buildLines
-        --     [ "[ServiceError] {"
-        --     , "  service = " <> build a
-        --     , "  status  = " <> build s
-        --     , "  message = " <> build (show x)
-        --     ]
-
--- class AWSError a where
---     awsError :: a -> ServiceError String
-
--- instance Show a => AWSError (ServiceError a) where
---     awsError = \case
---         HttpError       e     -> HttpError e
---         SerializerError a e   -> SerializerError a e
---         APIError     a s x -> APIError a s (show x)
---         Errors          xs    -> Errors (map awsError xs)
-
-class AsError a where
+class AWSError a where
     _Error           :: Prism' a Error
     _HTTPError       :: Prism' a HttpException
     _SerializerError :: Prism' a (Abbrev, Status, String)
-    _RESTError       :: Prism' a RESTError
-    _JSONError       :: Prism' a JSONError
+    _ServiceError    :: Prism' a ServiceError
 
     _HTTPError       = _Error . _HTTPError
     _SerializerError = _Error . _SerializerError
-    _RESTError       = _Error . _RESTError
-    _JSONError       = _Error . _JSONError
+    _ServiceError    = _Error . _ServiceError
 
-instance AsError Error where
+instance AWSError Error where
     _Error = id
 
     _HTTPError = prism
@@ -218,51 +137,149 @@ instance AsError Error where
             SerializerError a s e -> Right (a, s, e)
             x -> Left x)
 
-    _RESTError = prism
-        RESTServiceError
+    _ServiceError = prism
+        ServiceError
         (\case
-            RESTServiceError e -> Right e
-            x           -> Left x)
+            ServiceError e -> Right e
+            x              -> Left x)
 
-    _JSONError = prism
-        JSONServiceError
-        (\case
-            JSONServiceError e -> Right e
-            x           -> Left x)
-
-statusSuccess :: Status -> Bool
-statusSuccess (statusCode -> n) = n >= 200 && n < 400
-
-httpStatus :: AsError a => Getting (First Status) a Status
-httpStatus = const (Const . First . f)
+httpStatus :: AWSError a => Getting (First Status) a Status
+httpStatus = _Error . f
   where
-    f x = x ^? _SerializerError . _2
-      <|> x ^? _RESTError . to _restStatus
-      <|> x ^? _JSONError . to _jsonStatus
+    f g = \case
+        HTTPError (StatusCodeException s h c)
+            -> HTTPError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
+        HTTPError e
+            -> pure (HTTPError e)
+        SerializerError a s e
+            -> SerializerError a <$> g s <*> pure e
+        ServiceError e
+            -> g (_errorStatus e) <&> \x -> ServiceError (e { _errorStatus = x })
 
-errorCode :: AsError a => Getting (First ErrorCode) a ErrorCode
-errorCode = const (Const . First . f)
+instance ToBuilder Error where
+    build = \case
+        HTTPError           e -> build e
+        SerializerError a s x -> buildLines
+            [ "[SerializerError] {"
+            , "  service = " <> build a
+            , "  status  = " <> build s
+            , "  message = " <> build x
+            ]
+        ServiceError        e -> build e
+
+data ServiceError = ServiceError'
+    { _errorService   :: Abbrev
+    , _errorStatus    :: Status
+    , _errorHeaders   :: [Header]
+    , _errorCode      :: ErrorCode
+    , _errorMessage   :: Maybe ErrorMessage
+    , _errorRequestId :: Maybe RequestId
+    } deriving (Eq, Show, Typeable)
+
+instance Exception ServiceError
+
+instance ToBuilder ServiceError where
+    build ServiceError'{..} = buildLines
+        [ "[ServiceError] {"
+        , "  service    = " <> build _errorService
+        , "  status     = " <> build _errorStatus
+        , "  code       = " <> build _errorCode
+        , "  message    = " <> build _errorMessage
+        , "  request-id = " <> build _errorRequestId
+        ]
+
+errorService :: Lens' ServiceError Abbrev
+errorService = lens _errorService (\s a -> s { _errorService = a })
+
+errorStatus :: Lens' ServiceError Status
+errorStatus = lens _errorStatus (\s a -> s { _errorStatus = a })
+
+errorHeaders :: Lens' ServiceError [Header]
+errorHeaders = lens _errorHeaders (\s a -> s { _errorHeaders = a })
+
+errorCode :: Lens' ServiceError ErrorCode
+errorCode = lens _errorCode (\s a -> s { _errorCode = a })
+
+errorMessage :: Lens' ServiceError (Maybe ErrorMessage)
+errorMessage = lens _errorMessage (\s a -> s { _errorMessage = a })
+
+errorRequestId :: Lens' ServiceError (Maybe RequestId)
+errorRequestId = lens _errorRequestId (\s a -> s { _errorRequestId = a })
+
+serviceError :: Abbrev
+             -> Status
+             -> [Header]
+             -> Maybe ErrorCode
+             -> Maybe ErrorMessage
+             -> Maybe RequestId
+             -> ServiceError
+serviceError a s h c m r =
+    ServiceError' a s h (fromMaybe (getErrorCode s h) c) m (r <|> getRequestId h)
+
+getRequestId :: [Header] -> Maybe RequestId
+getRequestId h =
+    either (const Nothing) Just (h .# hAMZRequestId <|> h .# hAMZNRequestId)
+
+getErrorCode :: Status -> [Header] -> ErrorCode
+getErrorCode s h =
+    fromMaybe (ErrorCode . Text.decodeUtf8 $ statusMessage s) $
+        case h .# hAMZNErrorType of
+            Left  _ -> Nothing
+            Right t -> fmap ErrorCode . lastOf traverse $ Text.split (== '#') t
+
+parseJSONError :: Abbrev
+               -> Status
+               -> [Header]
+               -> LazyByteString
+               -> Error
+parseJSONError a s h bs = decodeError a s h bs (parse bs)
   where
-    f x = x ^? _RESTError . to _restCode . _Just
-      <|> x ^? _JSONError . to _jsonCode . _Just
+    parse = eitherDecode' >=> parseEither (withObject "JSONError" go)
 
-restError :: (Status -> Bool)
-          -> Abbrev
-          -> Status
-          -> Maybe (LazyByteString -> Either String RESTError)
-restError = decodeError decodeXML
+    go o = do
+        c <- (Just <$> o .: "__type") <|> o .:? "code"
+        m <- msg c o
+        return $! serviceError a s h c m Nothing
 
-jsonError :: (Status -> Bool)
-          -> Abbrev
-          -> Status
-          -> Maybe (LazyByteString -> Either String JSONError)
-jsonError = decodeError eitherDecode'
+    msg c o =
+        if c == Just "RequestEntityTooLarge"
+            then pure (Just "Request body must be less than 1 MB")
+            else Just <$> o .:  "message"
+                      <|> o .:? "Message"
 
-decodeError :: (LazyByteString -> Either String (Abbrev -> Status -> a))
-            -> (Status -> Bool)
-            -> Abbrev
+parseXMLError :: Abbrev
+              -> Status
+              -> [Header]
+              -> LazyByteString
+              -> Error
+parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
+  where
+    go x = do
+        (c, m, r) <- xml x <|> ec2 x
+        return $! serviceError a s h c m r
+
+    xml x = withElement "Error"  (gen x) x <|> gen x x
+    ec2 x = withElement "Errors" (gen x) x
+
+    gen x y = (,,)
+        <$> y .@? "Code"
+        <*> y .@? "Message"
+        <*> x .@? "RequestId"
+
+parseRESTError :: Abbrev
+               -> Status
+               -> [Header]
+               -> a
+               -> Error
+parseRESTError a s h _ =
+    ServiceError (serviceError a s h Nothing Nothing Nothing)
+
+decodeError :: Abbrev
             -> Status
-            -> Maybe (LazyByteString -> Either String a)
-decodeError parse check a s
-    | check s   = Nothing
-    | otherwise = Just (second (\f -> f a s) . parse)
+            -> [Header]
+            -> LazyByteString
+            -> Either String ServiceError
+            -> Error
+decodeError a s h bs e
+    | LBS.null bs = parseRESTError a s h bs
+    | otherwise   = either (SerializerError a s) ServiceError e

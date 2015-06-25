@@ -27,56 +27,60 @@
 
 -- | The core module for making requests to the various AWS services and
 -- building your own Monad transformer stack.
-module Network.AWS where
---     (
---     -- * Requests
---     -- ** Synchronous
---       send
---     , send_
---     -- ** Paginated
---     , paginate
---     -- ** Eventual consistency
---     , await
---     -- ** Pre-signing URLs
---     , presign
---     , presignURL
+module Network.AWS
+    (
+    -- * Monad
+    -- ** AWS
+      AWS
+    , runAWS
+    -- ** AWST
+    , AWST
+    , runAWST
 
---     -- * Monad stacks
--- --    , AWS
---     , AWST
---     -- ** Running
--- --    , runAWS
---     , runAWST
+    -- * Requests
+    -- ** Synchronous
+    , send
+    , send_
+    , sendWith
+    -- ** Paginated
+    , paginate
+    , paginateWith
+    -- ** Eventual consistency
+    , await
+    , awaitWith
+    -- ** Pre-signing
+    , presign
+    , presignWith
 
---     -- * Regionalisation
---     , Region      (..)
---     , within
+    -- * Regionalisation
+    , Region      (..)
+    , within
 
---     -- * Retries
---     , once
+    -- * Retries
+    , once
 
---     -- * Environment
---     , AWSEnv (..)
---     , Env
---     -- ** Creating the environment
---     , newEnv
+    -- * Environment
+    , AWSEnv (..)
+    , Env
+    -- ** Creating the environment
+    , newEnv
 
---     -- ** Specifying credentials
---     , Credentials (..)
---     , accessKey
---     , secretKey
---     , fromKeys
---     , fromSession
---     , getAuth
+    -- ** Specifying credentials
+    , Credentials (..)
+    , accessKey
+    , secretKey
+    , fromKeys
+    , fromSession
+    , getAuth
 
---     -- * Streaming body helpers
---     , module Network.AWS.Internal.Body
+    -- * Streaming body helpers
+    , module Network.AWS.Internal.Body
 
---     -- * Types
---     , module Network.AWS.Types
---     , module Network.AWS.Logger
---     , module Network.AWS.Error
---     ) where
+    -- * Types
+    , module Network.AWS.Types
+    , module Network.AWS.Logger
+    , module Network.AWS.Error
+    ) where
 
 import           Control.Applicative
 import           Control.Lens
@@ -89,7 +93,6 @@ import           Control.Monad.Reader
 import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Resource
 import           Control.Retry                (limitRetries)
-import           Data.Bifunctor
 import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
 import           Data.Monoid
@@ -102,62 +105,25 @@ import           Network.AWS.Internal.Retry
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
+import           Network.AWS.Request          (defaultRequest)
+import           Network.AWS.Sign.V2
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)
-import qualified Network.HTTP.Conduit         as Client
 
-import           Control.Exception            (Exception)
-import           Network.AWS.Request          (defaultRequest)
-import           Network.AWS.Sign.V2
+-- FIXME: Add explanation about the use of constraints and
+--   how to build a monad transformer stack, embed it, etc.
+-- FIXME: Add notes about specialising the constraints.
+-- FIXME: Add note about *With variants.
+-- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms.
 
-
-
-data Baz = Baz deriving (Show, Generic)
-
-instance Exception Baz
-
-data Bar = Bar deriving (Show, Generic)
-
-instance Exception Bar
-
-data Foo = Foo deriving (Show, Generic)
-
--- instance AsError (Error Baz) Baz where
---     _Error = id
-
-instance AWSService Bar where
-    type Sg Bar = V2
-
-    service = const undefined
-
-data Qux = Qux deriving (Show, Generic)
-
-instance ToText Qux where toText = const "qux"
-instance ToPath Qux where toPath = const "/"
-instance ToQuery Qux
-instance ToHeaders Qux
-
-instance AWSRequest Qux where
-    type Rs Qux = Qux
-    type Er Qux = Foo
-    type Sv Qux = Bar
-
-    request = defaultRequest
-    response _ _ _ _ = undefined
-
--- FIXME: Add lengthy explanation about the use of constraints and
--- how to built your own monad transformer stack, embed it, etc.
-
--- newtype Error' = Error { unError :: forall a. Error a }
-
-type AWSError e a = AsError e
-
+-- | A convenient alias that specialises the common constraints in this module.
 type AWST m = ExceptT Error (ReaderT Env m)
-type AWS    = AWST (ResourceT IO)
 
 runAWST :: MonadResource m => Env -> AWST m a -> m (Either Error a)
 runAWST e m = runReaderT (runExceptT m) e
+
+type AWS = AWST (ResourceT IO)
 
 -- | Run an 'AWS' monadic action, calling all of the registered 'ResourceT'
 -- release actions.
@@ -191,20 +157,25 @@ once = local $ \e ->
     e & envRetryPolicy ?~ limitRetries 0
       & envRetryCheck  .~ (\_ _ -> return False)
 
--- -- | A variant of 'send' which discards any successful response.
--- --
--- -- /See:/ 'send'
--- send_ :: ( MonadCatch      m
---          , MonadResource   m
---          , MonadReader   r m
---          , MonadError    e m
---          , AWSEnv        r
---          , AWSError      e a
---          , AWSRequest      a
---          )
---       => a
---       -> m ()
--- send_ = void . send
+
+-- $ async
+--
+-- < lifted-async>
+
+-- | A variant of 'send' which discards any successful response.
+--
+-- /See:/ 'send'
+send_ :: ( MonadCatch      m
+         , MonadResource   m
+         , MonadReader   r m
+         , MonadError    e m
+         , AWSEnv        r
+         , AWSError      e
+         , AWSRequest    a
+         )
+      => a
+      -> m ()
+send_ = void . send
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type in the success case, or the related service's
@@ -216,16 +187,30 @@ once = local $ \e ->
 -- /Note:/ Requests will be retried depending upon each service's respective
 -- strategy. This can be overriden using 'envRetry'. Requests which contain
 -- streaming request bodies (such as S3's 'PutObject') are never considered for retries.
+--
+-- /See:/ 'sendWith'
+send :: ( MonadCatch      m
+        , MonadResource   m
+        , MonadReader   r m
+        , MonadError    e m
+        , AWSEnv        r
+        , AWSError      e
+        , AWSRequest    a
+        )
+     => a
+     -> m (Rs a)
+send x = sendWith (service x) x
+
 sendWith :: ( MonadCatch      m
             , MonadResource   m
             , MonadReader   r m
             , MonadError    e m
             , AWSEnv        r
-            , AWSError      e a
+            , AWSError      e
             , AWSSigner     v
             , AWSRequest    a
             )
-         => Service v s (Er a)
+         => Service v s
          -> a
          -> m (Rs a)
 sendWith svc (request -> rq) =
@@ -233,24 +218,38 @@ sendWith svc (request -> rq) =
         retrier e svc rq (request' e svc rq)
             >>= liftM snd . response' e rq
 
--- | Send an instance of 'AWSPager' and paginate over the associated 'Rs'
--- response type in the success case, or return the related service's 'Er' type
--- in the error case.
+-- | Repeatedly send an instance of 'AWSPager' and paginate over the associated
+-- 'Rs' response type in the success case, while results are available.
+-- Otherwise return the related 'ServiceError' upon encountering an error.
 --
 -- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped.
 --
 -- /See:/ 'runResourceT' for more information.
+--
+-- /See:/ 'paginateWith'
+paginate :: ( MonadCatch      m
+            , MonadResource   m
+            , MonadReader   r m
+            , MonadError    e m
+            , AWSEnv        r
+            , AWSError      e
+            , AWSPager      a
+            )
+         => a
+         -> Source m (Rs a)
+paginate x = paginateWith (service x) x
+
 paginateWith :: ( MonadCatch      m
                 , MonadResource   m
                 , MonadReader   r m
                 , MonadError    e m
                 , AWSEnv        r
-                , AWSError      e a
+                , AWSError      e
                 , AWSSigner     v
                 , AWSPager      a
                 )
-             => Service v s (Er a)
+             => Service v s
              -> a
              -> Source m (Rs a)
 paginateWith svc = go
@@ -262,19 +261,6 @@ paginateWith svc = go
             Nothing -> return ()
             Just !z -> go z
 
-await :: ( MonadCatch      m
-         , MonadResource   m
-         , MonadReader   r m
-         , MonadError    e m
-         , AWSEnv        r
-         , AWSError      e a
-         , AWSRequest    a
-         )
-      => Wait a
-      -> a
-      -> m (Rs a)
-await w x = awaitWith w (service x) x
-
 -- | Poll the API until a predefined condition is fulfilled using the
 -- supplied 'Wait' specification from the respective service.
 --
@@ -283,17 +269,32 @@ await w x = awaitWith w (service x) x
 --
 -- /Note:/ You can find any available 'Wait' specifications under then
 -- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
+--
+-- /See:/ 'awaitWith'
+await :: ( MonadCatch      m
+         , MonadResource   m
+         , MonadReader   r m
+         , MonadError    e m
+         , AWSEnv        r
+         , AWSError      e
+         , AWSRequest    a
+         )
+      => Wait a
+      -> a
+      -> m (Rs a)
+await w x = awaitWith w (service x) x
+
 awaitWith :: ( MonadCatch      m
              , MonadResource   m
              , MonadReader   r m
              , MonadError    e m
              , AWSEnv        r
-             , AWSError      e a
+             , AWSError      e
              , AWSSigner     v
              , AWSRequest    a
              )
           => Wait a
-          -> Service v s (Er a)
+          -> Service v s
           -> a
           -> m (Rs a)
 awaitWith w svc (request -> rq) =
@@ -304,54 +305,41 @@ awaitWith w svc (request -> rq) =
 -- | Presign an HTTP request that expires after the specified amount of time
 -- in the future.
 --
+-- /Note:/ You can used "Network.AWS.Request.requestURL" to extract a fully
+-- signed URL from the request.
+--
 -- /Note:/ Requires the 'Service' signer to be an instance of 'AWSPresigner'.
--- Not all signing process support this.
+-- Not all signing algorithms support this.
+--
+-- /See:/ 'presignWith'
+presign :: ( MonadIO        m
+           , MonadReader  r m
+           , AWSEnv       r
+           , AWSPresigner (Sg (Sv a))
+           , AWSRequest   a
+           )
+        => UTCTime     -- ^ Signing time.
+        -> Integer     -- ^ Expiry time in seconds.
+        -> a           -- ^ Request to presign.
+        -> m ClientRequest
+presign t ex x = presignWith t ex (service x) x
+
 presignWith :: ( MonadIO        m
                , MonadReader  r m
                , AWSEnv       r
                , AWSPresigner v
                , AWSRequest   a
                )
-            => UTCTime            -- ^ Signing time.
-            -> Integer            -- ^ Expiry time in seconds.
-            -> Service v s (Er a) -- ^ Service configuration.
-            -> a                  -- ^ Request to presign.
+            => UTCTime     -- ^ Signing time.
+            -> Integer     -- ^ Expiry time in seconds.
+            -> Service v s -- ^ Service configuration.
+            -> a           -- ^ Request to presign.
             -> m ClientRequest
-presignWith t ex svc rq =
+presignWith t ex svc x =
     environ env $ \Env{..} ->
         withAuth _envAuth $ \a ->
-            return . view sgRequest $ presigned a _envRegion t ex svc (request rq)
-
--- | Presign a URL that expires after the specified amount of time
--- in the future.
---
--- /See:/ 'presignWith'
-presignURLWith :: ( MonadIO        m
-                  , MonadReader  r m
-                  , AWSEnv       r
-                  , AWSPresigner v
-                  , AWSRequest   a
-                  )
-               => UTCTime            -- ^ Signing time.
-               -> Integer            -- ^ Expiry time in seconds.
-               -> Service v s (Er a) -- ^ Service configuration.
-               -> a                  -- ^ Request to presign.
-               -> m ByteString
-presignURLWith t ex svc = liftM (toBS . uri) . presignWith t ex svc
-  where
-    uri x = scheme (secure      x)
-          <> build (host        x)
-          <> port' (port        x)
-          <> build (path        x)
-          <> build (queryString x)
-
-    scheme True = "https://"
-    scheme _    = "http://"
-
-    port' = \case
-        80  -> ""
-        443 -> ""
-        n   -> build ':' <> build n
+            return . view sgRequest $
+                presigned a _envRegion t ex svc (request x)
 
 environ :: (MonadReader r m, AWSEnv r) => Getter r a -> (a -> m b) -> m b
 environ l f = view l >>= f
@@ -359,12 +347,12 @@ environ l f = view l >>= f
 request' :: ( MonadCatch      m
             , MonadResource   m
             , MonadError    e m
-            , AWSError      e a
+            , AWSError      e
             , AWSSigner     v
             , AWSRequest    a
             )
          => Env
-         -> Service v s (Er a)
+         -> Service v s
          -> Request a
          -> m (Response a)
 request' Env{..} svc rq = catch go err >>= response _envLogger svc rq
@@ -389,7 +377,7 @@ request' Env{..} svc rq = catch go err >>= response _envLogger svc rq
 
 response' :: ( MonadResource   m
              , MonadError    e m
-             , AWSError      e a
+             , AWSError      e
              )
           => Env
           -> Request a

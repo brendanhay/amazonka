@@ -11,27 +11,20 @@ instance AWSService {{ serviceAbbrev }} where
             { _svcAbbrev   = "{{ serviceAbbrev }}"
             , _svcPrefix   = "{{ endpointPrefix }}"
             , _svcVersion  = "{{ apiVersion }}"
-            , _svcEndpoint = endpoint svc
+            , _svcEndpoint = defaultEndpoint svc
             , _svcTimeout  = 80000000
-            , _svcError    = _{{ serviceAbbrev }}Error
-            , _svcHandle   = handle
+            , _svcStatus   = statusSuccess
+            , _svcError    = {{ serviceError }}
             , _svcRetry    = retry
             }
-
-        handle :: Status -> Maybe (LazyByteString -> Either String {{ serviceError }})
-        handle = {{ serviceErrorFunction }} statusSuccess (_svcAbbrev svc)
 
         retry :: Retry
         retry = Retry
             { _retryBase     = 0
             , _retryGrowth   = 0
             , _retryAttempts = 0
-            , _retryError    = preview _{{ serviceAbbrev }}Error
             , _retryCheck    = check
             }
 
-        check :: Status -> {{ serviceError }} -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = error "FIXME: Retry check not implemented."
-
-_{{ serviceAbbrev }}Error :: AsError a => Prism' a {{ serviceError }}
-_{{ serviceAbbrev }}Error = _{{ serviceError }}
+        check :: ServiceError -> Bool
+        check ServiceError{..} = error "FIXME: Retry check not implemented."

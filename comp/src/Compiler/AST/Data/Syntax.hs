@@ -192,8 +192,8 @@ requestD :: HasMetadata a f
          -> (Ref, [Field])
          -> Decl
 requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
-    [ assocTyD (identifier a) "Rs" (b ^. to identifier . typeId)
-    , assocTyD (identifier a) "Er" (m ^. serviceError)
+    [ assocTyD (identifier a) "Sv" (m ^. serviceAbbrev)
+    , assocTyD (identifier a) "Rs" (b ^. to identifier . typeId)
     , funD "request"  (requestF h as)
     , funD "response" (responseE (m ^. protocol) h b bs)
     ]
@@ -521,7 +521,7 @@ inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
 requestF :: HTTP Identity -> [Inst] -> Exp
-requestF h is = app (var v) (var "service")
+requestF h is = var v
   where
     v = mappend (methodToText (h ^. method))
       . fromMaybe mempty

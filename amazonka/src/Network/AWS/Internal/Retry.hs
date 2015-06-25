@@ -32,7 +32,7 @@ import           Network.AWS.Waiter
 
 retrier :: MonadIO m
         => Env
-        -> Service v s (Er a)
+        -> Service v s
         -> Request a
         -> m (Response a)
         -> m (Response a)
@@ -56,9 +56,7 @@ retrier Env{..} Service{..} rq =
             p <- liftIO (_envRetryCheck n e)
             when p (msg n) >> return p
 
-        Left e | Just x <- e ^? _svcError
-               , Just s <- e ^? httpStatus
-               , _retryCheck s x ->
+        Left e | Just x <- e ^? _ServiceError, _retryCheck x ->
             msg n >> return True
 
         _ -> return False

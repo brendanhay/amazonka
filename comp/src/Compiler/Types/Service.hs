@@ -408,23 +408,16 @@ instance ToJSON (Metadata Identity) where
       where
         Object x = gToJSON' camel m
         Object y = object
-            [ "serviceError"         .= (m ^. serviceError)
-            , "serviceErrorFunction" .= (m ^. serviceErrorFunction)
+            [ "serviceError" .= (m ^. serviceError)
             ]
 
 serviceError :: HasMetadata a f => Getter a Text
 serviceError = to $ \m -> case m ^. protocol of
-    JSON     -> "JSONError"
-    RestJSON -> "JSONError"
-    EC2      -> "EC2Error"
-    _        -> "RESTError"
-
-serviceErrorFunction :: HasMetadata a f => Getter a Text
-serviceErrorFunction = to $ \m -> case m ^. protocol of
-    JSON     -> "jsonError"
-    RestJSON -> "jsonError"
-    EC2      -> "restError"
-    _        -> "restError"
+    JSON     -> "parseJSONError"
+    RestJSON -> "parseJSONError"
+    RestXML  -> "parseXMLError"
+    Query    -> "parseXMLError"
+    EC2      -> "parseXMLError"
 
 data Service f a b c = Service
     { _metadata'     :: Metadata f

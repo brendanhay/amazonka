@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Network.AWS.Request
@@ -42,6 +43,7 @@ module Network.AWS.Request
     , queryString
     , requestBody
     , requestHeaders
+    , requestURL
     ) where
 
 import           Control.Lens
@@ -138,3 +140,20 @@ requestBody f x = f (HTTP.requestBody x) <&> \y -> x { HTTP.requestBody = y }
 requestHeaders :: Lens' HTTP.Request HTTP.RequestHeaders
 requestHeaders f x =
     f (HTTP.requestHeaders x) <&> \y -> x { HTTP.requestHeaders = y }
+
+requestURL :: Getter ClientRequest ByteString
+requestURL = to (toBS . uri)
+  where
+    uri x = scheme (HTTP.secure      x)
+         <> build  (HTTP.host        x)
+         <> port   (HTTP.port        x)
+         <> build  (HTTP.path        x)
+         <> build  (HTTP.queryString x)
+
+    scheme True = "https://"
+    scheme _    = "http://"
+
+    port = \case
+        80  -> ""
+        443 -> ""
+        n   -> build ':' <> build n

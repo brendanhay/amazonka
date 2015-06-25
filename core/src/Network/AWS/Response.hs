@@ -25,6 +25,7 @@ import           Data.Text                    (Text)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.XML
+import           Network.AWS.Error
 import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)

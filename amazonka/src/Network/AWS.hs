@@ -1,19 +1,13 @@
-{-# LANGUAGE BangPatterns          #-}
-{-# LANGUAGE ConstraintKinds       #-}
-{-# LANGUAGE FlexibleContexts      #-}
-{-# LANGUAGE LambdaCase            #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE RecordWildCards       #-}
-{-# LANGUAGE TupleSections         #-}
-{-# LANGUAGE TypeFamilies          #-}
-{-# LANGUAGE ViewPatterns          #-}
-
-
-{-# LANGUAGE DeriveGeneric         #-}
-{-# LANGUAGE FlexibleInstances     #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE RankNTypes            #-}
-{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE BangPatterns      #-}
+{-# LANGUAGE ConstraintKinds   #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -52,6 +46,20 @@ module Network.AWS
     , presign
     , presignWith
 
+    -- * Errors
+    , AWSError  (..)
+    , catching
+    , throwing
+
+    , Error
+    , ServiceError
+    , errorService
+    , errorStatus
+    , errorHeaders
+    , errorCode
+    , errorMessage
+    , errorRequestId
+
     -- * Regionalisation
     , Region      (..)
     , within
@@ -79,7 +87,6 @@ module Network.AWS
     -- * Types
     , module Network.AWS.Types
     , module Network.AWS.Logger
-    , module Network.AWS.Error
     ) where
 
 import           Control.Applicative
@@ -88,14 +95,10 @@ import           Control.Monad
 import           Control.Monad.Catch          (MonadCatch (..), catch)
 import           Control.Monad.Error.Lens     (catching, throwing)
 import           Control.Monad.Except
-import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Resource
 import           Control.Retry                (limitRetries)
-import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
-import           Data.Monoid
 import           Data.Time                    (getCurrentTime)
 import           Network.AWS.Error
 import           Network.AWS.Internal.Auth
@@ -105,8 +108,6 @@ import           Network.AWS.Internal.Retry
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Request          (defaultRequest)
-import           Network.AWS.Sign.V2
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)

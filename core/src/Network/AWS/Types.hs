@@ -40,10 +40,6 @@ module Network.AWS.Types
     -- * Retries
     , Retry         (..)
 
-    -- * Errors
-    , AWSError       (..)
-    , Error         (..)
-
     -- * Signing
     , AWSSigner     (..)
     , AWSPresigner  (..)
@@ -73,12 +69,13 @@ module Network.AWS.Types
     , Endpoint      (..)
     , Region        (..)
 
-    -- * Convenience
+    -- * HTTP
     , ClientRequest
     , ClientResponse
     , ResponseBody
     , clientRequest
 
+    -- * Isomorphisms
     , _Coerce
     , _Default
     ) where

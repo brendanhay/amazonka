@@ -32,7 +32,7 @@ import           Network.AWS.Waiter
 
 retrier :: MonadIO m
         => Env
-        -> Service v s
+        -> Service s
         -> Request a
         -> m (Response a)
         -> m (Response a)

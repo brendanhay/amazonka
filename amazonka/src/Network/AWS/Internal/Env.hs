@@ -45,7 +45,7 @@ class AWSEnv a where
     -- | The function used to determine if an 'HttpException' should be retried.
     envRetryCheck  :: Lens' a (Int -> HttpException -> IO Bool)
 
-    -- | The 'RetryPolicy' used to determine backoff/on and retry delay/growth.
+    -- | The 'RetryPolicy' used to determine backoff\/on and retry delay\/growth.
     envRetryPolicy :: Lens' a (Maybe RetryPolicy)
 
     -- | The 'Manager' used to create and manage open HTTP connections.

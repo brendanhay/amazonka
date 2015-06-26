@@ -1,9 +1,7 @@
 {-# LANGUAGE BangPatterns      #-}
-{-# LANGUAGE ConstraintKinds   #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
@@ -21,87 +19,84 @@
 
 -- | The core module for making requests to the various AWS services and
 -- building your own Monad transformer stack.
-module Network.AWS
-    (
-    -- * Monad
-    -- ** AWS
-      AWS
-    , runAWS
-    -- ** AWST
-    , AWST
-    , runAWST
-    -- ** Constraints
-    , MonadAWS
+module Network.AWS where
+    -- (
+    -- -- * Monad
+    -- -- ** AWS
+    --   AWS
+    -- , runAWS
+    -- -- ** AWST
+    -- , AWST
+    -- , runAWST
+    -- -- ** Constraints
+    -- , MonadAWS
 
-    -- * Requests
-    -- ** Synchronous
-    , send
-    , send_
-    , sendWith
-    -- ** Paginated
-    , paginate
-    , paginateWith
-    -- ** Eventual consistency
-    , await
-    , awaitWith
-    -- ** Pre-signing
-    , presign
-    , presignWith
-    -- ** Asynchronous
-    -- $async
+    -- -- * Requests
+    -- -- ** Synchronous
+    -- , send
+    -- , send_
+    -- , sendWith
+    -- -- ** Paginated
+    -- , paginate
+    -- , paginateWith
+    -- -- ** Eventual consistency
+    -- , await
+    -- , awaitWith
+    -- -- ** Pre-signing
+    -- , presign
+    -- , presignWith
+    -- -- ** Asynchronous
+    -- -- $async
 
-    -- * Errors
-    , AWSError  (..)
-    , catching
-    , throwing
+    -- -- * Errors
+    -- , AWSError  (..)
+    -- , catching
+    -- , throwing
 
-    , Error
-    , ServiceError
-    , errorService
-    , errorStatus
-    , errorHeaders
-    , errorCode
-    , errorMessage
-    , errorRequestId
+    -- , Error
+    -- , ServiceError
+    -- , errorService
+    -- , errorStatus
+    -- , errorHeaders
+    -- , errorCode
+    -- , errorMessage
+    -- , errorRequestId
 
-    -- * Regionalisation
-    , Region      (..)
-    , within
+    -- -- * Regionalisation
+    -- , Region      (..)
 
-    -- * Retries
-    , once
+    -- -- * Environment
+    -- , AWSEnv (..)
+    -- , Env
+    -- -- ** Creating the environment
+    -- , newEnv
 
-    -- * Environment
-    , AWSEnv (..)
-    , Env
-    -- ** Creating the environment
-    , newEnv
+    -- -- ** Specifying credentials
+    -- , Credentials (..)
+    -- , accessKey
+    -- , secretKey
+    -- , fromKeys
+    -- , fromSession
+    -- , getAuth
 
-    -- ** Specifying credentials
-    , Credentials (..)
-    , accessKey
-    , secretKey
-    , fromKeys
-    , fromSession
-    , getAuth
+    -- -- * Streaming body helpers
+    -- , module Network.AWS.Internal.Body
 
-    -- * Streaming body helpers
-    , module Network.AWS.Internal.Body
-
-    -- * Types
-    , module Network.AWS.Types
-    , module Network.AWS.Logger
-    ) where
+    -- -- * Types
+    -- , module Network.AWS.Types
+    -- , module Network.AWS.Logger
+    -- ) where
 
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
-import           Control.Monad.Catch          (MonadCatch (..), catch)
+import           Control.Monad.Catch          (MonadCatch (..), catch, throwM)
 import           Control.Monad.Error.Lens     (catching, throwing)
 import           Control.Monad.Except
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Resource
 import           Control.Retry                (limitRetries)
+import           Data.Bifunctor
 import           Data.Conduit                 hiding (await)
 import           Data.Time                    (getCurrentTime)
 import           Network.AWS.Error
@@ -112,79 +107,29 @@ import           Network.AWS.Internal.Retry
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
+import           Network.AWS.Request          (requestURL)
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)
-
--- FIXME: Add explanation about the use of constraints and
---   how to build a monad transformer stack, embed it, etc.
--- FIXME: Add notes about specialising the constraints.
--- FIXME: Add note about *With variants.
--- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms.
-
--- | A convenient alias that specialises the common constraints in this module.
-type AWST m = ExceptT Error (ReaderT Env m)
-
-runAWST :: MonadResource m => Env -> AWST m a -> m (Either Error a)
-runAWST e m = runReaderT (runExceptT m) e
-
-type AWS = AWST (ResourceT IO)
-
--- | Run an 'AWS' monadic action, calling all of the registered 'ResourceT'
--- release actions.
-runAWS :: Env -> AWS a -> IO (Either Error a)
-runAWS e = runResourceT . runAWST e
-
--- | A type alias used to abbreviate the most commonly used constraints.
-type MonadAWS r e m =
-    ( MonadCatch      m
-    , MonadResource   m
-    , MonadReader   r m
-    , MonadError    e m
-    , AWSEnv        r
-    , AWSError      e
-    )
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
 --
 -- Lenses such as 'envLogger' can be used to modify the 'Env' with a debug logger.
-newEnv :: MonadIO m
+getEnv :: MonadIO m
        => Region
        -> Credentials
        -> Manager
        -> m (Either String Env)
-newEnv r c m = runExceptT $ initial `liftM` ExceptT (getAuth m c)
+getEnv r c m = runExceptT $ initial `liftM` ExceptT (getAuth m c)
   where
     initial = Env r logger check Nothing m
 
     logger _ _ = return ()
     check  _ _ = return True
 
--- | Scope an action within the specific 'Region'.
-within :: (MonadReader r m, AWSEnv r) => Region -> m a -> m a
-within r = local (envRegion .~ r)
-
--- | Scope an action such that any retry logic for the 'Service' is
--- ignored and any requests will at most be sent once.
-once :: (MonadReader r m, AWSEnv r) => m a -> m a
-once = local $ \e ->
-    e & envRetryPolicy ?~ limitRetries 0
-      & envRetryCheck  .~ (\_ _ -> return False)
-
--- $async
---
--- /See:/ <http://hackage.haskell.org/package/lifted-async lifted-async>
-
--- | A variant of 'send' which discards any successful response.
---
--- /See:/ 'send'
-send_ :: (MonadAWS r e m, AWSRequest a) => a -> m ()
-send_ = void . send
-
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
--- associated 'Rs' response type in the success case, or the related service's
--- 'Er' type in the error case.
+-- associated 'Rs' response type if successful, or an 'Error'.
 --
 -- This includes 'HTTPExceptions', serialisation errors, and any service
 -- errors returned as part of the 'Response'.
@@ -194,17 +139,25 @@ send_ = void . send
 -- streaming request bodies (such as S3's 'PutObject') are never considered for retries.
 --
 -- /See:/ 'sendWith'
-send :: (MonadAWS r e m, AWSRequest a) => a -> m (Rs a)
-send x = sendWith (service x) x
+send :: (MonadCatch m, MonadResource m, AWSEnv r, AWSRequest a)
+     => r
+     -> a
+     -> m (Either Error (Rs a))
+send e x = sendWith e (service x) x
 
-sendWith :: (MonadAWS r e m, AWSSigner v, AWSRequest a)
-         => Service v s
+sendWith :: ( MonadCatch    m
+            , MonadResource m
+            , AWSEnv        r
+            , AWSSigner     (Sg s)
+            , AWSRequest    a
+            )
+         => r
+         -> Service s
          -> a
-         -> m (Rs a)
-sendWith svc (request -> rq) =
-    environ env $ \e ->
-        retrier e svc rq (request' e svc rq)
-            >>= liftM snd . response' e rq
+         -> m (Either Error (Rs a))
+sendWith e svc (request -> rq) =
+    second snd `liftM`
+        retrier (e ^. env) svc rq (raw e svc rq)
 
 -- | Repeatedly send an instance of 'AWSPager' and paginate over the associated
 -- 'Rs' response type in the success case, while results are available.
@@ -216,21 +169,33 @@ sendWith svc (request -> rq) =
 -- /See:/ 'runResourceT' for more information.
 --
 -- /See:/ 'paginateWith'
-paginate :: (MonadAWS r e m, AWSPager a) => a -> Source m (Rs a)
-paginate x = paginateWith (service x) x
+paginate :: (MonadCatch m, MonadResource m, AWSEnv r, AWSPager a)
+         => r
+         -> a
+         -> Source m (Either Error (Rs a))
+paginate e x = paginateWith e (service x) x
 
-paginateWith :: (MonadAWS r e m, AWSSigner v, AWSPager a)
-             => Service v s
+paginateWith :: ( MonadCatch    m
+                , MonadResource m
+                , AWSEnv        r
+                , AWSSigner     (Sg s)
+                , AWSPager      a
+                )
+             => r
+             -> Service s
              -> a
-             -> Source m (Rs a)
-paginateWith svc = go
+             -> Source m (Either Error (Rs a))
+paginateWith e svc = go
   where
-    go x = do
-        y <- lift (sendWith svc x)
-        yield y
-        case page x y of
-            Nothing -> return ()
-            Just !z -> go z
+    go rq = do
+        rs <- lift (sendWith e svc rq)
+        yield rs
+        case rs of
+            Left  _ -> return ()
+            Right x ->
+                case page rq x of
+                    Nothing -> return ()
+                    Just !y -> go y
 
 -- | Poll the API until a predefined condition is fulfilled using the
 -- supplied 'Wait' specification from the respective service.
@@ -242,73 +207,77 @@ paginateWith svc = go
 -- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
 --
 -- /See:/ 'awaitWith'
-await :: (MonadAWS r e m, AWSRequest a) => Wait a -> a -> m (Rs a)
-await w x = awaitWith w (service x) x
+await :: (MonadCatch m, MonadResource m, AWSEnv r, AWSRequest a)
+      => r
+      -> Wait a
+      -> a
+      -> m (Either Error (Rs a))
+await e w x = awaitWith e (service x) w x
 
-awaitWith :: (MonadAWS r e m, AWSSigner v, AWSRequest a)
-          => Wait a
-          -> Service v s
+awaitWith :: ( MonadCatch    m
+             , MonadResource m
+             , AWSEnv        r
+             , AWSSigner     (Sg s)
+             , AWSRequest    a
+             )
+          => r
+          -> Service s
+          -> Wait a
           -> a
-          -> m (Rs a)
-awaitWith w svc (request -> rq) =
-    environ env $ \e ->
-        waiter e w rq (request' e svc rq)
-            >>= liftM snd . response' e rq
+          -> m (Either Error (Rs a))
+awaitWith e svc w (request -> rq) =
+    second snd `liftM`
+        waiter (e ^. env) w rq (raw e svc rq)
+
+-- /See:/ 'presign', 'presignWith'
+presignURL :: (MonadIO m, AWSEnv r, AWSPresigner (Sg (Sv a)), AWSRequest a)
+           => r
+           -> UTCTime     -- ^ Signing time.
+           -> Integer     -- ^ Expiry time in seconds.
+           -> a           -- ^ Request to presign.
+           -> m ByteString
+presignURL e t ex = liftM (view requestURL) . presign e t ex
 
 -- | Presign an HTTP request that expires after the specified amount of time
 -- in the future.
---
--- /Note:/ You can used "Network.AWS.Request.requestURL" to extract a fully
--- signed URL from the request.
 --
 -- /Note:/ Requires the 'Service' signer to be an instance of 'AWSPresigner'.
 -- Not all signing algorithms support this.
 --
 -- /See:/ 'presignWith'
-presign :: ( MonadIO        m
-           , MonadReader  r m
-           , AWSEnv       r
-           , AWSPresigner (Sg (Sv a))
-           , AWSRequest   a
-           )
-        => UTCTime     -- ^ Signing time.
+presign :: (MonadIO m, AWSEnv r, AWSPresigner (Sg (Sv a)), AWSRequest a)
+        => r
+        -> UTCTime     -- ^ Signing time.
         -> Integer     -- ^ Expiry time in seconds.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign t ex x = presignWith t ex (service x) x
+presign e t ex x = presignWith e (service x) t ex x
 
-presignWith :: ( MonadIO        m
-               , MonadReader  r m
-               , AWSEnv       r
-               , AWSPresigner v
-               , AWSRequest   a
-               )
-            => UTCTime     -- ^ Signing time.
-            -> Integer     -- ^ Expiry time in seconds.
-            -> Service v s -- ^ Service configuration.
-            -> a           -- ^ Request to presign.
+-- /Note:/ You can used "Network.AWS.Request.requestURL" to extract a fully
+-- signed URL from the request.
+presignWith :: (MonadIO m, AWSEnv r, AWSPresigner (Sg s), AWSRequest a)
+            => r
+            -> Service s -- ^ Service configuration.
+            -> UTCTime   -- ^ Signing time.
+            -> Integer   -- ^ Expiry time in seconds.
+            -> a         -- ^ Request to presign.
             -> m ClientRequest
-presignWith t ex svc x =
-    environ env $ \Env{..} ->
-        withAuth _envAuth $ \a ->
-            return . view sgRequest $
-                presigned a _envRegion t ex svc (request x)
+presignWith e svc t ex x =
+    withAuth (e ^. envAuth) $ \a ->
+        return . view sgRequest $
+            presigned a (e ^. envRegion) t ex svc (request x)
 
-environ :: (MonadReader r m, AWSEnv r) => Getter r a -> (a -> m b) -> m b
-environ l f = view l >>= f
-
-request' :: ( MonadCatch      m
-            , MonadResource   m
-            , MonadError    e m
-            , AWSError      e
-            , AWSSigner     v
-            , AWSRequest    a
-            )
-         => Env
-         -> Service v s
-         -> Request a
-         -> m (Response a)
-request' Env{..} svc rq = catch go err >>= response _envLogger svc rq
+raw :: ( MonadCatch    m
+       , MonadResource m
+       , AWSEnv        r
+       , AWSSigner     (Sg s)
+       , AWSRequest    a
+       )
+    => r
+    -> Service s
+    -> Request a
+    -> m (Response a)
+raw (view env -> Env{..}) svc rq = catch go err >>= response _envLogger svc rq
   where
     go = do
         t          <- liftIO getCurrentTime
@@ -327,17 +296,3 @@ request' Env{..} svc rq = catch go err >>= response _envLogger svc rq
     err e = do
         logError _envLogger e -- error:HttpException
         return $! Left e
-
-response' :: ( MonadResource   m
-             , MonadError    e m
-             , AWSError      e
-             )
-          => Env
-          -> Request a
-          -> Response a
-          -> m (Status, Rs a)
-response' Env{..} _ = \case
-    Right x -> return x
-    Left  e -> do
-        logError _envLogger e -- error:ServiceError
-        throwing _Error     e

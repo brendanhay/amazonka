@@ -35,7 +35,7 @@ import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
-import           Data.List              (sort)
+import           Data.List              (find, sort)
 import           Data.Monoid
 import qualified Data.Text.Lazy         as LText
 
@@ -121,11 +121,8 @@ substitute svc@Service{..} = do
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy existing shape"
                 -- Copy the shape by saving it under the desired name.
---                save n (x :< s)
                 save n ((x & annId .~ n) :< s)
---                save n (x :< s)
                 -- Update the Ref to point to the new wrapper.
---                remove k n
                 return (r & refShape .~ n)
 
            | isShared x -> return r
@@ -134,18 +131,38 @@ substitute svc@Service{..} = do
                 -- Ref exists, and is not referred to by any other Shape.
                 -- Insert override to rename the Ref/Shape to the desired name.
                 -- Ensure the annotation is updated.
-                save k (Related k (_annRelation x) :< s)
+                --
+                -- Also adds a required status code field to any
+                -- non-shared response.
+                save k (Related k (_annRelation x) :< addStatus d s)
                 rename k n
                 return r
+
+addStatus :: Direction -> ShapeF (Shape Related) -> ShapeF (Shape Related)
+addStatus Input  = id
+addStatus Output = go
+  where
+    go (Struct st) = Struct (maybe missing exists x)
+      where
+        ms = Map.toList (st ^. members)
+        x  = find ((Just StatusCode ==) . view refLocation . snd) ms
+
+        missing       = st & required' <>~ [n] & members %~ Map.insert n ref
+        exists (k, _) = st & required' <>~ [k]
+
+    go s           = s
+
+    ref = emptyRef n
+        & refLocation ?~ StatusCode
+        & refAnn      .~ Related n mempty :< Lit emptyInfo Int
+
+    n = mkId "StatusCode"
 
 save :: Id -> Shape a -> MemoS a ()
 save n s = memo %= Map.insert n s
 
 rename :: Id -> Id -> MemoS a ()
 rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
-
--- remove :: Id -> Id -> MemoS a ()
--- remove x y = overrides %= Map.insert x (defaultOverride & replacedBy ?~ Replace y mempty)
 
 safe :: Show a => Id -> Map Id a -> Either Error a
 safe n ss = note
@@ -173,17 +190,18 @@ infixl 7 .!
 m .! x = maybe (Identity x) Identity m
 
 emptyStruct :: ShapeF a
-emptyStruct = Struct (StructF i mempty mempty Nothing)
-  where
-    i = Info
-        { _infoDocumentation = Nothing
-        , _infoMin           = Nothing
-        , _infoMax           = Nothing
-        , _infoFlattened     = False
-        , _infoSensitive     = False
-        , _infoStreaming     = False
-        , _infoException     = False
-        }
+emptyStruct = Struct (StructF emptyInfo mempty mempty Nothing)
+
+emptyInfo :: Info
+emptyInfo = Info
+    { _infoDocumentation = Nothing
+    , _infoMin           = Nothing
+    , _infoMax           = Nothing
+    , _infoFlattened     = False
+    , _infoSensitive     = False
+    , _infoStreaming     = False
+    , _infoException     = False
+    }
 
 emptyRef :: Id -> RefF ()
 emptyRef n = RefF

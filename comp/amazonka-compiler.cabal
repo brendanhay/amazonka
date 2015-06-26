@@ -1,5 +1,5 @@
 name:                  amazonka-compiler
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazonka Compiler
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

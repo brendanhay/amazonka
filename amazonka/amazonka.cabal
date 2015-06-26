@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.3.6
+version:               1.0.0
 synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -41,7 +41,7 @@ library
         , Network.AWS.Internal.Retry
 
     build-depends:
-          amazonka-core       == 0.3.6.*
+          amazonka-core       == 1.0.0.*
         , base                >= 4.7     && < 5
         , bifunctors          >= 4.1
         , bytestring          >= 0.9

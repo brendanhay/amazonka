@@ -300,7 +300,6 @@ module Network.AWS.IAM.Types
     , vmdUser
     , vmdEnableDate
     , vmdSerialNumber
-
     ) where
 
 import Network.AWS.Prelude

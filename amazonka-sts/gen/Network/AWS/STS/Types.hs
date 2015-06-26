@@ -50,7 +50,6 @@ module Network.AWS.STS.Types
     , federatedUser
     , fuFederatedUserId
     , fuARN
-
     ) where
 
 import Network.AWS.Prelude

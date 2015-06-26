@@ -65,7 +65,6 @@ module Network.AWS.SNS.Types
     , Topic
     , topic
     , topTopicARN
-
     ) where
 
 import Network.AWS.Prelude

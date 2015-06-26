@@ -23,18 +23,18 @@ module {{ moduleName }}
     , {{ shape.value.name }}
     {% endcase %}
   {% endfor %}
-
   {% for shape in shapes %}
     {% case shape.value.type %}
     {% when "product" %}
+
     -- * {{ shape.value.name }}
     , {{ shape.value.name }}
     , {{ shape.value.constructor.name }}
       {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}
       {% endfor %}
-
     {% when "sum" %}
+
     -- * {{ shape.value.name }}
     , {{ shape.value.name }} (..)
     {% endcase %}

@@ -74,7 +74,6 @@ module Network.AWS.CognitoIdentity.Types
     , unprocessedIdentityId
     , uiiErrorCode
     , uiiIdentityId
-
     ) where
 
 import Network.AWS.Prelude

@@ -109,7 +109,6 @@ module Network.AWS.SQS.Types
     , smbreId
     , smbreMessageId
     , smbreMD5OfMessageBody
-
     ) where
 
 import Network.AWS.Prelude

@@ -141,7 +141,6 @@ module Network.AWS.DirectConnect.Types
     , viOwnerAccount
     , viVirtualInterfaceName
     , viVirtualInterfaceId
-
     ) where
 
 import Network.AWS.Prelude

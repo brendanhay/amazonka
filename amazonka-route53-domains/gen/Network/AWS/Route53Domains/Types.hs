@@ -99,7 +99,6 @@ module Network.AWS.Route53Domains.Types
     , tag
     , tagValue
     , tagKey
-
     ) where
 
 import Network.AWS.Prelude

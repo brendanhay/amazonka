@@ -135,7 +135,6 @@ module Network.AWS.Config.Types
     , relResourceId
     , relResourceType
     , relRelationshipName
-
     ) where
 
 import Network.AWS.Prelude

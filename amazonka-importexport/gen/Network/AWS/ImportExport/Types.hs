@@ -60,7 +60,6 @@ module Network.AWS.ImportExport.Types
     , jobJobId
     , jobIsCanceled
     , jobCreationDate
-
     ) where
 
 import Network.AWS.Prelude

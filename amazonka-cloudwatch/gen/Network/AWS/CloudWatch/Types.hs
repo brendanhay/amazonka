@@ -128,7 +128,6 @@ module Network.AWS.CloudWatch.Types
     , ssSum
     , ssMinimum
     , ssMaximum
-
     ) where
 
 import Network.AWS.Prelude

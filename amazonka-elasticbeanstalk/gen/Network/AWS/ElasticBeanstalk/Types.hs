@@ -272,7 +272,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , vmSeverity
     , vmNamespace
     , vmMessage
-
     ) where
 
 import Network.AWS.Prelude

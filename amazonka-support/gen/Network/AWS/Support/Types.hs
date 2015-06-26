@@ -158,7 +158,6 @@ module Network.AWS.Support.Types
     , tarsResourcesFlagged
     , tarsResourcesIgnored
     , tarsResourcesSuppressed
-
     ) where
 
 import Network.AWS.Prelude

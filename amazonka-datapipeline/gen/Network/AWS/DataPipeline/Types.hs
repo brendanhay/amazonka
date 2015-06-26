@@ -130,7 +130,6 @@ module Network.AWS.DataPipeline.Types
     , validationWarning
     , vwWarnings
     , vwId
-
     ) where
 
 import Network.AWS.Prelude

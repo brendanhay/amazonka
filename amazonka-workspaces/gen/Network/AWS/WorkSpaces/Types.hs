@@ -132,7 +132,6 @@ module Network.AWS.WorkSpaces.Types
     , wrDirectoryId
     , wrUserName
     , wrBundleId
-
     ) where
 
 import Network.AWS.Prelude

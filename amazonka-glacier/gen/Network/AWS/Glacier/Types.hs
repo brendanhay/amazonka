@@ -139,7 +139,6 @@ module Network.AWS.Glacier.Types
     , vaultNotificationConfig
     , vncSNSTopic
     , vncEvents
-
     ) where
 
 import Network.AWS.Prelude

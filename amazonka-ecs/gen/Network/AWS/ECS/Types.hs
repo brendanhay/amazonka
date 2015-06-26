@@ -246,7 +246,6 @@ module Network.AWS.ECS.Types
     , volumeFrom
     , vfSourceContainer
     , vfReadOnly
-
     ) where
 
 import Network.AWS.Prelude

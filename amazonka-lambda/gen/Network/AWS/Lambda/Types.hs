@@ -82,7 +82,6 @@ module Network.AWS.Lambda.Types
     , fcTimeout
     , fcLastModified
     , fcDescription
-
     ) where
 
 import Network.AWS.Prelude

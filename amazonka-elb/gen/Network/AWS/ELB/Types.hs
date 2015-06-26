@@ -221,7 +221,6 @@ module Network.AWS.ELB.Types
     , TagKeyOnly
     , tagKeyOnly
     , tkoKey
-
     ) where
 
 import Network.AWS.Prelude

@@ -448,7 +448,6 @@ module Network.AWS.Redshift.Types
     , vpcSecurityGroupMembership
     , vsgmStatus
     , vsgmVPCSecurityGroupId
-
     ) where
 
 import Network.AWS.Prelude

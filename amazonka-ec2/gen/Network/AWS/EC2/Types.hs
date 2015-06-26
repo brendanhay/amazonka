@@ -1633,7 +1633,6 @@ module Network.AWS.EC2.Types
     , vsiAvailabilityZone
     , vsiEvents
     , vsiVolumeId
-
     ) where
 
 import Network.AWS.Prelude

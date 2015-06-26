@@ -338,7 +338,6 @@ module Network.AWS.ElasticTranscoder.Types
     , warning
     , warCode
     , warMessage
-
     ) where
 
 import Network.AWS.Prelude

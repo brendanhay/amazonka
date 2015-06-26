@@ -791,7 +791,6 @@ module Network.AWS.SWF.Types
     , wtiWorkflowType
     , wtiStatus
     , wtiCreationDate
-
     ) where
 
 import Network.AWS.Prelude

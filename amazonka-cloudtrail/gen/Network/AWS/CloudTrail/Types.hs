@@ -76,7 +76,6 @@ module Network.AWS.CloudTrail.Types
     , traIncludeGlobalServiceEvents
     , traCloudWatchLogsRoleARN
     , traS3BucketName
-
     ) where
 
 import Network.AWS.Prelude

@@ -113,7 +113,6 @@ module Network.AWS.SSM.Types
     , fcaEntry
     , fcaFault
     , fcaMessage
-
     ) where
 
 import Network.AWS.Prelude

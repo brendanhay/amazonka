@@ -257,7 +257,6 @@ module Network.AWS.AutoScaling.Types
     , tdKey
     , tdPropagateAtLaunch
     , tdValue
-
     ) where
 
 import Network.AWS.Prelude

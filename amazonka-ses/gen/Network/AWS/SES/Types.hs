@@ -93,7 +93,6 @@ module Network.AWS.SES.Types
     , sdpDeliveryAttempts
     , sdpBounces
     , sdpTimestamp
-
     ) where
 
 import Network.AWS.Prelude

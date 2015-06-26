@@ -505,7 +505,6 @@ module Network.AWS.RDS.Types
     , vpcSecurityGroupMembership
     , vsgmStatus
     , vsgmVPCSecurityGroupId
-
     ) where
 
 import Network.AWS.Prelude

@@ -488,7 +488,6 @@ module Network.AWS.OpsWorks.Types
     , wassFriday
     , wassSunday
     , wassTuesday
-
     ) where
 
 import Network.AWS.Prelude

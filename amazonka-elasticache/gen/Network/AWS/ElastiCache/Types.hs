@@ -371,7 +371,6 @@ module Network.AWS.ElastiCache.Types
     , TagListMessage
     , tagListMessage
     , tlmTagList
-
     ) where
 
 import Network.AWS.Prelude

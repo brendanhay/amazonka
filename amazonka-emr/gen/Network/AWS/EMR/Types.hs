@@ -331,7 +331,6 @@ module Network.AWS.EMR.Types
     , tag
     , tagValue
     , tagKey
-
     ) where
 
 import Network.AWS.Prelude

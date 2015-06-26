@@ -290,7 +290,6 @@ module Network.AWS.CloudSearch.Types
     , toHighlightEnabled
     , toSortEnabled
     , toDefaultValue
-
     ) where
 
 import Network.AWS.Prelude

@@ -443,7 +443,6 @@ module Network.AWS.CloudFront.Types
     , vcMinimumProtocolVersion
     , vcIAMCertificateId
     , vcCloudFrontDefaultCertificate
-
     ) where
 
 import Network.AWS.Prelude

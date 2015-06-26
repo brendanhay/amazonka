@@ -87,7 +87,6 @@ module Network.AWS.KMS.Types
     , kmCreationDate
     , kmDescription
     , kmKeyId
-
     ) where
 
 import Network.AWS.Prelude

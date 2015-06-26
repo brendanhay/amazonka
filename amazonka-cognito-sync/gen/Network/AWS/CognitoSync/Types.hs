@@ -107,7 +107,6 @@ module Network.AWS.CognitoSync.Types
     , rpOp
     , rpKey
     , rpSyncCount
-
     ) where
 
 import Network.AWS.Prelude

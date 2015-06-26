@@ -165,7 +165,6 @@ module Network.AWS.CloudFormation.Types
     , tpDefaultValue
     , tpNoEcho
     , tpDescription
-
     ) where
 
 import Network.AWS.Prelude

@@ -152,7 +152,6 @@ module Network.AWS.StorageGateway.Types
     , vscsiaChapEnabled
     , vscsiaNetworkInterfaceId
     , vscsiaNetworkInterfacePort
-
     ) where
 
 import Network.AWS.Prelude

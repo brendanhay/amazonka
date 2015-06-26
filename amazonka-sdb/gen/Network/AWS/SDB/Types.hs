@@ -81,7 +81,6 @@ module Network.AWS.SDB.Types
     , ucExists
     , ucValue
     , ucName
-
     ) where
 
 import Network.AWS.Prelude

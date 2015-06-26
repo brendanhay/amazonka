@@ -38,7 +38,6 @@ module Network.AWS.CloudHSM.Types
 
     -- * SubscriptionType
     , SubscriptionType (..)
-
     ) where
 
 import Network.AWS.Prelude

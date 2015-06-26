@@ -93,7 +93,6 @@ module Network.AWS.Kinesis.Types
     , tag
     , tagValue
     , tagKey
-
     ) where
 
 import Network.AWS.Prelude

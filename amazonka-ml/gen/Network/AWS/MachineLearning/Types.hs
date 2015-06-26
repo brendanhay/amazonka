@@ -224,7 +224,6 @@ module Network.AWS.MachineLearning.Types
     , sdsDataSchemaLocationS3
     , sdsDataRearrangement
     , sdsDataLocationS3
-
     ) where
 
 import Network.AWS.Prelude

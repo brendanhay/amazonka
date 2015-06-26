@@ -295,7 +295,6 @@ module Network.AWS.CodeDeploy.Types
     , timeRange
     , trStart
     , trEnd
-
     ) where
 
 import Network.AWS.Prelude

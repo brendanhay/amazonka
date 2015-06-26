@@ -79,7 +79,6 @@ module Network.AWS.ElasticFileSystem.Types
     , tag
     , tagKey
     , tagValue
-
     ) where
 
 import Network.AWS.Prelude

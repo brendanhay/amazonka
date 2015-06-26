@@ -162,7 +162,6 @@ module Network.AWS.DirectoryService.Types
     , slManualSnapshotsLimitReached
     , slManualSnapshotsCurrentCount
     , slManualSnapshotsLimit
-
     ) where
 
 import Network.AWS.Prelude

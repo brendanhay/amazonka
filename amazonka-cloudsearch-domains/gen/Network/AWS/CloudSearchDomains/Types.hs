@@ -89,7 +89,6 @@ module Network.AWS.CloudSearchDomains.Types
     , smSuggestion
     , smScore
     , smId
-
     ) where
 
 import Network.AWS.Prelude

@@ -123,7 +123,6 @@ module Network.AWS.CloudWatchLogs.Types
     , sfLogGroupName
     , sfFilterPattern
     , sfRoleARN
-
     ) where
 
 import Network.AWS.Prelude

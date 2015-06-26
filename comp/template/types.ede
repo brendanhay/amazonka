@@ -51,7 +51,10 @@ module {{ moduleName }}
 import {{ import.value }}
 {% endfor %}
 
-{% include "_include/service.ede" %}
+-- | Version @{{ apiVersion }}@ of the {{ serviceFullName }}.
+data {{ serviceAbbrev }}
+
+{{ serviceInstance }}
 {% for shape in shapes %}
 
   {% include "_include/shape.ede" with shape = shape.value %}

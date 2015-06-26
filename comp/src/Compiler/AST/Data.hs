@@ -17,7 +17,8 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.AST.Data
-    ( operationData
+    ( serviceData
+    , operationData
     , shapeData
     , waiterData
     ) where
@@ -99,7 +100,7 @@ shapeData :: HasMetadata a Identity
           -> Shape Solved
           -> Either Error (Maybe SData)
 shapeData m (a :< s) = case s of
-    _ | s ^. infoException -> errorData p a (s ^. info)
+    _ | s ^. infoException -> Just <$> errorData a (s ^. info)
     Enum   i vs            -> Just <$> sumData p a i vs
     Struct st              -> do
         (d, fs) <- prodData m a st
@@ -111,11 +112,8 @@ shapeData m (a :< s) = case s of
 
 -- FIXME: take into account "error":{"httpStatusCode":400},
 -- https://github.com/boto/botocore/blob/develop/botocore/data/cognito-identity/2014-06-30/service-2.json#L31
-errorData :: Protocol
-          -> Solved
-          -> Info
-          -> Either Error (Maybe SData)
-errorData p s i = Just <$> (Fun <$> mk)
+errorData :: Solved -> Info -> Either Error SData
+errorData s i = Fun <$> mk
   where
     mk = Fun' p h
         <$> pp None   (errorS p)
@@ -197,6 +195,12 @@ renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
 renderInsts p n = fmap Map.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
+
+serviceData :: HasMetadata a f
+            => a
+            -> Retry
+            -> Either Error Rendered
+serviceData m r = pp Indent (serviceD m r)
 
 waiterData :: HasMetadata a Identity
            => a

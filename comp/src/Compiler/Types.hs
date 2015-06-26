@@ -43,6 +43,7 @@ import           Compiler.Types.Notation   as Types
 import           Compiler.Types.NS         as Types
 import           Compiler.Types.Orphans    ()
 import           Compiler.Types.Pager      as Types
+import           Compiler.Types.Retry      as Types
 import           Compiler.Types.Service    as Types
 import           Compiler.Types.URI        as Types
 import           Compiler.Types.Waiter     as Types
@@ -157,6 +158,7 @@ data Library = Library
     { _versions' :: Versions
     , _config'   :: Config
     , _service'  :: Service Identity SData SData WData
+    , _instance' :: Rendered
     }
 
 makeLenses ''Library
@@ -194,6 +196,7 @@ instance ToJSON Library where
             , "otherModules"     .= sort (l ^.  otherModules)
             , "shapes"           .= sort (l ^.. shapes  . each) --  & kvTraversal %~ first (^. typeId))
             , "waiters"          .= (l ^.. waiters . each)
+            , "serviceInstance"  .= (l ^. instance')
             ]
 
 libraryNS, typesNS, waitersNS :: Getter Library NS

@@ -164,6 +164,8 @@ main = do
             <*> load "types.ede"
             <*  lift done
 
+        r <- JS.required _optRetry
+
         forM_ (zip [1..] _optModels) $ \(j, f) -> do
             title ("[" % int % "/" % int % "] model:" % path)
                   (j :: Int)
@@ -182,6 +184,7 @@ main = do
                 , JS.required (m ^. serviceFile)
                 , JS.optional (m ^. waitersFile)
                 , JS.optional (m ^. pagersFile)
+                , pure r
                 ] >>= hoistEither . JS.parse . JS.merge
 
             say ("Successfully parsed '" % stext % "' API definition")

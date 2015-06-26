@@ -48,6 +48,8 @@ executable amazonka-compiler
         , Compiler.Types.Notation
         , Compiler.Types.Orphans
         , Compiler.Types.Pager
+        , Compiler.Types.Retry
+        , Compiler.Types.Pager
         , Compiler.Types.Service
         , Compiler.Types.URI
         , Compiler.Types.Waiter

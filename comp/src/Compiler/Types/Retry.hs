@@ -1,0 +1,129 @@
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TupleSections              #-}
+
+-- Module      : Compiler.Types.Retry
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla xtPublic License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+
+module Compiler.Types.Retry where
+
+import           Compiler.TH
+import           Compiler.Types.Id
+import           Compiler.Types.Map
+import           Compiler.Types.Notation
+import           Control.Applicative
+import           Control.Error           (note)
+import           Control.Lens
+import           Control.Monad
+import           Data.Aeson
+import           Data.Aeson.Types
+import qualified Data.HashMap.Strict     as Map
+import           Data.Maybe
+import           Data.Ord
+import           Data.Scientific
+import           Data.Text               (Text)
+import qualified Data.Text               as Text
+import           Data.Text.Manipulate
+import           GHC.Generics
+
+defKey :: Text
+defKey = "__default__"
+
+data When
+    = WhenStatus (Maybe Text) !Int
+    | WhenCRC32  !Text
+      deriving (Eq, Show)
+
+instance FromJSON When where
+    parseJSON = withObject "when" (\o -> status o <|> crc o)
+      where
+        status o = WhenStatus
+             <$> o .:? "service_error_code"
+             <*> o .:  "http_status_code"
+
+        crc = fmap WhenCRC32 . (.: "crc32body")
+
+data Policy
+    = Socket [Text]
+    | When   When
+      deriving (Eq, Show)
+
+instance FromJSON Policy where
+    parseJSON = withObject "ref" $ \o -> sock o <|> resp o
+      where
+        sock o = Socket <$> (o .: "applies_when" >>= (.: "socket_errors"))
+        resp o = When   <$> (o .: "applies_when" >>= (.: "response"))
+
+data Delay = Delay
+    { _delayType   :: !Text
+    , _delayBase   :: !Rational
+    , _delayGrowth :: !Integer
+    } deriving (Eq, Show, Generic)
+
+makeClassy ''Delay
+
+instance FromJSON Delay where
+    parseJSON = withObject "delay" $ \o ->
+        Delay <$> upperHead <$> o .: "type"
+              <*> (o .: "base" >>= base)
+              <*> o .: "growth_factor"
+      where
+        base = \case
+           String "rand" -> pure 0.05
+           o             -> parseJSON o
+
+data Retry = Retry'
+    { _retryAttempts :: !Integer
+    , _retryDelay    :: !Delay
+    , _retryPolicies :: Map Text Policy
+    } deriving (Eq, Show)
+
+makeLenses ''Retry
+
+instance HasDelay Retry where
+    delay = retryDelay
+
+instance FromJSON (Identity Retry) where
+    parseJSON = withObject "default_retry" $ \o ->
+        fmap Identity $ Retry'
+            <$> o .: "max_attempts"
+            <*> o .: "delay"
+            <*> pure mempty
+
+instance FromJSON (Retry -> Retry) where
+    parseJSON = withObject "retry" $ \o -> do
+        m <- o .:? "max_attempts"
+        d <- o .:? "delay"
+        p <- o .:  "policies"
+        return $ \r ->
+            Retry' (fromMaybe (r ^. retryAttempts) m)
+                   (fromMaybe (r ^. retryDelay)    d)
+                   p
+
+parseRetry :: Text -> Object -> Parser Retry
+parseRetry svc o = do
+    p <- o .: "definitions"
+    r <- o .: "retry"
+    -- Since the __default__ policy is everything in
+    -- definitions, just add them all rather than dealing
+    -- with references.
+    case Map.lookup defKey r of
+        Nothing -> fail $ "Missing: " ++ show defKey
+        Just x  -> do
+            Identity d <- parseJSON (Object x)
+            case Map.lookup svc r of
+                Nothing -> pure (d & retryPolicies .~ p)
+                Just y  -> do
+                    z <- parseJSON (Object y)
+                    return (z d)

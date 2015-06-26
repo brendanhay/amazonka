@@ -38,6 +38,7 @@ import           Compiler.Types.Map
 import           Compiler.Types.NS
 import           Compiler.Types.Orphans ()
 import           Compiler.Types.Pager
+import           Compiler.Types.Retry
 import           Compiler.Types.URI
 import           Compiler.Types.Waiter
 import           Control.Comonad
@@ -63,12 +64,15 @@ data Signature
     | S3
       deriving (Eq, Show, Generic)
 
+sigToText :: Signature -> Text
+sigToText V2 = "V2"
+sigToText _  = "V4"
+
 instance FromJSON Signature where
     parseJSON = gParseJSON' lower
 
 instance ToJSON Signature where
-    toJSON V2 = String "V2"
-    toJSON _  = String "V4"
+    toJSON = String . sigToText
 
 data Timestamp
     = RFC822
@@ -420,12 +424,7 @@ instance FromJSON (Metadata Maybe) where
         <*> o .:? "targetPrefix"
 
 instance ToJSON (Metadata Identity) where
-    toJSON m = Object (x <> y)
-      where
-        Object x = gToJSON' camel m
-        Object y = object
-            [ "serviceError" .= (m ^. serviceError)
-            ]
+    toJSON = gToJSON' camel
 
 serviceError :: HasMetadata a f => Getter a Text
 serviceError = to $ \m -> case m ^. protocol of
@@ -441,6 +440,7 @@ data Service f a b c = Service
     , _operations    :: Map Id (Operation f a (Pager Id))
     , _shapes        :: Map Id b
     , _waiters       :: Map Id c
+    , _retry         :: Retry
     } deriving (Generic)
 
 makeClassy ''Service
@@ -450,12 +450,14 @@ instance HasMetadata (Service f a b c) f where
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
     parseJSON = withObject "service" $ \o -> do
-        ps <- o .:? "pagination" .!= mempty
-        Service <$> o .:  "metadata"
-                <*> o .:  "documentation"
-                <*> (o .: "operations" <&> Map.map (pager ps))
-                <*> o .:  "shapes"
-                <*> pure mempty -- o .:? "waiters" .!= mempty
+        m <- o .:  "metadata"
+        p <- o .:? "pagination" .!= mempty
+        Service m
+            <$> o .:  "documentation"
+            <*> (o .: "operations" <&> Map.map (pager p))
+            <*> o .:  "shapes"
+            <*> o .:? "waiters" .!= mempty
+            <*> parseRetry (m ^. serviceAbbrev) o
       where
         pager :: Map Id (Pager Id)
               -> Operation f a ()

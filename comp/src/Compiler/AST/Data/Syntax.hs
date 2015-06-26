@@ -131,6 +131,42 @@ recordD ts n fs = QualConDecl noLoc [] [] $
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
+serviceD :: HasMetadata a f => a -> Retry -> Decl
+serviceD m r = instD "AWSService" n
+    [ assocD n "Sv" sig
+    , InsDecl $ patBindWhere noLoc (pvar "service") rhs binds
+    ]
+  where
+    rhs   = app (var "const") (var "svc")
+    binds = [svc noBinds, try noBinds]
+
+    svc = sfun noLoc (ident "svc") [] . UnGuardedRhs $
+        RecConstr (unqual "Service")
+            [ FieldUpdate (unqual "_svcAbbrev")   (str abbrev)
+            , FieldUpdate (unqual "_svcPrefix")   (m ^. endpointPrefix . to str)
+            , FieldUpdate (unqual "_svcVersion")  (m ^. apiVersion . to str)
+            , FieldUpdate (unqual "_svcEndpoint") (app (var "defaultEndpoint") (var "svc"))
+            , FieldUpdate (unqual "_svcTimeout")  (intE 80000000)
+            , FieldUpdate (unqual "_svcStatus")   (var "statusSuccess")
+            , FieldUpdate (unqual "_svcError")    (m ^. serviceError . to var)
+            , FieldUpdate (unqual "_svcRetry")    (var "retry")
+            ]
+
+    try = sfun noLoc (ident "retry") [] . UnGuardedRhs $
+        RecConstr (r ^. delayType . to unqual)
+            [ FieldUpdate (unqual "_retryBase")     (r ^. delayBase . to (Exts.Lit . PrimDouble))
+            , FieldUpdate (unqual "_retryGrowth")   (r ^. delayGrowth . to intE)
+            , FieldUpdate (unqual "_retryAttempts") (r ^. retryAttempts . to intE)
+            , FieldUpdate (unqual "_retryCheck")    (var "check")
+            ]
+
+--   check :: ServiceError -> Bool #}
+--    check ServiceError'{..} = error "FIXME: Retry check not implemented." #}
+
+    n      = mkId abbrev
+    abbrev = m ^. serviceAbbrev
+    sig    = m ^. signatureVersion . to sigToText
+
 pagerD :: Id -> Pager Field -> Decl
 pagerD n p = instD "AWSPager" n
     [ InsDecl $ sfun noLoc (ident "page") [ident "rq", ident "rs"] (rhs p) noBinds
@@ -210,8 +246,8 @@ requestD :: HasMetadata a f
          -> (Ref, [Field])
          -> Decl
 requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
-    [ assocTyD (identifier a) "Sv" (m ^. serviceAbbrev)
-    , assocTyD (identifier a) "Rs" (b ^. to identifier . typeId)
+    [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
+    , assocD (identifier a) "Rs" (b ^. to identifier . typeId)
     , funD "request"  (requestF h as)
     , funD "response" (responseE (m ^. protocol) h b bs)
     ]
@@ -353,8 +389,8 @@ funArgsD :: Text -> [Text] -> Exp -> InstDecl
 funArgsD f as e = InsDecl $
     sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds
 
-assocTyD :: Id -> Text -> Text -> InstDecl
-assocTyD n x y = InsType noLoc (TyApp (tycon x) (n ^. typeId . to tycon)) (tycon y)
+assocD :: Id -> Text -> Text -> InstDecl
+assocD n x y = InsType noLoc (TyApp (tycon x) (n ^. typeId . to tycon)) (tycon y)
 
 decodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
 decodeD c n f dec = instD1 c n . \case

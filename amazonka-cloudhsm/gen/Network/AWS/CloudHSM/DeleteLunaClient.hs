@@ -32,6 +32,7 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     , deleteLunaClientResponse
     -- ** Response lenses
     , dlcrStatus
+    , dlcrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -61,7 +62,8 @@ instance AWSRequest DeleteLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteLunaClientResponse' <$> (x .:> "Status"))
+                 DeleteLunaClientResponse' <$>
+                   (x .:> "Status") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteLunaClient where
         toHeaders
@@ -88,12 +90,18 @@ instance ToQuery DeleteLunaClient where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlcrStatus'
-newtype DeleteLunaClientResponse = DeleteLunaClientResponse'{_dlcrStatus :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dlcrStatusCode'
+data DeleteLunaClientResponse = DeleteLunaClientResponse'{_dlcrStatus :: Text, _dlcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
-deleteLunaClientResponse :: Text -> DeleteLunaClientResponse
-deleteLunaClientResponse pStatus = DeleteLunaClientResponse'{_dlcrStatus = pStatus};
+deleteLunaClientResponse :: Text -> Int -> DeleteLunaClientResponse
+deleteLunaClientResponse pStatus pStatusCode = DeleteLunaClientResponse'{_dlcrStatus = pStatus, _dlcrStatusCode = pStatusCode};
 
 -- | The status of the action.
 dlcrStatus :: Lens' DeleteLunaClientResponse Text
 dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});
+
+-- | FIXME: Undocumented member.
+dlcrStatusCode :: Lens' DeleteLunaClientResponse Int
+dlcrStatusCode = lens _dlcrStatusCode (\ s a -> s{_dlcrStatusCode = a});

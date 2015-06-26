@@ -38,6 +38,7 @@ module Network.AWS.CodeDeploy.ListDeployments
     -- ** Response lenses
     , ldrNextToken
     , ldrDeployments
+    , ldrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -45,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listDeployments' smart constructor.
+-- | Represents the input of a list deployments operation.
+--
+-- /See:/ 'listDeployments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,7 +106,8 @@ instance AWSRequest ListDeployments where
               (\ s h x ->
                  ListDeploymentsResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "deployments" .!@ mempty))
+                     (x .?> "deployments" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDeployments where
         toHeaders
@@ -130,18 +134,22 @@ instance ToPath ListDeployments where
 instance ToQuery ListDeployments where
         toQuery = const mempty
 
--- | /See:/ 'listDeploymentsResponse' smart constructor.
+-- | Represents the output of a list deployments operation.
+--
+-- /See:/ 'listDeploymentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldrNextToken'
 --
 -- * 'ldrDeployments'
-data ListDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken :: Maybe Text, _ldrDeployments :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken :: Maybe Text, _ldrDeployments :: Maybe [Text], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentsResponse' smart constructor.
-listDeploymentsResponse :: ListDeploymentsResponse
-listDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken = Nothing, _ldrDeployments = Nothing};
+listDeploymentsResponse :: Int -> ListDeploymentsResponse
+listDeploymentsResponse pStatusCode = ListDeploymentsResponse'{_ldrNextToken = Nothing, _ldrDeployments = Nothing, _ldrStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -152,3 +160,7 @@ ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 -- | A list of deployment IDs.
 ldrDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrDeployments = lens _ldrDeployments (\ s a -> s{_ldrDeployments = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDeploymentsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

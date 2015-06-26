@@ -38,7 +38,8 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- ** Response constructor
     , createClusterSecurityGroupResponse
     -- ** Response lenses
-    , ccsgrClusterSecurityGroup
+    , creClusterSecurityGroup
+    , creStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +47,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createClusterSecurityGroup' smart constructor.
+-- | ???
+--
+-- /See:/ 'createClusterSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +96,8 @@ instance AWSRequest CreateClusterSecurityGroup where
               "CreateClusterSecurityGroupResult"
               (\ s h x ->
                  CreateClusterSecurityGroupResponse' <$>
-                   (x .@? "ClusterSecurityGroup"))
+                   (x .@? "ClusterSecurityGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateClusterSecurityGroup where
         toHeaders = const mempty
@@ -116,13 +120,19 @@ instance ToQuery CreateClusterSecurityGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrClusterSecurityGroup'
-newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'{_ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup} deriving (Eq, Read, Show)
+-- * 'creClusterSecurityGroup'
+--
+-- * 'creStatusCode'
+data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'{_creClusterSecurityGroup :: Maybe ClusterSecurityGroup, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
-createClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse
-createClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'{_ccsgrClusterSecurityGroup = Nothing};
+createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse
+createClusterSecurityGroupResponse pStatusCode = CreateClusterSecurityGroupResponse'{_creClusterSecurityGroup = Nothing, _creStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
-ccsgrClusterSecurityGroup = lens _ccsgrClusterSecurityGroup (\ s a -> s{_ccsgrClusterSecurityGroup = a});
+creClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
+creClusterSecurityGroup = lens _creClusterSecurityGroup (\ s a -> s{_creClusterSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateClusterSecurityGroupResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

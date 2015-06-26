@@ -37,6 +37,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     , cancelReservedInstancesListingResponse
     -- ** Response lenses
     , crilrReservedInstancesListings
+    , crilrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -69,7 +70,8 @@ instance AWSRequest CancelReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CancelReservedInstancesListingResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CancelReservedInstancesListing
          where
@@ -92,12 +94,18 @@ instance ToQuery CancelReservedInstancesListing where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crilrReservedInstancesListings'
-newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings :: Maybe [ReservedInstancesListing]} deriving (Eq, Read, Show)
+--
+-- * 'crilrStatusCode'
+data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings :: Maybe [ReservedInstancesListing], _crilrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
-cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
-cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings = Nothing};
+cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
+cancelReservedInstancesListingResponse pStatusCode = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings = Nothing, _crilrStatusCode = pStatusCode};
 
 -- | The Reserved Instance listing.
 crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+crilrStatusCode :: Lens' CancelReservedInstancesListingResponse Int
+crilrStatusCode = lens _crilrStatusCode (\ s a -> s{_crilrStatusCode = a});

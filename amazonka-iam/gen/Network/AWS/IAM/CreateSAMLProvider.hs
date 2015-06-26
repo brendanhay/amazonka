@@ -56,6 +56,7 @@ module Network.AWS.IAM.CreateSAMLProvider
     , createSAMLProviderResponse
     -- ** Response lenses
     , csamlprSAMLProviderARN
+    , csamlprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -102,7 +103,7 @@ instance AWSRequest CreateSAMLProvider where
           = receiveXMLWrapper "CreateSAMLProviderResult"
               (\ s h x ->
                  CreateSAMLProviderResponse' <$>
-                   (x .@? "SAMLProviderArn"))
+                   (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
@@ -119,17 +120,25 @@ instance ToQuery CreateSAMLProvider where
                  _csamlpSAMLMetadataDocument,
                "Name" =: _csamlpName]
 
--- | /See:/ 'createSAMLProviderResponse' smart constructor.
+-- | Contains the response to a successful CreateSAMLProvider request.
+--
+-- /See:/ 'createSAMLProviderResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csamlprSAMLProviderARN'
-newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csamlprStatusCode'
+data CreateSAMLProviderResponse = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN :: Maybe Text, _csamlprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateSAMLProviderResponse' smart constructor.
-createSAMLProviderResponse :: CreateSAMLProviderResponse
-createSAMLProviderResponse = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN = Nothing};
+createSAMLProviderResponse :: Int -> CreateSAMLProviderResponse
+createSAMLProviderResponse pStatusCode = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN = Nothing, _csamlprStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
 csamlprSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderARN = lens _csamlprSAMLProviderARN (\ s a -> s{_csamlprSAMLProviderARN = a});
+
+-- | FIXME: Undocumented member.
+csamlprStatusCode :: Lens' CreateSAMLProviderResponse Int
+csamlprStatusCode = lens _csamlprStatusCode (\ s a -> s{_csamlprStatusCode = a});

@@ -34,6 +34,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     , describeNetworkInterfacesResponse
     -- ** Response lenses
     , dnirNetworkInterfaces
+    , dnirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -189,7 +190,8 @@ instance AWSRequest DescribeNetworkInterfaces where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkInterfacesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
@@ -213,12 +215,18 @@ instance ToQuery DescribeNetworkInterfaces where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dnirNetworkInterfaces'
-newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces :: Maybe [NetworkInterface]} deriving (Eq, Read, Show)
+--
+-- * 'dnirStatusCode'
+data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces :: Maybe [NetworkInterface], _dnirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
-describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
-describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces = Nothing};
+describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse
+describeNetworkInterfacesResponse pStatusCode = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces = Nothing, _dnirStatusCode = pStatusCode};
 
 -- | Information about one or more network interfaces.
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirNetworkInterfaces = lens _dnirNetworkInterfaces (\ s a -> s{_dnirNetworkInterfaces = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dnirStatusCode :: Lens' DescribeNetworkInterfacesResponse Int
+dnirStatusCode = lens _dnirStatusCode (\ s a -> s{_dnirStatusCode = a});

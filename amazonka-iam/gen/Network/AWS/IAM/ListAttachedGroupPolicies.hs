@@ -49,6 +49,7 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , lagprAttachedPolicies
     , lagprMarker
     , lagprIsTruncated
+    , lagprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -111,7 +112,8 @@ instance AWSRequest ListAttachedGroupPolicies where
                    (x .@? "AttachedPolicies" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
-                     <*> (x .@? "IsTruncated"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAttachedGroupPolicies where
         toHeaders = const mempty
@@ -129,7 +131,9 @@ instance ToQuery ListAttachedGroupPolicies where
                "MaxItems" =: _lagpMaxItems, "Marker" =: _lagpMarker,
                "GroupName" =: _lagpGroupName]
 
--- | /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
+-- | Contains the response to a successful ListAttachedGroupPolicies request.
+--
+-- /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -138,11 +142,13 @@ instance ToQuery ListAttachedGroupPolicies where
 -- * 'lagprMarker'
 --
 -- * 'lagprIsTruncated'
-data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies :: Maybe [AttachedPolicy], _lagprMarker :: Maybe Text, _lagprIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'lagprStatusCode'
+data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies :: Maybe [AttachedPolicy], _lagprMarker :: Maybe Text, _lagprIsTruncated :: Maybe Bool, _lagprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
-listAttachedGroupPoliciesResponse :: ListAttachedGroupPoliciesResponse
-listAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies = Nothing, _lagprMarker = Nothing, _lagprIsTruncated = Nothing};
+listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse
+listAttachedGroupPoliciesResponse pStatusCode = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies = Nothing, _lagprMarker = Nothing, _lagprIsTruncated = Nothing, _lagprStatusCode = pStatusCode};
 
 -- | A list of the attached policies.
 lagprAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse [AttachedPolicy]
@@ -160,3 +166,7 @@ lagprMarker = lens _lagprMarker (\ s a -> s{_lagprMarker = a});
 -- list.
 lagprIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprIsTruncated = lens _lagprIsTruncated (\ s a -> s{_lagprIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lagprStatusCode :: Lens' ListAttachedGroupPoliciesResponse Int
+lagprStatusCode = lens _lagprStatusCode (\ s a -> s{_lagprStatusCode = a});

@@ -38,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'registerOnPremisesInstance' smart constructor.
+-- | Represents the input of register on-premises instance operation.
+--
+-- /See:/ 'registerOnPremisesInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

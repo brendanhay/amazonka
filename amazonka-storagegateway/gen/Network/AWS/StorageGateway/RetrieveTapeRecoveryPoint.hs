@@ -41,6 +41,7 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , retrieveTapeRecoveryPointResponse
     -- ** Response lenses
     , rtrprTapeARN
+    , rtrprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -48,7 +49,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'retrieveTapeRecoveryPoint' smart constructor.
+-- | RetrieveTapeRecoveryPointInput
+--
+-- /See:/ 'retrieveTapeRecoveryPoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,7 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
           = receiveJSON
               (\ s h x ->
                  RetrieveTapeRecoveryPointResponse' <$>
-                   (x .?> "TapeARN"))
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
@@ -103,18 +106,26 @@ instance ToPath RetrieveTapeRecoveryPoint where
 instance ToQuery RetrieveTapeRecoveryPoint where
         toQuery = const mempty
 
--- | /See:/ 'retrieveTapeRecoveryPointResponse' smart constructor.
+-- | RetrieveTapeRecoveryPointOutput
+--
+-- /See:/ 'retrieveTapeRecoveryPointResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtrprTapeARN'
-newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rtrprStatusCode'
+data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN :: Maybe Text, _rtrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
-retrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
-retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN = Nothing};
+retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse
+retrieveTapeRecoveryPointResponse pStatusCode = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN = Nothing, _rtrprStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the
 -- recovery point was retrieved.
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\ s a -> s{_rtrprTapeARN = a});
+
+-- | FIXME: Undocumented member.
+rtrprStatusCode :: Lens' RetrieveTapeRecoveryPointResponse Int
+rtrprStatusCode = lens _rtrprStatusCode (\ s a -> s{_rtrprStatusCode = a});

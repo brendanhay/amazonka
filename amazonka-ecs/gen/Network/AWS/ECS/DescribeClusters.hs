@@ -33,6 +33,7 @@ module Network.AWS.ECS.DescribeClusters
     -- ** Response lenses
     , dcrFailures
     , dcrClusters
+    , dcrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -66,7 +67,8 @@ instance AWSRequest DescribeClusters where
               (\ s h x ->
                  DescribeClustersResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "clusters" .!@ mempty))
+                     (x .?> "clusters" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusters where
         toHeaders
@@ -95,11 +97,13 @@ instance ToQuery DescribeClusters where
 -- * 'dcrFailures'
 --
 -- * 'dcrClusters'
-data DescribeClustersResponse = DescribeClustersResponse'{_dcrFailures :: Maybe [Failure], _dcrClusters :: Maybe [Cluster]} deriving (Eq, Read, Show)
+--
+-- * 'dcrStatusCode'
+data DescribeClustersResponse = DescribeClustersResponse'{_dcrFailures :: Maybe [Failure], _dcrClusters :: Maybe [Cluster], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
-describeClustersResponse :: DescribeClustersResponse
-describeClustersResponse = DescribeClustersResponse'{_dcrFailures = Nothing, _dcrClusters = Nothing};
+describeClustersResponse :: Int -> DescribeClustersResponse
+describeClustersResponse pStatusCode = DescribeClustersResponse'{_dcrFailures = Nothing, _dcrClusters = Nothing, _dcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dcrFailures :: Lens' DescribeClustersResponse [Failure]
@@ -108,3 +112,7 @@ dcrFailures = lens _dcrFailures (\ s a -> s{_dcrFailures = a}) . _Default;
 -- | The list of clusters.
 dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcrStatusCode :: Lens' DescribeClustersResponse Int
+dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});

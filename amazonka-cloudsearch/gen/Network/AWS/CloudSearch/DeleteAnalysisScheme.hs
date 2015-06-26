@@ -34,7 +34,8 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     -- ** Response constructor
     , deleteAnalysisSchemeResponse
     -- ** Response lenses
-    , dasrAnalysisScheme
+    , dAnalysisScheme
+    , dStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -42,7 +43,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteAnalysisScheme' smart constructor.
+-- | Container for the parameters to the @DeleteAnalysisScheme@ operation.
+-- Specifies the name of the domain you want to update and the analysis
+-- scheme you want to delete.
+--
+-- /See:/ 'deleteAnalysisScheme' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -72,7 +77,7 @@ instance AWSRequest DeleteAnalysisScheme where
           = receiveXMLWrapper "DeleteAnalysisSchemeResult"
               (\ s h x ->
                  DeleteAnalysisSchemeResponse' <$>
-                   (x .@ "AnalysisScheme"))
+                   (x .@ "AnalysisScheme") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
@@ -88,17 +93,26 @@ instance ToQuery DeleteAnalysisScheme where
                "DomainName" =: _dasDomainName,
                "AnalysisSchemeName" =: _dasAnalysisSchemeName]
 
--- | /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
+-- | The result of a @DeleteAnalysisScheme@ request. Contains the status of
+-- the deleted analysis scheme.
+--
+-- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasrAnalysisScheme'
-newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'{_dasrAnalysisScheme :: AnalysisSchemeStatus} deriving (Eq, Read, Show)
+-- * 'dAnalysisScheme'
+--
+-- * 'dStatusCode'
+data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'{_dAnalysisScheme :: AnalysisSchemeStatus, _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
-deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
-deleteAnalysisSchemeResponse pAnalysisScheme = DeleteAnalysisSchemeResponse'{_dasrAnalysisScheme = pAnalysisScheme};
+deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -> Int -> DeleteAnalysisSchemeResponse
+deleteAnalysisSchemeResponse pAnalysisScheme pStatusCode = DeleteAnalysisSchemeResponse'{_dAnalysisScheme = pAnalysisScheme, _dStatusCode = pStatusCode};
 
 -- | The status of the analysis scheme being deleted.
-dasrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dasrAnalysisScheme = lens _dasrAnalysisScheme (\ s a -> s{_dasrAnalysisScheme = a});
+dAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dAnalysisScheme = lens _dAnalysisScheme (\ s a -> s{_dAnalysisScheme = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DeleteAnalysisSchemeResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

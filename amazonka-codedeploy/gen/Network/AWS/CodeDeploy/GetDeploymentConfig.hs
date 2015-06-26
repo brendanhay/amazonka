@@ -32,6 +32,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , getDeploymentConfigResponse
     -- ** Response lenses
     , gdcrDeploymentConfigInfo
+    , gdcrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDeploymentConfig' smart constructor.
+-- | Represents the input of a get deployment configuration operation.
+--
+-- /See:/ 'getDeploymentConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -64,7 +67,8 @@ instance AWSRequest GetDeploymentConfig where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentConfigResponse' <$>
-                   (x .?> "deploymentConfigInfo"))
+                   (x .?> "deploymentConfigInfo") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDeploymentConfig where
         toHeaders
@@ -87,17 +91,25 @@ instance ToPath GetDeploymentConfig where
 instance ToQuery GetDeploymentConfig where
         toQuery = const mempty
 
--- | /See:/ 'getDeploymentConfigResponse' smart constructor.
+-- | Represents the output of a get deployment configuration operation.
+--
+-- /See:/ 'getDeploymentConfigResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdcrDeploymentConfigInfo'
-newtype GetDeploymentConfigResponse = GetDeploymentConfigResponse'{_gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo} deriving (Eq, Read, Show)
+--
+-- * 'gdcrStatusCode'
+data GetDeploymentConfigResponse = GetDeploymentConfigResponse'{_gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo, _gdcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
-getDeploymentConfigResponse :: GetDeploymentConfigResponse
-getDeploymentConfigResponse = GetDeploymentConfigResponse'{_gdcrDeploymentConfigInfo = Nothing};
+getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
+getDeploymentConfigResponse pStatusCode = GetDeploymentConfigResponse'{_gdcrDeploymentConfigInfo = Nothing, _gdcrStatusCode = pStatusCode};
 
 -- | Information about the deployment configuration.
 gdcrDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
 gdcrDeploymentConfigInfo = lens _gdcrDeploymentConfigInfo (\ s a -> s{_gdcrDeploymentConfigInfo = a});
+
+-- | FIXME: Undocumented member.
+gdcrStatusCode :: Lens' GetDeploymentConfigResponse Int
+gdcrStatusCode = lens _gdcrStatusCode (\ s a -> s{_gdcrStatusCode = a});

@@ -36,6 +36,7 @@ module Network.AWS.S3.RestoreObject
     , restoreObjectResponse
     -- ** Response lenses
     , rorRequestCharged
+    , rorStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -90,7 +91,8 @@ instance AWSRequest RestoreObject where
           = receiveXML
               (\ s h x ->
                  RestoreObjectResponse' <$>
-                   (h .#? "x-amz-request-charged"))
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s)))
 
 instance ToElement RestoreObject where
         toElement
@@ -116,12 +118,18 @@ instance ToQuery RestoreObject where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rorRequestCharged'
-newtype RestoreObjectResponse = RestoreObjectResponse'{_rorRequestCharged :: Maybe RequestCharged} deriving (Eq, Read, Show)
+--
+-- * 'rorStatusCode'
+data RestoreObjectResponse = RestoreObjectResponse'{_rorRequestCharged :: Maybe RequestCharged, _rorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RestoreObjectResponse' smart constructor.
-restoreObjectResponse :: RestoreObjectResponse
-restoreObjectResponse = RestoreObjectResponse'{_rorRequestCharged = Nothing};
+restoreObjectResponse :: Int -> RestoreObjectResponse
+restoreObjectResponse pStatusCode = RestoreObjectResponse'{_rorRequestCharged = Nothing, _rorStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rorRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorRequestCharged = lens _rorRequestCharged (\ s a -> s{_rorRequestCharged = a});
+
+-- | FIXME: Undocumented member.
+rorStatusCode :: Lens' RestoreObjectResponse Int
+rorStatusCode = lens _rorStatusCode (\ s a -> s{_rorStatusCode = a});

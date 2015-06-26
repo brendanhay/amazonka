@@ -43,6 +43,7 @@ module Network.AWS.ElasticTranscoder.TestRole
     -- ** Response lenses
     , trrSuccess
     , trrMessages
+    , trrStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -50,7 +51,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'testRole' smart constructor.
+-- | The @TestRoleRequest@ structure.
+--
+-- /See:/ 'testRole' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,8 @@ instance AWSRequest TestRole where
           = receiveJSON
               (\ s h x ->
                  TestRoleResponse' <$>
-                   (x .?> "Success") <*> (x .?> "Messages" .!@ mempty))
+                   (x .?> "Success") <*> (x .?> "Messages" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders TestRole where
         toHeaders = const mempty
@@ -113,18 +117,22 @@ instance ToPath TestRole where
 instance ToQuery TestRole where
         toQuery = const mempty
 
--- | /See:/ 'testRoleResponse' smart constructor.
+-- | The @TestRoleResponse@ structure.
+--
+-- /See:/ 'testRoleResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'trrSuccess'
 --
 -- * 'trrMessages'
-data TestRoleResponse = TestRoleResponse'{_trrSuccess :: Maybe Text, _trrMessages :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'trrStatusCode'
+data TestRoleResponse = TestRoleResponse'{_trrSuccess :: Maybe Text, _trrMessages :: Maybe [Text], _trrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'TestRoleResponse' smart constructor.
-testRoleResponse :: TestRoleResponse
-testRoleResponse = TestRoleResponse'{_trrSuccess = Nothing, _trrMessages = Nothing};
+testRoleResponse :: Int -> TestRoleResponse
+testRoleResponse pStatusCode = TestRoleResponse'{_trrSuccess = Nothing, _trrMessages = Nothing, _trrStatusCode = pStatusCode};
 
 -- | If the operation is successful, this value is @true@; otherwise, the
 -- value is @false@.
@@ -135,3 +143,7 @@ trrSuccess = lens _trrSuccess (\ s a -> s{_trrSuccess = a});
 -- or more error messages that were generated during the test process.
 trrMessages :: Lens' TestRoleResponse [Text]
 trrMessages = lens _trrMessages (\ s a -> s{_trrMessages = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+trrStatusCode :: Lens' TestRoleResponse Int
+trrStatusCode = lens _trrStatusCode (\ s a -> s{_trrStatusCode = a});

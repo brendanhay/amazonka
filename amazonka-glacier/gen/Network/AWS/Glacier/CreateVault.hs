@@ -57,6 +57,7 @@ module Network.AWS.Glacier.CreateVault
     , createVaultResponse
     -- ** Response lenses
     , cvrLocation
+    , cvrStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -64,7 +65,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createVault' smart constructor.
+-- | Provides options to create a vault.
+--
+-- /See:/ 'createVault' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +101,8 @@ instance AWSRequest CreateVault where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateVaultResponse' <$> (h .#? "Location"))
+                 CreateVaultResponse' <$>
+                   (h .#? "Location") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVault where
         toHeaders = const mempty
@@ -115,17 +119,25 @@ instance ToPath CreateVault where
 instance ToQuery CreateVault where
         toQuery = const mempty
 
--- | /See:/ 'createVaultResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'createVaultResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvrLocation'
-newtype CreateVaultResponse = CreateVaultResponse'{_cvrLocation :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cvrStatusCode'
+data CreateVaultResponse = CreateVaultResponse'{_cvrLocation :: Maybe Text, _cvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVaultResponse' smart constructor.
-createVaultResponse :: CreateVaultResponse
-createVaultResponse = CreateVaultResponse'{_cvrLocation = Nothing};
+createVaultResponse :: Int -> CreateVaultResponse
+createVaultResponse pStatusCode = CreateVaultResponse'{_cvrLocation = Nothing, _cvrStatusCode = pStatusCode};
 
 -- | The URI of the vault that was created.
 cvrLocation :: Lens' CreateVaultResponse (Maybe Text)
 cvrLocation = lens _cvrLocation (\ s a -> s{_cvrLocation = a});
+
+-- | FIXME: Undocumented member.
+cvrStatusCode :: Lens' CreateVaultResponse Int
+cvrStatusCode = lens _cvrStatusCode (\ s a -> s{_cvrStatusCode = a});

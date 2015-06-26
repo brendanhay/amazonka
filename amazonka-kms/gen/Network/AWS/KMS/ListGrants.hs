@@ -36,6 +36,7 @@ module Network.AWS.KMS.ListGrants
     , lgrTruncated
     , lgrGrants
     , lgrNextMarker
+    , lgrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -91,7 +92,8 @@ instance AWSRequest ListGrants where
               (\ s h x ->
                  ListGrantsResponse' <$>
                    (x .?> "Truncated") <*> (x .?> "Grants" .!@ mempty)
-                     <*> (x .?> "NextMarker"))
+                     <*> (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGrants where
         toHeaders
@@ -123,11 +125,13 @@ instance ToQuery ListGrants where
 -- * 'lgrGrants'
 --
 -- * 'lgrNextMarker'
-data ListGrantsResponse = ListGrantsResponse'{_lgrTruncated :: Maybe Bool, _lgrGrants :: Maybe [GrantListEntry], _lgrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lgrStatusCode'
+data ListGrantsResponse = ListGrantsResponse'{_lgrTruncated :: Maybe Bool, _lgrGrants :: Maybe [GrantListEntry], _lgrNextMarker :: Maybe Text, _lgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListGrantsResponse' smart constructor.
-listGrantsResponse :: ListGrantsResponse
-listGrantsResponse = ListGrantsResponse'{_lgrTruncated = Nothing, _lgrGrants = Nothing, _lgrNextMarker = Nothing};
+listGrantsResponse :: Int -> ListGrantsResponse
+listGrantsResponse pStatusCode = ListGrantsResponse'{_lgrTruncated = Nothing, _lgrGrants = Nothing, _lgrNextMarker = Nothing, _lgrStatusCode = pStatusCode};
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -145,3 +149,7 @@ lgrGrants = lens _lgrGrants (\ s a -> s{_lgrGrants = a}) . _Default;
 -- request.
 lgrNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrNextMarker = lens _lgrNextMarker (\ s a -> s{_lgrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lgrStatusCode :: Lens' ListGrantsResponse Int
+lgrStatusCode = lens _lgrStatusCode (\ s a -> s{_lgrStatusCode = a});

@@ -45,6 +45,7 @@ module Network.AWS.IAM.GetGroupPolicy
     , ggprGroupName
     , ggprPolicyName
     , ggprPolicyDocument
+    , ggprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -82,7 +83,8 @@ instance AWSRequest GetGroupPolicy where
               (\ s h x ->
                  GetGroupPolicyResponse' <$>
                    (x .@ "GroupName") <*> (x .@ "PolicyName") <*>
-                     (x .@ "PolicyDocument"))
+                     (x .@ "PolicyDocument")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetGroupPolicy where
         toHeaders = const mempty
@@ -98,7 +100,9 @@ instance ToQuery GetGroupPolicy where
                "GroupName" =: _ggpGroupName,
                "PolicyName" =: _ggpPolicyName]
 
--- | /See:/ 'getGroupPolicyResponse' smart constructor.
+-- | Contains the response to a successful GetGroupPolicy request.
+--
+-- /See:/ 'getGroupPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,11 +111,13 @@ instance ToQuery GetGroupPolicy where
 -- * 'ggprPolicyName'
 --
 -- * 'ggprPolicyDocument'
-data GetGroupPolicyResponse = GetGroupPolicyResponse'{_ggprGroupName :: Text, _ggprPolicyName :: Text, _ggprPolicyDocument :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ggprStatusCode'
+data GetGroupPolicyResponse = GetGroupPolicyResponse'{_ggprGroupName :: Text, _ggprPolicyName :: Text, _ggprPolicyDocument :: Text, _ggprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
-getGroupPolicyResponse :: Text -> Text -> Text -> GetGroupPolicyResponse
-getGroupPolicyResponse pGroupName pPolicyName pPolicyDocument = GetGroupPolicyResponse'{_ggprGroupName = pGroupName, _ggprPolicyName = pPolicyName, _ggprPolicyDocument = pPolicyDocument};
+getGroupPolicyResponse :: Text -> Text -> Text -> Int -> GetGroupPolicyResponse
+getGroupPolicyResponse pGroupName pPolicyName pPolicyDocument pStatusCode = GetGroupPolicyResponse'{_ggprGroupName = pGroupName, _ggprPolicyName = pPolicyName, _ggprPolicyDocument = pPolicyDocument, _ggprStatusCode = pStatusCode};
 
 -- | The group the policy is associated with.
 ggprGroupName :: Lens' GetGroupPolicyResponse Text
@@ -124,3 +130,7 @@ ggprPolicyName = lens _ggprPolicyName (\ s a -> s{_ggprPolicyName = a});
 -- | The policy document.
 ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprPolicyDocument = lens _ggprPolicyDocument (\ s a -> s{_ggprPolicyDocument = a});
+
+-- | FIXME: Undocumented member.
+ggprStatusCode :: Lens' GetGroupPolicyResponse Int
+ggprStatusCode = lens _ggprStatusCode (\ s a -> s{_ggprStatusCode = a});

@@ -46,6 +46,7 @@ module Network.AWS.OpsWorks.CreateDeployment
     , createDeploymentResponse
     -- ** Response lenses
     , cdrDeploymentId
+    , cdrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -115,7 +116,8 @@ instance AWSRequest CreateDeployment where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateDeploymentResponse' <$> (x .?> "DeploymentId"))
+                 CreateDeploymentResponse' <$>
+                   (x .?> "DeploymentId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -140,18 +142,26 @@ instance ToPath CreateDeployment where
 instance ToQuery CreateDeployment where
         toQuery = const mempty
 
--- | /See:/ 'createDeploymentResponse' smart constructor.
+-- | Contains the response to a @CreateDeployment@ request.
+--
+-- /See:/ 'createDeploymentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdrDeploymentId'
-newtype CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdrStatusCode'
+data CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDeploymentResponse' smart constructor.
-createDeploymentResponse :: CreateDeploymentResponse
-createDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId = Nothing};
+createDeploymentResponse :: Int -> CreateDeploymentResponse
+createDeploymentResponse pStatusCode = CreateDeploymentResponse'{_cdrDeploymentId = Nothing, _cdrStatusCode = pStatusCode};
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});
+
+-- | FIXME: Undocumented member.
+cdrStatusCode :: Lens' CreateDeploymentResponse Int
+cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});

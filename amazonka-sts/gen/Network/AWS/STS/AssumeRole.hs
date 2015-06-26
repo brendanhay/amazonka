@@ -117,6 +117,7 @@ module Network.AWS.STS.AssumeRole
     , arrPackedPolicySize
     , arrCredentials
     , arrAssumedRoleUser
+    , arrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -216,7 +217,8 @@ instance AWSRequest AssumeRole where
               (\ s h x ->
                  AssumeRoleResponse' <$>
                    (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
-                     <*> (x .@? "AssumedRoleUser"))
+                     <*> (x .@? "AssumedRoleUser")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AssumeRole where
         toHeaders = const mempty
@@ -236,7 +238,10 @@ instance ToQuery AssumeRole where
                "RoleArn" =: _arRoleARN,
                "RoleSessionName" =: _arRoleSessionName]
 
--- | /See:/ 'assumeRoleResponse' smart constructor.
+-- | Contains the response to a successful AssumeRole request, including
+-- temporary AWS credentials that can be used to make AWS requests.
+--
+-- /See:/ 'assumeRoleResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -245,11 +250,13 @@ instance ToQuery AssumeRole where
 -- * 'arrCredentials'
 --
 -- * 'arrAssumedRoleUser'
-data AssumeRoleResponse = AssumeRoleResponse'{_arrPackedPolicySize :: Maybe Nat, _arrCredentials :: Maybe Credentials, _arrAssumedRoleUser :: Maybe AssumedRoleUser} deriving (Eq, Read, Show)
+--
+-- * 'arrStatusCode'
+data AssumeRoleResponse = AssumeRoleResponse'{_arrPackedPolicySize :: Maybe Nat, _arrCredentials :: Maybe Credentials, _arrAssumedRoleUser :: Maybe AssumedRoleUser, _arrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleResponse' smart constructor.
-assumeRoleResponse :: AssumeRoleResponse
-assumeRoleResponse = AssumeRoleResponse'{_arrPackedPolicySize = Nothing, _arrCredentials = Nothing, _arrAssumedRoleUser = Nothing};
+assumeRoleResponse :: Int -> AssumeRoleResponse
+assumeRoleResponse pStatusCode = AssumeRoleResponse'{_arrPackedPolicySize = Nothing, _arrCredentials = Nothing, _arrAssumedRoleUser = Nothing, _arrStatusCode = pStatusCode};
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
@@ -270,3 +277,7 @@ arrCredentials = lens _arrCredentials (\ s a -> s{_arrCredentials = a});
 -- when you called @AssumeRole@.
 arrAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrAssumedRoleUser = lens _arrAssumedRoleUser (\ s a -> s{_arrAssumedRoleUser = a});
+
+-- | FIXME: Undocumented member.
+arrStatusCode :: Lens' AssumeRoleResponse Int
+arrStatusCode = lens _arrStatusCode (\ s a -> s{_arrStatusCode = a});

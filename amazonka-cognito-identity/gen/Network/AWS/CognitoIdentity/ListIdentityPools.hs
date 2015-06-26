@@ -36,6 +36,7 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- ** Response lenses
     , liprIdentityPools
     , liprNextToken
+    , liprStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listIdentityPools' smart constructor.
+-- | Input to the ListIdentityPools action.
+--
+-- /See:/ 'listIdentityPools' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +76,8 @@ instance AWSRequest ListIdentityPools where
               (\ s h x ->
                  ListIdentityPoolsResponse' <$>
                    (x .?> "IdentityPools" .!@ mempty) <*>
-                     (x .?> "NextToken"))
+                     (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListIdentityPools where
         toHeaders
@@ -97,18 +101,22 @@ instance ToPath ListIdentityPools where
 instance ToQuery ListIdentityPools where
         toQuery = const mempty
 
--- | /See:/ 'listIdentityPoolsResponse' smart constructor.
+-- | The result of a successful ListIdentityPools action.
+--
+-- /See:/ 'listIdentityPoolsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'liprIdentityPools'
 --
 -- * 'liprNextToken'
-data ListIdentityPoolsResponse = ListIdentityPoolsResponse'{_liprIdentityPools :: Maybe [IdentityPoolShortDescription], _liprNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'liprStatusCode'
+data ListIdentityPoolsResponse = ListIdentityPoolsResponse'{_liprIdentityPools :: Maybe [IdentityPoolShortDescription], _liprNextToken :: Maybe Text, _liprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
-listIdentityPoolsResponse :: ListIdentityPoolsResponse
-listIdentityPoolsResponse = ListIdentityPoolsResponse'{_liprIdentityPools = Nothing, _liprNextToken = Nothing};
+listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
+listIdentityPoolsResponse pStatusCode = ListIdentityPoolsResponse'{_liprIdentityPools = Nothing, _liprNextToken = Nothing, _liprStatusCode = pStatusCode};
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
@@ -117,3 +125,7 @@ liprIdentityPools = lens _liprIdentityPools (\ s a -> s{_liprIdentityPools = a})
 -- | A pagination token.
 liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprNextToken = lens _liprNextToken (\ s a -> s{_liprNextToken = a});
+
+-- | FIXME: Undocumented member.
+liprStatusCode :: Lens' ListIdentityPoolsResponse Int
+liprStatusCode = lens _liprStatusCode (\ s a -> s{_liprStatusCode = a});

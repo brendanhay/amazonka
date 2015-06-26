@@ -34,6 +34,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , describeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , dsdsrSpotDatafeedSubscription
+    , dsdsrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSpotDatafeedSubscription' smart constructor.
+-- | Contains the parameters for DescribeSpotDatafeedSubscription.
+--
+-- /See:/ 'describeSpotDatafeedSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -69,7 +72,8 @@ instance AWSRequest DescribeSpotDatafeedSubscription
           = receiveXML
               (\ s h x ->
                  DescribeSpotDatafeedSubscriptionResponse' <$>
-                   (x .@? "spotDatafeedSubscription"))
+                   (x .@? "spotDatafeedSubscription") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotDatafeedSubscription
          where
@@ -88,17 +92,25 @@ instance ToQuery DescribeSpotDatafeedSubscription
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _dsdsDryRun]
 
--- | /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
+-- | Contains the output of DescribeSpotDatafeedSubscription.
+--
+-- /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsdsrSpotDatafeedSubscription'
-newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'{_dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription} deriving (Eq, Read, Show)
+--
+-- * 'dsdsrStatusCode'
+data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'{_dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription, _dsdsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
-describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
-describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'{_dsdsrSpotDatafeedSubscription = Nothing};
+describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse
+describeSpotDatafeedSubscriptionResponse pStatusCode = DescribeSpotDatafeedSubscriptionResponse'{_dsdsrSpotDatafeedSubscription = Nothing, _dsdsrStatusCode = pStatusCode};
 
 -- | The Spot Instance data feed subscription.
 dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrSpotDatafeedSubscription = lens _dsdsrSpotDatafeedSubscription (\ s a -> s{_dsdsrSpotDatafeedSubscription = a});
+
+-- | FIXME: Undocumented member.
+dsdsrStatusCode :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
+dsdsrStatusCode = lens _dsdsrStatusCode (\ s a -> s{_dsdsrStatusCode = a});

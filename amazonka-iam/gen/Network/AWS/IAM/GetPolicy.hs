@@ -46,6 +46,7 @@ module Network.AWS.IAM.GetPolicy
     , getPolicyResponse
     -- ** Response lenses
     , gprPolicy
+    , gprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -74,7 +75,9 @@ instance AWSRequest GetPolicy where
         request = post
         response
           = receiveXMLWrapper "GetPolicyResult"
-              (\ s h x -> GetPolicyResponse' <$> (x .@? "Policy"))
+              (\ s h x ->
+                 GetPolicyResponse' <$>
+                   (x .@? "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
@@ -89,17 +92,25 @@ instance ToQuery GetPolicy where
                "Version" =: ("2010-05-08" :: ByteString),
                "PolicyArn" =: _gpPolicyARN]
 
--- | /See:/ 'getPolicyResponse' smart constructor.
+-- | Contains the response to a successful GetPolicy request.
+--
+-- /See:/ 'getPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gprPolicy'
-newtype GetPolicyResponse = GetPolicyResponse'{_gprPolicy :: Maybe Policy} deriving (Eq, Read, Show)
+--
+-- * 'gprStatusCode'
+data GetPolicyResponse = GetPolicyResponse'{_gprPolicy :: Maybe Policy, _gprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetPolicyResponse' smart constructor.
-getPolicyResponse :: GetPolicyResponse
-getPolicyResponse = GetPolicyResponse'{_gprPolicy = Nothing};
+getPolicyResponse :: Int -> GetPolicyResponse
+getPolicyResponse pStatusCode = GetPolicyResponse'{_gprPolicy = Nothing, _gprStatusCode = pStatusCode};
 
 -- | Information about the policy.
 gprPolicy :: Lens' GetPolicyResponse (Maybe Policy)
 gprPolicy = lens _gprPolicy (\ s a -> s{_gprPolicy = a});
+
+-- | FIXME: Undocumented member.
+gprStatusCode :: Lens' GetPolicyResponse Int
+gprStatusCode = lens _gprStatusCode (\ s a -> s{_gprStatusCode = a});

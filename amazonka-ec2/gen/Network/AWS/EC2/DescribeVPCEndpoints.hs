@@ -35,8 +35,9 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     -- ** Response constructor
     , describeVPCEndpointsResponse
     -- ** Response lenses
-    , dverNextToken
-    , dverVPCEndpoints
+    , dNextToken
+    , dVPCEndpoints
+    , dStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -111,8 +112,8 @@ instance AWSRequest DescribeVPCEndpoints where
           = receiveXML
               (\ s h x ->
                  DescribeVPCEndpointsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCEndpoints where
         toHeaders = const mempty
@@ -136,20 +137,26 @@ instance ToQuery DescribeVPCEndpoints where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dverNextToken'
+-- * 'dNextToken'
 --
--- * 'dverVPCEndpoints'
-data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dverNextToken :: Maybe Text, _dverVPCEndpoints :: Maybe [VPCEndpoint]} deriving (Eq, Read, Show)
+-- * 'dVPCEndpoints'
+--
+-- * 'dStatusCode'
+data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dNextToken :: Maybe Text, _dVPCEndpoints :: Maybe [VPCEndpoint], _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCEndpointsResponse' smart constructor.
-describeVPCEndpointsResponse :: DescribeVPCEndpointsResponse
-describeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dverNextToken = Nothing, _dverVPCEndpoints = Nothing};
+describeVPCEndpointsResponse :: Int -> DescribeVPCEndpointsResponse
+describeVPCEndpointsResponse pStatusCode = DescribeVPCEndpointsResponse'{_dNextToken = Nothing, _dVPCEndpoints = Nothing, _dStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dverNextToken :: Lens' DescribeVPCEndpointsResponse (Maybe Text)
-dverNextToken = lens _dverNextToken (\ s a -> s{_dverNextToken = a});
+dNextToken :: Lens' DescribeVPCEndpointsResponse (Maybe Text)
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | Information about the endpoints.
-dverVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
-dverVPCEndpoints = lens _dverVPCEndpoints (\ s a -> s{_dverVPCEndpoints = a}) . _Default;
+dVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
+dVPCEndpoints = lens _dVPCEndpoints (\ s a -> s{_dVPCEndpoints = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DescribeVPCEndpointsResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

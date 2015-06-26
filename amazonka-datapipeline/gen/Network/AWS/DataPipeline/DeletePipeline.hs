@@ -44,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deletePipeline' smart constructor.
+-- | Contains the parameters for DeletePipeline.
+--
+-- /See:/ 'deletePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

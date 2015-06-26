@@ -32,6 +32,7 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     , getSubscriptionAttributesResponse
     -- ** Response lenses
     , gsarAttributes
+    , gsarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -39,7 +40,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'getSubscriptionAttributes' smart constructor.
+-- | Input for GetSubscriptionAttributes.
+--
+-- /See:/ 'getSubscriptionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -64,7 +67,8 @@ instance AWSRequest GetSubscriptionAttributes where
               (\ s h x ->
                  GetSubscriptionAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value")))
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
@@ -80,16 +84,20 @@ instance ToQuery GetSubscriptionAttributes where
                "Version" =: ("2010-03-31" :: ByteString),
                "SubscriptionArn" =: _gsaSubscriptionARN]
 
--- | /See:/ 'getSubscriptionAttributesResponse' smart constructor.
+-- | Response for GetSubscriptionAttributes action.
+--
+-- /See:/ 'getSubscriptionAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsarAttributes'
-newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+--
+-- * 'gsarStatusCode'
+data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes :: Maybe (Map Text Text), _gsarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
-getSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
-getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes = Nothing};
+getSubscriptionAttributesResponse :: Int -> GetSubscriptionAttributesResponse
+getSubscriptionAttributesResponse pStatusCode = GetSubscriptionAttributesResponse'{_gsarAttributes = Nothing, _gsarStatusCode = pStatusCode};
 
 -- | A map of the subscription\'s attributes. Attributes in this map include
 -- the following:
@@ -106,3 +114,7 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttr
 --     and account system defaults
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+gsarStatusCode :: Lens' GetSubscriptionAttributesResponse Int
+gsarStatusCode = lens _gsarStatusCode (\ s a -> s{_gsarStatusCode = a});

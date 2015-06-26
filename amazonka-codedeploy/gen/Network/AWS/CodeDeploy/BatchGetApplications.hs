@@ -32,6 +32,7 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     , batchGetApplicationsResponse
     -- ** Response lenses
     , bgarApplicationsInfo
+    , bgarStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'batchGetApplications' smart constructor.
+-- | Represents the input of a batch get applications operation.
+--
+-- /See:/ 'batchGetApplications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -64,7 +67,8 @@ instance AWSRequest BatchGetApplications where
           = receiveJSON
               (\ s h x ->
                  BatchGetApplicationsResponse' <$>
-                   (x .?> "applicationsInfo" .!@ mempty))
+                   (x .?> "applicationsInfo" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders BatchGetApplications where
         toHeaders
@@ -86,17 +90,25 @@ instance ToPath BatchGetApplications where
 instance ToQuery BatchGetApplications where
         toQuery = const mempty
 
--- | /See:/ 'batchGetApplicationsResponse' smart constructor.
+-- | Represents the output of a batch get applications operation.
+--
+-- /See:/ 'batchGetApplicationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgarApplicationsInfo'
-newtype BatchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo :: Maybe [ApplicationInfo]} deriving (Eq, Read, Show)
+--
+-- * 'bgarStatusCode'
+data BatchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo :: Maybe [ApplicationInfo], _bgarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
-batchGetApplicationsResponse :: BatchGetApplicationsResponse
-batchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo = Nothing};
+batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
+batchGetApplicationsResponse pStatusCode = BatchGetApplicationsResponse'{_bgarApplicationsInfo = Nothing, _bgarStatusCode = pStatusCode};
 
 -- | Information about the applications.
 bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+bgarStatusCode :: Lens' BatchGetApplicationsResponse Int
+bgarStatusCode = lens _bgarStatusCode (\ s a -> s{_bgarStatusCode = a});

@@ -40,7 +40,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDBSecurityGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteDBSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

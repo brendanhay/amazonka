@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , describeServiceErrorsResponse
     -- ** Response lenses
     , dserServiceErrors
+    , dserStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -88,7 +89,8 @@ instance AWSRequest DescribeServiceErrors where
           = receiveJSON
               (\ s h x ->
                  DescribeServiceErrorsResponse' <$>
-                   (x .?> "ServiceErrors" .!@ mempty))
+                   (x .?> "ServiceErrors" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeServiceErrors where
         toHeaders
@@ -113,18 +115,26 @@ instance ToPath DescribeServiceErrors where
 instance ToQuery DescribeServiceErrors where
         toQuery = const mempty
 
--- | /See:/ 'describeServiceErrorsResponse' smart constructor.
+-- | Contains the response to a @DescribeServiceErrors@ request.
+--
+-- /See:/ 'describeServiceErrorsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dserServiceErrors'
-newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors :: Maybe [ServiceError']} deriving (Eq, Read, Show)
+--
+-- * 'dserStatusCode'
+data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors :: Maybe [ServiceError'], _dserStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
-describeServiceErrorsResponse :: DescribeServiceErrorsResponse
-describeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors = Nothing};
+describeServiceErrorsResponse :: Int -> DescribeServiceErrorsResponse
+describeServiceErrorsResponse pStatusCode = DescribeServiceErrorsResponse'{_dserServiceErrors = Nothing, _dserStatusCode = pStatusCode};
 
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
 dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors = lens _dserServiceErrors (\ s a -> s{_dserServiceErrors = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dserStatusCode :: Lens' DescribeServiceErrorsResponse Int
+dserStatusCode = lens _dserStatusCode (\ s a -> s{_dserStatusCode = a});

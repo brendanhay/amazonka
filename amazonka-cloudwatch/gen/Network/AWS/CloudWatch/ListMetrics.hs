@@ -38,10 +38,11 @@ module Network.AWS.CloudWatch.ListMetrics
     -- ** Response lenses
     , lmrMetrics
     , lmrNextToken
+    , lmrStatusCode
     ) where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -97,7 +98,8 @@ instance AWSRequest ListMetrics where
                  ListMetricsResponse' <$>
                    (x .@? "Metrics" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
@@ -116,18 +118,22 @@ instance ToQuery ListMetrics where
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _lmDimensions)]
 
--- | /See:/ 'listMetricsResponse' smart constructor.
+-- | The output for the ListMetrics action.
+--
+-- /See:/ 'listMetricsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lmrMetrics'
 --
 -- * 'lmrNextToken'
-data ListMetricsResponse = ListMetricsResponse'{_lmrMetrics :: Maybe [Metric], _lmrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lmrStatusCode'
+data ListMetricsResponse = ListMetricsResponse'{_lmrMetrics :: Maybe [Metric], _lmrNextToken :: Maybe Text, _lmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListMetricsResponse' smart constructor.
-listMetricsResponse :: ListMetricsResponse
-listMetricsResponse = ListMetricsResponse'{_lmrMetrics = Nothing, _lmrNextToken = Nothing};
+listMetricsResponse :: Int -> ListMetricsResponse
+listMetricsResponse pStatusCode = ListMetricsResponse'{_lmrMetrics = Nothing, _lmrNextToken = Nothing, _lmrStatusCode = pStatusCode};
 
 -- | A list of metrics used to generate statistics for an AWS account.
 lmrMetrics :: Lens' ListMetricsResponse [Metric]
@@ -136,3 +142,7 @@ lmrMetrics = lens _lmrMetrics (\ s a -> s{_lmrMetrics = a}) . _Default;
 -- | A string that marks the start of the next batch of returned results.
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\ s a -> s{_lmrNextToken = a});
+
+-- | FIXME: Undocumented member.
+lmrStatusCode :: Lens' ListMetricsResponse Int
+lmrStatusCode = lens _lmrStatusCode (\ s a -> s{_lmrStatusCode = a});

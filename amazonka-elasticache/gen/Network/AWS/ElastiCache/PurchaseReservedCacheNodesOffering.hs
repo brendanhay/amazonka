@@ -35,6 +35,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , purchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
     , prcnorReservedCacheNode
+    , prcnorStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'purchaseReservedCacheNodesOffering' smart constructor.
+-- | Represents the input of a /PurchaseReservedCacheNodesOffering/ action.
+--
+-- /See:/ 'purchaseReservedCacheNodesOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,7 +90,7 @@ instance AWSRequest
               "PurchaseReservedCacheNodesOfferingResult"
               (\ s h x ->
                  PurchaseReservedCacheNodesOfferingResponse' <$>
-                   (x .@? "ReservedCacheNode"))
+                   (x .@? "ReservedCacheNode") <*> (pure (fromEnum s)))
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where
@@ -114,12 +117,18 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prcnorReservedCacheNode'
-newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'{_prcnorReservedCacheNode :: Maybe ReservedCacheNode} deriving (Eq, Read, Show)
+--
+-- * 'prcnorStatusCode'
+data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'{_prcnorReservedCacheNode :: Maybe ReservedCacheNode, _prcnorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
-purchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse
-purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'{_prcnorReservedCacheNode = Nothing};
+purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
+purchaseReservedCacheNodesOfferingResponse pStatusCode = PurchaseReservedCacheNodesOfferingResponse'{_prcnorReservedCacheNode = Nothing, _prcnorStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 prcnorReservedCacheNode = lens _prcnorReservedCacheNode (\ s a -> s{_prcnorReservedCacheNode = a});
+
+-- | FIXME: Undocumented member.
+prcnorStatusCode :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
+prcnorStatusCode = lens _prcnorStatusCode (\ s a -> s{_prcnorStatusCode = a});

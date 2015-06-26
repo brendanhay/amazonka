@@ -34,6 +34,7 @@ module Network.AWS.S3.GetObjectTorrent
     , getObjectTorrentResponse
     -- ** Response lenses
     , gotrRequestCharged
+    , gotrStatusCode
     , gotrBody
     ) where
 
@@ -77,7 +78,9 @@ instance AWSRequest GetObjectTorrent where
           = receiveBody
               (\ s h x ->
                  GetObjectTorrentResponse' <$>
-                   (h .#? "x-amz-request-charged") <*> (pure x))
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s))
+                     <*> (pure x))
 
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}
@@ -97,16 +100,22 @@ instance ToQuery GetObjectTorrent where
 --
 -- * 'gotrRequestCharged'
 --
+-- * 'gotrStatusCode'
+--
 -- * 'gotrBody'
-data GetObjectTorrentResponse = GetObjectTorrentResponse'{_gotrRequestCharged :: Maybe RequestCharged, _gotrBody :: RsBody} deriving Show
+data GetObjectTorrentResponse = GetObjectTorrentResponse'{_gotrRequestCharged :: Maybe RequestCharged, _gotrStatusCode :: Int, _gotrBody :: RsBody} deriving Show
 
 -- | 'GetObjectTorrentResponse' smart constructor.
-getObjectTorrentResponse :: RsBody -> GetObjectTorrentResponse
-getObjectTorrentResponse pBody = GetObjectTorrentResponse'{_gotrRequestCharged = Nothing, _gotrBody = pBody};
+getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse
+getObjectTorrentResponse pStatusCode pBody = GetObjectTorrentResponse'{_gotrRequestCharged = Nothing, _gotrStatusCode = pStatusCode, _gotrBody = pBody};
 
 -- | FIXME: Undocumented member.
 gotrRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
 gotrRequestCharged = lens _gotrRequestCharged (\ s a -> s{_gotrRequestCharged = a});
+
+-- | FIXME: Undocumented member.
+gotrStatusCode :: Lens' GetObjectTorrentResponse Int
+gotrStatusCode = lens _gotrStatusCode (\ s a -> s{_gotrStatusCode = a});
 
 -- | FIXME: Undocumented member.
 gotrBody :: Lens' GetObjectTorrentResponse RsBody

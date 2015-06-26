@@ -71,6 +71,7 @@ module Network.AWS.S3.GetObject
     , gorContentDisposition
     , gorServerSideEncryption
     , gorContentType
+    , gorStatusCode
     , gorBody
     ) where
 
@@ -244,6 +245,7 @@ instance AWSRequest GetObject where
                      <*> (h .#? "Content-Disposition")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (h .#? "Content-Type")
+                     <*> (pure (fromEnum s))
                      <*> (pure x))
 
 instance ToHeaders GetObject where
@@ -330,12 +332,14 @@ instance ToQuery GetObject where
 --
 -- * 'gorContentType'
 --
+-- * 'gorStatusCode'
+--
 -- * 'gorBody'
-data GetObjectResponse = GetObjectResponse'{_gorVersionId :: Maybe ObjectVersionId, _gorETag :: Maybe ETag, _gorRequestCharged :: Maybe RequestCharged, _gorContentLength :: Maybe Int, _gorRestore :: Maybe Text, _gorExpires :: Maybe RFC822, _gorDeleteMarker :: Maybe Bool, _gorExpiration :: Maybe Text, _gorSSECustomerAlgorithm :: Maybe Text, _gorMissingMeta :: Maybe Int, _gorWebsiteRedirectLocation :: Maybe Text, _gorAcceptRanges :: Maybe Text, _gorContentEncoding :: Maybe Text, _gorSSEKMSKeyId :: Maybe (Sensitive Text), _gorSSECustomerKeyMD5 :: Maybe Text, _gorMetadata :: Map Text Text, _gorReplicationStatus :: Maybe ReplicationStatus, _gorCacheControl :: Maybe Text, _gorContentLanguage :: Maybe Text, _gorLastModified :: Maybe RFC822, _gorContentDisposition :: Maybe Text, _gorServerSideEncryption :: Maybe ServerSideEncryption, _gorContentType :: Maybe Text, _gorBody :: RsBody} deriving Show
+data GetObjectResponse = GetObjectResponse'{_gorVersionId :: Maybe ObjectVersionId, _gorETag :: Maybe ETag, _gorRequestCharged :: Maybe RequestCharged, _gorContentLength :: Maybe Int, _gorRestore :: Maybe Text, _gorExpires :: Maybe RFC822, _gorDeleteMarker :: Maybe Bool, _gorExpiration :: Maybe Text, _gorSSECustomerAlgorithm :: Maybe Text, _gorMissingMeta :: Maybe Int, _gorWebsiteRedirectLocation :: Maybe Text, _gorAcceptRanges :: Maybe Text, _gorContentEncoding :: Maybe Text, _gorSSEKMSKeyId :: Maybe (Sensitive Text), _gorSSECustomerKeyMD5 :: Maybe Text, _gorMetadata :: Map Text Text, _gorReplicationStatus :: Maybe ReplicationStatus, _gorCacheControl :: Maybe Text, _gorContentLanguage :: Maybe Text, _gorLastModified :: Maybe RFC822, _gorContentDisposition :: Maybe Text, _gorServerSideEncryption :: Maybe ServerSideEncryption, _gorContentType :: Maybe Text, _gorStatusCode :: Int, _gorBody :: RsBody} deriving Show
 
 -- | 'GetObjectResponse' smart constructor.
-getObjectResponse :: RsBody -> GetObjectResponse
-getObjectResponse pBody = GetObjectResponse'{_gorVersionId = Nothing, _gorETag = Nothing, _gorRequestCharged = Nothing, _gorContentLength = Nothing, _gorRestore = Nothing, _gorExpires = Nothing, _gorDeleteMarker = Nothing, _gorExpiration = Nothing, _gorSSECustomerAlgorithm = Nothing, _gorMissingMeta = Nothing, _gorWebsiteRedirectLocation = Nothing, _gorAcceptRanges = Nothing, _gorContentEncoding = Nothing, _gorSSEKMSKeyId = Nothing, _gorSSECustomerKeyMD5 = Nothing, _gorMetadata = mempty, _gorReplicationStatus = Nothing, _gorCacheControl = Nothing, _gorContentLanguage = Nothing, _gorLastModified = Nothing, _gorContentDisposition = Nothing, _gorServerSideEncryption = Nothing, _gorContentType = Nothing, _gorBody = pBody};
+getObjectResponse :: Int -> RsBody -> GetObjectResponse
+getObjectResponse pStatusCode pBody = GetObjectResponse'{_gorVersionId = Nothing, _gorETag = Nothing, _gorRequestCharged = Nothing, _gorContentLength = Nothing, _gorRestore = Nothing, _gorExpires = Nothing, _gorDeleteMarker = Nothing, _gorExpiration = Nothing, _gorSSECustomerAlgorithm = Nothing, _gorMissingMeta = Nothing, _gorWebsiteRedirectLocation = Nothing, _gorAcceptRanges = Nothing, _gorContentEncoding = Nothing, _gorSSEKMSKeyId = Nothing, _gorSSECustomerKeyMD5 = Nothing, _gorMetadata = mempty, _gorReplicationStatus = Nothing, _gorCacheControl = Nothing, _gorContentLanguage = Nothing, _gorLastModified = Nothing, _gorContentDisposition = Nothing, _gorServerSideEncryption = Nothing, _gorContentType = Nothing, _gorStatusCode = pStatusCode, _gorBody = pBody};
 
 -- | Version of the object.
 gorVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
@@ -449,6 +453,10 @@ gorServerSideEncryption = lens _gorServerSideEncryption (\ s a -> s{_gorServerSi
 -- | A standard MIME type describing the format of the object data.
 gorContentType :: Lens' GetObjectResponse (Maybe Text)
 gorContentType = lens _gorContentType (\ s a -> s{_gorContentType = a});
+
+-- | FIXME: Undocumented member.
+gorStatusCode :: Lens' GetObjectResponse Int
+gorStatusCode = lens _gorStatusCode (\ s a -> s{_gorStatusCode = a});
 
 -- | Object data.
 gorBody :: Lens' GetObjectResponse RsBody

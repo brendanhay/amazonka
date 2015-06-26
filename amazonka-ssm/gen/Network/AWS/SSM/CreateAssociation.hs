@@ -42,6 +42,7 @@ module Network.AWS.SSM.CreateAssociation
     , createAssociationResponse
     -- ** Response lenses
     , carAssociationDescription
+    , carStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -78,7 +79,8 @@ instance AWSRequest CreateAssociation where
           = receiveJSON
               (\ s h x ->
                  CreateAssociationResponse' <$>
-                   (x .?> "AssociationDescription"))
+                   (x .?> "AssociationDescription") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateAssociation where
         toHeaders
@@ -105,12 +107,18 @@ instance ToQuery CreateAssociation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'carAssociationDescription'
-newtype CreateAssociationResponse = CreateAssociationResponse'{_carAssociationDescription :: Maybe AssociationDescription} deriving (Eq, Read, Show)
+--
+-- * 'carStatusCode'
+data CreateAssociationResponse = CreateAssociationResponse'{_carAssociationDescription :: Maybe AssociationDescription, _carStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateAssociationResponse' smart constructor.
-createAssociationResponse :: CreateAssociationResponse
-createAssociationResponse = CreateAssociationResponse'{_carAssociationDescription = Nothing};
+createAssociationResponse :: Int -> CreateAssociationResponse
+createAssociationResponse pStatusCode = CreateAssociationResponse'{_carAssociationDescription = Nothing, _carStatusCode = pStatusCode};
 
 -- | Information about the association.
 carAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
 carAssociationDescription = lens _carAssociationDescription (\ s a -> s{_carAssociationDescription = a});
+
+-- | FIXME: Undocumented member.
+carStatusCode :: Lens' CreateAssociationResponse Int
+carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});

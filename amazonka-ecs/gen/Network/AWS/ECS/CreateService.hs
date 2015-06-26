@@ -41,6 +41,7 @@ module Network.AWS.ECS.CreateService
     , createServiceResponse
     -- ** Response lenses
     , csrService
+    , csrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -118,7 +119,8 @@ instance AWSRequest CreateService where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateServiceResponse' <$> (x .?> "service"))
+                 CreateServiceResponse' <$>
+                   (x .?> "service") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateService where
         toHeaders
@@ -151,12 +153,18 @@ instance ToQuery CreateService where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrService'
-newtype CreateServiceResponse = CreateServiceResponse'{_csrService :: Maybe ContainerService} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CreateServiceResponse = CreateServiceResponse'{_csrService :: Maybe ContainerService, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateServiceResponse' smart constructor.
-createServiceResponse :: CreateServiceResponse
-createServiceResponse = CreateServiceResponse'{_csrService = Nothing};
+createServiceResponse :: Int -> CreateServiceResponse
+createServiceResponse pStatusCode = CreateServiceResponse'{_csrService = Nothing, _csrStatusCode = pStatusCode};
 
 -- | The full description of your service following the create call.
 csrService :: Lens' CreateServiceResponse (Maybe ContainerService)
 csrService = lens _csrService (\ s a -> s{_csrService = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CreateServiceResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

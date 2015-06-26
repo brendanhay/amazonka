@@ -21,8 +21,39 @@ module Network.AWS.ElasticBeanstalk.Types
     (
     -- * Service
       ElasticBeanstalk
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _S3SubscriptionRequiredException
+    , _TooManyBucketsException
+    , _OperationInProgressException
+    , _TooManyConfigurationTemplatesException
+    , _TooManyApplicationVersionsException
+    , _InsufficientPrivilegesException
+    , _TooManyApplicationsException
+    , _SourceBundleDeletionException
+    , _S3LocationNotInServiceRegionException
+    , _TooManyEnvironmentsException
+
+    -- * ConfigurationDeploymentStatus
+    , ConfigurationDeploymentStatus (..)
+
+    -- * ConfigurationOptionValueType
+    , ConfigurationOptionValueType (..)
+
+    -- * EnvironmentHealth
+    , EnvironmentHealth (..)
+
+    -- * EnvironmentInfoType
+    , EnvironmentInfoType (..)
+
+    -- * EnvironmentStatus
+    , EnvironmentStatus (..)
+
+    -- * EventSeverity
+    , EventSeverity (..)
+
+    -- * ValidationSeverity
+    , ValidationSeverity (..)
 
     -- * ApplicationDescription
     , ApplicationDescription
@@ -59,9 +90,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , autoScalingGroup
     , asgName
 
-    -- * ConfigurationDeploymentStatus
-    , ConfigurationDeploymentStatus (..)
-
     -- * ConfigurationOptionDescription
     , ConfigurationOptionDescription
     , configurationOptionDescription
@@ -84,9 +112,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , cosResourceName
     , cosValue
     , cosNamespace
-
-    -- * ConfigurationOptionValueType
-    , ConfigurationOptionValueType (..)
 
     -- * ConfigurationSettingsDescription
     , ConfigurationSettingsDescription
@@ -121,9 +146,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , envSolutionStackName
     , envDescription
 
-    -- * EnvironmentHealth
-    , EnvironmentHealth (..)
-
     -- * EnvironmentInfoDescription
     , EnvironmentInfoDescription
     , environmentInfoDescription
@@ -131,9 +153,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , eidEC2InstanceId
     , eidInfoType
     , eidMessage
-
-    -- * EnvironmentInfoType
-    , EnvironmentInfoType (..)
 
     -- * EnvironmentResourceDescription
     , EnvironmentResourceDescription
@@ -150,9 +169,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , EnvironmentResourcesDescription
     , environmentResourcesDescription
     , erdLoadBalancer
-
-    -- * EnvironmentStatus
-    , EnvironmentStatus (..)
 
     -- * EnvironmentTier
     , EnvironmentTier
@@ -172,9 +188,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , edApplicationName
     , edEventDate
     , edMessage
-
-    -- * EventSeverity
-    , EventSeverity (..)
 
     -- * Instance
     , Instance
@@ -260,8 +273,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , vmNamespace
     , vmMessage
 
-    -- * ValidationSeverity
-    , ValidationSeverity (..)
     ) where
 
 import Network.AWS.Prelude
@@ -272,32 +283,245 @@ data ElasticBeanstalk
 
 instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
-    type Er ElasticBeanstalk = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ElasticBeanstalk
-        service' = Service
-            { _svcAbbrev  = "ElasticBeanstalk"
-            , _svcPrefix  = "elasticbeanstalk"
-            , _svcVersion = "2010-12-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ElasticBeanstalk
+        svc = Service
+            { _svcAbbrev   = "ElasticBeanstalk"
+            , _svcPrefix   = "elasticbeanstalk"
+            , _svcVersion  = "2010-12-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ElasticBeanstalk
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The caller does not have a subscription to Amazon S3.
+_S3SubscriptionRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_S3SubscriptionRequiredException = _ServiceError . hasCode "S3SubscriptionRequiredException" . hasStatus 400;
 
--- | /See:/ 'applicationDescription' smart constructor.
+-- | The web service attempted to create a bucket in an Amazon S3 account
+-- that already has 100 buckets.
+_TooManyBucketsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyBucketsException = _ServiceError . hasCode "TooManyBucketsException" . hasStatus 400;
+
+-- | Unable to perform the specified operation because another operation is
+-- already in progress affecting an an element in this activity.
+_OperationInProgressException :: AWSError a => Geting (First ServiceError) a ServiceError
+_OperationInProgressException = _ServiceError . hasCode "OperationInProgressFailure" . hasStatus 400;
+
+-- | The caller has exceeded the limit on the number of configuration
+-- templates associated with their account.
+_TooManyConfigurationTemplatesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyConfigurationTemplatesException = _ServiceError . hasCode "TooManyConfigurationTemplatesException" . hasStatus 400;
+
+-- | The caller has exceeded the limit on the number of application versions
+-- associated with their account.
+_TooManyApplicationVersionsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyApplicationVersionsException = _ServiceError . hasCode "TooManyApplicationVersionsException";
+
+-- | Unable to perform the specified operation because the user does not have
+-- enough privileges for one of more downstream aws services
+_InsufficientPrivilegesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientPrivilegesException = _ServiceError . hasCode "InsufficientPrivilegesException" . hasStatus 403;
+
+-- | The caller has exceeded the limit on the number of applications
+-- associated with their account.
+_TooManyApplicationsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyApplicationsException = _ServiceError . hasCode "TooManyApplicationsException" . hasStatus 400;
+
+-- | Unable to delete the Amazon S3 source bundle associated with the
+-- application version, although the application version deleted
+-- successfully.
+_SourceBundleDeletionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_SourceBundleDeletionException = _ServiceError . hasCode "SourceBundleDeletionFailure" . hasStatus 400;
+
+-- | The specified S3 bucket does not belong to the S3 region in which the
+-- service is running.
+_S3LocationNotInServiceRegionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_S3LocationNotInServiceRegionException = _ServiceError . hasCode "S3LocationNotInServiceRegionException" . hasStatus 400;
+
+-- | The caller has exceeded the limit of allowed environments associated
+-- with the account.
+_TooManyEnvironmentsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyEnvironmentsException = _ServiceError . hasCode "TooManyEnvironmentsException" . hasStatus 400;
+
+data ConfigurationDeploymentStatus = Pending | Deployed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ConfigurationDeploymentStatus where
+    parser = takeLowerText >>= \case
+        "deployed" -> pure Deployed
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        e -> fail ("Failure parsing ConfigurationDeploymentStatus from " ++ show e)
+
+instance ToText ConfigurationDeploymentStatus where
+    toText = \case
+        Deployed -> "deployed"
+        Failed -> "failed"
+        Pending -> "pending"
+
+instance Hashable ConfigurationDeploymentStatus
+instance ToQuery ConfigurationDeploymentStatus
+instance ToHeader ConfigurationDeploymentStatus
+
+instance FromXML ConfigurationDeploymentStatus where
+    parseXML = parseXMLText "ConfigurationDeploymentStatus"
+
+data ConfigurationOptionValueType = List | Scalar deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ConfigurationOptionValueType where
+    parser = takeLowerText >>= \case
+        "List" -> pure List
+        "Scalar" -> pure Scalar
+        e -> fail ("Failure parsing ConfigurationOptionValueType from " ++ show e)
+
+instance ToText ConfigurationOptionValueType where
+    toText = \case
+        List -> "List"
+        Scalar -> "Scalar"
+
+instance Hashable ConfigurationOptionValueType
+instance ToQuery ConfigurationOptionValueType
+instance ToHeader ConfigurationOptionValueType
+
+instance FromXML ConfigurationOptionValueType where
+    parseXML = parseXMLText "ConfigurationOptionValueType"
+
+data EnvironmentHealth = Red | Yellow | Green | Grey deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EnvironmentHealth where
+    parser = takeLowerText >>= \case
+        "Green" -> pure Green
+        "Grey" -> pure Grey
+        "Red" -> pure Red
+        "Yellow" -> pure Yellow
+        e -> fail ("Failure parsing EnvironmentHealth from " ++ show e)
+
+instance ToText EnvironmentHealth where
+    toText = \case
+        Green -> "Green"
+        Grey -> "Grey"
+        Red -> "Red"
+        Yellow -> "Yellow"
+
+instance Hashable EnvironmentHealth
+instance ToQuery EnvironmentHealth
+instance ToHeader EnvironmentHealth
+
+instance FromXML EnvironmentHealth where
+    parseXML = parseXMLText "EnvironmentHealth"
+
+data EnvironmentInfoType = Bundle | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EnvironmentInfoType where
+    parser = takeLowerText >>= \case
+        "bundle" -> pure Bundle
+        "tail" -> pure Tail
+        e -> fail ("Failure parsing EnvironmentInfoType from " ++ show e)
+
+instance ToText EnvironmentInfoType where
+    toText = \case
+        Bundle -> "bundle"
+        Tail -> "tail"
+
+instance Hashable EnvironmentInfoType
+instance ToQuery EnvironmentInfoType
+instance ToHeader EnvironmentInfoType
+
+instance FromXML EnvironmentInfoType where
+    parseXML = parseXMLText "EnvironmentInfoType"
+
+data EnvironmentStatus = Updating | Terminating | Launching | Terminated | Ready deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EnvironmentStatus where
+    parser = takeLowerText >>= \case
+        "Launching" -> pure Launching
+        "Ready" -> pure Ready
+        "Terminated" -> pure Terminated
+        "Terminating" -> pure Terminating
+        "Updating" -> pure Updating
+        e -> fail ("Failure parsing EnvironmentStatus from " ++ show e)
+
+instance ToText EnvironmentStatus where
+    toText = \case
+        Launching -> "Launching"
+        Ready -> "Ready"
+        Terminated -> "Terminated"
+        Terminating -> "Terminating"
+        Updating -> "Updating"
+
+instance Hashable EnvironmentStatus
+instance ToQuery EnvironmentStatus
+instance ToHeader EnvironmentStatus
+
+instance FromXML EnvironmentStatus where
+    parseXML = parseXMLText "EnvironmentStatus"
+
+data EventSeverity = LevelDebug | LevelInfo | LevelWarn | LevelTrace | LevelFatal | LevelError deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EventSeverity where
+    parser = takeLowerText >>= \case
+        "DEBUG" -> pure LevelDebug
+        "ERROR" -> pure LevelError
+        "FATAL" -> pure LevelFatal
+        "INFO" -> pure LevelInfo
+        "TRACE" -> pure LevelTrace
+        "WARN" -> pure LevelWarn
+        e -> fail ("Failure parsing EventSeverity from " ++ show e)
+
+instance ToText EventSeverity where
+    toText = \case
+        LevelDebug -> "DEBUG"
+        LevelError -> "ERROR"
+        LevelFatal -> "FATAL"
+        LevelInfo -> "INFO"
+        LevelTrace -> "TRACE"
+        LevelWarn -> "WARN"
+
+instance Hashable EventSeverity
+instance ToQuery EventSeverity
+instance ToHeader EventSeverity
+
+instance FromXML EventSeverity where
+    parseXML = parseXMLText "EventSeverity"
+
+data ValidationSeverity = VSError | VSWarning deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ValidationSeverity where
+    parser = takeLowerText >>= \case
+        "error" -> pure VSError
+        "warning" -> pure VSWarning
+        e -> fail ("Failure parsing ValidationSeverity from " ++ show e)
+
+instance ToText ValidationSeverity where
+    toText = \case
+        VSError -> "error"
+        VSWarning -> "warning"
+
+instance Hashable ValidationSeverity
+instance ToQuery ValidationSeverity
+instance ToHeader ValidationSeverity
+
+instance FromXML ValidationSeverity where
+    parseXML = parseXMLText "ValidationSeverity"
+
+-- | Describes the properties of an application.
+--
+-- /See:/ 'applicationDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -356,7 +580,9 @@ instance FromXML ApplicationDescription where
                    may (parseXMLList "member"))
                 <*> (x .@? "Description")
 
--- | /See:/ 'applicationDescriptionMessage' smart constructor.
+-- | Result message containing a single description of an application.
+--
+-- /See:/ 'applicationDescriptionMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -376,7 +602,9 @@ instance FromXML ApplicationDescriptionMessage where
           = ApplicationDescriptionMessage' <$>
               (x .@? "Application")
 
--- | /See:/ 'applicationVersionDescription' smart constructor.
+-- | Describes the properties of an application version.
+--
+-- /See:/ 'applicationVersionDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -430,7 +658,9 @@ instance FromXML ApplicationVersionDescription where
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'applicationVersionDescriptionMessage' smart constructor.
+-- | Result message wrapping a single description of an application version.
+--
+-- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -451,7 +681,9 @@ instance FromXML ApplicationVersionDescriptionMessage
           = ApplicationVersionDescriptionMessage' <$>
               (x .@? "ApplicationVersion")
 
--- | /See:/ 'autoScalingGroup' smart constructor.
+-- | Describes an Auto Scaling launch configuration.
+--
+-- /See:/ 'autoScalingGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -469,29 +701,9 @@ asgName = lens _asgName (\ s a -> s{_asgName = a});
 instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
 
-data ConfigurationDeploymentStatus = Pending | Deployed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ConfigurationDeploymentStatus where
-    parser = takeLowerText >>= \case
-        "deployed" -> pure Deployed
-        "failed" -> pure Failed
-        "pending" -> pure Pending
-        e -> fail ("Failure parsing ConfigurationDeploymentStatus from " ++ show e)
-
-instance ToText ConfigurationDeploymentStatus where
-    toText = \case
-        Deployed -> "deployed"
-        Failed -> "failed"
-        Pending -> "pending"
-
-instance Hashable ConfigurationDeploymentStatus
-instance ToQuery ConfigurationDeploymentStatus
-instance ToHeader ConfigurationDeploymentStatus
-
-instance FromXML ConfigurationDeploymentStatus where
-    parseXML = parseXMLText "ConfigurationDeploymentStatus"
-
--- | /See:/ 'configurationOptionDescription' smart constructor.
+-- | Describes the possible values for a configuration option.
+--
+-- /See:/ 'configurationOptionDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -643,7 +855,12 @@ instance FromXML ConfigurationOptionDescription where
                 <*> (x .@? "ValueType")
                 <*> (x .@? "MinValue")
 
--- | /See:/ 'configurationOptionSetting' smart constructor.
+-- | A specification identifying an individual configuration option along
+-- with its current value. For a list of possible option values, go to
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values>
+-- in the /AWS Elastic Beanstalk Developer Guide/.
+--
+-- /See:/ 'configurationOptionSetting' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -690,27 +907,9 @@ instance ToQuery ConfigurationOptionSetting where
                "ResourceName" =: _cosResourceName,
                "Value" =: _cosValue, "Namespace" =: _cosNamespace]
 
-data ConfigurationOptionValueType = List | Scalar deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ConfigurationOptionValueType where
-    parser = takeLowerText >>= \case
-        "List" -> pure List
-        "Scalar" -> pure Scalar
-        e -> fail ("Failure parsing ConfigurationOptionValueType from " ++ show e)
-
-instance ToText ConfigurationOptionValueType where
-    toText = \case
-        List -> "List"
-        Scalar -> "Scalar"
-
-instance Hashable ConfigurationOptionValueType
-instance ToQuery ConfigurationOptionValueType
-instance ToHeader ConfigurationOptionValueType
-
-instance FromXML ConfigurationOptionValueType where
-    parseXML = parseXMLText "ConfigurationOptionValueType"
-
--- | /See:/ 'configurationSettingsDescription' smart constructor.
+-- | Describes the settings for a configuration set.
+--
+-- /See:/ 'configurationSettingsDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -812,7 +1011,9 @@ instance FromXML ConfigurationSettingsDescription
                 <*> (x .@? "SolutionStackName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'environmentDescription' smart constructor.
+-- | Describes the properties of an environment.
+--
+-- /See:/ 'environmentDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -972,31 +1173,9 @@ instance FromXML EnvironmentDescription where
                 <*> (x .@? "SolutionStackName")
                 <*> (x .@? "Description")
 
-data EnvironmentHealth = Red | Yellow | Green | Grey deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EnvironmentHealth where
-    parser = takeLowerText >>= \case
-        "Green" -> pure Green
-        "Grey" -> pure Grey
-        "Red" -> pure Red
-        "Yellow" -> pure Yellow
-        e -> fail ("Failure parsing EnvironmentHealth from " ++ show e)
-
-instance ToText EnvironmentHealth where
-    toText = \case
-        Green -> "Green"
-        Grey -> "Grey"
-        Red -> "Red"
-        Yellow -> "Yellow"
-
-instance Hashable EnvironmentHealth
-instance ToQuery EnvironmentHealth
-instance ToHeader EnvironmentHealth
-
-instance FromXML EnvironmentHealth where
-    parseXML = parseXMLText "EnvironmentHealth"
-
--- | /See:/ 'environmentInfoDescription' smart constructor.
+-- | The information retrieved from the Amazon EC2 instances.
+--
+-- /See:/ 'environmentInfoDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1036,27 +1215,10 @@ instance FromXML EnvironmentInfoDescription where
                 <*> (x .@? "InfoType")
                 <*> (x .@? "Message")
 
-data EnvironmentInfoType = Bundle | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EnvironmentInfoType where
-    parser = takeLowerText >>= \case
-        "bundle" -> pure Bundle
-        "tail" -> pure Tail
-        e -> fail ("Failure parsing EnvironmentInfoType from " ++ show e)
-
-instance ToText EnvironmentInfoType where
-    toText = \case
-        Bundle -> "bundle"
-        Tail -> "tail"
-
-instance Hashable EnvironmentInfoType
-instance ToQuery EnvironmentInfoType
-instance ToHeader EnvironmentInfoType
-
-instance FromXML EnvironmentInfoType where
-    parseXML = parseXMLText "EnvironmentInfoType"
-
--- | /See:/ 'environmentResourceDescription' smart constructor.
+-- | Describes the AWS resources in use by this environment. This data is
+-- live.
+--
+-- /See:/ 'environmentResourceDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1129,7 +1291,10 @@ instance FromXML EnvironmentResourceDescription where
                 (x .@? "AutoScalingGroups" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'environmentResourcesDescription' smart constructor.
+-- | Describes the AWS resources in use by this environment. This data is not
+-- live data.
+--
+-- /See:/ 'environmentResourcesDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1150,33 +1315,9 @@ instance FromXML EnvironmentResourcesDescription
           = EnvironmentResourcesDescription' <$>
               (x .@? "LoadBalancer")
 
-data EnvironmentStatus = Updating | Terminating | Launching | Terminated | Ready deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EnvironmentStatus where
-    parser = takeLowerText >>= \case
-        "Launching" -> pure Launching
-        "Ready" -> pure Ready
-        "Terminated" -> pure Terminated
-        "Terminating" -> pure Terminating
-        "Updating" -> pure Updating
-        e -> fail ("Failure parsing EnvironmentStatus from " ++ show e)
-
-instance ToText EnvironmentStatus where
-    toText = \case
-        Launching -> "Launching"
-        Ready -> "Ready"
-        Terminated -> "Terminated"
-        Terminating -> "Terminating"
-        Updating -> "Updating"
-
-instance Hashable EnvironmentStatus
-instance ToQuery EnvironmentStatus
-instance ToHeader EnvironmentStatus
-
-instance FromXML EnvironmentStatus where
-    parseXML = parseXMLText "EnvironmentStatus"
-
--- | /See:/ 'environmentTier' smart constructor.
+-- | Describes the properties of an environment tier
+--
+-- /See:/ 'environmentTier' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1215,7 +1356,9 @@ instance ToQuery EnvironmentTier where
               ["Name" =: _etName, "Version" =: _etVersion,
                "Type" =: _etType]
 
--- | /See:/ 'eventDescription' smart constructor.
+-- | Describes an event.
+--
+-- /See:/ 'eventDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1284,35 +1427,9 @@ instance FromXML EventDescription where
                 <*> (x .@? "EventDate")
                 <*> (x .@? "Message")
 
-data EventSeverity = LevelDebug | LevelInfo | LevelWarn | LevelTrace | LevelFatal | LevelError deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EventSeverity where
-    parser = takeLowerText >>= \case
-        "DEBUG" -> pure LevelDebug
-        "ERROR" -> pure LevelError
-        "FATAL" -> pure LevelFatal
-        "INFO" -> pure LevelInfo
-        "TRACE" -> pure LevelTrace
-        "WARN" -> pure LevelWarn
-        e -> fail ("Failure parsing EventSeverity from " ++ show e)
-
-instance ToText EventSeverity where
-    toText = \case
-        LevelDebug -> "DEBUG"
-        LevelError -> "ERROR"
-        LevelFatal -> "FATAL"
-        LevelInfo -> "INFO"
-        LevelTrace -> "TRACE"
-        LevelWarn -> "WARN"
-
-instance Hashable EventSeverity
-instance ToQuery EventSeverity
-instance ToHeader EventSeverity
-
-instance FromXML EventSeverity where
-    parseXML = parseXMLText "EventSeverity"
-
--- | /See:/ 'instance'' smart constructor.
+-- | The description of an Amazon EC2 instance.
+--
+-- /See:/ 'instance'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1330,7 +1447,9 @@ insId = lens _insId (\ s a -> s{_insId = a});
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
 
--- | /See:/ 'launchConfiguration' smart constructor.
+-- | Describes an Auto Scaling launch configuration.
+--
+-- /See:/ 'launchConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1348,7 +1467,9 @@ lcName = lens _lcName (\ s a -> s{_lcName = a});
 instance FromXML LaunchConfiguration where
         parseXML x = LaunchConfiguration' <$> (x .@? "Name")
 
--- | /See:/ 'listener' smart constructor.
+-- | Describes the properties of a Listener for the LoadBalancer.
+--
+-- /See:/ 'listener' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1373,7 +1494,9 @@ instance FromXML Listener where
         parseXML x
           = Listener' <$> (x .@? "Protocol") <*> (x .@? "Port")
 
--- | /See:/ 'loadBalancer' smart constructor.
+-- | Describes a LoadBalancer.
+--
+-- /See:/ 'loadBalancer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1391,7 +1514,9 @@ lbName = lens _lbName (\ s a -> s{_lbName = a});
 instance FromXML LoadBalancer where
         parseXML x = LoadBalancer' <$> (x .@? "Name")
 
--- | /See:/ 'loadBalancerDescription' smart constructor.
+-- | Describes the details of a LoadBalancer.
+--
+-- /See:/ 'loadBalancerDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1425,7 +1550,10 @@ instance FromXML LoadBalancerDescription where
                 (x .@? "Listeners" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'optionRestrictionRegex' smart constructor.
+-- | A regular expression representing a restriction on a string
+-- configuration option value.
+--
+-- /See:/ 'optionRestrictionRegex' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1452,7 +1580,9 @@ instance FromXML OptionRestrictionRegex where
           = OptionRestrictionRegex' <$>
               (x .@? "Pattern") <*> (x .@? "Label")
 
--- | /See:/ 'optionSpecification' smart constructor.
+-- | A specification identifying an individual configuration option.
+--
+-- /See:/ 'optionSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1486,7 +1616,9 @@ instance ToQuery OptionSpecification where
                "ResourceName" =: _osResourceName,
                "Namespace" =: _osNamespace]
 
--- | /See:/ 'queue' smart constructor.
+-- | Describes a queue.
+--
+-- /See:/ 'queue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1511,7 +1643,9 @@ instance FromXML Queue where
         parseXML x
           = Queue' <$> (x .@? "URL") <*> (x .@? "Name")
 
--- | /See:/ 's3Location' smart constructor.
+-- | A specification of a location in Amazon S3.
+--
+-- /See:/ 's3Location' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1542,7 +1676,9 @@ instance ToQuery S3Location where
           = mconcat
               ["S3Key" =: _slS3Key, "S3Bucket" =: _slS3Bucket]
 
--- | /See:/ 'solutionStackDescription' smart constructor.
+-- | Describes the solution stack.
+--
+-- /See:/ 'solutionStackDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1570,7 +1706,9 @@ instance FromXML SolutionStackDescription where
                  may (parseXMLList "member"))
                 <*> (x .@? "SolutionStackName")
 
--- | /See:/ 'sourceConfiguration' smart constructor.
+-- | A specification for an environment configuration
+--
+-- /See:/ 'sourceConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1597,7 +1735,9 @@ instance ToQuery SourceConfiguration where
               ["TemplateName" =: _scTemplateName,
                "ApplicationName" =: _scApplicationName]
 
--- | /See:/ 'tag' smart constructor.
+-- | Describes a tag applied to a resource in an environment.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1622,7 +1762,9 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | /See:/ 'trigger' smart constructor.
+-- | Describes a trigger.
+--
+-- /See:/ 'trigger' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1640,7 +1782,9 @@ triName = lens _triName (\ s a -> s{_triName = a});
 instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")
 
--- | /See:/ 'validationMessage' smart constructor.
+-- | An error or warning for a desired configuration option value.
+--
+-- /See:/ 'validationMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1690,23 +1834,3 @@ instance FromXML ValidationMessage where
               (x .@? "OptionName") <*> (x .@? "Severity") <*>
                 (x .@? "Namespace")
                 <*> (x .@? "Message")
-
-data ValidationSeverity = VSError | VSWarning deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ValidationSeverity where
-    parser = takeLowerText >>= \case
-        "error" -> pure VSError
-        "warning" -> pure VSWarning
-        e -> fail ("Failure parsing ValidationSeverity from " ++ show e)
-
-instance ToText ValidationSeverity where
-    toText = \case
-        VSError -> "error"
-        VSWarning -> "warning"
-
-instance Hashable ValidationSeverity
-instance ToQuery ValidationSeverity
-instance ToHeader ValidationSeverity
-
-instance FromXML ValidationSeverity where
-    parseXML = parseXMLText "ValidationSeverity"

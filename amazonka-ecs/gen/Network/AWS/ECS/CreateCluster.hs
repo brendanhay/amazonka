@@ -35,6 +35,7 @@ module Network.AWS.ECS.CreateCluster
     , createClusterResponse
     -- ** Response lenses
     , ccrCluster
+    , ccrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -66,7 +67,8 @@ instance AWSRequest CreateCluster where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateClusterResponse' <$> (x .?> "cluster"))
+                 CreateClusterResponse' <$>
+                   (x .?> "cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCluster where
         toHeaders
@@ -93,12 +95,18 @@ instance ToQuery CreateCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccrCluster'
-newtype CreateClusterResponse = CreateClusterResponse'{_ccrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'ccrStatusCode'
+data CreateClusterResponse = CreateClusterResponse'{_ccrCluster :: Maybe Cluster, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterResponse' smart constructor.
-createClusterResponse :: CreateClusterResponse
-createClusterResponse = CreateClusterResponse'{_ccrCluster = Nothing};
+createClusterResponse :: Int -> CreateClusterResponse
+createClusterResponse pStatusCode = CreateClusterResponse'{_ccrCluster = Nothing, _ccrStatusCode = pStatusCode};
 
 -- | The full description of your new cluster.
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
+
+-- | FIXME: Undocumented member.
+ccrStatusCode :: Lens' CreateClusterResponse Int
+ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});

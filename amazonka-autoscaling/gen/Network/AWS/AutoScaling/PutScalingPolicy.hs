@@ -40,6 +40,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , putScalingPolicyResponse
     -- ** Response lenses
     , psprPolicyARN
+    , psprStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -118,7 +119,8 @@ instance AWSRequest PutScalingPolicy where
         response
           = receiveXMLWrapper "PutScalingPolicyResult"
               (\ s h x ->
-                 PutScalingPolicyResponse' <$> (x .@? "PolicyARN"))
+                 PutScalingPolicyResponse' <$>
+                   (x .@? "PolicyARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
@@ -143,12 +145,18 @@ instance ToQuery PutScalingPolicy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'psprPolicyARN'
-newtype PutScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'psprStatusCode'
+data PutScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN :: Maybe Text, _psprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
-putScalingPolicyResponse :: PutScalingPolicyResponse
-putScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN = Nothing};
+putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
+putScalingPolicyResponse pStatusCode = PutScalingPolicyResponse'{_psprPolicyARN = Nothing, _psprStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the policy.
 psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\ s a -> s{_psprPolicyARN = a});
+
+-- | FIXME: Undocumented member.
+psprStatusCode :: Lens' PutScalingPolicyResponse Int
+psprStatusCode = lens _psprStatusCode (\ s a -> s{_psprStatusCode = a});

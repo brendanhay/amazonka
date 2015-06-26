@@ -37,6 +37,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     , terminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
     , tiiasgrActivity
+    , tiiasgrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -78,7 +79,7 @@ instance AWSRequest
               "TerminateInstanceInAutoScalingGroupResult"
               (\ s h x ->
                  TerminateInstanceInAutoScalingGroupResponse' <$>
-                   (x .@? "Activity"))
+                   (x .@? "Activity") <*> (pure (fromEnum s)))
 
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where
@@ -105,12 +106,18 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tiiasgrActivity'
-newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'{_tiiasgrActivity :: Maybe Activity} deriving (Eq, Read, Show)
+--
+-- * 'tiiasgrStatusCode'
+data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'{_tiiasgrActivity :: Maybe Activity, _tiiasgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
-terminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse
-terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'{_tiiasgrActivity = Nothing};
+terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
+terminateInstanceInAutoScalingGroupResponse pStatusCode = TerminateInstanceInAutoScalingGroupResponse'{_tiiasgrActivity = Nothing, _tiiasgrStatusCode = pStatusCode};
 
 -- | A scaling activity.
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrActivity = lens _tiiasgrActivity (\ s a -> s{_tiiasgrActivity = a});
+
+-- | FIXME: Undocumented member.
+tiiasgrStatusCode :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
+tiiasgrStatusCode = lens _tiiasgrStatusCode (\ s a -> s{_tiiasgrStatusCode = a});

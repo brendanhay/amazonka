@@ -31,7 +31,8 @@ module Network.AWS.SSM.DescribeDocument
     -- ** Response constructor
     , describeDocumentResponse
     -- ** Response lenses
-    , ddrDocument
+    , desDocument
+    , desStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -61,7 +62,8 @@ instance AWSRequest DescribeDocument where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeDocumentResponse' <$> (x .?> "Document"))
+                 DescribeDocumentResponse' <$>
+                   (x .?> "Document") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDocument where
         toHeaders
@@ -86,13 +88,19 @@ instance ToQuery DescribeDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDocument'
-newtype DescribeDocumentResponse = DescribeDocumentResponse'{_ddrDocument :: Maybe DocumentDescription} deriving (Eq, Read, Show)
+-- * 'desDocument'
+--
+-- * 'desStatusCode'
+data DescribeDocumentResponse = DescribeDocumentResponse'{_desDocument :: Maybe DocumentDescription, _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDocumentResponse' smart constructor.
-describeDocumentResponse :: DescribeDocumentResponse
-describeDocumentResponse = DescribeDocumentResponse'{_ddrDocument = Nothing};
+describeDocumentResponse :: Int -> DescribeDocumentResponse
+describeDocumentResponse pStatusCode = DescribeDocumentResponse'{_desDocument = Nothing, _desStatusCode = pStatusCode};
 
 -- | Information about the configuration document.
-ddrDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-ddrDocument = lens _ddrDocument (\ s a -> s{_ddrDocument = a});
+desDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
+desDocument = lens _desDocument (\ s a -> s{_desDocument = a});
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeDocumentResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

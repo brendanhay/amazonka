@@ -43,6 +43,7 @@ module Network.AWS.RDS.DeleteDBInstance
     , deleteDBInstanceResponse
     -- ** Response lenses
     , ddirDBInstance
+    , ddirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -50,7 +51,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDBInstance' smart constructor.
+-- |
+--
+-- /See:/ 'deleteDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -112,7 +115,8 @@ instance AWSRequest DeleteDBInstance where
         response
           = receiveXMLWrapper "DeleteDBInstanceResult"
               (\ s h x ->
-                 DeleteDBInstanceResponse' <$> (x .@? "DBInstance"))
+                 DeleteDBInstanceResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
@@ -135,12 +139,18 @@ instance ToQuery DeleteDBInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddirDBInstance'
-newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse'{_ddirDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'ddirStatusCode'
+data DeleteDBInstanceResponse = DeleteDBInstanceResponse'{_ddirDBInstance :: Maybe DBInstance, _ddirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
-deleteDBInstanceResponse :: DeleteDBInstanceResponse
-deleteDBInstanceResponse = DeleteDBInstanceResponse'{_ddirDBInstance = Nothing};
+deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
+deleteDBInstanceResponse pStatusCode = DeleteDBInstanceResponse'{_ddirDBInstance = Nothing, _ddirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ddirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirDBInstance = lens _ddirDBInstance (\ s a -> s{_ddirDBInstance = a});
+
+-- | FIXME: Undocumented member.
+ddirStatusCode :: Lens' DeleteDBInstanceResponse Int
+ddirStatusCode = lens _ddirStatusCode (\ s a -> s{_ddirStatusCode = a});

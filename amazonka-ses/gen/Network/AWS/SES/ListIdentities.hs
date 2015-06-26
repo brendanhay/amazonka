@@ -38,15 +38,19 @@ module Network.AWS.SES.ListIdentities
     -- ** Response lenses
     , lirNextToken
     , lirIdentities
+    , lirStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'listIdentities' smart constructor.
+-- | Represents a request instructing the service to list all identities for
+-- the AWS Account.
+--
+-- /See:/ 'listIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +97,8 @@ instance AWSRequest ListIdentities where
                  ListIdentitiesResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Identities" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListIdentities where
         toHeaders = const mempty
@@ -110,18 +115,22 @@ instance ToQuery ListIdentities where
                "NextToken" =: _liNextToken,
                "MaxItems" =: _liMaxItems]
 
--- | /See:/ 'listIdentitiesResponse' smart constructor.
+-- | Represents a list of all verified identities for the AWS Account.
+--
+-- /See:/ 'listIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lirNextToken'
 --
 -- * 'lirIdentities'
-data ListIdentitiesResponse = ListIdentitiesResponse'{_lirNextToken :: Maybe Text, _lirIdentities :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lirStatusCode'
+data ListIdentitiesResponse = ListIdentitiesResponse'{_lirNextToken :: Maybe Text, _lirIdentities :: [Text], _lirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: ListIdentitiesResponse
-listIdentitiesResponse = ListIdentitiesResponse'{_lirNextToken = Nothing, _lirIdentities = mempty};
+listIdentitiesResponse :: Int -> ListIdentitiesResponse
+listIdentitiesResponse pStatusCode = ListIdentitiesResponse'{_lirNextToken = Nothing, _lirIdentities = mempty, _lirStatusCode = pStatusCode};
 
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -130,3 +139,7 @@ lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
 -- | A list of identities.
 lirIdentities :: Lens' ListIdentitiesResponse [Text]
 lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});
+
+-- | FIXME: Undocumented member.
+lirStatusCode :: Lens' ListIdentitiesResponse Int
+lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});

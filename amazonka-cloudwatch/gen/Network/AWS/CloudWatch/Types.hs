@@ -21,8 +21,31 @@ module Network.AWS.CloudWatch.Types
     (
     -- * Service
       CloudWatch
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _LimitExceededFault
+    , _InvalidNextToken
+    , _InternalServiceFault
+    , _InvalidParameterValueException
+    , _InvalidFormatFault
+    , _MissingRequiredParameterException
+    , _InvalidParameterCombinationException
+    , _ResourceNotFound
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- * HistoryItemType
+    , HistoryItemType (..)
+
+    -- * StandardUnit
+    , StandardUnit (..)
+
+    -- * StateValue
+    , StateValue (..)
+
+    -- * Statistic
+    , Statistic (..)
 
     -- * AlarmHistoryItem
     , AlarmHistoryItem
@@ -32,9 +55,6 @@ module Network.AWS.CloudWatch.Types
     , ahiHistoryData
     , ahiTimestamp
     , ahiHistorySummary
-
-    -- * ComparisonOperator
-    , ComparisonOperator (..)
 
     -- * Datapoint
     , Datapoint
@@ -58,9 +78,6 @@ module Network.AWS.CloudWatch.Types
     , dimensionFilter
     , dfValue
     , dfName
-
-    -- * HistoryItemType
-    , HistoryItemType (..)
 
     -- * Metric
     , Metric
@@ -104,15 +121,6 @@ module Network.AWS.CloudWatch.Types
     , mdUnit
     , mdMetricName
 
-    -- * StandardUnit
-    , StandardUnit (..)
-
-    -- * StateValue
-    , StateValue (..)
-
-    -- * Statistic
-    , Statistic (..)
-
     -- * StatisticSet
     , StatisticSet
     , statisticSet
@@ -120,6 +128,7 @@ module Network.AWS.CloudWatch.Types
     , ssSum
     , ssMinimum
     , ssMaximum
+
     ) where
 
 import Network.AWS.Prelude
@@ -130,32 +139,236 @@ data CloudWatch
 
 instance AWSService CloudWatch where
     type Sg CloudWatch = V4
-    type Er CloudWatch = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudWatch
-        service' = Service
-            { _svcAbbrev  = "CloudWatch"
-            , _svcPrefix  = "monitoring"
-            , _svcVersion = "2010-08-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudWatch
+        svc = Service
+            { _svcAbbrev   = "CloudWatch"
+            , _svcPrefix   = "monitoring"
+            , _svcVersion  = "2010-08-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudWatch
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The quota for alarms for this customer has already been reached.
+_LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededFault = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
 
--- | /See:/ 'alarmHistoryItem' smart constructor.
+-- | The next token specified is invalid.
+_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+
+-- | Indicates that the request processing has failed due to some unknown
+-- error, exception, or failure.
+_InternalServiceFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServiceFault = _ServiceError . hasCode "InternalServiceError" . hasStatus 500;
+
+-- | Bad or out-of-range value was supplied for the input parameter.
+_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValue" . hasStatus 400;
+
+-- | Data was not syntactically valid JSON.
+_InvalidFormatFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidFormatFault = _ServiceError . hasCode "InvalidFormat" . hasStatus 400;
+
+-- | An input parameter that is mandatory for processing the request is not
+-- supplied.
+_MissingRequiredParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingRequiredParameterException = _ServiceError . hasCode "MissingParameter" . hasStatus 400;
+
+-- | Parameters that must not be used together were used together.
+_InvalidParameterCombinationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException = _ServiceError . hasCode "InvalidParameterCombination" . hasStatus 400;
+
+-- | The named resource does not exist.
+_ResourceNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFound = _ServiceError . hasCode "ResourceNotFound" . hasStatus 404;
+
+data ComparisonOperator = GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ComparisonOperator where
+    parser = takeLowerText >>= \case
+        "GreaterThanOrEqualToThreshold" -> pure GreaterThanOrEqualToThreshold
+        "GreaterThanThreshold" -> pure GreaterThanThreshold
+        "LessThanOrEqualToThreshold" -> pure LessThanOrEqualToThreshold
+        "LessThanThreshold" -> pure LessThanThreshold
+        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
+
+instance ToText ComparisonOperator where
+    toText = \case
+        GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
+        GreaterThanThreshold -> "GreaterThanThreshold"
+        LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
+        LessThanThreshold -> "LessThanThreshold"
+
+instance Hashable ComparisonOperator
+instance ToQuery ComparisonOperator
+instance ToHeader ComparisonOperator
+
+instance FromXML ComparisonOperator where
+    parseXML = parseXMLText "ComparisonOperator"
+
+data HistoryItemType = StateUpdate | Action | ConfigurationUpdate deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText HistoryItemType where
+    parser = takeLowerText >>= \case
+        "Action" -> pure Action
+        "ConfigurationUpdate" -> pure ConfigurationUpdate
+        "StateUpdate" -> pure StateUpdate
+        e -> fail ("Failure parsing HistoryItemType from " ++ show e)
+
+instance ToText HistoryItemType where
+    toText = \case
+        Action -> "Action"
+        ConfigurationUpdate -> "ConfigurationUpdate"
+        StateUpdate -> "StateUpdate"
+
+instance Hashable HistoryItemType
+instance ToQuery HistoryItemType
+instance ToHeader HistoryItemType
+
+instance FromXML HistoryItemType where
+    parseXML = parseXMLText "HistoryItemType"
+
+data StandardUnit = Bits | BitsSecond | MegabytesSecond | Megabytes | None | Count | Terabytes | TerabytesSecond | Percent | CountSecond | TerabitsSecond | Terabits | Milliseconds | GigabytesSecond | Microseconds | Gigabytes | GigabitsSecond | Gigabits | Megabits | MegabitsSecond | Kilobits | KilobitsSecond | Kilobytes | KilobytesSecond | Seconds | BytesSecond | Bytes deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StandardUnit where
+    parser = takeLowerText >>= \case
+        "Bits" -> pure Bits
+        "Bits/Second" -> pure BitsSecond
+        "Bytes" -> pure Bytes
+        "Bytes/Second" -> pure BytesSecond
+        "Count" -> pure Count
+        "Count/Second" -> pure CountSecond
+        "Gigabits" -> pure Gigabits
+        "Gigabits/Second" -> pure GigabitsSecond
+        "Gigabytes" -> pure Gigabytes
+        "Gigabytes/Second" -> pure GigabytesSecond
+        "Kilobits" -> pure Kilobits
+        "Kilobits/Second" -> pure KilobitsSecond
+        "Kilobytes" -> pure Kilobytes
+        "Kilobytes/Second" -> pure KilobytesSecond
+        "Megabits" -> pure Megabits
+        "Megabits/Second" -> pure MegabitsSecond
+        "Megabytes" -> pure Megabytes
+        "Megabytes/Second" -> pure MegabytesSecond
+        "Microseconds" -> pure Microseconds
+        "Milliseconds" -> pure Milliseconds
+        "None" -> pure None
+        "Percent" -> pure Percent
+        "Seconds" -> pure Seconds
+        "Terabits" -> pure Terabits
+        "Terabits/Second" -> pure TerabitsSecond
+        "Terabytes" -> pure Terabytes
+        "Terabytes/Second" -> pure TerabytesSecond
+        e -> fail ("Failure parsing StandardUnit from " ++ show e)
+
+instance ToText StandardUnit where
+    toText = \case
+        Bits -> "Bits"
+        BitsSecond -> "Bits/Second"
+        Bytes -> "Bytes"
+        BytesSecond -> "Bytes/Second"
+        Count -> "Count"
+        CountSecond -> "Count/Second"
+        Gigabits -> "Gigabits"
+        GigabitsSecond -> "Gigabits/Second"
+        Gigabytes -> "Gigabytes"
+        GigabytesSecond -> "Gigabytes/Second"
+        Kilobits -> "Kilobits"
+        KilobitsSecond -> "Kilobits/Second"
+        Kilobytes -> "Kilobytes"
+        KilobytesSecond -> "Kilobytes/Second"
+        Megabits -> "Megabits"
+        MegabitsSecond -> "Megabits/Second"
+        Megabytes -> "Megabytes"
+        MegabytesSecond -> "Megabytes/Second"
+        Microseconds -> "Microseconds"
+        Milliseconds -> "Milliseconds"
+        None -> "None"
+        Percent -> "Percent"
+        Seconds -> "Seconds"
+        Terabits -> "Terabits"
+        TerabitsSecond -> "Terabits/Second"
+        Terabytes -> "Terabytes"
+        TerabytesSecond -> "Terabytes/Second"
+
+instance Hashable StandardUnit
+instance ToQuery StandardUnit
+instance ToHeader StandardUnit
+
+instance FromXML StandardUnit where
+    parseXML = parseXMLText "StandardUnit"
+
+data StateValue = OK | InsufficientData | Alarm deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StateValue where
+    parser = takeLowerText >>= \case
+        "ALARM" -> pure Alarm
+        "INSUFFICIENT_DATA" -> pure InsufficientData
+        "OK" -> pure OK
+        e -> fail ("Failure parsing StateValue from " ++ show e)
+
+instance ToText StateValue where
+    toText = \case
+        Alarm -> "ALARM"
+        InsufficientData -> "INSUFFICIENT_DATA"
+        OK -> "OK"
+
+instance Hashable StateValue
+instance ToQuery StateValue
+instance ToHeader StateValue
+
+instance FromXML StateValue where
+    parseXML = parseXMLText "StateValue"
+
+data Statistic = SampleCount | Maximum | Average | Minimum | Sum deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Statistic where
+    parser = takeLowerText >>= \case
+        "Average" -> pure Average
+        "Maximum" -> pure Maximum
+        "Minimum" -> pure Minimum
+        "SampleCount" -> pure SampleCount
+        "Sum" -> pure Sum
+        e -> fail ("Failure parsing Statistic from " ++ show e)
+
+instance ToText Statistic where
+    toText = \case
+        Average -> "Average"
+        Maximum -> "Maximum"
+        Minimum -> "Minimum"
+        SampleCount -> "SampleCount"
+        Sum -> "Sum"
+
+instance Hashable Statistic
+instance ToQuery Statistic
+instance ToHeader Statistic
+
+instance FromXML Statistic where
+    parseXML = parseXMLText "Statistic"
+
+-- | The @AlarmHistoryItem@ data type contains descriptive information about
+-- the history of a specific alarm. If you call DescribeAlarmHistory,
+-- Amazon CloudWatch returns this data type as part of the
+-- DescribeAlarmHistoryResult data type.
+--
+-- /See:/ 'alarmHistoryItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -207,31 +420,10 @@ instance FromXML AlarmHistoryItem where
                 <*> (x .@? "Timestamp")
                 <*> (x .@? "HistorySummary")
 
-data ComparisonOperator = GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ComparisonOperator where
-    parser = takeLowerText >>= \case
-        "GreaterThanOrEqualToThreshold" -> pure GreaterThanOrEqualToThreshold
-        "GreaterThanThreshold" -> pure GreaterThanThreshold
-        "LessThanOrEqualToThreshold" -> pure LessThanOrEqualToThreshold
-        "LessThanThreshold" -> pure LessThanThreshold
-        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
-
-instance ToText ComparisonOperator where
-    toText = \case
-        GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
-        GreaterThanThreshold -> "GreaterThanThreshold"
-        LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
-        LessThanThreshold -> "LessThanThreshold"
-
-instance Hashable ComparisonOperator
-instance ToQuery ComparisonOperator
-instance ToHeader ComparisonOperator
-
-instance FromXML ComparisonOperator where
-    parseXML = parseXMLText "ComparisonOperator"
-
--- | /See:/ 'datapoint' smart constructor.
+-- | The @Datapoint@ data type encapsulates the statistical data that Amazon
+-- CloudWatch computes from metric data.
+--
+-- /See:/ 'datapoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -298,7 +490,12 @@ instance FromXML Datapoint where
                 <*> (x .@? "Timestamp")
                 <*> (x .@? "Unit")
 
--- | /See:/ 'dimension' smart constructor.
+-- | The @Dimension@ data type further expands on the identity of a metric
+-- using a Name, Value pair.
+--
+-- For examples that use one or more dimensions, see PutMetricData.
+--
+-- /See:/ 'dimension' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -327,7 +524,9 @@ instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dimName, "Value" =: _dimValue]
 
--- | /See:/ 'dimensionFilter' smart constructor.
+-- | The @DimensionFilter@ data type is used to filter ListMetrics results.
+--
+-- /See:/ 'dimensionFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -352,29 +551,15 @@ instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
           = mconcat ["Value" =: _dfValue, "Name" =: _dfName]
 
-data HistoryItemType = StateUpdate | Action | ConfigurationUpdate deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText HistoryItemType where
-    parser = takeLowerText >>= \case
-        "Action" -> pure Action
-        "ConfigurationUpdate" -> pure ConfigurationUpdate
-        "StateUpdate" -> pure StateUpdate
-        e -> fail ("Failure parsing HistoryItemType from " ++ show e)
-
-instance ToText HistoryItemType where
-    toText = \case
-        Action -> "Action"
-        ConfigurationUpdate -> "ConfigurationUpdate"
-        StateUpdate -> "StateUpdate"
-
-instance Hashable HistoryItemType
-instance ToQuery HistoryItemType
-instance ToHeader HistoryItemType
-
-instance FromXML HistoryItemType where
-    parseXML = parseXMLText "HistoryItemType"
-
--- | /See:/ 'metric' smart constructor.
+-- | The @Metric@ data type contains information about a specific metric. If
+-- you call ListMetrics, Amazon CloudWatch returns information contained by
+-- this data type.
+--
+-- The example in the Examples section publishes two metrics named buffers
+-- and latency. Both metrics are in the examples namespace. Both metrics
+-- have two dimensions, InstanceID and InstanceType.
+--
+-- /See:/ 'metric' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -408,7 +593,10 @@ instance FromXML Metric where
                 (x .@? "Dimensions" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'metricAlarm' smart constructor.
+-- | The MetricAlarm data type represents an alarm. You can use
+-- PutMetricAlarm to create or update an alarm.
+--
+-- /See:/ 'metricAlarm' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -602,7 +790,11 @@ instance FromXML MetricAlarm where
                 <*> (x .@? "Statistic")
                 <*> (x .@? "Unit")
 
--- | /See:/ 'metricDatum' smart constructor.
+-- | The @MetricDatum@ data type encapsulates the information sent with
+-- PutMetricData to either create a new metric or add new values to be
+-- aggregated into an existing metric.
+--
+-- /See:/ 'metricDatum' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -671,125 +863,11 @@ instance ToQuery MetricDatum where
                "StatisticValues" =: _mdStatisticValues,
                "Unit" =: _mdUnit, "MetricName" =: _mdMetricName]
 
-data StandardUnit = Bits | BitsSecond | MegabytesSecond | Megabytes | None | Count | Terabytes | TerabytesSecond | Percent | CountSecond | TerabitsSecond | Terabits | Milliseconds | GigabytesSecond | Microseconds | Gigabytes | GigabitsSecond | Gigabits | Megabits | MegabitsSecond | Kilobits | KilobitsSecond | Kilobytes | KilobytesSecond | Seconds | BytesSecond | Bytes deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StandardUnit where
-    parser = takeLowerText >>= \case
-        "Bits" -> pure Bits
-        "Bits/Second" -> pure BitsSecond
-        "Bytes" -> pure Bytes
-        "Bytes/Second" -> pure BytesSecond
-        "Count" -> pure Count
-        "Count/Second" -> pure CountSecond
-        "Gigabits" -> pure Gigabits
-        "Gigabits/Second" -> pure GigabitsSecond
-        "Gigabytes" -> pure Gigabytes
-        "Gigabytes/Second" -> pure GigabytesSecond
-        "Kilobits" -> pure Kilobits
-        "Kilobits/Second" -> pure KilobitsSecond
-        "Kilobytes" -> pure Kilobytes
-        "Kilobytes/Second" -> pure KilobytesSecond
-        "Megabits" -> pure Megabits
-        "Megabits/Second" -> pure MegabitsSecond
-        "Megabytes" -> pure Megabytes
-        "Megabytes/Second" -> pure MegabytesSecond
-        "Microseconds" -> pure Microseconds
-        "Milliseconds" -> pure Milliseconds
-        "None" -> pure None
-        "Percent" -> pure Percent
-        "Seconds" -> pure Seconds
-        "Terabits" -> pure Terabits
-        "Terabits/Second" -> pure TerabitsSecond
-        "Terabytes" -> pure Terabytes
-        "Terabytes/Second" -> pure TerabytesSecond
-        e -> fail ("Failure parsing StandardUnit from " ++ show e)
-
-instance ToText StandardUnit where
-    toText = \case
-        Bits -> "Bits"
-        BitsSecond -> "Bits/Second"
-        Bytes -> "Bytes"
-        BytesSecond -> "Bytes/Second"
-        Count -> "Count"
-        CountSecond -> "Count/Second"
-        Gigabits -> "Gigabits"
-        GigabitsSecond -> "Gigabits/Second"
-        Gigabytes -> "Gigabytes"
-        GigabytesSecond -> "Gigabytes/Second"
-        Kilobits -> "Kilobits"
-        KilobitsSecond -> "Kilobits/Second"
-        Kilobytes -> "Kilobytes"
-        KilobytesSecond -> "Kilobytes/Second"
-        Megabits -> "Megabits"
-        MegabitsSecond -> "Megabits/Second"
-        Megabytes -> "Megabytes"
-        MegabytesSecond -> "Megabytes/Second"
-        Microseconds -> "Microseconds"
-        Milliseconds -> "Milliseconds"
-        None -> "None"
-        Percent -> "Percent"
-        Seconds -> "Seconds"
-        Terabits -> "Terabits"
-        TerabitsSecond -> "Terabits/Second"
-        Terabytes -> "Terabytes"
-        TerabytesSecond -> "Terabytes/Second"
-
-instance Hashable StandardUnit
-instance ToQuery StandardUnit
-instance ToHeader StandardUnit
-
-instance FromXML StandardUnit where
-    parseXML = parseXMLText "StandardUnit"
-
-data StateValue = OK | InsufficientData | Alarm deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StateValue where
-    parser = takeLowerText >>= \case
-        "ALARM" -> pure Alarm
-        "INSUFFICIENT_DATA" -> pure InsufficientData
-        "OK" -> pure OK
-        e -> fail ("Failure parsing StateValue from " ++ show e)
-
-instance ToText StateValue where
-    toText = \case
-        Alarm -> "ALARM"
-        InsufficientData -> "INSUFFICIENT_DATA"
-        OK -> "OK"
-
-instance Hashable StateValue
-instance ToQuery StateValue
-instance ToHeader StateValue
-
-instance FromXML StateValue where
-    parseXML = parseXMLText "StateValue"
-
-data Statistic = SampleCount | Maximum | Average | Minimum | Sum deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Statistic where
-    parser = takeLowerText >>= \case
-        "Average" -> pure Average
-        "Maximum" -> pure Maximum
-        "Minimum" -> pure Minimum
-        "SampleCount" -> pure SampleCount
-        "Sum" -> pure Sum
-        e -> fail ("Failure parsing Statistic from " ++ show e)
-
-instance ToText Statistic where
-    toText = \case
-        Average -> "Average"
-        Maximum -> "Maximum"
-        Minimum -> "Minimum"
-        SampleCount -> "SampleCount"
-        Sum -> "Sum"
-
-instance Hashable Statistic
-instance ToQuery Statistic
-instance ToHeader Statistic
-
-instance FromXML Statistic where
-    parseXML = parseXMLText "Statistic"
-
--- | /See:/ 'statisticSet' smart constructor.
+-- | The @StatisticSet@ data type describes the @StatisticValues@ component
+-- of MetricDatum, and represents a set of statistics that describes a
+-- specific metric.
+--
+-- /See:/ 'statisticSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

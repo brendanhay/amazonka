@@ -68,6 +68,7 @@ module Network.AWS.Route53Domains.TransferDomain
     , transferDomainResponse
     -- ** Response lenses
     , tdrOperationId
+    , tdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -75,7 +76,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'transferDomain' smart constructor.
+-- | The TransferDomain request includes the following elements.
+--
+-- /See:/ 'transferDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -260,7 +263,8 @@ instance AWSRequest TransferDomain where
         response
           = receiveJSON
               (\ s h x ->
-                 TransferDomainResponse' <$> (x .:> "OperationId"))
+                 TransferDomainResponse' <$>
+                   (x .:> "OperationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders TransferDomain where
         toHeaders
@@ -297,16 +301,20 @@ instance ToPath TransferDomain where
 instance ToQuery TransferDomain where
         toQuery = const mempty
 
--- | /See:/ 'transferDomainResponse' smart constructor.
+-- | The TranserDomain response includes the following element.
+--
+-- /See:/ 'transferDomainResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tdrOperationId'
-newtype TransferDomainResponse = TransferDomainResponse'{_tdrOperationId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'tdrStatusCode'
+data TransferDomainResponse = TransferDomainResponse'{_tdrOperationId :: Text, _tdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'TransferDomainResponse' smart constructor.
-transferDomainResponse :: Text -> TransferDomainResponse
-transferDomainResponse pOperationId = TransferDomainResponse'{_tdrOperationId = pOperationId};
+transferDomainResponse :: Text -> Int -> TransferDomainResponse
+transferDomainResponse pOperationId pStatusCode = TransferDomainResponse'{_tdrOperationId = pOperationId, _tdrStatusCode = pStatusCode};
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -318,3 +326,7 @@ transferDomainResponse pOperationId = TransferDomainResponse'{_tdrOperationId = 
 -- Constraints: Maximum 255 characters.
 tdrOperationId :: Lens' TransferDomainResponse Text
 tdrOperationId = lens _tdrOperationId (\ s a -> s{_tdrOperationId = a});
+
+-- | FIXME: Undocumented member.
+tdrStatusCode :: Lens' TransferDomainResponse Int
+tdrStatusCode = lens _tdrStatusCode (\ s a -> s{_tdrStatusCode = a});

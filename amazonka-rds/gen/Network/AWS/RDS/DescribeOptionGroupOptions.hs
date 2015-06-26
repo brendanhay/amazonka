@@ -37,15 +37,18 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- ** Response lenses
     , dogorOptionGroupOptions
     , dogorMarker
+    , dogorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeOptionGroupOptions' smart constructor.
+-- |
+--
+-- /See:/ 'describeOptionGroupOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -114,7 +117,8 @@ instance AWSRequest DescribeOptionGroupOptions where
                  DescribeOptionGroupOptionsResponse' <$>
                    (x .@? "OptionGroupOptions" .!@ mempty >>=
                       may (parseXMLList "OptionGroupOption"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeOptionGroupOptions where
         toHeaders = const mempty
@@ -135,18 +139,22 @@ instance ToQuery DescribeOptionGroupOptions where
                "Marker" =: _dogoMarker,
                "EngineName" =: _dogoEngineName]
 
--- | /See:/ 'describeOptionGroupOptionsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeOptionGroupOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dogorOptionGroupOptions'
 --
 -- * 'dogorMarker'
-data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions :: Maybe [OptionGroupOption], _dogorMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dogorStatusCode'
+data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions :: Maybe [OptionGroupOption], _dogorMarker :: Maybe Text, _dogorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupOptionsResponse' smart constructor.
-describeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
-describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions = Nothing, _dogorMarker = Nothing};
+describeOptionGroupOptionsResponse :: Int -> DescribeOptionGroupOptionsResponse
+describeOptionGroupOptionsResponse pStatusCode = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions = Nothing, _dogorMarker = Nothing, _dogorStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
@@ -157,3 +165,7 @@ dogorOptionGroupOptions = lens _dogorOptionGroupOptions (\ s a -> s{_dogorOption
 -- marker, up to the value specified by @MaxRecords@.
 dogorMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorMarker = lens _dogorMarker (\ s a -> s{_dogorMarker = a});
+
+-- | FIXME: Undocumented member.
+dogorStatusCode :: Lens' DescribeOptionGroupOptionsResponse Int
+dogorStatusCode = lens _dogorStatusCode (\ s a -> s{_dogorStatusCode = a});

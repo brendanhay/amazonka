@@ -59,7 +59,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createConnection' smart constructor.
+-- | Container for the parameters to the CreateConnection operation.
+--
+-- /See:/ 'createConnection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

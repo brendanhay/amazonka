@@ -44,6 +44,7 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- ** Response lenses
     , aatsrExpiryTime
     , aatsrAttachmentSetId
+    , aatsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -85,7 +86,8 @@ instance AWSRequest AddAttachmentsToSet where
           = receiveJSON
               (\ s h x ->
                  AddAttachmentsToSetResponse' <$>
-                   (x .?> "expiryTime") <*> (x .?> "attachmentSetId"))
+                   (x .?> "expiryTime") <*> (x .?> "attachmentSetId")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AddAttachmentsToSet where
         toHeaders
@@ -109,18 +111,23 @@ instance ToPath AddAttachmentsToSet where
 instance ToQuery AddAttachmentsToSet where
         toQuery = const mempty
 
--- | /See:/ 'addAttachmentsToSetResponse' smart constructor.
+-- | The ID and expiry time of the attachment set returned by the
+-- AddAttachmentsToSet operation.
+--
+-- /See:/ 'addAttachmentsToSetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aatsrExpiryTime'
 --
 -- * 'aatsrAttachmentSetId'
-data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'{_aatsrExpiryTime :: Maybe Text, _aatsrAttachmentSetId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'aatsrStatusCode'
+data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'{_aatsrExpiryTime :: Maybe Text, _aatsrAttachmentSetId :: Maybe Text, _aatsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
-addAttachmentsToSetResponse :: AddAttachmentsToSetResponse
-addAttachmentsToSetResponse = AddAttachmentsToSetResponse'{_aatsrExpiryTime = Nothing, _aatsrAttachmentSetId = Nothing};
+addAttachmentsToSetResponse :: Int -> AddAttachmentsToSetResponse
+addAttachmentsToSetResponse pStatusCode = AddAttachmentsToSetResponse'{_aatsrExpiryTime = Nothing, _aatsrAttachmentSetId = Nothing, _aatsrStatusCode = pStatusCode};
 
 -- | The time and date when the attachment set expires.
 aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
@@ -132,3 +139,7 @@ aatsrExpiryTime = lens _aatsrExpiryTime (\ s a -> s{_aatsrExpiryTime = a});
 -- added to the specified set, if it exists.
 aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrAttachmentSetId = lens _aatsrAttachmentSetId (\ s a -> s{_aatsrAttachmentSetId = a});
+
+-- | FIXME: Undocumented member.
+aatsrStatusCode :: Lens' AddAttachmentsToSetResponse Int
+aatsrStatusCode = lens _aatsrStatusCode (\ s a -> s{_aatsrStatusCode = a});

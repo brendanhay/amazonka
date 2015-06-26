@@ -40,6 +40,7 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     , retrieveTapeArchiveResponse
     -- ** Response lenses
     , rtarTapeARN
+    , rtarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +48,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'retrieveTapeArchive' smart constructor.
+-- | RetrieveTapeArchiveInput
+--
+-- /See:/ 'retrieveTapeArchive' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest RetrieveTapeArchive where
         response
           = receiveJSON
               (\ s h x ->
-                 RetrieveTapeArchiveResponse' <$> (x .?> "TapeARN"))
+                 RetrieveTapeArchiveResponse' <$>
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
@@ -106,17 +110,25 @@ instance ToPath RetrieveTapeArchive where
 instance ToQuery RetrieveTapeArchive where
         toQuery = const mempty
 
--- | /See:/ 'retrieveTapeArchiveResponse' smart constructor.
+-- | RetrieveTapeArchiveOutput
+--
+-- /See:/ 'retrieveTapeArchiveResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtarTapeARN'
-newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'{_rtarTapeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rtarStatusCode'
+data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'{_rtarTapeARN :: Maybe Text, _rtarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RetrieveTapeArchiveResponse' smart constructor.
-retrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
-retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'{_rtarTapeARN = Nothing};
+retrieveTapeArchiveResponse :: Int -> RetrieveTapeArchiveResponse
+retrieveTapeArchiveResponse pStatusCode = RetrieveTapeArchiveResponse'{_rtarTapeARN = Nothing, _rtarStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
 rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\ s a -> s{_rtarTapeARN = a});
+
+-- | FIXME: Undocumented member.
+rtarStatusCode :: Lens' RetrieveTapeArchiveResponse Int
+rtarStatusCode = lens _rtarStatusCode (\ s a -> s{_rtarStatusCode = a});

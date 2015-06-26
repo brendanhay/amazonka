@@ -51,6 +51,7 @@ module Network.AWS.IAM.CreateOpenIDConnectProvider
     , createOpenIDConnectProviderResponse
     -- ** Response lenses
     , coidcprOpenIDConnectProviderARN
+    , coidcprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -136,7 +137,8 @@ instance AWSRequest CreateOpenIDConnectProvider where
               "CreateOpenIDConnectProviderResult"
               (\ s h x ->
                  CreateOpenIDConnectProviderResponse' <$>
-                   (x .@? "OpenIDConnectProviderArn"))
+                   (x .@? "OpenIDConnectProviderArn") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateOpenIDConnectProvider where
         toHeaders = const mempty
@@ -157,18 +159,27 @@ instance ToQuery CreateOpenIDConnectProvider where
                "ThumbprintList" =:
                  toQueryList "member" _coidcpThumbprintList]
 
--- | /See:/ 'createOpenIDConnectProviderResponse' smart constructor.
+-- | Contains the response to a successful CreateOpenIDConnectProvider
+-- request.
+--
+-- /See:/ 'createOpenIDConnectProviderResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'coidcprOpenIDConnectProviderARN'
-newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'coidcprStatusCode'
+data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN :: Maybe Text, _coidcprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateOpenIDConnectProviderResponse' smart constructor.
-createOpenIDConnectProviderResponse :: CreateOpenIDConnectProviderResponse
-createOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN = Nothing};
+createOpenIDConnectProviderResponse :: Int -> CreateOpenIDConnectProviderResponse
+createOpenIDConnectProviderResponse pStatusCode = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN = Nothing, _coidcprStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
 -- was created. For more information, see OpenIDConnectProviderListEntry.
 coidcprOpenIDConnectProviderARN :: Lens' CreateOpenIDConnectProviderResponse (Maybe Text)
 coidcprOpenIDConnectProviderARN = lens _coidcprOpenIDConnectProviderARN (\ s a -> s{_coidcprOpenIDConnectProviderARN = a});
+
+-- | FIXME: Undocumented member.
+coidcprStatusCode :: Lens' CreateOpenIDConnectProviderResponse Int
+coidcprStatusCode = lens _coidcprStatusCode (\ s a -> s{_coidcprStatusCode = a});

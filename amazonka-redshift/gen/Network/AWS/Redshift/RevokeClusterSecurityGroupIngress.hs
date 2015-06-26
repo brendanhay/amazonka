@@ -40,6 +40,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     , revokeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirClusterSecurityGroup
+    , rcsgirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +48,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'revokeClusterSecurityGroupIngress' smart constructor.
+-- | ???
+--
+-- /See:/ 'revokeClusterSecurityGroupIngress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -102,7 +105,8 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
               "RevokeClusterSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeClusterSecurityGroupIngressResponse' <$>
-                   (x .@? "ClusterSecurityGroup"))
+                   (x .@? "ClusterSecurityGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where
@@ -131,12 +135,18 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcsgirClusterSecurityGroup'
-newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'{_rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'rcsgirStatusCode'
+data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'{_rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup, _rcsgirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' smart constructor.
-revokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse
-revokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'{_rcsgirClusterSecurityGroup = Nothing};
+revokeClusterSecurityGroupIngressResponse :: Int -> RevokeClusterSecurityGroupIngressResponse
+revokeClusterSecurityGroupIngressResponse pStatusCode = RevokeClusterSecurityGroupIngressResponse'{_rcsgirClusterSecurityGroup = Nothing, _rcsgirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 rcsgirClusterSecurityGroup = lens _rcsgirClusterSecurityGroup (\ s a -> s{_rcsgirClusterSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+rcsgirStatusCode :: Lens' RevokeClusterSecurityGroupIngressResponse Int
+rcsgirStatusCode = lens _rcsgirStatusCode (\ s a -> s{_rcsgirStatusCode = a});

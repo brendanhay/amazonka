@@ -41,6 +41,7 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     , describeAnalysisSchemesResponse
     -- ** Response lenses
     , dasrAnalysisSchemes
+    , dasrStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -48,7 +49,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeAnalysisSchemes' smart constructor.
+-- | Container for the parameters to the @DescribeAnalysisSchemes@ operation.
+-- Specifies the name of the domain you want to describe. To limit the
+-- response to particular analysis schemes, specify the names of the
+-- analysis schemes you want to describe. To show the active configuration
+-- and exclude any pending changes, set the @Deployed@ option to @true@.
+--
+-- /See:/ 'describeAnalysisSchemes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +93,8 @@ instance AWSRequest DescribeAnalysisSchemes where
               (\ s h x ->
                  DescribeAnalysisSchemesResponse' <$>
                    (x .@? "AnalysisSchemes" .!@ mempty >>=
-                      parseXMLList "member"))
+                      parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAnalysisSchemes where
         toHeaders = const mempty
@@ -106,17 +114,26 @@ instance ToQuery DescribeAnalysisSchemes where
                    (toQueryList "member" <$> _descAnalysisSchemeNames),
                "DomainName" =: _descDomainName]
 
--- | /See:/ 'describeAnalysisSchemesResponse' smart constructor.
+-- | The result of a @DescribeAnalysisSchemes@ request. Contains the analysis
+-- schemes configured for the domain specified in the request.
+--
+-- /See:/ 'describeAnalysisSchemesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dasrAnalysisSchemes'
-newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes :: [AnalysisSchemeStatus]} deriving (Eq, Read, Show)
+--
+-- * 'dasrStatusCode'
+data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes :: [AnalysisSchemeStatus], _dasrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
-describeAnalysisSchemesResponse :: DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes = mempty};
+describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
+describeAnalysisSchemesResponse pStatusCode = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes = mempty, _dasrStatusCode = pStatusCode};
 
 -- | The analysis scheme descriptions.
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes = lens _dasrAnalysisSchemes (\ s a -> s{_dasrAnalysisSchemes = a});
+
+-- | FIXME: Undocumented member.
+dasrStatusCode :: Lens' DescribeAnalysisSchemesResponse Int
+dasrStatusCode = lens _dasrStatusCode (\ s a -> s{_dasrStatusCode = a});

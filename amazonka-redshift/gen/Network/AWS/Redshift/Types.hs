@@ -21,8 +21,84 @@ module Network.AWS.Redshift.Types
     (
     -- * Service
       Redshift
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _ClusterSecurityGroupQuotaExceededFault
+    , _CopyToRegionDisabledFault
+    , _AuthorizationQuotaExceededFault
+    , _SourceNotFoundFault
+    , _InvalidS3KeyPrefixFault
+    , _AuthorizationAlreadyExistsFault
+    , _InvalidClusterSecurityGroupStateFault
+    , _ClusterSecurityGroupAlreadyExistsFault
+    , _InvalidElasticIPFault
+    , _ClusterSnapshotNotFoundFault
+    , _HSMConfigurationNotFoundFault
+    , _InvalidHSMConfigurationStateFault
+    , _ClusterSnapshotAlreadyExistsFault
+    , _HSMConfigurationAlreadyExistsFault
+    , _SubscriptionCategoryNotFoundFault
+    , _SubscriptionNotFoundFault
+    , _InvalidSubnet
+    , _InvalidS3BucketNameFault
+    , _ClusterQuotaExceededFault
+    , _SnapshotCopyAlreadyDisabledFault
+    , _ClusterParameterGroupNotFoundFault
+    , _HSMClientCertificateQuotaExceededFault
+    , _SnapshotCopyAlreadyEnabledFault
+    , _ClusterParameterGroupAlreadyExistsFault
+    , _NumberOfNodesPerClusterLimitExceededFault
+    , _SnapshotCopyDisabledFault
+    , _ResizeNotFoundFault
+    , _ClusterParameterGroupQuotaExceededFault
+    , _SNSTopicARNNotFoundFault
+    , _HSMClientCertificateNotFoundFault
+    , _ClusterNotFoundFault
+    , _SNSNoAuthorizationFault
+    , _InvalidClusterStateFault
+    , _InsufficientClusterCapacityFault
+    , _HSMConfigurationQuotaExceededFault
+    , _ClusterSnapshotQuotaExceededFault
+    , _SNSInvalidTopicFault
+    , _UnsupportedOptionFault
+    , _SubscriptionAlreadyExistFault
+    , _InvalidVPCNetworkStateFault
+    , _ClusterSubnetGroupNotFoundFault
+    , _BucketNotFoundFault
+    , _InvalidSubscriptionStateFault
+    , _AuthorizationNotFoundFault
+    , _InvalidClusterSubnetGroupStateFault
+    , _InvalidClusterSnapshotStateFault
+    , _ClusterSubnetGroupAlreadyExistsFault
+    , _ClusterSecurityGroupNotFoundFault
+    , _IncompatibleOrderableOptions
+    , _ReservedNodeOfferingNotFoundFault
+    , _InvalidClusterSubnetStateFault
+    , _ReservedNodeNotFoundFault
+    , _EventSubscriptionQuotaExceededFault
+    , _InvalidClusterParameterGroupStateFault
+    , _ReservedNodeAlreadyExistsFault
+    , _ReservedNodeQuotaExceededFault
+    , _SubscriptionEventIdNotFoundFault
+    , _ResourceNotFoundFault
+    , _InvalidRestoreFault
+    , _UnknownSnapshotCopyRegionFault
+    , _AccessToSnapshotDeniedFault
+    , _ClusterAlreadyExistsFault
+    , _HSMClientCertificateAlreadyExistsFault
+    , _InvalidHSMClientCertificateStateFault
+    , _NumberOfNodesQuotaExceededFault
+    , _TagLimitExceededFault
+    , _ClusterSubnetQuotaExceededFault
+    , _SubnetAlreadyInUse
+    , _InvalidTagFault
+    , _InsufficientS3BucketPolicyFault
+    , _ClusterSubnetGroupQuotaExceededFault
+    , _SubscriptionSeverityNotFoundFault
+    , _UnauthorizedOperation
+
+    -- * SourceType
+    , SourceType (..)
 
     -- * AccountWithRestoreAccess
     , AccountWithRestoreAccess
@@ -347,9 +423,6 @@ module Network.AWS.Redshift.Types
     , snaActualIncrementalBackupSizeInMegaBytes
     , snaPort
 
-    -- * SourceType
-    , SourceType (..)
-
     -- * Subnet
     , Subnet
     , subnet
@@ -375,6 +448,7 @@ module Network.AWS.Redshift.Types
     , vpcSecurityGroupMembership
     , vsgmStatus
     , vsgmVPCSecurityGroupId
+
     ) where
 
 import Network.AWS.Prelude
@@ -385,32 +459,420 @@ data Redshift
 
 instance AWSService Redshift where
     type Sg Redshift = V4
-    type Er Redshift = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Redshift
-        service' = Service
-            { _svcAbbrev  = "Redshift"
-            , _svcPrefix  = "redshift"
-            , _svcVersion = "2012-12-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Redshift
+        svc = Service
+            { _svcAbbrev   = "Redshift"
+            , _svcPrefix   = "redshift"
+            , _svcVersion  = "2012-12-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Redshift
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The request would result in the user exceeding the allowed number of
+-- cluster security groups. For information about increasing your quota, go
+-- to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSecurityGroupQuotaExceededFault = _ServiceError . hasCode "QuotaExceeded.ClusterSecurityGroup" . hasStatus 400;
 
--- | /See:/ 'accountWithRestoreAccess' smart constructor.
+-- | Cross-region snapshot copy was temporarily disabled. Try your request
+-- again.
+_CopyToRegionDisabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CopyToRegionDisabledFault = _ServiceError . hasCode "CopyToRegionDisabledFault" . hasStatus 400;
+
+-- | The authorization quota for the cluster security group has been reached.
+_AuthorizationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationQuotaExceededFault = _ServiceError . hasCode "AuthorizationQuotaExceeded" . hasStatus 400;
+
+-- | The specified Amazon Redshift event source could not be found.
+_SourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SourceNotFoundFault = _ServiceError . hasCode "SourceNotFound" . hasStatus 404;
+
+-- | The string specified for the logging S3 key prefix does not comply with
+-- the documented constraints.
+_InvalidS3KeyPrefixFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidS3KeyPrefixFault = _ServiceError . hasCode "InvalidS3KeyPrefixFault" . hasStatus 400;
+
+-- | The specified CIDR block or EC2 security group is already authorized for
+-- the specified cluster security group.
+_AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault = _ServiceError . hasCode "AuthorizationAlreadyExists" . hasStatus 400;
+
+-- | The state of the cluster security group is not @available@.
+_InvalidClusterSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidClusterSecurityGroupStateFault = _ServiceError . hasCode "InvalidClusterSecurityGroupState" . hasStatus 400;
+
+-- | A cluster security group with the same name already exists.
+_ClusterSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSecurityGroupAlreadyExistsFault = _ServiceError . hasCode "ClusterSecurityGroupAlreadyExists" . hasStatus 400;
+
+-- | The Elastic IP (EIP) is invalid or cannot be found.
+_InvalidElasticIPFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidElasticIPFault = _ServiceError . hasCode "InvalidElasticIpFault" . hasStatus 400;
+
+-- | The snapshot identifier does not refer to an existing cluster snapshot.
+_ClusterSnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSnapshotNotFoundFault = _ServiceError . hasCode "ClusterSnapshotNotFound" . hasStatus 404;
+
+-- | There is no Amazon Redshift HSM configuration with the specified
+-- identifier.
+_HSMConfigurationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_HSMConfigurationNotFoundFault = _ServiceError . hasCode "HsmConfigurationNotFoundFault" . hasStatus 400;
+
+-- | The specified HSM configuration is not in the @available@ state, or it
+-- is still in use by one or more Amazon Redshift clusters.
+_InvalidHSMConfigurationStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidHSMConfigurationStateFault = _ServiceError . hasCode "InvalidHsmConfigurationStateFault" . hasStatus 400;
+
+-- | The value specified as a snapshot identifier is already used by an
+-- existing snapshot.
+_ClusterSnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSnapshotAlreadyExistsFault = _ServiceError . hasCode "ClusterSnapshotAlreadyExists" . hasStatus 400;
+
+-- | There is already an existing Amazon Redshift HSM configuration with the
+-- specified identifier.
+_HSMConfigurationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_HSMConfigurationAlreadyExistsFault = _ServiceError . hasCode "HsmConfigurationAlreadyExistsFault" . hasStatus 400;
+
+-- | The value specified for the event category was not one of the allowed
+-- values, or it specified a category that does not apply to the specified
+-- source type. The allowed values are Configuration, Management,
+-- Monitoring, and Security.
+_SubscriptionCategoryNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionCategoryNotFoundFault = _ServiceError . hasCode "SubscriptionCategoryNotFound" . hasStatus 404;
+
+-- | An Amazon Redshift event notification subscription with the specified
+-- name does not exist.
+_SubscriptionNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionNotFoundFault = _ServiceError . hasCode "SubscriptionNotFound" . hasStatus 404;
+
+-- | The requested subnet is not valid, or not all of the subnets are in the
+-- same VPC.
+_InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSubnet = _ServiceError . hasCode "InvalidSubnet" . hasStatus 400;
+
+-- | The S3 bucket name is invalid. For more information about naming rules,
+-- go to
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
+-- in the Amazon Simple Storage Service (S3) Developer Guide.
+_InvalidS3BucketNameFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidS3BucketNameFault = _ServiceError . hasCode "InvalidS3BucketNameFault" . hasStatus 400;
+
+-- | The request would exceed the allowed number of cluster instances for
+-- this account. For information about increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterQuotaExceededFault = _ServiceError . hasCode "ClusterQuotaExceeded" . hasStatus 400;
+
+-- | The cluster already has cross-region snapshot copy disabled.
+_SnapshotCopyAlreadyDisabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotCopyAlreadyDisabledFault = _ServiceError . hasCode "SnapshotCopyAlreadyDisabledFault" . hasStatus 400;
+
+-- | The parameter group name does not refer to an existing parameter group.
+_ClusterParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterParameterGroupNotFoundFault = _ServiceError . hasCode "ClusterParameterGroupNotFound" . hasStatus 404;
+
+-- | The quota for HSM client certificates has been reached. For information
+-- about increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_HSMClientCertificateQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_HSMClientCertificateQuotaExceededFault = _ServiceError . hasCode "HsmClientCertificateQuotaExceededFault" . hasStatus 400;
+
+-- | The cluster already has cross-region snapshot copy enabled.
+_SnapshotCopyAlreadyEnabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotCopyAlreadyEnabledFault = _ServiceError . hasCode "SnapshotCopyAlreadyEnabledFault" . hasStatus 400;
+
+-- | A cluster parameter group with the same name already exists.
+_ClusterParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterParameterGroupAlreadyExistsFault = _ServiceError . hasCode "ClusterParameterGroupAlreadyExists" . hasStatus 400;
+
+-- | The operation would exceed the number of nodes allowed for a cluster.
+_NumberOfNodesPerClusterLimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberOfNodesPerClusterLimitExceededFault = _ServiceError . hasCode "NumberOfNodesPerClusterLimitExceeded" . hasStatus 400;
+
+-- | Cross-region snapshot copy was temporarily disabled. Try your request
+-- again.
+_SnapshotCopyDisabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotCopyDisabledFault = _ServiceError . hasCode "SnapshotCopyDisabledFault" . hasStatus 400;
+
+-- | A resize operation for the specified cluster is not found.
+_ResizeNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResizeNotFoundFault = _ServiceError . hasCode "ResizeNotFound" . hasStatus 404;
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster parameter groups. For information about increasing your quota,
+-- go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterParameterGroupQuotaExceededFault = _ServiceError . hasCode "ClusterParameterGroupQuotaExceeded" . hasStatus 400;
+
+-- | An Amazon SNS topic with the specified Amazon Resource Name (ARN) does
+-- not exist.
+_SNSTopicARNNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SNSTopicARNNotFoundFault = _ServiceError . hasCode "SNSTopicArnNotFound" . hasStatus 404;
+
+-- | There is no Amazon Redshift HSM client certificate with the specified
+-- identifier.
+_HSMClientCertificateNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_HSMClientCertificateNotFoundFault = _ServiceError . hasCode "HsmClientCertificateNotFoundFault" . hasStatus 400;
+
+-- | The /ClusterIdentifier/ parameter does not refer to an existing cluster.
+_ClusterNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterNotFoundFault = _ServiceError . hasCode "ClusterNotFound" . hasStatus 404;
+
+-- | You do not have permission to publish to the specified Amazon SNS topic.
+_SNSNoAuthorizationFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault = _ServiceError . hasCode "SNSNoAuthorization" . hasStatus 400;
+
+-- | The specified cluster is not in the @available@ state.
+_InvalidClusterStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidClusterStateFault = _ServiceError . hasCode "InvalidClusterState" . hasStatus 400;
+
+-- | The number of nodes specified exceeds the allotted capacity of the
+-- cluster.
+_InsufficientClusterCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientClusterCapacityFault = _ServiceError . hasCode "InsufficientClusterCapacity" . hasStatus 400;
+
+-- | The quota for HSM configurations has been reached. For information about
+-- increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_HSMConfigurationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_HSMConfigurationQuotaExceededFault = _ServiceError . hasCode "HsmConfigurationQuotaExceededFault" . hasStatus 400;
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster snapshots.
+_ClusterSnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSnapshotQuotaExceededFault = _ServiceError . hasCode "ClusterSnapshotQuotaExceeded" . hasStatus 400;
+
+-- | Amazon SNS has responded that there is a problem with the specified
+-- Amazon SNS topic.
+_SNSInvalidTopicFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault = _ServiceError . hasCode "SNSInvalidTopic" . hasStatus 400;
+
+-- | A request option was specified that is not supported.
+_UnsupportedOptionFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnsupportedOptionFault = _ServiceError . hasCode "UnsupportedOptionFault" . hasStatus 400;
+
+-- | There is already an existing event notification subscription with the
+-- specified name.
+_SubscriptionAlreadyExistFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionAlreadyExistFault = _ServiceError . hasCode "SubscriptionAlreadyExist" . hasStatus 400;
+
+-- | The cluster subnet group does not cover all Availability Zones.
+_InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault = _ServiceError . hasCode "InvalidVPCNetworkStateFault" . hasStatus 400;
+
+-- | The cluster subnet group name does not refer to an existing cluster
+-- subnet group.
+_ClusterSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSubnetGroupNotFoundFault = _ServiceError . hasCode "ClusterSubnetGroupNotFoundFault" . hasStatus 400;
+
+-- | Could not find the specified S3 bucket.
+_BucketNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_BucketNotFoundFault = _ServiceError . hasCode "BucketNotFoundFault" . hasStatus 400;
+
+-- | The subscription request is invalid because it is a duplicate request.
+-- This subscription request is already in progress.
+_InvalidSubscriptionStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSubscriptionStateFault = _ServiceError . hasCode "InvalidSubscriptionStateFault" . hasStatus 400;
+
+-- | The specified CIDR IP range or EC2 security group is not authorized for
+-- the specified cluster security group.
+_AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault = _ServiceError . hasCode "AuthorizationNotFound" . hasStatus 404;
+
+-- | The cluster subnet group cannot be deleted because it is in use.
+_InvalidClusterSubnetGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidClusterSubnetGroupStateFault = _ServiceError . hasCode "InvalidClusterSubnetGroupStateFault" . hasStatus 400;
+
+-- | The state of the cluster snapshot is not @available@, or other accounts
+-- are authorized to access the snapshot.
+_InvalidClusterSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidClusterSnapshotStateFault = _ServiceError . hasCode "InvalidClusterSnapshotState" . hasStatus 400;
+
+-- | A /ClusterSubnetGroupName/ is already used by an existing cluster subnet
+-- group.
+_ClusterSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSubnetGroupAlreadyExistsFault = _ServiceError . hasCode "ClusterSubnetGroupAlreadyExists" . hasStatus 400;
+
+-- | The cluster security group name does not refer to an existing cluster
+-- security group.
+_ClusterSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSecurityGroupNotFoundFault = _ServiceError . hasCode "ClusterSecurityGroupNotFound" . hasStatus 404;
+
+-- | The specified options are incompatible.
+_IncompatibleOrderableOptions :: AWSError a => Geting (First ServiceError) a ServiceError
+_IncompatibleOrderableOptions = _ServiceError . hasCode "IncompatibleOrderableOptions" . hasStatus 400;
+
+-- | Specified offering does not exist.
+_ReservedNodeOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedNodeOfferingNotFoundFault = _ServiceError . hasCode "ReservedNodeOfferingNotFound" . hasStatus 404;
+
+-- | The state of the subnet is invalid.
+_InvalidClusterSubnetStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidClusterSubnetStateFault = _ServiceError . hasCode "InvalidClusterSubnetStateFault" . hasStatus 400;
+
+-- | The specified reserved compute node not found.
+_ReservedNodeNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedNodeNotFoundFault = _ServiceError . hasCode "ReservedNodeNotFound" . hasStatus 404;
+
+-- | The request would exceed the allowed number of event subscriptions for
+-- this account. For information about increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_EventSubscriptionQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_EventSubscriptionQuotaExceededFault = _ServiceError . hasCode "EventSubscriptionQuotaExceeded" . hasStatus 400;
+
+-- | The cluster parameter group action can not be completed because another
+-- task is in progress that involves the parameter group. Wait a few
+-- moments and try the operation again.
+_InvalidClusterParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidClusterParameterGroupStateFault = _ServiceError . hasCode "InvalidClusterParameterGroupState" . hasStatus 400;
+
+-- | User already has a reservation with the given identifier.
+_ReservedNodeAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedNodeAlreadyExistsFault = _ServiceError . hasCode "ReservedNodeAlreadyExists" . hasStatus 404;
+
+-- | Request would exceed the user\'s compute node quota. For information
+-- about increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ReservedNodeQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedNodeQuotaExceededFault = _ServiceError . hasCode "ReservedNodeQuotaExceeded" . hasStatus 400;
+
+-- | An Amazon Redshift event with the specified event ID does not exist.
+_SubscriptionEventIdNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionEventIdNotFoundFault = _ServiceError . hasCode "SubscriptionEventIdNotFound" . hasStatus 404;
+
+-- | The resource could not be found.
+_ResourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundFault = _ServiceError . hasCode "ResourceNotFoundFault" . hasStatus 404;
+
+-- | The restore is invalid.
+_InvalidRestoreFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRestoreFault = _ServiceError . hasCode "InvalidRestore" . hasStatus 406;
+
+-- | The specified region is incorrect or does not exist.
+_UnknownSnapshotCopyRegionFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnknownSnapshotCopyRegionFault = _ServiceError . hasCode "UnknownSnapshotCopyRegionFault" . hasStatus 404;
+
+-- | The owner of the specified snapshot has not authorized your account to
+-- access the snapshot.
+_AccessToSnapshotDeniedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AccessToSnapshotDeniedFault = _ServiceError . hasCode "AccessToSnapshotDenied" . hasStatus 400;
+
+-- | The account already has a cluster with the given identifier.
+_ClusterAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterAlreadyExistsFault = _ServiceError . hasCode "ClusterAlreadyExists" . hasStatus 400;
+
+-- | There is already an existing Amazon Redshift HSM client certificate with
+-- the specified identifier.
+_HSMClientCertificateAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_HSMClientCertificateAlreadyExistsFault = _ServiceError . hasCode "HsmClientCertificateAlreadyExistsFault" . hasStatus 400;
+
+-- | The specified HSM client certificate is not in the @available@ state, or
+-- it is still in use by one or more Amazon Redshift clusters.
+_InvalidHSMClientCertificateStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidHSMClientCertificateStateFault = _ServiceError . hasCode "InvalidHsmClientCertificateStateFault" . hasStatus 400;
+
+-- | The operation would exceed the number of nodes allotted to the account.
+-- For information about increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_NumberOfNodesQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberOfNodesQuotaExceededFault = _ServiceError . hasCode "NumberOfNodesQuotaExceeded" . hasStatus 400;
+
+-- | The request exceeds the limit of 10 tags for the resource.
+_TagLimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_TagLimitExceededFault = _ServiceError . hasCode "TagLimitExceededFault" . hasStatus 400;
+
+-- | The request would result in user exceeding the allowed number of subnets
+-- in a cluster subnet groups. For information about increasing your quota,
+-- go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSubnetQuotaExceededFault = _ServiceError . hasCode "ClusterSubnetQuotaExceededFault" . hasStatus 400;
+
+-- | A specified subnet is already in use by another cluster.
+_SubnetAlreadyInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubnetAlreadyInUse = _ServiceError . hasCode "SubnetAlreadyInUse" . hasStatus 400;
+
+-- | The tag is invalid.
+_InvalidTagFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidTagFault = _ServiceError . hasCode "InvalidTagFault" . hasStatus 400;
+
+-- | The cluster does not have read bucket or put object permissions on the
+-- S3 bucket specified when enabling logging.
+_InsufficientS3BucketPolicyFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientS3BucketPolicyFault = _ServiceError . hasCode "InsufficientS3BucketPolicyFault" . hasStatus 400;
+
+-- | The request would result in user exceeding the allowed number of cluster
+-- subnet groups. For information about increasing your quota, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
+-- in the /Amazon Redshift Cluster Management Guide/.
+_ClusterSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterSubnetGroupQuotaExceededFault = _ServiceError . hasCode "ClusterSubnetGroupQuotaExceeded" . hasStatus 400;
+
+-- | The value specified for the event severity was not one of the allowed
+-- values, or it specified a severity that does not apply to the specified
+-- source type. The allowed values are ERROR and INFO.
+_SubscriptionSeverityNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionSeverityNotFoundFault = _ServiceError . hasCode "SubscriptionSeverityNotFound" . hasStatus 404;
+
+-- | Your account is not authorized to perform the requested operation.
+_UnauthorizedOperation :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnauthorizedOperation = _ServiceError . hasCode "UnauthorizedOperation" . hasStatus 400;
+
+data SourceType = ClusterParameterGroup | Cluster | ClusterSecurityGroup | ClusterSnapshot deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "cluster" -> pure Cluster
+        "cluster-parameter-group" -> pure ClusterParameterGroup
+        "cluster-security-group" -> pure ClusterSecurityGroup
+        "cluster-snapshot" -> pure ClusterSnapshot
+        e -> fail ("Failure parsing SourceType from " ++ show e)
+
+instance ToText SourceType where
+    toText = \case
+        Cluster -> "cluster"
+        ClusterParameterGroup -> "cluster-parameter-group"
+        ClusterSecurityGroup -> "cluster-security-group"
+        ClusterSnapshot -> "cluster-snapshot"
+
+instance Hashable SourceType
+instance ToQuery SourceType
+instance ToHeader SourceType
+
+instance FromXML SourceType where
+    parseXML = parseXMLText "SourceType"
+
+-- | Describes an AWS customer account authorized to restore a snapshot.
+--
+-- /See:/ 'accountWithRestoreAccess' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -430,7 +892,9 @@ instance FromXML AccountWithRestoreAccess where
         parseXML x
           = AccountWithRestoreAccess' <$> (x .@? "AccountId")
 
--- | /See:/ 'availabilityZone' smart constructor.
+-- | Describes an availability zone.
+--
+-- /See:/ 'availabilityZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -448,7 +912,9 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
--- | /See:/ 'cluster' smart constructor.
+-- | Describes a cluster.
+--
+-- /See:/ 'cluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -714,7 +1180,9 @@ instance FromXML Cluster where
                 (x .@? "ClusterNodes" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'clusterNode' smart constructor.
+-- | The identifier of a node in a cluster.
+--
+-- /See:/ 'clusterNode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -747,7 +1215,9 @@ instance FromXML ClusterNode where
               (x .@? "NodeRole") <*> (x .@? "PrivateIPAddress") <*>
                 (x .@? "PublicIPAddress")
 
--- | /See:/ 'clusterParameterGroup' smart constructor.
+-- | Describes a parameter group.
+--
+-- /See:/ 'clusterParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -791,7 +1261,11 @@ instance FromXML ClusterParameterGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'clusterParameterGroupNameMessage' smart constructor.
+-- | Contains the output from the ModifyClusterParameterGroup and
+-- ResetClusterParameterGroup actions and indicate the parameter group
+-- involved and the status of the operation on the parameter group.
+--
+-- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -821,7 +1295,9 @@ instance FromXML ClusterParameterGroupNameMessage
               (x .@? "ParameterGroupStatus") <*>
                 (x .@? "ParameterGroupName")
 
--- | /See:/ 'clusterParameterGroupStatus' smart constructor.
+-- | Describes the status of a parameter group.
+--
+-- /See:/ 'clusterParameterGroupStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -848,7 +1324,9 @@ instance FromXML ClusterParameterGroupStatus where
               (x .@? "ParameterApplyStatus") <*>
                 (x .@? "ParameterGroupName")
 
--- | /See:/ 'clusterSecurityGroup' smart constructor.
+-- | Describes a security group.
+--
+-- /See:/ 'clusterSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -904,7 +1382,9 @@ instance FromXML ClusterSecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'clusterSecurityGroupMembership' smart constructor.
+-- | Describes a security group.
+--
+-- /See:/ 'clusterSecurityGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -931,7 +1411,10 @@ instance FromXML ClusterSecurityGroupMembership where
               (x .@? "Status") <*>
                 (x .@? "ClusterSecurityGroupName")
 
--- | /See:/ 'clusterSnapshotCopyStatus' smart constructor.
+-- | Returns the destination region and retention period that are configured
+-- for cross-region snapshot copy.
+--
+-- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -960,7 +1443,9 @@ instance FromXML ClusterSnapshotCopyStatus where
               (x .@? "RetentionPeriod") <*>
                 (x .@? "DestinationRegion")
 
--- | /See:/ 'clusterSubnetGroup' smart constructor.
+-- | Describes a subnet group.
+--
+-- /See:/ 'clusterSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1019,7 +1504,10 @@ instance FromXML ClusterSubnetGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'clusterVersion' smart constructor.
+-- | Describes a cluster version, including the parameter group family and
+-- description of the version.
+--
+-- /See:/ 'clusterVersion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1053,7 +1541,9 @@ instance FromXML ClusterVersion where
                 (x .@? "ClusterVersion")
                 <*> (x .@? "Description")
 
--- | /See:/ 'defaultClusterParameters' smart constructor.
+-- | Describes the default cluster parameters for a parameter group family.
+--
+-- /See:/ 'defaultClusterParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1094,7 +1584,9 @@ instance FromXML DefaultClusterParameters where
                 <*> (x .@? "Marker")
                 <*> (x .@? "ParameterGroupFamily")
 
--- | /See:/ 'ec2SecurityGroup' smart constructor.
+-- | Describes an Amazon EC2 security group.
+--
+-- /See:/ 'ec2SecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1138,7 +1630,9 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'elasticIPStatus' smart constructor.
+-- | Describes the status of the elastic IP (EIP) address.
+--
+-- /See:/ 'elasticIPStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1164,7 +1658,9 @@ instance FromXML ElasticIPStatus where
           = ElasticIPStatus' <$>
               (x .@? "Status") <*> (x .@? "ElasticIp")
 
--- | /See:/ 'endpoint' smart constructor.
+-- | Describes a connection endpoint.
+--
+-- /See:/ 'endpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1189,7 +1685,9 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
--- | /See:/ 'event' smart constructor.
+-- | Describes an event.
+--
+-- /See:/ 'event' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1442,7 +1940,11 @@ instance FromXML EventSubscription where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'hsmClientCertificate' smart constructor.
+-- | Returns information about an HSM client certificate. The certificate is
+-- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
+-- Redshift cluster to encrypt data files.
+--
+-- /See:/ 'hsmClientCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1479,7 +1981,11 @@ instance FromXML HSMClientCertificate where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'hsmConfiguration' smart constructor.
+-- | Returns information about an HSM configuration, which is an object that
+-- describes to Amazon Redshift clusters the information they require to
+-- connect to an HSM where they can store database encryption keys.
+--
+-- /See:/ 'hsmConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1531,7 +2037,9 @@ instance FromXML HSMConfiguration where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'hsmStatus' smart constructor.
+-- |
+--
+-- /See:/ 'hsmStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1571,7 +2079,9 @@ instance FromXML HSMStatus where
                 (x .@? "HsmConfigurationIdentifier")
                 <*> (x .@? "HsmClientCertificateIdentifier")
 
--- | /See:/ 'ipRange' smart constructor.
+-- | Describes an IP range used in a security group.
+--
+-- /See:/ 'ipRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1605,7 +2115,9 @@ instance FromXML IPRange where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | /See:/ 'loggingStatus' smart constructor.
+-- | Describes the status of logging for a cluster.
+--
+-- /See:/ 'loggingStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1660,7 +2172,9 @@ instance FromXML LoggingStatus where
                 <*> (x .@? "LoggingEnabled")
                 <*> (x .@? "LastFailureMessage")
 
--- | /See:/ 'orderableClusterOption' smart constructor.
+-- | Describes an orderable cluster option.
+--
+-- /See:/ 'orderableClusterOption' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1702,7 +2216,9 @@ instance FromXML OrderableClusterOption where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
--- | /See:/ 'parameter' smart constructor.
+-- | Describes a parameter in a cluster parameter group.
+--
+-- /See:/ 'parameter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1785,7 +2301,11 @@ instance ToQuery Parameter where
                "ParameterName" =: _parParameterName,
                "Description" =: _parDescription]
 
--- | /See:/ 'pendingModifiedValues' smart constructor.
+-- | Describes cluster attributes that are in a pending state. A change to
+-- one or more the attributes was requested and is in progress or will be
+-- applied.
+--
+-- /See:/ 'pendingModifiedValues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1849,7 +2369,9 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
--- | /See:/ 'recurringCharge' smart constructor.
+-- | Describes a recurring charge.
+--
+-- /See:/ 'recurringCharge' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1877,7 +2399,9 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
--- | /See:/ 'reservedNode' smart constructor.
+-- | Describes a reserved node.
+--
+-- /See:/ 'reservedNode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1985,7 +2509,9 @@ instance FromXML ReservedNode where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
--- | /See:/ 'reservedNodeOffering' smart constructor.
+-- | Describes a reserved node offering.
+--
+-- /See:/ 'reservedNodeOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2061,7 +2587,10 @@ instance FromXML ReservedNodeOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
--- | /See:/ 'restoreStatus' smart constructor.
+-- | Describes the status of a cluster restore action. Returns null if the
+-- cluster was not created by restoring a snapshot.
+--
+-- /See:/ 'restoreStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2121,7 +2650,9 @@ instance FromXML RestoreStatus where
                 <*> (x .@? "ElapsedTimeInSeconds")
                 <*> (x .@? "SnapshotSizeInMegaBytes")
 
--- | /See:/ 'snapshot' smart constructor.
+-- | Describes a snapshot.
+--
+-- /See:/ 'snapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2351,31 +2882,9 @@ instance FromXML Snapshot where
                 <*> (x .@? "ActualIncrementalBackupSizeInMegaBytes")
                 <*> (x .@? "Port")
 
-data SourceType = ClusterParameterGroup | Cluster | ClusterSecurityGroup | ClusterSnapshot deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SourceType where
-    parser = takeLowerText >>= \case
-        "cluster" -> pure Cluster
-        "cluster-parameter-group" -> pure ClusterParameterGroup
-        "cluster-security-group" -> pure ClusterSecurityGroup
-        "cluster-snapshot" -> pure ClusterSnapshot
-        e -> fail ("Failure parsing SourceType from " ++ show e)
-
-instance ToText SourceType where
-    toText = \case
-        Cluster -> "cluster"
-        ClusterParameterGroup -> "cluster-parameter-group"
-        ClusterSecurityGroup -> "cluster-security-group"
-        ClusterSnapshot -> "cluster-snapshot"
-
-instance Hashable SourceType
-instance ToQuery SourceType
-instance ToHeader SourceType
-
-instance FromXML SourceType where
-    parseXML = parseXMLText "SourceType"
-
--- | /See:/ 'subnet' smart constructor.
+-- | Describes a subnet.
+--
+-- /See:/ 'subnet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2408,7 +2917,9 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
--- | /See:/ 'tag' smart constructor.
+-- | A tag consisting of a name\/value pair for a resource.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2437,7 +2948,9 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | /See:/ 'taggedResource' smart constructor.
+-- | A tag and its associated resource.
+--
+-- /See:/ 'taggedResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2487,7 +3000,9 @@ instance FromXML TaggedResource where
               (x .@? "ResourceType") <*> (x .@? "Tag") <*>
                 (x .@? "ResourceName")
 
--- | /See:/ 'vpcSecurityGroupMembership' smart constructor.
+-- | Describes the members of a VPC security group.
+--
+-- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

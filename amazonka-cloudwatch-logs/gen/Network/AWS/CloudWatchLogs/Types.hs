@@ -21,8 +21,19 @@ module Network.AWS.CloudWatchLogs.Types
     (
     -- * Service
       CloudWatchLogs
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidParameterException
+    , _InvalidSequenceTokenException
+    , _ResourceAlreadyExistsException
+    , _OperationAbortedException
+    , _DataAlreadyAcceptedException
+    , _ServiceUnavailableException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+
+    -- * OrderBy
+    , OrderBy (..)
 
     -- * FilteredLogEvent
     , FilteredLogEvent
@@ -83,9 +94,6 @@ module Network.AWS.CloudWatchLogs.Types
     , mtMetricNamespace
     , mtMetricValue
 
-    -- * OrderBy
-    , OrderBy (..)
-
     -- * OutputLogEvent
     , OutputLogEvent
     , outputLogEvent
@@ -115,6 +123,7 @@ module Network.AWS.CloudWatchLogs.Types
     , sfLogGroupName
     , sfFilterPattern
     , sfRoleARN
+
     ) where
 
 import Network.AWS.Prelude
@@ -125,32 +134,89 @@ data CloudWatchLogs
 
 instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4
-    type Er CloudWatchLogs = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudWatchLogs
-        service' = Service
-            { _svcAbbrev  = "CloudWatchLogs"
-            , _svcPrefix  = "logs"
-            , _svcVersion = "2014-03-28"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudWatchLogs
+        svc = Service
+            { _svcAbbrev   = "CloudWatchLogs"
+            , _svcPrefix   = "logs"
+            , _svcVersion  = "2014-03-28"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudWatchLogs
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Returned if a parameter of the request is incorrectly specified.
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
 
--- | /See:/ 'filteredLogEvent' smart constructor.
+-- | Prism for InvalidSequenceTokenException' errors.
+_InvalidSequenceTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSequenceTokenException = _ServiceError . hasCode "InvalidSequenceTokenException";
+
+-- | Returned if the specified resource already exists.
+_ResourceAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceAlreadyExistsException = _ServiceError . hasCode "ResourceAlreadyExistsException";
+
+-- | Returned if multiple requests to update the same resource were in
+-- conflict.
+_OperationAbortedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_OperationAbortedException = _ServiceError . hasCode "OperationAbortedException";
+
+-- | Prism for DataAlreadyAcceptedException' errors.
+_DataAlreadyAcceptedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DataAlreadyAcceptedException = _ServiceError . hasCode "DataAlreadyAcceptedException";
+
+-- | Returned if the service cannot complete the request.
+_ServiceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceUnavailableException = _ServiceError . hasCode "ServiceUnavailableException";
+
+-- | Returned if the specified resource does not exist.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException";
+
+-- | Returned if you have reached the maximum number of resources that can be
+-- created.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException";
+
+data OrderBy = LogStreamName | LastEventTime deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OrderBy where
+    parser = takeLowerText >>= \case
+        "LastEventTime" -> pure LastEventTime
+        "LogStreamName" -> pure LogStreamName
+        e -> fail ("Failure parsing OrderBy from " ++ show e)
+
+instance ToText OrderBy where
+    toText = \case
+        LastEventTime -> "LastEventTime"
+        LogStreamName -> "LogStreamName"
+
+instance Hashable OrderBy
+instance ToQuery OrderBy
+instance ToHeader OrderBy
+
+instance ToJSON OrderBy where
+    toJSON = toJSONText
+
+-- | Represents a matched event from a @FilterLogEvents@ request.
+--
+-- /See:/ 'filteredLogEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -199,7 +265,12 @@ instance FromJSON FilteredLogEvent where
                      <*> (x .:? "timestamp")
                      <*> (x .:? "eventId"))
 
--- | /See:/ 'inputLogEvent' smart constructor.
+-- | A log event is a record of some activity that was recorded by the
+-- application or resource being monitored. The log event record that
+-- Amazon CloudWatch Logs understands contains two properties: the
+-- timestamp of when the event occurred, and the raw event message.
+--
+-- /See:/ 'inputLogEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -283,7 +354,9 @@ instance FromJSON LogGroup where
                      <*> (x .:? "retentionInDays")
                      <*> (x .:? "storedBytes"))
 
--- | /See:/ 'logStream' smart constructor.
+-- | A log stream is sequence of log events from a single emitter of logs.
+--
+-- /See:/ 'logStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -354,7 +427,11 @@ instance FromJSON LogStream where
                      <*> (x .:? "lastIngestionTime")
                      <*> (x .:? "lastEventTimestamp"))
 
--- | /See:/ 'metricFilter' smart constructor.
+-- | Metric filters can be used to express how Amazon CloudWatch Logs would
+-- extract metric observations from ingested log events and transform them
+-- to metric data in a CloudWatch metric.
+--
+-- /See:/ 'metricFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -474,26 +551,6 @@ instance ToJSON MetricTransformation where
                "metricNamespace" .= _mtMetricNamespace,
                "metricValue" .= _mtMetricValue]
 
-data OrderBy = LogStreamName | LastEventTime deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OrderBy where
-    parser = takeLowerText >>= \case
-        "LastEventTime" -> pure LastEventTime
-        "LogStreamName" -> pure LogStreamName
-        e -> fail ("Failure parsing OrderBy from " ++ show e)
-
-instance ToText OrderBy where
-    toText = \case
-        LastEventTime -> "LastEventTime"
-        LogStreamName -> "LogStreamName"
-
-instance Hashable OrderBy
-instance ToQuery OrderBy
-instance ToHeader OrderBy
-
-instance ToJSON OrderBy where
-    toJSON = toJSONText
-
 -- | /See:/ 'outputLogEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -565,7 +622,10 @@ instance FromJSON RejectedLogEventsInfo where
                      (x .:? "tooNewLogEventStartIndex")
                      <*> (x .:? "expiredLogEventEndIndex"))
 
--- | /See:/ 'searchedLogStream' smart constructor.
+-- | An object indicating the search status of a log stream in a
+-- @FilterLogEvents@ request.
+--
+-- /See:/ 'searchedLogStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

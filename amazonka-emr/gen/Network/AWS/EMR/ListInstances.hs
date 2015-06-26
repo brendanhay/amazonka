@@ -40,15 +40,18 @@ module Network.AWS.EMR.ListInstances
     -- ** Response lenses
     , lirInstances
     , lirMarker
+    , lirStatusCode
     ) where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listInstances' smart constructor.
+-- | This input determines which instances to list.
+--
+-- /See:/ 'listInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,8 @@ instance AWSRequest ListInstances where
           = receiveJSON
               (\ s h x ->
                  ListInstancesResponse' <$>
-                   (x .?> "Instances" .!@ mempty) <*> (x .?> "Marker"))
+                   (x .?> "Instances" .!@ mempty) <*> (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListInstances where
         toHeaders
@@ -120,18 +124,22 @@ instance ToPath ListInstances where
 instance ToQuery ListInstances where
         toQuery = const mempty
 
--- | /See:/ 'listInstancesResponse' smart constructor.
+-- | This output contains the list of instances.
+--
+-- /See:/ 'listInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lirInstances'
 --
 -- * 'lirMarker'
-data ListInstancesResponse = ListInstancesResponse'{_lirInstances :: Maybe [Instance], _lirMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lirStatusCode'
+data ListInstancesResponse = ListInstancesResponse'{_lirInstances :: Maybe [Instance], _lirMarker :: Maybe Text, _lirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListInstancesResponse' smart constructor.
-listInstancesResponse :: ListInstancesResponse
-listInstancesResponse = ListInstancesResponse'{_lirInstances = Nothing, _lirMarker = Nothing};
+listInstancesResponse :: Int -> ListInstancesResponse
+listInstancesResponse pStatusCode = ListInstancesResponse'{_lirInstances = Nothing, _lirMarker = Nothing, _lirStatusCode = pStatusCode};
 
 -- | The list of instances for the cluster and given filters.
 lirInstances :: Lens' ListInstancesResponse [Instance]
@@ -140,3 +148,7 @@ lirInstances = lens _lirInstances (\ s a -> s{_lirInstances = a}) . _Default;
 -- | The pagination token that indicates the next set of results to retrieve.
 lirMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirMarker = lens _lirMarker (\ s a -> s{_lirMarker = a});
+
+-- | FIXME: Undocumented member.
+lirStatusCode :: Lens' ListInstancesResponse Int
+lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});

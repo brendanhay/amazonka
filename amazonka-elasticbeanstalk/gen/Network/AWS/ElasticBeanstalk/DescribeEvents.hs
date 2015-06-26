@@ -47,15 +47,18 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- ** Response lenses
     , derNextToken
     , derEvents
+    , derStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEvents' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -158,7 +161,8 @@ instance AWSRequest DescribeEvents where
                  DescribeEventsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Events" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -183,18 +187,22 @@ instance ToQuery DescribeEvents where
                "ApplicationName" =: _deApplicationName,
                "EnvironmentId" =: _deEnvironmentId]
 
--- | /See:/ 'describeEventsResponse' smart constructor.
+-- | Result message wrapping a list of event descriptions.
+--
+-- /See:/ 'describeEventsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derNextToken'
 --
 -- * 'derEvents'
-data DescribeEventsResponse = DescribeEventsResponse'{_derNextToken :: Maybe Text, _derEvents :: Maybe [EventDescription]} deriving (Eq, Read, Show)
+--
+-- * 'derStatusCode'
+data DescribeEventsResponse = DescribeEventsResponse'{_derNextToken :: Maybe Text, _derEvents :: Maybe [EventDescription], _derStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
-describeEventsResponse :: DescribeEventsResponse
-describeEventsResponse = DescribeEventsResponse'{_derNextToken = Nothing, _derEvents = Nothing};
+describeEventsResponse :: Int -> DescribeEventsResponse
+describeEventsResponse pStatusCode = DescribeEventsResponse'{_derNextToken = Nothing, _derEvents = Nothing, _derStatusCode = pStatusCode};
 
 -- | If returned, this indicates that there are more results to obtain. Use
 -- this token in the next DescribeEvents call to get the next batch of
@@ -205,3 +213,7 @@ derNextToken = lens _derNextToken (\ s a -> s{_derNextToken = a});
 -- | A list of EventDescription.
 derEvents :: Lens' DescribeEventsResponse [EventDescription]
 derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+derStatusCode :: Lens' DescribeEventsResponse Int
+derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});

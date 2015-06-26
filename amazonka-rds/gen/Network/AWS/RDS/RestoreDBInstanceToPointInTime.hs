@@ -56,6 +56,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , restoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
     , rditpitrDBInstance
+    , rditpitrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -63,7 +64,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
+-- |
+--
+-- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -305,7 +308,7 @@ instance AWSRequest RestoreDBInstanceToPointInTime
               "RestoreDBInstanceToPointInTimeResult"
               (\ s h x ->
                  RestoreDBInstanceToPointInTimeResponse' <$>
-                   (x .@? "DBInstance"))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
@@ -351,12 +354,18 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rditpitrDBInstance'
-newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'{_rditpitrDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'rditpitrStatusCode'
+data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'{_rditpitrDBInstance :: Maybe DBInstance, _rditpitrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
-restoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'{_rditpitrDBInstance = Nothing};
+restoreDBInstanceToPointInTimeResponse :: Int -> RestoreDBInstanceToPointInTimeResponse
+restoreDBInstanceToPointInTimeResponse pStatusCode = RestoreDBInstanceToPointInTimeResponse'{_rditpitrDBInstance = Nothing, _rditpitrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rditpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
 rditpitrDBInstance = lens _rditpitrDBInstance (\ s a -> s{_rditpitrDBInstance = a});
+
+-- | FIXME: Undocumented member.
+rditpitrStatusCode :: Lens' RestoreDBInstanceToPointInTimeResponse Int
+rditpitrStatusCode = lens _rditpitrStatusCode (\ s a -> s{_rditpitrStatusCode = a});

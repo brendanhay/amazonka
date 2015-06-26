@@ -50,6 +50,7 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     , createBatchPredictionResponse
     -- ** Response lenses
     , cbprBatchPredictionId
+    , cbprStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -115,7 +116,7 @@ instance AWSRequest CreateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  CreateBatchPredictionResponse' <$>
-                   (x .?> "BatchPredictionId"))
+                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateBatchPrediction where
         toHeaders
@@ -143,19 +144,32 @@ instance ToPath CreateBatchPrediction where
 instance ToQuery CreateBatchPrediction where
         toQuery = const mempty
 
--- | /See:/ 'createBatchPredictionResponse' smart constructor.
+-- | Represents the output of a CreateBatchPrediction operation, and is an
+-- acknowledgement that Amazon ML received the request.
+--
+-- The CreateBatchPrediction operation is asynchronous. You can poll for
+-- status updates by using the GetBatchPrediction operation and checking
+-- the @Status@ parameter of the result.
+--
+-- /See:/ 'createBatchPredictionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cbprBatchPredictionId'
-newtype CreateBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cbprStatusCode'
+data CreateBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId :: Maybe Text, _cbprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
-createBatchPredictionResponse :: CreateBatchPredictionResponse
-createBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId = Nothing};
+createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
+createBatchPredictionResponse pStatusCode = CreateBatchPredictionResponse'{_cbprBatchPredictionId = Nothing, _cbprStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value is identical to the value of the @BatchPredictionId@ in the
 -- request.
 cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
 cbprBatchPredictionId = lens _cbprBatchPredictionId (\ s a -> s{_cbprBatchPredictionId = a});
+
+-- | FIXME: Undocumented member.
+cbprStatusCode :: Lens' CreateBatchPredictionResponse Int
+cbprStatusCode = lens _cbprStatusCode (\ s a -> s{_cbprStatusCode = a});

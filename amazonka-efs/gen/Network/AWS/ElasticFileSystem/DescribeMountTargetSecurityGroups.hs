@@ -42,6 +42,7 @@ module Network.AWS.ElasticFileSystem.DescribeMountTargetSecurityGroups
     , describeMountTargetSecurityGroupsResponse
     -- ** Response lenses
     , dmtsgrSecurityGroups
+    , dmtsgrStatusCode
     ) where
 
 import Network.AWS.ElasticFileSystem.Types
@@ -75,7 +76,8 @@ instance AWSRequest DescribeMountTargetSecurityGroups
           = receiveJSON
               (\ s h x ->
                  DescribeMountTargetSecurityGroupsResponse' <$>
-                   (x .?> "SecurityGroups" .!@ mempty))
+                   (x .?> "SecurityGroups" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeMountTargetSecurityGroups
          where
@@ -97,12 +99,18 @@ instance ToQuery DescribeMountTargetSecurityGroups
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmtsgrSecurityGroups'
-newtype DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'dmtsgrStatusCode'
+data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups :: [Text], _dmtsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
-describeMountTargetSecurityGroupsResponse :: DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups = mempty};
+describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
+describeMountTargetSecurityGroupsResponse pStatusCode = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups = mempty, _dmtsgrStatusCode = pStatusCode};
 
 -- | An array of security groups.
 dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
 dmtsgrSecurityGroups = lens _dmtsgrSecurityGroups (\ s a -> s{_dmtsgrSecurityGroups = a});
+
+-- | FIXME: Undocumented member.
+dmtsgrStatusCode :: Lens' DescribeMountTargetSecurityGroupsResponse Int
+dmtsgrStatusCode = lens _dmtsgrStatusCode (\ s a -> s{_dmtsgrStatusCode = a});

@@ -31,7 +31,8 @@ module Network.AWS.DirectoryService.DeleteDirectory
     -- ** Response constructor
     , deleteDirectoryResponse
     -- ** Response lenses
-    , ddrDirectoryId
+    , dDirectoryId
+    , dStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDirectory' smart constructor.
+-- | Contains the inputs for the DeleteDirectory operation.
+--
+-- /See:/ 'deleteDirectory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -61,7 +64,8 @@ instance AWSRequest DeleteDirectory where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDirectoryResponse' <$> (x .?> "DirectoryId"))
+                 DeleteDirectoryResponse' <$>
+                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDirectory where
         toHeaders
@@ -83,17 +87,25 @@ instance ToPath DeleteDirectory where
 instance ToQuery DeleteDirectory where
         toQuery = const mempty
 
--- | /See:/ 'deleteDirectoryResponse' smart constructor.
+-- | Contains the results of the DeleteDirectory operation.
+--
+-- /See:/ 'deleteDirectoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDirectoryId'
-newtype DeleteDirectoryResponse = DeleteDirectoryResponse'{_ddrDirectoryId :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dDirectoryId'
+--
+-- * 'dStatusCode'
+data DeleteDirectoryResponse = DeleteDirectoryResponse'{_dDirectoryId :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDirectoryResponse' smart constructor.
-deleteDirectoryResponse :: DeleteDirectoryResponse
-deleteDirectoryResponse = DeleteDirectoryResponse'{_ddrDirectoryId = Nothing};
+deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
+deleteDirectoryResponse pStatusCode = DeleteDirectoryResponse'{_dDirectoryId = Nothing, _dStatusCode = pStatusCode};
 
 -- | The directory identifier.
-ddrDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
-ddrDirectoryId = lens _ddrDirectoryId (\ s a -> s{_ddrDirectoryId = a});
+dDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
+dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DeleteDirectoryResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

@@ -30,6 +30,7 @@ module Network.AWS.DirectoryService.GetDirectoryLimits
     , getDirectoryLimitsResponse
     -- ** Response lenses
     , gdlrDirectoryLimits
+    , gdlrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -37,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDirectoryLimits' smart constructor.
+-- | Contains the inputs for the GetDirectoryLimits operation.
+--
+-- /See:/ 'getDirectoryLimits' smart constructor.
 data GetDirectoryLimits = GetDirectoryLimits' deriving (Eq, Read, Show)
 
 -- | 'GetDirectoryLimits' smart constructor.
@@ -53,7 +56,7 @@ instance AWSRequest GetDirectoryLimits where
           = receiveJSON
               (\ s h x ->
                  GetDirectoryLimitsResponse' <$>
-                   (x .?> "DirectoryLimits"))
+                   (x .?> "DirectoryLimits") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetDirectoryLimits where
         toHeaders
@@ -74,18 +77,26 @@ instance ToPath GetDirectoryLimits where
 instance ToQuery GetDirectoryLimits where
         toQuery = const mempty
 
--- | /See:/ 'getDirectoryLimitsResponse' smart constructor.
+-- | Contains the results of the GetDirectoryLimits operation.
+--
+-- /See:/ 'getDirectoryLimitsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdlrDirectoryLimits'
-newtype GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'{_gdlrDirectoryLimits :: Maybe DirectoryLimits} deriving (Eq, Read, Show)
+--
+-- * 'gdlrStatusCode'
+data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'{_gdlrDirectoryLimits :: Maybe DirectoryLimits, _gdlrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDirectoryLimitsResponse' smart constructor.
-getDirectoryLimitsResponse :: GetDirectoryLimitsResponse
-getDirectoryLimitsResponse = GetDirectoryLimitsResponse'{_gdlrDirectoryLimits = Nothing};
+getDirectoryLimitsResponse :: Int -> GetDirectoryLimitsResponse
+getDirectoryLimitsResponse pStatusCode = GetDirectoryLimitsResponse'{_gdlrDirectoryLimits = Nothing, _gdlrStatusCode = pStatusCode};
 
 -- | A DirectoryLimits object that contains the directory limits for the
 -- current region.
 gdlrDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrDirectoryLimits = lens _gdlrDirectoryLimits (\ s a -> s{_gdlrDirectoryLimits = a});
+
+-- | FIXME: Undocumented member.
+gdlrStatusCode :: Lens' GetDirectoryLimitsResponse Int
+gdlrStatusCode = lens _gdlrStatusCode (\ s a -> s{_gdlrStatusCode = a});

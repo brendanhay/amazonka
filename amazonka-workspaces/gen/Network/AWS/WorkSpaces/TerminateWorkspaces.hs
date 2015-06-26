@@ -42,6 +42,7 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     , terminateWorkspacesResponse
     -- ** Response lenses
     , twrFailedRequests
+    , twrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -49,7 +50,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'terminateWorkspaces' smart constructor.
+-- | Contains the inputs for the TerminateWorkspaces operation.
+--
+-- /See:/ 'terminateWorkspaces' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +76,8 @@ instance AWSRequest TerminateWorkspaces where
           = receiveJSON
               (\ s h x ->
                  TerminateWorkspacesResponse' <$>
-                   (x .?> "FailedRequests" .!@ mempty))
+                   (x .?> "FailedRequests" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders TerminateWorkspaces where
         toHeaders
@@ -97,18 +101,26 @@ instance ToPath TerminateWorkspaces where
 instance ToQuery TerminateWorkspaces where
         toQuery = const mempty
 
--- | /See:/ 'terminateWorkspacesResponse' smart constructor.
+-- | Contains the results of the TerminateWorkspaces operation.
+--
+-- /See:/ 'terminateWorkspacesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'twrFailedRequests'
-newtype TerminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]} deriving (Eq, Read, Show)
+--
+-- * 'twrStatusCode'
+data TerminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests :: Maybe [FailedWorkspaceChangeRequest], _twrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
-terminateWorkspacesResponse :: TerminateWorkspacesResponse
-terminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests = Nothing};
+terminateWorkspacesResponse :: Int -> TerminateWorkspacesResponse
+terminateWorkspacesResponse pStatusCode = TerminateWorkspacesResponse'{_twrFailedRequests = Nothing, _twrStatusCode = pStatusCode};
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- terminated.
 twrFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
 twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+twrStatusCode :: Lens' TerminateWorkspacesResponse Int
+twrStatusCode = lens _twrStatusCode (\ s a -> s{_twrStatusCode = a});

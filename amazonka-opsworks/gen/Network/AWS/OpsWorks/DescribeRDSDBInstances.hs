@@ -39,6 +39,7 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     , describeRDSDBInstancesResponse
     -- ** Response lenses
     , drdirRDSDBInstances
+    , drdirStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -77,7 +78,8 @@ instance AWSRequest DescribeRDSDBInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeRDSDBInstancesResponse' <$>
-                   (x .?> "RdsDbInstances" .!@ mempty))
+                   (x .?> "RdsDbInstances" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
@@ -101,17 +103,25 @@ instance ToPath DescribeRDSDBInstances where
 instance ToQuery DescribeRDSDBInstances where
         toQuery = const mempty
 
--- | /See:/ 'describeRDSDBInstancesResponse' smart constructor.
+-- | Contains the response to a @DescribeRdsDbInstances@ request.
+--
+-- /See:/ 'describeRDSDBInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drdirRDSDBInstances'
-newtype DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances :: Maybe [RDSDBInstance]} deriving (Eq, Read, Show)
+--
+-- * 'drdirStatusCode'
+data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances :: Maybe [RDSDBInstance], _drdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
-describeRDSDBInstancesResponse :: DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances = Nothing};
+describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
+describeRDSDBInstancesResponse pStatusCode = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances = Nothing, _drdirStatusCode = pStatusCode};
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
 drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drdirStatusCode :: Lens' DescribeRDSDBInstancesResponse Int
+drdirStatusCode = lens _drdirStatusCode (\ s a -> s{_drdirStatusCode = a});

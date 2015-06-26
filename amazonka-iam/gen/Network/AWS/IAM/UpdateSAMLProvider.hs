@@ -36,6 +36,7 @@ module Network.AWS.IAM.UpdateSAMLProvider
     , updateSAMLProviderResponse
     -- ** Response lenses
     , usamlprSAMLProviderARN
+    , usamlprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -78,7 +79,7 @@ instance AWSRequest UpdateSAMLProvider where
           = receiveXMLWrapper "UpdateSAMLProviderResult"
               (\ s h x ->
                  UpdateSAMLProviderResponse' <$>
-                   (x .@? "SAMLProviderArn"))
+                   (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
@@ -95,17 +96,25 @@ instance ToQuery UpdateSAMLProvider where
                  _usamlpSAMLMetadataDocument,
                "SAMLProviderArn" =: _usamlpSAMLProviderARN]
 
--- | /See:/ 'updateSAMLProviderResponse' smart constructor.
+-- | Contains the response to a successful UpdateSAMLProvider request.
+--
+-- /See:/ 'updateSAMLProviderResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usamlprSAMLProviderARN'
-newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'usamlprStatusCode'
+data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN :: Maybe Text, _usamlprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateSAMLProviderResponse' smart constructor.
-updateSAMLProviderResponse :: UpdateSAMLProviderResponse
-updateSAMLProviderResponse = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN = Nothing};
+updateSAMLProviderResponse :: Int -> UpdateSAMLProviderResponse
+updateSAMLProviderResponse pStatusCode = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN = Nothing, _usamlprStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
 usamlprSAMLProviderARN :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderARN = lens _usamlprSAMLProviderARN (\ s a -> s{_usamlprSAMLProviderARN = a});
+
+-- | FIXME: Undocumented member.
+usamlprStatusCode :: Lens' UpdateSAMLProviderResponse Int
+usamlprStatusCode = lens _usamlprStatusCode (\ s a -> s{_usamlprStatusCode = a});

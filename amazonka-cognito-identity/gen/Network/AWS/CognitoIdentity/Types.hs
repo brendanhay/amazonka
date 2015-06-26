@@ -21,8 +21,18 @@ module Network.AWS.CognitoIdentity.Types
     (
     -- * Service
       CognitoIdentity
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidIdentityPoolConfigurationException
+    , _InvalidParameterException
+    , _NotAuthorizedException
+    , _InternalErrorException
+    , _ExternalServiceException
+    , _TooManyRequestsException
+    , _ResourceConflictException
+    , _DeveloperUserAlreadyRegisteredException
+    , _ResourceNotFoundException
+    , _LimitExceededException
 
     -- * CognitoErrorCode
     , CognitoErrorCode (..)
@@ -64,6 +74,7 @@ module Network.AWS.CognitoIdentity.Types
     , unprocessedIdentityId
     , uiiErrorCode
     , uiiIdentityId
+
     ) where
 
 import Network.AWS.Prelude
@@ -74,30 +85,77 @@ data CognitoIdentity
 
 instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
-    type Er CognitoIdentity = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CognitoIdentity
-        service' = Service
-            { _svcAbbrev  = "CognitoIdentity"
-            , _svcPrefix  = "cognito-identity"
-            , _svcVersion = "2014-06-30"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CognitoIdentity
+        svc = Service
+            { _svcAbbrev   = "CognitoIdentity"
+            , _svcPrefix   = "cognito-identity"
+            , _svcVersion  = "2014-06-30"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CognitoIdentity
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Thrown if the identity pool has no role associated for the given auth
+-- type (auth\/unauth) or if the AssumeRole fails.
+_InvalidIdentityPoolConfigurationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidIdentityPoolConfigurationException = _ServiceError . hasCode "InvalidIdentityPoolConfigurationException" . hasStatus 400;
+
+-- | Thrown for missing or bad input parameter(s).
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException" . hasStatus 400;
+
+-- | Thrown when a user is not authorized to access the requested resource.
+_NotAuthorizedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NotAuthorizedException = _ServiceError . hasCode "NotAuthorizedException" . hasStatus 403;
+
+-- | Thrown when the service encounters an error during processing the
+-- request.
+_InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalErrorException = _ServiceError . hasCode "InternalErrorException";
+
+-- | An exception thrown when a dependent service such as Facebook or Twitter
+-- is not responding
+_ExternalServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ExternalServiceException = _ServiceError . hasCode "ExternalServiceException" . hasStatus 400;
+
+-- | Thrown when a request is throttled.
+_TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyRequestsException = _ServiceError . hasCode "TooManyRequestsException" . hasStatus 429;
+
+-- | Thrown when a user tries to use a login which is already linked to
+-- another account.
+_ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceConflictException = _ServiceError . hasCode "ResourceConflictException" . hasStatus 409;
+
+-- | The provided developer user identifier is already registered with
+-- Cognito under a different identity ID.
+_DeveloperUserAlreadyRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeveloperUserAlreadyRegisteredException = _ServiceError . hasCode "DeveloperUserAlreadyRegisteredException" . hasStatus 400;
+
+-- | Thrown when the requested resource (for example, a dataset or record)
+-- does not exist.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+
+-- | Thrown when the total number of user pools has exceeded a preset limit.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 400;
 
 data CognitoErrorCode = InternalServerError | AccessDenied deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -119,7 +177,9 @@ instance ToHeader CognitoErrorCode
 instance FromJSON CognitoErrorCode where
     parseJSON = parseJSONText "CognitoErrorCode"
 
--- | /See:/ 'credentials' smart constructor.
+-- | Credentials for the the provided identity ID.
+--
+-- /See:/ 'credentials' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -161,7 +221,9 @@ instance FromJSON Credentials where
                      (x .:? "SecretKey")
                      <*> (x .:? "AccessKeyId"))
 
--- | /See:/ 'identityDescription' smart constructor.
+-- | A description of the identity.
+--
+-- /See:/ 'identityDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -204,7 +266,9 @@ instance FromJSON IdentityDescription where
                      <*> (x .:? "Logins" .!= mempty)
                      <*> (x .:? "IdentityId"))
 
--- | /See:/ 'identityPool' smart constructor.
+-- | An object representing a Cognito identity pool.
+--
+-- /See:/ 'identityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -274,7 +338,9 @@ instance ToJSON IdentityPool where
                "AllowUnauthenticatedIdentities" .=
                  _ipAllowUnauthenticatedIdentities]
 
--- | /See:/ 'identityPoolShortDescription' smart constructor.
+-- | A description of the identity pool.
+--
+-- /See:/ 'identityPoolShortDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -303,7 +369,10 @@ instance FromJSON IdentityPoolShortDescription where
                    (x .:? "IdentityPoolId") <*>
                      (x .:? "IdentityPoolName"))
 
--- | /See:/ 'unprocessedIdentityId' smart constructor.
+-- | An array of UnprocessedIdentityId objects, each of which contains an
+-- ErrorCode and IdentityId.
+--
+-- /See:/ 'unprocessedIdentityId' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

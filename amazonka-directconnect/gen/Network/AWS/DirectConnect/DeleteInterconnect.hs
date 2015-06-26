@@ -31,7 +31,8 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     -- ** Response constructor
     , deleteInterconnectResponse
     -- ** Response lenses
-    , dirInterconnectState
+    , delInterconnectState
+    , delStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteInterconnect' smart constructor.
+-- | Container for the parameters to the DeleteInterconnect operation.
+--
+-- /See:/ 'deleteInterconnect' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,7 @@ instance AWSRequest DeleteInterconnect where
           = receiveJSON
               (\ s h x ->
                  DeleteInterconnectResponse' <$>
-                   (x .?> "interconnectState"))
+                   (x .?> "interconnectState") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteInterconnect where
         toHeaders
@@ -84,17 +87,25 @@ instance ToPath DeleteInterconnect where
 instance ToQuery DeleteInterconnect where
         toQuery = const mempty
 
--- | /See:/ 'deleteInterconnectResponse' smart constructor.
+-- | The response received when DeleteInterconnect is called.
+--
+-- /See:/ 'deleteInterconnectResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirInterconnectState'
-newtype DeleteInterconnectResponse = DeleteInterconnectResponse'{_dirInterconnectState :: Maybe InterconnectState} deriving (Eq, Read, Show)
+-- * 'delInterconnectState'
+--
+-- * 'delStatusCode'
+data DeleteInterconnectResponse = DeleteInterconnectResponse'{_delInterconnectState :: Maybe InterconnectState, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteInterconnectResponse' smart constructor.
-deleteInterconnectResponse :: DeleteInterconnectResponse
-deleteInterconnectResponse = DeleteInterconnectResponse'{_dirInterconnectState = Nothing};
+deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
+deleteInterconnectResponse pStatusCode = DeleteInterconnectResponse'{_delInterconnectState = Nothing, _delStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-dirInterconnectState = lens _dirInterconnectState (\ s a -> s{_dirInterconnectState = a});
+delInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
+delInterconnectState = lens _delInterconnectState (\ s a -> s{_delInterconnectState = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteInterconnectResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

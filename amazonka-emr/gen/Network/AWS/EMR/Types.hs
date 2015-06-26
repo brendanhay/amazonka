@@ -21,11 +21,47 @@ module Network.AWS.EMR.Types
     (
     -- * Service
       EMR
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidRequestException
+    , _InternalServerError
+    , _InternalServerException
 
     -- * ActionOnFailure
     , ActionOnFailure (..)
+
+    -- * ClusterState
+    , ClusterState (..)
+
+    -- * ClusterStateChangeReasonCode
+    , ClusterStateChangeReasonCode (..)
+
+    -- * InstanceGroupState
+    , InstanceGroupState (..)
+
+    -- * InstanceGroupStateChangeReasonCode
+    , InstanceGroupStateChangeReasonCode (..)
+
+    -- * InstanceGroupType
+    , InstanceGroupType (..)
+
+    -- * InstanceRoleType
+    , InstanceRoleType (..)
+
+    -- * InstanceState
+    , InstanceState (..)
+
+    -- * InstanceStateChangeReasonCode
+    , InstanceStateChangeReasonCode (..)
+
+    -- * MarketType
+    , MarketType (..)
+
+    -- * StepState
+    , StepState (..)
+
+    -- * StepStateChangeReasonCode
+    , StepStateChangeReasonCode (..)
 
     -- * Application
     , Application
@@ -60,17 +96,11 @@ module Network.AWS.EMR.Types
     , cluName
     , cluStatus
 
-    -- * ClusterState
-    , ClusterState (..)
-
     -- * ClusterStateChangeReason
     , ClusterStateChangeReason
     , clusterStateChangeReason
     , cscrCode
     , cscrMessage
-
-    -- * ClusterStateChangeReasonCode
-    , ClusterStateChangeReasonCode (..)
 
     -- * ClusterStatus
     , ClusterStatus
@@ -170,17 +200,11 @@ module Network.AWS.EMR.Types
     , igmcEC2InstanceIdsToTerminate
     , igmcInstanceGroupId
 
-    -- * InstanceGroupState
-    , InstanceGroupState (..)
-
     -- * InstanceGroupStateChangeReason
     , InstanceGroupStateChangeReason
     , instanceGroupStateChangeReason
     , igscrCode
     , igscrMessage
-
-    -- * InstanceGroupStateChangeReasonCode
-    , InstanceGroupStateChangeReasonCode (..)
 
     -- * InstanceGroupStatus
     , InstanceGroupStatus
@@ -196,23 +220,11 @@ module Network.AWS.EMR.Types
     , igtCreationDateTime
     , igtEndDateTime
 
-    -- * InstanceGroupType
-    , InstanceGroupType (..)
-
-    -- * InstanceRoleType
-    , InstanceRoleType (..)
-
-    -- * InstanceState
-    , InstanceState (..)
-
     -- * InstanceStateChangeReason
     , InstanceStateChangeReason
     , instanceStateChangeReason
     , iscrCode
     , iscrMessage
-
-    -- * InstanceStateChangeReasonCode
-    , InstanceStateChangeReasonCode (..)
 
     -- * InstanceStatus
     , InstanceStatus
@@ -252,9 +264,6 @@ module Network.AWS.EMR.Types
     , kvValue
     , kvKey
 
-    -- * MarketType
-    , MarketType (..)
-
     -- * PlacementType
     , PlacementType
     , placementType
@@ -282,17 +291,11 @@ module Network.AWS.EMR.Types
     , scName
     , scHadoopJARStep
 
-    -- * StepState
-    , StepState (..)
-
     -- * StepStateChangeReason
     , StepStateChangeReason
     , stepStateChangeReason
     , sscrCode
     , sscrMessage
-
-    -- * StepStateChangeReasonCode
-    , StepStateChangeReasonCode (..)
 
     -- * StepStatus
     , StepStatus
@@ -328,6 +331,7 @@ module Network.AWS.EMR.Types
     , tag
     , tagValue
     , tagKey
+
     ) where
 
 import Network.AWS.Prelude
@@ -338,30 +342,45 @@ data EMR
 
 instance AWSService EMR where
     type Sg EMR = V4
-    type Er EMR = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service EMR
-        service' = Service
-            { _svcAbbrev  = "EMR"
-            , _svcPrefix  = "elasticmapreduce"
-            , _svcVersion = "2009-03-31"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service EMR
+        svc = Service
+            { _svcAbbrev   = "EMR"
+            , _svcPrefix   = "elasticmapreduce"
+            , _svcVersion  = "2009-03-31"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry EMR
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | This exception occurs when there is something wrong with user input.
+_InvalidRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException";
+
+-- | Indicates that an error occurred while processing the request and that
+-- the request was not completed.
+_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalFailure" . hasStatus 500;
+
+-- | This exception occurs when there is an internal failure in the EMR
+-- service.
+_InternalServerException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerException = _ServiceError . hasCode "InternalServerException";
 
 data ActionOnFailure = TerminateCluster | TerminateJobFlow | CancelAndWait | Continue deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -390,7 +409,316 @@ instance ToJSON ActionOnFailure where
 instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
 
--- | /See:/ 'application' smart constructor.
+data ClusterState = TerminatedWithErrors | Terminating | Starting | Running | Bootstrapping | Terminated | Waiting deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ClusterState where
+    parser = takeLowerText >>= \case
+        "BOOTSTRAPPING" -> pure Bootstrapping
+        "RUNNING" -> pure Running
+        "STARTING" -> pure Starting
+        "TERMINATED" -> pure Terminated
+        "TERMINATED_WITH_ERRORS" -> pure TerminatedWithErrors
+        "TERMINATING" -> pure Terminating
+        "WAITING" -> pure Waiting
+        e -> fail ("Failure parsing ClusterState from " ++ show e)
+
+instance ToText ClusterState where
+    toText = \case
+        Bootstrapping -> "BOOTSTRAPPING"
+        Running -> "RUNNING"
+        Starting -> "STARTING"
+        Terminated -> "TERMINATED"
+        TerminatedWithErrors -> "TERMINATED_WITH_ERRORS"
+        Terminating -> "TERMINATING"
+        Waiting -> "WAITING"
+
+instance Hashable ClusterState
+instance ToQuery ClusterState
+instance ToHeader ClusterState
+
+instance ToJSON ClusterState where
+    toJSON = toJSONText
+
+instance FromJSON ClusterState where
+    parseJSON = parseJSONText "ClusterState"
+
+data ClusterStateChangeReasonCode = BootstrapFailure | StepFailure | AllStepsCompleted | UserRequest | ValidationError | InternalError | InstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ClusterStateChangeReasonCode where
+    parser = takeLowerText >>= \case
+        "ALL_STEPS_COMPLETED" -> pure AllStepsCompleted
+        "BOOTSTRAP_FAILURE" -> pure BootstrapFailure
+        "INSTANCE_FAILURE" -> pure InstanceFailure
+        "INTERNAL_ERROR" -> pure InternalError
+        "STEP_FAILURE" -> pure StepFailure
+        "USER_REQUEST" -> pure UserRequest
+        "VALIDATION_ERROR" -> pure ValidationError
+        e -> fail ("Failure parsing ClusterStateChangeReasonCode from " ++ show e)
+
+instance ToText ClusterStateChangeReasonCode where
+    toText = \case
+        AllStepsCompleted -> "ALL_STEPS_COMPLETED"
+        BootstrapFailure -> "BOOTSTRAP_FAILURE"
+        InstanceFailure -> "INSTANCE_FAILURE"
+        InternalError -> "INTERNAL_ERROR"
+        StepFailure -> "STEP_FAILURE"
+        UserRequest -> "USER_REQUEST"
+        ValidationError -> "VALIDATION_ERROR"
+
+instance Hashable ClusterStateChangeReasonCode
+instance ToQuery ClusterStateChangeReasonCode
+instance ToHeader ClusterStateChangeReasonCode
+
+instance FromJSON ClusterStateChangeReasonCode where
+    parseJSON = parseJSONText "ClusterStateChangeReasonCode"
+
+data InstanceGroupState = IGSResizing | IGSTerminated | IGSEnded | IGSShuttingDown | IGSTerminating | IGSProvisioning | IGSBootstrapping | IGSArrested | IGSRunning | IGSSuspended deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceGroupState where
+    parser = takeLowerText >>= \case
+        "ARRESTED" -> pure IGSArrested
+        "BOOTSTRAPPING" -> pure IGSBootstrapping
+        "ENDED" -> pure IGSEnded
+        "PROVISIONING" -> pure IGSProvisioning
+        "RESIZING" -> pure IGSResizing
+        "RUNNING" -> pure IGSRunning
+        "SHUTTING_DOWN" -> pure IGSShuttingDown
+        "SUSPENDED" -> pure IGSSuspended
+        "TERMINATED" -> pure IGSTerminated
+        "TERMINATING" -> pure IGSTerminating
+        e -> fail ("Failure parsing InstanceGroupState from " ++ show e)
+
+instance ToText InstanceGroupState where
+    toText = \case
+        IGSArrested -> "ARRESTED"
+        IGSBootstrapping -> "BOOTSTRAPPING"
+        IGSEnded -> "ENDED"
+        IGSProvisioning -> "PROVISIONING"
+        IGSResizing -> "RESIZING"
+        IGSRunning -> "RUNNING"
+        IGSShuttingDown -> "SHUTTING_DOWN"
+        IGSSuspended -> "SUSPENDED"
+        IGSTerminated -> "TERMINATED"
+        IGSTerminating -> "TERMINATING"
+
+instance Hashable InstanceGroupState
+instance ToQuery InstanceGroupState
+instance ToHeader InstanceGroupState
+
+instance FromJSON InstanceGroupState where
+    parseJSON = parseJSONText "InstanceGroupState"
+
+data InstanceGroupStateChangeReasonCode = IGSCRCValidationError | IGSCRCInstanceFailure | IGSCRCInternalError | IGSCRCClusterTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceGroupStateChangeReasonCode where
+    parser = takeLowerText >>= \case
+        "CLUSTER_TERMINATED" -> pure IGSCRCClusterTerminated
+        "INSTANCE_FAILURE" -> pure IGSCRCInstanceFailure
+        "INTERNAL_ERROR" -> pure IGSCRCInternalError
+        "VALIDATION_ERROR" -> pure IGSCRCValidationError
+        e -> fail ("Failure parsing InstanceGroupStateChangeReasonCode from " ++ show e)
+
+instance ToText InstanceGroupStateChangeReasonCode where
+    toText = \case
+        IGSCRCClusterTerminated -> "CLUSTER_TERMINATED"
+        IGSCRCInstanceFailure -> "INSTANCE_FAILURE"
+        IGSCRCInternalError -> "INTERNAL_ERROR"
+        IGSCRCValidationError -> "VALIDATION_ERROR"
+
+instance Hashable InstanceGroupStateChangeReasonCode
+instance ToQuery InstanceGroupStateChangeReasonCode
+instance ToHeader InstanceGroupStateChangeReasonCode
+
+instance FromJSON InstanceGroupStateChangeReasonCode where
+    parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
+
+data InstanceGroupType = IGTTask | IGTCore | IGTMaster deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceGroupType where
+    parser = takeLowerText >>= \case
+        "CORE" -> pure IGTCore
+        "MASTER" -> pure IGTMaster
+        "TASK" -> pure IGTTask
+        e -> fail ("Failure parsing InstanceGroupType from " ++ show e)
+
+instance ToText InstanceGroupType where
+    toText = \case
+        IGTCore -> "CORE"
+        IGTMaster -> "MASTER"
+        IGTTask -> "TASK"
+
+instance Hashable InstanceGroupType
+instance ToQuery InstanceGroupType
+instance ToHeader InstanceGroupType
+
+instance ToJSON InstanceGroupType where
+    toJSON = toJSONText
+
+instance FromJSON InstanceGroupType where
+    parseJSON = parseJSONText "InstanceGroupType"
+
+data InstanceRoleType = Master | Task | Core deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceRoleType where
+    parser = takeLowerText >>= \case
+        "CORE" -> pure Core
+        "MASTER" -> pure Master
+        "TASK" -> pure Task
+        e -> fail ("Failure parsing InstanceRoleType from " ++ show e)
+
+instance ToText InstanceRoleType where
+    toText = \case
+        Core -> "CORE"
+        Master -> "MASTER"
+        Task -> "TASK"
+
+instance Hashable InstanceRoleType
+instance ToQuery InstanceRoleType
+instance ToHeader InstanceRoleType
+
+instance ToJSON InstanceRoleType where
+    toJSON = toJSONText
+
+data InstanceState = ISTerminated | ISAwaitingFulfillment | ISRunning | ISBootstrapping | ISProvisioning deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceState where
+    parser = takeLowerText >>= \case
+        "AWAITING_FULFILLMENT" -> pure ISAwaitingFulfillment
+        "BOOTSTRAPPING" -> pure ISBootstrapping
+        "PROVISIONING" -> pure ISProvisioning
+        "RUNNING" -> pure ISRunning
+        "TERMINATED" -> pure ISTerminated
+        e -> fail ("Failure parsing InstanceState from " ++ show e)
+
+instance ToText InstanceState where
+    toText = \case
+        ISAwaitingFulfillment -> "AWAITING_FULFILLMENT"
+        ISBootstrapping -> "BOOTSTRAPPING"
+        ISProvisioning -> "PROVISIONING"
+        ISRunning -> "RUNNING"
+        ISTerminated -> "TERMINATED"
+
+instance Hashable InstanceState
+instance ToQuery InstanceState
+instance ToHeader InstanceState
+
+instance FromJSON InstanceState where
+    parseJSON = parseJSONText "InstanceState"
+
+data InstanceStateChangeReasonCode = ISCRCBootstrapFailure | ISCRCValidationError | ISCRCInternalError | ISCRCClusterTerminated | ISCRCInstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceStateChangeReasonCode where
+    parser = takeLowerText >>= \case
+        "BOOTSTRAP_FAILURE" -> pure ISCRCBootstrapFailure
+        "CLUSTER_TERMINATED" -> pure ISCRCClusterTerminated
+        "INSTANCE_FAILURE" -> pure ISCRCInstanceFailure
+        "INTERNAL_ERROR" -> pure ISCRCInternalError
+        "VALIDATION_ERROR" -> pure ISCRCValidationError
+        e -> fail ("Failure parsing InstanceStateChangeReasonCode from " ++ show e)
+
+instance ToText InstanceStateChangeReasonCode where
+    toText = \case
+        ISCRCBootstrapFailure -> "BOOTSTRAP_FAILURE"
+        ISCRCClusterTerminated -> "CLUSTER_TERMINATED"
+        ISCRCInstanceFailure -> "INSTANCE_FAILURE"
+        ISCRCInternalError -> "INTERNAL_ERROR"
+        ISCRCValidationError -> "VALIDATION_ERROR"
+
+instance Hashable InstanceStateChangeReasonCode
+instance ToQuery InstanceStateChangeReasonCode
+instance ToHeader InstanceStateChangeReasonCode
+
+instance FromJSON InstanceStateChangeReasonCode where
+    parseJSON = parseJSONText "InstanceStateChangeReasonCode"
+
+data MarketType = Spot | ONDemand deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MarketType where
+    parser = takeLowerText >>= \case
+        "ON_DEMAND" -> pure ONDemand
+        "SPOT" -> pure Spot
+        e -> fail ("Failure parsing MarketType from " ++ show e)
+
+instance ToText MarketType where
+    toText = \case
+        ONDemand -> "ON_DEMAND"
+        Spot -> "SPOT"
+
+instance Hashable MarketType
+instance ToQuery MarketType
+instance ToHeader MarketType
+
+instance ToJSON MarketType where
+    toJSON = toJSONText
+
+instance FromJSON MarketType where
+    parseJSON = parseJSONText "MarketType"
+
+data StepState = SSRunning | SSCompleted | SSFailed | SSCancelled | SSInterrupted | SSPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StepState where
+    parser = takeLowerText >>= \case
+        "CANCELLED" -> pure SSCancelled
+        "COMPLETED" -> pure SSCompleted
+        "FAILED" -> pure SSFailed
+        "INTERRUPTED" -> pure SSInterrupted
+        "PENDING" -> pure SSPending
+        "RUNNING" -> pure SSRunning
+        e -> fail ("Failure parsing StepState from " ++ show e)
+
+instance ToText StepState where
+    toText = \case
+        SSCancelled -> "CANCELLED"
+        SSCompleted -> "COMPLETED"
+        SSFailed -> "FAILED"
+        SSInterrupted -> "INTERRUPTED"
+        SSPending -> "PENDING"
+        SSRunning -> "RUNNING"
+
+instance Hashable StepState
+instance ToQuery StepState
+instance ToHeader StepState
+
+instance ToJSON StepState where
+    toJSON = toJSONText
+
+instance FromJSON StepState where
+    parseJSON = parseJSONText "StepState"
+
+data StepStateChangeReasonCode = None deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StepStateChangeReasonCode where
+    parser = takeLowerText >>= \case
+        "NONE" -> pure None
+        e -> fail ("Failure parsing StepStateChangeReasonCode from " ++ show e)
+
+instance ToText StepStateChangeReasonCode where
+    toText = \case
+        None -> "NONE"
+
+instance Hashable StepStateChangeReasonCode
+instance ToQuery StepStateChangeReasonCode
+instance ToHeader StepStateChangeReasonCode
+
+instance FromJSON StepStateChangeReasonCode where
+    parseJSON = parseJSONText "StepStateChangeReasonCode"
+
+-- | An application is any Amazon or third-party software that you can add to
+-- the cluster. This structure contains a list of strings that indicates
+-- the software to use with the cluster and accepts a user argument list.
+-- Amazon EMR accepts and forwards the argument list to the corresponding
+-- installation script as bootstrap action argument. For more information,
+-- see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop>.
+-- Currently supported values are:
+--
+-- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
+-- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
+-- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or
+--     \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition,
+--     respectively.
+--
+-- /See:/ 'application' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -435,7 +763,9 @@ instance FromJSON Application where
                      <*> (x .:? "Name")
                      <*> (x .:? "Version"))
 
--- | /See:/ 'bootstrapActionConfig' smart constructor.
+-- | Configuration of a bootstrap action.
+--
+-- /See:/ 'bootstrapActionConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -462,7 +792,9 @@ instance ToJSON BootstrapActionConfig where
               ["Name" .= _bacName,
                "ScriptBootstrapAction" .= _bacScriptBootstrapAction]
 
--- | /See:/ 'cluster' smart constructor.
+-- | The detailed description of the cluster.
+--
+-- /See:/ 'cluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -599,40 +931,9 @@ instance FromJSON Cluster where
                      <*> (x .: "Name")
                      <*> (x .: "Status"))
 
-data ClusterState = TerminatedWithErrors | Terminating | Starting | Running | Bootstrapping | Terminated | Waiting deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ClusterState where
-    parser = takeLowerText >>= \case
-        "BOOTSTRAPPING" -> pure Bootstrapping
-        "RUNNING" -> pure Running
-        "STARTING" -> pure Starting
-        "TERMINATED" -> pure Terminated
-        "TERMINATED_WITH_ERRORS" -> pure TerminatedWithErrors
-        "TERMINATING" -> pure Terminating
-        "WAITING" -> pure Waiting
-        e -> fail ("Failure parsing ClusterState from " ++ show e)
-
-instance ToText ClusterState where
-    toText = \case
-        Bootstrapping -> "BOOTSTRAPPING"
-        Running -> "RUNNING"
-        Starting -> "STARTING"
-        Terminated -> "TERMINATED"
-        TerminatedWithErrors -> "TERMINATED_WITH_ERRORS"
-        Terminating -> "TERMINATING"
-        Waiting -> "WAITING"
-
-instance Hashable ClusterState
-instance ToQuery ClusterState
-instance ToHeader ClusterState
-
-instance ToJSON ClusterState where
-    toJSON = toJSONText
-
-instance FromJSON ClusterState where
-    parseJSON = parseJSONText "ClusterState"
-
--- | /See:/ 'clusterStateChangeReason' smart constructor.
+-- | The reason that the cluster changed to its current state.
+--
+-- /See:/ 'clusterStateChangeReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -660,37 +961,9 @@ instance FromJSON ClusterStateChangeReason where
                  ClusterStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-data ClusterStateChangeReasonCode = BootstrapFailure | StepFailure | AllStepsCompleted | UserRequest | ValidationError | InternalError | InstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ClusterStateChangeReasonCode where
-    parser = takeLowerText >>= \case
-        "ALL_STEPS_COMPLETED" -> pure AllStepsCompleted
-        "BOOTSTRAP_FAILURE" -> pure BootstrapFailure
-        "INSTANCE_FAILURE" -> pure InstanceFailure
-        "INTERNAL_ERROR" -> pure InternalError
-        "STEP_FAILURE" -> pure StepFailure
-        "USER_REQUEST" -> pure UserRequest
-        "VALIDATION_ERROR" -> pure ValidationError
-        e -> fail ("Failure parsing ClusterStateChangeReasonCode from " ++ show e)
-
-instance ToText ClusterStateChangeReasonCode where
-    toText = \case
-        AllStepsCompleted -> "ALL_STEPS_COMPLETED"
-        BootstrapFailure -> "BOOTSTRAP_FAILURE"
-        InstanceFailure -> "INSTANCE_FAILURE"
-        InternalError -> "INTERNAL_ERROR"
-        StepFailure -> "STEP_FAILURE"
-        UserRequest -> "USER_REQUEST"
-        ValidationError -> "VALIDATION_ERROR"
-
-instance Hashable ClusterStateChangeReasonCode
-instance ToQuery ClusterStateChangeReasonCode
-instance ToHeader ClusterStateChangeReasonCode
-
-instance FromJSON ClusterStateChangeReasonCode where
-    parseJSON = parseJSONText "ClusterStateChangeReasonCode"
-
--- | /See:/ 'clusterStatus' smart constructor.
+-- | The detailed status of the cluster.
+--
+-- /See:/ 'clusterStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -726,7 +999,9 @@ instance FromJSON ClusterStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
--- | /See:/ 'clusterSummary' smart constructor.
+-- | The summary description of the cluster.
+--
+-- /See:/ 'clusterSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -774,7 +1049,9 @@ instance FromJSON ClusterSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
--- | /See:/ 'clusterTimeline' smart constructor.
+-- | Represents the timeline of the cluster\'s lifecycle.
+--
+-- /See:/ 'clusterTimeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -810,7 +1087,9 @@ instance FromJSON ClusterTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
--- | /See:/ 'command' smart constructor.
+-- | An entity describing an executable that runs on a cluster.
+--
+-- /See:/ 'command' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -845,7 +1124,11 @@ instance FromJSON Command where
                    (x .:? "Args" .!= mempty) <*> (x .:? "ScriptPath")
                      <*> (x .:? "Name"))
 
--- | /See:/ 'ec2InstanceAttributes' smart constructor.
+-- | Provides information about the EC2 instances in a cluster grouped by
+-- category. For example, key name, subnet ID, IAM instance profile, and so
+-- on.
+--
+-- /See:/ 'ec2InstanceAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -929,7 +1212,11 @@ instance FromJSON EC2InstanceAttributes where
                      <*> (x .:? "Ec2SubnetId")
                      <*> (x .:? "Ec2AvailabilityZone"))
 
--- | /See:/ 'hadoopJARStepConfig' smart constructor.
+-- | A job flow step consisting of a JAR file whose main function will be
+-- executed. The main function submits a job for Hadoop to execute and
+-- waits for the job to finish or fail.
+--
+-- /See:/ 'hadoopJARStepConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -971,7 +1258,11 @@ instance ToJSON HadoopJARStepConfig where
               ["Args" .= _hjscArgs, "MainClass" .= _hjscMainClass,
                "Properties" .= _hjscProperties, "Jar" .= _hjscJAR]
 
--- | /See:/ 'hadoopStepConfig' smart constructor.
+-- | A cluster step consisting of a JAR file whose main function will be
+-- executed. The main function submits a job for Hadoop to execute and
+-- waits for the job to finish or fail.
+--
+-- /See:/ 'hadoopStepConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1016,7 +1307,9 @@ instance FromJSON HadoopStepConfig where
                      (x .:? "MainClass")
                      <*> (x .:? "Properties" .!= mempty))
 
--- | /See:/ 'instance'' smart constructor.
+-- | Represents an EC2 instance provisioned as part of cluster.
+--
+-- /See:/ 'instance'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1079,7 +1372,11 @@ instance FromJSON Instance where
                      <*> (x .:? "PrivateDnsName")
                      <*> (x .:? "PublicIpAddress"))
 
--- | /See:/ 'instanceGroup' smart constructor.
+-- | This entity represents an instance group, which is a group of instances
+-- that have common purpose. For example, CORE instance group is used for
+-- HDFS.
+--
+-- /See:/ 'instanceGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1158,7 +1455,9 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
--- | /See:/ 'instanceGroupConfig' smart constructor.
+-- | Configuration defining a new instance group.
+--
+-- /See:/ 'instanceGroupConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1213,7 +1512,9 @@ instance ToJSON InstanceGroupConfig where
                "InstanceType" .= _igcInstanceType,
                "InstanceCount" .= _igcInstanceCount]
 
--- | /See:/ 'instanceGroupModifyConfig' smart constructor.
+-- | Modify an instance group size.
+--
+-- /See:/ 'instanceGroupModifyConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1250,43 +1551,9 @@ instance ToJSON InstanceGroupModifyConfig where
                  _igmcEC2InstanceIdsToTerminate,
                "InstanceGroupId" .= _igmcInstanceGroupId]
 
-data InstanceGroupState = IGSResizing | IGSTerminated | IGSEnded | IGSShuttingDown | IGSTerminating | IGSProvisioning | IGSBootstrapping | IGSArrested | IGSRunning | IGSSuspended deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceGroupState where
-    parser = takeLowerText >>= \case
-        "ARRESTED" -> pure IGSArrested
-        "BOOTSTRAPPING" -> pure IGSBootstrapping
-        "ENDED" -> pure IGSEnded
-        "PROVISIONING" -> pure IGSProvisioning
-        "RESIZING" -> pure IGSResizing
-        "RUNNING" -> pure IGSRunning
-        "SHUTTING_DOWN" -> pure IGSShuttingDown
-        "SUSPENDED" -> pure IGSSuspended
-        "TERMINATED" -> pure IGSTerminated
-        "TERMINATING" -> pure IGSTerminating
-        e -> fail ("Failure parsing InstanceGroupState from " ++ show e)
-
-instance ToText InstanceGroupState where
-    toText = \case
-        IGSArrested -> "ARRESTED"
-        IGSBootstrapping -> "BOOTSTRAPPING"
-        IGSEnded -> "ENDED"
-        IGSProvisioning -> "PROVISIONING"
-        IGSResizing -> "RESIZING"
-        IGSRunning -> "RUNNING"
-        IGSShuttingDown -> "SHUTTING_DOWN"
-        IGSSuspended -> "SUSPENDED"
-        IGSTerminated -> "TERMINATED"
-        IGSTerminating -> "TERMINATING"
-
-instance Hashable InstanceGroupState
-instance ToQuery InstanceGroupState
-instance ToHeader InstanceGroupState
-
-instance FromJSON InstanceGroupState where
-    parseJSON = parseJSONText "InstanceGroupState"
-
--- | /See:/ 'instanceGroupStateChangeReason' smart constructor.
+-- | The status change reason details for the instance group.
+--
+-- /See:/ 'instanceGroupStateChangeReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1315,31 +1582,9 @@ instance FromJSON InstanceGroupStateChangeReason
                  InstanceGroupStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-data InstanceGroupStateChangeReasonCode = IGSCRCValidationError | IGSCRCInstanceFailure | IGSCRCInternalError | IGSCRCClusterTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceGroupStateChangeReasonCode where
-    parser = takeLowerText >>= \case
-        "CLUSTER_TERMINATED" -> pure IGSCRCClusterTerminated
-        "INSTANCE_FAILURE" -> pure IGSCRCInstanceFailure
-        "INTERNAL_ERROR" -> pure IGSCRCInternalError
-        "VALIDATION_ERROR" -> pure IGSCRCValidationError
-        e -> fail ("Failure parsing InstanceGroupStateChangeReasonCode from " ++ show e)
-
-instance ToText InstanceGroupStateChangeReasonCode where
-    toText = \case
-        IGSCRCClusterTerminated -> "CLUSTER_TERMINATED"
-        IGSCRCInstanceFailure -> "INSTANCE_FAILURE"
-        IGSCRCInternalError -> "INTERNAL_ERROR"
-        IGSCRCValidationError -> "VALIDATION_ERROR"
-
-instance Hashable InstanceGroupStateChangeReasonCode
-instance ToQuery InstanceGroupStateChangeReasonCode
-instance ToHeader InstanceGroupStateChangeReasonCode
-
-instance FromJSON InstanceGroupStateChangeReasonCode where
-    parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
-
--- | /See:/ 'instanceGroupStatus' smart constructor.
+-- | The details of the instance group status.
+--
+-- /See:/ 'instanceGroupStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1374,7 +1619,9 @@ instance FromJSON InstanceGroupStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
--- | /See:/ 'instanceGroupTimeline' smart constructor.
+-- | The timeline of the instance group lifecycle.
+--
+-- /See:/ 'instanceGroupTimeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1410,80 +1657,9 @@ instance FromJSON InstanceGroupTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
-data InstanceGroupType = IGTTask | IGTCore | IGTMaster deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceGroupType where
-    parser = takeLowerText >>= \case
-        "CORE" -> pure IGTCore
-        "MASTER" -> pure IGTMaster
-        "TASK" -> pure IGTTask
-        e -> fail ("Failure parsing InstanceGroupType from " ++ show e)
-
-instance ToText InstanceGroupType where
-    toText = \case
-        IGTCore -> "CORE"
-        IGTMaster -> "MASTER"
-        IGTTask -> "TASK"
-
-instance Hashable InstanceGroupType
-instance ToQuery InstanceGroupType
-instance ToHeader InstanceGroupType
-
-instance ToJSON InstanceGroupType where
-    toJSON = toJSONText
-
-instance FromJSON InstanceGroupType where
-    parseJSON = parseJSONText "InstanceGroupType"
-
-data InstanceRoleType = Master | Task | Core deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceRoleType where
-    parser = takeLowerText >>= \case
-        "CORE" -> pure Core
-        "MASTER" -> pure Master
-        "TASK" -> pure Task
-        e -> fail ("Failure parsing InstanceRoleType from " ++ show e)
-
-instance ToText InstanceRoleType where
-    toText = \case
-        Core -> "CORE"
-        Master -> "MASTER"
-        Task -> "TASK"
-
-instance Hashable InstanceRoleType
-instance ToQuery InstanceRoleType
-instance ToHeader InstanceRoleType
-
-instance ToJSON InstanceRoleType where
-    toJSON = toJSONText
-
-data InstanceState = ISTerminated | ISAwaitingFulfillment | ISRunning | ISBootstrapping | ISProvisioning deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceState where
-    parser = takeLowerText >>= \case
-        "AWAITING_FULFILLMENT" -> pure ISAwaitingFulfillment
-        "BOOTSTRAPPING" -> pure ISBootstrapping
-        "PROVISIONING" -> pure ISProvisioning
-        "RUNNING" -> pure ISRunning
-        "TERMINATED" -> pure ISTerminated
-        e -> fail ("Failure parsing InstanceState from " ++ show e)
-
-instance ToText InstanceState where
-    toText = \case
-        ISAwaitingFulfillment -> "AWAITING_FULFILLMENT"
-        ISBootstrapping -> "BOOTSTRAPPING"
-        ISProvisioning -> "PROVISIONING"
-        ISRunning -> "RUNNING"
-        ISTerminated -> "TERMINATED"
-
-instance Hashable InstanceState
-instance ToQuery InstanceState
-instance ToHeader InstanceState
-
-instance FromJSON InstanceState where
-    parseJSON = parseJSONText "InstanceState"
-
--- | /See:/ 'instanceStateChangeReason' smart constructor.
+-- | The details of the status change reason for the instance.
+--
+-- /See:/ 'instanceStateChangeReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1511,33 +1687,9 @@ instance FromJSON InstanceStateChangeReason where
                  InstanceStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-data InstanceStateChangeReasonCode = ISCRCBootstrapFailure | ISCRCValidationError | ISCRCInternalError | ISCRCClusterTerminated | ISCRCInstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceStateChangeReasonCode where
-    parser = takeLowerText >>= \case
-        "BOOTSTRAP_FAILURE" -> pure ISCRCBootstrapFailure
-        "CLUSTER_TERMINATED" -> pure ISCRCClusterTerminated
-        "INSTANCE_FAILURE" -> pure ISCRCInstanceFailure
-        "INTERNAL_ERROR" -> pure ISCRCInternalError
-        "VALIDATION_ERROR" -> pure ISCRCValidationError
-        e -> fail ("Failure parsing InstanceStateChangeReasonCode from " ++ show e)
-
-instance ToText InstanceStateChangeReasonCode where
-    toText = \case
-        ISCRCBootstrapFailure -> "BOOTSTRAP_FAILURE"
-        ISCRCClusterTerminated -> "CLUSTER_TERMINATED"
-        ISCRCInstanceFailure -> "INSTANCE_FAILURE"
-        ISCRCInternalError -> "INTERNAL_ERROR"
-        ISCRCValidationError -> "VALIDATION_ERROR"
-
-instance Hashable InstanceStateChangeReasonCode
-instance ToQuery InstanceStateChangeReasonCode
-instance ToHeader InstanceStateChangeReasonCode
-
-instance FromJSON InstanceStateChangeReasonCode where
-    parseJSON = parseJSONText "InstanceStateChangeReasonCode"
-
--- | /See:/ 'instanceStatus' smart constructor.
+-- | The instance status details.
+--
+-- /See:/ 'instanceStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1572,7 +1724,9 @@ instance FromJSON InstanceStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
--- | /See:/ 'instanceTimeline' smart constructor.
+-- | The timeline of the instance lifecycle.
+--
+-- /See:/ 'instanceTimeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1608,7 +1762,13 @@ instance FromJSON InstanceTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
--- | /See:/ 'jobFlowInstancesConfig' smart constructor.
+-- | A description of the Amazon EC2 instance running the job flow. A valid
+-- JobFlowInstancesConfig must contain at least InstanceGroups, which is
+-- the recommended configuration. However, a valid alternative is to have
+-- MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must
+-- be present).
+--
+-- /See:/ 'jobFlowInstancesConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1742,7 +1902,9 @@ instance ToJSON JobFlowInstancesConfig where
                "TerminationProtected" .= _jficTerminationProtected,
                "Placement" .= _jficPlacement]
 
--- | /See:/ 'keyValue' smart constructor.
+-- | A key value pair.
+--
+-- /See:/ 'keyValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1767,30 +1929,9 @@ instance ToJSON KeyValue where
         toJSON KeyValue'{..}
           = object ["Value" .= _kvValue, "Key" .= _kvKey]
 
-data MarketType = Spot | ONDemand deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MarketType where
-    parser = takeLowerText >>= \case
-        "ON_DEMAND" -> pure ONDemand
-        "SPOT" -> pure Spot
-        e -> fail ("Failure parsing MarketType from " ++ show e)
-
-instance ToText MarketType where
-    toText = \case
-        ONDemand -> "ON_DEMAND"
-        Spot -> "SPOT"
-
-instance Hashable MarketType
-instance ToQuery MarketType
-instance ToHeader MarketType
-
-instance ToJSON MarketType where
-    toJSON = toJSONText
-
-instance FromJSON MarketType where
-    parseJSON = parseJSONText "MarketType"
-
--- | /See:/ 'placementType' smart constructor.
+-- | The Amazon EC2 location for the job flow.
+--
+-- /See:/ 'placementType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1809,7 +1950,9 @@ instance ToJSON PlacementType where
         toJSON PlacementType'{..}
           = object ["AvailabilityZone" .= _ptAvailabilityZone]
 
--- | /See:/ 'scriptBootstrapActionConfig' smart constructor.
+-- | Configuration of the script to run during a bootstrap action.
+--
+-- /See:/ 'scriptBootstrapActionConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1835,7 +1978,9 @@ instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
           = object ["Args" .= _sbacArgs, "Path" .= _sbacPath]
 
--- | /See:/ 'step' smart constructor.
+-- | This represents a step in a cluster.
+--
+-- /See:/ 'step' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1885,7 +2030,9 @@ instance FromJSON Step where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
--- | /See:/ 'stepConfig' smart constructor.
+-- | Specification of a job flow step.
+--
+-- /See:/ 'stepConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1919,38 +2066,9 @@ instance ToJSON StepConfig where
                "Name" .= _scName,
                "HadoopJarStep" .= _scHadoopJARStep]
 
-data StepState = SSRunning | SSCompleted | SSFailed | SSCancelled | SSInterrupted | SSPending deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StepState where
-    parser = takeLowerText >>= \case
-        "CANCELLED" -> pure SSCancelled
-        "COMPLETED" -> pure SSCompleted
-        "FAILED" -> pure SSFailed
-        "INTERRUPTED" -> pure SSInterrupted
-        "PENDING" -> pure SSPending
-        "RUNNING" -> pure SSRunning
-        e -> fail ("Failure parsing StepState from " ++ show e)
-
-instance ToText StepState where
-    toText = \case
-        SSCancelled -> "CANCELLED"
-        SSCompleted -> "COMPLETED"
-        SSFailed -> "FAILED"
-        SSInterrupted -> "INTERRUPTED"
-        SSPending -> "PENDING"
-        SSRunning -> "RUNNING"
-
-instance Hashable StepState
-instance ToQuery StepState
-instance ToHeader StepState
-
-instance ToJSON StepState where
-    toJSON = toJSONText
-
-instance FromJSON StepState where
-    parseJSON = parseJSONText "StepState"
-
--- | /See:/ 'stepStateChangeReason' smart constructor.
+-- | The details of the step state change reason.
+--
+-- /See:/ 'stepStateChangeReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1978,25 +2096,9 @@ instance FromJSON StepStateChangeReason where
                  StepStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-data StepStateChangeReasonCode = None deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StepStateChangeReasonCode where
-    parser = takeLowerText >>= \case
-        "NONE" -> pure None
-        e -> fail ("Failure parsing StepStateChangeReasonCode from " ++ show e)
-
-instance ToText StepStateChangeReasonCode where
-    toText = \case
-        None -> "NONE"
-
-instance Hashable StepStateChangeReasonCode
-instance ToQuery StepStateChangeReasonCode
-instance ToHeader StepStateChangeReasonCode
-
-instance FromJSON StepStateChangeReasonCode where
-    parseJSON = parseJSONText "StepStateChangeReasonCode"
-
--- | /See:/ 'stepStatus' smart constructor.
+-- | The execution status details of the cluster step.
+--
+-- /See:/ 'stepStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2031,7 +2133,9 @@ instance FromJSON StepStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
--- | /See:/ 'stepSummary' smart constructor.
+-- | The summary of the cluster step.
+--
+-- /See:/ 'stepSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2081,7 +2185,9 @@ instance FromJSON StepSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
--- | /See:/ 'stepTimeline' smart constructor.
+-- | The timeline of the cluster step lifecycle.
+--
+-- /See:/ 'stepTimeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2116,7 +2222,11 @@ instance FromJSON StepTimeline where
                    (x .:? "CreationDateTime") <*> (x .:? "EndDateTime")
                      <*> (x .:? "StartDateTime"))
 
--- | /See:/ 'supportedProductConfig' smart constructor.
+-- | The list of supported product configurations which allow user-supplied
+-- arguments. EMR accepts these arguments and forwards them to the
+-- corresponding installation script as bootstrap action arguments.
+--
+-- /See:/ 'supportedProductConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2141,7 +2251,13 @@ instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
           = object ["Args" .= _spcArgs, "Name" .= _spcName]
 
--- | /See:/ 'tag' smart constructor.
+-- | A key\/value pair containing user-defined metadata that you can
+-- associate with an Amazon EMR resource. Tags make it easier to associate
+-- clusters in various ways, such as grouping clu\\ sters to track your
+-- Amazon EMR resource allocation costs. For more information, see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -56,6 +56,7 @@ module Network.AWS.EC2.TerminateInstances
     , terminateInstancesResponse
     -- ** Response lenses
     , tirTerminatingInstances
+    , tirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -96,7 +97,8 @@ instance AWSRequest TerminateInstances where
           = receiveXML
               (\ s h x ->
                  TerminateInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
@@ -117,12 +119,18 @@ instance ToQuery TerminateInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tirTerminatingInstances'
-newtype TerminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances :: Maybe [InstanceStateChange]} deriving (Eq, Read, Show)
+--
+-- * 'tirStatusCode'
+data TerminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances :: Maybe [InstanceStateChange], _tirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'TerminateInstancesResponse' smart constructor.
-terminateInstancesResponse :: TerminateInstancesResponse
-terminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances = Nothing};
+terminateInstancesResponse :: Int -> TerminateInstancesResponse
+terminateInstancesResponse pStatusCode = TerminateInstancesResponse'{_tirTerminatingInstances = Nothing, _tirStatusCode = pStatusCode};
 
 -- | Information about one or more terminated instances.
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+tirStatusCode :: Lens' TerminateInstancesResponse Int
+tirStatusCode = lens _tirStatusCode (\ s a -> s{_tirStatusCode = a});

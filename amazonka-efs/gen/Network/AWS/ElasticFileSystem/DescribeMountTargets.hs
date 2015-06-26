@@ -41,6 +41,7 @@ module Network.AWS.ElasticFileSystem.DescribeMountTargets
     , dmtrMountTargets
     , dmtrMarker
     , dmtrNextMarker
+    , dmtrStatusCode
     ) where
 
 import Network.AWS.ElasticFileSystem.Types
@@ -89,7 +90,8 @@ instance AWSRequest DescribeMountTargets where
                  DescribeMountTargetsResponse' <$>
                    (x .?> "MountTargets" .!@ mempty) <*>
                      (x .?> "Marker")
-                     <*> (x .?> "NextMarker"))
+                     <*> (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
@@ -112,11 +114,13 @@ instance ToQuery DescribeMountTargets where
 -- * 'dmtrMarker'
 --
 -- * 'dmtrNextMarker'
-data DescribeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets :: Maybe [MountTargetDescription], _dmtrMarker :: Maybe Text, _dmtrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dmtrStatusCode'
+data DescribeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets :: Maybe [MountTargetDescription], _dmtrMarker :: Maybe Text, _dmtrNextMarker :: Maybe Text, _dmtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
-describeMountTargetsResponse :: DescribeMountTargetsResponse
-describeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets = Nothing, _dmtrMarker = Nothing, _dmtrNextMarker = Nothing};
+describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse
+describeMountTargetsResponse pStatusCode = DescribeMountTargetsResponse'{_dmtrMountTargets = Nothing, _dmtrMarker = Nothing, _dmtrNextMarker = Nothing, _dmtrStatusCode = pStatusCode};
 
 -- | Returns the file system\'s mount targets as an array of
 -- @MountTargetDescription@ objects.
@@ -133,3 +137,7 @@ dmtrMarker = lens _dmtrMarker (\ s a -> s{_dmtrMarker = a});
 -- value to retrieve the next set of mount targets.
 dmtrNextMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrNextMarker = lens _dmtrNextMarker (\ s a -> s{_dmtrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+dmtrStatusCode :: Lens' DescribeMountTargetsResponse Int
+dmtrStatusCode = lens _dmtrStatusCode (\ s a -> s{_dmtrStatusCode = a});

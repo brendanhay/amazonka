@@ -64,7 +64,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'allocatePublicVirtualInterface' smart constructor.
+-- | Container for the parameters to the AllocatePublicVirtualInterface
+-- operation.
+--
+-- /See:/ 'allocatePublicVirtualInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

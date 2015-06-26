@@ -38,15 +38,18 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , dcprCacheNodeTypeSpecificParameters
     , dcprParameters
     , dcprMarker
+    , dcprStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeCacheParameters' smart constructor.
+-- | Represents the input of a /DescribeCacheParameters/ action.
+--
+-- /See:/ 'describeCacheParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -112,7 +115,8 @@ instance AWSRequest DescribeCacheParameters where
                      <*>
                      (x .@? "Parameters" .!@ mempty >>=
                         may (parseXMLList "Parameter"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
@@ -131,7 +135,9 @@ instance ToQuery DescribeCacheParameters where
                "CacheParameterGroupName" =:
                  _dcpCacheParameterGroupName]
 
--- | /See:/ 'describeCacheParametersResponse' smart constructor.
+-- | Represents the output of a /DescribeCacheParameters/ action.
+--
+-- /See:/ 'describeCacheParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -140,11 +146,13 @@ instance ToQuery DescribeCacheParameters where
 -- * 'dcprParameters'
 --
 -- * 'dcprMarker'
-data DescribeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter], _dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcprStatusCode'
+data DescribeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter], _dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text, _dcprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
-describeCacheParametersResponse :: DescribeCacheParametersResponse
-describeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters = Nothing, _dcprParameters = Nothing, _dcprMarker = Nothing};
+describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse
+describeCacheParametersResponse pStatusCode = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters = Nothing, _dcprParameters = Nothing, _dcprMarker = Nothing, _dcprStatusCode = pStatusCode};
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
@@ -158,3 +166,7 @@ dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a}) . _Defau
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\ s a -> s{_dcprMarker = a});
+
+-- | FIXME: Undocumented member.
+dcprStatusCode :: Lens' DescribeCacheParametersResponse Int
+dcprStatusCode = lens _dcprStatusCode (\ s a -> s{_dcprStatusCode = a});

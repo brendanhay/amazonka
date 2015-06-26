@@ -21,8 +21,29 @@ module Network.AWS.ElasticFileSystem.Types
     (
     -- * Service
       ElasticFileSystem
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _MountTargetNotFound
+    , _SecurityGroupLimitExceeded
+    , _MountTargetConflict
+    , _UnsupportedAvailabilityZone
+    , _SecurityGroupNotFound
+    , _FileSystemAlreadyExists
+    , _FileSystemLimitExceeded
+    , _NetworkInterfaceLimitExceeded
+    , _FileSystemNotFound
+    , _SubnetNotFound
+    , _IncorrectFileSystemLifeCycleState
+    , _BadRequest
+    , _NoFreeAddressesInSubnet
+    , _DependencyTimeout
+    , _FileSystemInUse
+    , _IncorrectMountTargetState
+    , _InternalServerError
+    , _IPAddressInUse
+
+    -- * LifeCycleState
+    , LifeCycleState (..)
 
     -- * FileSystemDescription
     , FileSystemDescription
@@ -42,9 +63,6 @@ module Network.AWS.ElasticFileSystem.Types
     , fssTimestamp
     , fssValue
 
-    -- * LifeCycleState
-    , LifeCycleState (..)
-
     -- * MountTargetDescription
     , MountTargetDescription
     , mountTargetDescription
@@ -61,6 +79,7 @@ module Network.AWS.ElasticFileSystem.Types
     , tag
     , tagKey
     , tagValue
+
     ) where
 
 import Network.AWS.Prelude
@@ -71,32 +90,149 @@ data ElasticFileSystem
 
 instance AWSService ElasticFileSystem where
     type Sg ElasticFileSystem = V4
-    type Er ElasticFileSystem = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ElasticFileSystem
-        service' = Service
-            { _svcAbbrev  = "ElasticFileSystem"
-            , _svcPrefix  = "elasticfilesystem"
-            , _svcVersion = "2015-02-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ElasticFileSystem
+        svc = Service
+            { _svcAbbrev   = "ElasticFileSystem"
+            , _svcPrefix   = "elasticfilesystem"
+            , _svcVersion  = "2015-02-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ElasticFileSystem
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Returned if there is no mount target with the specified ID is found in
+-- the caller\'s account.
+_MountTargetNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_MountTargetNotFound = _ServiceError . hasCode "MountTargetNotFound" . hasStatus 404;
 
--- | /See:/ 'fileSystemDescription' smart constructor.
+-- | Returned if the size of @SecurityGroups@ specified in the request is
+-- greater than five.
+_SecurityGroupLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_SecurityGroupLimitExceeded = _ServiceError . hasCode "SecurityGroupLimitExceeded" . hasStatus 400;
+
+-- | Returned if the mount target would violate one of the specified
+-- restrictions based on the file system\'s existing mount targets.
+_MountTargetConflict :: AWSError a => Geting (First ServiceError) a ServiceError
+_MountTargetConflict = _ServiceError . hasCode "MountTargetConflict" . hasStatus 409;
+
+-- | Prism for UnsupportedAvailabilityZone' errors.
+_UnsupportedAvailabilityZone :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnsupportedAvailabilityZone = _ServiceError . hasCode "UnsupportedAvailabilityZone" . hasStatus 400;
+
+-- | Returned if one of the specified security groups does not exist in the
+-- subnet\'s VPC.
+_SecurityGroupNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_SecurityGroupNotFound = _ServiceError . hasCode "SecurityGroupNotFound" . hasStatus 400;
+
+-- | Returned if the file system you are trying to create already exists,
+-- with the creation token you provided.
+_FileSystemAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_FileSystemAlreadyExists = _ServiceError . hasCode "FileSystemAlreadyExists" . hasStatus 409;
+
+-- | Returned if the AWS account has already created maximum number of file
+-- systems allowed per account.
+_FileSystemLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_FileSystemLimitExceeded = _ServiceError . hasCode "FileSystemLimitExceeded" . hasStatus 403;
+
+-- | The calling account has reached the ENI limit for the specific AWS
+-- region. Client should try to delete some ENIs or get its account limit
+-- raised. For more information, go to
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits>
+-- in the Amazon Virtual Private Cloud User Guide (see the Network
+-- interfaces per VPC entry in the table).
+_NetworkInterfaceLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NetworkInterfaceLimitExceeded = _ServiceError . hasCode "NetworkInterfaceLimitExceeded" . hasStatus 409;
+
+-- | Returned if the specified @FileSystemId@ does not exist in the
+-- requester\'s AWS account.
+_FileSystemNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_FileSystemNotFound = _ServiceError . hasCode "FileSystemNotFound" . hasStatus 404;
+
+-- | Returned if there is no subnet with ID @SubnetId@ provided in the
+-- request.
+_SubnetNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubnetNotFound = _ServiceError . hasCode "SubnetNotFound" . hasStatus 400;
+
+-- | Returned if the file system\'s life cycle state is not \"created\".
+_IncorrectFileSystemLifeCycleState :: AWSError a => Geting (First ServiceError) a ServiceError
+_IncorrectFileSystemLifeCycleState = _ServiceError . hasCode "IncorrectFileSystemLifeCycleState" . hasStatus 409;
+
+-- | Returned if the request is malformed or contains an error such as an
+-- invalid parameter value or a missing required parameter.
+_BadRequest :: AWSError a => Geting (First ServiceError) a ServiceError
+_BadRequest = _ServiceError . hasCode "BadRequest" . hasStatus 400;
+
+-- | Returned if @IpAddress@ was not specified in the request and there are
+-- no free IP addresses in the subnet.
+_NoFreeAddressesInSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoFreeAddressesInSubnet = _ServiceError . hasCode "NoFreeAddressesInSubnet" . hasStatus 409;
+
+-- | The service timed out trying to fulfill the request, and the client
+-- should try the call again.
+_DependencyTimeout :: AWSError a => Geting (First ServiceError) a ServiceError
+_DependencyTimeout = _ServiceError . hasCode "DependencyTimeout" . hasStatus 504;
+
+-- | Returned if a file system has mount targets.
+_FileSystemInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_FileSystemInUse = _ServiceError . hasCode "FileSystemInUse" . hasStatus 409;
+
+-- | Returned if the mount target is not in the correct state for the
+-- operation.
+_IncorrectMountTargetState :: AWSError a => Geting (First ServiceError) a ServiceError
+_IncorrectMountTargetState = _ServiceError . hasCode "IncorrectMountTargetState" . hasStatus 409;
+
+-- | Returned if an error occurred on the server side.
+_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalServerError" . hasStatus 500;
+
+-- | Returned if the request specified an @IpAddress@ that is already in use
+-- in the subnet.
+_IPAddressInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_IPAddressInUse = _ServiceError . hasCode "IpAddressInUse" . hasStatus 409;
+
+data LifeCycleState = Deleting | Creating | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LifeCycleState where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "creating" -> pure Creating
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        e -> fail ("Failure parsing LifeCycleState from " ++ show e)
+
+instance ToText LifeCycleState where
+    toText = \case
+        Available -> "available"
+        Creating -> "creating"
+        Deleted -> "deleted"
+        Deleting -> "deleting"
+
+instance Hashable LifeCycleState
+instance ToQuery LifeCycleState
+instance ToHeader LifeCycleState
+
+instance FromJSON LifeCycleState where
+    parseJSON = parseJSONText "LifeCycleState"
+
+-- | This object provides description of a file system.
+--
+-- /See:/ 'fileSystemDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -182,7 +318,17 @@ instance FromJSON FileSystemDescription where
                      <*> (x .: "NumberOfMountTargets")
                      <*> (x .: "SizeInBytes"))
 
--- | /See:/ 'fileSystemSize' smart constructor.
+-- | This object provides the latest known metered size, in bytes, of data
+-- stored in the file system, in its @Value@ field, and the time at which
+-- that size was determined in its @Timestamp@ field. Note that the value
+-- does not represent the size of a consistent snapshot of the file system,
+-- but it is eventually consistent when there are no writes to the file
+-- system. That is, the value will represent the actual size only if the
+-- file system is not modified for a period longer than a couple of hours.
+-- Otherwise, the value is not necessarily the exact size the file system
+-- was at any instant in time.
+--
+-- /See:/ 'fileSystemSize' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -213,31 +359,9 @@ instance FromJSON FileSystemSize where
                  FileSystemSize' <$>
                    (x .:? "Timestamp") <*> (x .: "Value"))
 
-data LifeCycleState = Deleting | Creating | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LifeCycleState where
-    parser = takeLowerText >>= \case
-        "available" -> pure Available
-        "creating" -> pure Creating
-        "deleted" -> pure Deleted
-        "deleting" -> pure Deleting
-        e -> fail ("Failure parsing LifeCycleState from " ++ show e)
-
-instance ToText LifeCycleState where
-    toText = \case
-        Available -> "available"
-        Creating -> "creating"
-        Deleted -> "deleted"
-        Deleting -> "deleting"
-
-instance Hashable LifeCycleState
-instance ToQuery LifeCycleState
-instance ToHeader LifeCycleState
-
-instance FromJSON LifeCycleState where
-    parseJSON = parseJSONText "LifeCycleState"
-
--- | /See:/ 'mountTargetDescription' smart constructor.
+-- | This object provides description of a mount target.
+--
+-- /See:/ 'mountTargetDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -302,7 +426,11 @@ instance FromJSON MountTargetDescription where
                      <*> (x .: "SubnetId")
                      <*> (x .: "LifeCycleState"))
 
--- | /See:/ 'tag' smart constructor.
+-- | A tag is a pair of key and value. The allowed characters in keys and
+-- values are letters, whitespace, and numbers, representable in UTF-8, and
+-- the characters \'+\', \'-\', \'=\', \'.\', \'_\', \':\', and \'\/\'.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

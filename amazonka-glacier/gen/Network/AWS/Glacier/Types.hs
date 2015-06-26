@@ -21,11 +21,21 @@ module Network.AWS.Glacier.Types
     (
     -- * Service
       Glacier
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _PolicyEnforcedException
+    , _InvalidParameterValueException
+    , _RequestTimeoutException
+    , _ServiceUnavailableException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+    , _MissingParameterValueException
 
     -- * ActionCode
     , ActionCode (..)
+
+    -- * StatusCode
+    , StatusCode (..)
 
     -- * ArchiveCreationOutput
     , ArchiveCreationOutput
@@ -110,9 +120,6 @@ module Network.AWS.Glacier.Types
     , pleSHA256TreeHash
     , pleRangeInBytes
 
-    -- * StatusCode
-    , StatusCode (..)
-
     -- * UploadListElement
     , UploadListElement
     , uploadListElement
@@ -132,6 +139,7 @@ module Network.AWS.Glacier.Types
     , vaultNotificationConfig
     , vncSNSTopic
     , vncEvents
+
     ) where
 
 import Network.AWS.Prelude
@@ -142,30 +150,64 @@ data Glacier
 
 instance AWSService Glacier where
     type Sg Glacier = V4
-    type Er Glacier = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Glacier
-        service' = Service
-            { _svcAbbrev  = "Glacier"
-            , _svcPrefix  = "glacier"
-            , _svcVersion = "2012-06-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Glacier
+        svc = Service
+            { _svcAbbrev   = "Glacier"
+            , _svcPrefix   = "glacier"
+            , _svcVersion  = "2012-06-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Glacier
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Returned if a retrieval job would exceed the current data policy\'s
+-- retrieval rate limit. For more information about data retrieval
+-- policies,
+_PolicyEnforcedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PolicyEnforcedException = _ServiceError . hasCode "PolicyEnforcedException" . hasStatus 400;
+
+-- | Returned if a parameter of the request is incorrectly specified.
+_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValueException" . hasStatus 400;
+
+-- | Returned if, when uploading an archive, Amazon Glacier times out while
+-- receiving the upload.
+_RequestTimeoutException :: AWSError a => Geting (First ServiceError) a ServiceError
+_RequestTimeoutException = _ServiceError . hasCode "RequestTimeoutException" . hasStatus 408;
+
+-- | Returned if the service cannot complete the request.
+_ServiceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceUnavailableException = _ServiceError . hasCode "ServiceUnavailableException" . hasStatus 500;
+
+-- | Returned if the specified resource, such as a vault, upload ID, or job
+-- ID, does not exist.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+
+-- | Returned if the request results in a vault or account limit being
+-- exceeded.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 400;
+
+-- | Returned if a required header or parameter is missing from the request.
+_MissingParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingParameterValueException = _ServiceError . hasCode "MissingParameterValueException" . hasStatus 400;
 
 data ActionCode = InventoryRetrieval | ArchiveRetrieval deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -187,7 +229,36 @@ instance ToHeader ActionCode
 instance FromJSON ActionCode where
     parseJSON = parseJSONText "ActionCode"
 
--- | /See:/ 'archiveCreationOutput' smart constructor.
+data StatusCode = InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
+
+instance FromText StatusCode where
+    parser = takeLowerText >>= \case
+        "Failed" -> pure Failed
+        "InProgress" -> pure InProgress
+        "Succeeded" -> pure Succeeded
+        e -> fail ("Failure parsing StatusCode from " ++ show e)
+
+instance ToText StatusCode where
+    toText = \case
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Succeeded -> "Succeeded"
+
+instance Hashable StatusCode
+instance ToQuery StatusCode
+instance ToHeader StatusCode
+
+instance FromJSON StatusCode where
+    parseJSON = parseJSONText "StatusCode"
+
+-- | Contains the Amazon Glacier response to your request.
+--
+-- For information about the underlying REST API, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive>.
+-- For conceptual information, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>.
+--
+-- /See:/ 'archiveCreationOutput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -224,7 +295,9 @@ instance FromJSON ArchiveCreationOutput where
                      (x .:? "x-amz-sha256-tree-hash")
                      <*> (x .:? "Location"))
 
--- | /See:/ 'dataRetrievalPolicy' smart constructor.
+-- | Data retrieval policy.
+--
+-- /See:/ 'dataRetrievalPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -251,7 +324,9 @@ instance ToJSON DataRetrievalPolicy where
         toJSON DataRetrievalPolicy'{..}
           = object ["Rules" .= _drpRules]
 
--- | /See:/ 'dataRetrievalRule' smart constructor.
+-- | Data retrieval policy rule.
+--
+-- /See:/ 'dataRetrievalRule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -291,7 +366,9 @@ instance ToJSON DataRetrievalRule where
               ["Strategy" .= _drrStrategy,
                "BytesPerHour" .= _drrBytesPerHour]
 
--- | /See:/ 'describeVaultOutput' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'describeVaultOutput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -354,7 +431,9 @@ instance FromJSON DescribeVaultOutput where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "NumberOfArchives"))
 
--- | /See:/ 'glacierJobDescription' smart constructor.
+-- | Describes an Amazon Glacier job.
+--
+-- /See:/ 'glacierJobDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -521,7 +600,9 @@ instance FromJSON GlacierJobDescription where
                      <*> (x .:? "StatusCode")
                      <*> (x .:? "InventorySizeInBytes"))
 
--- | /See:/ 'inventoryRetrievalJobDescription' smart constructor.
+-- | Describes the options for a range inventory retrieval job.
+--
+-- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -584,7 +665,9 @@ instance FromJSON InventoryRetrievalJobDescription
                      <*> (x .:? "Marker")
                      <*> (x .:? "Limit"))
 
--- | /See:/ 'inventoryRetrievalJobInput' smart constructor.
+-- | Provides options for specifying a range inventory retrieval job.
+--
+-- /See:/ 'inventoryRetrievalJobInput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -633,7 +716,9 @@ instance ToJSON InventoryRetrievalJobInput where
                "StartDate" .= _irjiStartDate,
                "Marker" .= _irjiMarker, "Limit" .= _irjiLimit]
 
--- | /See:/ 'jobParameters' smart constructor.
+-- | Provides options for defining a job.
+--
+-- /See:/ 'jobParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -718,7 +803,9 @@ instance ToJSON JobParameters where
                "SNSTopic" .= _jpSNSTopic, "Type" .= _jpType,
                "Description" .= _jpDescription]
 
--- | /See:/ 'partListElement' smart constructor.
+-- | A list of the part sizes of the multipart upload.
+--
+-- /See:/ 'partListElement' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -747,29 +834,9 @@ instance FromJSON PartListElement where
                  PartListElement' <$>
                    (x .:? "SHA256TreeHash") <*> (x .:? "RangeInBytes"))
 
-data StatusCode = InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StatusCode where
-    parser = takeLowerText >>= \case
-        "Failed" -> pure Failed
-        "InProgress" -> pure InProgress
-        "Succeeded" -> pure Succeeded
-        e -> fail ("Failure parsing StatusCode from " ++ show e)
-
-instance ToText StatusCode where
-    toText = \case
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        Succeeded -> "Succeeded"
-
-instance Hashable StatusCode
-instance ToQuery StatusCode
-instance ToHeader StatusCode
-
-instance FromJSON StatusCode where
-    parseJSON = parseJSONText "StatusCode"
-
--- | /See:/ 'uploadListElement' smart constructor.
+-- | A list of in-progress multipart uploads for a vault.
+--
+-- /See:/ 'uploadListElement' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -822,7 +889,9 @@ instance FromJSON UploadListElement where
                      <*> (x .:? "VaultARN")
                      <*> (x .:? "CreationDate"))
 
--- | /See:/ 'vaultAccessPolicy' smart constructor.
+-- | Contains the vault access policy.
+--
+-- /See:/ 'vaultAccessPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -846,7 +915,9 @@ instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
           = object ["Policy" .= _vapPolicy]
 
--- | /See:/ 'vaultNotificationConfig' smart constructor.
+-- | Represents a vault\'s notification configuration.
+--
+-- /See:/ 'vaultNotificationConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

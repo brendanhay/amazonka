@@ -36,6 +36,7 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
     -- ** Response lenses
     , dvesrServiceNames
     , dvesrNextToken
+    , dvesrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -88,8 +89,8 @@ instance AWSRequest DescribeVPCEndpointServices where
           = receiveXML
               (\ s h x ->
                  DescribeVPCEndpointServicesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (x .@? "nextToken"))
+                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
@@ -114,11 +115,13 @@ instance ToQuery DescribeVPCEndpointServices where
 -- * 'dvesrServiceNames'
 --
 -- * 'dvesrNextToken'
-data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames :: Maybe [Text], _dvesrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dvesrStatusCode'
+data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames :: Maybe [Text], _dvesrNextToken :: Maybe Text, _dvesrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
-describeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames = Nothing, _dvesrNextToken = Nothing};
+describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
+describeVPCEndpointServicesResponse pStatusCode = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames = Nothing, _dvesrNextToken = Nothing, _dvesrStatusCode = pStatusCode};
 
 -- | A list of supported AWS services.
 dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
@@ -128,3 +131,7 @@ dvesrServiceNames = lens _dvesrServiceNames (\ s a -> s{_dvesrServiceNames = a})
 -- additional items to return, the string is empty.
 dvesrNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrNextToken = lens _dvesrNextToken (\ s a -> s{_dvesrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dvesrStatusCode :: Lens' DescribeVPCEndpointServicesResponse Int
+dvesrStatusCode = lens _dvesrStatusCode (\ s a -> s{_dvesrStatusCode = a});

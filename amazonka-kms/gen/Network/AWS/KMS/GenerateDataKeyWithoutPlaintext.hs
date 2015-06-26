@@ -41,6 +41,7 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     -- ** Response lenses
     , gdkwprKeyId
     , gdkwprCiphertextBlob
+    , gdkwprStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -112,7 +113,8 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
           = receiveJSON
               (\ s h x ->
                  GenerateDataKeyWithoutPlaintextResponse' <$>
-                   (x .?> "KeyId") <*> (x .?> "CiphertextBlob"))
+                   (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where
@@ -148,11 +150,13 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 -- * 'gdkwprKeyId'
 --
 -- * 'gdkwprCiphertextBlob'
-data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId :: Maybe Text, _gdkwprCiphertextBlob :: Maybe Base64} deriving (Eq, Read, Show)
+--
+-- * 'gdkwprStatusCode'
+data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId :: Maybe Text, _gdkwprCiphertextBlob :: Maybe Base64, _gdkwprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
-generateDataKeyWithoutPlaintextResponse :: GenerateDataKeyWithoutPlaintextResponse
-generateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId = Nothing, _gdkwprCiphertextBlob = Nothing};
+generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse
+generateDataKeyWithoutPlaintextResponse pStatusCode = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId = Nothing, _gdkwprCiphertextBlob = Nothing, _gdkwprStatusCode = pStatusCode};
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
@@ -167,3 +171,7 @@ gdkwprKeyId = lens _gdkwprKeyId (\ s a -> s{_gdkwprKeyId = a});
 -- not encoded.
 gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Base64)
 gdkwprCiphertextBlob = lens _gdkwprCiphertextBlob (\ s a -> s{_gdkwprCiphertextBlob = a});
+
+-- | FIXME: Undocumented member.
+gdkwprStatusCode :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
+gdkwprStatusCode = lens _gdkwprStatusCode (\ s a -> s{_gdkwprStatusCode = a});

@@ -44,6 +44,7 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , mergeDeveloperIdentitiesResponse
     -- ** Response lenses
     , mdirIdentityId
+    , mdirStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -51,7 +52,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'mergeDeveloperIdentities' smart constructor.
+-- | Input to the @MergeDeveloperIdentities@ action.
+--
+-- /See:/ 'mergeDeveloperIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -100,7 +103,7 @@ instance AWSRequest MergeDeveloperIdentities where
           = receiveJSON
               (\ s h x ->
                  MergeDeveloperIdentitiesResponse' <$>
-                   (x .?> "IdentityId"))
+                   (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders
@@ -127,17 +130,25 @@ instance ToPath MergeDeveloperIdentities where
 instance ToQuery MergeDeveloperIdentities where
         toQuery = const mempty
 
--- | /See:/ 'mergeDeveloperIdentitiesResponse' smart constructor.
+-- | Returned in response to a successful @MergeDeveloperIdentities@ action.
+--
+-- /See:/ 'mergeDeveloperIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mdirIdentityId'
-newtype MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'mdirStatusCode'
+data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId :: Maybe Text, _mdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
-mergeDeveloperIdentitiesResponse :: MergeDeveloperIdentitiesResponse
-mergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId = Nothing};
+mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
+mergeDeveloperIdentitiesResponse pStatusCode = MergeDeveloperIdentitiesResponse'{_mdirIdentityId = Nothing, _mdirStatusCode = pStatusCode};
 
 -- | A unique identifier in the format REGION:GUID.
 mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\ s a -> s{_mdirIdentityId = a});
+
+-- | FIXME: Undocumented member.
+mdirStatusCode :: Lens' MergeDeveloperIdentitiesResponse Int
+mdirStatusCode = lens _mdirStatusCode (\ s a -> s{_mdirStatusCode = a});

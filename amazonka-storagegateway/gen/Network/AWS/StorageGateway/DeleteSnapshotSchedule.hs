@@ -41,7 +41,8 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     -- ** Response constructor
     , deleteSnapshotScheduleResponse
     -- ** Response lenses
-    , dVolumeARN
+    , dssr1VolumeARN
+    , dssr1StatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -73,7 +74,7 @@ instance AWSRequest DeleteSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DeleteSnapshotScheduleResponse' <$>
-                   (x .?> "VolumeARN"))
+                   (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
@@ -99,13 +100,19 @@ instance ToQuery DeleteSnapshotSchedule where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dVolumeARN'
-newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dssr1VolumeARN'
+--
+-- * 'dssr1StatusCode'
+data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dssr1VolumeARN :: Maybe Text, _dssr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
-deleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
-deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dVolumeARN = Nothing};
+deleteSnapshotScheduleResponse :: Int -> DeleteSnapshotScheduleResponse
+deleteSnapshotScheduleResponse pStatusCode = DeleteSnapshotScheduleResponse'{_dssr1VolumeARN = Nothing, _dssr1StatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-dVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
-dVolumeARN = lens _dVolumeARN (\ s a -> s{_dVolumeARN = a});
+dssr1VolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
+dssr1VolumeARN = lens _dssr1VolumeARN (\ s a -> s{_dssr1VolumeARN = a});
+
+-- | FIXME: Undocumented member.
+dssr1StatusCode :: Lens' DeleteSnapshotScheduleResponse Int
+dssr1StatusCode = lens _dssr1StatusCode (\ s a -> s{_dssr1StatusCode = a});

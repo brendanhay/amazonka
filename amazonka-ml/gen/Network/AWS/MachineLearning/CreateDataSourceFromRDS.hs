@@ -51,6 +51,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     , createDataSourceFromRDSResponse
     -- ** Response lenses
     , cDataSourceId
+    , cStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -160,7 +161,7 @@ instance AWSRequest CreateDataSourceFromRDS where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRDSResponse' <$>
-                   (x .?> "DataSourceId"))
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
@@ -186,18 +187,34 @@ instance ToPath CreateDataSourceFromRDS where
 instance ToQuery CreateDataSourceFromRDS where
         toQuery = const mempty
 
--- | /See:/ 'createDataSourceFromRDSResponse' smart constructor.
+-- | Represents the output of a CreateDataSourceFromRDS operation, and is an
+-- acknowledgement that Amazon ML received the request.
+--
+-- The CreateDataSourceFromRDS operation is asynchronous. You can poll for
+-- updates by using the GetBatchPrediction operation and checking the
+-- @Status@ parameter. You can inspect the @Message@ when @Status@ shows up
+-- as @FAILED@. You can also check the progress of the copy operation by
+-- going to the @DataPipeline@ console and looking up the pipeline using
+-- the pipelineId from the describe call.
+--
+-- /See:/ 'createDataSourceFromRDSResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cDataSourceId'
-newtype CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cStatusCode'
+data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId :: Maybe Text, _cStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
-createDataSourceFromRDSResponse :: CreateDataSourceFromRDSResponse
-createDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId = Nothing};
+createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse
+createDataSourceFromRDSResponse pStatusCode = CreateDataSourceFromRDSResponse'{_cDataSourceId = Nothing, _cStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
 cDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
 cDataSourceId = lens _cDataSourceId (\ s a -> s{_cDataSourceId = a});
+
+-- | FIXME: Undocumented member.
+cStatusCode :: Lens' CreateDataSourceFromRDSResponse Int
+cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});

@@ -40,6 +40,7 @@ module Network.AWS.EC2.CreateVPNGateway
     , createVPNGatewayResponse
     -- ** Response lenses
     , cvgrVPNGateway
+    , cvgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -84,7 +85,8 @@ instance AWSRequest CreateVPNGateway where
         response
           = receiveXML
               (\ s h x ->
-                 CreateVPNGatewayResponse' <$> (x .@? "vpnGateway"))
+                 CreateVPNGatewayResponse' <$>
+                   (x .@? "vpnGateway") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
@@ -105,12 +107,18 @@ instance ToQuery CreateVPNGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvgrVPNGateway'
-newtype CreateVPNGatewayResponse = CreateVPNGatewayResponse'{_cvgrVPNGateway :: Maybe VPNGateway} deriving (Eq, Read, Show)
+--
+-- * 'cvgrStatusCode'
+data CreateVPNGatewayResponse = CreateVPNGatewayResponse'{_cvgrVPNGateway :: Maybe VPNGateway, _cvgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
-createVPNGatewayResponse :: CreateVPNGatewayResponse
-createVPNGatewayResponse = CreateVPNGatewayResponse'{_cvgrVPNGateway = Nothing};
+createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
+createVPNGatewayResponse pStatusCode = CreateVPNGatewayResponse'{_cvgrVPNGateway = Nothing, _cvgrStatusCode = pStatusCode};
 
 -- | Information about the virtual private gateway.
 cvgrVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrVPNGateway = lens _cvgrVPNGateway (\ s a -> s{_cvgrVPNGateway = a});
+
+-- | FIXME: Undocumented member.
+cvgrStatusCode :: Lens' CreateVPNGatewayResponse Int
+cvgrStatusCode = lens _cvgrStatusCode (\ s a -> s{_cvgrStatusCode = a});

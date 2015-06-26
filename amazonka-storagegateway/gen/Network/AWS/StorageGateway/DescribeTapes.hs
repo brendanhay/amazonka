@@ -36,17 +36,20 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- ** Response constructor
     , describeTapesResponse
     -- ** Response lenses
-    , dtrMarker
-    , dtrTapes
+    , desMarker
+    , desTapes
+    , desStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeTapes' smart constructor.
+-- | DescribeTapesInput
+--
+-- /See:/ 'describeTapes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,9 +93,9 @@ dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
 
 instance AWSPager DescribeTapes where
         page rq rs
-          | stop (rs ^. dtrMarker) = Nothing
-          | stop (rs ^. dtrTapes) = Nothing
-          | otherwise = Just $ rq & dtMarker .~ rs ^. dtrMarker
+          | stop (rs ^. desMarker) = Nothing
+          | stop (rs ^. desTapes) = Nothing
+          | otherwise = Just $ rq & dtMarker .~ rs ^. desMarker
 
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway
@@ -102,7 +105,8 @@ instance AWSRequest DescribeTapes where
           = receiveJSON
               (\ s h x ->
                  DescribeTapesResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty))
+                   (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeTapes where
         toHeaders
@@ -127,27 +131,35 @@ instance ToPath DescribeTapes where
 instance ToQuery DescribeTapes where
         toQuery = const mempty
 
--- | /See:/ 'describeTapesResponse' smart constructor.
+-- | DescribeTapesOutput
+--
+-- /See:/ 'describeTapesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrMarker'
+-- * 'desMarker'
 --
--- * 'dtrTapes'
-data DescribeTapesResponse = DescribeTapesResponse'{_dtrMarker :: Maybe Text, _dtrTapes :: Maybe [Tape]} deriving (Eq, Read, Show)
+-- * 'desTapes'
+--
+-- * 'desStatusCode'
+data DescribeTapesResponse = DescribeTapesResponse'{_desMarker :: Maybe Text, _desTapes :: Maybe [Tape], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTapesResponse' smart constructor.
-describeTapesResponse :: DescribeTapesResponse
-describeTapesResponse = DescribeTapesResponse'{_dtrMarker = Nothing, _dtrTapes = Nothing};
+describeTapesResponse :: Int -> DescribeTapesResponse
+describeTapesResponse pStatusCode = DescribeTapesResponse'{_desMarker = Nothing, _desTapes = Nothing, _desStatusCode = pStatusCode};
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes
 -- call to retrieve the next page of results.
 --
 -- If a response does not contain a marker, then there are no more results
 -- to be retrieved.
-dtrMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
+desMarker :: Lens' DescribeTapesResponse (Maybe Text)
+desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
 
 -- | An array of virtual tape descriptions.
-dtrTapes :: Lens' DescribeTapesResponse [Tape]
-dtrTapes = lens _dtrTapes (\ s a -> s{_dtrTapes = a}) . _Default;
+desTapes :: Lens' DescribeTapesResponse [Tape]
+desTapes = lens _desTapes (\ s a -> s{_desTapes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeTapesResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

@@ -40,6 +40,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     , updatePipelineStatusResponse
     -- ** Response lenses
     , upsrPipeline
+    , upsrStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -47,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updatePipelineStatus' smart constructor.
+-- | The @UpdatePipelineStatusRequest@ structure.
+--
+-- /See:/ 'updatePipelineStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,8 @@ instance AWSRequest UpdatePipelineStatus where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdatePipelineStatusResponse' <$> (x .?> "Pipeline"))
+                 UpdatePipelineStatusResponse' <$>
+                   (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty
@@ -96,18 +100,27 @@ instance ToPath UpdatePipelineStatus where
 instance ToQuery UpdatePipelineStatus where
         toQuery = const mempty
 
--- | /See:/ 'updatePipelineStatusResponse' smart constructor.
+-- | When you update status for a pipeline, Elastic Transcoder returns the
+-- values that you specified in the request.
+--
+-- /See:/ 'updatePipelineStatusResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'upsrPipeline'
-newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'{_upsrPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+--
+-- * 'upsrStatusCode'
+data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'{_upsrPipeline :: Maybe Pipeline, _upsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineStatusResponse' smart constructor.
-updatePipelineStatusResponse :: UpdatePipelineStatusResponse
-updatePipelineStatusResponse = UpdatePipelineStatusResponse'{_upsrPipeline = Nothing};
+updatePipelineStatusResponse :: Int -> UpdatePipelineStatusResponse
+updatePipelineStatusResponse pStatusCode = UpdatePipelineStatusResponse'{_upsrPipeline = Nothing, _upsrStatusCode = pStatusCode};
 
 -- | A section of the response body that provides information about the
 -- pipeline.
 upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrPipeline = lens _upsrPipeline (\ s a -> s{_upsrPipeline = a});
+
+-- | FIXME: Undocumented member.
+upsrStatusCode :: Lens' UpdatePipelineStatusResponse Int
+upsrStatusCode = lens _upsrStatusCode (\ s a -> s{_upsrStatusCode = a});

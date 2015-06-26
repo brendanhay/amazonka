@@ -37,6 +37,7 @@ module Network.AWS.SNS.CreateTopic
     , createTopicResponse
     -- ** Response lenses
     , ctrTopicARN
+    , ctrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -44,7 +45,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'createTopic' smart constructor.
+-- | Input for CreateTopic action.
+--
+-- /See:/ 'createTopic' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest CreateTopic where
         response
           = receiveXMLWrapper "CreateTopicResult"
               (\ s h x ->
-                 CreateTopicResponse' <$> (x .@? "TopicArn"))
+                 CreateTopicResponse' <$>
+                   (x .@? "TopicArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateTopic where
         toHeaders = const mempty
@@ -85,17 +89,25 @@ instance ToQuery CreateTopic where
                "Version" =: ("2010-03-31" :: ByteString),
                "Name" =: _ctName]
 
--- | /See:/ 'createTopicResponse' smart constructor.
+-- | Response from CreateTopic action.
+--
+-- /See:/ 'createTopicResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ctrTopicARN'
-newtype CreateTopicResponse = CreateTopicResponse'{_ctrTopicARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ctrStatusCode'
+data CreateTopicResponse = CreateTopicResponse'{_ctrTopicARN :: Maybe Text, _ctrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateTopicResponse' smart constructor.
-createTopicResponse :: CreateTopicResponse
-createTopicResponse = CreateTopicResponse'{_ctrTopicARN = Nothing};
+createTopicResponse :: Int -> CreateTopicResponse
+createTopicResponse pStatusCode = CreateTopicResponse'{_ctrTopicARN = Nothing, _ctrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicARN = lens _ctrTopicARN (\ s a -> s{_ctrTopicARN = a});
+
+-- | FIXME: Undocumented member.
+ctrStatusCode :: Lens' CreateTopicResponse Int
+ctrStatusCode = lens _ctrStatusCode (\ s a -> s{_ctrStatusCode = a});

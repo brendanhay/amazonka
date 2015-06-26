@@ -41,10 +41,11 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- ** Response lenses
     , darMetricAlarms
     , darNextToken
+    , darStatusCode
     ) where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -113,7 +114,8 @@ instance AWSRequest DescribeAlarms where
                  DescribeAlarmsResponse' <$>
                    (x .@? "MetricAlarms" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
@@ -134,18 +136,22 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | /See:/ 'describeAlarmsResponse' smart constructor.
+-- | The output for the DescribeAlarms action.
+--
+-- /See:/ 'describeAlarmsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darMetricAlarms'
 --
 -- * 'darNextToken'
-data DescribeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms :: Maybe [MetricAlarm], _darNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'darStatusCode'
+data DescribeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms :: Maybe [MetricAlarm], _darNextToken :: Maybe Text, _darStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
-describeAlarmsResponse :: DescribeAlarmsResponse
-describeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms = Nothing, _darNextToken = Nothing};
+describeAlarmsResponse :: Int -> DescribeAlarmsResponse
+describeAlarmsResponse pStatusCode = DescribeAlarmsResponse'{_darMetricAlarms = Nothing, _darNextToken = Nothing, _darStatusCode = pStatusCode};
 
 -- | A list of information for the specified alarms.
 darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
@@ -154,3 +160,7 @@ darMetricAlarms = lens _darMetricAlarms (\ s a -> s{_darMetricAlarms = a}) . _De
 -- | A string that marks the start of the next batch of returned results.
 darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darNextToken = lens _darNextToken (\ s a -> s{_darNextToken = a});
+
+-- | FIXME: Undocumented member.
+darStatusCode :: Lens' DescribeAlarmsResponse Int
+darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});

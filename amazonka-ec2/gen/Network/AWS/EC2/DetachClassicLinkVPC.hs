@@ -37,6 +37,7 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     , detachClassicLinkVPCResponse
     -- ** Response lenses
     , dclvrReturn
+    , dclvrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -82,7 +83,8 @@ instance AWSRequest DetachClassicLinkVPC where
         response
           = receiveXML
               (\ s h x ->
-                 DetachClassicLinkVPCResponse' <$> (x .@? "return"))
+                 DetachClassicLinkVPCResponse' <$>
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty
@@ -104,12 +106,18 @@ instance ToQuery DetachClassicLinkVPC where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dclvrReturn'
-newtype DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'{_dclvrReturn :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'dclvrStatusCode'
+data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'{_dclvrReturn :: Maybe Bool, _dclvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DetachClassicLinkVPCResponse' smart constructor.
-detachClassicLinkVPCResponse :: DetachClassicLinkVPCResponse
-detachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'{_dclvrReturn = Nothing};
+detachClassicLinkVPCResponse :: Int -> DetachClassicLinkVPCResponse
+detachClassicLinkVPCResponse pStatusCode = DetachClassicLinkVPCResponse'{_dclvrReturn = Nothing, _dclvrStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dclvrReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrReturn = lens _dclvrReturn (\ s a -> s{_dclvrReturn = a});
+
+-- | FIXME: Undocumented member.
+dclvrStatusCode :: Lens' DetachClassicLinkVPCResponse Int
+dclvrStatusCode = lens _dclvrStatusCode (\ s a -> s{_dclvrStatusCode = a});

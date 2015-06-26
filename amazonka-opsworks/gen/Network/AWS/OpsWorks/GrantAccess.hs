@@ -35,6 +35,7 @@ module Network.AWS.OpsWorks.GrantAccess
     , grantAccessResponse
     -- ** Response lenses
     , garTemporaryCredential
+    , garStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -74,7 +75,8 @@ instance AWSRequest GrantAccess where
           = receiveJSON
               (\ s h x ->
                  GrantAccessResponse' <$>
-                   (x .?> "TemporaryCredential"))
+                   (x .?> "TemporaryCredential") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GrantAccess where
         toHeaders
@@ -97,19 +99,27 @@ instance ToPath GrantAccess where
 instance ToQuery GrantAccess where
         toQuery = const mempty
 
--- | /See:/ 'grantAccessResponse' smart constructor.
+-- | Contains the response to a @GrantAccess@ request.
+--
+-- /See:/ 'grantAccessResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'garTemporaryCredential'
-newtype GrantAccessResponse = GrantAccessResponse'{_garTemporaryCredential :: Maybe TemporaryCredential} deriving (Eq, Read, Show)
+--
+-- * 'garStatusCode'
+data GrantAccessResponse = GrantAccessResponse'{_garTemporaryCredential :: Maybe TemporaryCredential, _garStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GrantAccessResponse' smart constructor.
-grantAccessResponse :: GrantAccessResponse
-grantAccessResponse = GrantAccessResponse'{_garTemporaryCredential = Nothing};
+grantAccessResponse :: Int -> GrantAccessResponse
+grantAccessResponse pStatusCode = GrantAccessResponse'{_garTemporaryCredential = Nothing, _garStatusCode = pStatusCode};
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in
 -- to the instance by RDP clients, such as the Microsoft Remote Desktop
 -- Connection.
 garTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garTemporaryCredential = lens _garTemporaryCredential (\ s a -> s{_garTemporaryCredential = a});
+
+-- | FIXME: Undocumented member.
+garStatusCode :: Lens' GrantAccessResponse Int
+garStatusCode = lens _garStatusCode (\ s a -> s{_garStatusCode = a});

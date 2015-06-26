@@ -52,6 +52,7 @@ module Network.AWS.EC2.CreateVPNConnection
     , createVPNConnectionResponse
     -- ** Response lenses
     , cvcrVPNConnection
+    , cvcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -114,7 +115,7 @@ instance AWSRequest CreateVPNConnection where
           = receiveXML
               (\ s h x ->
                  CreateVPNConnectionResponse' <$>
-                   (x .@? "vpnConnection"))
+                   (x .@? "vpnConnection") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVPNConnection where
         toHeaders = const mempty
@@ -137,12 +138,18 @@ instance ToQuery CreateVPNConnection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvcrVPNConnection'
-newtype CreateVPNConnectionResponse = CreateVPNConnectionResponse'{_cvcrVPNConnection :: Maybe VPNConnection} deriving (Eq, Read, Show)
+--
+-- * 'cvcrStatusCode'
+data CreateVPNConnectionResponse = CreateVPNConnectionResponse'{_cvcrVPNConnection :: Maybe VPNConnection, _cvcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
-createVPNConnectionResponse :: CreateVPNConnectionResponse
-createVPNConnectionResponse = CreateVPNConnectionResponse'{_cvcrVPNConnection = Nothing};
+createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse
+createVPNConnectionResponse pStatusCode = CreateVPNConnectionResponse'{_cvcrVPNConnection = Nothing, _cvcrStatusCode = pStatusCode};
 
 -- | Information about the VPN connection.
 cvcrVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
 cvcrVPNConnection = lens _cvcrVPNConnection (\ s a -> s{_cvcrVPNConnection = a});
+
+-- | FIXME: Undocumented member.
+cvcrStatusCode :: Lens' CreateVPNConnectionResponse Int
+cvcrStatusCode = lens _cvcrStatusCode (\ s a -> s{_cvcrStatusCode = a});

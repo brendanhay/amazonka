@@ -40,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'removeTagsFromStream' smart constructor.
+-- | Represents the input for @RemoveTagsFromStream@.
+--
+-- /See:/ 'removeTagsFromStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

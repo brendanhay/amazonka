@@ -48,6 +48,7 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflrUnsuccessful
     , cflrClientToken
     , cflrFlowLogIds
+    , cflrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -113,7 +114,8 @@ instance AWSRequest CreateFlowLogs where
                  CreateFlowLogsResponse' <$>
                    (may (parseXMLList "item") x) <*>
                      (x .@? "clientToken")
-                     <*> (may (parseXMLList "item") x))
+                     <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty
@@ -143,11 +145,13 @@ instance ToQuery CreateFlowLogs where
 -- * 'cflrClientToken'
 --
 -- * 'cflrFlowLogIds'
-data CreateFlowLogsResponse = CreateFlowLogsResponse'{_cflrUnsuccessful :: Maybe [UnsuccessfulItem], _cflrClientToken :: Maybe Text, _cflrFlowLogIds :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'cflrStatusCode'
+data CreateFlowLogsResponse = CreateFlowLogsResponse'{_cflrUnsuccessful :: Maybe [UnsuccessfulItem], _cflrClientToken :: Maybe Text, _cflrFlowLogIds :: Maybe [Text], _cflrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateFlowLogsResponse' smart constructor.
-createFlowLogsResponse :: CreateFlowLogsResponse
-createFlowLogsResponse = CreateFlowLogsResponse'{_cflrUnsuccessful = Nothing, _cflrClientToken = Nothing, _cflrFlowLogIds = Nothing};
+createFlowLogsResponse :: Int -> CreateFlowLogsResponse
+createFlowLogsResponse pStatusCode = CreateFlowLogsResponse'{_cflrUnsuccessful = Nothing, _cflrClientToken = Nothing, _cflrFlowLogIds = Nothing, _cflrStatusCode = pStatusCode};
 
 -- | Information about the flow logs that could not be created successfully.
 cflrUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
@@ -161,3 +165,7 @@ cflrClientToken = lens _cflrClientToken (\ s a -> s{_cflrClientToken = a});
 -- | The IDs of the flow logs.
 cflrFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
 cflrFlowLogIds = lens _cflrFlowLogIds (\ s a -> s{_cflrFlowLogIds = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+cflrStatusCode :: Lens' CreateFlowLogsResponse Int
+cflrStatusCode = lens _cflrStatusCode (\ s a -> s{_cflrStatusCode = a});

@@ -45,7 +45,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createTags' smart constructor.
+-- | Contains the output from the @CreateTags@ action.
+--
+-- /See:/ 'createTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

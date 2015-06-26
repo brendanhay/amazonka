@@ -37,6 +37,7 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     , dsfirNextToken
     , dsfirSpotFleetRequestId
     , dsfirActiveInstances
+    , dsfirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSpotFleetInstances' smart constructor.
+-- | Contains the parameters for DescribeSpotFleetInstances.
+--
+-- /See:/ 'describeSpotFleetInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +96,8 @@ instance AWSRequest DescribeSpotFleetInstances where
               (\ s h x ->
                  DescribeSpotFleetInstancesResponse' <$>
                    (x .@? "nextToken") <*> (x .@ "spotFleetRequestId")
-                     <*> (parseXMLList "item" x))
+                     <*> (parseXMLList "item" x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
@@ -112,7 +116,9 @@ instance ToQuery DescribeSpotFleetInstances where
                "MaxResults" =: _dsfiMaxResults,
                "SpotFleetRequestId" =: _dsfiSpotFleetRequestId]
 
--- | /See:/ 'describeSpotFleetInstancesResponse' smart constructor.
+-- | Contains the output of DescribeSpotFleetInstances.
+--
+-- /See:/ 'describeSpotFleetInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -121,11 +127,13 @@ instance ToQuery DescribeSpotFleetInstances where
 -- * 'dsfirSpotFleetRequestId'
 --
 -- * 'dsfirActiveInstances'
-data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'{_dsfirNextToken :: Maybe Text, _dsfirSpotFleetRequestId :: Text, _dsfirActiveInstances :: [ActiveInstance]} deriving (Eq, Read, Show)
+--
+-- * 'dsfirStatusCode'
+data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'{_dsfirNextToken :: Maybe Text, _dsfirSpotFleetRequestId :: Text, _dsfirActiveInstances :: [ActiveInstance], _dsfirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
-describeSpotFleetInstancesResponse :: Text -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pSpotFleetRequestId = DescribeSpotFleetInstancesResponse'{_dsfirNextToken = Nothing, _dsfirSpotFleetRequestId = pSpotFleetRequestId, _dsfirActiveInstances = mempty};
+describeSpotFleetInstancesResponse :: Text -> Int -> DescribeSpotFleetInstancesResponse
+describeSpotFleetInstancesResponse pSpotFleetRequestId pStatusCode = DescribeSpotFleetInstancesResponse'{_dsfirNextToken = Nothing, _dsfirSpotFleetRequestId = pSpotFleetRequestId, _dsfirActiveInstances = mempty, _dsfirStatusCode = pStatusCode};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -140,3 +148,7 @@ dsfirSpotFleetRequestId = lens _dsfirSpotFleetRequestId (\ s a -> s{_dsfirSpotFl
 -- might be out of date.
 dsfirActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance]
 dsfirActiveInstances = lens _dsfirActiveInstances (\ s a -> s{_dsfirActiveInstances = a});
+
+-- | FIXME: Undocumented member.
+dsfirStatusCode :: Lens' DescribeSpotFleetInstancesResponse Int
+dsfirStatusCode = lens _dsfirStatusCode (\ s a -> s{_dsfirStatusCode = a});

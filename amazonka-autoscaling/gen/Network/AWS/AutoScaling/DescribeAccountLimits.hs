@@ -35,6 +35,7 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- ** Response lenses
     , dalrMaxNumberOfLaunchConfigurations
     , dalrMaxNumberOfAutoScalingGroups
+    , dalrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -59,7 +60,8 @@ instance AWSRequest DescribeAccountLimits where
               (\ s h x ->
                  DescribeAccountLimitsResponse' <$>
                    (x .@? "MaxNumberOfLaunchConfigurations") <*>
-                     (x .@? "MaxNumberOfAutoScalingGroups"))
+                     (x .@? "MaxNumberOfAutoScalingGroups")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
@@ -81,11 +83,13 @@ instance ToQuery DescribeAccountLimits where
 -- * 'dalrMaxNumberOfLaunchConfigurations'
 --
 -- * 'dalrMaxNumberOfAutoScalingGroups'
-data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'{_dalrMaxNumberOfLaunchConfigurations :: Maybe Int, _dalrMaxNumberOfAutoScalingGroups :: Maybe Int} deriving (Eq, Read, Show)
+--
+-- * 'dalrStatusCode'
+data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'{_dalrMaxNumberOfLaunchConfigurations :: Maybe Int, _dalrMaxNumberOfAutoScalingGroups :: Maybe Int, _dalrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
-describeAccountLimitsResponse :: DescribeAccountLimitsResponse
-describeAccountLimitsResponse = DescribeAccountLimitsResponse'{_dalrMaxNumberOfLaunchConfigurations = Nothing, _dalrMaxNumberOfAutoScalingGroups = Nothing};
+describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse
+describeAccountLimitsResponse pStatusCode = DescribeAccountLimitsResponse'{_dalrMaxNumberOfLaunchConfigurations = Nothing, _dalrMaxNumberOfAutoScalingGroups = Nothing, _dalrStatusCode = pStatusCode};
 
 -- | The maximum number of launch configurations allowed for your AWS
 -- account. The default limit is 100 per region.
@@ -96,3 +100,7 @@ dalrMaxNumberOfLaunchConfigurations = lens _dalrMaxNumberOfLaunchConfigurations 
 -- limit is 20 per region.
 dalrMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrMaxNumberOfAutoScalingGroups = lens _dalrMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrMaxNumberOfAutoScalingGroups = a});
+
+-- | FIXME: Undocumented member.
+dalrStatusCode :: Lens' DescribeAccountLimitsResponse Int
+dalrStatusCode = lens _dalrStatusCode (\ s a -> s{_dalrStatusCode = a});

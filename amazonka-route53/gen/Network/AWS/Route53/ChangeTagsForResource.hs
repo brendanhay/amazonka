@@ -33,6 +33,8 @@ module Network.AWS.Route53.ChangeTagsForResource
     , ChangeTagsForResourceResponse
     -- ** Response constructor
     , changeTagsForResourceResponse
+    -- ** Response lenses
+    , ctfrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +42,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'changeTagsForResource' smart constructor.
+-- | A complex type containing information about a request to add, change, or
+-- delete the tags that are associated with a resource.
+--
+-- /See:/ 'changeTagsForResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +91,11 @@ instance AWSRequest ChangeTagsForResource where
         type Rs ChangeTagsForResource =
              ChangeTagsForResourceResponse
         request = postXML
-        response = receiveNull ChangeTagsForResourceResponse'
+        response
+          = receiveXML
+              (\ s h x ->
+                 ChangeTagsForResourceResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToElement ChangeTagsForResource where
         toElement
@@ -113,9 +122,19 @@ instance ToXML ChangeTagsForResource where
                "AddTags" @=
                  toXML (toXMLList "Tag" <$> _ctfrAddTags)]
 
--- | /See:/ 'changeTagsForResourceResponse' smart constructor.
-data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse' deriving (Eq, Read, Show)
+-- | Empty response for the request.
+--
+-- /See:/ 'changeTagsForResourceResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ctfrrStatusCode'
+newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'{_ctfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ChangeTagsForResourceResponse' smart constructor.
-changeTagsForResourceResponse :: ChangeTagsForResourceResponse
-changeTagsForResourceResponse = ChangeTagsForResourceResponse';
+changeTagsForResourceResponse :: Int -> ChangeTagsForResourceResponse
+changeTagsForResourceResponse pStatusCode = ChangeTagsForResourceResponse'{_ctfrrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+ctfrrStatusCode :: Lens' ChangeTagsForResourceResponse Int
+ctfrrStatusCode = lens _ctfrrStatusCode (\ s a -> s{_ctfrrStatusCode = a});

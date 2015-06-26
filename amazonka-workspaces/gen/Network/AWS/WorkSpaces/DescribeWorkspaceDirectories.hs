@@ -41,6 +41,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     -- ** Response lenses
     , dwdrDirectories
     , dwdrNextToken
+    , dwdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -48,7 +49,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspaceDirectories' smart constructor.
+-- | Contains the inputs for the DescribeWorkspaceDirectories operation.
+--
+-- /See:/ 'describeWorkspaceDirectories' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest DescribeWorkspaceDirectories
               (\ s h x ->
                  DescribeWorkspaceDirectoriesResponse' <$>
                    (x .?> "Directories" .!@ mempty) <*>
-                     (x .?> "NextToken"))
+                     (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
@@ -106,18 +110,22 @@ instance ToPath DescribeWorkspaceDirectories where
 instance ToQuery DescribeWorkspaceDirectories where
         toQuery = const mempty
 
--- | /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
+-- | Contains the results of the DescribeWorkspaceDirectories operation.
+--
+-- /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dwdrDirectories'
 --
 -- * 'dwdrNextToken'
-data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories :: Maybe [WorkspaceDirectory], _dwdrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dwdrStatusCode'
+data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories :: Maybe [WorkspaceDirectory], _dwdrNextToken :: Maybe Text, _dwdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
-describeWorkspaceDirectoriesResponse :: DescribeWorkspaceDirectoriesResponse
-describeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories = Nothing, _dwdrNextToken = Nothing};
+describeWorkspaceDirectoriesResponse :: Int -> DescribeWorkspaceDirectoriesResponse
+describeWorkspaceDirectoriesResponse pStatusCode = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories = Nothing, _dwdrNextToken = Nothing, _dwdrStatusCode = pStatusCode};
 
 -- | An array of structures that contain information about the directories.
 dwdrDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
@@ -129,3 +137,7 @@ dwdrDirectories = lens _dwdrDirectories (\ s a -> s{_dwdrDirectories = a}) . _De
 -- within that timeframe.
 dwdrNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrNextToken = lens _dwdrNextToken (\ s a -> s{_dwdrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dwdrStatusCode :: Lens' DescribeWorkspaceDirectoriesResponse Int
+dwdrStatusCode = lens _dwdrStatusCode (\ s a -> s{_dwdrStatusCode = a});

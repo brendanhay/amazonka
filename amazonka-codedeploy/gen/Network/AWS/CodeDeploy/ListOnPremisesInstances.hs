@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     -- ** Response lenses
     , lopirNextToken
     , lopirInstanceNames
+    , lopirStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -46,7 +47,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listOnPremisesInstances' smart constructor.
+-- | Represents the input of a list on-premises instances operation.
+--
+-- .
+--
+-- /See:/ 'listOnPremisesInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,7 +96,8 @@ instance AWSRequest ListOnPremisesInstances where
               (\ s h x ->
                  ListOnPremisesInstancesResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "instanceNames" .!@ mempty))
+                     (x .?> "instanceNames" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
@@ -116,18 +122,22 @@ instance ToPath ListOnPremisesInstances where
 instance ToQuery ListOnPremisesInstances where
         toQuery = const mempty
 
--- | /See:/ 'listOnPremisesInstancesResponse' smart constructor.
+-- | Represents the output of list on-premises instances operation.
+--
+-- /See:/ 'listOnPremisesInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lopirNextToken'
 --
 -- * 'lopirInstanceNames'
-data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken :: Maybe Text, _lopirInstanceNames :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lopirStatusCode'
+data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken :: Maybe Text, _lopirInstanceNames :: Maybe [Text], _lopirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
-listOnPremisesInstancesResponse :: ListOnPremisesInstancesResponse
-listOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken = Nothing, _lopirInstanceNames = Nothing};
+listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
+listOnPremisesInstancesResponse pStatusCode = ListOnPremisesInstancesResponse'{_lopirNextToken = Nothing, _lopirInstanceNames = Nothing, _lopirStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -139,3 +149,7 @@ lopirNextToken = lens _lopirNextToken (\ s a -> s{_lopirNextToken = a});
 -- | The list of matching on-premises instance names.
 lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
 lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lopirStatusCode :: Lens' ListOnPremisesInstancesResponse Int
+lopirStatusCode = lens _lopirStatusCode (\ s a -> s{_lopirStatusCode = a});

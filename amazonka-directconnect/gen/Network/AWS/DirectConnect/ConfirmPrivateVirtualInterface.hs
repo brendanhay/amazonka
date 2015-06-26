@@ -38,6 +38,7 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     , confirmPrivateVirtualInterfaceResponse
     -- ** Response lenses
     , cpvirVirtualInterfaceState
+    , cpvirStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -45,7 +46,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'confirmPrivateVirtualInterface' smart constructor.
+-- | Container for the parameters to the ConfirmPrivateVirtualInterface
+-- operation.
+--
+-- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -85,7 +89,8 @@ instance AWSRequest ConfirmPrivateVirtualInterface
           = receiveJSON
               (\ s h x ->
                  ConfirmPrivateVirtualInterfaceResponse' <$>
-                   (x .?> "virtualInterfaceState"))
+                   (x .?> "virtualInterfaceState") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ConfirmPrivateVirtualInterface
          where
@@ -110,17 +115,25 @@ instance ToPath ConfirmPrivateVirtualInterface where
 instance ToQuery ConfirmPrivateVirtualInterface where
         toQuery = const mempty
 
--- | /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
+-- | The response received when ConfirmPrivateVirtualInterface is called.
+--
+-- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cpvirVirtualInterfaceState'
-newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'{_cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState} deriving (Eq, Read, Show)
+--
+-- * 'cpvirStatusCode'
+data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'{_cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState, _cpvirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
-confirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'{_cpvirVirtualInterfaceState = Nothing};
+confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse
+confirmPrivateVirtualInterfaceResponse pStatusCode = ConfirmPrivateVirtualInterfaceResponse'{_cpvirVirtualInterfaceState = Nothing, _cpvirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cpvirVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvirVirtualInterfaceState = lens _cpvirVirtualInterfaceState (\ s a -> s{_cpvirVirtualInterfaceState = a});
+
+-- | FIXME: Undocumented member.
+cpvirStatusCode :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
+cpvirStatusCode = lens _cpvirStatusCode (\ s a -> s{_cpvirStatusCode = a});

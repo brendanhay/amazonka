@@ -21,8 +21,17 @@ module Network.AWS.SNS.Types
     (
     -- * Service
       SNS
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _EndpointDisabledException
+    , _AuthorizationErrorException
+    , _InvalidParameterException
+    , _SubscriptionLimitExceededException
+    , _PlatformApplicationDisabledException
+    , _InternalErrorException
+    , _NotFoundException
+    , _InvalidParameterValueException
+    , _TopicLimitExceededException
 
     -- * Endpoint
     , Endpoint
@@ -56,6 +65,7 @@ module Network.AWS.SNS.Types
     , Topic
     , topic
     , topTopicARN
+
     ) where
 
 import Network.AWS.Prelude
@@ -66,32 +76,76 @@ data SNS
 
 instance AWSService SNS where
     type Sg SNS = V4
-    type Er SNS = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service SNS
-        service' = Service
-            { _svcAbbrev  = "SNS"
-            , _svcPrefix  = "sns"
-            , _svcVersion = "2010-03-31"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service SNS
+        svc = Service
+            { _svcAbbrev   = "SNS"
+            , _svcPrefix   = "sns"
+            , _svcVersion  = "2010-03-31"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry SNS
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Exception error indicating endpoint disabled.
+_EndpointDisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
+_EndpointDisabledException = _ServiceError . hasCode "EndpointDisabled" . hasStatus 400;
 
--- | /See:/ 'endpoint' smart constructor.
+-- | Indicates that the user has been denied access to the requested
+-- resource.
+_AuthorizationErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationErrorException = _ServiceError . hasCode "AuthorizationError" . hasStatus 403;
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameter" . hasStatus 400;
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- subscriptions.
+_SubscriptionLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionLimitExceededException = _ServiceError . hasCode "SubscriptionLimitExceeded" . hasStatus 403;
+
+-- | Exception error indicating platform application disabled.
+_PlatformApplicationDisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PlatformApplicationDisabledException = _ServiceError . hasCode "PlatformApplicationDisabled" . hasStatus 400;
+
+-- | Indicates an internal service error.
+_InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalErrorException = _ServiceError . hasCode "InternalError" . hasStatus 500;
+
+-- | Indicates that the requested resource does not exist.
+_NotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasCode "NotFound" . hasStatus 404;
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValueException = _ServiceError . hasCode "ParameterValueInvalid" . hasStatus 400;
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- topics.
+_TopicLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TopicLimitExceededException = _ServiceError . hasCode "TopicLimitExceeded" . hasStatus 403;
+
+-- | Endpoint for mobile app and device.
+--
+-- /See:/ 'endpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -128,7 +182,19 @@ instance ToQuery Endpoint where
                       _endAttributes),
                "EndpointArn" =: _endEndpointARN]
 
--- | /See:/ 'messageAttributeValue' smart constructor.
+-- | The user-specified message attribute value. For string data types, the
+-- value attribute has the same restrictions on the content as the message
+-- body. For more information, see
+-- <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish>.
+--
+-- Name, type, and value must not be empty or null. In addition, the
+-- message body should not be empty or null. All parts of the message
+-- attribute, including name, type, and value, are included in the message
+-- size restriction, which is currently 256 KB (262,144 bytes). For more
+-- information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html Using Amazon SNS Message Attributes>.
+--
+-- /See:/ 'messageAttributeValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -167,7 +233,9 @@ instance ToQuery MessageAttributeValue where
                "StringValue" =: _mavStringValue,
                "DataType" =: _mavDataType]
 
--- | /See:/ 'platformApplication' smart constructor.
+-- | Platform application object.
+--
+-- /See:/ 'platformApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -195,7 +263,9 @@ instance FromXML PlatformApplication where
                 (x .@? "Attributes" .!@ mempty >>=
                    may (parseXMLMap "entry" "key" "value"))
 
--- | /See:/ 'subscription' smart constructor.
+-- | A wrapper type for the attributes of an Amazon SNS subscription.
+--
+-- /See:/ 'subscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -242,7 +312,10 @@ instance FromXML Subscription where
                 <*> (x .@? "Endpoint")
                 <*> (x .@? "SubscriptionArn")
 
--- | /See:/ 'topic' smart constructor.
+-- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
+-- a topic\'s attributes, use @GetTopicAttributes@.
+--
+-- /See:/ 'topic' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

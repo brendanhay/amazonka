@@ -34,6 +34,7 @@ module Network.AWS.IAM.GetLoginProfile
     , getLoginProfileResponse
     -- ** Response lenses
     , glprLoginProfile
+    , glprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -63,7 +64,8 @@ instance AWSRequest GetLoginProfile where
         response
           = receiveXMLWrapper "GetLoginProfileResult"
               (\ s h x ->
-                 GetLoginProfileResponse' <$> (x .@ "LoginProfile"))
+                 GetLoginProfileResponse' <$>
+                   (x .@ "LoginProfile") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
@@ -78,17 +80,25 @@ instance ToQuery GetLoginProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _glpUserName]
 
--- | /See:/ 'getLoginProfileResponse' smart constructor.
+-- | Contains the response to a successful GetLoginProfile request.
+--
+-- /See:/ 'getLoginProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'glprLoginProfile'
-newtype GetLoginProfileResponse = GetLoginProfileResponse'{_glprLoginProfile :: LoginProfile} deriving (Eq, Read, Show)
+--
+-- * 'glprStatusCode'
+data GetLoginProfileResponse = GetLoginProfileResponse'{_glprLoginProfile :: LoginProfile, _glprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetLoginProfileResponse' smart constructor.
-getLoginProfileResponse :: LoginProfile -> GetLoginProfileResponse
-getLoginProfileResponse pLoginProfile = GetLoginProfileResponse'{_glprLoginProfile = pLoginProfile};
+getLoginProfileResponse :: LoginProfile -> Int -> GetLoginProfileResponse
+getLoginProfileResponse pLoginProfile pStatusCode = GetLoginProfileResponse'{_glprLoginProfile = pLoginProfile, _glprStatusCode = pStatusCode};
 
 -- | The user name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\ s a -> s{_glprLoginProfile = a});
+
+-- | FIXME: Undocumented member.
+glprStatusCode :: Lens' GetLoginProfileResponse Int
+glprStatusCode = lens _glprStatusCode (\ s a -> s{_glprStatusCode = a});

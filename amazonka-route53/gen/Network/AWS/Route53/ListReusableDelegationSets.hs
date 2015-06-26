@@ -47,6 +47,7 @@ module Network.AWS.Route53.ListReusableDelegationSets
     , lrdsrMarker
     , lrdsrIsTruncated
     , lrdsrMaxItems
+    , lrdsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -54,7 +55,19 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listReusableDelegationSets' smart constructor.
+-- | To retrieve a list of your reusable delegation sets, send a @GET@
+-- request to the @2013-04-01\/delegationset@ resource. The response to
+-- this request includes a @DelegationSets@ element with zero or more
+-- @DelegationSet@ child elements. By default, the list of reusable
+-- delegation sets is displayed on a single page. You can control the
+-- length of the page that is displayed by using the @MaxItems@ parameter.
+-- You can use the @Marker@ parameter to control the delegation set that
+-- the list begins with.
+--
+-- Route 53 returns a maximum of 100 items. If you set @MaxItems@ to a
+-- value greater than 100, Route 53 returns only the first 100.
+--
+-- /See:/ 'listReusableDelegationSets' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -92,7 +105,8 @@ instance AWSRequest ListReusableDelegationSets where
                         parseXMLList "DelegationSet")
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems"))
+                     <*> (x .@ "MaxItems")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
@@ -106,7 +120,9 @@ instance ToQuery ListReusableDelegationSets where
               ["maxitems" =: _lrdsMaxItems,
                "marker" =: _lrdsMarker]
 
--- | /See:/ 'listReusableDelegationSetsResponse' smart constructor.
+-- | A complex type that contains the response for the request.
+--
+-- /See:/ 'listReusableDelegationSetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -119,11 +135,13 @@ instance ToQuery ListReusableDelegationSets where
 -- * 'lrdsrIsTruncated'
 --
 -- * 'lrdsrMaxItems'
-data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'{_lrdsrNextMarker :: Maybe Text, _lrdsrDelegationSets :: [DelegationSet], _lrdsrMarker :: Text, _lrdsrIsTruncated :: Bool, _lrdsrMaxItems :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lrdsrStatusCode'
+data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'{_lrdsrNextMarker :: Maybe Text, _lrdsrDelegationSets :: [DelegationSet], _lrdsrMarker :: Text, _lrdsrIsTruncated :: Bool, _lrdsrMaxItems :: Text, _lrdsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
-listReusableDelegationSetsResponse :: Text -> Bool -> Text -> ListReusableDelegationSetsResponse
-listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems = ListReusableDelegationSetsResponse'{_lrdsrNextMarker = Nothing, _lrdsrDelegationSets = mempty, _lrdsrMarker = pMarker, _lrdsrIsTruncated = pIsTruncated, _lrdsrMaxItems = pMaxItems};
+listReusableDelegationSetsResponse :: Text -> Bool -> Text -> Int -> ListReusableDelegationSetsResponse
+listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems pStatusCode = ListReusableDelegationSetsResponse'{_lrdsrNextMarker = Nothing, _lrdsrDelegationSets = mempty, _lrdsrMarker = pMarker, _lrdsrIsTruncated = pIsTruncated, _lrdsrMaxItems = pMaxItems, _lrdsrStatusCode = pStatusCode};
 
 -- | Indicates where to continue listing reusable delegation sets. If
 -- ListReusableDelegationSetsResponse$IsTruncated is @true@, make another
@@ -162,3 +180,7 @@ lrdsrIsTruncated = lens _lrdsrIsTruncated (\ s a -> s{_lrdsrIsTruncated = a});
 -- results.
 lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMaxItems = lens _lrdsrMaxItems (\ s a -> s{_lrdsrMaxItems = a});
+
+-- | FIXME: Undocumented member.
+lrdsrStatusCode :: Lens' ListReusableDelegationSetsResponse Int
+lrdsrStatusCode = lens _lrdsrStatusCode (\ s a -> s{_lrdsrStatusCode = a});

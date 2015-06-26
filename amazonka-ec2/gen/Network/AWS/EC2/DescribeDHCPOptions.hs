@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeDHCPOptions
     , describeDHCPOptionsResponse
     -- ** Response lenses
     , ddorDHCPOptions
+    , ddorStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -107,7 +108,8 @@ instance AWSRequest DescribeDHCPOptions where
           = receiveXML
               (\ s h x ->
                  DescribeDHCPOptionsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty
@@ -130,12 +132,18 @@ instance ToQuery DescribeDHCPOptions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddorDHCPOptions'
-newtype DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions :: Maybe [DHCPOptions]} deriving (Eq, Read, Show)
+--
+-- * 'ddorStatusCode'
+data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions :: Maybe [DHCPOptions], _ddorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
-describeDHCPOptionsResponse :: DescribeDHCPOptionsResponse
-describeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions = Nothing};
+describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
+describeDHCPOptionsResponse pStatusCode = DescribeDHCPOptionsResponse'{_ddorDHCPOptions = Nothing, _ddorStatusCode = pStatusCode};
 
 -- | Information about one or more DHCP options sets.
 ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddorStatusCode :: Lens' DescribeDHCPOptionsResponse Int
+ddorStatusCode = lens _ddorStatusCode (\ s a -> s{_ddorStatusCode = a});

@@ -34,6 +34,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- ** Response lenses
     , cirInvalidation
     , cirLocation
+    , cirStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createInvalidation' smart constructor.
+-- | The request to create an invalidation.
+--
+-- /See:/ 'createInvalidation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest CreateInvalidation where
           = receiveXML
               (\ s h x ->
                  CreateInvalidationResponse' <$>
-                   (x .@? "Invalidation") <*> (h .#? "Location"))
+                   (x .@? "Invalidation") <*> (h .#? "Location") <*>
+                     (pure (fromEnum s)))
 
 instance ToElement CreateInvalidation where
         toElement
@@ -92,18 +96,22 @@ instance ToPath CreateInvalidation where
 instance ToQuery CreateInvalidation where
         toQuery = const mempty
 
--- | /See:/ 'createInvalidationResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'createInvalidationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cirInvalidation'
 --
 -- * 'cirLocation'
-data CreateInvalidationResponse = CreateInvalidationResponse'{_cirInvalidation :: Maybe Invalidation, _cirLocation :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cirStatusCode'
+data CreateInvalidationResponse = CreateInvalidationResponse'{_cirInvalidation :: Maybe Invalidation, _cirLocation :: Maybe Text, _cirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateInvalidationResponse' smart constructor.
-createInvalidationResponse :: CreateInvalidationResponse
-createInvalidationResponse = CreateInvalidationResponse'{_cirInvalidation = Nothing, _cirLocation = Nothing};
+createInvalidationResponse :: Int -> CreateInvalidationResponse
+createInvalidationResponse pStatusCode = CreateInvalidationResponse'{_cirInvalidation = Nothing, _cirLocation = Nothing, _cirStatusCode = pStatusCode};
 
 -- | The invalidation\'s information.
 cirInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
@@ -113,3 +121,7 @@ cirInvalidation = lens _cirInvalidation (\ s a -> s{_cirInvalidation = a});
 -- request, including the Invalidation ID.
 cirLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirLocation = lens _cirLocation (\ s a -> s{_cirLocation = a});
+
+-- | FIXME: Undocumented member.
+cirStatusCode :: Lens' CreateInvalidationResponse Int
+cirStatusCode = lens _cirStatusCode (\ s a -> s{_cirStatusCode = a});

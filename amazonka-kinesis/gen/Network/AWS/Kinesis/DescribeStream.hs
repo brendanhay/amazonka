@@ -56,15 +56,18 @@ module Network.AWS.Kinesis.DescribeStream
     , describeStreamResponse
     -- ** Response lenses
     , dsrStreamDescription
+    , dsrStatusCode
     ) where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeStream' smart constructor.
+-- | Represents the input for @DescribeStream@.
+--
+-- /See:/ 'describeStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -113,7 +116,7 @@ instance AWSRequest DescribeStream where
           = receiveJSON
               (\ s h x ->
                  DescribeStreamResponse' <$>
-                   (x .:> "StreamDescription"))
+                   (x .:> "StreamDescription") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStream where
         toHeaders
@@ -137,19 +140,27 @@ instance ToPath DescribeStream where
 instance ToQuery DescribeStream where
         toQuery = const mempty
 
--- | /See:/ 'describeStreamResponse' smart constructor.
+-- | Represents the output for @DescribeStream@.
+--
+-- /See:/ 'describeStreamResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrStreamDescription'
-newtype DescribeStreamResponse = DescribeStreamResponse'{_dsrStreamDescription :: StreamDescription} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DescribeStreamResponse = DescribeStreamResponse'{_dsrStreamDescription :: StreamDescription, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStreamResponse' smart constructor.
-describeStreamResponse :: StreamDescription -> DescribeStreamResponse
-describeStreamResponse pStreamDescription = DescribeStreamResponse'{_dsrStreamDescription = pStreamDescription};
+describeStreamResponse :: StreamDescription -> Int -> DescribeStreamResponse
+describeStreamResponse pStreamDescription pStatusCode = DescribeStreamResponse'{_dsrStreamDescription = pStreamDescription, _dsrStatusCode = pStatusCode};
 
 -- | The current status of the stream, the stream ARN, an array of shard
 -- objects that comprise the stream, and states whether there are more
 -- shards available.
 dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription = lens _dsrStreamDescription (\ s a -> s{_dsrStreamDescription = a});
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DescribeStreamResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

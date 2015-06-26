@@ -35,6 +35,7 @@ module Network.AWS.SQS.ListQueues
     , listQueuesResponse
     -- ** Response lenses
     , lqrQueueURLs
+    , lqrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -66,7 +67,8 @@ instance AWSRequest ListQueues where
           = receiveXMLWrapper "ListQueuesResult"
               (\ s h x ->
                  ListQueuesResponse' <$>
-                   (may (parseXMLList "QueueUrl") x))
+                   (may (parseXMLList "QueueUrl") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListQueues where
         toHeaders = const mempty
@@ -81,17 +83,25 @@ instance ToQuery ListQueues where
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueNamePrefix" =: _lqQueueNamePrefix]
 
--- | /See:/ 'listQueuesResponse' smart constructor.
+-- | A list of your queues.
+--
+-- /See:/ 'listQueuesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lqrQueueURLs'
-newtype ListQueuesResponse = ListQueuesResponse'{_lqrQueueURLs :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lqrStatusCode'
+data ListQueuesResponse = ListQueuesResponse'{_lqrQueueURLs :: Maybe [Text], _lqrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListQueuesResponse' smart constructor.
-listQueuesResponse :: ListQueuesResponse
-listQueuesResponse = ListQueuesResponse'{_lqrQueueURLs = Nothing};
+listQueuesResponse :: Int -> ListQueuesResponse
+listQueuesResponse pStatusCode = ListQueuesResponse'{_lqrQueueURLs = Nothing, _lqrStatusCode = pStatusCode};
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lqrStatusCode :: Lens' ListQueuesResponse Int
+lqrStatusCode = lens _lqrStatusCode (\ s a -> s{_lqrStatusCode = a});

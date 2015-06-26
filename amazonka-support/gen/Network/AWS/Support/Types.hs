@@ -21,8 +21,17 @@ module Network.AWS.Support.Types
     (
     -- * Service
       Support
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _AttachmentSetExpired
+    , _AttachmentLimitExceeded
+    , _DescribeAttachmentLimitExceeded
+    , _CaseIdNotFound
+    , _AttachmentSetIdNotFound
+    , _AttachmentSetSizeLimitExceeded
+    , _AttachmentIdNotFound
+    , _InternalServerError
+    , _CaseCreationLimitExceeded
 
     -- * Attachment
     , Attachment
@@ -149,6 +158,7 @@ module Network.AWS.Support.Types
     , tarsResourcesFlagged
     , tarsResourcesIgnored
     , tarsResourcesSuppressed
+
     ) where
 
 import Network.AWS.Prelude
@@ -159,32 +169,76 @@ data Support
 
 instance AWSService Support where
     type Sg Support = V4
-    type Er Support = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Support
-        service' = Service
-            { _svcAbbrev  = "Support"
-            , _svcPrefix  = "support"
-            , _svcVersion = "2013-04-15"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Support
+        svc = Service
+            { _svcAbbrev   = "Support"
+            , _svcPrefix   = "support"
+            , _svcVersion  = "2013-04-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Support
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The expiration time of the attachment set has passed. The set expires 1
+-- hour after it is created.
+_AttachmentSetExpired :: AWSError a => Geting (First ServiceError) a ServiceError
+_AttachmentSetExpired = _ServiceError . hasCode "AttachmentSetExpired";
 
--- | /See:/ 'attachment' smart constructor.
+-- | The limit for the number of attachment sets created in a short period of
+-- time has been exceeded.
+_AttachmentLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_AttachmentLimitExceeded = _ServiceError . hasCode "AttachmentLimitExceeded";
+
+-- | The limit for the number of DescribeAttachment requests in a short
+-- period of time has been exceeded.
+_DescribeAttachmentLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_DescribeAttachmentLimitExceeded = _ServiceError . hasCode "DescribeAttachmentLimitExceeded";
+
+-- | The requested @CaseId@ could not be located.
+_CaseIdNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_CaseIdNotFound = _ServiceError . hasCode "CaseIdNotFound";
+
+-- | An attachment set with the specified ID could not be found.
+_AttachmentSetIdNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_AttachmentSetIdNotFound = _ServiceError . hasCode "AttachmentSetIdNotFound";
+
+-- | A limit for the size of an attachment set has been exceeded. The limits
+-- are 3 attachments and 5 MB per attachment.
+_AttachmentSetSizeLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_AttachmentSetSizeLimitExceeded = _ServiceError . hasCode "AttachmentSetSizeLimitExceeded";
+
+-- | An attachment with the specified ID could not be found.
+_AttachmentIdNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_AttachmentIdNotFound = _ServiceError . hasCode "AttachmentIdNotFound";
+
+-- | An internal server error occurred.
+_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalServerError";
+
+-- | The case creation limit for the account has been exceeded.
+_CaseCreationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_CaseCreationLimitExceeded = _ServiceError . hasCode "CaseCreationLimitExceeded";
+
+-- | An attachment to a case communication. The attachment consists of the
+-- file name and the content of the file.
+--
+-- /See:/ 'attachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -217,7 +271,11 @@ instance ToJSON Attachment where
           = object
               ["data" .= _attData, "fileName" .= _attFileName]
 
--- | /See:/ 'attachmentDetails' smart constructor.
+-- | The file name and ID of an attachment to a case communication. You can
+-- use the ID to retrieve the attachment with the DescribeAttachment
+-- operation.
+--
+-- /See:/ 'attachmentDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -245,7 +303,37 @@ instance FromJSON AttachmentDetails where
                  AttachmentDetails' <$>
                    (x .:? "attachmentId") <*> (x .:? "fileName"))
 
--- | /See:/ 'caseDetails' smart constructor.
+-- | A JSON-formatted object that contains the metadata for a support case.
+-- It is contained the response from a DescribeCases request.
+-- __CaseDetails__ contains the following fields:
+--
+-- 1.  __CaseID.__ The AWS Support case ID requested or returned in the
+--     call. The case ID is an alphanumeric string formatted as shown in
+--     this example: case-/12345678910-2013-c4c1d2bf33c5cf47/.
+-- 2.  __CategoryCode.__ The category of problem for the AWS Support case.
+--     Corresponds to the CategoryCode values returned by a call to
+--     DescribeServices.
+-- 3.  __DisplayId.__ The identifier for the case on pages in the AWS
+--     Support Center.
+-- 4.  __Language.__ The ISO 639-1 code for the language in which AWS
+--     provides support. AWS Support currently supports English (\"en\")
+--     and Japanese (\"ja\"). Language parameters must be passed explicitly
+--     for operations that take them.
+-- 5.  __RecentCommunications.__ One or more Communication objects. Fields
+--     of these objects are @Attachments@, @Body@, @CaseId@, @SubmittedBy@,
+--     and @TimeCreated@.
+-- 6.  __NextToken.__ A resumption point for pagination.
+-- 7.  __ServiceCode.__ The identifier for the AWS service that corresponds
+--     to the service code defined in the call to DescribeServices.
+-- 8.  __SeverityCode.__ The severity code assigned to the case. Contains
+--     one of the values returned by the call to DescribeSeverityLevels.
+-- 9.  __Status.__ The status of the case in the AWS Support Center.
+-- 10. __Subject.__ The subject line of the case.
+-- 11. __SubmittedBy.__ The email address of the account that submitted the
+--     case.
+-- 12. __TimeCreated.__ The time the case was created, in ISO-8601 format.
+--
+-- /See:/ 'caseDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -353,7 +441,11 @@ instance FromJSON CaseDetails where
                      <*> (x .:? "timeCreated")
                      <*> (x .:? "serviceCode"))
 
--- | /See:/ 'category' smart constructor.
+-- | A JSON-formatted name\/value pair that represents the category name and
+-- category code of the problem, selected from the DescribeServices
+-- response for each AWS service.
+--
+-- /See:/ 'category' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -380,7 +472,11 @@ instance FromJSON Category where
               (\ x ->
                  Category' <$> (x .:? "name") <*> (x .:? "code"))
 
--- | /See:/ 'communication' smart constructor.
+-- | A communication associated with an AWS Support case. The communication
+-- consists of the case ID, the message body, attachment information, the
+-- account email address, and the date and time of the communication.
+--
+-- /See:/ 'communication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -431,7 +527,9 @@ instance FromJSON Communication where
                      <*> (x .:? "timeCreated")
                      <*> (x .:? "attachmentSet" .!= mempty))
 
--- | /See:/ 'recentCaseCommunications' smart constructor.
+-- | The five most recent communications associated with the case.
+--
+-- /See:/ 'recentCaseCommunications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -460,7 +558,10 @@ instance FromJSON RecentCaseCommunications where
                    (x .:? "nextToken") <*>
                      (x .:? "communications" .!= mempty))
 
--- | /See:/ 'severityLevel' smart constructor.
+-- | A code and name pair that represent a severity level that can be applied
+-- to a support case.
+--
+-- /See:/ 'severityLevel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -490,7 +591,10 @@ instance FromJSON SeverityLevel where
               (\ x ->
                  SeverityLevel' <$> (x .:? "name") <*> (x .:? "code"))
 
--- | /See:/ 'supportService' smart constructor.
+-- | Information about an AWS service returned by the DescribeServices
+-- operation.
+--
+-- /See:/ 'supportService' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -530,7 +634,10 @@ instance FromJSON SupportService where
                    (x .:? "categories" .!= mempty) <*> (x .:? "name")
                      <*> (x .:? "code"))
 
--- | /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
+-- | The container for summary information that relates to the category of
+-- the Trusted Advisor check.
+--
+-- /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -554,7 +661,9 @@ instance FromJSON
                  TrustedAdvisorCategorySpecificSummary' <$>
                    (x .:? "costOptimizing"))
 
--- | /See:/ 'trustedAdvisorCheckDescription' smart constructor.
+-- | The description and metadata for a Trusted Advisor check.
+--
+-- /See:/ 'trustedAdvisorCheckDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -609,7 +718,9 @@ instance FromJSON TrustedAdvisorCheckDescription
                      <*> (x .: "category")
                      <*> (x .:? "metadata" .!= mempty))
 
--- | /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
+-- | The refresh status of a Trusted Advisor check.
+--
+-- /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -648,7 +759,10 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
                    (x .: "checkId") <*> (x .: "status") <*>
                      (x .: "millisUntilNextRefreshable"))
 
--- | /See:/ 'trustedAdvisorCheckResult' smart constructor.
+-- | The results of a Trusted Advisor check returned by
+-- DescribeTrustedAdvisorCheckResult.
+--
+-- /See:/ 'trustedAdvisorCheckResult' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -706,7 +820,10 @@ instance FromJSON TrustedAdvisorCheckResult where
                      <*> (x .: "categorySpecificSummary")
                      <*> (x .:? "flaggedResources" .!= mempty))
 
--- | /See:/ 'trustedAdvisorCheckSummary' smart constructor.
+-- | A summary of a Trusted Advisor check result, including the alert status,
+-- last refresh, and number of resources examined.
+--
+-- /See:/ 'trustedAdvisorCheckSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -764,7 +881,10 @@ instance FromJSON TrustedAdvisorCheckSummary where
                      <*> (x .: "resourcesSummary")
                      <*> (x .: "categorySpecificSummary"))
 
--- | /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
+-- | The estimated cost savings that might be realized if the recommended
+-- actions are taken.
+--
+-- /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -796,7 +916,10 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
                    (x .: "estimatedMonthlySavings") <*>
                      (x .: "estimatedPercentMonthlySavings"))
 
--- | /See:/ 'trustedAdvisorResourceDetail' smart constructor.
+-- | Contains information about a resource identified by a Trusted Advisor
+-- check.
+--
+-- /See:/ 'trustedAdvisorResourceDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -852,7 +975,10 @@ instance FromJSON TrustedAdvisorResourceDetail where
                      <*> (x .: "resourceId")
                      <*> (x .:? "metadata" .!= mempty))
 
--- | /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
+-- | Details about AWS resources that were analyzed in a call to Trusted
+-- Advisor DescribeTrustedAdvisorCheckSummaries.
+--
+-- /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

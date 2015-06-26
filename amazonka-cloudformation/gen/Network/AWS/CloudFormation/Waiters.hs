@@ -17,4 +17,4 @@ module Network.AWS.CloudFormation.Waiters where
 
 import Network.AWS.CloudFormation.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

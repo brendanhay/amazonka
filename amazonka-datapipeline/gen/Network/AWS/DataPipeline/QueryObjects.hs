@@ -39,15 +39,18 @@ module Network.AWS.DataPipeline.QueryObjects
     , qorHasMoreResults
     , qorIds
     , qorMarker
+    , qorStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'queryObjects' smart constructor.
+-- | Contains the parameters for QueryObjects.
+--
+-- /See:/ 'queryObjects' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,7 +112,8 @@ instance AWSRequest QueryObjects where
               (\ s h x ->
                  QueryObjectsResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "ids" .!@ mempty)
-                     <*> (x .?> "marker"))
+                     <*> (x .?> "marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders QueryObjects where
         toHeaders
@@ -133,7 +137,9 @@ instance ToPath QueryObjects where
 instance ToQuery QueryObjects where
         toQuery = const mempty
 
--- | /See:/ 'queryObjectsResponse' smart constructor.
+-- | Contains the output of QueryObjects.
+--
+-- /See:/ 'queryObjectsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -142,11 +148,13 @@ instance ToQuery QueryObjects where
 -- * 'qorIds'
 --
 -- * 'qorMarker'
-data QueryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults :: Maybe Bool, _qorIds :: Maybe [Text], _qorMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'qorStatusCode'
+data QueryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults :: Maybe Bool, _qorIds :: Maybe [Text], _qorMarker :: Maybe Text, _qorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'QueryObjectsResponse' smart constructor.
-queryObjectsResponse :: QueryObjectsResponse
-queryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults = Nothing, _qorIds = Nothing, _qorMarker = Nothing};
+queryObjectsResponse :: Int -> QueryObjectsResponse
+queryObjectsResponse pStatusCode = QueryObjectsResponse'{_qorHasMoreResults = Nothing, _qorIds = Nothing, _qorMarker = Nothing, _qorStatusCode = pStatusCode};
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
@@ -162,3 +170,7 @@ qorIds = lens _qorIds (\ s a -> s{_qorIds = a}) . _Default;
 -- value is null, there are no more results.
 qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\ s a -> s{_qorMarker = a});
+
+-- | FIXME: Undocumented member.
+qorStatusCode :: Lens' QueryObjectsResponse Int
+qorStatusCode = lens _qorStatusCode (\ s a -> s{_qorStatusCode = a});

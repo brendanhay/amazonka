@@ -39,6 +39,7 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , addUploadBufferResponse
     -- ** Response lenses
     , aubrGatewayARN
+    , aubrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -74,7 +75,8 @@ instance AWSRequest AddUploadBuffer where
         response
           = receiveJSON
               (\ s h x ->
-                 AddUploadBufferResponse' <$> (x .?> "GatewayARN"))
+                 AddUploadBufferResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddUploadBuffer where
         toHeaders
@@ -103,12 +105,18 @@ instance ToQuery AddUploadBuffer where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aubrGatewayARN'
-newtype AddUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'aubrStatusCode'
+data AddUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN :: Maybe Text, _aubrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddUploadBufferResponse' smart constructor.
-addUploadBufferResponse :: AddUploadBufferResponse
-addUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN = Nothing};
+addUploadBufferResponse :: Int -> AddUploadBufferResponse
+addUploadBufferResponse pStatusCode = AddUploadBufferResponse'{_aubrGatewayARN = Nothing, _aubrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\ s a -> s{_aubrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+aubrStatusCode :: Lens' AddUploadBufferResponse Int
+aubrStatusCode = lens _aubrStatusCode (\ s a -> s{_aubrStatusCode = a});

@@ -78,6 +78,7 @@ module Network.AWS.Kinesis.PutRecord
     -- ** Response lenses
     , prrShardId
     , prrSequenceNumber
+    , prrStatusCode
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -85,7 +86,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'putRecord' smart constructor.
+-- | Represents the input for @PutRecord@.
+--
+-- /See:/ 'putRecord' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -148,7 +151,8 @@ instance AWSRequest PutRecord where
           = receiveJSON
               (\ s h x ->
                  PutRecordResponse' <$>
-                   (x .:> "ShardId") <*> (x .:> "SequenceNumber"))
+                   (x .:> "ShardId") <*> (x .:> "SequenceNumber") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders PutRecord where
         toHeaders
@@ -174,18 +178,22 @@ instance ToPath PutRecord where
 instance ToQuery PutRecord where
         toQuery = const mempty
 
--- | /See:/ 'putRecordResponse' smart constructor.
+-- | Represents the output for @PutRecord@.
+--
+-- /See:/ 'putRecordResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prrShardId'
 --
 -- * 'prrSequenceNumber'
-data PutRecordResponse = PutRecordResponse'{_prrShardId :: Text, _prrSequenceNumber :: Text} deriving (Eq, Read, Show)
+--
+-- * 'prrStatusCode'
+data PutRecordResponse = PutRecordResponse'{_prrShardId :: Text, _prrSequenceNumber :: Text, _prrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutRecordResponse' smart constructor.
-putRecordResponse :: Text -> Text -> PutRecordResponse
-putRecordResponse pShardId pSequenceNumber = PutRecordResponse'{_prrShardId = pShardId, _prrSequenceNumber = pSequenceNumber};
+putRecordResponse :: Text -> Text -> Int -> PutRecordResponse
+putRecordResponse pShardId pSequenceNumber pStatusCode = PutRecordResponse'{_prrShardId = pShardId, _prrSequenceNumber = pSequenceNumber, _prrStatusCode = pStatusCode};
 
 -- | The shard ID of the shard where the data record was placed.
 prrShardId :: Lens' PutRecordResponse Text
@@ -197,3 +205,7 @@ prrShardId = lens _prrShardId (\ s a -> s{_prrShardId = a});
 -- put into the stream.
 prrSequenceNumber :: Lens' PutRecordResponse Text
 prrSequenceNumber = lens _prrSequenceNumber (\ s a -> s{_prrSequenceNumber = a});
+
+-- | FIXME: Undocumented member.
+prrStatusCode :: Lens' PutRecordResponse Int
+prrStatusCode = lens _prrStatusCode (\ s a -> s{_prrStatusCode = a});

@@ -34,6 +34,7 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     , deleteSnapshotResponse
     -- ** Response lenses
     , dsrSnapshot
+    , dsrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteSnapshot' smart constructor.
+-- | Represents the input of a /DeleteSnapshot/ action.
+--
+-- /See:/ 'deleteSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest DeleteSnapshot where
         response
           = receiveXMLWrapper "DeleteSnapshotResult"
               (\ s h x ->
-                 DeleteSnapshotResponse' <$> (x .@? "Snapshot"))
+                 DeleteSnapshotResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
@@ -83,12 +87,18 @@ instance ToQuery DeleteSnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSnapshot'
-newtype DeleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DeleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshot :: Maybe Snapshot, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
-deleteSnapshotResponse :: DeleteSnapshotResponse
-deleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshot = Nothing};
+deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
+deleteSnapshotResponse pStatusCode = DeleteSnapshotResponse'{_dsrSnapshot = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\ s a -> s{_dsrSnapshot = a});
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DeleteSnapshotResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

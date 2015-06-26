@@ -42,6 +42,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
+    , csirrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -49,7 +50,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'cancelSpotInstanceRequests' smart constructor.
+-- | Contains the parameters for CancelSpotInstanceRequests.
+--
+-- /See:/ 'cancelSpotInstanceRequests' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest CancelSpotInstanceRequests where
           = receiveXML
               (\ s h x ->
                  CancelSpotInstanceRequestsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
@@ -100,17 +104,25 @@ instance ToQuery CancelSpotInstanceRequests where
                toQueryList "SpotInstanceRequestId"
                  _csirSpotInstanceRequestIds]
 
--- | /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
+-- | Contains the output of CancelSpotInstanceRequests.
+--
+-- /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csirrCancelledSpotInstanceRequests'
-newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests :: Maybe [CancelledSpotInstanceRequest]} deriving (Eq, Read, Show)
+--
+-- * 'csirrStatusCode'
+data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests :: Maybe [CancelledSpotInstanceRequest], _csirrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
-cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests = Nothing};
+cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
+cancelSpotInstanceRequestsResponse pStatusCode = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests = Nothing, _csirrStatusCode = pStatusCode};
 
 -- | One or more Spot Instance requests.
 csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+csirrStatusCode :: Lens' CancelSpotInstanceRequestsResponse Int
+csirrStatusCode = lens _csirrStatusCode (\ s a -> s{_csirrStatusCode = a});

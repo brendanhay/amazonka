@@ -41,6 +41,7 @@ module Network.AWS.ECS.StartTask
     -- ** Response lenses
     , strFailures
     , strTasks
+    , strStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -119,7 +120,8 @@ instance AWSRequest StartTask where
               (\ s h x ->
                  StartTaskResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "tasks" .!@ mempty))
+                     (x .?> "tasks" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders StartTask where
         toHeaders
@@ -153,11 +155,13 @@ instance ToQuery StartTask where
 -- * 'strFailures'
 --
 -- * 'strTasks'
-data StartTaskResponse = StartTaskResponse'{_strFailures :: Maybe [Failure], _strTasks :: Maybe [Task]} deriving (Eq, Read, Show)
+--
+-- * 'strStatusCode'
+data StartTaskResponse = StartTaskResponse'{_strFailures :: Maybe [Failure], _strTasks :: Maybe [Task], _strStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StartTaskResponse' smart constructor.
-startTaskResponse :: StartTaskResponse
-startTaskResponse = StartTaskResponse'{_strFailures = Nothing, _strTasks = Nothing};
+startTaskResponse :: Int -> StartTaskResponse
+startTaskResponse pStatusCode = StartTaskResponse'{_strFailures = Nothing, _strTasks = Nothing, _strStatusCode = pStatusCode};
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
 strFailures :: Lens' StartTaskResponse [Failure]
@@ -167,3 +171,7 @@ strFailures = lens _strFailures (\ s a -> s{_strFailures = a}) . _Default;
 -- successfully placed on your container instances will be described here.
 strTasks :: Lens' StartTaskResponse [Task]
 strTasks = lens _strTasks (\ s a -> s{_strTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+strStatusCode :: Lens' StartTaskResponse Int
+strStatusCode = lens _strStatusCode (\ s a -> s{_strStatusCode = a});

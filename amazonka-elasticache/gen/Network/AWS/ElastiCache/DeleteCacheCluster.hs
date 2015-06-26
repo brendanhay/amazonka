@@ -40,6 +40,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     , deleteCacheClusterResponse
     -- ** Response lenses
     , dccrCacheCluster
+    , dccrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -47,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteCacheCluster' smart constructor.
+-- | Represents the input of a /DeleteCacheCluster/ action.
+--
+-- /See:/ 'deleteCacheCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -80,7 +83,7 @@ instance AWSRequest DeleteCacheCluster where
           = receiveXMLWrapper "DeleteCacheClusterResult"
               (\ s h x ->
                  DeleteCacheClusterResponse' <$>
-                   (x .@? "CacheCluster"))
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty
@@ -102,12 +105,18 @@ instance ToQuery DeleteCacheCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dccrCacheCluster'
-newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse'{_dccrCacheCluster :: Maybe CacheCluster} deriving (Eq, Read, Show)
+--
+-- * 'dccrStatusCode'
+data DeleteCacheClusterResponse = DeleteCacheClusterResponse'{_dccrCacheCluster :: Maybe CacheCluster, _dccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
-deleteCacheClusterResponse :: DeleteCacheClusterResponse
-deleteCacheClusterResponse = DeleteCacheClusterResponse'{_dccrCacheCluster = Nothing};
+deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse
+deleteCacheClusterResponse pStatusCode = DeleteCacheClusterResponse'{_dccrCacheCluster = Nothing, _dccrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\ s a -> s{_dccrCacheCluster = a});
+
+-- | FIXME: Undocumented member.
+dccrStatusCode :: Lens' DeleteCacheClusterResponse Int
+dccrStatusCode = lens _dccrStatusCode (\ s a -> s{_dccrStatusCode = a});

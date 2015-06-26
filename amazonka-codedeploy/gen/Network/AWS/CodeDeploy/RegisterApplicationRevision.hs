@@ -39,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'registerApplicationRevision' smart constructor.
+-- | Represents the input of a register application revision operation.
+--
+-- /See:/ 'registerApplicationRevision' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

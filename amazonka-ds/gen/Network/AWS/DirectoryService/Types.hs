@@ -21,8 +21,41 @@ module Network.AWS.DirectoryService.Types
     (
     -- * Service
       DirectoryService
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _AuthenticationFailedException
+    , _DirectoryUnavailableException
+    , _InvalidParameterException
+    , _UnsupportedOperationException
+    , _EntityAlreadyExistsException
+    , _DirectoryLimitExceededException
+    , _EntityDoesNotExistException
+    , _InsufficientPermissionsException
+    , _InvalidNextTokenException
+    , _ServiceException
+    , _SnapshotLimitExceededException
+    , _ClientException
+
+    -- * DirectorySize
+    , DirectorySize (..)
+
+    -- * DirectoryStage
+    , DirectoryStage (..)
+
+    -- * DirectoryType
+    , DirectoryType (..)
+
+    -- * RadiusAuthenticationProtocol
+    , RadiusAuthenticationProtocol (..)
+
+    -- * RadiusStatus
+    , RadiusStatus (..)
+
+    -- * SnapshotStatus
+    , SnapshotStatus (..)
+
+    -- * SnapshotType
+    , SnapshotType (..)
 
     -- * Attribute
     , Attribute
@@ -87,15 +120,6 @@ module Network.AWS.DirectoryService.Types
     , dlCloudOnlyDirectoriesCurrentCount
     , dlCloudOnlyDirectoriesLimitReached
 
-    -- * DirectorySize
-    , DirectorySize (..)
-
-    -- * DirectoryStage
-    , DirectoryStage (..)
-
-    -- * DirectoryType
-    , DirectoryType (..)
-
     -- * DirectoryVPCSettings
     , DirectoryVPCSettings
     , directoryVPCSettings
@@ -110,9 +134,6 @@ module Network.AWS.DirectoryService.Types
     , dvsdSecurityGroupId
     , dvsdAvailabilityZones
 
-    -- * RadiusAuthenticationProtocol
-    , RadiusAuthenticationProtocol (..)
-
     -- * RadiusSettings
     , RadiusSettings
     , radiusSettings
@@ -124,9 +145,6 @@ module Network.AWS.DirectoryService.Types
     , rsSharedSecret
     , rsRadiusTimeout
     , rsRadiusPort
-
-    -- * RadiusStatus
-    , RadiusStatus (..)
 
     -- * Snapshot
     , Snapshot
@@ -145,11 +163,6 @@ module Network.AWS.DirectoryService.Types
     , slManualSnapshotsCurrentCount
     , slManualSnapshotsLimit
 
-    -- * SnapshotStatus
-    , SnapshotStatus (..)
-
-    -- * SnapshotType
-    , SnapshotType (..)
     ) where
 
 import Network.AWS.Prelude
@@ -160,32 +173,260 @@ data DirectoryService
 
 instance AWSService DirectoryService where
     type Sg DirectoryService = V4
-    type Er DirectoryService = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service DirectoryService
-        service' = Service
-            { _svcAbbrev  = "DirectoryService"
-            , _svcPrefix  = "ds"
-            , _svcVersion = "2015-04-16"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service DirectoryService
+        svc = Service
+            { _svcAbbrev   = "DirectoryService"
+            , _svcPrefix   = "ds"
+            , _svcVersion  = "2015-04-16"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry DirectoryService
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | An authentication error occurred.
+_AuthenticationFailedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthenticationFailedException = _ServiceError . hasCode "AuthenticationFailedException";
 
--- | /See:/ 'attribute' smart constructor.
+-- | The specified directory is unavailable or could not be found.
+_DirectoryUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DirectoryUnavailableException = _ServiceError . hasCode "DirectoryUnavailableException";
+
+-- | One or more parameters are not valid.
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+
+-- | The operation is not supported.
+_UnsupportedOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnsupportedOperationException = _ServiceError . hasCode "UnsupportedOperationException";
+
+-- | The specified entity already exists.
+_EntityAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_EntityAlreadyExistsException = _ServiceError . hasCode "EntityAlreadyExistsException";
+
+-- | The maximum number of directories in the region has been reached. You
+-- can use the GetDirectoryLimits operation to determine your directory
+-- limits in the region.
+_DirectoryLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DirectoryLimitExceededException = _ServiceError . hasCode "DirectoryLimitExceededException";
+
+-- | The specified entity could not be found.
+_EntityDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_EntityDoesNotExistException = _ServiceError . hasCode "EntityDoesNotExistException";
+
+-- | The account does not have sufficient permission to perform the
+-- operation.
+_InsufficientPermissionsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientPermissionsException = _ServiceError . hasCode "InsufficientPermissionsException";
+
+-- | The /NextToken/ value is not valid.
+_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextTokenException";
+
+-- | An exception has occurred in AWS Directory Service.
+_ServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceException = _ServiceError . hasCode "ServiceException";
+
+-- | The maximum number of manual snapshots for the directory has been
+-- reached. You can use the GetSnapshotLimits operation to determine the
+-- snapshot limits for a directory.
+_SnapshotLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotLimitExceededException = _ServiceError . hasCode "SnapshotLimitExceededException";
+
+-- | A client exception has occurred.
+_ClientException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClientException = _ServiceError . hasCode "ClientException";
+
+data DirectorySize = Small | Large deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DirectorySize where
+    parser = takeLowerText >>= \case
+        "Large" -> pure Large
+        "Small" -> pure Small
+        e -> fail ("Failure parsing DirectorySize from " ++ show e)
+
+instance ToText DirectorySize where
+    toText = \case
+        Large -> "Large"
+        Small -> "Small"
+
+instance Hashable DirectorySize
+instance ToQuery DirectorySize
+instance ToHeader DirectorySize
+
+instance ToJSON DirectorySize where
+    toJSON = toJSONText
+
+instance FromJSON DirectorySize where
+    parseJSON = parseJSONText "DirectorySize"
+
+data DirectoryStage = DSRestoreFailed | DSDeleted | DSRestoring | DSImpaired | DSDeleting | DSFailed | DSRequested | DSCreated | DSInoperable | DSActive | DSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DirectoryStage where
+    parser = takeLowerText >>= \case
+        "Active" -> pure DSActive
+        "Created" -> pure DSCreated
+        "Creating" -> pure DSCreating
+        "Deleted" -> pure DSDeleted
+        "Deleting" -> pure DSDeleting
+        "Failed" -> pure DSFailed
+        "Impaired" -> pure DSImpaired
+        "Inoperable" -> pure DSInoperable
+        "Requested" -> pure DSRequested
+        "RestoreFailed" -> pure DSRestoreFailed
+        "Restoring" -> pure DSRestoring
+        e -> fail ("Failure parsing DirectoryStage from " ++ show e)
+
+instance ToText DirectoryStage where
+    toText = \case
+        DSActive -> "Active"
+        DSCreated -> "Created"
+        DSCreating -> "Creating"
+        DSDeleted -> "Deleted"
+        DSDeleting -> "Deleting"
+        DSFailed -> "Failed"
+        DSImpaired -> "Impaired"
+        DSInoperable -> "Inoperable"
+        DSRequested -> "Requested"
+        DSRestoreFailed -> "RestoreFailed"
+        DSRestoring -> "Restoring"
+
+instance Hashable DirectoryStage
+instance ToQuery DirectoryStage
+instance ToHeader DirectoryStage
+
+instance FromJSON DirectoryStage where
+    parseJSON = parseJSONText "DirectoryStage"
+
+data DirectoryType = ADConnector | SimpleAD deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DirectoryType where
+    parser = takeLowerText >>= \case
+        "ADConnector" -> pure ADConnector
+        "SimpleAD" -> pure SimpleAD
+        e -> fail ("Failure parsing DirectoryType from " ++ show e)
+
+instance ToText DirectoryType where
+    toText = \case
+        ADConnector -> "ADConnector"
+        SimpleAD -> "SimpleAD"
+
+instance Hashable DirectoryType
+instance ToQuery DirectoryType
+instance ToHeader DirectoryType
+
+instance FromJSON DirectoryType where
+    parseJSON = parseJSONText "DirectoryType"
+
+data RadiusAuthenticationProtocol = Chap | MSCHAPV1 | MSCHAPV2 | Pap deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RadiusAuthenticationProtocol where
+    parser = takeLowerText >>= \case
+        "CHAP" -> pure Chap
+        "MS-CHAPv1" -> pure MSCHAPV1
+        "MS-CHAPv2" -> pure MSCHAPV2
+        "PAP" -> pure Pap
+        e -> fail ("Failure parsing RadiusAuthenticationProtocol from " ++ show e)
+
+instance ToText RadiusAuthenticationProtocol where
+    toText = \case
+        Chap -> "CHAP"
+        MSCHAPV1 -> "MS-CHAPv1"
+        MSCHAPV2 -> "MS-CHAPv2"
+        Pap -> "PAP"
+
+instance Hashable RadiusAuthenticationProtocol
+instance ToQuery RadiusAuthenticationProtocol
+instance ToHeader RadiusAuthenticationProtocol
+
+instance ToJSON RadiusAuthenticationProtocol where
+    toJSON = toJSONText
+
+instance FromJSON RadiusAuthenticationProtocol where
+    parseJSON = parseJSONText "RadiusAuthenticationProtocol"
+
+data RadiusStatus = Creating | Completed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RadiusStatus where
+    parser = takeLowerText >>= \case
+        "Completed" -> pure Completed
+        "Creating" -> pure Creating
+        "Failed" -> pure Failed
+        e -> fail ("Failure parsing RadiusStatus from " ++ show e)
+
+instance ToText RadiusStatus where
+    toText = \case
+        Completed -> "Completed"
+        Creating -> "Creating"
+        Failed -> "Failed"
+
+instance Hashable RadiusStatus
+instance ToQuery RadiusStatus
+instance ToHeader RadiusStatus
+
+instance FromJSON RadiusStatus where
+    parseJSON = parseJSONText "RadiusStatus"
+
+data SnapshotStatus = SSCompleted | SSFailed | SSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SnapshotStatus where
+    parser = takeLowerText >>= \case
+        "Completed" -> pure SSCompleted
+        "Creating" -> pure SSCreating
+        "Failed" -> pure SSFailed
+        e -> fail ("Failure parsing SnapshotStatus from " ++ show e)
+
+instance ToText SnapshotStatus where
+    toText = \case
+        SSCompleted -> "Completed"
+        SSCreating -> "Creating"
+        SSFailed -> "Failed"
+
+instance Hashable SnapshotStatus
+instance ToQuery SnapshotStatus
+instance ToHeader SnapshotStatus
+
+instance FromJSON SnapshotStatus where
+    parseJSON = parseJSONText "SnapshotStatus"
+
+data SnapshotType = Auto | Manual deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SnapshotType where
+    parser = takeLowerText >>= \case
+        "Auto" -> pure Auto
+        "Manual" -> pure Manual
+        e -> fail ("Failure parsing SnapshotType from " ++ show e)
+
+instance ToText SnapshotType where
+    toText = \case
+        Auto -> "Auto"
+        Manual -> "Manual"
+
+instance Hashable SnapshotType
+instance ToQuery SnapshotType
+instance ToHeader SnapshotType
+
+instance FromJSON SnapshotType where
+    parseJSON = parseJSONText "SnapshotType"
+
+-- | Represents a named directory attribute.
+--
+-- /See:/ 'attribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -216,7 +457,9 @@ instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object ["Value" .= _attValue, "Name" .= _attName]
 
--- | /See:/ 'computer' smart constructor.
+-- | Contains information about a computer account in a directory.
+--
+-- /See:/ 'computer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -253,7 +496,10 @@ instance FromJSON Computer where
                      (x .:? "ComputerAttributes" .!= mempty)
                      <*> (x .:? "ComputerName"))
 
--- | /See:/ 'directoryConnectSettings' smart constructor.
+-- | Contains information for the ConnectDirectory operation when an AD
+-- Connector directory is being created.
+--
+-- /See:/ 'directoryConnectSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -301,7 +547,9 @@ instance ToJSON DirectoryConnectSettings where
                "CustomerDnsIps" .= _dcsCustomerDNSIPs,
                "CustomerUserName" .= _dcsCustomerUserName]
 
--- | /See:/ 'directoryConnectSettingsDescription' smart constructor.
+-- | Contains information about an AD Connector directory.
+--
+-- /See:/ 'directoryConnectSettingsDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -359,7 +607,9 @@ instance FromJSON DirectoryConnectSettingsDescription
                      <*> (x .:? "SecurityGroupId")
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
--- | /See:/ 'directoryDescription' smart constructor.
+-- | Contains information about an AWS Directory Service directory.
+--
+-- /See:/ 'directoryDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -510,7 +760,9 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "ConnectSettings")
                      <*> (x .:? "Description"))
 
--- | /See:/ 'directoryLimits' smart constructor.
+-- | Contains directory limit information for a region.
+--
+-- /See:/ 'directoryLimits' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -567,88 +819,10 @@ instance FromJSON DirectoryLimits where
                      <*> (x .:? "CloudOnlyDirectoriesCurrentCount")
                      <*> (x .:? "CloudOnlyDirectoriesLimitReached"))
 
-data DirectorySize = Small | Large deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DirectorySize where
-    parser = takeLowerText >>= \case
-        "Large" -> pure Large
-        "Small" -> pure Small
-        e -> fail ("Failure parsing DirectorySize from " ++ show e)
-
-instance ToText DirectorySize where
-    toText = \case
-        Large -> "Large"
-        Small -> "Small"
-
-instance Hashable DirectorySize
-instance ToQuery DirectorySize
-instance ToHeader DirectorySize
-
-instance ToJSON DirectorySize where
-    toJSON = toJSONText
-
-instance FromJSON DirectorySize where
-    parseJSON = parseJSONText "DirectorySize"
-
-data DirectoryStage = DSRestoreFailed | DSDeleted | DSRestoring | DSImpaired | DSDeleting | DSFailed | DSRequested | DSCreated | DSInoperable | DSActive | DSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DirectoryStage where
-    parser = takeLowerText >>= \case
-        "Active" -> pure DSActive
-        "Created" -> pure DSCreated
-        "Creating" -> pure DSCreating
-        "Deleted" -> pure DSDeleted
-        "Deleting" -> pure DSDeleting
-        "Failed" -> pure DSFailed
-        "Impaired" -> pure DSImpaired
-        "Inoperable" -> pure DSInoperable
-        "Requested" -> pure DSRequested
-        "RestoreFailed" -> pure DSRestoreFailed
-        "Restoring" -> pure DSRestoring
-        e -> fail ("Failure parsing DirectoryStage from " ++ show e)
-
-instance ToText DirectoryStage where
-    toText = \case
-        DSActive -> "Active"
-        DSCreated -> "Created"
-        DSCreating -> "Creating"
-        DSDeleted -> "Deleted"
-        DSDeleting -> "Deleting"
-        DSFailed -> "Failed"
-        DSImpaired -> "Impaired"
-        DSInoperable -> "Inoperable"
-        DSRequested -> "Requested"
-        DSRestoreFailed -> "RestoreFailed"
-        DSRestoring -> "Restoring"
-
-instance Hashable DirectoryStage
-instance ToQuery DirectoryStage
-instance ToHeader DirectoryStage
-
-instance FromJSON DirectoryStage where
-    parseJSON = parseJSONText "DirectoryStage"
-
-data DirectoryType = ADConnector | SimpleAD deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DirectoryType where
-    parser = takeLowerText >>= \case
-        "ADConnector" -> pure ADConnector
-        "SimpleAD" -> pure SimpleAD
-        e -> fail ("Failure parsing DirectoryType from " ++ show e)
-
-instance ToText DirectoryType where
-    toText = \case
-        ADConnector -> "ADConnector"
-        SimpleAD -> "SimpleAD"
-
-instance Hashable DirectoryType
-instance ToQuery DirectoryType
-instance ToHeader DirectoryType
-
-instance FromJSON DirectoryType where
-    parseJSON = parseJSONText "DirectoryType"
-
--- | /See:/ 'directoryVPCSettings' smart constructor.
+-- | Contains information for the CreateDirectory operation when a Simple AD
+-- directory is being created.
+--
+-- /See:/ 'directoryVPCSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -676,7 +850,9 @@ instance ToJSON DirectoryVPCSettings where
           = object
               ["VpcId" .= _dvsVPCId, "SubnetIds" .= _dvsSubnetIds]
 
--- | /See:/ 'directoryVPCSettingsDescription' smart constructor.
+-- | Contains information about a Simple AD directory.
+--
+-- /See:/ 'directoryVPCSettingsDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -719,34 +895,10 @@ instance FromJSON DirectoryVPCSettingsDescription
                      <*> (x .:? "SecurityGroupId")
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
-data RadiusAuthenticationProtocol = Chap | MSCHAPV1 | MSCHAPV2 | Pap deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RadiusAuthenticationProtocol where
-    parser = takeLowerText >>= \case
-        "CHAP" -> pure Chap
-        "MS-CHAPv1" -> pure MSCHAPV1
-        "MS-CHAPv2" -> pure MSCHAPV2
-        "PAP" -> pure Pap
-        e -> fail ("Failure parsing RadiusAuthenticationProtocol from " ++ show e)
-
-instance ToText RadiusAuthenticationProtocol where
-    toText = \case
-        Chap -> "CHAP"
-        MSCHAPV1 -> "MS-CHAPv1"
-        MSCHAPV2 -> "MS-CHAPv2"
-        Pap -> "PAP"
-
-instance Hashable RadiusAuthenticationProtocol
-instance ToQuery RadiusAuthenticationProtocol
-instance ToHeader RadiusAuthenticationProtocol
-
-instance ToJSON RadiusAuthenticationProtocol where
-    toJSON = toJSONText
-
-instance FromJSON RadiusAuthenticationProtocol where
-    parseJSON = parseJSONText "RadiusAuthenticationProtocol"
-
--- | /See:/ 'radiusSettings' smart constructor.
+-- | Contains information about a Remote Authentication Dial In User Service
+-- (RADIUS) server.
+--
+-- /See:/ 'radiusSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -836,29 +988,9 @@ instance ToJSON RadiusSettings where
                "RadiusTimeout" .= _rsRadiusTimeout,
                "RadiusPort" .= _rsRadiusPort]
 
-data RadiusStatus = Creating | Completed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RadiusStatus where
-    parser = takeLowerText >>= \case
-        "Completed" -> pure Completed
-        "Creating" -> pure Creating
-        "Failed" -> pure Failed
-        e -> fail ("Failure parsing RadiusStatus from " ++ show e)
-
-instance ToText RadiusStatus where
-    toText = \case
-        Completed -> "Completed"
-        Creating -> "Creating"
-        Failed -> "Failed"
-
-instance Hashable RadiusStatus
-instance ToQuery RadiusStatus
-instance ToHeader RadiusStatus
-
-instance FromJSON RadiusStatus where
-    parseJSON = parseJSONText "RadiusStatus"
-
--- | /See:/ 'snapshot' smart constructor.
+-- | Describes a directory snapshot.
+--
+-- /See:/ 'snapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -914,7 +1046,9 @@ instance FromJSON Snapshot where
                      <*> (x .:? "Type")
                      <*> (x .:? "SnapshotId"))
 
--- | /See:/ 'snapshotLimits' smart constructor.
+-- | Contains manual snapshot limit information for a directory.
+--
+-- /See:/ 'snapshotLimits' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -949,45 +1083,3 @@ instance FromJSON SnapshotLimits where
                    (x .:? "ManualSnapshotsLimitReached") <*>
                      (x .:? "ManualSnapshotsCurrentCount")
                      <*> (x .:? "ManualSnapshotsLimit"))
-
-data SnapshotStatus = SSCompleted | SSFailed | SSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SnapshotStatus where
-    parser = takeLowerText >>= \case
-        "Completed" -> pure SSCompleted
-        "Creating" -> pure SSCreating
-        "Failed" -> pure SSFailed
-        e -> fail ("Failure parsing SnapshotStatus from " ++ show e)
-
-instance ToText SnapshotStatus where
-    toText = \case
-        SSCompleted -> "Completed"
-        SSCreating -> "Creating"
-        SSFailed -> "Failed"
-
-instance Hashable SnapshotStatus
-instance ToQuery SnapshotStatus
-instance ToHeader SnapshotStatus
-
-instance FromJSON SnapshotStatus where
-    parseJSON = parseJSONText "SnapshotStatus"
-
-data SnapshotType = Auto | Manual deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SnapshotType where
-    parser = takeLowerText >>= \case
-        "Auto" -> pure Auto
-        "Manual" -> pure Manual
-        e -> fail ("Failure parsing SnapshotType from " ++ show e)
-
-instance ToText SnapshotType where
-    toText = \case
-        Auto -> "Auto"
-        Manual -> "Manual"
-
-instance Hashable SnapshotType
-instance ToQuery SnapshotType
-instance ToHeader SnapshotType
-
-instance FromJSON SnapshotType where
-    parseJSON = parseJSONText "SnapshotType"

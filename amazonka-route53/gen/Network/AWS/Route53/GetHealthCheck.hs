@@ -33,6 +33,7 @@ module Network.AWS.Route53.GetHealthCheck
     , getHealthCheckResponse
     -- ** Response lenses
     , ghcrHealthCheck
+    , ghcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +41,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'getHealthCheck' smart constructor.
+-- | A complex type that contains information about the request to get a
+-- health check.
+--
+-- /See:/ 'getHealthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -62,7 +66,8 @@ instance AWSRequest GetHealthCheck where
         response
           = receiveXML
               (\ s h x ->
-                 GetHealthCheckResponse' <$> (x .@ "HealthCheck"))
+                 GetHealthCheckResponse' <$>
+                   (x .@ "HealthCheck") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty
@@ -76,18 +81,26 @@ instance ToPath GetHealthCheck where
 instance ToQuery GetHealthCheck where
         toQuery = const mempty
 
--- | /See:/ 'getHealthCheckResponse' smart constructor.
+-- | A complex type containing information about the specified health check.
+--
+-- /See:/ 'getHealthCheckResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghcrHealthCheck'
-newtype GetHealthCheckResponse = GetHealthCheckResponse'{_ghcrHealthCheck :: HealthCheck} deriving (Eq, Read, Show)
+--
+-- * 'ghcrStatusCode'
+data GetHealthCheckResponse = GetHealthCheckResponse'{_ghcrHealthCheck :: HealthCheck, _ghcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckResponse' smart constructor.
-getHealthCheckResponse :: HealthCheck -> GetHealthCheckResponse
-getHealthCheckResponse pHealthCheck = GetHealthCheckResponse'{_ghcrHealthCheck = pHealthCheck};
+getHealthCheckResponse :: HealthCheck -> Int -> GetHealthCheckResponse
+getHealthCheckResponse pHealthCheck pStatusCode = GetHealthCheckResponse'{_ghcrHealthCheck = pHealthCheck, _ghcrStatusCode = pStatusCode};
 
 -- | A complex type that contains the information about the specified health
 -- check.
 ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\ s a -> s{_ghcrHealthCheck = a});
+
+-- | FIXME: Undocumented member.
+ghcrStatusCode :: Lens' GetHealthCheckResponse Int
+ghcrStatusCode = lens _ghcrStatusCode (\ s a -> s{_ghcrStatusCode = a});

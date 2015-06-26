@@ -35,6 +35,7 @@ module Network.AWS.SSM.UpdateAssociationStatus
     , updateAssociationStatusResponse
     -- ** Response lenses
     , uasrAssociationDescription
+    , uasrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -78,7 +79,8 @@ instance AWSRequest UpdateAssociationStatus where
           = receiveJSON
               (\ s h x ->
                  UpdateAssociationStatusResponse' <$>
-                   (x .?> "AssociationDescription"))
+                   (x .?> "AssociationDescription") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UpdateAssociationStatus where
         toHeaders
@@ -106,12 +108,18 @@ instance ToQuery UpdateAssociationStatus where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uasrAssociationDescription'
-newtype UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'{_uasrAssociationDescription :: Maybe AssociationDescription} deriving (Eq, Read, Show)
+--
+-- * 'uasrStatusCode'
+data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'{_uasrAssociationDescription :: Maybe AssociationDescription, _uasrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
-updateAssociationStatusResponse :: UpdateAssociationStatusResponse
-updateAssociationStatusResponse = UpdateAssociationStatusResponse'{_uasrAssociationDescription = Nothing};
+updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse
+updateAssociationStatusResponse pStatusCode = UpdateAssociationStatusResponse'{_uasrAssociationDescription = Nothing, _uasrStatusCode = pStatusCode};
 
 -- | Information about the association.
 uasrAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
 uasrAssociationDescription = lens _uasrAssociationDescription (\ s a -> s{_uasrAssociationDescription = a});
+
+-- | FIXME: Undocumented member.
+uasrStatusCode :: Lens' UpdateAssociationStatusResponse Int
+uasrStatusCode = lens _uasrStatusCode (\ s a -> s{_uasrStatusCode = a});

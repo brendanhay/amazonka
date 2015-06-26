@@ -32,6 +32,7 @@ module Network.AWS.S3.ListBuckets
     -- ** Response lenses
     , lbrBuckets
     , lbrOwner
+    , lbrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -56,7 +57,8 @@ instance AWSRequest ListBuckets where
                  ListBucketsResponse' <$>
                    (x .@? "Buckets" .!@ mempty >>=
                       may (parseXMLList "Bucket"))
-                     <*> (x .@? "Owner"))
+                     <*> (x .@? "Owner")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListBuckets where
         toHeaders = const mempty
@@ -74,11 +76,13 @@ instance ToQuery ListBuckets where
 -- * 'lbrBuckets'
 --
 -- * 'lbrOwner'
-data ListBucketsResponse = ListBucketsResponse'{_lbrBuckets :: Maybe [Bucket], _lbrOwner :: Maybe Owner} deriving (Eq, Read, Show)
+--
+-- * 'lbrStatusCode'
+data ListBucketsResponse = ListBucketsResponse'{_lbrBuckets :: Maybe [Bucket], _lbrOwner :: Maybe Owner, _lbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListBucketsResponse' smart constructor.
-listBucketsResponse :: ListBucketsResponse
-listBucketsResponse = ListBucketsResponse'{_lbrBuckets = Nothing, _lbrOwner = Nothing};
+listBucketsResponse :: Int -> ListBucketsResponse
+listBucketsResponse pStatusCode = ListBucketsResponse'{_lbrBuckets = Nothing, _lbrOwner = Nothing, _lbrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 lbrBuckets :: Lens' ListBucketsResponse [Bucket]
@@ -87,3 +91,7 @@ lbrBuckets = lens _lbrBuckets (\ s a -> s{_lbrBuckets = a}) . _Default;
 -- | FIXME: Undocumented member.
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\ s a -> s{_lbrOwner = a});
+
+-- | FIXME: Undocumented member.
+lbrStatusCode :: Lens' ListBucketsResponse Int
+lbrStatusCode = lens _lbrStatusCode (\ s a -> s{_lbrStatusCode = a});

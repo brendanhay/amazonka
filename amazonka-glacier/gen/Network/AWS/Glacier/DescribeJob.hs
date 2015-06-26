@@ -79,7 +79,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeJob' smart constructor.
+-- | Provides options for retrieving a job description.
+--
+-- /See:/ 'describeJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

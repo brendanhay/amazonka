@@ -17,4 +17,4 @@ module Network.AWS.ElasticFileSystem.Waiters where
 
 import Network.AWS.ElasticFileSystem.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

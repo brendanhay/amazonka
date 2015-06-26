@@ -41,6 +41,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     , enableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , eazflbrAvailabilityZones
+    , eazflbrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -82,7 +83,8 @@ instance AWSRequest
               (\ s h x ->
                  EnableAvailabilityZonesForLoadBalancerResponse' <$>
                    (x .@? "AvailabilityZones" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          EnableAvailabilityZonesForLoadBalancer where
@@ -109,12 +111,18 @@ instance ToQuery
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'eazflbrAvailabilityZones'
-newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'eazflbrStatusCode'
+data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones :: Maybe [Text], _eazflbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
-enableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones = Nothing};
+enableAvailabilityZonesForLoadBalancerResponse :: Int -> EnableAvailabilityZonesForLoadBalancerResponse
+enableAvailabilityZonesForLoadBalancerResponse pStatusCode = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones = Nothing, _eazflbrStatusCode = pStatusCode};
 
 -- | The updated list of Availability Zones for the load balancer.
 eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
 eazflbrAvailabilityZones = lens _eazflbrAvailabilityZones (\ s a -> s{_eazflbrAvailabilityZones = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+eazflbrStatusCode :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
+eazflbrStatusCode = lens _eazflbrStatusCode (\ s a -> s{_eazflbrStatusCode = a});

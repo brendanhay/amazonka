@@ -46,15 +46,21 @@ module Network.AWS.StorageGateway.ListVolumes
     , lvrGatewayARN
     , lvrMarker
     , lvrVolumeInfos
+    , lvrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'listVolumes' smart constructor.
+-- | A JSON object that contains one or more of the following fields:
+--
+-- -   ListVolumesInput$Limit
+-- -   ListVolumesInput$Marker
+--
+-- /See:/ 'listVolumes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +105,8 @@ instance AWSRequest ListVolumes where
               (\ s h x ->
                  ListVolumesResponse' <$>
                    (x .?> "GatewayARN") <*> (x .?> "Marker") <*>
-                     (x .?> "VolumeInfos" .!@ mempty))
+                     (x .?> "VolumeInfos" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListVolumes where
         toHeaders
@@ -132,11 +139,13 @@ instance ToQuery ListVolumes where
 -- * 'lvrMarker'
 --
 -- * 'lvrVolumeInfos'
-data ListVolumesResponse = ListVolumesResponse'{_lvrGatewayARN :: Maybe Text, _lvrMarker :: Maybe Text, _lvrVolumeInfos :: Maybe [VolumeInfo]} deriving (Eq, Read, Show)
+--
+-- * 'lvrStatusCode'
+data ListVolumesResponse = ListVolumesResponse'{_lvrGatewayARN :: Maybe Text, _lvrMarker :: Maybe Text, _lvrVolumeInfos :: Maybe [VolumeInfo], _lvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListVolumesResponse' smart constructor.
-listVolumesResponse :: ListVolumesResponse
-listVolumesResponse = ListVolumesResponse'{_lvrGatewayARN = Nothing, _lvrMarker = Nothing, _lvrVolumeInfos = Nothing};
+listVolumesResponse :: Int -> ListVolumesResponse
+listVolumesResponse pStatusCode = ListVolumesResponse'{_lvrGatewayARN = Nothing, _lvrMarker = Nothing, _lvrVolumeInfos = Nothing, _lvrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 lvrGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
@@ -149,3 +158,7 @@ lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
 -- | FIXME: Undocumented member.
 lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lvrStatusCode :: Lens' ListVolumesResponse Int
+lvrStatusCode = lens _lvrStatusCode (\ s a -> s{_lvrStatusCode = a});

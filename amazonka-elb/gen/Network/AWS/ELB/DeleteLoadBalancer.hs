@@ -39,6 +39,8 @@ module Network.AWS.ELB.DeleteLoadBalancer
     , DeleteLoadBalancerResponse
     -- ** Response constructor
     , deleteLoadBalancerResponse
+    -- ** Response lenses
+    , delStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -66,7 +68,10 @@ instance AWSRequest DeleteLoadBalancer where
         type Rs DeleteLoadBalancer =
              DeleteLoadBalancerResponse
         request = post
-        response = receiveNull DeleteLoadBalancerResponse'
+        response
+          = receiveXMLWrapper "DeleteLoadBalancerResult"
+              (\ s h x ->
+                 DeleteLoadBalancerResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty
@@ -82,8 +87,16 @@ instance ToQuery DeleteLoadBalancer where
                "LoadBalancerName" =: _dlbLoadBalancerName]
 
 -- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
-data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'delStatusCode'
+newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteLoadBalancerResponse' smart constructor.
-deleteLoadBalancerResponse :: DeleteLoadBalancerResponse
-deleteLoadBalancerResponse = DeleteLoadBalancerResponse';
+deleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
+deleteLoadBalancerResponse pStatusCode = DeleteLoadBalancerResponse'{_delStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteLoadBalancerResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

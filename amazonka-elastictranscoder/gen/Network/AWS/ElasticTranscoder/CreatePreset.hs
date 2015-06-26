@@ -55,6 +55,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- ** Response lenses
     , cprWarning
     , cprPreset
+    , cprStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -62,7 +63,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createPreset' smart constructor.
+-- | The @CreatePresetRequest@ structure.
+--
+-- /See:/ 'createPreset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -119,7 +122,8 @@ instance AWSRequest CreatePreset where
           = receiveJSON
               (\ s h x ->
                  CreatePresetResponse' <$>
-                   (x .?> "Warning") <*> (x .?> "Preset"))
+                   (x .?> "Warning") <*> (x .?> "Preset") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreatePreset where
         toHeaders = const mempty
@@ -137,18 +141,22 @@ instance ToPath CreatePreset where
 instance ToQuery CreatePreset where
         toQuery = const mempty
 
--- | /See:/ 'createPresetResponse' smart constructor.
+-- | The @CreatePresetResponse@ structure.
+--
+-- /See:/ 'createPresetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cprWarning'
 --
 -- * 'cprPreset'
-data CreatePresetResponse = CreatePresetResponse'{_cprWarning :: Maybe Text, _cprPreset :: Maybe Preset} deriving (Eq, Read, Show)
+--
+-- * 'cprStatusCode'
+data CreatePresetResponse = CreatePresetResponse'{_cprWarning :: Maybe Text, _cprPreset :: Maybe Preset, _cprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePresetResponse' smart constructor.
-createPresetResponse :: CreatePresetResponse
-createPresetResponse = CreatePresetResponse'{_cprWarning = Nothing, _cprPreset = Nothing};
+createPresetResponse :: Int -> CreatePresetResponse
+createPresetResponse pStatusCode = CreatePresetResponse'{_cprWarning = Nothing, _cprPreset = Nothing, _cprStatusCode = pStatusCode};
 
 -- | If the preset settings don\'t comply with the standards for the video
 -- codec but Elastic Transcoder created the preset, this message explains
@@ -162,3 +170,7 @@ cprWarning = lens _cprWarning (\ s a -> s{_cprWarning = a});
 -- preset that is created.
 cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprPreset = lens _cprPreset (\ s a -> s{_cprPreset = a});
+
+-- | FIXME: Undocumented member.
+cprStatusCode :: Lens' CreatePresetResponse Int
+cprStatusCode = lens _cprStatusCode (\ s a -> s{_cprStatusCode = a});

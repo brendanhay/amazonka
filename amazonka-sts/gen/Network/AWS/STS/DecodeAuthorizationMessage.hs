@@ -60,6 +60,7 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     , decodeAuthorizationMessageResponse
     -- ** Response lenses
     , damrDecodedMessage
+    , damrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -92,7 +93,7 @@ instance AWSRequest DecodeAuthorizationMessage where
               "DecodeAuthorizationMessageResult"
               (\ s h x ->
                  DecodeAuthorizationMessageResponse' <$>
-                   (x .@? "DecodedMessage"))
+                   (x .@? "DecodedMessage") <*> (pure (fromEnum s)))
 
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
@@ -108,18 +109,28 @@ instance ToQuery DecodeAuthorizationMessage where
                "Version" =: ("2011-06-15" :: ByteString),
                "EncodedMessage" =: _damEncodedMessage]
 
--- | /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
+-- | A document that contains additional information about the authorization
+-- status of a request from an encoded message that is returned in response
+-- to an AWS request.
+--
+-- /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'damrDecodedMessage'
-newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'{_damrDecodedMessage :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'damrStatusCode'
+data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'{_damrDecodedMessage :: Maybe Text, _damrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DecodeAuthorizationMessageResponse' smart constructor.
-decodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse
-decodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'{_damrDecodedMessage = Nothing};
+decodeAuthorizationMessageResponse :: Int -> DecodeAuthorizationMessageResponse
+decodeAuthorizationMessageResponse pStatusCode = DecodeAuthorizationMessageResponse'{_damrDecodedMessage = Nothing, _damrStatusCode = pStatusCode};
 
 -- | An XML document that contains the decoded message. For more information,
 -- see @DecodeAuthorizationMessage@.
 damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage = lens _damrDecodedMessage (\ s a -> s{_damrDecodedMessage = a});
+
+-- | FIXME: Undocumented member.
+damrStatusCode :: Lens' DecodeAuthorizationMessageResponse Int
+damrStatusCode = lens _damrStatusCode (\ s a -> s{_damrStatusCode = a});

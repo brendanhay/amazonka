@@ -25,16 +25,17 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- ** Request constructor
     , deleteChapCredentials
     -- ** Request lenses
-    , delTargetARN
-    , delInitiatorName
+    , dTargetARN
+    , dInitiatorName
 
     -- * Response
     , DeleteChapCredentialsResponse
     -- ** Response constructor
     , deleteChapCredentialsResponse
     -- ** Response lenses
-    , dccrTargetARN
-    , dccrInitiatorName
+    , delTargetARN
+    , delInitiatorName
+    , delStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,28 +43,33 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'deleteChapCredentials' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   DeleteChapCredentialsInput$InitiatorName
+-- -   DeleteChapCredentialsInput$TargetARN
+--
+-- /See:/ 'deleteChapCredentials' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delTargetARN'
+-- * 'dTargetARN'
 --
--- * 'delInitiatorName'
-data DeleteChapCredentials = DeleteChapCredentials'{_delTargetARN :: Text, _delInitiatorName :: Text} deriving (Eq, Read, Show)
+-- * 'dInitiatorName'
+data DeleteChapCredentials = DeleteChapCredentials'{_dTargetARN :: Text, _dInitiatorName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteChapCredentials' smart constructor.
 deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
-deleteChapCredentials pTargetARN pInitiatorName = DeleteChapCredentials'{_delTargetARN = pTargetARN, _delInitiatorName = pInitiatorName};
+deleteChapCredentials pTargetARN pInitiatorName = DeleteChapCredentials'{_dTargetARN = pTargetARN, _dInitiatorName = pInitiatorName};
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-delTargetARN :: Lens' DeleteChapCredentials Text
-delTargetARN = lens _delTargetARN (\ s a -> s{_delTargetARN = a});
+dTargetARN :: Lens' DeleteChapCredentials Text
+dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
 -- | The iSCSI initiator that connects to the target.
-delInitiatorName :: Lens' DeleteChapCredentials Text
-delInitiatorName = lens _delInitiatorName (\ s a -> s{_delInitiatorName = a});
+dInitiatorName :: Lens' DeleteChapCredentials Text
+dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a});
 
 instance AWSRequest DeleteChapCredentials where
         type Sv DeleteChapCredentials = StorageGateway
@@ -74,7 +80,8 @@ instance AWSRequest DeleteChapCredentials where
           = receiveJSON
               (\ s h x ->
                  DeleteChapCredentialsResponse' <$>
-                   (x .?> "TargetARN") <*> (x .?> "InitiatorName"))
+                   (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders
@@ -89,8 +96,8 @@ instance ToHeaders DeleteChapCredentials where
 instance ToJSON DeleteChapCredentials where
         toJSON DeleteChapCredentials'{..}
           = object
-              ["TargetARN" .= _delTargetARN,
-               "InitiatorName" .= _delInitiatorName]
+              ["TargetARN" .= _dTargetARN,
+               "InitiatorName" .= _dInitiatorName]
 
 instance ToPath DeleteChapCredentials where
         toPath = const "/"
@@ -98,23 +105,31 @@ instance ToPath DeleteChapCredentials where
 instance ToQuery DeleteChapCredentials where
         toQuery = const mempty
 
--- | /See:/ 'deleteChapCredentialsResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+-- /See:/ 'deleteChapCredentialsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccrTargetARN'
+-- * 'delTargetARN'
 --
--- * 'dccrInitiatorName'
-data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_dccrTargetARN :: Maybe Text, _dccrInitiatorName :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'delInitiatorName'
+--
+-- * 'delStatusCode'
+data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_delTargetARN :: Maybe Text, _delInitiatorName :: Maybe Text, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
-deleteChapCredentialsResponse :: DeleteChapCredentialsResponse
-deleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_dccrTargetARN = Nothing, _dccrInitiatorName = Nothing};
+deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse
+deleteChapCredentialsResponse pStatusCode = DeleteChapCredentialsResponse'{_delTargetARN = Nothing, _delInitiatorName = Nothing, _delStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the target.
-dccrTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-dccrTargetARN = lens _dccrTargetARN (\ s a -> s{_dccrTargetARN = a});
+delTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+delTargetARN = lens _delTargetARN (\ s a -> s{_delTargetARN = a});
 
 -- | The iSCSI initiator that connects to the target.
-dccrInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-dccrInitiatorName = lens _dccrInitiatorName (\ s a -> s{_dccrInitiatorName = a});
+delInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+delInitiatorName = lens _delInitiatorName (\ s a -> s{_delInitiatorName = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteChapCredentialsResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

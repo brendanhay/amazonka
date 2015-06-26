@@ -41,6 +41,7 @@ module Network.AWS.ECS.RunTask
     -- ** Response lenses
     , rtrFailures
     , rtrTasks
+    , rtrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -119,7 +120,8 @@ instance AWSRequest RunTask where
               (\ s h x ->
                  RunTaskResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "tasks" .!@ mempty))
+                     (x .?> "tasks" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders RunTask where
         toHeaders
@@ -152,11 +154,13 @@ instance ToQuery RunTask where
 -- * 'rtrFailures'
 --
 -- * 'rtrTasks'
-data RunTaskResponse = RunTaskResponse'{_rtrFailures :: Maybe [Failure], _rtrTasks :: Maybe [Task]} deriving (Eq, Read, Show)
+--
+-- * 'rtrStatusCode'
+data RunTaskResponse = RunTaskResponse'{_rtrFailures :: Maybe [Failure], _rtrTasks :: Maybe [Task], _rtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RunTaskResponse' smart constructor.
-runTaskResponse :: RunTaskResponse
-runTaskResponse = RunTaskResponse'{_rtrFailures = Nothing, _rtrTasks = Nothing};
+runTaskResponse :: Int -> RunTaskResponse
+runTaskResponse pStatusCode = RunTaskResponse'{_rtrFailures = Nothing, _rtrTasks = Nothing, _rtrStatusCode = pStatusCode};
 
 -- | Any failed tasks from your @RunTask@ action are listed here.
 rtrFailures :: Lens' RunTaskResponse [Failure]
@@ -166,3 +170,7 @@ rtrFailures = lens _rtrFailures (\ s a -> s{_rtrFailures = a}) . _Default;
 -- successfully placed on your cluster will be described here.
 rtrTasks :: Lens' RunTaskResponse [Task]
 rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+rtrStatusCode :: Lens' RunTaskResponse Int
+rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});

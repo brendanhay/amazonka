@@ -21,17 +21,38 @@ module Network.AWS.CloudSearch.Types
     (
     -- * Service
       CloudSearch
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _BaseException
+    , _DisabledOperationException
+    , _InternalException
+    , _InvalidTypeException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+
+    -- * AlgorithmicStemming
+    , AlgorithmicStemming (..)
+
+    -- * AnalysisSchemeLanguage
+    , AnalysisSchemeLanguage (..)
+
+    -- * IndexFieldType
+    , IndexFieldType (..)
+
+    -- * OptionState
+    , OptionState (..)
+
+    -- * PartitionInstanceType
+    , PartitionInstanceType (..)
+
+    -- * SuggesterFuzzyMatching
+    , SuggesterFuzzyMatching (..)
 
     -- * AccessPoliciesStatus
     , AccessPoliciesStatus
     , accessPoliciesStatus
     , apsOptions
     , apsStatus
-
-    -- * AlgorithmicStemming
-    , AlgorithmicStemming (..)
 
     -- * AnalysisOptions
     , AnalysisOptions
@@ -48,9 +69,6 @@ module Network.AWS.CloudSearch.Types
     , asAnalysisOptions
     , asAnalysisSchemeName
     , asAnalysisSchemeLanguage
-
-    -- * AnalysisSchemeLanguage
-    , AnalysisSchemeLanguage (..)
 
     -- * AnalysisSchemeStatus
     , AnalysisSchemeStatus
@@ -161,9 +179,6 @@ module Network.AWS.CloudSearch.Types
     , ifsOptions
     , ifsStatus
 
-    -- * IndexFieldType
-    , IndexFieldType (..)
-
     -- * IntArrayOptions
     , IntArrayOptions
     , intArrayOptions
@@ -218,9 +233,6 @@ module Network.AWS.CloudSearch.Types
     , loSortEnabled
     , loDefaultValue
 
-    -- * OptionState
-    , OptionState (..)
-
     -- * OptionStatus
     , OptionStatus
     , optionStatus
@@ -229,9 +241,6 @@ module Network.AWS.CloudSearch.Types
     , osCreationDate
     , osUpdateDate
     , osState
-
-    -- * PartitionInstanceType
-    , PartitionInstanceType (..)
 
     -- * ScalingParameters
     , ScalingParameters
@@ -257,9 +266,6 @@ module Network.AWS.CloudSearch.Types
     , sugSuggesterName
     , sugDocumentSuggesterOptions
 
-    -- * SuggesterFuzzyMatching
-    , SuggesterFuzzyMatching (..)
-
     -- * SuggesterStatus
     , SuggesterStatus
     , suggesterStatus
@@ -284,6 +290,7 @@ module Network.AWS.CloudSearch.Types
     , toHighlightEnabled
     , toSortEnabled
     , toDefaultValue
+
     ) where
 
 import Network.AWS.Prelude
@@ -294,56 +301,60 @@ data CloudSearch
 
 instance AWSService CloudSearch where
     type Sg CloudSearch = V4
-    type Er CloudSearch = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudSearch
-        service' = Service
-            { _svcAbbrev  = "CloudSearch"
-            , _svcPrefix  = "cloudsearch"
-            , _svcVersion = "2013-01-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudSearch
+        svc = Service
+            { _svcAbbrev   = "CloudSearch"
+            , _svcPrefix   = "cloudsearch"
+            , _svcVersion  = "2013-01-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudSearch
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | An error occurred while processing the request.
+_BaseException :: AWSError a => Geting (First ServiceError) a ServiceError
+_BaseException = _ServiceError . hasCode "BaseException";
 
--- | /See:/ 'accessPoliciesStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'apsOptions'
---
--- * 'apsStatus'
-data AccessPoliciesStatus = AccessPoliciesStatus'{_apsOptions :: Text, _apsStatus :: OptionStatus} deriving (Eq, Read, Show)
+-- | The request was rejected because it attempted an operation which is not
+-- enabled.
+_DisabledOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DisabledOperationException = _ServiceError . hasCode "DisabledAction" . hasStatus 409;
 
--- | 'AccessPoliciesStatus' smart constructor.
-accessPoliciesStatus :: Text -> OptionStatus -> AccessPoliciesStatus
-accessPoliciesStatus pOptions pStatus = AccessPoliciesStatus'{_apsOptions = pOptions, _apsStatus = pStatus};
+-- | An internal error occurred while processing the request. If this problem
+-- persists, report an issue from the
+-- <http://status.aws.amazon.com/ Service Health Dashboard>.
+_InternalException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalException = _ServiceError . hasCode "InternalException" . hasStatus 500;
 
--- | FIXME: Undocumented member.
-apsOptions :: Lens' AccessPoliciesStatus Text
-apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a});
+-- | The request was rejected because it specified an invalid type
+-- definition.
+_InvalidTypeException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidTypeException = _ServiceError . hasCode "InvalidType" . hasStatus 409;
 
--- | FIXME: Undocumented member.
-apsStatus :: Lens' AccessPoliciesStatus OptionStatus
-apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a});
+-- | The request was rejected because it attempted to reference a resource
+-- that does not exist.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFound" . hasStatus 409;
 
-instance FromXML AccessPoliciesStatus where
-        parseXML x
-          = AccessPoliciesStatus' <$>
-              (x .@ "Options") <*> (x .@ "Status")
+-- | The request was rejected because a resource limit has already been met.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 409;
 
 data AlgorithmicStemming = ASLight | ASNone | ASMinimal | ASFull deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -369,131 +380,8 @@ instance ToHeader AlgorithmicStemming
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
--- | /See:/ 'analysisOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aoAlgorithmicStemming'
---
--- * 'aoStopwords'
---
--- * 'aoStemmingDictionary'
---
--- * 'aoSynonyms'
---
--- * 'aoJapaneseTokenizationDictionary'
-data AnalysisOptions = AnalysisOptions'{_aoAlgorithmicStemming :: Maybe AlgorithmicStemming, _aoStopwords :: Maybe Text, _aoStemmingDictionary :: Maybe Text, _aoSynonyms :: Maybe Text, _aoJapaneseTokenizationDictionary :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'AnalysisOptions' smart constructor.
-analysisOptions :: AnalysisOptions
-analysisOptions = AnalysisOptions'{_aoAlgorithmicStemming = Nothing, _aoStopwords = Nothing, _aoStemmingDictionary = Nothing, _aoSynonyms = Nothing, _aoJapaneseTokenizationDictionary = Nothing};
-
--- | The level of algorithmic stemming to perform: @none@, @minimal@,
--- @light@, or @full@. The available levels vary depending on the language.
--- For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings>
--- in the /Amazon CloudSearch Developer Guide/
-aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
-aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\ s a -> s{_aoAlgorithmicStemming = a});
-
--- | A JSON array of terms to ignore during indexing and searching. For
--- example, @[\"a\", \"an\", \"the\", \"of\"]@. The stopwords dictionary
--- must explicitly list each word you want to ignore. Wildcards and regular
--- expressions are not supported.
-aoStopwords :: Lens' AnalysisOptions (Maybe Text)
-aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a});
-
--- | A JSON object that contains a collection of string:value pairs that each
--- map a term to its stem. For example,
--- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
--- The stemming dictionary is applied in addition to any algorithmic
--- stemming. This enables you to override the results of the algorithmic
--- stemming to correct specific cases of overstemming or understemming. The
--- maximum size of a stemming dictionary is 500 KB.
-aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a});
-
--- | A JSON object that defines synonym groups and aliases. A synonym group
--- is an array of arrays, where each sub-array is a group of terms where
--- each term in the group is considered a synonym of every other term in
--- the group. The aliases value is an object that contains a collection of
--- string:value pairs where the string specifies a term and the array of
--- values specifies each of the aliases for that term. An alias is
--- considered a synonym of the specified term, but the term is not
--- considered a synonym of the alias. For more information about specifying
--- synonyms, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
--- in the /Amazon CloudSearch Developer Guide/.
-aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
-aoSynonyms = lens _aoSynonyms (\ s a -> s{_aoSynonyms = a});
-
--- | A JSON array that contains a collection of terms, tokens, readings and
--- part of speech for Japanese Tokenizaiton. The Japanese tokenization
--- dictionary enables you to override the default tokenization for selected
--- terms. This is only valid for Japanese language fields.
-aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a});
-
-instance FromXML AnalysisOptions where
-        parseXML x
-          = AnalysisOptions' <$>
-              (x .@? "AlgorithmicStemming") <*> (x .@? "Stopwords")
-                <*> (x .@? "StemmingDictionary")
-                <*> (x .@? "Synonyms")
-                <*> (x .@? "JapaneseTokenizationDictionary")
-
-instance ToQuery AnalysisOptions where
-        toQuery AnalysisOptions'{..}
-          = mconcat
-              ["AlgorithmicStemming" =: _aoAlgorithmicStemming,
-               "Stopwords" =: _aoStopwords,
-               "StemmingDictionary" =: _aoStemmingDictionary,
-               "Synonyms" =: _aoSynonyms,
-               "JapaneseTokenizationDictionary" =:
-                 _aoJapaneseTokenizationDictionary]
-
--- | /See:/ 'analysisScheme' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asAnalysisOptions'
---
--- * 'asAnalysisSchemeName'
---
--- * 'asAnalysisSchemeLanguage'
-data AnalysisScheme = AnalysisScheme'{_asAnalysisOptions :: Maybe AnalysisOptions, _asAnalysisSchemeName :: Text, _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage} deriving (Eq, Read, Show)
-
--- | 'AnalysisScheme' smart constructor.
-analysisScheme :: Text -> AnalysisSchemeLanguage -> AnalysisScheme
-analysisScheme pAnalysisSchemeName pAnalysisSchemeLanguage = AnalysisScheme'{_asAnalysisOptions = Nothing, _asAnalysisSchemeName = pAnalysisSchemeName, _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage};
-
--- | FIXME: Undocumented member.
-asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
-asAnalysisOptions = lens _asAnalysisOptions (\ s a -> s{_asAnalysisOptions = a});
-
--- | FIXME: Undocumented member.
-asAnalysisSchemeName :: Lens' AnalysisScheme Text
-asAnalysisSchemeName = lens _asAnalysisSchemeName (\ s a -> s{_asAnalysisSchemeName = a});
-
--- | FIXME: Undocumented member.
-asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
-asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\ s a -> s{_asAnalysisSchemeLanguage = a});
-
-instance FromXML AnalysisScheme where
-        parseXML x
-          = AnalysisScheme' <$>
-              (x .@? "AnalysisOptions") <*>
-                (x .@ "AnalysisSchemeName")
-                <*> (x .@ "AnalysisSchemeLanguage")
-
-instance ToQuery AnalysisScheme where
-        toQuery AnalysisScheme'{..}
-          = mconcat
-              ["AnalysisOptions" =: _asAnalysisOptions,
-               "AnalysisSchemeName" =: _asAnalysisSchemeName,
-               "AnalysisSchemeLanguage" =:
-                 _asAnalysisSchemeLanguage]
-
+-- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or
+-- @mul@ for multiple languages.
 data AnalysisSchemeLanguage = Mul | KO | TH | RU | FA | LV | CA | RO | SV | HE | HU | AR | JA | GA | ES | DE | HI | EL | HY | ZHHant | NO | PT | FR | FI | NL | BG | ID | IT | DA | EU | CS | GL | EN | TR | ZHHans deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText AnalysisSchemeLanguage where
@@ -580,7 +468,306 @@ instance ToHeader AnalysisSchemeLanguage
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
--- | /See:/ 'analysisSchemeStatus' smart constructor.
+-- | The type of field. The valid options for a field depend on the field
+-- type. For more information about the supported field types, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
+-- in the /Amazon CloudSearch Developer Guide/.
+data IndexFieldType = Latlon | IntArray | LiteralArray | Double | Text | DoubleArray | Date | TextArray | DateArray | Int | Literal deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText IndexFieldType where
+    parser = takeLowerText >>= \case
+        "date" -> pure Date
+        "date-array" -> pure DateArray
+        "double" -> pure Double
+        "double-array" -> pure DoubleArray
+        "int" -> pure Int
+        "int-array" -> pure IntArray
+        "latlon" -> pure Latlon
+        "literal" -> pure Literal
+        "literal-array" -> pure LiteralArray
+        "text" -> pure Text
+        "text-array" -> pure TextArray
+        e -> fail ("Failure parsing IndexFieldType from " ++ show e)
+
+instance ToText IndexFieldType where
+    toText = \case
+        Date -> "date"
+        DateArray -> "date-array"
+        Double -> "double"
+        DoubleArray -> "double-array"
+        Int -> "int"
+        IntArray -> "int-array"
+        Latlon -> "latlon"
+        Literal -> "literal"
+        LiteralArray -> "literal-array"
+        Text -> "text"
+        TextArray -> "text-array"
+
+instance Hashable IndexFieldType
+instance ToQuery IndexFieldType
+instance ToHeader IndexFieldType
+
+instance FromXML IndexFieldType where
+    parseXML = parseXMLText "IndexFieldType"
+
+-- | The state of processing a change to an option. One of:
+--
+-- -   RequiresIndexDocuments: The option\'s latest value will not be
+--     deployed until IndexDocuments has been called and indexing is
+--     complete.
+-- -   Processing: The option\'s latest value is in the process of being
+--     activated.
+-- -   Active: The option\'s latest value is fully deployed.
+-- -   FailedToValidate: The option value is not compatible with the
+--     domain\'s data and cannot be used to index the data. You must either
+--     modify the option value or update or remove the incompatible
+--     documents.
+data OptionState = FailedToValidate | Active | RequiresIndexDocuments | Processing deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OptionState where
+    parser = takeLowerText >>= \case
+        "Active" -> pure Active
+        "FailedToValidate" -> pure FailedToValidate
+        "Processing" -> pure Processing
+        "RequiresIndexDocuments" -> pure RequiresIndexDocuments
+        e -> fail ("Failure parsing OptionState from " ++ show e)
+
+instance ToText OptionState where
+    toText = \case
+        Active -> "Active"
+        FailedToValidate -> "FailedToValidate"
+        Processing -> "Processing"
+        RequiresIndexDocuments -> "RequiresIndexDocuments"
+
+instance Hashable OptionState
+instance ToQuery OptionState
+instance ToHeader OptionState
+
+instance FromXML OptionState where
+    parseXML = parseXMLText "OptionState"
+
+-- | The instance type (such as @search.m1.small@) on which an index
+-- partition is hosted.
+data PartitionInstanceType = SearchM32XLarge | SearchM3Large | SearchM3Medium | SearchM22XLarge | SearchM2XLarge | SearchM1Large | SearchM1Small | SearchM3XLarge deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PartitionInstanceType where
+    parser = takeLowerText >>= \case
+        "search.m1.large" -> pure SearchM1Large
+        "search.m1.small" -> pure SearchM1Small
+        "search.m2.2xlarge" -> pure SearchM22XLarge
+        "search.m2.xlarge" -> pure SearchM2XLarge
+        "search.m3.2xlarge" -> pure SearchM32XLarge
+        "search.m3.large" -> pure SearchM3Large
+        "search.m3.medium" -> pure SearchM3Medium
+        "search.m3.xlarge" -> pure SearchM3XLarge
+        e -> fail ("Failure parsing PartitionInstanceType from " ++ show e)
+
+instance ToText PartitionInstanceType where
+    toText = \case
+        SearchM1Large -> "search.m1.large"
+        SearchM1Small -> "search.m1.small"
+        SearchM22XLarge -> "search.m2.2xlarge"
+        SearchM2XLarge -> "search.m2.xlarge"
+        SearchM32XLarge -> "search.m3.2xlarge"
+        SearchM3Large -> "search.m3.large"
+        SearchM3Medium -> "search.m3.medium"
+        SearchM3XLarge -> "search.m3.xlarge"
+
+instance Hashable PartitionInstanceType
+instance ToQuery PartitionInstanceType
+instance ToHeader PartitionInstanceType
+
+instance FromXML PartitionInstanceType where
+    parseXML = parseXMLText "PartitionInstanceType"
+
+data SuggesterFuzzyMatching = Low | None | High deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SuggesterFuzzyMatching where
+    parser = takeLowerText >>= \case
+        "high" -> pure High
+        "low" -> pure Low
+        "none" -> pure None
+        e -> fail ("Failure parsing SuggesterFuzzyMatching from " ++ show e)
+
+instance ToText SuggesterFuzzyMatching where
+    toText = \case
+        High -> "high"
+        Low -> "low"
+        None -> "none"
+
+instance Hashable SuggesterFuzzyMatching
+instance ToQuery SuggesterFuzzyMatching
+instance ToHeader SuggesterFuzzyMatching
+
+instance FromXML SuggesterFuzzyMatching where
+    parseXML = parseXMLText "SuggesterFuzzyMatching"
+
+-- | The configured access rules for the domain\'s document and search
+-- endpoints, and the current status of those rules.
+--
+-- /See:/ 'accessPoliciesStatus' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'apsOptions'
+--
+-- * 'apsStatus'
+data AccessPoliciesStatus = AccessPoliciesStatus'{_apsOptions :: Text, _apsStatus :: OptionStatus} deriving (Eq, Read, Show)
+
+-- | 'AccessPoliciesStatus' smart constructor.
+accessPoliciesStatus :: Text -> OptionStatus -> AccessPoliciesStatus
+accessPoliciesStatus pOptions pStatus = AccessPoliciesStatus'{_apsOptions = pOptions, _apsStatus = pStatus};
+
+-- | FIXME: Undocumented member.
+apsOptions :: Lens' AccessPoliciesStatus Text
+apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a});
+
+-- | FIXME: Undocumented member.
+apsStatus :: Lens' AccessPoliciesStatus OptionStatus
+apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a});
+
+instance FromXML AccessPoliciesStatus where
+        parseXML x
+          = AccessPoliciesStatus' <$>
+              (x .@ "Options") <*> (x .@ "Status")
+
+-- | Synonyms, stopwords, and stemming options for an analysis scheme.
+-- Includes tokenization dictionary for Japanese.
+--
+-- /See:/ 'analysisOptions' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aoAlgorithmicStemming'
+--
+-- * 'aoStopwords'
+--
+-- * 'aoStemmingDictionary'
+--
+-- * 'aoSynonyms'
+--
+-- * 'aoJapaneseTokenizationDictionary'
+data AnalysisOptions = AnalysisOptions'{_aoAlgorithmicStemming :: Maybe AlgorithmicStemming, _aoStopwords :: Maybe Text, _aoStemmingDictionary :: Maybe Text, _aoSynonyms :: Maybe Text, _aoJapaneseTokenizationDictionary :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'AnalysisOptions' smart constructor.
+analysisOptions :: AnalysisOptions
+analysisOptions = AnalysisOptions'{_aoAlgorithmicStemming = Nothing, _aoStopwords = Nothing, _aoStemmingDictionary = Nothing, _aoSynonyms = Nothing, _aoJapaneseTokenizationDictionary = Nothing};
+
+-- | The level of algorithmic stemming to perform: @none@, @minimal@,
+-- @light@, or @full@. The available levels vary depending on the language.
+-- For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings>
+-- in the /Amazon CloudSearch Developer Guide/
+aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
+aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\ s a -> s{_aoAlgorithmicStemming = a});
+
+-- | A JSON array of terms to ignore during indexing and searching. For
+-- example, @[\"a\", \"an\", \"the\", \"of\"]@. The stopwords dictionary
+-- must explicitly list each word you want to ignore. Wildcards and regular
+-- expressions are not supported.
+aoStopwords :: Lens' AnalysisOptions (Maybe Text)
+aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a});
+
+-- | A JSON object that contains a collection of string:value pairs that each
+-- map a term to its stem. For example,
+-- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
+-- The stemming dictionary is applied in addition to any algorithmic
+-- stemming. This enables you to override the results of the algorithmic
+-- stemming to correct specific cases of overstemming or understemming. The
+-- maximum size of a stemming dictionary is 500 KB.
+aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
+aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a});
+
+-- | A JSON object that defines synonym groups and aliases. A synonym group
+-- is an array of arrays, where each sub-array is a group of terms where
+-- each term in the group is considered a synonym of every other term in
+-- the group. The aliases value is an object that contains a collection of
+-- string:value pairs where the string specifies a term and the array of
+-- values specifies each of the aliases for that term. An alias is
+-- considered a synonym of the specified term, but the term is not
+-- considered a synonym of the alias. For more information about specifying
+-- synonyms, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
+-- in the /Amazon CloudSearch Developer Guide/.
+aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
+aoSynonyms = lens _aoSynonyms (\ s a -> s{_aoSynonyms = a});
+
+-- | A JSON array that contains a collection of terms, tokens, readings and
+-- part of speech for Japanese Tokenizaiton. The Japanese tokenization
+-- dictionary enables you to override the default tokenization for selected
+-- terms. This is only valid for Japanese language fields.
+aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
+aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a});
+
+instance FromXML AnalysisOptions where
+        parseXML x
+          = AnalysisOptions' <$>
+              (x .@? "AlgorithmicStemming") <*> (x .@? "Stopwords")
+                <*> (x .@? "StemmingDictionary")
+                <*> (x .@? "Synonyms")
+                <*> (x .@? "JapaneseTokenizationDictionary")
+
+instance ToQuery AnalysisOptions where
+        toQuery AnalysisOptions'{..}
+          = mconcat
+              ["AlgorithmicStemming" =: _aoAlgorithmicStemming,
+               "Stopwords" =: _aoStopwords,
+               "StemmingDictionary" =: _aoStemmingDictionary,
+               "Synonyms" =: _aoSynonyms,
+               "JapaneseTokenizationDictionary" =:
+                 _aoJapaneseTokenizationDictionary]
+
+-- | Configuration information for an analysis scheme. Each analysis scheme
+-- has a unique name and specifies the language of the text to be
+-- processed. The following options can be configured for an analysis
+-- scheme: @Synonyms@, @Stopwords@, @StemmingDictionary@,
+-- @JapaneseTokenizationDictionary@ and @AlgorithmicStemming@.
+--
+-- /See:/ 'analysisScheme' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'asAnalysisOptions'
+--
+-- * 'asAnalysisSchemeName'
+--
+-- * 'asAnalysisSchemeLanguage'
+data AnalysisScheme = AnalysisScheme'{_asAnalysisOptions :: Maybe AnalysisOptions, _asAnalysisSchemeName :: Text, _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage} deriving (Eq, Read, Show)
+
+-- | 'AnalysisScheme' smart constructor.
+analysisScheme :: Text -> AnalysisSchemeLanguage -> AnalysisScheme
+analysisScheme pAnalysisSchemeName pAnalysisSchemeLanguage = AnalysisScheme'{_asAnalysisOptions = Nothing, _asAnalysisSchemeName = pAnalysisSchemeName, _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage};
+
+-- | FIXME: Undocumented member.
+asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
+asAnalysisOptions = lens _asAnalysisOptions (\ s a -> s{_asAnalysisOptions = a});
+
+-- | FIXME: Undocumented member.
+asAnalysisSchemeName :: Lens' AnalysisScheme Text
+asAnalysisSchemeName = lens _asAnalysisSchemeName (\ s a -> s{_asAnalysisSchemeName = a});
+
+-- | FIXME: Undocumented member.
+asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
+asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\ s a -> s{_asAnalysisSchemeLanguage = a});
+
+instance FromXML AnalysisScheme where
+        parseXML x
+          = AnalysisScheme' <$>
+              (x .@? "AnalysisOptions") <*>
+                (x .@ "AnalysisSchemeName")
+                <*> (x .@ "AnalysisSchemeLanguage")
+
+instance ToQuery AnalysisScheme where
+        toQuery AnalysisScheme'{..}
+          = mconcat
+              ["AnalysisOptions" =: _asAnalysisOptions,
+               "AnalysisSchemeName" =: _asAnalysisSchemeName,
+               "AnalysisSchemeLanguage" =:
+                 _asAnalysisSchemeLanguage]
+
+-- | The status and configuration of an @AnalysisScheme@.
+--
+-- /See:/ 'analysisSchemeStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -606,7 +793,9 @@ instance FromXML AnalysisSchemeStatus where
           = AnalysisSchemeStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
--- | /See:/ 'availabilityOptionsStatus' smart constructor.
+-- | The status and configuration of the domain\'s availability options.
+--
+-- /See:/ 'availabilityOptionsStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -632,7 +821,11 @@ instance FromXML AvailabilityOptionsStatus where
           = AvailabilityOptionsStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
--- | /See:/ 'dateArrayOptions' smart constructor.
+-- | Options for a field that contains an array of dates. Present if
+-- @IndexFieldType@ specifies the field is of type @date-array@. All
+-- options are enabled by default.
+--
+-- /See:/ 'dateArrayOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -689,7 +882,12 @@ instance ToQuery DateArrayOptions where
                "SearchEnabled" =: _datSearchEnabled,
                "DefaultValue" =: _datDefaultValue]
 
--- | /See:/ 'dateOptions' smart constructor.
+-- | Options for a date field. Dates and times are specified in UTC
+-- (Coordinated Universal Time) according to IETF RFC3339:
+-- yyyy-mm-ddT00:00:00Z. Present if @IndexFieldType@ specifies the field is
+-- of type @date@. All options are enabled by default.
+--
+-- /See:/ 'dateOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -754,7 +952,9 @@ instance ToQuery DateOptions where
                "SortEnabled" =: _doSortEnabled,
                "DefaultValue" =: _doDefaultValue]
 
--- | /See:/ 'documentSuggesterOptions' smart constructor.
+-- | Options for a search suggester.
+--
+-- /See:/ 'documentSuggesterOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -805,7 +1005,9 @@ instance ToQuery DocumentSuggesterOptions where
                "FuzzyMatching" =: _dsoFuzzyMatching,
                "SourceField" =: _dsoSourceField]
 
--- | /See:/ 'domainStatus' smart constructor.
+-- | The current status of the search domain.
+--
+-- /See:/ 'domainStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -919,7 +1121,11 @@ instance FromXML DomainStatus where
                 <*> (x .@ "DomainName")
                 <*> (x .@ "RequiresIndexDocuments")
 
--- | /See:/ 'doubleArrayOptions' smart constructor.
+-- | Options for a field that contains an array of double-precision 64-bit
+-- floating point values. Present if @IndexFieldType@ specifies the field
+-- is of type @double-array@. All options are enabled by default.
+--
+-- /See:/ 'doubleArrayOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -976,7 +1182,11 @@ instance ToQuery DoubleArrayOptions where
                "SearchEnabled" =: _daoSearchEnabled,
                "DefaultValue" =: _daoDefaultValue]
 
--- | /See:/ 'doubleOptions' smart constructor.
+-- | Options for a double-precision 64-bit floating point field. Present if
+-- @IndexFieldType@ specifies the field is of type @double@. All options
+-- are enabled by default.
+--
+-- /See:/ 'doubleOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1042,7 +1252,11 @@ instance ToQuery DoubleOptions where
                "SortEnabled" =: _douSortEnabled,
                "DefaultValue" =: _douDefaultValue]
 
--- | /See:/ 'expression' smart constructor.
+-- | A named expression that can be evaluated at search time. Can be used to
+-- sort the search results, define other expressions, or return computed
+-- information in the search results.
+--
+-- /See:/ 'expression' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1074,7 +1288,9 @@ instance ToQuery Expression where
               ["ExpressionName" =: _expExpressionName,
                "ExpressionValue" =: _expExpressionValue]
 
--- | /See:/ 'expressionStatus' smart constructor.
+-- | The value of an @Expression@ and its current status.
+--
+-- /See:/ 'expressionStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1101,7 +1317,10 @@ instance FromXML ExpressionStatus where
           = ExpressionStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
--- | /See:/ 'indexField' smart constructor.
+-- | Configuration information for a field in the index, including its name,
+-- type, and options. The supported options depend on the @IndexFieldType@.
+--
+-- /See:/ 'indexField' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1235,7 +1454,9 @@ instance ToQuery IndexField where
                "IndexFieldName" =: _ifIndexFieldName,
                "IndexFieldType" =: _ifIndexFieldType]
 
--- | /See:/ 'indexFieldStatus' smart constructor.
+-- | The value of an @IndexField@ and its current status.
+--
+-- /See:/ 'indexFieldStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1261,45 +1482,11 @@ instance FromXML IndexFieldStatus where
           = IndexFieldStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-data IndexFieldType = Latlon | IntArray | LiteralArray | Double | Text | DoubleArray | Date | TextArray | DateArray | Int | Literal deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText IndexFieldType where
-    parser = takeLowerText >>= \case
-        "date" -> pure Date
-        "date-array" -> pure DateArray
-        "double" -> pure Double
-        "double-array" -> pure DoubleArray
-        "int" -> pure Int
-        "int-array" -> pure IntArray
-        "latlon" -> pure Latlon
-        "literal" -> pure Literal
-        "literal-array" -> pure LiteralArray
-        "text" -> pure Text
-        "text-array" -> pure TextArray
-        e -> fail ("Failure parsing IndexFieldType from " ++ show e)
-
-instance ToText IndexFieldType where
-    toText = \case
-        Date -> "date"
-        DateArray -> "date-array"
-        Double -> "double"
-        DoubleArray -> "double-array"
-        Int -> "int"
-        IntArray -> "int-array"
-        Latlon -> "latlon"
-        Literal -> "literal"
-        LiteralArray -> "literal-array"
-        Text -> "text"
-        TextArray -> "text-array"
-
-instance Hashable IndexFieldType
-instance ToQuery IndexFieldType
-instance ToHeader IndexFieldType
-
-instance FromXML IndexFieldType where
-    parseXML = parseXMLText "IndexFieldType"
-
--- | /See:/ 'intArrayOptions' smart constructor.
+-- | Options for a field that contains an array of 64-bit signed integers.
+-- Present if @IndexFieldType@ specifies the field is of type @int-array@.
+-- All options are enabled by default.
+--
+-- /See:/ 'intArrayOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1356,7 +1543,11 @@ instance ToQuery IntArrayOptions where
                "SearchEnabled" =: _iaoSearchEnabled,
                "DefaultValue" =: _iaoDefaultValue]
 
--- | /See:/ 'intOptions' smart constructor.
+-- | Options for a 64-bit signed integer field. Present if @IndexFieldType@
+-- specifies the field is of type @int@. All options are enabled by
+-- default.
+--
+-- /See:/ 'intOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1422,7 +1613,12 @@ instance ToQuery IntOptions where
                "SortEnabled" =: _ioSortEnabled,
                "DefaultValue" =: _ioDefaultValue]
 
--- | /See:/ 'latLonOptions' smart constructor.
+-- | Options for a latlon field. A latlon field contains a location stored as
+-- a latitude and longitude value pair. Present if @IndexFieldType@
+-- specifies the field is of type @latlon@. All options are enabled by
+-- default.
+--
+-- /See:/ 'latLonOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1514,7 +1710,11 @@ instance FromXML Limits where
               (x .@ "MaximumReplicationCount") <*>
                 (x .@ "MaximumPartitionCount")
 
--- | /See:/ 'literalArrayOptions' smart constructor.
+-- | Options for a field that contains an array of literal strings. Present
+-- if @IndexFieldType@ specifies the field is of type @literal-array@. All
+-- options are enabled by default.
+--
+-- /See:/ 'literalArrayOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1571,7 +1771,10 @@ instance ToQuery LiteralArrayOptions where
                "SearchEnabled" =: _laoSearchEnabled,
                "DefaultValue" =: _laoDefaultValue]
 
--- | /See:/ 'literalOptions' smart constructor.
+-- | Options for literal field. Present if @IndexFieldType@ specifies the
+-- field is of type @literal@. All options are enabled by default.
+--
+-- /See:/ 'literalOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1636,31 +1839,9 @@ instance ToQuery LiteralOptions where
                "SortEnabled" =: _loSortEnabled,
                "DefaultValue" =: _loDefaultValue]
 
-data OptionState = FailedToValidate | Active | RequiresIndexDocuments | Processing deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OptionState where
-    parser = takeLowerText >>= \case
-        "Active" -> pure Active
-        "FailedToValidate" -> pure FailedToValidate
-        "Processing" -> pure Processing
-        "RequiresIndexDocuments" -> pure RequiresIndexDocuments
-        e -> fail ("Failure parsing OptionState from " ++ show e)
-
-instance ToText OptionState where
-    toText = \case
-        Active -> "Active"
-        FailedToValidate -> "FailedToValidate"
-        Processing -> "Processing"
-        RequiresIndexDocuments -> "RequiresIndexDocuments"
-
-instance Hashable OptionState
-instance ToQuery OptionState
-instance ToHeader OptionState
-
-instance FromXML OptionState where
-    parseXML = parseXMLText "OptionState"
-
--- | /See:/ 'optionStatus' smart constructor.
+-- | The status of domain configuration option.
+--
+-- /See:/ 'optionStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1718,39 +1899,10 @@ instance FromXML OptionStatus where
                 <*> (x .@ "UpdateDate")
                 <*> (x .@ "State")
 
-data PartitionInstanceType = SearchM32XLarge | SearchM3Large | SearchM3Medium | SearchM22XLarge | SearchM2XLarge | SearchM1Large | SearchM1Small | SearchM3XLarge deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PartitionInstanceType where
-    parser = takeLowerText >>= \case
-        "search.m1.large" -> pure SearchM1Large
-        "search.m1.small" -> pure SearchM1Small
-        "search.m2.2xlarge" -> pure SearchM22XLarge
-        "search.m2.xlarge" -> pure SearchM2XLarge
-        "search.m3.2xlarge" -> pure SearchM32XLarge
-        "search.m3.large" -> pure SearchM3Large
-        "search.m3.medium" -> pure SearchM3Medium
-        "search.m3.xlarge" -> pure SearchM3XLarge
-        e -> fail ("Failure parsing PartitionInstanceType from " ++ show e)
-
-instance ToText PartitionInstanceType where
-    toText = \case
-        SearchM1Large -> "search.m1.large"
-        SearchM1Small -> "search.m1.small"
-        SearchM22XLarge -> "search.m2.2xlarge"
-        SearchM2XLarge -> "search.m2.xlarge"
-        SearchM32XLarge -> "search.m3.2xlarge"
-        SearchM3Large -> "search.m3.large"
-        SearchM3Medium -> "search.m3.medium"
-        SearchM3XLarge -> "search.m3.xlarge"
-
-instance Hashable PartitionInstanceType
-instance ToQuery PartitionInstanceType
-instance ToHeader PartitionInstanceType
-
-instance FromXML PartitionInstanceType where
-    parseXML = parseXMLText "PartitionInstanceType"
-
--- | /See:/ 'scalingParameters' smart constructor.
+-- | The desired instance type and desired number of replicas of each index
+-- partition.
+--
+-- /See:/ 'scalingParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1795,7 +1947,9 @@ instance ToQuery ScalingParameters where
                  _spDesiredReplicationCount,
                "DesiredPartitionCount" =: _spDesiredPartitionCount]
 
--- | /See:/ 'scalingParametersStatus' smart constructor.
+-- | The status and configuration of a search domain\'s scaling parameters.
+--
+-- /See:/ 'scalingParametersStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1821,7 +1975,9 @@ instance FromXML ScalingParametersStatus where
           = ScalingParametersStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
--- | /See:/ 'serviceEndpoint' smart constructor.
+-- | The endpoint to which service requests can be submitted.
+--
+-- /See:/ 'serviceEndpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1839,7 +1995,12 @@ seEndpoint = lens _seEndpoint (\ s a -> s{_seEndpoint = a});
 instance FromXML ServiceEndpoint where
         parseXML x = ServiceEndpoint' <$> (x .@? "Endpoint")
 
--- | /See:/ 'suggester' smart constructor.
+-- | Configuration information for a search suggester. Each suggester has a
+-- unique name and specifies the text field you want to use for
+-- suggestions. The following options can be configured for a suggester:
+-- @FuzzyMatching@, @SortExpression@.
+--
+-- /See:/ 'suggester' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1873,29 +2034,9 @@ instance ToQuery Suggester where
                "DocumentSuggesterOptions" =:
                  _sugDocumentSuggesterOptions]
 
-data SuggesterFuzzyMatching = Low | None | High deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SuggesterFuzzyMatching where
-    parser = takeLowerText >>= \case
-        "high" -> pure High
-        "low" -> pure Low
-        "none" -> pure None
-        e -> fail ("Failure parsing SuggesterFuzzyMatching from " ++ show e)
-
-instance ToText SuggesterFuzzyMatching where
-    toText = \case
-        High -> "high"
-        Low -> "low"
-        None -> "none"
-
-instance Hashable SuggesterFuzzyMatching
-instance ToQuery SuggesterFuzzyMatching
-instance ToHeader SuggesterFuzzyMatching
-
-instance FromXML SuggesterFuzzyMatching where
-    parseXML = parseXMLText "SuggesterFuzzyMatching"
-
--- | /See:/ 'suggesterStatus' smart constructor.
+-- | The value of a @Suggester@ and its current status.
+--
+-- /See:/ 'suggesterStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1921,7 +2062,12 @@ instance FromXML SuggesterStatus where
           = SuggesterStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
--- | /See:/ 'textArrayOptions' smart constructor.
+-- | Options for a field that contains an array of text strings. Present if
+-- @IndexFieldType@ specifies the field is of type @text-array@. A
+-- @text-array@ field is always searchable. All options are enabled by
+-- default.
+--
+-- /See:/ 'textArrayOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1978,7 +2124,11 @@ instance ToQuery TextArrayOptions where
                "HighlightEnabled" =: _taoHighlightEnabled,
                "DefaultValue" =: _taoDefaultValue]
 
--- | /See:/ 'textOptions' smart constructor.
+-- | Options for text field. Present if @IndexFieldType@ specifies the field
+-- is of type @text@. A @text@ field is always searchable. All options are
+-- enabled by default.
+--
+-- /See:/ 'textOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

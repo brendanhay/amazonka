@@ -41,6 +41,7 @@ module Network.AWS.StorageGateway.CreateTapes
     , createTapesResponse
     -- ** Response lenses
     , ctrTapeARNs
+    , ctrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -48,7 +49,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'createTapes' smart constructor.
+-- | CreateTapesInput
+--
+-- /See:/ 'createTapes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,7 +110,8 @@ instance AWSRequest CreateTapes where
           = receiveJSON
               (\ s h x ->
                  CreateTapesResponse' <$>
-                   (x .?> "TapeARNs" .!@ mempty))
+                   (x .?> "TapeARNs" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateTapes where
         toHeaders
@@ -134,18 +138,26 @@ instance ToPath CreateTapes where
 instance ToQuery CreateTapes where
         toQuery = const mempty
 
--- | /See:/ 'createTapesResponse' smart constructor.
+-- | CreateTapeOutput
+--
+-- /See:/ 'createTapesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ctrTapeARNs'
-newtype CreateTapesResponse = CreateTapesResponse'{_ctrTapeARNs :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ctrStatusCode'
+data CreateTapesResponse = CreateTapesResponse'{_ctrTapeARNs :: Maybe [Text], _ctrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateTapesResponse' smart constructor.
-createTapesResponse :: CreateTapesResponse
-createTapesResponse = CreateTapesResponse'{_ctrTapeARNs = Nothing};
+createTapesResponse :: Int -> CreateTapesResponse
+createTapesResponse pStatusCode = CreateTapesResponse'{_ctrTapeARNs = Nothing, _ctrStatusCode = pStatusCode};
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
 -- tapes that were created.
 ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ctrStatusCode :: Lens' CreateTapesResponse Int
+ctrStatusCode = lens _ctrStatusCode (\ s a -> s{_ctrStatusCode = a});

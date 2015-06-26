@@ -40,6 +40,7 @@ module Network.AWS.EC2.AllocateAddress
     , aarAllocationId
     , aarDomain
     , aarPublicIP
+    , aarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -82,7 +83,8 @@ instance AWSRequest AllocateAddress where
               (\ s h x ->
                  AllocateAddressResponse' <$>
                    (x .@? "allocationId") <*> (x .@? "domain") <*>
-                     (x .@? "publicIp"))
+                     (x .@? "publicIp")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty
@@ -106,11 +108,13 @@ instance ToQuery AllocateAddress where
 -- * 'aarDomain'
 --
 -- * 'aarPublicIP'
-data AllocateAddressResponse = AllocateAddressResponse'{_aarAllocationId :: Maybe Text, _aarDomain :: Maybe DomainType, _aarPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'aarStatusCode'
+data AllocateAddressResponse = AllocateAddressResponse'{_aarAllocationId :: Maybe Text, _aarDomain :: Maybe DomainType, _aarPublicIP :: Maybe Text, _aarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AllocateAddressResponse' smart constructor.
-allocateAddressResponse :: AllocateAddressResponse
-allocateAddressResponse = AllocateAddressResponse'{_aarAllocationId = Nothing, _aarDomain = Nothing, _aarPublicIP = Nothing};
+allocateAddressResponse :: Int -> AllocateAddressResponse
+allocateAddressResponse pStatusCode = AllocateAddressResponse'{_aarAllocationId = Nothing, _aarDomain = Nothing, _aarPublicIP = Nothing, _aarStatusCode = pStatusCode};
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
@@ -125,3 +129,7 @@ aarDomain = lens _aarDomain (\ s a -> s{_aarDomain = a});
 -- | The Elastic IP address.
 aarPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIP = lens _aarPublicIP (\ s a -> s{_aarPublicIP = a});
+
+-- | FIXME: Undocumented member.
+aarStatusCode :: Lens' AllocateAddressResponse Int
+aarStatusCode = lens _aarStatusCode (\ s a -> s{_aarStatusCode = a});

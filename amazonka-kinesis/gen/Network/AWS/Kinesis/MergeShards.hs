@@ -78,7 +78,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'mergeShards' smart constructor.
+-- | Represents the input for @MergeShards@.
+--
+-- /See:/ 'mergeShards' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -39,8 +39,9 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     -- ** Response constructor
     , createPipelineResponse
     -- ** Response lenses
-    , cprWarnings
-    , cprPipeline
+    , creWarnings
+    , crePipeline
+    , creStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -48,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createPipeline' smart constructor.
+-- | The @CreatePipelineRequest@ structure.
+--
+-- /See:/ 'createPipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -277,7 +280,8 @@ instance AWSRequest CreatePipeline where
           = receiveJSON
               (\ s h x ->
                  CreatePipelineResponse' <$>
-                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline"))
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreatePipeline where
         toHeaders = const mempty
@@ -299,18 +303,23 @@ instance ToPath CreatePipeline where
 instance ToQuery CreatePipeline where
         toQuery = const mempty
 
--- | /See:/ 'createPipelineResponse' smart constructor.
+-- | When you create a pipeline, Elastic Transcoder returns the values that
+-- you specified in the request.
+--
+-- /See:/ 'createPipelineResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprWarnings'
+-- * 'creWarnings'
 --
--- * 'cprPipeline'
-data CreatePipelineResponse = CreatePipelineResponse'{_cprWarnings :: Maybe [Warning], _cprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+-- * 'crePipeline'
+--
+-- * 'creStatusCode'
+data CreatePipelineResponse = CreatePipelineResponse'{_creWarnings :: Maybe [Warning], _crePipeline :: Maybe Pipeline, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: CreatePipelineResponse
-createPipelineResponse = CreatePipelineResponse'{_cprWarnings = Nothing, _cprPipeline = Nothing};
+createPipelineResponse :: Int -> CreatePipelineResponse
+createPipelineResponse pStatusCode = CreatePipelineResponse'{_creWarnings = Nothing, _crePipeline = Nothing, _creStatusCode = pStatusCode};
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -318,10 +327,14 @@ createPipelineResponse = CreatePipelineResponse'{_cprWarnings = Nothing, _cprPip
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-cprWarnings :: Lens' CreatePipelineResponse [Warning]
-cprWarnings = lens _cprWarnings (\ s a -> s{_cprWarnings = a}) . _Default;
+creWarnings :: Lens' CreatePipelineResponse [Warning]
+creWarnings = lens _creWarnings (\ s a -> s{_creWarnings = a}) . _Default;
 
 -- | A section of the response body that provides information about the
 -- pipeline that is created.
-cprPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
-cprPipeline = lens _cprPipeline (\ s a -> s{_cprPipeline = a});
+crePipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
+crePipeline = lens _crePipeline (\ s a -> s{_crePipeline = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreatePipelineResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

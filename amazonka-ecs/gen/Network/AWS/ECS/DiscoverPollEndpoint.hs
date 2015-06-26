@@ -38,6 +38,7 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- ** Response lenses
     , dperTelemetryEndpoint
     , dperEndpoint
+    , dperStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -80,7 +81,8 @@ instance AWSRequest DiscoverPollEndpoint where
           = receiveJSON
               (\ s h x ->
                  DiscoverPollEndpointResponse' <$>
-                   (x .?> "telemetryEndpoint") <*> (x .?> "endpoint"))
+                   (x .?> "telemetryEndpoint") <*> (x .?> "endpoint")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders
@@ -111,11 +113,13 @@ instance ToQuery DiscoverPollEndpoint where
 -- * 'dperTelemetryEndpoint'
 --
 -- * 'dperEndpoint'
-data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint :: Maybe Text, _dperEndpoint :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dperStatusCode'
+data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint :: Maybe Text, _dperEndpoint :: Maybe Text, _dperStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
-discoverPollEndpointResponse :: DiscoverPollEndpointResponse
-discoverPollEndpointResponse = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint = Nothing, _dperEndpoint = Nothing};
+discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
+discoverPollEndpointResponse pStatusCode = DiscoverPollEndpointResponse'{_dperTelemetryEndpoint = Nothing, _dperEndpoint = Nothing, _dperStatusCode = pStatusCode};
 
 -- | The telemetry endpoint for the Amazon ECS agent.
 dperTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
@@ -124,3 +128,7 @@ dperTelemetryEndpoint = lens _dperTelemetryEndpoint (\ s a -> s{_dperTelemetryEn
 -- | The endpoint for the Amazon ECS agent to poll.
 dperEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dperEndpoint = lens _dperEndpoint (\ s a -> s{_dperEndpoint = a});
+
+-- | FIXME: Undocumented member.
+dperStatusCode :: Lens' DiscoverPollEndpointResponse Int
+dperStatusCode = lens _dperStatusCode (\ s a -> s{_dperStatusCode = a});

@@ -82,6 +82,7 @@ module Network.AWS.Support.CreateCase
     , createCaseResponse
     -- ** Response lenses
     , ccrCaseId
+    , ccrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -171,7 +172,9 @@ instance AWSRequest CreateCase where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateCaseResponse' <$> (x .?> "caseId"))
+              (\ s h x ->
+                 CreateCaseResponse' <$>
+                   (x .?> "caseId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCase where
         toHeaders
@@ -201,19 +204,28 @@ instance ToPath CreateCase where
 instance ToQuery CreateCase where
         toQuery = const mempty
 
--- | /See:/ 'createCaseResponse' smart constructor.
+-- | The AWS Support case ID returned by a successful completion of the
+-- CreateCase operation.
+--
+-- /See:/ 'createCaseResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccrCaseId'
-newtype CreateCaseResponse = CreateCaseResponse'{_ccrCaseId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ccrStatusCode'
+data CreateCaseResponse = CreateCaseResponse'{_ccrCaseId :: Maybe Text, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCaseResponse' smart constructor.
-createCaseResponse :: CreateCaseResponse
-createCaseResponse = CreateCaseResponse'{_ccrCaseId = Nothing};
+createCaseResponse :: Int -> CreateCaseResponse
+createCaseResponse pStatusCode = CreateCaseResponse'{_ccrCaseId = Nothing, _ccrStatusCode = pStatusCode};
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrCaseId = lens _ccrCaseId (\ s a -> s{_ccrCaseId = a});
+
+-- | FIXME: Undocumented member.
+ccrStatusCode :: Lens' CreateCaseResponse Int
+ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});

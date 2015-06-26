@@ -43,6 +43,7 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     , createHSMClientCertificateResponse
     -- ** Response lenses
     , chccrHSMClientCertificate
+    , chccrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -50,7 +51,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createHSMClientCertificate' smart constructor.
+-- |
+--
+-- /See:/ 'createHSMClientCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,7 +86,8 @@ instance AWSRequest CreateHSMClientCertificate where
               "CreateHsmClientCertificateResult"
               (\ s h x ->
                  CreateHSMClientCertificateResponse' <$>
-                   (x .@? "HsmClientCertificate"))
+                   (x .@? "HsmClientCertificate") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
@@ -106,12 +110,18 @@ instance ToQuery CreateHSMClientCertificate where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chccrHSMClientCertificate'
-newtype CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'{_chccrHSMClientCertificate :: Maybe HSMClientCertificate} deriving (Eq, Read, Show)
+--
+-- * 'chccrStatusCode'
+data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'{_chccrHSMClientCertificate :: Maybe HSMClientCertificate, _chccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
-createHSMClientCertificateResponse :: CreateHSMClientCertificateResponse
-createHSMClientCertificateResponse = CreateHSMClientCertificateResponse'{_chccrHSMClientCertificate = Nothing};
+createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse
+createHSMClientCertificateResponse pStatusCode = CreateHSMClientCertificateResponse'{_chccrHSMClientCertificate = Nothing, _chccrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 chccrHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
 chccrHSMClientCertificate = lens _chccrHSMClientCertificate (\ s a -> s{_chccrHSMClientCertificate = a});
+
+-- | FIXME: Undocumented member.
+chccrStatusCode :: Lens' CreateHSMClientCertificateResponse Int
+chccrStatusCode = lens _chccrStatusCode (\ s a -> s{_chccrStatusCode = a});

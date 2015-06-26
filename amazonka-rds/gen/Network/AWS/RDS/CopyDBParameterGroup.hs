@@ -35,6 +35,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
     , copyDBParameterGroupResponse
     -- ** Response lenses
     , copDBParameterGroup
+    , copStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'copyDBParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'copyDBParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,7 +106,7 @@ instance AWSRequest CopyDBParameterGroup where
           = receiveXMLWrapper "CopyDBParameterGroupResult"
               (\ s h x ->
                  CopyDBParameterGroupResponse' <$>
-                   (x .@? "DBParameterGroup"))
+                   (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
@@ -129,12 +132,18 @@ instance ToQuery CopyDBParameterGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'copDBParameterGroup'
-newtype CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'{_copDBParameterGroup :: Maybe DBParameterGroup} deriving (Eq, Read, Show)
+--
+-- * 'copStatusCode'
+data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'{_copDBParameterGroup :: Maybe DBParameterGroup, _copStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
-copyDBParameterGroupResponse :: CopyDBParameterGroupResponse
-copyDBParameterGroupResponse = CopyDBParameterGroupResponse'{_copDBParameterGroup = Nothing};
+copyDBParameterGroupResponse :: Int -> CopyDBParameterGroupResponse
+copyDBParameterGroupResponse pStatusCode = CopyDBParameterGroupResponse'{_copDBParameterGroup = Nothing, _copStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 copDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
 copDBParameterGroup = lens _copDBParameterGroup (\ s a -> s{_copDBParameterGroup = a});
+
+-- | FIXME: Undocumented member.
+copStatusCode :: Lens' CopyDBParameterGroupResponse Int
+copStatusCode = lens _copStatusCode (\ s a -> s{_copStatusCode = a});

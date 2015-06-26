@@ -40,6 +40,8 @@ module Network.AWS.Route53.DeleteHealthCheck
     , DeleteHealthCheckResponse
     -- ** Response constructor
     , deleteHealthCheckResponse
+    -- ** Response lenses
+    , dhcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +49,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'deleteHealthCheck' smart constructor.
+-- | A complex type containing the request information for delete health
+-- check.
+--
+-- /See:/ 'deleteHealthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +71,10 @@ instance AWSRequest DeleteHealthCheck where
         type Sv DeleteHealthCheck = Route53
         type Rs DeleteHealthCheck = DeleteHealthCheckResponse
         request = delete
-        response = receiveNull DeleteHealthCheckResponse'
+        response
+          = receiveXML
+              (\ s h x ->
+                 DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteHealthCheck where
         toHeaders = const mempty
@@ -80,9 +88,19 @@ instance ToPath DeleteHealthCheck where
 instance ToQuery DeleteHealthCheck where
         toQuery = const mempty
 
--- | /See:/ 'deleteHealthCheckResponse' smart constructor.
-data DeleteHealthCheckResponse = DeleteHealthCheckResponse' deriving (Eq, Read, Show)
+-- | Empty response for the request.
+--
+-- /See:/ 'deleteHealthCheckResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dhcrStatusCode'
+newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'{_dhcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
-deleteHealthCheckResponse :: DeleteHealthCheckResponse
-deleteHealthCheckResponse = DeleteHealthCheckResponse';
+deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
+deleteHealthCheckResponse pStatusCode = DeleteHealthCheckResponse'{_dhcrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+dhcrStatusCode :: Lens' DeleteHealthCheckResponse Int
+dhcrStatusCode = lens _dhcrStatusCode (\ s a -> s{_dhcrStatusCode = a});

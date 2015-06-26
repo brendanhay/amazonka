@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     , createDeploymentConfigResponse
     -- ** Response lenses
     , cdcrDeploymentConfigId
+    , cdcrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDeploymentConfig' smart constructor.
+-- | Represents the input of a create deployment configuration operation.
+--
+-- /See:/ 'createDeploymentConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,7 +90,7 @@ instance AWSRequest CreateDeploymentConfig where
           = receiveJSON
               (\ s h x ->
                  CreateDeploymentConfigResponse' <$>
-                   (x .?> "deploymentConfigId"))
+                   (x .?> "deploymentConfigId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDeploymentConfig where
         toHeaders
@@ -111,17 +114,25 @@ instance ToPath CreateDeploymentConfig where
 instance ToQuery CreateDeploymentConfig where
         toQuery = const mempty
 
--- | /See:/ 'createDeploymentConfigResponse' smart constructor.
+-- | Represents the output of a create deployment configuration operation.
+--
+-- /See:/ 'createDeploymentConfigResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdcrDeploymentConfigId'
-newtype CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'{_cdcrDeploymentConfigId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdcrStatusCode'
+data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'{_cdcrDeploymentConfigId :: Maybe Text, _cdcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
-createDeploymentConfigResponse :: CreateDeploymentConfigResponse
-createDeploymentConfigResponse = CreateDeploymentConfigResponse'{_cdcrDeploymentConfigId = Nothing};
+createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
+createDeploymentConfigResponse pStatusCode = CreateDeploymentConfigResponse'{_cdcrDeploymentConfigId = Nothing, _cdcrStatusCode = pStatusCode};
 
 -- | A unique deployment configuration ID.
 cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId = lens _cdcrDeploymentConfigId (\ s a -> s{_cdcrDeploymentConfigId = a});
+
+-- | FIXME: Undocumented member.
+cdcrStatusCode :: Lens' CreateDeploymentConfigResponse Int
+cdcrStatusCode = lens _cdcrStatusCode (\ s a -> s{_cdcrStatusCode = a});

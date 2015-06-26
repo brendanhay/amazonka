@@ -39,7 +39,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteTags' smart constructor.
+-- | Contains the output from the @DeleteTags@ action.
+--
+-- /See:/ 'deleteTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -35,6 +35,7 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , garrRevisionInfo
     , garrApplicationName
     , garrRevision
+    , garrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getApplicationRevision' smart constructor.
+-- | Represents the input of a get application revision operation.
+--
+-- /See:/ 'getApplicationRevision' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -74,7 +77,8 @@ instance AWSRequest GetApplicationRevision where
               (\ s h x ->
                  GetApplicationRevisionResponse' <$>
                    (x .?> "revisionInfo") <*> (x .?> "applicationName")
-                     <*> (x .?> "revision"))
+                     <*> (x .?> "revision")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetApplicationRevision where
         toHeaders
@@ -98,7 +102,9 @@ instance ToPath GetApplicationRevision where
 instance ToQuery GetApplicationRevision where
         toQuery = const mempty
 
--- | /See:/ 'getApplicationRevisionResponse' smart constructor.
+-- | Represents the output of a get application revision operation.
+--
+-- /See:/ 'getApplicationRevisionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,11 +113,13 @@ instance ToQuery GetApplicationRevision where
 -- * 'garrApplicationName'
 --
 -- * 'garrRevision'
-data GetApplicationRevisionResponse = GetApplicationRevisionResponse'{_garrRevisionInfo :: Maybe GenericRevisionInfo, _garrApplicationName :: Maybe Text, _garrRevision :: Maybe RevisionLocation} deriving (Eq, Read, Show)
+--
+-- * 'garrStatusCode'
+data GetApplicationRevisionResponse = GetApplicationRevisionResponse'{_garrRevisionInfo :: Maybe GenericRevisionInfo, _garrApplicationName :: Maybe Text, _garrRevision :: Maybe RevisionLocation, _garrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
-getApplicationRevisionResponse :: GetApplicationRevisionResponse
-getApplicationRevisionResponse = GetApplicationRevisionResponse'{_garrRevisionInfo = Nothing, _garrApplicationName = Nothing, _garrRevision = Nothing};
+getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse
+getApplicationRevisionResponse pStatusCode = GetApplicationRevisionResponse'{_garrRevisionInfo = Nothing, _garrApplicationName = Nothing, _garrRevision = Nothing, _garrStatusCode = pStatusCode};
 
 -- | General information about the revision.
 garrRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
@@ -125,3 +133,7 @@ garrApplicationName = lens _garrApplicationName (\ s a -> s{_garrApplicationName
 -- type and its location.
 garrRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrRevision = lens _garrRevision (\ s a -> s{_garrRevision = a});
+
+-- | FIXME: Undocumented member.
+garrStatusCode :: Lens' GetApplicationRevisionResponse Int
+garrStatusCode = lens _garrStatusCode (\ s a -> s{_garrStatusCode = a});

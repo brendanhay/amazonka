@@ -42,6 +42,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     , createNetworkInterfaceResponse
     -- ** Response lenses
     , cnirNetworkInterface
+    , cnirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -125,7 +126,7 @@ instance AWSRequest CreateNetworkInterface where
           = receiveXML
               (\ s h x ->
                  CreateNetworkInterfaceResponse' <$>
-                   (x .@? "networkInterface"))
+                   (x .@? "networkInterface") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
@@ -155,12 +156,18 @@ instance ToQuery CreateNetworkInterface where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cnirNetworkInterface'
-newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'{_cnirNetworkInterface :: Maybe NetworkInterface} deriving (Eq, Read, Show)
+--
+-- * 'cnirStatusCode'
+data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'{_cnirNetworkInterface :: Maybe NetworkInterface, _cnirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
-createNetworkInterfaceResponse :: CreateNetworkInterfaceResponse
-createNetworkInterfaceResponse = CreateNetworkInterfaceResponse'{_cnirNetworkInterface = Nothing};
+createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse
+createNetworkInterfaceResponse pStatusCode = CreateNetworkInterfaceResponse'{_cnirNetworkInterface = Nothing, _cnirStatusCode = pStatusCode};
 
 -- | Information about the network interface.
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirNetworkInterface = lens _cnirNetworkInterface (\ s a -> s{_cnirNetworkInterface = a});
+
+-- | FIXME: Undocumented member.
+cnirStatusCode :: Lens' CreateNetworkInterfaceResponse Int
+cnirStatusCode = lens _cnirStatusCode (\ s a -> s{_cnirStatusCode = a});

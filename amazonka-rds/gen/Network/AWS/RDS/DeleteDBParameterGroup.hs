@@ -38,7 +38,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDBParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteDBParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

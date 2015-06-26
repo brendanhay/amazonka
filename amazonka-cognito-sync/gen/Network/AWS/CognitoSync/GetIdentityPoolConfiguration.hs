@@ -34,6 +34,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , gipcrIdentityPoolId
     , gipcrCognitoStreams
     , gipcrPushSync
+    , gipcrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getIdentityPoolConfiguration' smart constructor.
+-- | The input for the GetIdentityPoolConfiguration operation.
+--
+-- /See:/ 'getIdentityPoolConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -69,7 +72,8 @@ instance AWSRequest GetIdentityPoolConfiguration
               (\ s h x ->
                  GetIdentityPoolConfigurationResponse' <$>
                    (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
-                     <*> (x .?> "PushSync"))
+                     <*> (x .?> "PushSync")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders
@@ -87,7 +91,9 @@ instance ToPath GetIdentityPoolConfiguration where
 instance ToQuery GetIdentityPoolConfiguration where
         toQuery = const mempty
 
--- | /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
+-- | The output for the GetIdentityPoolConfiguration operation.
+--
+-- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,11 +102,13 @@ instance ToQuery GetIdentityPoolConfiguration where
 -- * 'gipcrCognitoStreams'
 --
 -- * 'gipcrPushSync'
-data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'{_gipcrIdentityPoolId :: Maybe Text, _gipcrCognitoStreams :: Maybe CognitoStreams, _gipcrPushSync :: Maybe PushSync} deriving (Eq, Read, Show)
+--
+-- * 'gipcrStatusCode'
+data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'{_gipcrIdentityPoolId :: Maybe Text, _gipcrCognitoStreams :: Maybe CognitoStreams, _gipcrPushSync :: Maybe PushSync, _gipcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
-getIdentityPoolConfigurationResponse :: GetIdentityPoolConfigurationResponse
-getIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'{_gipcrIdentityPoolId = Nothing, _gipcrCognitoStreams = Nothing, _gipcrPushSync = Nothing};
+getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
+getIdentityPoolConfigurationResponse pStatusCode = GetIdentityPoolConfigurationResponse'{_gipcrIdentityPoolId = Nothing, _gipcrCognitoStreams = Nothing, _gipcrPushSync = Nothing, _gipcrStatusCode = pStatusCode};
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -115,3 +123,7 @@ gipcrCognitoStreams = lens _gipcrCognitoStreams (\ s a -> s{_gipcrCognitoStreams
 -- | Options to apply to this identity pool for push synchronization.
 gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\ s a -> s{_gipcrPushSync = a});
+
+-- | FIXME: Undocumented member.
+gipcrStatusCode :: Lens' GetIdentityPoolConfigurationResponse Int
+gipcrStatusCode = lens _gipcrStatusCode (\ s a -> s{_gipcrStatusCode = a});

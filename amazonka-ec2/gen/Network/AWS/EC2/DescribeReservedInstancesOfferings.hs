@@ -54,10 +54,11 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- ** Response lenses
     , driorNextToken
     , driorReservedInstancesOfferings
+    , driorStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -236,8 +237,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesOfferingsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstancesOfferings
          where
@@ -278,11 +279,13 @@ instance ToQuery DescribeReservedInstancesOfferings
 -- * 'driorNextToken'
 --
 -- * 'driorReservedInstancesOfferings'
-data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken :: Maybe Text, _driorReservedInstancesOfferings :: Maybe [ReservedInstancesOffering]} deriving (Eq, Read, Show)
+--
+-- * 'driorStatusCode'
+data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken :: Maybe Text, _driorReservedInstancesOfferings :: Maybe [ReservedInstancesOffering], _driorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
-describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken = Nothing, _driorReservedInstancesOfferings = Nothing};
+describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse
+describeReservedInstancesOfferingsResponse pStatusCode = DescribeReservedInstancesOfferingsResponse'{_driorNextToken = Nothing, _driorReservedInstancesOfferings = Nothing, _driorStatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -292,3 +295,7 @@ driorNextToken = lens _driorNextToken (\ s a -> s{_driorNextToken = a});
 -- | A list of Reserved Instances offerings.
 driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
 driorReservedInstancesOfferings = lens _driorReservedInstancesOfferings (\ s a -> s{_driorReservedInstancesOfferings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+driorStatusCode :: Lens' DescribeReservedInstancesOfferingsResponse Int
+driorStatusCode = lens _driorStatusCode (\ s a -> s{_driorStatusCode = a});

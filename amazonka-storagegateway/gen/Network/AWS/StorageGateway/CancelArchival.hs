@@ -34,6 +34,7 @@ module Network.AWS.StorageGateway.CancelArchival
     , cancelArchivalResponse
     -- ** Response lenses
     , carTapeARN
+    , carStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'cancelArchival' smart constructor.
+-- | CancelArchivalInput
+--
+-- /See:/ 'cancelArchival' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest CancelArchival where
         response
           = receiveJSON
               (\ s h x ->
-                 CancelArchivalResponse' <$> (x .?> "TapeARN"))
+                 CancelArchivalResponse' <$>
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelArchival where
         toHeaders
@@ -94,18 +98,26 @@ instance ToPath CancelArchival where
 instance ToQuery CancelArchival where
         toQuery = const mempty
 
--- | /See:/ 'cancelArchivalResponse' smart constructor.
+-- | CancelArchivalOutput
+--
+-- /See:/ 'cancelArchivalResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'carTapeARN'
-newtype CancelArchivalResponse = CancelArchivalResponse'{_carTapeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'carStatusCode'
+data CancelArchivalResponse = CancelArchivalResponse'{_carTapeARN :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelArchivalResponse' smart constructor.
-cancelArchivalResponse :: CancelArchivalResponse
-cancelArchivalResponse = CancelArchivalResponse'{_carTapeARN = Nothing};
+cancelArchivalResponse :: Int -> CancelArchivalResponse
+cancelArchivalResponse pStatusCode = CancelArchivalResponse'{_carTapeARN = Nothing, _carStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
 -- was canceled.
 carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\ s a -> s{_carTapeARN = a});
+
+-- | FIXME: Undocumented member.
+carStatusCode :: Lens' CancelArchivalResponse Int
+carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});

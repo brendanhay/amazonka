@@ -21,14 +21,26 @@ module Network.AWS.CloudFormation.Types
     (
     -- * Service
       CloudFormation
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _InsufficientCapabilitiesException
+    , _LimitExceededException
+    , _AlreadyExistsException
 
     -- * Capability
     , Capability (..)
 
     -- * OnFailure
     , OnFailure (..)
+
+    -- * ResourceSignalStatus
+    , ResourceSignalStatus (..)
+
+    -- * ResourceStatus
+    , ResourceStatus (..)
+
+    -- * StackStatus
+    , StackStatus (..)
 
     -- * Output
     , Output
@@ -58,12 +70,6 @@ module Network.AWS.CloudFormation.Types
     , pdDefaultValue
     , pdNoEcho
     , pdDescription
-
-    -- * ResourceSignalStatus
-    , ResourceSignalStatus (..)
-
-    -- * ResourceStatus
-    , ResourceStatus (..)
 
     -- * Stack
     , Stack
@@ -134,9 +140,6 @@ module Network.AWS.CloudFormation.Types
     , srsLastUpdatedTimestamp
     , srsResourceStatus
 
-    -- * StackStatus
-    , StackStatus (..)
-
     -- * StackSummary
     , StackSummary
     , stackSummary
@@ -162,6 +165,7 @@ module Network.AWS.CloudFormation.Types
     , tpDefaultValue
     , tpNoEcho
     , tpDescription
+
     ) where
 
 import Network.AWS.Prelude
@@ -172,30 +176,44 @@ data CloudFormation
 
 instance AWSService CloudFormation where
     type Sg CloudFormation = V4
-    type Er CloudFormation = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudFormation
-        service' = Service
-            { _svcAbbrev  = "CloudFormation"
-            , _svcPrefix  = "cloudformation"
-            , _svcVersion = "2010-05-15"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudFormation
+        svc = Service
+            { _svcAbbrev   = "CloudFormation"
+            , _svcPrefix   = "cloudformation"
+            , _svcVersion  = "2010-05-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudFormation
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The template contains resources with capabilities that were not
+-- specified in the Capabilities parameter.
+_InsufficientCapabilitiesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientCapabilitiesException = _ServiceError . hasCode "InsufficientCapabilitiesException" . hasStatus 400;
+
+-- | Quota for the resource has already been reached.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 400;
+
+-- | Resource with the name requested already exists.
+_AlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AlreadyExistsException = _ServiceError . hasCode "AlreadyExistsException" . hasStatus 400;
 
 data Capability = CapabilityIAM deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -233,159 +251,6 @@ instance ToText OnFailure where
 instance Hashable OnFailure
 instance ToQuery OnFailure
 instance ToHeader OnFailure
-
--- | /See:/ 'output' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'outOutputValue'
---
--- * 'outOutputKey'
---
--- * 'outDescription'
-data Output = Output'{_outOutputValue :: Maybe Text, _outOutputKey :: Maybe Text, _outDescription :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'Output' smart constructor.
-output :: Output
-output = Output'{_outOutputValue = Nothing, _outOutputKey = Nothing, _outDescription = Nothing};
-
--- | The value associated with the output.
-outOutputValue :: Lens' Output (Maybe Text)
-outOutputValue = lens _outOutputValue (\ s a -> s{_outOutputValue = a});
-
--- | The key associated with the output.
-outOutputKey :: Lens' Output (Maybe Text)
-outOutputKey = lens _outOutputKey (\ s a -> s{_outOutputKey = a});
-
--- | User defined description associated with the output.
-outDescription :: Lens' Output (Maybe Text)
-outDescription = lens _outDescription (\ s a -> s{_outDescription = a});
-
-instance FromXML Output where
-        parseXML x
-          = Output' <$>
-              (x .@? "OutputValue") <*> (x .@? "OutputKey") <*>
-                (x .@? "Description")
-
--- | /See:/ 'parameter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'parParameterValue'
---
--- * 'parParameterKey'
---
--- * 'parUsePreviousValue'
-data Parameter = Parameter'{_parParameterValue :: Maybe Text, _parParameterKey :: Maybe Text, _parUsePreviousValue :: Maybe Bool} deriving (Eq, Read, Show)
-
--- | 'Parameter' smart constructor.
-parameter :: Parameter
-parameter = Parameter'{_parParameterValue = Nothing, _parParameterKey = Nothing, _parUsePreviousValue = Nothing};
-
--- | The value associated with the parameter.
-parParameterValue :: Lens' Parameter (Maybe Text)
-parParameterValue = lens _parParameterValue (\ s a -> s{_parParameterValue = a});
-
--- | The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, AWS CloudFormation uses the default
--- value that is specified in your template.
-parParameterKey :: Lens' Parameter (Maybe Text)
-parParameterKey = lens _parParameterKey (\ s a -> s{_parParameterKey = a});
-
--- | During a stack update, use the existing parameter value that the stack
--- is using for a given parameter key. If you specify @true@, do not
--- specify a parameter value.
-parUsePreviousValue :: Lens' Parameter (Maybe Bool)
-parUsePreviousValue = lens _parUsePreviousValue (\ s a -> s{_parUsePreviousValue = a});
-
-instance FromXML Parameter where
-        parseXML x
-          = Parameter' <$>
-              (x .@? "ParameterValue") <*> (x .@? "ParameterKey")
-                <*> (x .@? "UsePreviousValue")
-
-instance ToQuery Parameter where
-        toQuery Parameter'{..}
-          = mconcat
-              ["ParameterValue" =: _parParameterValue,
-               "ParameterKey" =: _parParameterKey,
-               "UsePreviousValue" =: _parUsePreviousValue]
-
--- | /See:/ 'parameterConstraints' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pcAllowedValues'
-newtype ParameterConstraints = ParameterConstraints'{_pcAllowedValues :: Maybe [Text]} deriving (Eq, Read, Show)
-
--- | 'ParameterConstraints' smart constructor.
-parameterConstraints :: ParameterConstraints
-parameterConstraints = ParameterConstraints'{_pcAllowedValues = Nothing};
-
--- | A list of values that are permitted for a parameter.
-pcAllowedValues :: Lens' ParameterConstraints [Text]
-pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a}) . _Default;
-
-instance FromXML ParameterConstraints where
-        parseXML x
-          = ParameterConstraints' <$>
-              (x .@? "AllowedValues" .!@ mempty >>=
-                 may (parseXMLList "member"))
-
--- | /See:/ 'parameterDeclaration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdParameterKey'
---
--- * 'pdParameterType'
---
--- * 'pdParameterConstraints'
---
--- * 'pdDefaultValue'
---
--- * 'pdNoEcho'
---
--- * 'pdDescription'
-data ParameterDeclaration = ParameterDeclaration'{_pdParameterKey :: Maybe Text, _pdParameterType :: Maybe Text, _pdParameterConstraints :: Maybe ParameterConstraints, _pdDefaultValue :: Maybe Text, _pdNoEcho :: Maybe Bool, _pdDescription :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'ParameterDeclaration' smart constructor.
-parameterDeclaration :: ParameterDeclaration
-parameterDeclaration = ParameterDeclaration'{_pdParameterKey = Nothing, _pdParameterType = Nothing, _pdParameterConstraints = Nothing, _pdDefaultValue = Nothing, _pdNoEcho = Nothing, _pdDescription = Nothing};
-
--- | The name that is associated with the parameter.
-pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
-pdParameterKey = lens _pdParameterKey (\ s a -> s{_pdParameterKey = a});
-
--- | The type of parameter.
-pdParameterType :: Lens' ParameterDeclaration (Maybe Text)
-pdParameterType = lens _pdParameterType (\ s a -> s{_pdParameterType = a});
-
--- | The criteria that AWS CloudFormation uses to validate parameter values.
-pdParameterConstraints :: Lens' ParameterDeclaration (Maybe ParameterConstraints)
-pdParameterConstraints = lens _pdParameterConstraints (\ s a -> s{_pdParameterConstraints = a});
-
--- | The default value of the parameter.
-pdDefaultValue :: Lens' ParameterDeclaration (Maybe Text)
-pdDefaultValue = lens _pdDefaultValue (\ s a -> s{_pdDefaultValue = a});
-
--- | Flag that indicates whether the parameter value is shown as plain text
--- in logs and in the AWS Management Console.
-pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
-pdNoEcho = lens _pdNoEcho (\ s a -> s{_pdNoEcho = a});
-
--- | The description that is associate with the parameter.
-pdDescription :: Lens' ParameterDeclaration (Maybe Text)
-pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
-
-instance FromXML ParameterDeclaration where
-        parseXML x
-          = ParameterDeclaration' <$>
-              (x .@? "ParameterKey") <*> (x .@? "ParameterType")
-                <*> (x .@? "ParameterConstraints")
-                <*> (x .@? "DefaultValue")
-                <*> (x .@? "NoEcho")
-                <*> (x .@? "Description")
 
 data ResourceSignalStatus = Success | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -440,7 +305,220 @@ instance ToHeader ResourceStatus
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
--- | /See:/ 'stack' smart constructor.
+data StackStatus = SSUpdateRollbackFailed | SSUpdateCompleteCleanupINProgress | SSUpdateRollbackINProgress | SSCreateINProgress | SSRollbackINProgress | SSUpdateRollbackCompleteCleanupINProgress | SSCreateFailed | SSRollbackComplete | SSDeleteFailed | SSRollbackFailed | SSCreateComplete | SSDeleteComplete | SSUpdateComplete | SSDeleteINProgress | SSUpdateINProgress | SSUpdateRollbackComplete deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StackStatus where
+    parser = takeLowerText >>= \case
+        "CREATE_COMPLETE" -> pure SSCreateComplete
+        "CREATE_FAILED" -> pure SSCreateFailed
+        "CREATE_IN_PROGRESS" -> pure SSCreateINProgress
+        "DELETE_COMPLETE" -> pure SSDeleteComplete
+        "DELETE_FAILED" -> pure SSDeleteFailed
+        "DELETE_IN_PROGRESS" -> pure SSDeleteINProgress
+        "ROLLBACK_COMPLETE" -> pure SSRollbackComplete
+        "ROLLBACK_FAILED" -> pure SSRollbackFailed
+        "ROLLBACK_IN_PROGRESS" -> pure SSRollbackINProgress
+        "UPDATE_COMPLETE" -> pure SSUpdateComplete
+        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS" -> pure SSUpdateCompleteCleanupINProgress
+        "UPDATE_IN_PROGRESS" -> pure SSUpdateINProgress
+        "UPDATE_ROLLBACK_COMPLETE" -> pure SSUpdateRollbackComplete
+        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS" -> pure SSUpdateRollbackCompleteCleanupINProgress
+        "UPDATE_ROLLBACK_FAILED" -> pure SSUpdateRollbackFailed
+        "UPDATE_ROLLBACK_IN_PROGRESS" -> pure SSUpdateRollbackINProgress
+        e -> fail ("Failure parsing StackStatus from " ++ show e)
+
+instance ToText StackStatus where
+    toText = \case
+        SSCreateComplete -> "CREATE_COMPLETE"
+        SSCreateFailed -> "CREATE_FAILED"
+        SSCreateINProgress -> "CREATE_IN_PROGRESS"
+        SSDeleteComplete -> "DELETE_COMPLETE"
+        SSDeleteFailed -> "DELETE_FAILED"
+        SSDeleteINProgress -> "DELETE_IN_PROGRESS"
+        SSRollbackComplete -> "ROLLBACK_COMPLETE"
+        SSRollbackFailed -> "ROLLBACK_FAILED"
+        SSRollbackINProgress -> "ROLLBACK_IN_PROGRESS"
+        SSUpdateComplete -> "UPDATE_COMPLETE"
+        SSUpdateCompleteCleanupINProgress -> "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
+        SSUpdateINProgress -> "UPDATE_IN_PROGRESS"
+        SSUpdateRollbackComplete -> "UPDATE_ROLLBACK_COMPLETE"
+        SSUpdateRollbackCompleteCleanupINProgress -> "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
+        SSUpdateRollbackFailed -> "UPDATE_ROLLBACK_FAILED"
+        SSUpdateRollbackINProgress -> "UPDATE_ROLLBACK_IN_PROGRESS"
+
+instance Hashable StackStatus
+instance ToQuery StackStatus
+instance ToHeader StackStatus
+
+instance FromXML StackStatus where
+    parseXML = parseXMLText "StackStatus"
+
+-- | The Output data type.
+--
+-- /See:/ 'output' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'outOutputValue'
+--
+-- * 'outOutputKey'
+--
+-- * 'outDescription'
+data Output = Output'{_outOutputValue :: Maybe Text, _outOutputKey :: Maybe Text, _outDescription :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'Output' smart constructor.
+output :: Output
+output = Output'{_outOutputValue = Nothing, _outOutputKey = Nothing, _outDescription = Nothing};
+
+-- | The value associated with the output.
+outOutputValue :: Lens' Output (Maybe Text)
+outOutputValue = lens _outOutputValue (\ s a -> s{_outOutputValue = a});
+
+-- | The key associated with the output.
+outOutputKey :: Lens' Output (Maybe Text)
+outOutputKey = lens _outOutputKey (\ s a -> s{_outOutputKey = a});
+
+-- | User defined description associated with the output.
+outDescription :: Lens' Output (Maybe Text)
+outDescription = lens _outDescription (\ s a -> s{_outDescription = a});
+
+instance FromXML Output where
+        parseXML x
+          = Output' <$>
+              (x .@? "OutputValue") <*> (x .@? "OutputKey") <*>
+                (x .@? "Description")
+
+-- | The Parameter data type.
+--
+-- /See:/ 'parameter' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'parParameterValue'
+--
+-- * 'parParameterKey'
+--
+-- * 'parUsePreviousValue'
+data Parameter = Parameter'{_parParameterValue :: Maybe Text, _parParameterKey :: Maybe Text, _parUsePreviousValue :: Maybe Bool} deriving (Eq, Read, Show)
+
+-- | 'Parameter' smart constructor.
+parameter :: Parameter
+parameter = Parameter'{_parParameterValue = Nothing, _parParameterKey = Nothing, _parUsePreviousValue = Nothing};
+
+-- | The value associated with the parameter.
+parParameterValue :: Lens' Parameter (Maybe Text)
+parParameterValue = lens _parParameterValue (\ s a -> s{_parParameterValue = a});
+
+-- | The key associated with the parameter. If you don\'t specify a key and
+-- value for a particular parameter, AWS CloudFormation uses the default
+-- value that is specified in your template.
+parParameterKey :: Lens' Parameter (Maybe Text)
+parParameterKey = lens _parParameterKey (\ s a -> s{_parParameterKey = a});
+
+-- | During a stack update, use the existing parameter value that the stack
+-- is using for a given parameter key. If you specify @true@, do not
+-- specify a parameter value.
+parUsePreviousValue :: Lens' Parameter (Maybe Bool)
+parUsePreviousValue = lens _parUsePreviousValue (\ s a -> s{_parUsePreviousValue = a});
+
+instance FromXML Parameter where
+        parseXML x
+          = Parameter' <$>
+              (x .@? "ParameterValue") <*> (x .@? "ParameterKey")
+                <*> (x .@? "UsePreviousValue")
+
+instance ToQuery Parameter where
+        toQuery Parameter'{..}
+          = mconcat
+              ["ParameterValue" =: _parParameterValue,
+               "ParameterKey" =: _parParameterKey,
+               "UsePreviousValue" =: _parUsePreviousValue]
+
+-- | A set of criteria that AWS CloudFormation uses to validate parameter
+-- values. Although other constraints might be defined in the stack
+-- template, AWS CloudFormation returns only the @AllowedValues@ property.
+--
+-- /See:/ 'parameterConstraints' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pcAllowedValues'
+newtype ParameterConstraints = ParameterConstraints'{_pcAllowedValues :: Maybe [Text]} deriving (Eq, Read, Show)
+
+-- | 'ParameterConstraints' smart constructor.
+parameterConstraints :: ParameterConstraints
+parameterConstraints = ParameterConstraints'{_pcAllowedValues = Nothing};
+
+-- | A list of values that are permitted for a parameter.
+pcAllowedValues :: Lens' ParameterConstraints [Text]
+pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a}) . _Default;
+
+instance FromXML ParameterConstraints where
+        parseXML x
+          = ParameterConstraints' <$>
+              (x .@? "AllowedValues" .!@ mempty >>=
+                 may (parseXMLList "member"))
+
+-- | The ParameterDeclaration data type.
+--
+-- /See:/ 'parameterDeclaration' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pdParameterKey'
+--
+-- * 'pdParameterType'
+--
+-- * 'pdParameterConstraints'
+--
+-- * 'pdDefaultValue'
+--
+-- * 'pdNoEcho'
+--
+-- * 'pdDescription'
+data ParameterDeclaration = ParameterDeclaration'{_pdParameterKey :: Maybe Text, _pdParameterType :: Maybe Text, _pdParameterConstraints :: Maybe ParameterConstraints, _pdDefaultValue :: Maybe Text, _pdNoEcho :: Maybe Bool, _pdDescription :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'ParameterDeclaration' smart constructor.
+parameterDeclaration :: ParameterDeclaration
+parameterDeclaration = ParameterDeclaration'{_pdParameterKey = Nothing, _pdParameterType = Nothing, _pdParameterConstraints = Nothing, _pdDefaultValue = Nothing, _pdNoEcho = Nothing, _pdDescription = Nothing};
+
+-- | The name that is associated with the parameter.
+pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
+pdParameterKey = lens _pdParameterKey (\ s a -> s{_pdParameterKey = a});
+
+-- | The type of parameter.
+pdParameterType :: Lens' ParameterDeclaration (Maybe Text)
+pdParameterType = lens _pdParameterType (\ s a -> s{_pdParameterType = a});
+
+-- | The criteria that AWS CloudFormation uses to validate parameter values.
+pdParameterConstraints :: Lens' ParameterDeclaration (Maybe ParameterConstraints)
+pdParameterConstraints = lens _pdParameterConstraints (\ s a -> s{_pdParameterConstraints = a});
+
+-- | The default value of the parameter.
+pdDefaultValue :: Lens' ParameterDeclaration (Maybe Text)
+pdDefaultValue = lens _pdDefaultValue (\ s a -> s{_pdDefaultValue = a});
+
+-- | Flag that indicates whether the parameter value is shown as plain text
+-- in logs and in the AWS Management Console.
+pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
+pdNoEcho = lens _pdNoEcho (\ s a -> s{_pdNoEcho = a});
+
+-- | The description that is associate with the parameter.
+pdDescription :: Lens' ParameterDeclaration (Maybe Text)
+pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
+
+instance FromXML ParameterDeclaration where
+        parseXML x
+          = ParameterDeclaration' <$>
+              (x .@? "ParameterKey") <*> (x .@? "ParameterType")
+                <*> (x .@? "ParameterConstraints")
+                <*> (x .@? "DefaultValue")
+                <*> (x .@? "NoEcho")
+                <*> (x .@? "Description")
+
+-- | The Stack data type.
+--
+-- /See:/ 'stack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -565,7 +643,9 @@ instance FromXML Stack where
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")
 
--- | /See:/ 'stackEvent' smart constructor.
+-- | The StackEvent data type.
+--
+-- /See:/ 'stackEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -651,7 +731,9 @@ instance FromXML StackEvent where
                 <*> (x .@ "StackName")
                 <*> (x .@ "Timestamp")
 
--- | /See:/ 'stackResource' smart constructor.
+-- | The StackResource data type.
+--
+-- /See:/ 'stackResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -730,7 +812,9 @@ instance FromXML StackResource where
                 <*> (x .@ "Timestamp")
                 <*> (x .@ "ResourceStatus")
 
--- | /See:/ 'stackResourceDetail' smart constructor.
+-- | Contains detailed information about the specified stack resource.
+--
+-- /See:/ 'stackResourceDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -819,7 +903,9 @@ instance FromXML StackResourceDetail where
                 <*> (x .@ "LastUpdatedTimestamp")
                 <*> (x .@ "ResourceStatus")
 
--- | /See:/ 'stackResourceSummary' smart constructor.
+-- | Contains high-level information about the specified stack resource.
+--
+-- /See:/ 'stackResourceSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -877,55 +963,9 @@ instance FromXML StackResourceSummary where
                 <*> (x .@ "LastUpdatedTimestamp")
                 <*> (x .@ "ResourceStatus")
 
-data StackStatus = SSUpdateRollbackFailed | SSUpdateCompleteCleanupINProgress | SSUpdateRollbackINProgress | SSCreateINProgress | SSRollbackINProgress | SSUpdateRollbackCompleteCleanupINProgress | SSCreateFailed | SSRollbackComplete | SSDeleteFailed | SSRollbackFailed | SSCreateComplete | SSDeleteComplete | SSUpdateComplete | SSDeleteINProgress | SSUpdateINProgress | SSUpdateRollbackComplete deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StackStatus where
-    parser = takeLowerText >>= \case
-        "CREATE_COMPLETE" -> pure SSCreateComplete
-        "CREATE_FAILED" -> pure SSCreateFailed
-        "CREATE_IN_PROGRESS" -> pure SSCreateINProgress
-        "DELETE_COMPLETE" -> pure SSDeleteComplete
-        "DELETE_FAILED" -> pure SSDeleteFailed
-        "DELETE_IN_PROGRESS" -> pure SSDeleteINProgress
-        "ROLLBACK_COMPLETE" -> pure SSRollbackComplete
-        "ROLLBACK_FAILED" -> pure SSRollbackFailed
-        "ROLLBACK_IN_PROGRESS" -> pure SSRollbackINProgress
-        "UPDATE_COMPLETE" -> pure SSUpdateComplete
-        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS" -> pure SSUpdateCompleteCleanupINProgress
-        "UPDATE_IN_PROGRESS" -> pure SSUpdateINProgress
-        "UPDATE_ROLLBACK_COMPLETE" -> pure SSUpdateRollbackComplete
-        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS" -> pure SSUpdateRollbackCompleteCleanupINProgress
-        "UPDATE_ROLLBACK_FAILED" -> pure SSUpdateRollbackFailed
-        "UPDATE_ROLLBACK_IN_PROGRESS" -> pure SSUpdateRollbackINProgress
-        e -> fail ("Failure parsing StackStatus from " ++ show e)
-
-instance ToText StackStatus where
-    toText = \case
-        SSCreateComplete -> "CREATE_COMPLETE"
-        SSCreateFailed -> "CREATE_FAILED"
-        SSCreateINProgress -> "CREATE_IN_PROGRESS"
-        SSDeleteComplete -> "DELETE_COMPLETE"
-        SSDeleteFailed -> "DELETE_FAILED"
-        SSDeleteINProgress -> "DELETE_IN_PROGRESS"
-        SSRollbackComplete -> "ROLLBACK_COMPLETE"
-        SSRollbackFailed -> "ROLLBACK_FAILED"
-        SSRollbackINProgress -> "ROLLBACK_IN_PROGRESS"
-        SSUpdateComplete -> "UPDATE_COMPLETE"
-        SSUpdateCompleteCleanupINProgress -> "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
-        SSUpdateINProgress -> "UPDATE_IN_PROGRESS"
-        SSUpdateRollbackComplete -> "UPDATE_ROLLBACK_COMPLETE"
-        SSUpdateRollbackCompleteCleanupINProgress -> "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
-        SSUpdateRollbackFailed -> "UPDATE_ROLLBACK_FAILED"
-        SSUpdateRollbackINProgress -> "UPDATE_ROLLBACK_IN_PROGRESS"
-
-instance Hashable StackStatus
-instance ToQuery StackStatus
-instance ToHeader StackStatus
-
-instance FromXML StackStatus where
-    parseXML = parseXMLText "StackStatus"
-
--- | /See:/ 'stackSummary' smart constructor.
+-- | The StackSummary Data Type
+--
+-- /See:/ 'stackSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -995,7 +1035,11 @@ instance FromXML StackSummary where
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")
 
--- | /See:/ 'tag' smart constructor.
+-- | The Tag type is used by @CreateStack@ in the @Tags@ parameter. It allows
+-- you to specify a key\/value pair that can be used to store information
+-- related to cost allocation for an AWS CloudFormation stack.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1027,7 +1071,9 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | /See:/ 'templateParameter' smart constructor.
+-- | The TemplateParameter data type.
+--
+-- /See:/ 'templateParameter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

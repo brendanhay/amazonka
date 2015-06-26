@@ -57,6 +57,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     , createDBParameterGroupResponse
     -- ** Response lenses
     , cdpgrDBParameterGroup
+    , cdpgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -64,7 +65,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDBParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createDBParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -117,7 +120,7 @@ instance AWSRequest CreateDBParameterGroup where
           = receiveXMLWrapper "CreateDBParameterGroupResult"
               (\ s h x ->
                  CreateDBParameterGroupResponse' <$>
-                   (x .@? "DBParameterGroup"))
+                   (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBParameterGroup where
         toHeaders = const mempty
@@ -141,12 +144,18 @@ instance ToQuery CreateDBParameterGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdpgrDBParameterGroup'
-newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'{_cdpgrDBParameterGroup :: Maybe DBParameterGroup} deriving (Eq, Read, Show)
+--
+-- * 'cdpgrStatusCode'
+data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'{_cdpgrDBParameterGroup :: Maybe DBParameterGroup, _cdpgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
-createDBParameterGroupResponse :: CreateDBParameterGroupResponse
-createDBParameterGroupResponse = CreateDBParameterGroupResponse'{_cdpgrDBParameterGroup = Nothing};
+createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
+createDBParameterGroupResponse pStatusCode = CreateDBParameterGroupResponse'{_cdpgrDBParameterGroup = Nothing, _cdpgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cdpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
 cdpgrDBParameterGroup = lens _cdpgrDBParameterGroup (\ s a -> s{_cdpgrDBParameterGroup = a});
+
+-- | FIXME: Undocumented member.
+cdpgrStatusCode :: Lens' CreateDBParameterGroupResponse Int
+cdpgrStatusCode = lens _cdpgrStatusCode (\ s a -> s{_cdpgrStatusCode = a});

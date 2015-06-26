@@ -37,6 +37,7 @@ module Network.AWS.S3.GetObjectACL
     , goarRequestCharged
     , goarGrants
     , goarOwner
+    , goarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -88,7 +89,8 @@ instance AWSRequest GetObjectACL where
                    (h .#? "x-amz-request-charged") <*>
                      (x .@? "AccessControlList" .!@ mempty >>=
                         may (parseXMLList "Grant"))
-                     <*> (x .@? "Owner"))
+                     <*> (x .@? "Owner")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
@@ -112,11 +114,13 @@ instance ToQuery GetObjectACL where
 -- * 'goarGrants'
 --
 -- * 'goarOwner'
-data GetObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged :: Maybe RequestCharged, _goarGrants :: Maybe [Grant], _goarOwner :: Maybe Owner} deriving (Eq, Read, Show)
+--
+-- * 'goarStatusCode'
+data GetObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged :: Maybe RequestCharged, _goarGrants :: Maybe [Grant], _goarOwner :: Maybe Owner, _goarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetObjectACLResponse' smart constructor.
-getObjectACLResponse :: GetObjectACLResponse
-getObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged = Nothing, _goarGrants = Nothing, _goarOwner = Nothing};
+getObjectACLResponse :: Int -> GetObjectACLResponse
+getObjectACLResponse pStatusCode = GetObjectACLResponse'{_goarRequestCharged = Nothing, _goarGrants = Nothing, _goarOwner = Nothing, _goarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 goarRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
@@ -129,3 +133,7 @@ goarGrants = lens _goarGrants (\ s a -> s{_goarGrants = a}) . _Default;
 -- | FIXME: Undocumented member.
 goarOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\ s a -> s{_goarOwner = a});
+
+-- | FIXME: Undocumented member.
+goarStatusCode :: Lens' GetObjectACLResponse Int
+goarStatusCode = lens _goarStatusCode (\ s a -> s{_goarStatusCode = a});

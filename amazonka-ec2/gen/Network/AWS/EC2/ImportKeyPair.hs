@@ -43,6 +43,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- ** Response lenses
     , ikprKeyFingerprint
     , ikprKeyName
+    , ikprStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -89,7 +90,8 @@ instance AWSRequest ImportKeyPair where
           = receiveXML
               (\ s h x ->
                  ImportKeyPairResponse' <$>
-                   (x .@? "keyFingerprint") <*> (x .@? "keyName"))
+                   (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
@@ -112,11 +114,13 @@ instance ToQuery ImportKeyPair where
 -- * 'ikprKeyFingerprint'
 --
 -- * 'ikprKeyName'
-data ImportKeyPairResponse = ImportKeyPairResponse'{_ikprKeyFingerprint :: Maybe Text, _ikprKeyName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ikprStatusCode'
+data ImportKeyPairResponse = ImportKeyPairResponse'{_ikprKeyFingerprint :: Maybe Text, _ikprKeyName :: Maybe Text, _ikprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ImportKeyPairResponse' smart constructor.
-importKeyPairResponse :: ImportKeyPairResponse
-importKeyPairResponse = ImportKeyPairResponse'{_ikprKeyFingerprint = Nothing, _ikprKeyName = Nothing};
+importKeyPairResponse :: Int -> ImportKeyPairResponse
+importKeyPairResponse pStatusCode = ImportKeyPairResponse'{_ikprKeyFingerprint = Nothing, _ikprKeyName = Nothing, _ikprStatusCode = pStatusCode};
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
@@ -125,3 +129,7 @@ ikprKeyFingerprint = lens _ikprKeyFingerprint (\ s a -> s{_ikprKeyFingerprint = 
 -- | The key pair name you provided.
 ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\ s a -> s{_ikprKeyName = a});
+
+-- | FIXME: Undocumented member.
+ikprStatusCode :: Lens' ImportKeyPairResponse Int
+ikprStatusCode = lens _ikprStatusCode (\ s a -> s{_ikprStatusCode = a});

@@ -40,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteIdentityPool' smart constructor.
+-- | Input to the DeleteIdentityPool action.
+--
+-- /See:/ 'deleteIdentityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

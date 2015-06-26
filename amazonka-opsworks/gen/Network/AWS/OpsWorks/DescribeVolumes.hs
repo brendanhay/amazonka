@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , describeVolumesResponse
     -- ** Response lenses
     , dvrVolumes
+    , dvrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -96,7 +97,7 @@ instance AWSRequest DescribeVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeVolumesResponse' <$>
-                   (x .?> "Volumes" .!@ mempty))
+                   (x .?> "Volumes" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVolumes where
         toHeaders
@@ -121,17 +122,25 @@ instance ToPath DescribeVolumes where
 instance ToQuery DescribeVolumes where
         toQuery = const mempty
 
--- | /See:/ 'describeVolumesResponse' smart constructor.
+-- | Contains the response to a @DescribeVolumes@ request.
+--
+-- /See:/ 'describeVolumesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVolumes'
-newtype DescribeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
+--
+-- * 'dvrStatusCode'
+data DescribeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes :: Maybe [Volume], _dvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
-describeVolumesResponse :: DescribeVolumesResponse
-describeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes = Nothing};
+describeVolumesResponse :: Int -> DescribeVolumesResponse
+describeVolumesResponse pStatusCode = DescribeVolumesResponse'{_dvrVolumes = Nothing, _dvrStatusCode = pStatusCode};
 
 -- | An array of volume IDs.
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvrStatusCode :: Lens' DescribeVolumesResponse Int
+dvrStatusCode = lens _dvrStatusCode (\ s a -> s{_dvrStatusCode = a});

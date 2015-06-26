@@ -72,6 +72,7 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     -- ** Response lenses
     , imurLocation
     , imurUploadId
+    , imurStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -79,7 +80,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'initiateMultipartUpload' smart constructor.
+-- | Provides options for initiating a multipart upload to an Amazon Glacier
+-- vault.
+--
+-- /See:/ 'initiateMultipartUpload' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -132,7 +136,8 @@ instance AWSRequest InitiateMultipartUpload where
               (\ s h x ->
                  InitiateMultipartUploadResponse' <$>
                    (h .#? "Location") <*>
-                     (h .#? "x-amz-multipart-upload-id"))
+                     (h .#? "x-amz-multipart-upload-id")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
@@ -153,18 +158,22 @@ instance ToPath InitiateMultipartUpload where
 instance ToQuery InitiateMultipartUpload where
         toQuery = const mempty
 
--- | /See:/ 'initiateMultipartUploadResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'initiateMultipartUploadResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'imurLocation'
 --
 -- * 'imurUploadId'
-data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'{_imurLocation :: Maybe Text, _imurUploadId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'imurStatusCode'
+data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'{_imurLocation :: Maybe Text, _imurUploadId :: Maybe Text, _imurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
-initiateMultipartUploadResponse :: InitiateMultipartUploadResponse
-initiateMultipartUploadResponse = InitiateMultipartUploadResponse'{_imurLocation = Nothing, _imurUploadId = Nothing};
+initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse
+initiateMultipartUploadResponse pStatusCode = InitiateMultipartUploadResponse'{_imurLocation = Nothing, _imurUploadId = Nothing, _imurStatusCode = pStatusCode};
 
 -- | The relative URI path of the multipart upload ID Amazon Glacier created.
 imurLocation :: Lens' InitiateMultipartUploadResponse (Maybe Text)
@@ -174,3 +183,7 @@ imurLocation = lens _imurLocation (\ s a -> s{_imurLocation = a});
 -- the location.
 imurUploadId :: Lens' InitiateMultipartUploadResponse (Maybe Text)
 imurUploadId = lens _imurUploadId (\ s a -> s{_imurUploadId = a});
+
+-- | FIXME: Undocumented member.
+imurStatusCode :: Lens' InitiateMultipartUploadResponse Int
+imurStatusCode = lens _imurStatusCode (\ s a -> s{_imurStatusCode = a});

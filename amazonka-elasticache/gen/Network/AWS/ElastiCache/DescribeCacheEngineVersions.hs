@@ -39,15 +39,18 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- ** Response lenses
     , dcevrCacheEngineVersions
     , dcevrMarker
+    , dcevrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeCacheEngineVersions' smart constructor.
+-- | Represents the input of a /DescribeCacheEngineVersions/ action.
+--
+-- /See:/ 'describeCacheEngineVersions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -130,7 +133,8 @@ instance AWSRequest DescribeCacheEngineVersions where
                  DescribeCacheEngineVersionsResponse' <$>
                    (x .@? "CacheEngineVersions" .!@ mempty >>=
                       may (parseXMLList "CacheEngineVersion"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
@@ -152,18 +156,22 @@ instance ToQuery DescribeCacheEngineVersions where
                "MaxRecords" =: _dcevMaxRecords,
                "Marker" =: _dcevMarker]
 
--- | /See:/ 'describeCacheEngineVersionsResponse' smart constructor.
+-- | Represents the output of a DescribeCacheEngineVersions action.
+--
+-- /See:/ 'describeCacheEngineVersionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcevrCacheEngineVersions'
 --
 -- * 'dcevrMarker'
-data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions :: Maybe [CacheEngineVersion], _dcevrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcevrStatusCode'
+data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions :: Maybe [CacheEngineVersion], _dcevrMarker :: Maybe Text, _dcevrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
-describeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
-describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions = Nothing, _dcevrMarker = Nothing};
+describeCacheEngineVersionsResponse :: Int -> DescribeCacheEngineVersionsResponse
+describeCacheEngineVersionsResponse pStatusCode = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions = Nothing, _dcevrMarker = Nothing, _dcevrStatusCode = pStatusCode};
 
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
@@ -173,3 +181,7 @@ dcevrCacheEngineVersions = lens _dcevrCacheEngineVersions (\ s a -> s{_dcevrCach
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrMarker = lens _dcevrMarker (\ s a -> s{_dcevrMarker = a});
+
+-- | FIXME: Undocumented member.
+dcevrStatusCode :: Lens' DescribeCacheEngineVersionsResponse Int
+dcevrStatusCode = lens _dcevrStatusCode (\ s a -> s{_dcevrStatusCode = a});

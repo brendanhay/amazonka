@@ -21,8 +21,86 @@ module Network.AWS.SWF.Types
     (
     -- * Service
       SWF
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _LimitExceededFault
+    , _WorkflowExecutionAlreadyStartedFault
+    , _DomainAlreadyExistsFault
+    , _UnknownResourceFault
+    , _OperationNotPermittedFault
+    , _DefaultUndefinedFault
+    , _TypeDeprecatedFault
+    , _TypeAlreadyExistsFault
+    , _DomainDeprecatedFault
+
+    -- * ActivityTaskTimeoutType
+    , ActivityTaskTimeoutType (..)
+
+    -- * CancelTimerFailedCause
+    , CancelTimerFailedCause (..)
+
+    -- * CancelWorkflowExecutionFailedCause
+    , CancelWorkflowExecutionFailedCause (..)
+
+    -- * ChildPolicy
+    , ChildPolicy (..)
+
+    -- * CloseStatus
+    , CloseStatus (..)
+
+    -- * CompleteWorkflowExecutionFailedCause
+    , CompleteWorkflowExecutionFailedCause (..)
+
+    -- * ContinueAsNewWorkflowExecutionFailedCause
+    , ContinueAsNewWorkflowExecutionFailedCause (..)
+
+    -- * DecisionTaskTimeoutType
+    , DecisionTaskTimeoutType (..)
+
+    -- * DecisionType
+    , DecisionType (..)
+
+    -- * EventType
+    , EventType (..)
+
+    -- * ExecutionStatus
+    , ExecutionStatus (..)
+
+    -- * FailWorkflowExecutionFailedCause
+    , FailWorkflowExecutionFailedCause (..)
+
+    -- * RecordMarkerFailedCause
+    , RecordMarkerFailedCause (..)
+
+    -- * RegistrationStatus
+    , RegistrationStatus (..)
+
+    -- * RequestCancelActivityTaskFailedCause
+    , RequestCancelActivityTaskFailedCause (..)
+
+    -- * RequestCancelExternalWorkflowExecutionFailedCause
+    , RequestCancelExternalWorkflowExecutionFailedCause (..)
+
+    -- * ScheduleActivityTaskFailedCause
+    , ScheduleActivityTaskFailedCause (..)
+
+    -- * SignalExternalWorkflowExecutionFailedCause
+    , SignalExternalWorkflowExecutionFailedCause (..)
+
+    -- * StartChildWorkflowExecutionFailedCause
+    , StartChildWorkflowExecutionFailedCause (..)
+
+    -- * StartTimerFailedCause
+    , StartTimerFailedCause (..)
+
+    -- * WorkflowExecutionCancelRequestedCause
+    , WorkflowExecutionCancelRequestedCause (..)
+
+    -- * WorkflowExecutionTerminatedCause
+    , WorkflowExecutionTerminatedCause (..)
+
+    -- * WorkflowExecutionTimeoutType
+    , WorkflowExecutionTimeoutType (..)
 
     -- * ActivityTaskCancelRequestedEventAttributes
     , ActivityTaskCancelRequestedEventAttributes
@@ -82,9 +160,6 @@ module Network.AWS.SWF.Types
     , attoeaScheduledEventId
     , attoeaStartedEventId
 
-    -- * ActivityTaskTimeoutType
-    , ActivityTaskTimeoutType (..)
-
     -- * ActivityType
     , ActivityType
     , activityType
@@ -115,9 +190,6 @@ module Network.AWS.SWF.Types
     , cancelTimerDecisionAttributes
     , ctdaTimerId
 
-    -- * CancelTimerFailedCause
-    , CancelTimerFailedCause (..)
-
     -- * CancelTimerFailedEventAttributes
     , CancelTimerFailedEventAttributes
     , cancelTimerFailedEventAttributes
@@ -130,17 +202,11 @@ module Network.AWS.SWF.Types
     , cancelWorkflowExecutionDecisionAttributes
     , cwedaDetails
 
-    -- * CancelWorkflowExecutionFailedCause
-    , CancelWorkflowExecutionFailedCause (..)
-
     -- * CancelWorkflowExecutionFailedEventAttributes
     , CancelWorkflowExecutionFailedEventAttributes
     , cancelWorkflowExecutionFailedEventAttributes
     , canCause
     , canDecisionTaskCompletedEventId
-
-    -- * ChildPolicy
-    , ChildPolicy (..)
 
     -- * ChildWorkflowExecutionCanceledEventAttributes
     , ChildWorkflowExecutionCanceledEventAttributes
@@ -194,9 +260,6 @@ module Network.AWS.SWF.Types
     , cwetoeaInitiatedEventId
     , cwetoeaStartedEventId
 
-    -- * CloseStatus
-    , CloseStatus (..)
-
     -- * CloseStatusFilter
     , CloseStatusFilter
     , closeStatusFilter
@@ -206,9 +269,6 @@ module Network.AWS.SWF.Types
     , CompleteWorkflowExecutionDecisionAttributes
     , completeWorkflowExecutionDecisionAttributes
     , cwedaResult
-
-    -- * CompleteWorkflowExecutionFailedCause
-    , CompleteWorkflowExecutionFailedCause (..)
 
     -- * CompleteWorkflowExecutionFailedEventAttributes
     , CompleteWorkflowExecutionFailedEventAttributes
@@ -227,9 +287,6 @@ module Network.AWS.SWF.Types
     , canwedaTaskList
     , canwedaTaskPriority
     , canwedaChildPolicy
-
-    -- * ContinueAsNewWorkflowExecutionFailedCause
-    , ContinueAsNewWorkflowExecutionFailedCause (..)
 
     -- * ContinueAsNewWorkflowExecutionFailedEventAttributes
     , ContinueAsNewWorkflowExecutionFailedEventAttributes
@@ -281,12 +338,6 @@ module Network.AWS.SWF.Types
     , dttoeaScheduledEventId
     , dttoeaStartedEventId
 
-    -- * DecisionTaskTimeoutType
-    , DecisionTaskTimeoutType (..)
-
-    -- * DecisionType
-    , DecisionType (..)
-
     -- * DomainConfiguration
     , DomainConfiguration
     , domainConfiguration
@@ -298,12 +349,6 @@ module Network.AWS.SWF.Types
     , diDescription
     , diName
     , diStatus
-
-    -- * EventType
-    , EventType (..)
-
-    -- * ExecutionStatus
-    , ExecutionStatus (..)
 
     -- * ExecutionTimeFilter
     , ExecutionTimeFilter
@@ -328,9 +373,6 @@ module Network.AWS.SWF.Types
     , failWorkflowExecutionDecisionAttributes
     , fwedaReason
     , fwedaDetails
-
-    -- * FailWorkflowExecutionFailedCause
-    , FailWorkflowExecutionFailedCause (..)
 
     -- * FailWorkflowExecutionFailedEventAttributes
     , FailWorkflowExecutionFailedEventAttributes
@@ -411,9 +453,6 @@ module Network.AWS.SWF.Types
     , rmdaDetails
     , rmdaMarkerName
 
-    -- * RecordMarkerFailedCause
-    , RecordMarkerFailedCause (..)
-
     -- * RecordMarkerFailedEventAttributes
     , RecordMarkerFailedEventAttributes
     , recordMarkerFailedEventAttributes
@@ -421,16 +460,10 @@ module Network.AWS.SWF.Types
     , rmfeaCause
     , rmfeaDecisionTaskCompletedEventId
 
-    -- * RegistrationStatus
-    , RegistrationStatus (..)
-
     -- * RequestCancelActivityTaskDecisionAttributes
     , RequestCancelActivityTaskDecisionAttributes
     , requestCancelActivityTaskDecisionAttributes
     , rcatdaActivityId
-
-    -- * RequestCancelActivityTaskFailedCause
-    , RequestCancelActivityTaskFailedCause (..)
 
     -- * RequestCancelActivityTaskFailedEventAttributes
     , RequestCancelActivityTaskFailedEventAttributes
@@ -445,9 +478,6 @@ module Network.AWS.SWF.Types
     , rcewedaControl
     , rcewedaRunId
     , rcewedaWorkflowId
-
-    -- * RequestCancelExternalWorkflowExecutionFailedCause
-    , RequestCancelExternalWorkflowExecutionFailedCause (..)
 
     -- * RequestCancelExternalWorkflowExecutionFailedEventAttributes
     , RequestCancelExternalWorkflowExecutionFailedEventAttributes
@@ -481,9 +511,6 @@ module Network.AWS.SWF.Types
     , satdaActivityType
     , satdaActivityId
 
-    -- * ScheduleActivityTaskFailedCause
-    , ScheduleActivityTaskFailedCause (..)
-
     -- * ScheduleActivityTaskFailedEventAttributes
     , ScheduleActivityTaskFailedEventAttributes
     , scheduleActivityTaskFailedEventAttributes
@@ -500,9 +527,6 @@ module Network.AWS.SWF.Types
     , sewedaRunId
     , sewedaWorkflowId
     , sewedaSignalName
-
-    -- * SignalExternalWorkflowExecutionFailedCause
-    , SignalExternalWorkflowExecutionFailedCause (..)
 
     -- * SignalExternalWorkflowExecutionFailedEventAttributes
     , SignalExternalWorkflowExecutionFailedEventAttributes
@@ -538,9 +562,6 @@ module Network.AWS.SWF.Types
     , scwedaWorkflowType
     , scwedaWorkflowId
 
-    -- * StartChildWorkflowExecutionFailedCause
-    , StartChildWorkflowExecutionFailedCause (..)
-
     -- * StartChildWorkflowExecutionFailedEventAttributes
     , StartChildWorkflowExecutionFailedEventAttributes
     , startChildWorkflowExecutionFailedEventAttributes
@@ -572,9 +593,6 @@ module Network.AWS.SWF.Types
     , stdaControl
     , stdaTimerId
     , stdaStartToFireTimeout
-
-    -- * StartTimerFailedCause
-    , StartTimerFailedCause (..)
 
     -- * StartTimerFailedEventAttributes
     , StartTimerFailedEventAttributes
@@ -619,9 +637,6 @@ module Network.AWS.SWF.Types
     , workflowExecution
     , weWorkflowId
     , weRunId
-
-    -- * WorkflowExecutionCancelRequestedCause
-    , WorkflowExecutionCancelRequestedCause (..)
 
     -- * WorkflowExecutionCancelRequestedEventAttributes
     , WorkflowExecutionCancelRequestedEventAttributes
@@ -733,9 +748,6 @@ module Network.AWS.SWF.Types
     , weseaTaskList
     , weseaWorkflowType
 
-    -- * WorkflowExecutionTerminatedCause
-    , WorkflowExecutionTerminatedCause (..)
-
     -- * WorkflowExecutionTerminatedEventAttributes
     , WorkflowExecutionTerminatedEventAttributes
     , workflowExecutionTerminatedEventAttributes
@@ -749,9 +761,6 @@ module Network.AWS.SWF.Types
     , workflowExecutionTimedOutEventAttributes
     , wetoeaTimeoutType
     , wetoeaChildPolicy
-
-    -- * WorkflowExecutionTimeoutType
-    , WorkflowExecutionTimeoutType (..)
 
     -- * WorkflowType
     , WorkflowType
@@ -782,6 +791,7 @@ module Network.AWS.SWF.Types
     , wtiWorkflowType
     , wtiStatus
     , wtiCreationDate
+
     ) where
 
 import Network.AWS.Prelude
@@ -792,403 +802,78 @@ data SWF
 
 instance AWSService SWF where
     type Sg SWF = V4
-    type Er SWF = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service SWF
-        service' = Service
-            { _svcAbbrev  = "SWF"
-            , _svcPrefix  = "swf"
-            , _svcVersion = "2012-01-25"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service SWF
+        svc = Service
+            { _svcAbbrev   = "SWF"
+            , _svcPrefix   = "swf"
+            , _svcVersion  = "2012-01-25"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry SWF
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Returned by any operation if a system imposed limitation has been
+-- reached. To address this fault you should either clean up unused
+-- resources or increase the limit by contacting AWS.
+_LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededFault = _ServiceError . hasCode "LimitExceededFault";
 
--- | /See:/ 'activityTaskCancelRequestedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atcreaDecisionTaskCompletedEventId'
---
--- * 'atcreaActivityId'
-data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes'{_atcreaDecisionTaskCompletedEventId :: Integer, _atcreaActivityId :: Text} deriving (Eq, Read, Show)
+-- | Returned by StartWorkflowExecution when an open execution with the same
+-- workflowId is already running in the specified domain.
+_WorkflowExecutionAlreadyStartedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_WorkflowExecutionAlreadyStartedFault = _ServiceError . hasCode "WorkflowExecutionAlreadyStartedFault";
 
--- | 'ActivityTaskCancelRequestedEventAttributes' smart constructor.
-activityTaskCancelRequestedEventAttributes :: Integer -> Text -> ActivityTaskCancelRequestedEventAttributes
-activityTaskCancelRequestedEventAttributes pDecisionTaskCompletedEventId pActivityId = ActivityTaskCancelRequestedEventAttributes'{_atcreaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _atcreaActivityId = pActivityId};
+-- | Returned if the specified domain already exists. You will get this fault
+-- even if the existing domain is in deprecated status.
+_DomainAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DomainAlreadyExistsFault = _ServiceError . hasCode "DomainAlreadyExistsFault";
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
--- decision task that resulted in the @RequestCancelActivityTask@ decision
--- for this cancellation request. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes Integer
-atcreaDecisionTaskCompletedEventId = lens _atcreaDecisionTaskCompletedEventId (\ s a -> s{_atcreaDecisionTaskCompletedEventId = a});
+-- | Returned when the named resource cannot be found with in the scope of
+-- this operation (region or domain). This could happen if the named
+-- resource was never created or is no longer available for this operation.
+_UnknownResourceFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnknownResourceFault = _ServiceError . hasCode "UnknownResourceFault";
 
--- | The unique ID of the task.
-atcreaActivityId :: Lens' ActivityTaskCancelRequestedEventAttributes Text
-atcreaActivityId = lens _atcreaActivityId (\ s a -> s{_atcreaActivityId = a});
+-- | Returned when the caller does not have sufficient permissions to invoke
+-- the action.
+_OperationNotPermittedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_OperationNotPermittedFault = _ServiceError . hasCode "OperationNotPermittedFault";
 
-instance FromJSON
-         ActivityTaskCancelRequestedEventAttributes where
-        parseJSON
-          = withObject
-              "ActivityTaskCancelRequestedEventAttributes"
-              (\ x ->
-                 ActivityTaskCancelRequestedEventAttributes' <$>
-                   (x .: "decisionTaskCompletedEventId") <*>
-                     (x .: "activityId"))
+-- | Prism for DefaultUndefinedFault' errors.
+_DefaultUndefinedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DefaultUndefinedFault = _ServiceError . hasCode "DefaultUndefinedFault";
 
--- | /See:/ 'activityTaskCanceledEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'actLatestCancelRequestedEventId'
---
--- * 'actDetails'
---
--- * 'actScheduledEventId'
---
--- * 'actStartedEventId'
-data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'{_actLatestCancelRequestedEventId :: Maybe Integer, _actDetails :: Maybe Text, _actScheduledEventId :: Integer, _actStartedEventId :: Integer} deriving (Eq, Read, Show)
+-- | Returned when the specified activity or workflow type was already
+-- deprecated.
+_TypeDeprecatedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_TypeDeprecatedFault = _ServiceError . hasCode "TypeDeprecatedFault";
 
--- | 'ActivityTaskCanceledEventAttributes' smart constructor.
-activityTaskCanceledEventAttributes :: Integer -> Integer -> ActivityTaskCanceledEventAttributes
-activityTaskCanceledEventAttributes pScheduledEventId pStartedEventId = ActivityTaskCanceledEventAttributes'{_actLatestCancelRequestedEventId = Nothing, _actDetails = Nothing, _actScheduledEventId = pScheduledEventId, _actStartedEventId = pStartedEventId};
+-- | Returned if the type already exists in the specified domain. You will
+-- get this fault even if the existing type is in deprecated status. You
+-- can specify another version if the intent is to create a new distinct
+-- version of the type.
+_TypeAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_TypeAlreadyExistsFault = _ServiceError . hasCode "TypeAlreadyExistsFault";
 
--- | If set, contains the Id of the last @ActivityTaskCancelRequested@ event
--- recorded for this activity task. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-actLatestCancelRequestedEventId :: Lens' ActivityTaskCanceledEventAttributes (Maybe Integer)
-actLatestCancelRequestedEventId = lens _actLatestCancelRequestedEventId (\ s a -> s{_actLatestCancelRequestedEventId = a});
-
--- | Details of the cancellation (if any).
-actDetails :: Lens' ActivityTaskCanceledEventAttributes (Maybe Text)
-actDetails = lens _actDetails (\ s a -> s{_actDetails = a});
-
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
--- activity task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-actScheduledEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
-actScheduledEventId = lens _actScheduledEventId (\ s a -> s{_actScheduledEventId = a});
-
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
--- task was started. This information can be useful for diagnosing problems
--- by tracing back the chain of events leading up to this event.
-actStartedEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
-actStartedEventId = lens _actStartedEventId (\ s a -> s{_actStartedEventId = a});
-
-instance FromJSON ActivityTaskCanceledEventAttributes
-         where
-        parseJSON
-          = withObject "ActivityTaskCanceledEventAttributes"
-              (\ x ->
-                 ActivityTaskCanceledEventAttributes' <$>
-                   (x .:? "latestCancelRequestedEventId") <*>
-                     (x .:? "details")
-                     <*> (x .: "scheduledEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atceaResult'
---
--- * 'atceaScheduledEventId'
---
--- * 'atceaStartedEventId'
-data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'{_atceaResult :: Maybe Text, _atceaScheduledEventId :: Integer, _atceaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ActivityTaskCompletedEventAttributes' smart constructor.
-activityTaskCompletedEventAttributes :: Integer -> Integer -> ActivityTaskCompletedEventAttributes
-activityTaskCompletedEventAttributes pScheduledEventId pStartedEventId = ActivityTaskCompletedEventAttributes'{_atceaResult = Nothing, _atceaScheduledEventId = pScheduledEventId, _atceaStartedEventId = pStartedEventId};
-
--- | The results of the activity task (if any).
-atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
-atceaResult = lens _atceaResult (\ s a -> s{_atceaResult = a});
-
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
--- activity task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
-atceaScheduledEventId = lens _atceaScheduledEventId (\ s a -> s{_atceaScheduledEventId = a});
-
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
--- task was started. This information can be useful for diagnosing problems
--- by tracing back the chain of events leading up to this event.
-atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
-atceaStartedEventId = lens _atceaStartedEventId (\ s a -> s{_atceaStartedEventId = a});
-
-instance FromJSON
-         ActivityTaskCompletedEventAttributes where
-        parseJSON
-          = withObject "ActivityTaskCompletedEventAttributes"
-              (\ x ->
-                 ActivityTaskCompletedEventAttributes' <$>
-                   (x .:? "result") <*> (x .: "scheduledEventId") <*>
-                     (x .: "startedEventId"))
-
--- | /See:/ 'activityTaskFailedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atfeaReason'
---
--- * 'atfeaDetails'
---
--- * 'atfeaScheduledEventId'
---
--- * 'atfeaStartedEventId'
-data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'{_atfeaReason :: Maybe Text, _atfeaDetails :: Maybe Text, _atfeaScheduledEventId :: Integer, _atfeaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ActivityTaskFailedEventAttributes' smart constructor.
-activityTaskFailedEventAttributes :: Integer -> Integer -> ActivityTaskFailedEventAttributes
-activityTaskFailedEventAttributes pScheduledEventId pStartedEventId = ActivityTaskFailedEventAttributes'{_atfeaReason = Nothing, _atfeaDetails = Nothing, _atfeaScheduledEventId = pScheduledEventId, _atfeaStartedEventId = pStartedEventId};
-
--- | The reason provided for the failure (if any).
-atfeaReason :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
-atfeaReason = lens _atfeaReason (\ s a -> s{_atfeaReason = a});
-
--- | The details of the failure (if any).
-atfeaDetails :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
-atfeaDetails = lens _atfeaDetails (\ s a -> s{_atfeaDetails = a});
-
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
--- activity task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-atfeaScheduledEventId :: Lens' ActivityTaskFailedEventAttributes Integer
-atfeaScheduledEventId = lens _atfeaScheduledEventId (\ s a -> s{_atfeaScheduledEventId = a});
-
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
--- task was started. This information can be useful for diagnosing problems
--- by tracing back the chain of events leading up to this event.
-atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes Integer
-atfeaStartedEventId = lens _atfeaStartedEventId (\ s a -> s{_atfeaStartedEventId = a});
-
-instance FromJSON ActivityTaskFailedEventAttributes
-         where
-        parseJSON
-          = withObject "ActivityTaskFailedEventAttributes"
-              (\ x ->
-                 ActivityTaskFailedEventAttributes' <$>
-                   (x .:? "reason") <*> (x .:? "details") <*>
-                     (x .: "scheduledEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'activityTaskScheduledEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atseaControl'
---
--- * 'atseaScheduleToCloseTimeout'
---
--- * 'atseaHeartbeatTimeout'
---
--- * 'atseaInput'
---
--- * 'atseaTaskPriority'
---
--- * 'atseaScheduleToStartTimeout'
---
--- * 'atseaStartToCloseTimeout'
---
--- * 'atseaActivityType'
---
--- * 'atseaActivityId'
---
--- * 'atseaTaskList'
---
--- * 'atseaDecisionTaskCompletedEventId'
-data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'{_atseaControl :: Maybe Text, _atseaScheduleToCloseTimeout :: Maybe Text, _atseaHeartbeatTimeout :: Maybe Text, _atseaInput :: Maybe Text, _atseaTaskPriority :: Maybe Text, _atseaScheduleToStartTimeout :: Maybe Text, _atseaStartToCloseTimeout :: Maybe Text, _atseaActivityType :: ActivityType, _atseaActivityId :: Text, _atseaTaskList :: TaskList, _atseaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ActivityTaskScheduledEventAttributes' smart constructor.
-activityTaskScheduledEventAttributes :: ActivityType -> Text -> TaskList -> Integer -> ActivityTaskScheduledEventAttributes
-activityTaskScheduledEventAttributes pActivityType pActivityId pTaskList pDecisionTaskCompletedEventId = ActivityTaskScheduledEventAttributes'{_atseaControl = Nothing, _atseaScheduleToCloseTimeout = Nothing, _atseaHeartbeatTimeout = Nothing, _atseaInput = Nothing, _atseaTaskPriority = Nothing, _atseaScheduleToStartTimeout = Nothing, _atseaStartToCloseTimeout = Nothing, _atseaActivityType = pActivityType, _atseaActivityId = pActivityId, _atseaTaskList = pTaskList, _atseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
-
--- | /Optional./ Data attached to the event that can be used by the decider
--- in subsequent workflow tasks. This data is not sent to the activity.
-atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaControl = lens _atseaControl (\ s a -> s{_atseaControl = a});
-
--- | The maximum amount of time for this activity task.
-atseaScheduleToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaScheduleToCloseTimeout = lens _atseaScheduleToCloseTimeout (\ s a -> s{_atseaScheduleToCloseTimeout = a});
-
--- | The maximum time before which the worker processing this task must
--- report progress by calling RecordActivityTaskHeartbeat. If the timeout
--- is exceeded, the activity task is automatically timed out. If the worker
--- subsequently attempts to record a heartbeat or return a result, it will
--- be ignored.
-atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatTimeout = a});
-
--- | The input provided to the activity task.
-atseaInput :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaInput = lens _atseaInput (\ s a -> s{_atseaInput = a});
-
--- | /Optional./ The priority to assign to the scheduled activity task. This
--- will override any default priority that was assigned when the activity
--- type was registered. If not set, then the priority set on the activity
--- type is used as the task priority.
---
--- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon Simple Workflow Developer Guide/.
-atseaTaskPriority :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaTaskPriority = lens _atseaTaskPriority (\ s a -> s{_atseaTaskPriority = a});
-
--- | The maximum amount of time the activity task can wait to be assigned to
--- a worker.
-atseaScheduleToStartTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaScheduleToStartTimeout = lens _atseaScheduleToStartTimeout (\ s a -> s{_atseaScheduleToStartTimeout = a});
-
--- | The maximum amount of time a worker may take to process the activity
--- task.
-atseaStartToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaStartToCloseTimeout = lens _atseaStartToCloseTimeout (\ s a -> s{_atseaStartToCloseTimeout = a});
-
--- | The type of the activity task.
-atseaActivityType :: Lens' ActivityTaskScheduledEventAttributes ActivityType
-atseaActivityType = lens _atseaActivityType (\ s a -> s{_atseaActivityType = a});
-
--- | The unique id of the activity task.
-atseaActivityId :: Lens' ActivityTaskScheduledEventAttributes Text
-atseaActivityId = lens _atseaActivityId (\ s a -> s{_atseaActivityId = a});
-
--- | The task list in which the activity task has been scheduled.
-atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes TaskList
-atseaTaskList = lens _atseaTaskList (\ s a -> s{_atseaTaskList = a});
-
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
--- decision that resulted in the scheduling of this activity task. This
--- information can be useful for diagnosing problems by tracing back the
--- chain of events leading up to this event.
-atseaDecisionTaskCompletedEventId :: Lens' ActivityTaskScheduledEventAttributes Integer
-atseaDecisionTaskCompletedEventId = lens _atseaDecisionTaskCompletedEventId (\ s a -> s{_atseaDecisionTaskCompletedEventId = a});
-
-instance FromJSON
-         ActivityTaskScheduledEventAttributes where
-        parseJSON
-          = withObject "ActivityTaskScheduledEventAttributes"
-              (\ x ->
-                 ActivityTaskScheduledEventAttributes' <$>
-                   (x .:? "control") <*>
-                     (x .:? "scheduleToCloseTimeout")
-                     <*> (x .:? "heartbeatTimeout")
-                     <*> (x .:? "input")
-                     <*> (x .:? "taskPriority")
-                     <*> (x .:? "scheduleToStartTimeout")
-                     <*> (x .:? "startToCloseTimeout")
-                     <*> (x .: "activityType")
-                     <*> (x .: "activityId")
-                     <*> (x .: "taskList")
-                     <*> (x .: "decisionTaskCompletedEventId"))
-
--- | /See:/ 'activityTaskStartedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atseaIdentity'
---
--- * 'atseaScheduledEventId'
-data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'{_atseaIdentity :: Maybe Text, _atseaScheduledEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ActivityTaskStartedEventAttributes' smart constructor.
-activityTaskStartedEventAttributes :: Integer -> ActivityTaskStartedEventAttributes
-activityTaskStartedEventAttributes pScheduledEventId = ActivityTaskStartedEventAttributes'{_atseaIdentity = Nothing, _atseaScheduledEventId = pScheduledEventId};
-
--- | Identity of the worker that was assigned this task. This aids
--- diagnostics when problems arise. The form of this identity is user
--- defined.
-atseaIdentity :: Lens' ActivityTaskStartedEventAttributes (Maybe Text)
-atseaIdentity = lens _atseaIdentity (\ s a -> s{_atseaIdentity = a});
-
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
--- activity task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-atseaScheduledEventId :: Lens' ActivityTaskStartedEventAttributes Integer
-atseaScheduledEventId = lens _atseaScheduledEventId (\ s a -> s{_atseaScheduledEventId = a});
-
-instance FromJSON ActivityTaskStartedEventAttributes
-         where
-        parseJSON
-          = withObject "ActivityTaskStartedEventAttributes"
-              (\ x ->
-                 ActivityTaskStartedEventAttributes' <$>
-                   (x .:? "identity") <*> (x .: "scheduledEventId"))
-
--- | /See:/ 'activityTaskTimedOutEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'attoeaDetails'
---
--- * 'attoeaTimeoutType'
---
--- * 'attoeaScheduledEventId'
---
--- * 'attoeaStartedEventId'
-data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'{_attoeaDetails :: Maybe Text, _attoeaTimeoutType :: ActivityTaskTimeoutType, _attoeaScheduledEventId :: Integer, _attoeaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ActivityTaskTimedOutEventAttributes' smart constructor.
-activityTaskTimedOutEventAttributes :: ActivityTaskTimeoutType -> Integer -> Integer -> ActivityTaskTimedOutEventAttributes
-activityTaskTimedOutEventAttributes pTimeoutType pScheduledEventId pStartedEventId = ActivityTaskTimedOutEventAttributes'{_attoeaDetails = Nothing, _attoeaTimeoutType = pTimeoutType, _attoeaScheduledEventId = pScheduledEventId, _attoeaStartedEventId = pStartedEventId};
-
--- | Contains the content of the @details@ parameter for the last call made
--- by the activity to @RecordActivityTaskHeartbeat@.
-attoeaDetails :: Lens' ActivityTaskTimedOutEventAttributes (Maybe Text)
-attoeaDetails = lens _attoeaDetails (\ s a -> s{_attoeaDetails = a});
-
--- | The type of the timeout that caused this event.
-attoeaTimeoutType :: Lens' ActivityTaskTimedOutEventAttributes ActivityTaskTimeoutType
-attoeaTimeoutType = lens _attoeaTimeoutType (\ s a -> s{_attoeaTimeoutType = a});
-
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
--- activity task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-attoeaScheduledEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
-attoeaScheduledEventId = lens _attoeaScheduledEventId (\ s a -> s{_attoeaScheduledEventId = a});
-
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
--- task was started. This information can be useful for diagnosing problems
--- by tracing back the chain of events leading up to this event.
-attoeaStartedEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
-attoeaStartedEventId = lens _attoeaStartedEventId (\ s a -> s{_attoeaStartedEventId = a});
-
-instance FromJSON ActivityTaskTimedOutEventAttributes
-         where
-        parseJSON
-          = withObject "ActivityTaskTimedOutEventAttributes"
-              (\ x ->
-                 ActivityTaskTimedOutEventAttributes' <$>
-                   (x .:? "details") <*> (x .: "timeoutType") <*>
-                     (x .: "scheduledEventId")
-                     <*> (x .: "startedEventId"))
+-- | Returned when the specified domain has been deprecated.
+_DomainDeprecatedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DomainDeprecatedFault = _ServiceError . hasCode "DomainDeprecatedFault";
 
 data ActivityTaskTimeoutType = ATTTScheduleTOClose | ATTTHeartbeat | ATTTStartTOClose | ATTTScheduleTOStart deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1214,215 +899,6 @@ instance ToHeader ActivityTaskTimeoutType
 instance FromJSON ActivityTaskTimeoutType where
     parseJSON = parseJSONText "ActivityTaskTimeoutType"
 
--- | /See:/ 'activityType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atName'
---
--- * 'atVersion'
-data ActivityType = ActivityType'{_atName :: Text, _atVersion :: Text} deriving (Eq, Read, Show)
-
--- | 'ActivityType' smart constructor.
-activityType :: Text -> Text -> ActivityType
-activityType pName pVersion = ActivityType'{_atName = pName, _atVersion = pVersion};
-
--- | The name of this activity.
---
--- The combination of activity type name and version must be unique within
--- a domain.
-atName :: Lens' ActivityType Text
-atName = lens _atName (\ s a -> s{_atName = a});
-
--- | The version of this activity.
---
--- The combination of activity type name and version must be unique with in
--- a domain.
-atVersion :: Lens' ActivityType Text
-atVersion = lens _atVersion (\ s a -> s{_atVersion = a});
-
-instance FromJSON ActivityType where
-        parseJSON
-          = withObject "ActivityType"
-              (\ x ->
-                 ActivityType' <$> (x .: "name") <*> (x .: "version"))
-
-instance ToJSON ActivityType where
-        toJSON ActivityType'{..}
-          = object ["name" .= _atName, "version" .= _atVersion]
-
--- | /See:/ 'activityTypeConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atcDefaultTaskScheduleToStartTimeout'
---
--- * 'atcDefaultTaskList'
---
--- * 'atcDefaultTaskPriority'
---
--- * 'atcDefaultTaskHeartbeatTimeout'
---
--- * 'atcDefaultTaskScheduleToCloseTimeout'
---
--- * 'atcDefaultTaskStartToCloseTimeout'
-data ActivityTypeConfiguration = ActivityTypeConfiguration'{_atcDefaultTaskScheduleToStartTimeout :: Maybe Text, _atcDefaultTaskList :: Maybe TaskList, _atcDefaultTaskPriority :: Maybe Text, _atcDefaultTaskHeartbeatTimeout :: Maybe Text, _atcDefaultTaskScheduleToCloseTimeout :: Maybe Text, _atcDefaultTaskStartToCloseTimeout :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'ActivityTypeConfiguration' smart constructor.
-activityTypeConfiguration :: ActivityTypeConfiguration
-activityTypeConfiguration = ActivityTypeConfiguration'{_atcDefaultTaskScheduleToStartTimeout = Nothing, _atcDefaultTaskList = Nothing, _atcDefaultTaskPriority = Nothing, _atcDefaultTaskHeartbeatTimeout = Nothing, _atcDefaultTaskScheduleToCloseTimeout = Nothing, _atcDefaultTaskStartToCloseTimeout = Nothing};
-
--- | /Optional./ The default maximum duration, specified when registering the
--- activity type, that a task of an activity type can wait before being
--- assigned to a worker. You can override this default when scheduling a
--- task through the @ScheduleActivityTask@ Decision.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
-atcDefaultTaskScheduleToStartTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
-atcDefaultTaskScheduleToStartTimeout = lens _atcDefaultTaskScheduleToStartTimeout (\ s a -> s{_atcDefaultTaskScheduleToStartTimeout = a});
-
--- | /Optional./ The default task list specified for this activity type at
--- registration. This default is used if a task list is not provided when a
--- task is scheduled through the @ScheduleActivityTask@ Decision. You can
--- override the default registered task list when scheduling a task through
--- the @ScheduleActivityTask@ Decision.
-atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
-atcDefaultTaskList = lens _atcDefaultTaskList (\ s a -> s{_atcDefaultTaskList = a});
-
--- | /Optional./ The default task priority for tasks of this activity type,
--- specified at registration. If not set, then \"0\" will be used as the
--- default priority. This default can be overridden when scheduling an
--- activity task.
---
--- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon Simple Workflow Developer Guide/.
-atcDefaultTaskPriority :: Lens' ActivityTypeConfiguration (Maybe Text)
-atcDefaultTaskPriority = lens _atcDefaultTaskPriority (\ s a -> s{_atcDefaultTaskPriority = a});
-
--- | /Optional./ The default maximum time, in seconds, before which a worker
--- processing a task must report progress by calling
--- RecordActivityTaskHeartbeat.
---
--- You can specify this value only when /registering/ an activity type. The
--- registered default value can be overridden when you schedule a task
--- through the @ScheduleActivityTask@ Decision. If the activity worker
--- subsequently attempts to record a heartbeat or returns a result, the
--- activity worker receives an @UnknownResource@ fault. In this case,
--- Amazon SWF no longer considers the activity task to be valid; the
--- activity worker should clean up the activity task.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
-atcDefaultTaskHeartbeatTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
-atcDefaultTaskHeartbeatTimeout = lens _atcDefaultTaskHeartbeatTimeout (\ s a -> s{_atcDefaultTaskHeartbeatTimeout = a});
-
--- | /Optional./ The default maximum duration, specified when registering the
--- activity type, for tasks of this activity type. You can override this
--- default when scheduling a task through the @ScheduleActivityTask@
--- Decision.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
-atcDefaultTaskScheduleToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
-atcDefaultTaskScheduleToCloseTimeout = lens _atcDefaultTaskScheduleToCloseTimeout (\ s a -> s{_atcDefaultTaskScheduleToCloseTimeout = a});
-
--- | /Optional./ The default maximum duration for tasks of an activity type
--- specified when registering the activity type. You can override this
--- default when scheduling a task through the @ScheduleActivityTask@
--- Decision.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
-atcDefaultTaskStartToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
-atcDefaultTaskStartToCloseTimeout = lens _atcDefaultTaskStartToCloseTimeout (\ s a -> s{_atcDefaultTaskStartToCloseTimeout = a});
-
-instance FromJSON ActivityTypeConfiguration where
-        parseJSON
-          = withObject "ActivityTypeConfiguration"
-              (\ x ->
-                 ActivityTypeConfiguration' <$>
-                   (x .:? "defaultTaskScheduleToStartTimeout") <*>
-                     (x .:? "defaultTaskList")
-                     <*> (x .:? "defaultTaskPriority")
-                     <*> (x .:? "defaultTaskHeartbeatTimeout")
-                     <*> (x .:? "defaultTaskScheduleToCloseTimeout")
-                     <*> (x .:? "defaultTaskStartToCloseTimeout"))
-
--- | /See:/ 'activityTypeInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atiDeprecationDate'
---
--- * 'atiDescription'
---
--- * 'atiActivityType'
---
--- * 'atiStatus'
---
--- * 'atiCreationDate'
-data ActivityTypeInfo = ActivityTypeInfo'{_atiDeprecationDate :: Maybe POSIX, _atiDescription :: Maybe Text, _atiActivityType :: ActivityType, _atiStatus :: RegistrationStatus, _atiCreationDate :: POSIX} deriving (Eq, Read, Show)
-
--- | 'ActivityTypeInfo' smart constructor.
-activityTypeInfo :: ActivityType -> RegistrationStatus -> UTCTime -> ActivityTypeInfo
-activityTypeInfo pActivityType pStatus pCreationDate = ActivityTypeInfo'{_atiDeprecationDate = Nothing, _atiDescription = Nothing, _atiActivityType = pActivityType, _atiStatus = pStatus, _atiCreationDate = _Time # pCreationDate};
-
--- | If DEPRECATED, the date and time DeprecateActivityType was called.
-atiDeprecationDate :: Lens' ActivityTypeInfo (Maybe UTCTime)
-atiDeprecationDate = lens _atiDeprecationDate (\ s a -> s{_atiDeprecationDate = a}) . mapping _Time;
-
--- | The description of the activity type provided in RegisterActivityType.
-atiDescription :: Lens' ActivityTypeInfo (Maybe Text)
-atiDescription = lens _atiDescription (\ s a -> s{_atiDescription = a});
-
--- | The ActivityType type structure representing the activity type.
-atiActivityType :: Lens' ActivityTypeInfo ActivityType
-atiActivityType = lens _atiActivityType (\ s a -> s{_atiActivityType = a});
-
--- | The current status of the activity type.
-atiStatus :: Lens' ActivityTypeInfo RegistrationStatus
-atiStatus = lens _atiStatus (\ s a -> s{_atiStatus = a});
-
--- | The date and time this activity type was created through
--- RegisterActivityType.
-atiCreationDate :: Lens' ActivityTypeInfo UTCTime
-atiCreationDate = lens _atiCreationDate (\ s a -> s{_atiCreationDate = a}) . _Time;
-
-instance FromJSON ActivityTypeInfo where
-        parseJSON
-          = withObject "ActivityTypeInfo"
-              (\ x ->
-                 ActivityTypeInfo' <$>
-                   (x .:? "deprecationDate") <*> (x .:? "description")
-                     <*> (x .: "activityType")
-                     <*> (x .: "status")
-                     <*> (x .: "creationDate"))
-
--- | /See:/ 'cancelTimerDecisionAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctdaTimerId'
-newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'{_ctdaTimerId :: Text} deriving (Eq, Read, Show)
-
--- | 'CancelTimerDecisionAttributes' smart constructor.
-cancelTimerDecisionAttributes :: Text -> CancelTimerDecisionAttributes
-cancelTimerDecisionAttributes pTimerId = CancelTimerDecisionAttributes'{_ctdaTimerId = pTimerId};
-
--- | __Required.__ The unique Id of the timer to cancel.
-ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
-ctdaTimerId = lens _ctdaTimerId (\ s a -> s{_ctdaTimerId = a});
-
-instance ToJSON CancelTimerDecisionAttributes where
-        toJSON CancelTimerDecisionAttributes'{..}
-          = object ["timerId" .= _ctdaTimerId]
-
 data CancelTimerFailedCause = CTFCTimerIDUnknown | CTFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText CancelTimerFailedCause where
@@ -1443,71 +919,6 @@ instance ToHeader CancelTimerFailedCause
 instance FromJSON CancelTimerFailedCause where
     parseJSON = parseJSONText "CancelTimerFailedCause"
 
--- | /See:/ 'cancelTimerFailedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctfeaTimerId'
---
--- * 'ctfeaCause'
---
--- * 'ctfeaDecisionTaskCompletedEventId'
-data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'{_ctfeaTimerId :: Text, _ctfeaCause :: CancelTimerFailedCause, _ctfeaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'CancelTimerFailedEventAttributes' smart constructor.
-cancelTimerFailedEventAttributes :: Text -> CancelTimerFailedCause -> Integer -> CancelTimerFailedEventAttributes
-cancelTimerFailedEventAttributes pTimerId pCause pDecisionTaskCompletedEventId = CancelTimerFailedEventAttributes'{_ctfeaTimerId = pTimerId, _ctfeaCause = pCause, _ctfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
-
--- | The timerId provided in the @CancelTimer@ decision that failed.
-ctfeaTimerId :: Lens' CancelTimerFailedEventAttributes Text
-ctfeaTimerId = lens _ctfeaTimerId (\ s a -> s{_ctfeaTimerId = a});
-
--- | The cause of the failure. This information is generated by the system
--- and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
--- because it lacked sufficient permissions. For details and example IAM
--- policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
-ctfeaCause :: Lens' CancelTimerFailedEventAttributes CancelTimerFailedCause
-ctfeaCause = lens _ctfeaCause (\ s a -> s{_ctfeaCause = a});
-
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
--- decision task that resulted in the @CancelTimer@ decision to cancel this
--- timer. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
-ctfeaDecisionTaskCompletedEventId :: Lens' CancelTimerFailedEventAttributes Integer
-ctfeaDecisionTaskCompletedEventId = lens _ctfeaDecisionTaskCompletedEventId (\ s a -> s{_ctfeaDecisionTaskCompletedEventId = a});
-
-instance FromJSON CancelTimerFailedEventAttributes
-         where
-        parseJSON
-          = withObject "CancelTimerFailedEventAttributes"
-              (\ x ->
-                 CancelTimerFailedEventAttributes' <$>
-                   (x .: "timerId") <*> (x .: "cause") <*>
-                     (x .: "decisionTaskCompletedEventId"))
-
--- | /See:/ 'cancelWorkflowExecutionDecisionAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwedaDetails'
-newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'{_cwedaDetails :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'CancelWorkflowExecutionDecisionAttributes' smart constructor.
-cancelWorkflowExecutionDecisionAttributes :: CancelWorkflowExecutionDecisionAttributes
-cancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'{_cwedaDetails = Nothing};
-
--- | /Optional./ details of the cancellation.
-cwedaDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
-cwedaDetails = lens _cwedaDetails (\ s a -> s{_cwedaDetails = a});
-
-instance ToJSON
-         CancelWorkflowExecutionDecisionAttributes where
-        toJSON CancelWorkflowExecutionDecisionAttributes'{..}
-          = object ["details" .= _cwedaDetails]
-
 data CancelWorkflowExecutionFailedCause = CanOperationNotPermitted | CanUnhandledDecision deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText CancelWorkflowExecutionFailedCause where
@@ -1527,47 +938,6 @@ instance ToHeader CancelWorkflowExecutionFailedCause
 
 instance FromJSON CancelWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CancelWorkflowExecutionFailedCause"
-
--- | /See:/ 'cancelWorkflowExecutionFailedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'canCause'
---
--- * 'canDecisionTaskCompletedEventId'
-data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes'{_canCause :: CancelWorkflowExecutionFailedCause, _canDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'CancelWorkflowExecutionFailedEventAttributes' smart constructor.
-cancelWorkflowExecutionFailedEventAttributes :: CancelWorkflowExecutionFailedCause -> Integer -> CancelWorkflowExecutionFailedEventAttributes
-cancelWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId = CancelWorkflowExecutionFailedEventAttributes'{_canCause = pCause, _canDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
-
--- | The cause of the failure. This information is generated by the system
--- and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
--- because it lacked sufficient permissions. For details and example IAM
--- policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
-canCause :: Lens' CancelWorkflowExecutionFailedEventAttributes CancelWorkflowExecutionFailedCause
-canCause = lens _canCause (\ s a -> s{_canCause = a});
-
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
--- decision task that resulted in the @CancelWorkflowExecution@ decision
--- for this cancellation request. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-canDecisionTaskCompletedEventId :: Lens' CancelWorkflowExecutionFailedEventAttributes Integer
-canDecisionTaskCompletedEventId = lens _canDecisionTaskCompletedEventId (\ s a -> s{_canDecisionTaskCompletedEventId = a});
-
-instance FromJSON
-         CancelWorkflowExecutionFailedEventAttributes where
-        parseJSON
-          = withObject
-              "CancelWorkflowExecutionFailedEventAttributes"
-              (\ x ->
-                 CancelWorkflowExecutionFailedEventAttributes' <$>
-                   (x .: "cause") <*>
-                     (x .: "decisionTaskCompletedEventId"))
 
 data ChildPolicy = Abandon | RequestCancel | Terminate deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1593,332 +963,6 @@ instance ToJSON ChildPolicy where
 
 instance FromJSON ChildPolicy where
     parseJSON = parseJSONText "ChildPolicy"
-
--- | /See:/ 'childWorkflowExecutionCanceledEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chiDetails'
---
--- * 'chiWorkflowExecution'
---
--- * 'chiWorkflowType'
---
--- * 'chiInitiatedEventId'
---
--- * 'chiStartedEventId'
-data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'{_chiDetails :: Maybe Text, _chiWorkflowExecution :: WorkflowExecution, _chiWorkflowType :: WorkflowType, _chiInitiatedEventId :: Integer, _chiStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ChildWorkflowExecutionCanceledEventAttributes' smart constructor.
-childWorkflowExecutionCanceledEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionCanceledEventAttributes
-childWorkflowExecutionCanceledEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionCanceledEventAttributes'{_chiDetails = Nothing, _chiWorkflowExecution = pWorkflowExecution, _chiWorkflowType = pWorkflowType, _chiInitiatedEventId = pInitiatedEventId, _chiStartedEventId = pStartedEventId};
-
--- | Details of the cancellation (if provided).
-chiDetails :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Maybe Text)
-chiDetails = lens _chiDetails (\ s a -> s{_chiDetails = a});
-
--- | The child workflow execution that was canceled.
-chiWorkflowExecution :: Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowExecution
-chiWorkflowExecution = lens _chiWorkflowExecution (\ s a -> s{_chiWorkflowExecution = a});
-
--- | The type of the child workflow execution.
-chiWorkflowType :: Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowType
-chiWorkflowType = lens _chiWorkflowType (\ s a -> s{_chiWorkflowType = a});
-
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
--- workflow execution. This information can be useful for diagnosing
--- problems by tracing back the chain of events leading up to this event.
-chiInitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
-chiInitiatedEventId = lens _chiInitiatedEventId (\ s a -> s{_chiInitiatedEventId = a});
-
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
--- child workflow execution was started. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-chiStartedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
-chiStartedEventId = lens _chiStartedEventId (\ s a -> s{_chiStartedEventId = a});
-
-instance FromJSON
-         ChildWorkflowExecutionCanceledEventAttributes where
-        parseJSON
-          = withObject
-              "ChildWorkflowExecutionCanceledEventAttributes"
-              (\ x ->
-                 ChildWorkflowExecutionCanceledEventAttributes' <$>
-                   (x .:? "details") <*> (x .: "workflowExecution") <*>
-                     (x .: "workflowType")
-                     <*> (x .: "initiatedEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cweceaResult'
---
--- * 'cweceaWorkflowExecution'
---
--- * 'cweceaWorkflowType'
---
--- * 'cweceaInitiatedEventId'
---
--- * 'cweceaStartedEventId'
-data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes'{_cweceaResult :: Maybe Text, _cweceaWorkflowExecution :: WorkflowExecution, _cweceaWorkflowType :: WorkflowType, _cweceaInitiatedEventId :: Integer, _cweceaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ChildWorkflowExecutionCompletedEventAttributes' smart constructor.
-childWorkflowExecutionCompletedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionCompletedEventAttributes
-childWorkflowExecutionCompletedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionCompletedEventAttributes'{_cweceaResult = Nothing, _cweceaWorkflowExecution = pWorkflowExecution, _cweceaWorkflowType = pWorkflowType, _cweceaInitiatedEventId = pInitiatedEventId, _cweceaStartedEventId = pStartedEventId};
-
--- | The result of the child workflow execution (if any).
-cweceaResult :: Lens' ChildWorkflowExecutionCompletedEventAttributes (Maybe Text)
-cweceaResult = lens _cweceaResult (\ s a -> s{_cweceaResult = a});
-
--- | The child workflow execution that was completed.
-cweceaWorkflowExecution :: Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowExecution
-cweceaWorkflowExecution = lens _cweceaWorkflowExecution (\ s a -> s{_cweceaWorkflowExecution = a});
-
--- | The type of the child workflow execution.
-cweceaWorkflowType :: Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowType
-cweceaWorkflowType = lens _cweceaWorkflowType (\ s a -> s{_cweceaWorkflowType = a});
-
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
--- workflow execution. This information can be useful for diagnosing
--- problems by tracing back the chain of events leading up to this event.
-cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
-cweceaInitiatedEventId = lens _cweceaInitiatedEventId (\ s a -> s{_cweceaInitiatedEventId = a});
-
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
--- child workflow execution was started. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-cweceaStartedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
-cweceaStartedEventId = lens _cweceaStartedEventId (\ s a -> s{_cweceaStartedEventId = a});
-
-instance FromJSON
-         ChildWorkflowExecutionCompletedEventAttributes where
-        parseJSON
-          = withObject
-              "ChildWorkflowExecutionCompletedEventAttributes"
-              (\ x ->
-                 ChildWorkflowExecutionCompletedEventAttributes' <$>
-                   (x .:? "result") <*> (x .: "workflowExecution") <*>
-                     (x .: "workflowType")
-                     <*> (x .: "initiatedEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'childWorkflowExecutionFailedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwefeaReason'
---
--- * 'cwefeaDetails'
---
--- * 'cwefeaWorkflowExecution'
---
--- * 'cwefeaWorkflowType'
---
--- * 'cwefeaInitiatedEventId'
---
--- * 'cwefeaStartedEventId'
-data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'{_cwefeaReason :: Maybe Text, _cwefeaDetails :: Maybe Text, _cwefeaWorkflowExecution :: WorkflowExecution, _cwefeaWorkflowType :: WorkflowType, _cwefeaInitiatedEventId :: Integer, _cwefeaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ChildWorkflowExecutionFailedEventAttributes' smart constructor.
-childWorkflowExecutionFailedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionFailedEventAttributes
-childWorkflowExecutionFailedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionFailedEventAttributes'{_cwefeaReason = Nothing, _cwefeaDetails = Nothing, _cwefeaWorkflowExecution = pWorkflowExecution, _cwefeaWorkflowType = pWorkflowType, _cwefeaInitiatedEventId = pInitiatedEventId, _cwefeaStartedEventId = pStartedEventId};
-
--- | The reason for the failure (if provided).
-cwefeaReason :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
-cwefeaReason = lens _cwefeaReason (\ s a -> s{_cwefeaReason = a});
-
--- | The details of the failure (if provided).
-cwefeaDetails :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
-cwefeaDetails = lens _cwefeaDetails (\ s a -> s{_cwefeaDetails = a});
-
--- | The child workflow execution that failed.
-cwefeaWorkflowExecution :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowExecution
-cwefeaWorkflowExecution = lens _cwefeaWorkflowExecution (\ s a -> s{_cwefeaWorkflowExecution = a});
-
--- | The type of the child workflow execution.
-cwefeaWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowType
-cwefeaWorkflowType = lens _cwefeaWorkflowType (\ s a -> s{_cwefeaWorkflowType = a});
-
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
--- workflow execution. This information can be useful for diagnosing
--- problems by tracing back the chain of events leading up to this event.
-cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
-cwefeaInitiatedEventId = lens _cwefeaInitiatedEventId (\ s a -> s{_cwefeaInitiatedEventId = a});
-
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
--- child workflow execution was started. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-cwefeaStartedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
-cwefeaStartedEventId = lens _cwefeaStartedEventId (\ s a -> s{_cwefeaStartedEventId = a});
-
-instance FromJSON
-         ChildWorkflowExecutionFailedEventAttributes where
-        parseJSON
-          = withObject
-              "ChildWorkflowExecutionFailedEventAttributes"
-              (\ x ->
-                 ChildWorkflowExecutionFailedEventAttributes' <$>
-                   (x .:? "reason") <*> (x .:? "details") <*>
-                     (x .: "workflowExecution")
-                     <*> (x .: "workflowType")
-                     <*> (x .: "initiatedEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cweseaWorkflowExecution'
---
--- * 'cweseaWorkflowType'
---
--- * 'cweseaInitiatedEventId'
-data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes'{_cweseaWorkflowExecution :: WorkflowExecution, _cweseaWorkflowType :: WorkflowType, _cweseaInitiatedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ChildWorkflowExecutionStartedEventAttributes' smart constructor.
-childWorkflowExecutionStartedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> ChildWorkflowExecutionStartedEventAttributes
-childWorkflowExecutionStartedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId = ChildWorkflowExecutionStartedEventAttributes'{_cweseaWorkflowExecution = pWorkflowExecution, _cweseaWorkflowType = pWorkflowType, _cweseaInitiatedEventId = pInitiatedEventId};
-
--- | The child workflow execution that was started.
-cweseaWorkflowExecution :: Lens' ChildWorkflowExecutionStartedEventAttributes WorkflowExecution
-cweseaWorkflowExecution = lens _cweseaWorkflowExecution (\ s a -> s{_cweseaWorkflowExecution = a});
-
--- | The type of the child workflow execution.
-cweseaWorkflowType :: Lens' ChildWorkflowExecutionStartedEventAttributes WorkflowType
-cweseaWorkflowType = lens _cweseaWorkflowType (\ s a -> s{_cweseaWorkflowType = a});
-
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
--- workflow execution. This information can be useful for diagnosing
--- problems by tracing back the chain of events leading up to this event.
-cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes Integer
-cweseaInitiatedEventId = lens _cweseaInitiatedEventId (\ s a -> s{_cweseaInitiatedEventId = a});
-
-instance FromJSON
-         ChildWorkflowExecutionStartedEventAttributes where
-        parseJSON
-          = withObject
-              "ChildWorkflowExecutionStartedEventAttributes"
-              (\ x ->
-                 ChildWorkflowExecutionStartedEventAttributes' <$>
-                   (x .: "workflowExecution") <*> (x .: "workflowType")
-                     <*> (x .: "initiatedEventId"))
-
--- | /See:/ 'childWorkflowExecutionTerminatedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cweteaWorkflowExecution'
---
--- * 'cweteaWorkflowType'
---
--- * 'cweteaInitiatedEventId'
---
--- * 'cweteaStartedEventId'
-data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes'{_cweteaWorkflowExecution :: WorkflowExecution, _cweteaWorkflowType :: WorkflowType, _cweteaInitiatedEventId :: Integer, _cweteaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ChildWorkflowExecutionTerminatedEventAttributes' smart constructor.
-childWorkflowExecutionTerminatedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionTerminatedEventAttributes
-childWorkflowExecutionTerminatedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionTerminatedEventAttributes'{_cweteaWorkflowExecution = pWorkflowExecution, _cweteaWorkflowType = pWorkflowType, _cweteaInitiatedEventId = pInitiatedEventId, _cweteaStartedEventId = pStartedEventId};
-
--- | The child workflow execution that was terminated.
-cweteaWorkflowExecution :: Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowExecution
-cweteaWorkflowExecution = lens _cweteaWorkflowExecution (\ s a -> s{_cweteaWorkflowExecution = a});
-
--- | The type of the child workflow execution.
-cweteaWorkflowType :: Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowType
-cweteaWorkflowType = lens _cweteaWorkflowType (\ s a -> s{_cweteaWorkflowType = a});
-
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
--- workflow execution. This information can be useful for diagnosing
--- problems by tracing back the chain of events leading up to this event.
-cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
-cweteaInitiatedEventId = lens _cweteaInitiatedEventId (\ s a -> s{_cweteaInitiatedEventId = a});
-
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
--- child workflow execution was started. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-cweteaStartedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
-cweteaStartedEventId = lens _cweteaStartedEventId (\ s a -> s{_cweteaStartedEventId = a});
-
-instance FromJSON
-         ChildWorkflowExecutionTerminatedEventAttributes where
-        parseJSON
-          = withObject
-              "ChildWorkflowExecutionTerminatedEventAttributes"
-              (\ x ->
-                 ChildWorkflowExecutionTerminatedEventAttributes' <$>
-                   (x .: "workflowExecution") <*> (x .: "workflowType")
-                     <*> (x .: "initiatedEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'childWorkflowExecutionTimedOutEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwetoeaWorkflowExecution'
---
--- * 'cwetoeaWorkflowType'
---
--- * 'cwetoeaTimeoutType'
---
--- * 'cwetoeaInitiatedEventId'
---
--- * 'cwetoeaStartedEventId'
-data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes'{_cwetoeaWorkflowExecution :: WorkflowExecution, _cwetoeaWorkflowType :: WorkflowType, _cwetoeaTimeoutType :: WorkflowExecutionTimeoutType, _cwetoeaInitiatedEventId :: Integer, _cwetoeaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ChildWorkflowExecutionTimedOutEventAttributes' smart constructor.
-childWorkflowExecutionTimedOutEventAttributes :: WorkflowExecution -> WorkflowType -> WorkflowExecutionTimeoutType -> Integer -> Integer -> ChildWorkflowExecutionTimedOutEventAttributes
-childWorkflowExecutionTimedOutEventAttributes pWorkflowExecution pWorkflowType pTimeoutType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionTimedOutEventAttributes'{_cwetoeaWorkflowExecution = pWorkflowExecution, _cwetoeaWorkflowType = pWorkflowType, _cwetoeaTimeoutType = pTimeoutType, _cwetoeaInitiatedEventId = pInitiatedEventId, _cwetoeaStartedEventId = pStartedEventId};
-
--- | The child workflow execution that timed out.
-cwetoeaWorkflowExecution :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecution
-cwetoeaWorkflowExecution = lens _cwetoeaWorkflowExecution (\ s a -> s{_cwetoeaWorkflowExecution = a});
-
--- | The type of the child workflow execution.
-cwetoeaWorkflowType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowType
-cwetoeaWorkflowType = lens _cwetoeaWorkflowType (\ s a -> s{_cwetoeaWorkflowType = a});
-
--- | The type of the timeout that caused the child workflow execution to time
--- out.
-cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
-cwetoeaTimeoutType = lens _cwetoeaTimeoutType (\ s a -> s{_cwetoeaTimeoutType = a});
-
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
--- workflow execution. This information can be useful for diagnosing
--- problems by tracing back the chain of events leading up to this event.
-cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
-cwetoeaInitiatedEventId = lens _cwetoeaInitiatedEventId (\ s a -> s{_cwetoeaInitiatedEventId = a});
-
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
--- child workflow execution was started. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-cwetoeaStartedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
-cwetoeaStartedEventId = lens _cwetoeaStartedEventId (\ s a -> s{_cwetoeaStartedEventId = a});
-
-instance FromJSON
-         ChildWorkflowExecutionTimedOutEventAttributes where
-        parseJSON
-          = withObject
-              "ChildWorkflowExecutionTimedOutEventAttributes"
-              (\ x ->
-                 ChildWorkflowExecutionTimedOutEventAttributes' <$>
-                   (x .: "workflowExecution") <*> (x .: "workflowType")
-                     <*> (x .: "timeoutType")
-                     <*> (x .: "initiatedEventId")
-                     <*> (x .: "startedEventId"))
 
 data CloseStatus = Canceled | TimedOut | Terminated | Completed | Failed | ContinuedASNew deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1951,48 +995,6 @@ instance ToJSON CloseStatus where
 instance FromJSON CloseStatus where
     parseJSON = parseJSONText "CloseStatus"
 
--- | /See:/ 'closeStatusFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csfStatus'
-newtype CloseStatusFilter = CloseStatusFilter'{_csfStatus :: CloseStatus} deriving (Eq, Read, Show)
-
--- | 'CloseStatusFilter' smart constructor.
-closeStatusFilter :: CloseStatus -> CloseStatusFilter
-closeStatusFilter pStatus = CloseStatusFilter'{_csfStatus = pStatus};
-
--- | __Required.__ The close status that must match the close status of an
--- execution for it to meet the criteria of this filter.
-csfStatus :: Lens' CloseStatusFilter CloseStatus
-csfStatus = lens _csfStatus (\ s a -> s{_csfStatus = a});
-
-instance ToJSON CloseStatusFilter where
-        toJSON CloseStatusFilter'{..}
-          = object ["status" .= _csfStatus]
-
--- | /See:/ 'completeWorkflowExecutionDecisionAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwedaResult'
-newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'{_cwedaResult :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'CompleteWorkflowExecutionDecisionAttributes' smart constructor.
-completeWorkflowExecutionDecisionAttributes :: CompleteWorkflowExecutionDecisionAttributes
-completeWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'{_cwedaResult = Nothing};
-
--- | The result of the workflow execution. The form of the result is
--- implementation defined.
-cwedaResult :: Lens' CompleteWorkflowExecutionDecisionAttributes (Maybe Text)
-cwedaResult = lens _cwedaResult (\ s a -> s{_cwedaResult = a});
-
-instance ToJSON
-         CompleteWorkflowExecutionDecisionAttributes where
-        toJSON
-          CompleteWorkflowExecutionDecisionAttributes'{..}
-          = object ["result" .= _cwedaResult]
-
 data CompleteWorkflowExecutionFailedCause = CWEFCOperationNotPermitted | CWEFCUnhandledDecision deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText CompleteWorkflowExecutionFailedCause where
@@ -2012,174 +1014,6 @@ instance ToHeader CompleteWorkflowExecutionFailedCause
 
 instance FromJSON CompleteWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CompleteWorkflowExecutionFailedCause"
-
--- | /See:/ 'completeWorkflowExecutionFailedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwefeaCause'
---
--- * 'cwefeaDecisionTaskCompletedEventId'
-data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes'{_cwefeaCause :: CompleteWorkflowExecutionFailedCause, _cwefeaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'CompleteWorkflowExecutionFailedEventAttributes' smart constructor.
-completeWorkflowExecutionFailedEventAttributes :: CompleteWorkflowExecutionFailedCause -> Integer -> CompleteWorkflowExecutionFailedEventAttributes
-completeWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId = CompleteWorkflowExecutionFailedEventAttributes'{_cwefeaCause = pCause, _cwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
-
--- | The cause of the failure. This information is generated by the system
--- and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
--- because it lacked sufficient permissions. For details and example IAM
--- policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
-cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes CompleteWorkflowExecutionFailedCause
-cwefeaCause = lens _cwefeaCause (\ s a -> s{_cwefeaCause = a});
-
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
--- decision task that resulted in the @CompleteWorkflowExecution@ decision
--- to complete this execution. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-cwefeaDecisionTaskCompletedEventId :: Lens' CompleteWorkflowExecutionFailedEventAttributes Integer
-cwefeaDecisionTaskCompletedEventId = lens _cwefeaDecisionTaskCompletedEventId (\ s a -> s{_cwefeaDecisionTaskCompletedEventId = a});
-
-instance FromJSON
-         CompleteWorkflowExecutionFailedEventAttributes where
-        parseJSON
-          = withObject
-              "CompleteWorkflowExecutionFailedEventAttributes"
-              (\ x ->
-                 CompleteWorkflowExecutionFailedEventAttributes' <$>
-                   (x .: "cause") <*>
-                     (x .: "decisionTaskCompletedEventId"))
-
--- | /See:/ 'continueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'canwedaTagList'
---
--- * 'canwedaTaskStartToCloseTimeout'
---
--- * 'canwedaInput'
---
--- * 'canwedaWorkflowTypeVersion'
---
--- * 'canwedaExecutionStartToCloseTimeout'
---
--- * 'canwedaTaskList'
---
--- * 'canwedaTaskPriority'
---
--- * 'canwedaChildPolicy'
-data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList :: Maybe [Text], _canwedaTaskStartToCloseTimeout :: Maybe Text, _canwedaInput :: Maybe Text, _canwedaWorkflowTypeVersion :: Maybe Text, _canwedaExecutionStartToCloseTimeout :: Maybe Text, _canwedaTaskList :: Maybe TaskList, _canwedaTaskPriority :: Maybe Text, _canwedaChildPolicy :: Maybe ChildPolicy} deriving (Eq, Read, Show)
-
--- | 'ContinueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
-continueAsNewWorkflowExecutionDecisionAttributes :: ContinueAsNewWorkflowExecutionDecisionAttributes
-continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList = Nothing, _canwedaTaskStartToCloseTimeout = Nothing, _canwedaInput = Nothing, _canwedaWorkflowTypeVersion = Nothing, _canwedaExecutionStartToCloseTimeout = Nothing, _canwedaTaskList = Nothing, _canwedaTaskPriority = Nothing, _canwedaChildPolicy = Nothing};
-
--- | The list of tags to associate with the new workflow execution. A maximum
--- of 5 tags can be specified. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
-canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
-canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default;
-
--- | Specifies the maximum duration of decision tasks for the new workflow
--- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
--- specified when registering the workflow type using RegisterWorkflowType.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A task start-to-close timeout for the new workflow execution must be
--- specified either as a default for the workflow type or through this
--- parameter. If neither this parameter is set nor a default task
--- start-to-close timeout was specified at registration time then a fault
--- will be returned.
-canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
-canwedaTaskStartToCloseTimeout = lens _canwedaTaskStartToCloseTimeout (\ s a -> s{_canwedaTaskStartToCloseTimeout = a});
-
--- | The input provided to the new workflow execution.
-canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
-canwedaInput = lens _canwedaInput (\ s a -> s{_canwedaInput = a});
-
--- | FIXME: Undocumented member.
-canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
-canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwedaWorkflowTypeVersion = a});
-
--- | If set, specifies the total duration for this workflow execution. This
--- overrides the @defaultExecutionStartToCloseTimeout@ specified when
--- registering the workflow type.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- An execution start-to-close timeout for this workflow execution must be
--- specified either as a default for the workflow type or through this
--- field. If neither this field is set nor a default execution
--- start-to-close timeout was specified at registration time then a fault
--- will be returned.
-canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
-canwedaExecutionStartToCloseTimeout = lens _canwedaExecutionStartToCloseTimeout (\ s a -> s{_canwedaExecutionStartToCloseTimeout = a});
-
--- | FIXME: Undocumented member.
-canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe TaskList)
-canwedaTaskList = lens _canwedaTaskList (\ s a -> s{_canwedaTaskList = a});
-
--- | /Optional./ The task priority that, if set, specifies the priority for
--- the decision tasks for this workflow execution. This overrides the
--- defaultTaskPriority specified when registering the workflow type. Valid
--- values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon Simple Workflow Developer Guide/.
-canwedaTaskPriority :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
-canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority = a});
-
--- | If set, specifies the policy to use for the child workflow executions of
--- the new execution if it is terminated by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
--- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each
---     child execution by recording a @WorkflowExecutionCancelRequested@
---     event in its history. It is up to the decider to take appropriate
---     actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will
---     continue to run.
---
--- A child policy for this workflow execution must be specified either as a
--- default for the workflow type or through this parameter. If neither this
--- parameter is set nor a default child policy was specified at
--- registration time then a fault will be returned.
-canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
-canwedaChildPolicy = lens _canwedaChildPolicy (\ s a -> s{_canwedaChildPolicy = a});
-
-instance ToJSON
-         ContinueAsNewWorkflowExecutionDecisionAttributes
-         where
-        toJSON
-          ContinueAsNewWorkflowExecutionDecisionAttributes'{..}
-          = object
-              ["tagList" .= _canwedaTagList,
-               "taskStartToCloseTimeout" .=
-                 _canwedaTaskStartToCloseTimeout,
-               "input" .= _canwedaInput,
-               "workflowTypeVersion" .= _canwedaWorkflowTypeVersion,
-               "executionStartToCloseTimeout" .=
-                 _canwedaExecutionStartToCloseTimeout,
-               "taskList" .= _canwedaTaskList,
-               "taskPriority" .= _canwedaTaskPriority,
-               "childPolicy" .= _canwedaChildPolicy]
 
 data ContinueAsNewWorkflowExecutionFailedCause = CANWEFCContinueASNewWorkflowExecutionRateExceeded | CANWEFCDefaultTaskListUndefined | CANWEFCWorkflowTypeDoesNotExist | CANWEFCDefaultExecutionStartTOCloseTimeoutUndefined | CANWEFCUnhandledDecision | CANWEFCOperationNotPermitted | CANWEFCDefaultChildPolicyUndefined | CANWEFCDefaultTaskStartTOCloseTimeoutUndefined | CANWEFCWorkflowTypeDeprecated deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2214,344 +1048,6 @@ instance ToHeader ContinueAsNewWorkflowExecutionFailedCause
 
 instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "ContinueAsNewWorkflowExecutionFailedCause"
-
--- | /See:/ 'continueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'canwefeaCause'
---
--- * 'canwefeaDecisionTaskCompletedEventId'
-data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes'{_canwefeaCause :: ContinueAsNewWorkflowExecutionFailedCause, _canwefeaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'ContinueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
-continueAsNewWorkflowExecutionFailedEventAttributes :: ContinueAsNewWorkflowExecutionFailedCause -> Integer -> ContinueAsNewWorkflowExecutionFailedEventAttributes
-continueAsNewWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId = ContinueAsNewWorkflowExecutionFailedEventAttributes'{_canwefeaCause = pCause, _canwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
-
--- | The cause of the failure. This information is generated by the system
--- and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
--- because it lacked sufficient permissions. For details and example IAM
--- policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
-canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes ContinueAsNewWorkflowExecutionFailedCause
-canwefeaCause = lens _canwefeaCause (\ s a -> s{_canwefeaCause = a});
-
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
--- decision task that resulted in the @ContinueAsNewWorkflowExecution@
--- decision that started this execution. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-canwefeaDecisionTaskCompletedEventId :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Integer
-canwefeaDecisionTaskCompletedEventId = lens _canwefeaDecisionTaskCompletedEventId (\ s a -> s{_canwefeaDecisionTaskCompletedEventId = a});
-
-instance FromJSON
-         ContinueAsNewWorkflowExecutionFailedEventAttributes
-         where
-        parseJSON
-          = withObject
-              "ContinueAsNewWorkflowExecutionFailedEventAttributes"
-              (\ x ->
-                 ContinueAsNewWorkflowExecutionFailedEventAttributes'
-                   <$>
-                   (x .: "cause") <*>
-                     (x .: "decisionTaskCompletedEventId"))
-
--- | /See:/ 'decision' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'decRequestCancelExternalWorkflowExecutionDecisionAttributes'
---
--- * 'decScheduleActivityTaskDecisionAttributes'
---
--- * 'decSignalExternalWorkflowExecutionDecisionAttributes'
---
--- * 'decStartTimerDecisionAttributes'
---
--- * 'decRecordMarkerDecisionAttributes'
---
--- * 'decFailWorkflowExecutionDecisionAttributes'
---
--- * 'decStartChildWorkflowExecutionDecisionAttributes'
---
--- * 'decCompleteWorkflowExecutionDecisionAttributes'
---
--- * 'decRequestCancelActivityTaskDecisionAttributes'
---
--- * 'decCancelWorkflowExecutionDecisionAttributes'
---
--- * 'decCancelTimerDecisionAttributes'
---
--- * 'decContinueAsNewWorkflowExecutionDecisionAttributes'
---
--- * 'decDecisionType'
-data Decision = Decision'{_decRequestCancelExternalWorkflowExecutionDecisionAttributes :: Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes, _decScheduleActivityTaskDecisionAttributes :: Maybe ScheduleActivityTaskDecisionAttributes, _decSignalExternalWorkflowExecutionDecisionAttributes :: Maybe SignalExternalWorkflowExecutionDecisionAttributes, _decStartTimerDecisionAttributes :: Maybe StartTimerDecisionAttributes, _decRecordMarkerDecisionAttributes :: Maybe RecordMarkerDecisionAttributes, _decFailWorkflowExecutionDecisionAttributes :: Maybe FailWorkflowExecutionDecisionAttributes, _decStartChildWorkflowExecutionDecisionAttributes :: Maybe StartChildWorkflowExecutionDecisionAttributes, _decCompleteWorkflowExecutionDecisionAttributes :: Maybe CompleteWorkflowExecutionDecisionAttributes, _decRequestCancelActivityTaskDecisionAttributes :: Maybe RequestCancelActivityTaskDecisionAttributes, _decCancelWorkflowExecutionDecisionAttributes :: Maybe CancelWorkflowExecutionDecisionAttributes, _decCancelTimerDecisionAttributes :: Maybe CancelTimerDecisionAttributes, _decContinueAsNewWorkflowExecutionDecisionAttributes :: Maybe ContinueAsNewWorkflowExecutionDecisionAttributes, _decDecisionType :: DecisionType} deriving (Eq, Read, Show)
-
--- | 'Decision' smart constructor.
-decision :: DecisionType -> Decision
-decision pDecisionType = Decision'{_decRequestCancelExternalWorkflowExecutionDecisionAttributes = Nothing, _decScheduleActivityTaskDecisionAttributes = Nothing, _decSignalExternalWorkflowExecutionDecisionAttributes = Nothing, _decStartTimerDecisionAttributes = Nothing, _decRecordMarkerDecisionAttributes = Nothing, _decFailWorkflowExecutionDecisionAttributes = Nothing, _decStartChildWorkflowExecutionDecisionAttributes = Nothing, _decCompleteWorkflowExecutionDecisionAttributes = Nothing, _decRequestCancelActivityTaskDecisionAttributes = Nothing, _decCancelWorkflowExecutionDecisionAttributes = Nothing, _decCancelTimerDecisionAttributes = Nothing, _decContinueAsNewWorkflowExecutionDecisionAttributes = Nothing, _decDecisionType = pDecisionType};
-
--- | Provides details of the @RequestCancelExternalWorkflowExecution@
--- decision. It is not set for other decision types.
-decRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
-decRequestCancelExternalWorkflowExecutionDecisionAttributes = lens _decRequestCancelExternalWorkflowExecutionDecisionAttributes (\ s a -> s{_decRequestCancelExternalWorkflowExecutionDecisionAttributes = a});
-
--- | Provides details of the @ScheduleActivityTask@ decision. It is not set
--- for other decision types.
-decScheduleActivityTaskDecisionAttributes :: Lens' Decision (Maybe ScheduleActivityTaskDecisionAttributes)
-decScheduleActivityTaskDecisionAttributes = lens _decScheduleActivityTaskDecisionAttributes (\ s a -> s{_decScheduleActivityTaskDecisionAttributes = a});
-
--- | Provides details of the @SignalExternalWorkflowExecution@ decision. It
--- is not set for other decision types.
-decSignalExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe SignalExternalWorkflowExecutionDecisionAttributes)
-decSignalExternalWorkflowExecutionDecisionAttributes = lens _decSignalExternalWorkflowExecutionDecisionAttributes (\ s a -> s{_decSignalExternalWorkflowExecutionDecisionAttributes = a});
-
--- | Provides details of the @StartTimer@ decision. It is not set for other
--- decision types.
-decStartTimerDecisionAttributes :: Lens' Decision (Maybe StartTimerDecisionAttributes)
-decStartTimerDecisionAttributes = lens _decStartTimerDecisionAttributes (\ s a -> s{_decStartTimerDecisionAttributes = a});
-
--- | Provides details of the @RecordMarker@ decision. It is not set for other
--- decision types.
-decRecordMarkerDecisionAttributes :: Lens' Decision (Maybe RecordMarkerDecisionAttributes)
-decRecordMarkerDecisionAttributes = lens _decRecordMarkerDecisionAttributes (\ s a -> s{_decRecordMarkerDecisionAttributes = a});
-
--- | Provides details of the @FailWorkflowExecution@ decision. It is not set
--- for other decision types.
-decFailWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe FailWorkflowExecutionDecisionAttributes)
-decFailWorkflowExecutionDecisionAttributes = lens _decFailWorkflowExecutionDecisionAttributes (\ s a -> s{_decFailWorkflowExecutionDecisionAttributes = a});
-
--- | Provides details of the @StartChildWorkflowExecution@ decision. It is
--- not set for other decision types.
-decStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
-decStartChildWorkflowExecutionDecisionAttributes = lens _decStartChildWorkflowExecutionDecisionAttributes (\ s a -> s{_decStartChildWorkflowExecutionDecisionAttributes = a});
-
--- | Provides details of the @CompleteWorkflowExecution@ decision. It is not
--- set for other decision types.
-decCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
-decCompleteWorkflowExecutionDecisionAttributes = lens _decCompleteWorkflowExecutionDecisionAttributes (\ s a -> s{_decCompleteWorkflowExecutionDecisionAttributes = a});
-
--- | Provides details of the @RequestCancelActivityTask@ decision. It is not
--- set for other decision types.
-decRequestCancelActivityTaskDecisionAttributes :: Lens' Decision (Maybe RequestCancelActivityTaskDecisionAttributes)
-decRequestCancelActivityTaskDecisionAttributes = lens _decRequestCancelActivityTaskDecisionAttributes (\ s a -> s{_decRequestCancelActivityTaskDecisionAttributes = a});
-
--- | Provides details of the @CancelWorkflowExecution@ decision. It is not
--- set for other decision types.
-decCancelWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CancelWorkflowExecutionDecisionAttributes)
-decCancelWorkflowExecutionDecisionAttributes = lens _decCancelWorkflowExecutionDecisionAttributes (\ s a -> s{_decCancelWorkflowExecutionDecisionAttributes = a});
-
--- | Provides details of the @CancelTimer@ decision. It is not set for other
--- decision types.
-decCancelTimerDecisionAttributes :: Lens' Decision (Maybe CancelTimerDecisionAttributes)
-decCancelTimerDecisionAttributes = lens _decCancelTimerDecisionAttributes (\ s a -> s{_decCancelTimerDecisionAttributes = a});
-
--- | Provides details of the @ContinueAsNewWorkflowExecution@ decision. It is
--- not set for other decision types.
-decContinueAsNewWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
-decContinueAsNewWorkflowExecutionDecisionAttributes = lens _decContinueAsNewWorkflowExecutionDecisionAttributes (\ s a -> s{_decContinueAsNewWorkflowExecutionDecisionAttributes = a});
-
--- | Specifies the type of the decision.
-decDecisionType :: Lens' Decision DecisionType
-decDecisionType = lens _decDecisionType (\ s a -> s{_decDecisionType = a});
-
-instance ToJSON Decision where
-        toJSON Decision'{..}
-          = object
-              ["requestCancelExternalWorkflowExecutionDecisionAttributes"
-                 .=
-                 _decRequestCancelExternalWorkflowExecutionDecisionAttributes,
-               "scheduleActivityTaskDecisionAttributes" .=
-                 _decScheduleActivityTaskDecisionAttributes,
-               "signalExternalWorkflowExecutionDecisionAttributes"
-                 .=
-                 _decSignalExternalWorkflowExecutionDecisionAttributes,
-               "startTimerDecisionAttributes" .=
-                 _decStartTimerDecisionAttributes,
-               "recordMarkerDecisionAttributes" .=
-                 _decRecordMarkerDecisionAttributes,
-               "failWorkflowExecutionDecisionAttributes" .=
-                 _decFailWorkflowExecutionDecisionAttributes,
-               "startChildWorkflowExecutionDecisionAttributes" .=
-                 _decStartChildWorkflowExecutionDecisionAttributes,
-               "completeWorkflowExecutionDecisionAttributes" .=
-                 _decCompleteWorkflowExecutionDecisionAttributes,
-               "requestCancelActivityTaskDecisionAttributes" .=
-                 _decRequestCancelActivityTaskDecisionAttributes,
-               "cancelWorkflowExecutionDecisionAttributes" .=
-                 _decCancelWorkflowExecutionDecisionAttributes,
-               "cancelTimerDecisionAttributes" .=
-                 _decCancelTimerDecisionAttributes,
-               "continueAsNewWorkflowExecutionDecisionAttributes" .=
-                 _decContinueAsNewWorkflowExecutionDecisionAttributes,
-               "decisionType" .= _decDecisionType]
-
--- | /See:/ 'decisionTaskCompletedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtceaExecutionContext'
---
--- * 'dtceaScheduledEventId'
---
--- * 'dtceaStartedEventId'
-data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes'{_dtceaExecutionContext :: Maybe Text, _dtceaScheduledEventId :: Integer, _dtceaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'DecisionTaskCompletedEventAttributes' smart constructor.
-decisionTaskCompletedEventAttributes :: Integer -> Integer -> DecisionTaskCompletedEventAttributes
-decisionTaskCompletedEventAttributes pScheduledEventId pStartedEventId = DecisionTaskCompletedEventAttributes'{_dtceaExecutionContext = Nothing, _dtceaScheduledEventId = pScheduledEventId, _dtceaStartedEventId = pStartedEventId};
-
--- | User defined context for the workflow execution.
-dtceaExecutionContext :: Lens' DecisionTaskCompletedEventAttributes (Maybe Text)
-dtceaExecutionContext = lens _dtceaExecutionContext (\ s a -> s{_dtceaExecutionContext = a});
-
--- | The id of the @DecisionTaskScheduled@ event that was recorded when this
--- decision task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-dtceaScheduledEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
-dtceaScheduledEventId = lens _dtceaScheduledEventId (\ s a -> s{_dtceaScheduledEventId = a});
-
--- | The Id of the @DecisionTaskStarted@ event recorded when this decision
--- task was started. This information can be useful for diagnosing problems
--- by tracing back the chain of events leading up to this event.
-dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
-dtceaStartedEventId = lens _dtceaStartedEventId (\ s a -> s{_dtceaStartedEventId = a});
-
-instance FromJSON
-         DecisionTaskCompletedEventAttributes where
-        parseJSON
-          = withObject "DecisionTaskCompletedEventAttributes"
-              (\ x ->
-                 DecisionTaskCompletedEventAttributes' <$>
-                   (x .:? "executionContext") <*>
-                     (x .: "scheduledEventId")
-                     <*> (x .: "startedEventId"))
-
--- | /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtseaTaskPriority'
---
--- * 'dtseaStartToCloseTimeout'
---
--- * 'dtseaTaskList'
-data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes'{_dtseaTaskPriority :: Maybe Text, _dtseaStartToCloseTimeout :: Maybe Text, _dtseaTaskList :: TaskList} deriving (Eq, Read, Show)
-
--- | 'DecisionTaskScheduledEventAttributes' smart constructor.
-decisionTaskScheduledEventAttributes :: TaskList -> DecisionTaskScheduledEventAttributes
-decisionTaskScheduledEventAttributes pTaskList = DecisionTaskScheduledEventAttributes'{_dtseaTaskPriority = Nothing, _dtseaStartToCloseTimeout = Nothing, _dtseaTaskList = pTaskList};
-
--- | /Optional./ A task priority that, if set, specifies the priority for
--- this decision task. Valid values are integers that range from Java\'s
--- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
--- Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon Simple Workflow Developer Guide/.
-dtseaTaskPriority :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
-dtseaTaskPriority = lens _dtseaTaskPriority (\ s a -> s{_dtseaTaskPriority = a});
-
--- | The maximum duration for this decision task. The task is considered
--- timed out if it does not completed within this duration.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
-dtseaStartToCloseTimeout :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
-dtseaStartToCloseTimeout = lens _dtseaStartToCloseTimeout (\ s a -> s{_dtseaStartToCloseTimeout = a});
-
--- | The name of the task list in which the decision task was scheduled.
-dtseaTaskList :: Lens' DecisionTaskScheduledEventAttributes TaskList
-dtseaTaskList = lens _dtseaTaskList (\ s a -> s{_dtseaTaskList = a});
-
-instance FromJSON
-         DecisionTaskScheduledEventAttributes where
-        parseJSON
-          = withObject "DecisionTaskScheduledEventAttributes"
-              (\ x ->
-                 DecisionTaskScheduledEventAttributes' <$>
-                   (x .:? "taskPriority") <*>
-                     (x .:? "startToCloseTimeout")
-                     <*> (x .: "taskList"))
-
--- | /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtseaIdentity'
---
--- * 'dtseaScheduledEventId'
-data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'{_dtseaIdentity :: Maybe Text, _dtseaScheduledEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'DecisionTaskStartedEventAttributes' smart constructor.
-decisionTaskStartedEventAttributes :: Integer -> DecisionTaskStartedEventAttributes
-decisionTaskStartedEventAttributes pScheduledEventId = DecisionTaskStartedEventAttributes'{_dtseaIdentity = Nothing, _dtseaScheduledEventId = pScheduledEventId};
-
--- | Identity of the decider making the request. This enables diagnostic
--- tracing when problems arise. The form of this identity is user defined.
-dtseaIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
-dtseaIdentity = lens _dtseaIdentity (\ s a -> s{_dtseaIdentity = a});
-
--- | The id of the @DecisionTaskScheduled@ event that was recorded when this
--- decision task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-dtseaScheduledEventId :: Lens' DecisionTaskStartedEventAttributes Integer
-dtseaScheduledEventId = lens _dtseaScheduledEventId (\ s a -> s{_dtseaScheduledEventId = a});
-
-instance FromJSON DecisionTaskStartedEventAttributes
-         where
-        parseJSON
-          = withObject "DecisionTaskStartedEventAttributes"
-              (\ x ->
-                 DecisionTaskStartedEventAttributes' <$>
-                   (x .:? "identity") <*> (x .: "scheduledEventId"))
-
--- | /See:/ 'decisionTaskTimedOutEventAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dttoeaTimeoutType'
---
--- * 'dttoeaScheduledEventId'
---
--- * 'dttoeaStartedEventId'
-data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'{_dttoeaTimeoutType :: DecisionTaskTimeoutType, _dttoeaScheduledEventId :: Integer, _dttoeaStartedEventId :: Integer} deriving (Eq, Read, Show)
-
--- | 'DecisionTaskTimedOutEventAttributes' smart constructor.
-decisionTaskTimedOutEventAttributes :: DecisionTaskTimeoutType -> Integer -> Integer -> DecisionTaskTimedOutEventAttributes
-decisionTaskTimedOutEventAttributes pTimeoutType pScheduledEventId pStartedEventId = DecisionTaskTimedOutEventAttributes'{_dttoeaTimeoutType = pTimeoutType, _dttoeaScheduledEventId = pScheduledEventId, _dttoeaStartedEventId = pStartedEventId};
-
--- | The type of timeout that expired before the decision task could be
--- completed.
-dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
-dttoeaTimeoutType = lens _dttoeaTimeoutType (\ s a -> s{_dttoeaTimeoutType = a});
-
--- | The id of the @DecisionTaskScheduled@ event that was recorded when this
--- decision task was scheduled. This information can be useful for
--- diagnosing problems by tracing back the chain of events leading up to
--- this event.
-dttoeaScheduledEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
-dttoeaScheduledEventId = lens _dttoeaScheduledEventId (\ s a -> s{_dttoeaScheduledEventId = a});
-
--- | The Id of the @DecisionTaskStarted@ event recorded when this decision
--- task was started. This information can be useful for diagnosing problems
--- by tracing back the chain of events leading up to this event.
-dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
-dttoeaStartedEventId = lens _dttoeaStartedEventId (\ s a -> s{_dttoeaStartedEventId = a});
-
-instance FromJSON DecisionTaskTimedOutEventAttributes
-         where
-        parseJSON
-          = withObject "DecisionTaskTimedOutEventAttributes"
-              (\ x ->
-                 DecisionTaskTimedOutEventAttributes' <$>
-                   (x .: "timeoutType") <*> (x .: "scheduledEventId")
-                     <*> (x .: "startedEventId"))
 
 data DecisionTaskTimeoutType = StartTOClose deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2610,70 +1106,6 @@ instance ToHeader DecisionType
 
 instance ToJSON DecisionType where
     toJSON = toJSONText
-
--- | /See:/ 'domainConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcWorkflowExecutionRetentionPeriodInDays'
-newtype DomainConfiguration = DomainConfiguration'{_dcWorkflowExecutionRetentionPeriodInDays :: Text} deriving (Eq, Read, Show)
-
--- | 'DomainConfiguration' smart constructor.
-domainConfiguration :: Text -> DomainConfiguration
-domainConfiguration pWorkflowExecutionRetentionPeriodInDays = DomainConfiguration'{_dcWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays};
-
--- | The retention period for workflow executions in this domain.
-dcWorkflowExecutionRetentionPeriodInDays :: Lens' DomainConfiguration Text
-dcWorkflowExecutionRetentionPeriodInDays = lens _dcWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_dcWorkflowExecutionRetentionPeriodInDays = a});
-
-instance FromJSON DomainConfiguration where
-        parseJSON
-          = withObject "DomainConfiguration"
-              (\ x ->
-                 DomainConfiguration' <$>
-                   (x .: "workflowExecutionRetentionPeriodInDays"))
-
--- | /See:/ 'domainInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diDescription'
---
--- * 'diName'
---
--- * 'diStatus'
-data DomainInfo = DomainInfo'{_diDescription :: Maybe Text, _diName :: Text, _diStatus :: RegistrationStatus} deriving (Eq, Read, Show)
-
--- | 'DomainInfo' smart constructor.
-domainInfo :: Text -> RegistrationStatus -> DomainInfo
-domainInfo pName pStatus = DomainInfo'{_diDescription = Nothing, _diName = pName, _diStatus = pStatus};
-
--- | The description of the domain provided through RegisterDomain.
-diDescription :: Lens' DomainInfo (Maybe Text)
-diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
-
--- | The name of the domain. This name is unique within the account.
-diName :: Lens' DomainInfo Text
-diName = lens _diName (\ s a -> s{_diName = a});
-
--- | The status of the domain:
---
--- -   __REGISTERED__: The domain is properly registered and available. You
---     can use this domain for registering types and creating new workflow
---     executions.
--- -   __DEPRECATED__: The domain was deprecated using DeprecateDomain, but
---     is still in use. You should not create new workflow executions in
---     this domain.
-diStatus :: Lens' DomainInfo RegistrationStatus
-diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
-
-instance FromJSON DomainInfo where
-        parseJSON
-          = withObject "DomainInfo"
-              (\ x ->
-                 DomainInfo' <$>
-                   (x .:? "description") <*> (x .: "name") <*>
-                     (x .: "status"))
 
 data EventType = ChildWorkflowExecutionCanceled | ChildWorkflowExecutionTimedOut | StartChildWorkflowExecutionInitiated | WorkflowExecutionTerminated | CancelWorkflowExecutionFailed | DecisionTaskStarted | RequestCancelActivityTaskFailed | WorkflowExecutionCancelRequested | WorkflowExecutionContinuedAsNew | ExternalWorkflowExecutionCancelRequested | WorkflowExecutionFailed | ContinueAsNewWorkflowExecutionFailed | SignalExternalWorkflowExecutionInitiated | StartChildWorkflowExecutionFailed | FailWorkflowExecutionFailed | ChildWorkflowExecutionFailed | DecisionTaskCompleted | CompleteWorkflowExecutionFailed | ChildWorkflowExecutionCompleted | ScheduleActivityTaskFailed | MarkerRecorded | ActivityTaskScheduled | RecordMarkerFailed | StartTimerFailed | RequestCancelExternalWorkflowExecutionInitiated | DecisionTaskScheduled | WorkflowExecutionCompleted | ActivityTaskTimedOut | ActivityTaskCanceled | ChildWorkflowExecutionStarted | CancelTimerFailed | DecisionTaskTimedOut | ActivityTaskCompleted | TimerCanceled | WorkflowExecutionStarted | RequestCancelExternalWorkflowExecutionFailed | TimerFired | ExternalWorkflowExecutionSignaled | ActivityTaskFailed | WorkflowExecutionSignaled | WorkflowExecutionCanceled | WorkflowExecutionTimedOut | ChildWorkflowExecutionTerminated | ActivityTaskCancelRequested | TimerStarted | ActivityTaskStarted | SignalExternalWorkflowExecutionFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2805,7 +1237,2205 @@ instance ToHeader ExecutionStatus
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
--- | /See:/ 'executionTimeFilter' smart constructor.
+data FailWorkflowExecutionFailedCause = FWEFCUnhandledDecision | FWEFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText FailWorkflowExecutionFailedCause where
+    parser = takeLowerText >>= \case
+        "OPERATION_NOT_PERMITTED" -> pure FWEFCOperationNotPermitted
+        "UNHANDLED_DECISION" -> pure FWEFCUnhandledDecision
+        e -> fail ("Failure parsing FailWorkflowExecutionFailedCause from " ++ show e)
+
+instance ToText FailWorkflowExecutionFailedCause where
+    toText = \case
+        FWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        FWEFCUnhandledDecision -> "UNHANDLED_DECISION"
+
+instance Hashable FailWorkflowExecutionFailedCause
+instance ToQuery FailWorkflowExecutionFailedCause
+instance ToHeader FailWorkflowExecutionFailedCause
+
+instance FromJSON FailWorkflowExecutionFailedCause where
+    parseJSON = parseJSONText "FailWorkflowExecutionFailedCause"
+
+data RecordMarkerFailedCause = RMFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RecordMarkerFailedCause where
+    parser = takeLowerText >>= \case
+        "OPERATION_NOT_PERMITTED" -> pure RMFCOperationNotPermitted
+        e -> fail ("Failure parsing RecordMarkerFailedCause from " ++ show e)
+
+instance ToText RecordMarkerFailedCause where
+    toText = \case
+        RMFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+
+instance Hashable RecordMarkerFailedCause
+instance ToQuery RecordMarkerFailedCause
+instance ToHeader RecordMarkerFailedCause
+
+instance FromJSON RecordMarkerFailedCause where
+    parseJSON = parseJSONText "RecordMarkerFailedCause"
+
+data RegistrationStatus = Registered | Deprecated deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RegistrationStatus where
+    parser = takeLowerText >>= \case
+        "DEPRECATED" -> pure Deprecated
+        "REGISTERED" -> pure Registered
+        e -> fail ("Failure parsing RegistrationStatus from " ++ show e)
+
+instance ToText RegistrationStatus where
+    toText = \case
+        Deprecated -> "DEPRECATED"
+        Registered -> "REGISTERED"
+
+instance Hashable RegistrationStatus
+instance ToQuery RegistrationStatus
+instance ToHeader RegistrationStatus
+
+instance ToJSON RegistrationStatus where
+    toJSON = toJSONText
+
+instance FromJSON RegistrationStatus where
+    parseJSON = parseJSONText "RegistrationStatus"
+
+data RequestCancelActivityTaskFailedCause = RCATFCActivityIDUnknown | RCATFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RequestCancelActivityTaskFailedCause where
+    parser = takeLowerText >>= \case
+        "ACTIVITY_ID_UNKNOWN" -> pure RCATFCActivityIDUnknown
+        "OPERATION_NOT_PERMITTED" -> pure RCATFCOperationNotPermitted
+        e -> fail ("Failure parsing RequestCancelActivityTaskFailedCause from " ++ show e)
+
+instance ToText RequestCancelActivityTaskFailedCause where
+    toText = \case
+        RCATFCActivityIDUnknown -> "ACTIVITY_ID_UNKNOWN"
+        RCATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+
+instance Hashable RequestCancelActivityTaskFailedCause
+instance ToQuery RequestCancelActivityTaskFailedCause
+instance ToHeader RequestCancelActivityTaskFailedCause
+
+instance FromJSON RequestCancelActivityTaskFailedCause where
+    parseJSON = parseJSONText "RequestCancelActivityTaskFailedCause"
+
+data RequestCancelExternalWorkflowExecutionFailedCause = RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded | RCEWEFCUnknownExternalWorkflowExecution | RCEWEFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
+    parser = takeLowerText >>= \case
+        "OPERATION_NOT_PERMITTED" -> pure RCEWEFCOperationNotPermitted
+        "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" -> pure RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
+        "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION" -> pure RCEWEFCUnknownExternalWorkflowExecution
+        e -> fail ("Failure parsing RequestCancelExternalWorkflowExecutionFailedCause from " ++ show e)
+
+instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
+    toText = \case
+        RCEWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded -> "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+        RCEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+
+instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
+instance ToQuery RequestCancelExternalWorkflowExecutionFailedCause
+instance ToHeader RequestCancelExternalWorkflowExecutionFailedCause
+
+instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
+    parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"
+
+data ScheduleActivityTaskFailedCause = SATFCDefaultStartTOCloseTimeoutUndefined | SATFCDefaultScheduleTOStartTimeoutUndefined | SATFCOpenActivitiesLimitExceeded | SATFCActivityTypeDoesNotExist | SATFCDefaultTaskListUndefined | SATFCOperationNotPermitted | SATFCActivityTypeDeprecated | SATFCActivityCreationRateExceeded | SATFCDefaultScheduleTOCloseTimeoutUndefined | SATFCActivityIDAlreadyINUse | SATFCDefaultHeartbeatTimeoutUndefined deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ScheduleActivityTaskFailedCause where
+    parser = takeLowerText >>= \case
+        "ACTIVITY_CREATION_RATE_EXCEEDED" -> pure SATFCActivityCreationRateExceeded
+        "ACTIVITY_ID_ALREADY_IN_USE" -> pure SATFCActivityIDAlreadyINUse
+        "ACTIVITY_TYPE_DEPRECATED" -> pure SATFCActivityTypeDeprecated
+        "ACTIVITY_TYPE_DOES_NOT_EXIST" -> pure SATFCActivityTypeDoesNotExist
+        "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED" -> pure SATFCDefaultHeartbeatTimeoutUndefined
+        "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SATFCDefaultScheduleTOCloseTimeoutUndefined
+        "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED" -> pure SATFCDefaultScheduleTOStartTimeoutUndefined
+        "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SATFCDefaultStartTOCloseTimeoutUndefined
+        "DEFAULT_TASK_LIST_UNDEFINED" -> pure SATFCDefaultTaskListUndefined
+        "OPEN_ACTIVITIES_LIMIT_EXCEEDED" -> pure SATFCOpenActivitiesLimitExceeded
+        "OPERATION_NOT_PERMITTED" -> pure SATFCOperationNotPermitted
+        e -> fail ("Failure parsing ScheduleActivityTaskFailedCause from " ++ show e)
+
+instance ToText ScheduleActivityTaskFailedCause where
+    toText = \case
+        SATFCActivityCreationRateExceeded -> "ACTIVITY_CREATION_RATE_EXCEEDED"
+        SATFCActivityIDAlreadyINUse -> "ACTIVITY_ID_ALREADY_IN_USE"
+        SATFCActivityTypeDeprecated -> "ACTIVITY_TYPE_DEPRECATED"
+        SATFCActivityTypeDoesNotExist -> "ACTIVITY_TYPE_DOES_NOT_EXIST"
+        SATFCDefaultHeartbeatTimeoutUndefined -> "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
+        SATFCDefaultScheduleTOCloseTimeoutUndefined -> "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
+        SATFCDefaultScheduleTOStartTimeoutUndefined -> "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
+        SATFCDefaultStartTOCloseTimeoutUndefined -> "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+        SATFCDefaultTaskListUndefined -> "DEFAULT_TASK_LIST_UNDEFINED"
+        SATFCOpenActivitiesLimitExceeded -> "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+        SATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+
+instance Hashable ScheduleActivityTaskFailedCause
+instance ToQuery ScheduleActivityTaskFailedCause
+instance ToHeader ScheduleActivityTaskFailedCause
+
+instance FromJSON ScheduleActivityTaskFailedCause where
+    parseJSON = parseJSONText "ScheduleActivityTaskFailedCause"
+
+data SignalExternalWorkflowExecutionFailedCause = SEWEFCSignalExternalWorkflowExecutionRateExceeded | SEWEFCUnknownExternalWorkflowExecution | SEWEFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SignalExternalWorkflowExecutionFailedCause where
+    parser = takeLowerText >>= \case
+        "OPERATION_NOT_PERMITTED" -> pure SEWEFCOperationNotPermitted
+        "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" -> pure SEWEFCSignalExternalWorkflowExecutionRateExceeded
+        "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION" -> pure SEWEFCUnknownExternalWorkflowExecution
+        e -> fail ("Failure parsing SignalExternalWorkflowExecutionFailedCause from " ++ show e)
+
+instance ToText SignalExternalWorkflowExecutionFailedCause where
+    toText = \case
+        SEWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        SEWEFCSignalExternalWorkflowExecutionRateExceeded -> "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+        SEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+
+instance Hashable SignalExternalWorkflowExecutionFailedCause
+instance ToQuery SignalExternalWorkflowExecutionFailedCause
+instance ToHeader SignalExternalWorkflowExecutionFailedCause
+
+instance FromJSON SignalExternalWorkflowExecutionFailedCause where
+    parseJSON = parseJSONText "SignalExternalWorkflowExecutionFailedCause"
+
+data StartChildWorkflowExecutionFailedCause = SCWEFCWorkflowTypeDoesNotExist | SCWEFCChildCreationRateExceeded | SCWEFCOperationNotPermitted | SCWEFCDefaultTaskListUndefined | SCWEFCDefaultChildPolicyUndefined | SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined | SCWEFCWorkflowTypeDeprecated | SCWEFCWorkflowAlreadyRunning | SCWEFCDefaultTaskStartTOCloseTimeoutUndefined | SCWEFCOpenWorkflowsLimitExceeded | SCWEFCOpenChildrenLimitExceeded deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StartChildWorkflowExecutionFailedCause where
+    parser = takeLowerText >>= \case
+        "CHILD_CREATION_RATE_EXCEEDED" -> pure SCWEFCChildCreationRateExceeded
+        "DEFAULT_CHILD_POLICY_UNDEFINED" -> pure SCWEFCDefaultChildPolicyUndefined
+        "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined
+        "DEFAULT_TASK_LIST_UNDEFINED" -> pure SCWEFCDefaultTaskListUndefined
+        "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SCWEFCDefaultTaskStartTOCloseTimeoutUndefined
+        "OPEN_CHILDREN_LIMIT_EXCEEDED" -> pure SCWEFCOpenChildrenLimitExceeded
+        "OPEN_WORKFLOWS_LIMIT_EXCEEDED" -> pure SCWEFCOpenWorkflowsLimitExceeded
+        "OPERATION_NOT_PERMITTED" -> pure SCWEFCOperationNotPermitted
+        "WORKFLOW_ALREADY_RUNNING" -> pure SCWEFCWorkflowAlreadyRunning
+        "WORKFLOW_TYPE_DEPRECATED" -> pure SCWEFCWorkflowTypeDeprecated
+        "WORKFLOW_TYPE_DOES_NOT_EXIST" -> pure SCWEFCWorkflowTypeDoesNotExist
+        e -> fail ("Failure parsing StartChildWorkflowExecutionFailedCause from " ++ show e)
+
+instance ToText StartChildWorkflowExecutionFailedCause where
+    toText = \case
+        SCWEFCChildCreationRateExceeded -> "CHILD_CREATION_RATE_EXCEEDED"
+        SCWEFCDefaultChildPolicyUndefined -> "DEFAULT_CHILD_POLICY_UNDEFINED"
+        SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined -> "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+        SCWEFCDefaultTaskListUndefined -> "DEFAULT_TASK_LIST_UNDEFINED"
+        SCWEFCDefaultTaskStartTOCloseTimeoutUndefined -> "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+        SCWEFCOpenChildrenLimitExceeded -> "OPEN_CHILDREN_LIMIT_EXCEEDED"
+        SCWEFCOpenWorkflowsLimitExceeded -> "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
+        SCWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        SCWEFCWorkflowAlreadyRunning -> "WORKFLOW_ALREADY_RUNNING"
+        SCWEFCWorkflowTypeDeprecated -> "WORKFLOW_TYPE_DEPRECATED"
+        SCWEFCWorkflowTypeDoesNotExist -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
+
+instance Hashable StartChildWorkflowExecutionFailedCause
+instance ToQuery StartChildWorkflowExecutionFailedCause
+instance ToHeader StartChildWorkflowExecutionFailedCause
+
+instance FromJSON StartChildWorkflowExecutionFailedCause where
+    parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
+
+data StartTimerFailedCause = TimerIDAlreadyINUse | TimerCreationRateExceeded | OperationNotPermitted | OpenTimersLimitExceeded deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StartTimerFailedCause where
+    parser = takeLowerText >>= \case
+        "OPEN_TIMERS_LIMIT_EXCEEDED" -> pure OpenTimersLimitExceeded
+        "OPERATION_NOT_PERMITTED" -> pure OperationNotPermitted
+        "TIMER_CREATION_RATE_EXCEEDED" -> pure TimerCreationRateExceeded
+        "TIMER_ID_ALREADY_IN_USE" -> pure TimerIDAlreadyINUse
+        e -> fail ("Failure parsing StartTimerFailedCause from " ++ show e)
+
+instance ToText StartTimerFailedCause where
+    toText = \case
+        OpenTimersLimitExceeded -> "OPEN_TIMERS_LIMIT_EXCEEDED"
+        OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        TimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
+        TimerIDAlreadyINUse -> "TIMER_ID_ALREADY_IN_USE"
+
+instance Hashable StartTimerFailedCause
+instance ToQuery StartTimerFailedCause
+instance ToHeader StartTimerFailedCause
+
+instance FromJSON StartTimerFailedCause where
+    parseJSON = parseJSONText "StartTimerFailedCause"
+
+data WorkflowExecutionCancelRequestedCause = ChildPolicyApplied deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText WorkflowExecutionCancelRequestedCause where
+    parser = takeLowerText >>= \case
+        "CHILD_POLICY_APPLIED" -> pure ChildPolicyApplied
+        e -> fail ("Failure parsing WorkflowExecutionCancelRequestedCause from " ++ show e)
+
+instance ToText WorkflowExecutionCancelRequestedCause where
+    toText = \case
+        ChildPolicyApplied -> "CHILD_POLICY_APPLIED"
+
+instance Hashable WorkflowExecutionCancelRequestedCause
+instance ToQuery WorkflowExecutionCancelRequestedCause
+instance ToHeader WorkflowExecutionCancelRequestedCause
+
+instance FromJSON WorkflowExecutionCancelRequestedCause where
+    parseJSON = parseJSONText "WorkflowExecutionCancelRequestedCause"
+
+data WorkflowExecutionTerminatedCause = WETCEventLimitExceeded | WETCOperatorInitiated | WETCChildPolicyApplied deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText WorkflowExecutionTerminatedCause where
+    parser = takeLowerText >>= \case
+        "CHILD_POLICY_APPLIED" -> pure WETCChildPolicyApplied
+        "EVENT_LIMIT_EXCEEDED" -> pure WETCEventLimitExceeded
+        "OPERATOR_INITIATED" -> pure WETCOperatorInitiated
+        e -> fail ("Failure parsing WorkflowExecutionTerminatedCause from " ++ show e)
+
+instance ToText WorkflowExecutionTerminatedCause where
+    toText = \case
+        WETCChildPolicyApplied -> "CHILD_POLICY_APPLIED"
+        WETCEventLimitExceeded -> "EVENT_LIMIT_EXCEEDED"
+        WETCOperatorInitiated -> "OPERATOR_INITIATED"
+
+instance Hashable WorkflowExecutionTerminatedCause
+instance ToQuery WorkflowExecutionTerminatedCause
+instance ToHeader WorkflowExecutionTerminatedCause
+
+instance FromJSON WorkflowExecutionTerminatedCause where
+    parseJSON = parseJSONText "WorkflowExecutionTerminatedCause"
+
+data WorkflowExecutionTimeoutType = WETTStartTOClose deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText WorkflowExecutionTimeoutType where
+    parser = takeLowerText >>= \case
+        "START_TO_CLOSE" -> pure WETTStartTOClose
+        e -> fail ("Failure parsing WorkflowExecutionTimeoutType from " ++ show e)
+
+instance ToText WorkflowExecutionTimeoutType where
+    toText = \case
+        WETTStartTOClose -> "START_TO_CLOSE"
+
+instance Hashable WorkflowExecutionTimeoutType
+instance ToQuery WorkflowExecutionTimeoutType
+instance ToHeader WorkflowExecutionTimeoutType
+
+instance FromJSON WorkflowExecutionTimeoutType where
+    parseJSON = parseJSONText "WorkflowExecutionTimeoutType"
+
+-- | Provides details of the @ActivityTaskCancelRequested@ event.
+--
+-- /See:/ 'activityTaskCancelRequestedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atcreaDecisionTaskCompletedEventId'
+--
+-- * 'atcreaActivityId'
+data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes'{_atcreaDecisionTaskCompletedEventId :: Integer, _atcreaActivityId :: Text} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskCancelRequestedEventAttributes' smart constructor.
+activityTaskCancelRequestedEventAttributes :: Integer -> Text -> ActivityTaskCancelRequestedEventAttributes
+activityTaskCancelRequestedEventAttributes pDecisionTaskCompletedEventId pActivityId = ActivityTaskCancelRequestedEventAttributes'{_atcreaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _atcreaActivityId = pActivityId};
+
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- decision task that resulted in the @RequestCancelActivityTask@ decision
+-- for this cancellation request. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes Integer
+atcreaDecisionTaskCompletedEventId = lens _atcreaDecisionTaskCompletedEventId (\ s a -> s{_atcreaDecisionTaskCompletedEventId = a});
+
+-- | The unique ID of the task.
+atcreaActivityId :: Lens' ActivityTaskCancelRequestedEventAttributes Text
+atcreaActivityId = lens _atcreaActivityId (\ s a -> s{_atcreaActivityId = a});
+
+instance FromJSON
+         ActivityTaskCancelRequestedEventAttributes where
+        parseJSON
+          = withObject
+              "ActivityTaskCancelRequestedEventAttributes"
+              (\ x ->
+                 ActivityTaskCancelRequestedEventAttributes' <$>
+                   (x .: "decisionTaskCompletedEventId") <*>
+                     (x .: "activityId"))
+
+-- | Provides details of the @ActivityTaskCanceled@ event.
+--
+-- /See:/ 'activityTaskCanceledEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'actLatestCancelRequestedEventId'
+--
+-- * 'actDetails'
+--
+-- * 'actScheduledEventId'
+--
+-- * 'actStartedEventId'
+data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'{_actLatestCancelRequestedEventId :: Maybe Integer, _actDetails :: Maybe Text, _actScheduledEventId :: Integer, _actStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskCanceledEventAttributes' smart constructor.
+activityTaskCanceledEventAttributes :: Integer -> Integer -> ActivityTaskCanceledEventAttributes
+activityTaskCanceledEventAttributes pScheduledEventId pStartedEventId = ActivityTaskCanceledEventAttributes'{_actLatestCancelRequestedEventId = Nothing, _actDetails = Nothing, _actScheduledEventId = pScheduledEventId, _actStartedEventId = pStartedEventId};
+
+-- | If set, contains the Id of the last @ActivityTaskCancelRequested@ event
+-- recorded for this activity task. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+actLatestCancelRequestedEventId :: Lens' ActivityTaskCanceledEventAttributes (Maybe Integer)
+actLatestCancelRequestedEventId = lens _actLatestCancelRequestedEventId (\ s a -> s{_actLatestCancelRequestedEventId = a});
+
+-- | Details of the cancellation (if any).
+actDetails :: Lens' ActivityTaskCanceledEventAttributes (Maybe Text)
+actDetails = lens _actDetails (\ s a -> s{_actDetails = a});
+
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- activity task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+actScheduledEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
+actScheduledEventId = lens _actScheduledEventId (\ s a -> s{_actScheduledEventId = a});
+
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
+actStartedEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
+actStartedEventId = lens _actStartedEventId (\ s a -> s{_actStartedEventId = a});
+
+instance FromJSON ActivityTaskCanceledEventAttributes
+         where
+        parseJSON
+          = withObject "ActivityTaskCanceledEventAttributes"
+              (\ x ->
+                 ActivityTaskCanceledEventAttributes' <$>
+                   (x .:? "latestCancelRequestedEventId") <*>
+                     (x .:? "details")
+                     <*> (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details of the @ActivityTaskCompleted@ event.
+--
+-- /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atceaResult'
+--
+-- * 'atceaScheduledEventId'
+--
+-- * 'atceaStartedEventId'
+data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'{_atceaResult :: Maybe Text, _atceaScheduledEventId :: Integer, _atceaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskCompletedEventAttributes' smart constructor.
+activityTaskCompletedEventAttributes :: Integer -> Integer -> ActivityTaskCompletedEventAttributes
+activityTaskCompletedEventAttributes pScheduledEventId pStartedEventId = ActivityTaskCompletedEventAttributes'{_atceaResult = Nothing, _atceaScheduledEventId = pScheduledEventId, _atceaStartedEventId = pStartedEventId};
+
+-- | The results of the activity task (if any).
+atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
+atceaResult = lens _atceaResult (\ s a -> s{_atceaResult = a});
+
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- activity task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
+atceaScheduledEventId = lens _atceaScheduledEventId (\ s a -> s{_atceaScheduledEventId = a});
+
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
+atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
+atceaStartedEventId = lens _atceaStartedEventId (\ s a -> s{_atceaStartedEventId = a});
+
+instance FromJSON
+         ActivityTaskCompletedEventAttributes where
+        parseJSON
+          = withObject "ActivityTaskCompletedEventAttributes"
+              (\ x ->
+                 ActivityTaskCompletedEventAttributes' <$>
+                   (x .:? "result") <*> (x .: "scheduledEventId") <*>
+                     (x .: "startedEventId"))
+
+-- | Provides details of the @ActivityTaskFailed@ event.
+--
+-- /See:/ 'activityTaskFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atfeaReason'
+--
+-- * 'atfeaDetails'
+--
+-- * 'atfeaScheduledEventId'
+--
+-- * 'atfeaStartedEventId'
+data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'{_atfeaReason :: Maybe Text, _atfeaDetails :: Maybe Text, _atfeaScheduledEventId :: Integer, _atfeaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskFailedEventAttributes' smart constructor.
+activityTaskFailedEventAttributes :: Integer -> Integer -> ActivityTaskFailedEventAttributes
+activityTaskFailedEventAttributes pScheduledEventId pStartedEventId = ActivityTaskFailedEventAttributes'{_atfeaReason = Nothing, _atfeaDetails = Nothing, _atfeaScheduledEventId = pScheduledEventId, _atfeaStartedEventId = pStartedEventId};
+
+-- | The reason provided for the failure (if any).
+atfeaReason :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
+atfeaReason = lens _atfeaReason (\ s a -> s{_atfeaReason = a});
+
+-- | The details of the failure (if any).
+atfeaDetails :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
+atfeaDetails = lens _atfeaDetails (\ s a -> s{_atfeaDetails = a});
+
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- activity task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+atfeaScheduledEventId :: Lens' ActivityTaskFailedEventAttributes Integer
+atfeaScheduledEventId = lens _atfeaScheduledEventId (\ s a -> s{_atfeaScheduledEventId = a});
+
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
+atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes Integer
+atfeaStartedEventId = lens _atfeaStartedEventId (\ s a -> s{_atfeaStartedEventId = a});
+
+instance FromJSON ActivityTaskFailedEventAttributes
+         where
+        parseJSON
+          = withObject "ActivityTaskFailedEventAttributes"
+              (\ x ->
+                 ActivityTaskFailedEventAttributes' <$>
+                   (x .:? "reason") <*> (x .:? "details") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details of the @ActivityTaskScheduled@ event.
+--
+-- /See:/ 'activityTaskScheduledEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atseaControl'
+--
+-- * 'atseaScheduleToCloseTimeout'
+--
+-- * 'atseaHeartbeatTimeout'
+--
+-- * 'atseaInput'
+--
+-- * 'atseaTaskPriority'
+--
+-- * 'atseaScheduleToStartTimeout'
+--
+-- * 'atseaStartToCloseTimeout'
+--
+-- * 'atseaActivityType'
+--
+-- * 'atseaActivityId'
+--
+-- * 'atseaTaskList'
+--
+-- * 'atseaDecisionTaskCompletedEventId'
+data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'{_atseaControl :: Maybe Text, _atseaScheduleToCloseTimeout :: Maybe Text, _atseaHeartbeatTimeout :: Maybe Text, _atseaInput :: Maybe Text, _atseaTaskPriority :: Maybe Text, _atseaScheduleToStartTimeout :: Maybe Text, _atseaStartToCloseTimeout :: Maybe Text, _atseaActivityType :: ActivityType, _atseaActivityId :: Text, _atseaTaskList :: TaskList, _atseaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskScheduledEventAttributes' smart constructor.
+activityTaskScheduledEventAttributes :: ActivityType -> Text -> TaskList -> Integer -> ActivityTaskScheduledEventAttributes
+activityTaskScheduledEventAttributes pActivityType pActivityId pTaskList pDecisionTaskCompletedEventId = ActivityTaskScheduledEventAttributes'{_atseaControl = Nothing, _atseaScheduleToCloseTimeout = Nothing, _atseaHeartbeatTimeout = Nothing, _atseaInput = Nothing, _atseaTaskPriority = Nothing, _atseaScheduleToStartTimeout = Nothing, _atseaStartToCloseTimeout = Nothing, _atseaActivityType = pActivityType, _atseaActivityId = pActivityId, _atseaTaskList = pTaskList, _atseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
+
+-- | /Optional./ Data attached to the event that can be used by the decider
+-- in subsequent workflow tasks. This data is not sent to the activity.
+atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaControl = lens _atseaControl (\ s a -> s{_atseaControl = a});
+
+-- | The maximum amount of time for this activity task.
+atseaScheduleToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaScheduleToCloseTimeout = lens _atseaScheduleToCloseTimeout (\ s a -> s{_atseaScheduleToCloseTimeout = a});
+
+-- | The maximum time before which the worker processing this task must
+-- report progress by calling RecordActivityTaskHeartbeat. If the timeout
+-- is exceeded, the activity task is automatically timed out. If the worker
+-- subsequently attempts to record a heartbeat or return a result, it will
+-- be ignored.
+atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatTimeout = a});
+
+-- | The input provided to the activity task.
+atseaInput :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaInput = lens _atseaInput (\ s a -> s{_atseaInput = a});
+
+-- | /Optional./ The priority to assign to the scheduled activity task. This
+-- will override any default priority that was assigned when the activity
+-- type was registered. If not set, then the priority set on the activity
+-- type is used as the task priority.
+--
+-- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+atseaTaskPriority :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaTaskPriority = lens _atseaTaskPriority (\ s a -> s{_atseaTaskPriority = a});
+
+-- | The maximum amount of time the activity task can wait to be assigned to
+-- a worker.
+atseaScheduleToStartTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaScheduleToStartTimeout = lens _atseaScheduleToStartTimeout (\ s a -> s{_atseaScheduleToStartTimeout = a});
+
+-- | The maximum amount of time a worker may take to process the activity
+-- task.
+atseaStartToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaStartToCloseTimeout = lens _atseaStartToCloseTimeout (\ s a -> s{_atseaStartToCloseTimeout = a});
+
+-- | The type of the activity task.
+atseaActivityType :: Lens' ActivityTaskScheduledEventAttributes ActivityType
+atseaActivityType = lens _atseaActivityType (\ s a -> s{_atseaActivityType = a});
+
+-- | The unique id of the activity task.
+atseaActivityId :: Lens' ActivityTaskScheduledEventAttributes Text
+atseaActivityId = lens _atseaActivityId (\ s a -> s{_atseaActivityId = a});
+
+-- | The task list in which the activity task has been scheduled.
+atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes TaskList
+atseaTaskList = lens _atseaTaskList (\ s a -> s{_atseaTaskList = a});
+
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- decision that resulted in the scheduling of this activity task. This
+-- information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
+atseaDecisionTaskCompletedEventId :: Lens' ActivityTaskScheduledEventAttributes Integer
+atseaDecisionTaskCompletedEventId = lens _atseaDecisionTaskCompletedEventId (\ s a -> s{_atseaDecisionTaskCompletedEventId = a});
+
+instance FromJSON
+         ActivityTaskScheduledEventAttributes where
+        parseJSON
+          = withObject "ActivityTaskScheduledEventAttributes"
+              (\ x ->
+                 ActivityTaskScheduledEventAttributes' <$>
+                   (x .:? "control") <*>
+                     (x .:? "scheduleToCloseTimeout")
+                     <*> (x .:? "heartbeatTimeout")
+                     <*> (x .:? "input")
+                     <*> (x .:? "taskPriority")
+                     <*> (x .:? "scheduleToStartTimeout")
+                     <*> (x .:? "startToCloseTimeout")
+                     <*> (x .: "activityType")
+                     <*> (x .: "activityId")
+                     <*> (x .: "taskList")
+                     <*> (x .: "decisionTaskCompletedEventId"))
+
+-- | Provides details of the @ActivityTaskStarted@ event.
+--
+-- /See:/ 'activityTaskStartedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atseaIdentity'
+--
+-- * 'atseaScheduledEventId'
+data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'{_atseaIdentity :: Maybe Text, _atseaScheduledEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskStartedEventAttributes' smart constructor.
+activityTaskStartedEventAttributes :: Integer -> ActivityTaskStartedEventAttributes
+activityTaskStartedEventAttributes pScheduledEventId = ActivityTaskStartedEventAttributes'{_atseaIdentity = Nothing, _atseaScheduledEventId = pScheduledEventId};
+
+-- | Identity of the worker that was assigned this task. This aids
+-- diagnostics when problems arise. The form of this identity is user
+-- defined.
+atseaIdentity :: Lens' ActivityTaskStartedEventAttributes (Maybe Text)
+atseaIdentity = lens _atseaIdentity (\ s a -> s{_atseaIdentity = a});
+
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- activity task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+atseaScheduledEventId :: Lens' ActivityTaskStartedEventAttributes Integer
+atseaScheduledEventId = lens _atseaScheduledEventId (\ s a -> s{_atseaScheduledEventId = a});
+
+instance FromJSON ActivityTaskStartedEventAttributes
+         where
+        parseJSON
+          = withObject "ActivityTaskStartedEventAttributes"
+              (\ x ->
+                 ActivityTaskStartedEventAttributes' <$>
+                   (x .:? "identity") <*> (x .: "scheduledEventId"))
+
+-- | Provides details of the @ActivityTaskTimedOut@ event.
+--
+-- /See:/ 'activityTaskTimedOutEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'attoeaDetails'
+--
+-- * 'attoeaTimeoutType'
+--
+-- * 'attoeaScheduledEventId'
+--
+-- * 'attoeaStartedEventId'
+data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'{_attoeaDetails :: Maybe Text, _attoeaTimeoutType :: ActivityTaskTimeoutType, _attoeaScheduledEventId :: Integer, _attoeaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ActivityTaskTimedOutEventAttributes' smart constructor.
+activityTaskTimedOutEventAttributes :: ActivityTaskTimeoutType -> Integer -> Integer -> ActivityTaskTimedOutEventAttributes
+activityTaskTimedOutEventAttributes pTimeoutType pScheduledEventId pStartedEventId = ActivityTaskTimedOutEventAttributes'{_attoeaDetails = Nothing, _attoeaTimeoutType = pTimeoutType, _attoeaScheduledEventId = pScheduledEventId, _attoeaStartedEventId = pStartedEventId};
+
+-- | Contains the content of the @details@ parameter for the last call made
+-- by the activity to @RecordActivityTaskHeartbeat@.
+attoeaDetails :: Lens' ActivityTaskTimedOutEventAttributes (Maybe Text)
+attoeaDetails = lens _attoeaDetails (\ s a -> s{_attoeaDetails = a});
+
+-- | The type of the timeout that caused this event.
+attoeaTimeoutType :: Lens' ActivityTaskTimedOutEventAttributes ActivityTaskTimeoutType
+attoeaTimeoutType = lens _attoeaTimeoutType (\ s a -> s{_attoeaTimeoutType = a});
+
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- activity task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+attoeaScheduledEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
+attoeaScheduledEventId = lens _attoeaScheduledEventId (\ s a -> s{_attoeaScheduledEventId = a});
+
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
+attoeaStartedEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
+attoeaStartedEventId = lens _attoeaStartedEventId (\ s a -> s{_attoeaStartedEventId = a});
+
+instance FromJSON ActivityTaskTimedOutEventAttributes
+         where
+        parseJSON
+          = withObject "ActivityTaskTimedOutEventAttributes"
+              (\ x ->
+                 ActivityTaskTimedOutEventAttributes' <$>
+                   (x .:? "details") <*> (x .: "timeoutType") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Represents an activity type.
+--
+-- /See:/ 'activityType' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atName'
+--
+-- * 'atVersion'
+data ActivityType = ActivityType'{_atName :: Text, _atVersion :: Text} deriving (Eq, Read, Show)
+
+-- | 'ActivityType' smart constructor.
+activityType :: Text -> Text -> ActivityType
+activityType pName pVersion = ActivityType'{_atName = pName, _atVersion = pVersion};
+
+-- | The name of this activity.
+--
+-- The combination of activity type name and version must be unique within
+-- a domain.
+atName :: Lens' ActivityType Text
+atName = lens _atName (\ s a -> s{_atName = a});
+
+-- | The version of this activity.
+--
+-- The combination of activity type name and version must be unique with in
+-- a domain.
+atVersion :: Lens' ActivityType Text
+atVersion = lens _atVersion (\ s a -> s{_atVersion = a});
+
+instance FromJSON ActivityType where
+        parseJSON
+          = withObject "ActivityType"
+              (\ x ->
+                 ActivityType' <$> (x .: "name") <*> (x .: "version"))
+
+instance ToJSON ActivityType where
+        toJSON ActivityType'{..}
+          = object ["name" .= _atName, "version" .= _atVersion]
+
+-- | Configuration settings registered with the activity type.
+--
+-- /See:/ 'activityTypeConfiguration' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atcDefaultTaskScheduleToStartTimeout'
+--
+-- * 'atcDefaultTaskList'
+--
+-- * 'atcDefaultTaskPriority'
+--
+-- * 'atcDefaultTaskHeartbeatTimeout'
+--
+-- * 'atcDefaultTaskScheduleToCloseTimeout'
+--
+-- * 'atcDefaultTaskStartToCloseTimeout'
+data ActivityTypeConfiguration = ActivityTypeConfiguration'{_atcDefaultTaskScheduleToStartTimeout :: Maybe Text, _atcDefaultTaskList :: Maybe TaskList, _atcDefaultTaskPriority :: Maybe Text, _atcDefaultTaskHeartbeatTimeout :: Maybe Text, _atcDefaultTaskScheduleToCloseTimeout :: Maybe Text, _atcDefaultTaskStartToCloseTimeout :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'ActivityTypeConfiguration' smart constructor.
+activityTypeConfiguration :: ActivityTypeConfiguration
+activityTypeConfiguration = ActivityTypeConfiguration'{_atcDefaultTaskScheduleToStartTimeout = Nothing, _atcDefaultTaskList = Nothing, _atcDefaultTaskPriority = Nothing, _atcDefaultTaskHeartbeatTimeout = Nothing, _atcDefaultTaskScheduleToCloseTimeout = Nothing, _atcDefaultTaskStartToCloseTimeout = Nothing};
+
+-- | /Optional./ The default maximum duration, specified when registering the
+-- activity type, that a task of an activity type can wait before being
+-- assigned to a worker. You can override this default when scheduling a
+-- task through the @ScheduleActivityTask@ Decision.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+atcDefaultTaskScheduleToStartTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
+atcDefaultTaskScheduleToStartTimeout = lens _atcDefaultTaskScheduleToStartTimeout (\ s a -> s{_atcDefaultTaskScheduleToStartTimeout = a});
+
+-- | /Optional./ The default task list specified for this activity type at
+-- registration. This default is used if a task list is not provided when a
+-- task is scheduled through the @ScheduleActivityTask@ Decision. You can
+-- override the default registered task list when scheduling a task through
+-- the @ScheduleActivityTask@ Decision.
+atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
+atcDefaultTaskList = lens _atcDefaultTaskList (\ s a -> s{_atcDefaultTaskList = a});
+
+-- | /Optional./ The default task priority for tasks of this activity type,
+-- specified at registration. If not set, then \"0\" will be used as the
+-- default priority. This default can be overridden when scheduling an
+-- activity task.
+--
+-- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+atcDefaultTaskPriority :: Lens' ActivityTypeConfiguration (Maybe Text)
+atcDefaultTaskPriority = lens _atcDefaultTaskPriority (\ s a -> s{_atcDefaultTaskPriority = a});
+
+-- | /Optional./ The default maximum time, in seconds, before which a worker
+-- processing a task must report progress by calling
+-- RecordActivityTaskHeartbeat.
+--
+-- You can specify this value only when /registering/ an activity type. The
+-- registered default value can be overridden when you schedule a task
+-- through the @ScheduleActivityTask@ Decision. If the activity worker
+-- subsequently attempts to record a heartbeat or returns a result, the
+-- activity worker receives an @UnknownResource@ fault. In this case,
+-- Amazon SWF no longer considers the activity task to be valid; the
+-- activity worker should clean up the activity task.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+atcDefaultTaskHeartbeatTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
+atcDefaultTaskHeartbeatTimeout = lens _atcDefaultTaskHeartbeatTimeout (\ s a -> s{_atcDefaultTaskHeartbeatTimeout = a});
+
+-- | /Optional./ The default maximum duration, specified when registering the
+-- activity type, for tasks of this activity type. You can override this
+-- default when scheduling a task through the @ScheduleActivityTask@
+-- Decision.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+atcDefaultTaskScheduleToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
+atcDefaultTaskScheduleToCloseTimeout = lens _atcDefaultTaskScheduleToCloseTimeout (\ s a -> s{_atcDefaultTaskScheduleToCloseTimeout = a});
+
+-- | /Optional./ The default maximum duration for tasks of an activity type
+-- specified when registering the activity type. You can override this
+-- default when scheduling a task through the @ScheduleActivityTask@
+-- Decision.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+atcDefaultTaskStartToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
+atcDefaultTaskStartToCloseTimeout = lens _atcDefaultTaskStartToCloseTimeout (\ s a -> s{_atcDefaultTaskStartToCloseTimeout = a});
+
+instance FromJSON ActivityTypeConfiguration where
+        parseJSON
+          = withObject "ActivityTypeConfiguration"
+              (\ x ->
+                 ActivityTypeConfiguration' <$>
+                   (x .:? "defaultTaskScheduleToStartTimeout") <*>
+                     (x .:? "defaultTaskList")
+                     <*> (x .:? "defaultTaskPriority")
+                     <*> (x .:? "defaultTaskHeartbeatTimeout")
+                     <*> (x .:? "defaultTaskScheduleToCloseTimeout")
+                     <*> (x .:? "defaultTaskStartToCloseTimeout"))
+
+-- | Detailed information about an activity type.
+--
+-- /See:/ 'activityTypeInfo' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atiDeprecationDate'
+--
+-- * 'atiDescription'
+--
+-- * 'atiActivityType'
+--
+-- * 'atiStatus'
+--
+-- * 'atiCreationDate'
+data ActivityTypeInfo = ActivityTypeInfo'{_atiDeprecationDate :: Maybe POSIX, _atiDescription :: Maybe Text, _atiActivityType :: ActivityType, _atiStatus :: RegistrationStatus, _atiCreationDate :: POSIX} deriving (Eq, Read, Show)
+
+-- | 'ActivityTypeInfo' smart constructor.
+activityTypeInfo :: ActivityType -> RegistrationStatus -> UTCTime -> ActivityTypeInfo
+activityTypeInfo pActivityType pStatus pCreationDate = ActivityTypeInfo'{_atiDeprecationDate = Nothing, _atiDescription = Nothing, _atiActivityType = pActivityType, _atiStatus = pStatus, _atiCreationDate = _Time # pCreationDate};
+
+-- | If DEPRECATED, the date and time DeprecateActivityType was called.
+atiDeprecationDate :: Lens' ActivityTypeInfo (Maybe UTCTime)
+atiDeprecationDate = lens _atiDeprecationDate (\ s a -> s{_atiDeprecationDate = a}) . mapping _Time;
+
+-- | The description of the activity type provided in RegisterActivityType.
+atiDescription :: Lens' ActivityTypeInfo (Maybe Text)
+atiDescription = lens _atiDescription (\ s a -> s{_atiDescription = a});
+
+-- | The ActivityType type structure representing the activity type.
+atiActivityType :: Lens' ActivityTypeInfo ActivityType
+atiActivityType = lens _atiActivityType (\ s a -> s{_atiActivityType = a});
+
+-- | The current status of the activity type.
+atiStatus :: Lens' ActivityTypeInfo RegistrationStatus
+atiStatus = lens _atiStatus (\ s a -> s{_atiStatus = a});
+
+-- | The date and time this activity type was created through
+-- RegisterActivityType.
+atiCreationDate :: Lens' ActivityTypeInfo UTCTime
+atiCreationDate = lens _atiCreationDate (\ s a -> s{_atiCreationDate = a}) . _Time;
+
+instance FromJSON ActivityTypeInfo where
+        parseJSON
+          = withObject "ActivityTypeInfo"
+              (\ x ->
+                 ActivityTypeInfo' <$>
+                   (x .:? "deprecationDate") <*> (x .:? "description")
+                     <*> (x .: "activityType")
+                     <*> (x .: "status")
+                     <*> (x .: "creationDate"))
+
+-- | Provides details of the @CancelTimer@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'cancelTimerDecisionAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ctdaTimerId'
+newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'{_ctdaTimerId :: Text} deriving (Eq, Read, Show)
+
+-- | 'CancelTimerDecisionAttributes' smart constructor.
+cancelTimerDecisionAttributes :: Text -> CancelTimerDecisionAttributes
+cancelTimerDecisionAttributes pTimerId = CancelTimerDecisionAttributes'{_ctdaTimerId = pTimerId};
+
+-- | __Required.__ The unique Id of the timer to cancel.
+ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
+ctdaTimerId = lens _ctdaTimerId (\ s a -> s{_ctdaTimerId = a});
+
+instance ToJSON CancelTimerDecisionAttributes where
+        toJSON CancelTimerDecisionAttributes'{..}
+          = object ["timerId" .= _ctdaTimerId]
+
+-- | Provides details of the @CancelTimerFailed@ event.
+--
+-- /See:/ 'cancelTimerFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ctfeaTimerId'
+--
+-- * 'ctfeaCause'
+--
+-- * 'ctfeaDecisionTaskCompletedEventId'
+data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'{_ctfeaTimerId :: Text, _ctfeaCause :: CancelTimerFailedCause, _ctfeaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'CancelTimerFailedEventAttributes' smart constructor.
+cancelTimerFailedEventAttributes :: Text -> CancelTimerFailedCause -> Integer -> CancelTimerFailedEventAttributes
+cancelTimerFailedEventAttributes pTimerId pCause pDecisionTaskCompletedEventId = CancelTimerFailedEventAttributes'{_ctfeaTimerId = pTimerId, _ctfeaCause = pCause, _ctfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
+
+-- | The timerId provided in the @CancelTimer@ decision that failed.
+ctfeaTimerId :: Lens' CancelTimerFailedEventAttributes Text
+ctfeaTimerId = lens _ctfeaTimerId (\ s a -> s{_ctfeaTimerId = a});
+
+-- | The cause of the failure. This information is generated by the system
+-- and can be useful for diagnostic purposes.
+--
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+ctfeaCause :: Lens' CancelTimerFailedEventAttributes CancelTimerFailedCause
+ctfeaCause = lens _ctfeaCause (\ s a -> s{_ctfeaCause = a});
+
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- decision task that resulted in the @CancelTimer@ decision to cancel this
+-- timer. This information can be useful for diagnosing problems by tracing
+-- back the chain of events leading up to this event.
+ctfeaDecisionTaskCompletedEventId :: Lens' CancelTimerFailedEventAttributes Integer
+ctfeaDecisionTaskCompletedEventId = lens _ctfeaDecisionTaskCompletedEventId (\ s a -> s{_ctfeaDecisionTaskCompletedEventId = a});
+
+instance FromJSON CancelTimerFailedEventAttributes
+         where
+        parseJSON
+          = withObject "CancelTimerFailedEventAttributes"
+              (\ x ->
+                 CancelTimerFailedEventAttributes' <$>
+                   (x .: "timerId") <*> (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
+
+-- | Provides details of the @CancelWorkflowExecution@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'cancelWorkflowExecutionDecisionAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cwedaDetails'
+newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'{_cwedaDetails :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'CancelWorkflowExecutionDecisionAttributes' smart constructor.
+cancelWorkflowExecutionDecisionAttributes :: CancelWorkflowExecutionDecisionAttributes
+cancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'{_cwedaDetails = Nothing};
+
+-- | /Optional./ details of the cancellation.
+cwedaDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
+cwedaDetails = lens _cwedaDetails (\ s a -> s{_cwedaDetails = a});
+
+instance ToJSON
+         CancelWorkflowExecutionDecisionAttributes where
+        toJSON CancelWorkflowExecutionDecisionAttributes'{..}
+          = object ["details" .= _cwedaDetails]
+
+-- | Provides details of the @CancelWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'cancelWorkflowExecutionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'canCause'
+--
+-- * 'canDecisionTaskCompletedEventId'
+data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes'{_canCause :: CancelWorkflowExecutionFailedCause, _canDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'CancelWorkflowExecutionFailedEventAttributes' smart constructor.
+cancelWorkflowExecutionFailedEventAttributes :: CancelWorkflowExecutionFailedCause -> Integer -> CancelWorkflowExecutionFailedEventAttributes
+cancelWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId = CancelWorkflowExecutionFailedEventAttributes'{_canCause = pCause, _canDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
+
+-- | The cause of the failure. This information is generated by the system
+-- and can be useful for diagnostic purposes.
+--
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+canCause :: Lens' CancelWorkflowExecutionFailedEventAttributes CancelWorkflowExecutionFailedCause
+canCause = lens _canCause (\ s a -> s{_canCause = a});
+
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- decision task that resulted in the @CancelWorkflowExecution@ decision
+-- for this cancellation request. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+canDecisionTaskCompletedEventId :: Lens' CancelWorkflowExecutionFailedEventAttributes Integer
+canDecisionTaskCompletedEventId = lens _canDecisionTaskCompletedEventId (\ s a -> s{_canDecisionTaskCompletedEventId = a});
+
+instance FromJSON
+         CancelWorkflowExecutionFailedEventAttributes where
+        parseJSON
+          = withObject
+              "CancelWorkflowExecutionFailedEventAttributes"
+              (\ x ->
+                 CancelWorkflowExecutionFailedEventAttributes' <$>
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
+
+-- | Provide details of the @ChildWorkflowExecutionCanceled@ event.
+--
+-- /See:/ 'childWorkflowExecutionCanceledEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'chiDetails'
+--
+-- * 'chiWorkflowExecution'
+--
+-- * 'chiWorkflowType'
+--
+-- * 'chiInitiatedEventId'
+--
+-- * 'chiStartedEventId'
+data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'{_chiDetails :: Maybe Text, _chiWorkflowExecution :: WorkflowExecution, _chiWorkflowType :: WorkflowType, _chiInitiatedEventId :: Integer, _chiStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ChildWorkflowExecutionCanceledEventAttributes' smart constructor.
+childWorkflowExecutionCanceledEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionCanceledEventAttributes
+childWorkflowExecutionCanceledEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionCanceledEventAttributes'{_chiDetails = Nothing, _chiWorkflowExecution = pWorkflowExecution, _chiWorkflowType = pWorkflowType, _chiInitiatedEventId = pInitiatedEventId, _chiStartedEventId = pStartedEventId};
+
+-- | Details of the cancellation (if provided).
+chiDetails :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Maybe Text)
+chiDetails = lens _chiDetails (\ s a -> s{_chiDetails = a});
+
+-- | The child workflow execution that was canceled.
+chiWorkflowExecution :: Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowExecution
+chiWorkflowExecution = lens _chiWorkflowExecution (\ s a -> s{_chiWorkflowExecution = a});
+
+-- | The type of the child workflow execution.
+chiWorkflowType :: Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowType
+chiWorkflowType = lens _chiWorkflowType (\ s a -> s{_chiWorkflowType = a});
+
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
+chiInitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
+chiInitiatedEventId = lens _chiInitiatedEventId (\ s a -> s{_chiInitiatedEventId = a});
+
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- child workflow execution was started. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+chiStartedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
+chiStartedEventId = lens _chiStartedEventId (\ s a -> s{_chiStartedEventId = a});
+
+instance FromJSON
+         ChildWorkflowExecutionCanceledEventAttributes where
+        parseJSON
+          = withObject
+              "ChildWorkflowExecutionCanceledEventAttributes"
+              (\ x ->
+                 ChildWorkflowExecutionCanceledEventAttributes' <$>
+                   (x .:? "details") <*> (x .: "workflowExecution") <*>
+                     (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details of the @ChildWorkflowExecutionCompleted@ event.
+--
+-- /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cweceaResult'
+--
+-- * 'cweceaWorkflowExecution'
+--
+-- * 'cweceaWorkflowType'
+--
+-- * 'cweceaInitiatedEventId'
+--
+-- * 'cweceaStartedEventId'
+data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes'{_cweceaResult :: Maybe Text, _cweceaWorkflowExecution :: WorkflowExecution, _cweceaWorkflowType :: WorkflowType, _cweceaInitiatedEventId :: Integer, _cweceaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ChildWorkflowExecutionCompletedEventAttributes' smart constructor.
+childWorkflowExecutionCompletedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionCompletedEventAttributes
+childWorkflowExecutionCompletedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionCompletedEventAttributes'{_cweceaResult = Nothing, _cweceaWorkflowExecution = pWorkflowExecution, _cweceaWorkflowType = pWorkflowType, _cweceaInitiatedEventId = pInitiatedEventId, _cweceaStartedEventId = pStartedEventId};
+
+-- | The result of the child workflow execution (if any).
+cweceaResult :: Lens' ChildWorkflowExecutionCompletedEventAttributes (Maybe Text)
+cweceaResult = lens _cweceaResult (\ s a -> s{_cweceaResult = a});
+
+-- | The child workflow execution that was completed.
+cweceaWorkflowExecution :: Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowExecution
+cweceaWorkflowExecution = lens _cweceaWorkflowExecution (\ s a -> s{_cweceaWorkflowExecution = a});
+
+-- | The type of the child workflow execution.
+cweceaWorkflowType :: Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowType
+cweceaWorkflowType = lens _cweceaWorkflowType (\ s a -> s{_cweceaWorkflowType = a});
+
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
+cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
+cweceaInitiatedEventId = lens _cweceaInitiatedEventId (\ s a -> s{_cweceaInitiatedEventId = a});
+
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- child workflow execution was started. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+cweceaStartedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
+cweceaStartedEventId = lens _cweceaStartedEventId (\ s a -> s{_cweceaStartedEventId = a});
+
+instance FromJSON
+         ChildWorkflowExecutionCompletedEventAttributes where
+        parseJSON
+          = withObject
+              "ChildWorkflowExecutionCompletedEventAttributes"
+              (\ x ->
+                 ChildWorkflowExecutionCompletedEventAttributes' <$>
+                   (x .:? "result") <*> (x .: "workflowExecution") <*>
+                     (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details of the @ChildWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'childWorkflowExecutionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cwefeaReason'
+--
+-- * 'cwefeaDetails'
+--
+-- * 'cwefeaWorkflowExecution'
+--
+-- * 'cwefeaWorkflowType'
+--
+-- * 'cwefeaInitiatedEventId'
+--
+-- * 'cwefeaStartedEventId'
+data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'{_cwefeaReason :: Maybe Text, _cwefeaDetails :: Maybe Text, _cwefeaWorkflowExecution :: WorkflowExecution, _cwefeaWorkflowType :: WorkflowType, _cwefeaInitiatedEventId :: Integer, _cwefeaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ChildWorkflowExecutionFailedEventAttributes' smart constructor.
+childWorkflowExecutionFailedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionFailedEventAttributes
+childWorkflowExecutionFailedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionFailedEventAttributes'{_cwefeaReason = Nothing, _cwefeaDetails = Nothing, _cwefeaWorkflowExecution = pWorkflowExecution, _cwefeaWorkflowType = pWorkflowType, _cwefeaInitiatedEventId = pInitiatedEventId, _cwefeaStartedEventId = pStartedEventId};
+
+-- | The reason for the failure (if provided).
+cwefeaReason :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
+cwefeaReason = lens _cwefeaReason (\ s a -> s{_cwefeaReason = a});
+
+-- | The details of the failure (if provided).
+cwefeaDetails :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
+cwefeaDetails = lens _cwefeaDetails (\ s a -> s{_cwefeaDetails = a});
+
+-- | The child workflow execution that failed.
+cwefeaWorkflowExecution :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowExecution
+cwefeaWorkflowExecution = lens _cwefeaWorkflowExecution (\ s a -> s{_cwefeaWorkflowExecution = a});
+
+-- | The type of the child workflow execution.
+cwefeaWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowType
+cwefeaWorkflowType = lens _cwefeaWorkflowType (\ s a -> s{_cwefeaWorkflowType = a});
+
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
+cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
+cwefeaInitiatedEventId = lens _cwefeaInitiatedEventId (\ s a -> s{_cwefeaInitiatedEventId = a});
+
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- child workflow execution was started. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+cwefeaStartedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
+cwefeaStartedEventId = lens _cwefeaStartedEventId (\ s a -> s{_cwefeaStartedEventId = a});
+
+instance FromJSON
+         ChildWorkflowExecutionFailedEventAttributes where
+        parseJSON
+          = withObject
+              "ChildWorkflowExecutionFailedEventAttributes"
+              (\ x ->
+                 ChildWorkflowExecutionFailedEventAttributes' <$>
+                   (x .:? "reason") <*> (x .:? "details") <*>
+                     (x .: "workflowExecution")
+                     <*> (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details of the @ChildWorkflowExecutionStarted@ event.
+--
+-- /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cweseaWorkflowExecution'
+--
+-- * 'cweseaWorkflowType'
+--
+-- * 'cweseaInitiatedEventId'
+data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes'{_cweseaWorkflowExecution :: WorkflowExecution, _cweseaWorkflowType :: WorkflowType, _cweseaInitiatedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ChildWorkflowExecutionStartedEventAttributes' smart constructor.
+childWorkflowExecutionStartedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> ChildWorkflowExecutionStartedEventAttributes
+childWorkflowExecutionStartedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId = ChildWorkflowExecutionStartedEventAttributes'{_cweseaWorkflowExecution = pWorkflowExecution, _cweseaWorkflowType = pWorkflowType, _cweseaInitiatedEventId = pInitiatedEventId};
+
+-- | The child workflow execution that was started.
+cweseaWorkflowExecution :: Lens' ChildWorkflowExecutionStartedEventAttributes WorkflowExecution
+cweseaWorkflowExecution = lens _cweseaWorkflowExecution (\ s a -> s{_cweseaWorkflowExecution = a});
+
+-- | The type of the child workflow execution.
+cweseaWorkflowType :: Lens' ChildWorkflowExecutionStartedEventAttributes WorkflowType
+cweseaWorkflowType = lens _cweseaWorkflowType (\ s a -> s{_cweseaWorkflowType = a});
+
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
+cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes Integer
+cweseaInitiatedEventId = lens _cweseaInitiatedEventId (\ s a -> s{_cweseaInitiatedEventId = a});
+
+instance FromJSON
+         ChildWorkflowExecutionStartedEventAttributes where
+        parseJSON
+          = withObject
+              "ChildWorkflowExecutionStartedEventAttributes"
+              (\ x ->
+                 ChildWorkflowExecutionStartedEventAttributes' <$>
+                   (x .: "workflowExecution") <*> (x .: "workflowType")
+                     <*> (x .: "initiatedEventId"))
+
+-- | Provides details of the @ChildWorkflowExecutionTerminated@ event.
+--
+-- /See:/ 'childWorkflowExecutionTerminatedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cweteaWorkflowExecution'
+--
+-- * 'cweteaWorkflowType'
+--
+-- * 'cweteaInitiatedEventId'
+--
+-- * 'cweteaStartedEventId'
+data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes'{_cweteaWorkflowExecution :: WorkflowExecution, _cweteaWorkflowType :: WorkflowType, _cweteaInitiatedEventId :: Integer, _cweteaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ChildWorkflowExecutionTerminatedEventAttributes' smart constructor.
+childWorkflowExecutionTerminatedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionTerminatedEventAttributes
+childWorkflowExecutionTerminatedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionTerminatedEventAttributes'{_cweteaWorkflowExecution = pWorkflowExecution, _cweteaWorkflowType = pWorkflowType, _cweteaInitiatedEventId = pInitiatedEventId, _cweteaStartedEventId = pStartedEventId};
+
+-- | The child workflow execution that was terminated.
+cweteaWorkflowExecution :: Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowExecution
+cweteaWorkflowExecution = lens _cweteaWorkflowExecution (\ s a -> s{_cweteaWorkflowExecution = a});
+
+-- | The type of the child workflow execution.
+cweteaWorkflowType :: Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowType
+cweteaWorkflowType = lens _cweteaWorkflowType (\ s a -> s{_cweteaWorkflowType = a});
+
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
+cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
+cweteaInitiatedEventId = lens _cweteaInitiatedEventId (\ s a -> s{_cweteaInitiatedEventId = a});
+
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- child workflow execution was started. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+cweteaStartedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
+cweteaStartedEventId = lens _cweteaStartedEventId (\ s a -> s{_cweteaStartedEventId = a});
+
+instance FromJSON
+         ChildWorkflowExecutionTerminatedEventAttributes where
+        parseJSON
+          = withObject
+              "ChildWorkflowExecutionTerminatedEventAttributes"
+              (\ x ->
+                 ChildWorkflowExecutionTerminatedEventAttributes' <$>
+                   (x .: "workflowExecution") <*> (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details of the @ChildWorkflowExecutionTimedOut@ event.
+--
+-- /See:/ 'childWorkflowExecutionTimedOutEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cwetoeaWorkflowExecution'
+--
+-- * 'cwetoeaWorkflowType'
+--
+-- * 'cwetoeaTimeoutType'
+--
+-- * 'cwetoeaInitiatedEventId'
+--
+-- * 'cwetoeaStartedEventId'
+data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes'{_cwetoeaWorkflowExecution :: WorkflowExecution, _cwetoeaWorkflowType :: WorkflowType, _cwetoeaTimeoutType :: WorkflowExecutionTimeoutType, _cwetoeaInitiatedEventId :: Integer, _cwetoeaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ChildWorkflowExecutionTimedOutEventAttributes' smart constructor.
+childWorkflowExecutionTimedOutEventAttributes :: WorkflowExecution -> WorkflowType -> WorkflowExecutionTimeoutType -> Integer -> Integer -> ChildWorkflowExecutionTimedOutEventAttributes
+childWorkflowExecutionTimedOutEventAttributes pWorkflowExecution pWorkflowType pTimeoutType pInitiatedEventId pStartedEventId = ChildWorkflowExecutionTimedOutEventAttributes'{_cwetoeaWorkflowExecution = pWorkflowExecution, _cwetoeaWorkflowType = pWorkflowType, _cwetoeaTimeoutType = pTimeoutType, _cwetoeaInitiatedEventId = pInitiatedEventId, _cwetoeaStartedEventId = pStartedEventId};
+
+-- | The child workflow execution that timed out.
+cwetoeaWorkflowExecution :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecution
+cwetoeaWorkflowExecution = lens _cwetoeaWorkflowExecution (\ s a -> s{_cwetoeaWorkflowExecution = a});
+
+-- | The type of the child workflow execution.
+cwetoeaWorkflowType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowType
+cwetoeaWorkflowType = lens _cwetoeaWorkflowType (\ s a -> s{_cwetoeaWorkflowType = a});
+
+-- | The type of the timeout that caused the child workflow execution to time
+-- out.
+cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
+cwetoeaTimeoutType = lens _cwetoeaTimeoutType (\ s a -> s{_cwetoeaTimeoutType = a});
+
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
+cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
+cwetoeaInitiatedEventId = lens _cwetoeaInitiatedEventId (\ s a -> s{_cwetoeaInitiatedEventId = a});
+
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- child workflow execution was started. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+cwetoeaStartedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
+cwetoeaStartedEventId = lens _cwetoeaStartedEventId (\ s a -> s{_cwetoeaStartedEventId = a});
+
+instance FromJSON
+         ChildWorkflowExecutionTimedOutEventAttributes where
+        parseJSON
+          = withObject
+              "ChildWorkflowExecutionTimedOutEventAttributes"
+              (\ x ->
+                 ChildWorkflowExecutionTimedOutEventAttributes' <$>
+                   (x .: "workflowExecution") <*> (x .: "workflowType")
+                     <*> (x .: "timeoutType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Used to filter the closed workflow executions in visibility APIs by
+-- their close status.
+--
+-- /See:/ 'closeStatusFilter' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csfStatus'
+newtype CloseStatusFilter = CloseStatusFilter'{_csfStatus :: CloseStatus} deriving (Eq, Read, Show)
+
+-- | 'CloseStatusFilter' smart constructor.
+closeStatusFilter :: CloseStatus -> CloseStatusFilter
+closeStatusFilter pStatus = CloseStatusFilter'{_csfStatus = pStatus};
+
+-- | __Required.__ The close status that must match the close status of an
+-- execution for it to meet the criteria of this filter.
+csfStatus :: Lens' CloseStatusFilter CloseStatus
+csfStatus = lens _csfStatus (\ s a -> s{_csfStatus = a});
+
+instance ToJSON CloseStatusFilter where
+        toJSON CloseStatusFilter'{..}
+          = object ["status" .= _csfStatus]
+
+-- | Provides details of the @CompleteWorkflowExecution@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'completeWorkflowExecutionDecisionAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cwedaResult'
+newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'{_cwedaResult :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'CompleteWorkflowExecutionDecisionAttributes' smart constructor.
+completeWorkflowExecutionDecisionAttributes :: CompleteWorkflowExecutionDecisionAttributes
+completeWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'{_cwedaResult = Nothing};
+
+-- | The result of the workflow execution. The form of the result is
+-- implementation defined.
+cwedaResult :: Lens' CompleteWorkflowExecutionDecisionAttributes (Maybe Text)
+cwedaResult = lens _cwedaResult (\ s a -> s{_cwedaResult = a});
+
+instance ToJSON
+         CompleteWorkflowExecutionDecisionAttributes where
+        toJSON
+          CompleteWorkflowExecutionDecisionAttributes'{..}
+          = object ["result" .= _cwedaResult]
+
+-- | Provides details of the @CompleteWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'completeWorkflowExecutionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cwefeaCause'
+--
+-- * 'cwefeaDecisionTaskCompletedEventId'
+data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes'{_cwefeaCause :: CompleteWorkflowExecutionFailedCause, _cwefeaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'CompleteWorkflowExecutionFailedEventAttributes' smart constructor.
+completeWorkflowExecutionFailedEventAttributes :: CompleteWorkflowExecutionFailedCause -> Integer -> CompleteWorkflowExecutionFailedEventAttributes
+completeWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId = CompleteWorkflowExecutionFailedEventAttributes'{_cwefeaCause = pCause, _cwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
+
+-- | The cause of the failure. This information is generated by the system
+-- and can be useful for diagnostic purposes.
+--
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes CompleteWorkflowExecutionFailedCause
+cwefeaCause = lens _cwefeaCause (\ s a -> s{_cwefeaCause = a});
+
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- decision task that resulted in the @CompleteWorkflowExecution@ decision
+-- to complete this execution. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+cwefeaDecisionTaskCompletedEventId :: Lens' CompleteWorkflowExecutionFailedEventAttributes Integer
+cwefeaDecisionTaskCompletedEventId = lens _cwefeaDecisionTaskCompletedEventId (\ s a -> s{_cwefeaDecisionTaskCompletedEventId = a});
+
+instance FromJSON
+         CompleteWorkflowExecutionFailedEventAttributes where
+        parseJSON
+          = withObject
+              "CompleteWorkflowExecutionFailedEventAttributes"
+              (\ x ->
+                 CompleteWorkflowExecutionFailedEventAttributes' <$>
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
+
+-- | Provides details of the @ContinueAsNewWorkflowExecution@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   Constrain the following parameters by using a @Condition@ element
+--     with the appropriate keys.
+--     -   @tag@: /Optional./. A tag used to identify the workflow
+--         execution
+--     -   @taskList@: String constraint. The key is @swf:taskList.name@.
+--     -   @workflowType.version@: String constraint. The key is
+--         @swf:workflowType.version@.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'continueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'canwedaTagList'
+--
+-- * 'canwedaTaskStartToCloseTimeout'
+--
+-- * 'canwedaInput'
+--
+-- * 'canwedaWorkflowTypeVersion'
+--
+-- * 'canwedaExecutionStartToCloseTimeout'
+--
+-- * 'canwedaTaskList'
+--
+-- * 'canwedaTaskPriority'
+--
+-- * 'canwedaChildPolicy'
+data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList :: Maybe [Text], _canwedaTaskStartToCloseTimeout :: Maybe Text, _canwedaInput :: Maybe Text, _canwedaWorkflowTypeVersion :: Maybe Text, _canwedaExecutionStartToCloseTimeout :: Maybe Text, _canwedaTaskList :: Maybe TaskList, _canwedaTaskPriority :: Maybe Text, _canwedaChildPolicy :: Maybe ChildPolicy} deriving (Eq, Read, Show)
+
+-- | 'ContinueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
+continueAsNewWorkflowExecutionDecisionAttributes :: ContinueAsNewWorkflowExecutionDecisionAttributes
+continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList = Nothing, _canwedaTaskStartToCloseTimeout = Nothing, _canwedaInput = Nothing, _canwedaWorkflowTypeVersion = Nothing, _canwedaExecutionStartToCloseTimeout = Nothing, _canwedaTaskList = Nothing, _canwedaTaskPriority = Nothing, _canwedaChildPolicy = Nothing};
+
+-- | The list of tags to associate with the new workflow execution. A maximum
+-- of 5 tags can be specified. You can list workflow executions with a
+-- specific tag by calling ListOpenWorkflowExecutions or
+-- ListClosedWorkflowExecutions and specifying a TagFilter.
+canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
+canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default;
+
+-- | Specifies the maximum duration of decision tasks for the new workflow
+-- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
+-- specified when registering the workflow type using RegisterWorkflowType.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+--
+-- A task start-to-close timeout for the new workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default task
+-- start-to-close timeout was specified at registration time then a fault
+-- will be returned.
+canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaTaskStartToCloseTimeout = lens _canwedaTaskStartToCloseTimeout (\ s a -> s{_canwedaTaskStartToCloseTimeout = a});
+
+-- | The input provided to the new workflow execution.
+canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaInput = lens _canwedaInput (\ s a -> s{_canwedaInput = a});
+
+-- | FIXME: Undocumented member.
+canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwedaWorkflowTypeVersion = a});
+
+-- | If set, specifies the total duration for this workflow execution. This
+-- overrides the @defaultExecutionStartToCloseTimeout@ specified when
+-- registering the workflow type.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+--
+-- An execution start-to-close timeout for this workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- field. If neither this field is set nor a default execution
+-- start-to-close timeout was specified at registration time then a fault
+-- will be returned.
+canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaExecutionStartToCloseTimeout = lens _canwedaExecutionStartToCloseTimeout (\ s a -> s{_canwedaExecutionStartToCloseTimeout = a});
+
+-- | FIXME: Undocumented member.
+canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe TaskList)
+canwedaTaskList = lens _canwedaTaskList (\ s a -> s{_canwedaTaskList = a});
+
+-- | /Optional./ The task priority that, if set, specifies the priority for
+-- the decision tasks for this workflow execution. This overrides the
+-- defaultTaskPriority specified when registering the workflow type. Valid
+-- values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+canwedaTaskPriority :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority = a});
+
+-- | If set, specifies the policy to use for the child workflow executions of
+-- the new execution if it is terminated by calling the
+-- TerminateWorkflowExecution action explicitly or due to an expired
+-- timeout. This policy overrides the default child policy specified when
+-- registering the workflow type using RegisterWorkflowType.
+--
+-- The supported child policies are:
+--
+-- -   __TERMINATE:__ the child executions will be terminated.
+-- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each
+--     child execution by recording a @WorkflowExecutionCancelRequested@
+--     event in its history. It is up to the decider to take appropriate
+--     actions when it receives an execution history with this event.
+-- -   __ABANDON:__ no action will be taken. The child executions will
+--     continue to run.
+--
+-- A child policy for this workflow execution must be specified either as a
+-- default for the workflow type or through this parameter. If neither this
+-- parameter is set nor a default child policy was specified at
+-- registration time then a fault will be returned.
+canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
+canwedaChildPolicy = lens _canwedaChildPolicy (\ s a -> s{_canwedaChildPolicy = a});
+
+instance ToJSON
+         ContinueAsNewWorkflowExecutionDecisionAttributes
+         where
+        toJSON
+          ContinueAsNewWorkflowExecutionDecisionAttributes'{..}
+          = object
+              ["tagList" .= _canwedaTagList,
+               "taskStartToCloseTimeout" .=
+                 _canwedaTaskStartToCloseTimeout,
+               "input" .= _canwedaInput,
+               "workflowTypeVersion" .= _canwedaWorkflowTypeVersion,
+               "executionStartToCloseTimeout" .=
+                 _canwedaExecutionStartToCloseTimeout,
+               "taskList" .= _canwedaTaskList,
+               "taskPriority" .= _canwedaTaskPriority,
+               "childPolicy" .= _canwedaChildPolicy]
+
+-- | Provides details of the @ContinueAsNewWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'continueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'canwefeaCause'
+--
+-- * 'canwefeaDecisionTaskCompletedEventId'
+data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes'{_canwefeaCause :: ContinueAsNewWorkflowExecutionFailedCause, _canwefeaDecisionTaskCompletedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'ContinueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
+continueAsNewWorkflowExecutionFailedEventAttributes :: ContinueAsNewWorkflowExecutionFailedCause -> Integer -> ContinueAsNewWorkflowExecutionFailedEventAttributes
+continueAsNewWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId = ContinueAsNewWorkflowExecutionFailedEventAttributes'{_canwefeaCause = pCause, _canwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId};
+
+-- | The cause of the failure. This information is generated by the system
+-- and can be useful for diagnostic purposes.
+--
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes ContinueAsNewWorkflowExecutionFailedCause
+canwefeaCause = lens _canwefeaCause (\ s a -> s{_canwefeaCause = a});
+
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- decision task that resulted in the @ContinueAsNewWorkflowExecution@
+-- decision that started this execution. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+canwefeaDecisionTaskCompletedEventId :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Integer
+canwefeaDecisionTaskCompletedEventId = lens _canwefeaDecisionTaskCompletedEventId (\ s a -> s{_canwefeaDecisionTaskCompletedEventId = a});
+
+instance FromJSON
+         ContinueAsNewWorkflowExecutionFailedEventAttributes
+         where
+        parseJSON
+          = withObject
+              "ContinueAsNewWorkflowExecutionFailedEventAttributes"
+              (\ x ->
+                 ContinueAsNewWorkflowExecutionFailedEventAttributes'
+                   <$>
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
+
+-- | Specifies a decision made by the decider. A decision can be one of these
+-- types:
+--
+-- -   __CancelTimer__: cancels a previously started timer and records a
+--     @TimerCanceled@ event in the history.
+-- -   __CancelWorkflowExecution__: closes the workflow execution and
+--     records a @WorkflowExecutionCanceled@ event in the history.
+-- -   __CompleteWorkflowExecution__: closes the workflow execution and
+--     records a @WorkflowExecutionCompleted@ event in the history .
+-- -   __ContinueAsNewWorkflowExecution__: closes the workflow execution
+--     and starts a new workflow execution of the same type using the same
+--     workflow id and a unique run Id. A @WorkflowExecutionContinuedAsNew@
+--     event is recorded in the history.
+-- -   __FailWorkflowExecution__: closes the workflow execution and records
+--     a @WorkflowExecutionFailed@ event in the history.
+-- -   __RecordMarker__: records a @MarkerRecorded@ event in the history.
+--     Markers can be used for adding custom information in the history for
+--     instance to let deciders know that they do not need to look at the
+--     history beyond the marker event.
+-- -   __RequestCancelActivityTask__: attempts to cancel a previously
+--     scheduled activity task. If the activity task was scheduled but has
+--     not been assigned to a worker, then it will be canceled. If the
+--     activity task was already assigned to a worker, then the worker will
+--     be informed that cancellation has been requested in the response to
+--     RecordActivityTaskHeartbeat.
+-- -   __RequestCancelExternalWorkflowExecution__: requests that a request
+--     be made to cancel the specified external workflow execution and
+--     records a @RequestCancelExternalWorkflowExecutionInitiated@ event in
+--     the history.
+-- -   __ScheduleActivityTask__: schedules an activity task.
+-- -   __SignalExternalWorkflowExecution__: requests a signal to be
+--     delivered to the specified external workflow execution and records a
+--     @SignalExternalWorkflowExecutionInitiated@ event in the history.
+-- -   __StartChildWorkflowExecution__: requests that a child workflow
+--     execution be started and records a
+--     @StartChildWorkflowExecutionInitiated@ event in the history. The
+--     child workflow execution is a separate workflow execution with its
+--     own history.
+-- -   __StartTimer__: starts a timer for this workflow execution and
+--     records a @TimerStarted@ event in the history. This timer will fire
+--     after the specified delay and record a @TimerFired@ event.
+--
+-- __Access Control__
+--
+-- If you grant permission to use @RespondDecisionTaskCompleted@, you can
+-- use IAM policies to express permissions for the list of decisions
+-- returned by this action as if they were members of the API. Treating
+-- decisions as a pseudo API maintains a uniform conceptual model and helps
+-- keep policies readable. For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- __Decision Failure__
+--
+-- Decisions can fail for several reasons
+--
+-- -   The ordering of decisions should follow a logical flow. Some
+--     decisions might not make sense in the current context of the
+--     workflow execution and will therefore fail.
+-- -   A limit on your account was reached.
+-- -   The decision lacks sufficient permissions.
+--
+-- One of the following events might be added to the history to indicate an
+-- error. The event attribute\'s __cause__ parameter indicates the cause.
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- -   __ScheduleActivityTaskFailed__: a ScheduleActivityTask decision
+--     failed. This could happen if the activity type specified in the
+--     decision is not registered, is in a deprecated state, or the
+--     decision is not properly configured.
+-- -   __RequestCancelActivityTaskFailed__: a RequestCancelActivityTask
+--     decision failed. This could happen if there is no open activity task
+--     with the specified activityId.
+-- -   __StartTimerFailed__: a StartTimer decision failed. This could
+--     happen if there is another open timer with the same timerId.
+-- -   __CancelTimerFailed__: a CancelTimer decision failed. This could
+--     happen if there is no open timer with the specified timerId.
+-- -   __StartChildWorkflowExecutionFailed__: a StartChildWorkflowExecution
+--     decision failed. This could happen if the workflow type specified is
+--     not registered, is deprecated, or the decision is not properly
+--     configured.
+-- -   __SignalExternalWorkflowExecutionFailed__: a
+--     SignalExternalWorkflowExecution decision failed. This could happen
+--     if the @workflowID@ specified in the decision was incorrect.
+-- -   __RequestCancelExternalWorkflowExecutionFailed__: a
+--     RequestCancelExternalWorkflowExecution decision failed. This could
+--     happen if the @workflowID@ specified in the decision was incorrect.
+-- -   __CancelWorkflowExecutionFailed__: a CancelWorkflowExecution
+--     decision failed. This could happen if there is an unhandled decision
+--     task pending in the workflow execution.
+-- -   __CompleteWorkflowExecutionFailed__: a CompleteWorkflowExecution
+--     decision failed. This could happen if there is an unhandled decision
+--     task pending in the workflow execution.
+-- -   __ContinueAsNewWorkflowExecutionFailed__: a
+--     ContinueAsNewWorkflowExecution decision failed. This could happen if
+--     there is an unhandled decision task pending in the workflow
+--     execution or the ContinueAsNewWorkflowExecution decision was not
+--     configured correctly.
+-- -   __FailWorkflowExecutionFailed__: a FailWorkflowExecution decision
+--     failed. This could happen if there is an unhandled decision task
+--     pending in the workflow execution.
+--
+-- The preceding error events might occur due to an error in the decider
+-- logic, which might put the workflow execution in an unstable state The
+-- cause field in the event structure for the error event indicates the
+-- cause of the error.
+--
+-- A workflow execution may be closed by the decider by returning one of
+-- the following decisions when completing a decision task:
+-- @CompleteWorkflowExecution@, @FailWorkflowExecution@,
+-- @CancelWorkflowExecution@ and @ContinueAsNewWorkflowExecution@. An
+-- UnhandledDecision fault will be returned if a workflow closing decision
+-- is specified and a signal or activity event had been added to the
+-- history while the decision task was being performed by the decider.
+-- Unlike the above situations which are logic issues, this fault is always
+-- possible because of race conditions in a distributed system. The right
+-- action here is to call RespondDecisionTaskCompleted without any
+-- decisions. This would result in another decision task with these new
+-- events included in the history. The decider should handle the new events
+-- and may decide to close the workflow execution.
+--
+-- __How to Code a Decision__
+--
+-- You code a decision by first setting the decision type field to one of
+-- the above decision values, and then set the corresponding attributes
+-- field shown below:
+--
+-- -   ScheduleActivityTaskDecisionAttributes
+-- -   RequestCancelActivityTaskDecisionAttributes
+-- -   CompleteWorkflowExecutionDecisionAttributes
+-- -   FailWorkflowExecutionDecisionAttributes
+-- -   CancelWorkflowExecutionDecisionAttributes
+-- -   ContinueAsNewWorkflowExecutionDecisionAttributes
+-- -   RecordMarkerDecisionAttributes
+-- -   StartTimerDecisionAttributes
+-- -   CancelTimerDecisionAttributes
+-- -   SignalExternalWorkflowExecutionDecisionAttributes
+-- -   RequestCancelExternalWorkflowExecutionDecisionAttributes
+-- -   StartChildWorkflowExecutionDecisionAttributes
+--
+-- /See:/ 'decision' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'decRequestCancelExternalWorkflowExecutionDecisionAttributes'
+--
+-- * 'decScheduleActivityTaskDecisionAttributes'
+--
+-- * 'decSignalExternalWorkflowExecutionDecisionAttributes'
+--
+-- * 'decStartTimerDecisionAttributes'
+--
+-- * 'decRecordMarkerDecisionAttributes'
+--
+-- * 'decFailWorkflowExecutionDecisionAttributes'
+--
+-- * 'decStartChildWorkflowExecutionDecisionAttributes'
+--
+-- * 'decCompleteWorkflowExecutionDecisionAttributes'
+--
+-- * 'decRequestCancelActivityTaskDecisionAttributes'
+--
+-- * 'decCancelWorkflowExecutionDecisionAttributes'
+--
+-- * 'decCancelTimerDecisionAttributes'
+--
+-- * 'decContinueAsNewWorkflowExecutionDecisionAttributes'
+--
+-- * 'decDecisionType'
+data Decision = Decision'{_decRequestCancelExternalWorkflowExecutionDecisionAttributes :: Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes, _decScheduleActivityTaskDecisionAttributes :: Maybe ScheduleActivityTaskDecisionAttributes, _decSignalExternalWorkflowExecutionDecisionAttributes :: Maybe SignalExternalWorkflowExecutionDecisionAttributes, _decStartTimerDecisionAttributes :: Maybe StartTimerDecisionAttributes, _decRecordMarkerDecisionAttributes :: Maybe RecordMarkerDecisionAttributes, _decFailWorkflowExecutionDecisionAttributes :: Maybe FailWorkflowExecutionDecisionAttributes, _decStartChildWorkflowExecutionDecisionAttributes :: Maybe StartChildWorkflowExecutionDecisionAttributes, _decCompleteWorkflowExecutionDecisionAttributes :: Maybe CompleteWorkflowExecutionDecisionAttributes, _decRequestCancelActivityTaskDecisionAttributes :: Maybe RequestCancelActivityTaskDecisionAttributes, _decCancelWorkflowExecutionDecisionAttributes :: Maybe CancelWorkflowExecutionDecisionAttributes, _decCancelTimerDecisionAttributes :: Maybe CancelTimerDecisionAttributes, _decContinueAsNewWorkflowExecutionDecisionAttributes :: Maybe ContinueAsNewWorkflowExecutionDecisionAttributes, _decDecisionType :: DecisionType} deriving (Eq, Read, Show)
+
+-- | 'Decision' smart constructor.
+decision :: DecisionType -> Decision
+decision pDecisionType = Decision'{_decRequestCancelExternalWorkflowExecutionDecisionAttributes = Nothing, _decScheduleActivityTaskDecisionAttributes = Nothing, _decSignalExternalWorkflowExecutionDecisionAttributes = Nothing, _decStartTimerDecisionAttributes = Nothing, _decRecordMarkerDecisionAttributes = Nothing, _decFailWorkflowExecutionDecisionAttributes = Nothing, _decStartChildWorkflowExecutionDecisionAttributes = Nothing, _decCompleteWorkflowExecutionDecisionAttributes = Nothing, _decRequestCancelActivityTaskDecisionAttributes = Nothing, _decCancelWorkflowExecutionDecisionAttributes = Nothing, _decCancelTimerDecisionAttributes = Nothing, _decContinueAsNewWorkflowExecutionDecisionAttributes = Nothing, _decDecisionType = pDecisionType};
+
+-- | Provides details of the @RequestCancelExternalWorkflowExecution@
+-- decision. It is not set for other decision types.
+decRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
+decRequestCancelExternalWorkflowExecutionDecisionAttributes = lens _decRequestCancelExternalWorkflowExecutionDecisionAttributes (\ s a -> s{_decRequestCancelExternalWorkflowExecutionDecisionAttributes = a});
+
+-- | Provides details of the @ScheduleActivityTask@ decision. It is not set
+-- for other decision types.
+decScheduleActivityTaskDecisionAttributes :: Lens' Decision (Maybe ScheduleActivityTaskDecisionAttributes)
+decScheduleActivityTaskDecisionAttributes = lens _decScheduleActivityTaskDecisionAttributes (\ s a -> s{_decScheduleActivityTaskDecisionAttributes = a});
+
+-- | Provides details of the @SignalExternalWorkflowExecution@ decision. It
+-- is not set for other decision types.
+decSignalExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe SignalExternalWorkflowExecutionDecisionAttributes)
+decSignalExternalWorkflowExecutionDecisionAttributes = lens _decSignalExternalWorkflowExecutionDecisionAttributes (\ s a -> s{_decSignalExternalWorkflowExecutionDecisionAttributes = a});
+
+-- | Provides details of the @StartTimer@ decision. It is not set for other
+-- decision types.
+decStartTimerDecisionAttributes :: Lens' Decision (Maybe StartTimerDecisionAttributes)
+decStartTimerDecisionAttributes = lens _decStartTimerDecisionAttributes (\ s a -> s{_decStartTimerDecisionAttributes = a});
+
+-- | Provides details of the @RecordMarker@ decision. It is not set for other
+-- decision types.
+decRecordMarkerDecisionAttributes :: Lens' Decision (Maybe RecordMarkerDecisionAttributes)
+decRecordMarkerDecisionAttributes = lens _decRecordMarkerDecisionAttributes (\ s a -> s{_decRecordMarkerDecisionAttributes = a});
+
+-- | Provides details of the @FailWorkflowExecution@ decision. It is not set
+-- for other decision types.
+decFailWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe FailWorkflowExecutionDecisionAttributes)
+decFailWorkflowExecutionDecisionAttributes = lens _decFailWorkflowExecutionDecisionAttributes (\ s a -> s{_decFailWorkflowExecutionDecisionAttributes = a});
+
+-- | Provides details of the @StartChildWorkflowExecution@ decision. It is
+-- not set for other decision types.
+decStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
+decStartChildWorkflowExecutionDecisionAttributes = lens _decStartChildWorkflowExecutionDecisionAttributes (\ s a -> s{_decStartChildWorkflowExecutionDecisionAttributes = a});
+
+-- | Provides details of the @CompleteWorkflowExecution@ decision. It is not
+-- set for other decision types.
+decCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
+decCompleteWorkflowExecutionDecisionAttributes = lens _decCompleteWorkflowExecutionDecisionAttributes (\ s a -> s{_decCompleteWorkflowExecutionDecisionAttributes = a});
+
+-- | Provides details of the @RequestCancelActivityTask@ decision. It is not
+-- set for other decision types.
+decRequestCancelActivityTaskDecisionAttributes :: Lens' Decision (Maybe RequestCancelActivityTaskDecisionAttributes)
+decRequestCancelActivityTaskDecisionAttributes = lens _decRequestCancelActivityTaskDecisionAttributes (\ s a -> s{_decRequestCancelActivityTaskDecisionAttributes = a});
+
+-- | Provides details of the @CancelWorkflowExecution@ decision. It is not
+-- set for other decision types.
+decCancelWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CancelWorkflowExecutionDecisionAttributes)
+decCancelWorkflowExecutionDecisionAttributes = lens _decCancelWorkflowExecutionDecisionAttributes (\ s a -> s{_decCancelWorkflowExecutionDecisionAttributes = a});
+
+-- | Provides details of the @CancelTimer@ decision. It is not set for other
+-- decision types.
+decCancelTimerDecisionAttributes :: Lens' Decision (Maybe CancelTimerDecisionAttributes)
+decCancelTimerDecisionAttributes = lens _decCancelTimerDecisionAttributes (\ s a -> s{_decCancelTimerDecisionAttributes = a});
+
+-- | Provides details of the @ContinueAsNewWorkflowExecution@ decision. It is
+-- not set for other decision types.
+decContinueAsNewWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
+decContinueAsNewWorkflowExecutionDecisionAttributes = lens _decContinueAsNewWorkflowExecutionDecisionAttributes (\ s a -> s{_decContinueAsNewWorkflowExecutionDecisionAttributes = a});
+
+-- | Specifies the type of the decision.
+decDecisionType :: Lens' Decision DecisionType
+decDecisionType = lens _decDecisionType (\ s a -> s{_decDecisionType = a});
+
+instance ToJSON Decision where
+        toJSON Decision'{..}
+          = object
+              ["requestCancelExternalWorkflowExecutionDecisionAttributes"
+                 .=
+                 _decRequestCancelExternalWorkflowExecutionDecisionAttributes,
+               "scheduleActivityTaskDecisionAttributes" .=
+                 _decScheduleActivityTaskDecisionAttributes,
+               "signalExternalWorkflowExecutionDecisionAttributes"
+                 .=
+                 _decSignalExternalWorkflowExecutionDecisionAttributes,
+               "startTimerDecisionAttributes" .=
+                 _decStartTimerDecisionAttributes,
+               "recordMarkerDecisionAttributes" .=
+                 _decRecordMarkerDecisionAttributes,
+               "failWorkflowExecutionDecisionAttributes" .=
+                 _decFailWorkflowExecutionDecisionAttributes,
+               "startChildWorkflowExecutionDecisionAttributes" .=
+                 _decStartChildWorkflowExecutionDecisionAttributes,
+               "completeWorkflowExecutionDecisionAttributes" .=
+                 _decCompleteWorkflowExecutionDecisionAttributes,
+               "requestCancelActivityTaskDecisionAttributes" .=
+                 _decRequestCancelActivityTaskDecisionAttributes,
+               "cancelWorkflowExecutionDecisionAttributes" .=
+                 _decCancelWorkflowExecutionDecisionAttributes,
+               "cancelTimerDecisionAttributes" .=
+                 _decCancelTimerDecisionAttributes,
+               "continueAsNewWorkflowExecutionDecisionAttributes" .=
+                 _decContinueAsNewWorkflowExecutionDecisionAttributes,
+               "decisionType" .= _decDecisionType]
+
+-- | Provides details of the @DecisionTaskCompleted@ event.
+--
+-- /See:/ 'decisionTaskCompletedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dtceaExecutionContext'
+--
+-- * 'dtceaScheduledEventId'
+--
+-- * 'dtceaStartedEventId'
+data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes'{_dtceaExecutionContext :: Maybe Text, _dtceaScheduledEventId :: Integer, _dtceaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'DecisionTaskCompletedEventAttributes' smart constructor.
+decisionTaskCompletedEventAttributes :: Integer -> Integer -> DecisionTaskCompletedEventAttributes
+decisionTaskCompletedEventAttributes pScheduledEventId pStartedEventId = DecisionTaskCompletedEventAttributes'{_dtceaExecutionContext = Nothing, _dtceaScheduledEventId = pScheduledEventId, _dtceaStartedEventId = pStartedEventId};
+
+-- | User defined context for the workflow execution.
+dtceaExecutionContext :: Lens' DecisionTaskCompletedEventAttributes (Maybe Text)
+dtceaExecutionContext = lens _dtceaExecutionContext (\ s a -> s{_dtceaExecutionContext = a});
+
+-- | The id of the @DecisionTaskScheduled@ event that was recorded when this
+-- decision task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+dtceaScheduledEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
+dtceaScheduledEventId = lens _dtceaScheduledEventId (\ s a -> s{_dtceaScheduledEventId = a});
+
+-- | The Id of the @DecisionTaskStarted@ event recorded when this decision
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
+dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
+dtceaStartedEventId = lens _dtceaStartedEventId (\ s a -> s{_dtceaStartedEventId = a});
+
+instance FromJSON
+         DecisionTaskCompletedEventAttributes where
+        parseJSON
+          = withObject "DecisionTaskCompletedEventAttributes"
+              (\ x ->
+                 DecisionTaskCompletedEventAttributes' <$>
+                   (x .:? "executionContext") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details about the @DecisionTaskScheduled@ event.
+--
+-- /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dtseaTaskPriority'
+--
+-- * 'dtseaStartToCloseTimeout'
+--
+-- * 'dtseaTaskList'
+data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes'{_dtseaTaskPriority :: Maybe Text, _dtseaStartToCloseTimeout :: Maybe Text, _dtseaTaskList :: TaskList} deriving (Eq, Read, Show)
+
+-- | 'DecisionTaskScheduledEventAttributes' smart constructor.
+decisionTaskScheduledEventAttributes :: TaskList -> DecisionTaskScheduledEventAttributes
+decisionTaskScheduledEventAttributes pTaskList = DecisionTaskScheduledEventAttributes'{_dtseaTaskPriority = Nothing, _dtseaStartToCloseTimeout = Nothing, _dtseaTaskList = pTaskList};
+
+-- | /Optional./ A task priority that, if set, specifies the priority for
+-- this decision task. Valid values are integers that range from Java\'s
+-- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
+-- Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+dtseaTaskPriority :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
+dtseaTaskPriority = lens _dtseaTaskPriority (\ s a -> s{_dtseaTaskPriority = a});
+
+-- | The maximum duration for this decision task. The task is considered
+-- timed out if it does not completed within this duration.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+dtseaStartToCloseTimeout :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
+dtseaStartToCloseTimeout = lens _dtseaStartToCloseTimeout (\ s a -> s{_dtseaStartToCloseTimeout = a});
+
+-- | The name of the task list in which the decision task was scheduled.
+dtseaTaskList :: Lens' DecisionTaskScheduledEventAttributes TaskList
+dtseaTaskList = lens _dtseaTaskList (\ s a -> s{_dtseaTaskList = a});
+
+instance FromJSON
+         DecisionTaskScheduledEventAttributes where
+        parseJSON
+          = withObject "DecisionTaskScheduledEventAttributes"
+              (\ x ->
+                 DecisionTaskScheduledEventAttributes' <$>
+                   (x .:? "taskPriority") <*>
+                     (x .:? "startToCloseTimeout")
+                     <*> (x .: "taskList"))
+
+-- | Provides details of the @DecisionTaskStarted@ event.
+--
+-- /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dtseaIdentity'
+--
+-- * 'dtseaScheduledEventId'
+data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'{_dtseaIdentity :: Maybe Text, _dtseaScheduledEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'DecisionTaskStartedEventAttributes' smart constructor.
+decisionTaskStartedEventAttributes :: Integer -> DecisionTaskStartedEventAttributes
+decisionTaskStartedEventAttributes pScheduledEventId = DecisionTaskStartedEventAttributes'{_dtseaIdentity = Nothing, _dtseaScheduledEventId = pScheduledEventId};
+
+-- | Identity of the decider making the request. This enables diagnostic
+-- tracing when problems arise. The form of this identity is user defined.
+dtseaIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
+dtseaIdentity = lens _dtseaIdentity (\ s a -> s{_dtseaIdentity = a});
+
+-- | The id of the @DecisionTaskScheduled@ event that was recorded when this
+-- decision task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+dtseaScheduledEventId :: Lens' DecisionTaskStartedEventAttributes Integer
+dtseaScheduledEventId = lens _dtseaScheduledEventId (\ s a -> s{_dtseaScheduledEventId = a});
+
+instance FromJSON DecisionTaskStartedEventAttributes
+         where
+        parseJSON
+          = withObject "DecisionTaskStartedEventAttributes"
+              (\ x ->
+                 DecisionTaskStartedEventAttributes' <$>
+                   (x .:? "identity") <*> (x .: "scheduledEventId"))
+
+-- | Provides details of the @DecisionTaskTimedOut@ event.
+--
+-- /See:/ 'decisionTaskTimedOutEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dttoeaTimeoutType'
+--
+-- * 'dttoeaScheduledEventId'
+--
+-- * 'dttoeaStartedEventId'
+data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'{_dttoeaTimeoutType :: DecisionTaskTimeoutType, _dttoeaScheduledEventId :: Integer, _dttoeaStartedEventId :: Integer} deriving (Eq, Read, Show)
+
+-- | 'DecisionTaskTimedOutEventAttributes' smart constructor.
+decisionTaskTimedOutEventAttributes :: DecisionTaskTimeoutType -> Integer -> Integer -> DecisionTaskTimedOutEventAttributes
+decisionTaskTimedOutEventAttributes pTimeoutType pScheduledEventId pStartedEventId = DecisionTaskTimedOutEventAttributes'{_dttoeaTimeoutType = pTimeoutType, _dttoeaScheduledEventId = pScheduledEventId, _dttoeaStartedEventId = pStartedEventId};
+
+-- | The type of timeout that expired before the decision task could be
+-- completed.
+dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
+dttoeaTimeoutType = lens _dttoeaTimeoutType (\ s a -> s{_dttoeaTimeoutType = a});
+
+-- | The id of the @DecisionTaskScheduled@ event that was recorded when this
+-- decision task was scheduled. This information can be useful for
+-- diagnosing problems by tracing back the chain of events leading up to
+-- this event.
+dttoeaScheduledEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
+dttoeaScheduledEventId = lens _dttoeaScheduledEventId (\ s a -> s{_dttoeaScheduledEventId = a});
+
+-- | The Id of the @DecisionTaskStarted@ event recorded when this decision
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
+dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
+dttoeaStartedEventId = lens _dttoeaStartedEventId (\ s a -> s{_dttoeaStartedEventId = a});
+
+instance FromJSON DecisionTaskTimedOutEventAttributes
+         where
+        parseJSON
+          = withObject "DecisionTaskTimedOutEventAttributes"
+              (\ x ->
+                 DecisionTaskTimedOutEventAttributes' <$>
+                   (x .: "timeoutType") <*> (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Contains the configuration settings of a domain.
+--
+-- /See:/ 'domainConfiguration' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcWorkflowExecutionRetentionPeriodInDays'
+newtype DomainConfiguration = DomainConfiguration'{_dcWorkflowExecutionRetentionPeriodInDays :: Text} deriving (Eq, Read, Show)
+
+-- | 'DomainConfiguration' smart constructor.
+domainConfiguration :: Text -> DomainConfiguration
+domainConfiguration pWorkflowExecutionRetentionPeriodInDays = DomainConfiguration'{_dcWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays};
+
+-- | The retention period for workflow executions in this domain.
+dcWorkflowExecutionRetentionPeriodInDays :: Lens' DomainConfiguration Text
+dcWorkflowExecutionRetentionPeriodInDays = lens _dcWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_dcWorkflowExecutionRetentionPeriodInDays = a});
+
+instance FromJSON DomainConfiguration where
+        parseJSON
+          = withObject "DomainConfiguration"
+              (\ x ->
+                 DomainConfiguration' <$>
+                   (x .: "workflowExecutionRetentionPeriodInDays"))
+
+-- | Contains general information about a domain.
+--
+-- /See:/ 'domainInfo' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'diDescription'
+--
+-- * 'diName'
+--
+-- * 'diStatus'
+data DomainInfo = DomainInfo'{_diDescription :: Maybe Text, _diName :: Text, _diStatus :: RegistrationStatus} deriving (Eq, Read, Show)
+
+-- | 'DomainInfo' smart constructor.
+domainInfo :: Text -> RegistrationStatus -> DomainInfo
+domainInfo pName pStatus = DomainInfo'{_diDescription = Nothing, _diName = pName, _diStatus = pStatus};
+
+-- | The description of the domain provided through RegisterDomain.
+diDescription :: Lens' DomainInfo (Maybe Text)
+diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
+
+-- | The name of the domain. This name is unique within the account.
+diName :: Lens' DomainInfo Text
+diName = lens _diName (\ s a -> s{_diName = a});
+
+-- | The status of the domain:
+--
+-- -   __REGISTERED__: The domain is properly registered and available. You
+--     can use this domain for registering types and creating new workflow
+--     executions.
+-- -   __DEPRECATED__: The domain was deprecated using DeprecateDomain, but
+--     is still in use. You should not create new workflow executions in
+--     this domain.
+diStatus :: Lens' DomainInfo RegistrationStatus
+diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
+
+instance FromJSON DomainInfo where
+        parseJSON
+          = withObject "DomainInfo"
+              (\ x ->
+                 DomainInfo' <$>
+                   (x .:? "description") <*> (x .: "name") <*>
+                     (x .: "status"))
+
+-- | Used to filter the workflow executions in visibility APIs by various
+-- time-based rules. Each parameter, if specified, defines a rule that must
+-- be satisfied by each returned query result. The parameter values are in
+-- the <https://en.wikipedia.org/wiki/Unix_time Unix Time format>. For
+-- example: @\"oldestDate\": 1325376070.@
+--
+-- /See:/ 'executionTimeFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2832,7 +3462,10 @@ instance ToJSON ExecutionTimeFilter where
               ["latestDate" .= _etfLatestDate,
                "oldestDate" .= _etfOldestDate]
 
--- | /See:/ 'externalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
+-- | Provides details of the @ExternalWorkflowExecutionCancelRequested@
+-- event.
+--
+-- /See:/ 'externalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2870,7 +3503,9 @@ instance FromJSON
                    (x .: "workflowExecution") <*>
                      (x .: "initiatedEventId"))
 
--- | /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
+-- | Provides details of the @ExternalWorkflowExecutionSignaled@ event.
+--
+-- /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2905,7 +3540,27 @@ instance FromJSON
                    (x .: "workflowExecution") <*>
                      (x .: "initiatedEventId"))
 
--- | /See:/ 'failWorkflowExecutionDecisionAttributes' smart constructor.
+-- | Provides details of the @FailWorkflowExecution@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'failWorkflowExecutionDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2933,27 +3588,9 @@ instance ToJSON
               ["reason" .= _fwedaReason,
                "details" .= _fwedaDetails]
 
-data FailWorkflowExecutionFailedCause = FWEFCUnhandledDecision | FWEFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText FailWorkflowExecutionFailedCause where
-    parser = takeLowerText >>= \case
-        "OPERATION_NOT_PERMITTED" -> pure FWEFCOperationNotPermitted
-        "UNHANDLED_DECISION" -> pure FWEFCUnhandledDecision
-        e -> fail ("Failure parsing FailWorkflowExecutionFailedCause from " ++ show e)
-
-instance ToText FailWorkflowExecutionFailedCause where
-    toText = \case
-        FWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-        FWEFCUnhandledDecision -> "UNHANDLED_DECISION"
-
-instance Hashable FailWorkflowExecutionFailedCause
-instance ToQuery FailWorkflowExecutionFailedCause
-instance ToHeader FailWorkflowExecutionFailedCause
-
-instance FromJSON FailWorkflowExecutionFailedCause where
-    parseJSON = parseJSONText "FailWorkflowExecutionFailedCause"
-
--- | /See:/ 'failWorkflowExecutionFailedEventAttributes' smart constructor.
+-- | Provides details of the @FailWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'failWorkflowExecutionFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2993,7 +3630,104 @@ instance FromJSON
                    (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'historyEvent' smart constructor.
+-- | Event within a workflow execution. A history event can be one of these
+-- types:
+--
+-- -   __WorkflowExecutionStarted__: The workflow execution was started.
+-- -   __WorkflowExecutionCompleted__: The workflow execution was closed
+--     due to successful completion.
+-- -   __WorkflowExecutionFailed__: The workflow execution closed due to a
+--     failure.
+-- -   __WorkflowExecutionTimedOut__: The workflow execution was closed
+--     because a time out was exceeded.
+-- -   __WorkflowExecutionCanceled__: The workflow execution was
+--     successfully canceled and closed.
+-- -   __WorkflowExecutionTerminated__: The workflow execution was
+--     terminated.
+-- -   __WorkflowExecutionContinuedAsNew__: The workflow execution was
+--     closed and a new execution of the same type was created with the
+--     same workflowId.
+-- -   __WorkflowExecutionCancelRequested__: A request to cancel this
+--     workflow execution was made.
+-- -   __DecisionTaskScheduled__: A decision task was scheduled for the
+--     workflow execution.
+-- -   __DecisionTaskStarted__: The decision task was dispatched to a
+--     decider.
+-- -   __DecisionTaskCompleted__: The decider successfully completed a
+--     decision task by calling RespondDecisionTaskCompleted.
+-- -   __DecisionTaskTimedOut__: The decision task timed out.
+-- -   __ActivityTaskScheduled__: An activity task was scheduled for
+--     execution.
+-- -   __ScheduleActivityTaskFailed__: Failed to process
+--     ScheduleActivityTask decision. This happens when the decision is not
+--     configured properly, for example the activity type specified is not
+--     registered.
+-- -   __ActivityTaskStarted__: The scheduled activity task was dispatched
+--     to a worker.
+-- -   __ActivityTaskCompleted__: An activity worker successfully completed
+--     an activity task by calling RespondActivityTaskCompleted.
+-- -   __ActivityTaskFailed__: An activity worker failed an activity task
+--     by calling RespondActivityTaskFailed.
+-- -   __ActivityTaskTimedOut__: The activity task timed out.
+-- -   __ActivityTaskCanceled__: The activity task was successfully
+--     canceled.
+-- -   __ActivityTaskCancelRequested__: A @RequestCancelActivityTask@
+--     decision was received by the system.
+-- -   __RequestCancelActivityTaskFailed__: Failed to process
+--     RequestCancelActivityTask decision. This happens when the decision
+--     is not configured properly.
+-- -   __WorkflowExecutionSignaled__: An external signal was received for
+--     the workflow execution.
+-- -   __MarkerRecorded__: A marker was recorded in the workflow history as
+--     the result of a @RecordMarker@ decision.
+-- -   __TimerStarted__: A timer was started for the workflow execution due
+--     to a @StartTimer@ decision.
+-- -   __StartTimerFailed__: Failed to process StartTimer decision. This
+--     happens when the decision is not configured properly, for example a
+--     timer already exists with the specified timer Id.
+-- -   __TimerFired__: A timer, previously started for this workflow
+--     execution, fired.
+-- -   __TimerCanceled__: A timer, previously started for this workflow
+--     execution, was successfully canceled.
+-- -   __CancelTimerFailed__: Failed to process CancelTimer decision. This
+--     happens when the decision is not configured properly, for example no
+--     timer exists with the specified timer Id.
+-- -   __StartChildWorkflowExecutionInitiated__: A request was made to
+--     start a child workflow execution.
+-- -   __StartChildWorkflowExecutionFailed__: Failed to process
+--     StartChildWorkflowExecution decision. This happens when the decision
+--     is not configured properly, for example the workflow type specified
+--     is not registered.
+-- -   __ChildWorkflowExecutionStarted__: A child workflow execution was
+--     successfully started.
+-- -   __ChildWorkflowExecutionCompleted__: A child workflow execution,
+--     started by this workflow execution, completed successfully and was
+--     closed.
+-- -   __ChildWorkflowExecutionFailed__: A child workflow execution,
+--     started by this workflow execution, failed to complete successfully
+--     and was closed.
+-- -   __ChildWorkflowExecutionTimedOut__: A child workflow execution,
+--     started by this workflow execution, timed out and was closed.
+-- -   __ChildWorkflowExecutionCanceled__: A child workflow execution,
+--     started by this workflow execution, was canceled and closed.
+-- -   __ChildWorkflowExecutionTerminated__: A child workflow execution,
+--     started by this workflow execution, was terminated.
+-- -   __SignalExternalWorkflowExecutionInitiated__: A request to signal an
+--     external workflow was made.
+-- -   __ExternalWorkflowExecutionSignaled__: A signal, requested by this
+--     workflow execution, was successfully delivered to the target
+--     external workflow execution.
+-- -   __SignalExternalWorkflowExecutionFailed__: The request to signal an
+--     external workflow execution failed.
+-- -   __RequestCancelExternalWorkflowExecutionInitiated__: A request was
+--     made to request the cancellation of an external workflow execution.
+-- -   __ExternalWorkflowExecutionCancelRequested__: Request to cancel an
+--     external workflow execution was successfully delivered to the target
+--     execution.
+-- -   __RequestCancelExternalWorkflowExecutionFailed__: Request to cancel
+--     an external workflow execution failed.
+--
+-- /See:/ 'historyEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3500,7 +4234,9 @@ instance FromJSON HistoryEvent where
                      <*> (x .: "eventType")
                      <*> (x .: "eventId"))
 
--- | /See:/ 'markerRecordedEventAttributes' smart constructor.
+-- | Provides details of the @MarkerRecorded@ event.
+--
+-- /See:/ 'markerRecordedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3538,7 +4274,9 @@ instance FromJSON MarkerRecordedEventAttributes where
                    (x .:? "details") <*> (x .: "markerName") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'pendingTaskCount' smart constructor.
+-- | Contains the count of tasks in a task list.
+--
+-- /See:/ 'pendingTaskCount' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3568,7 +4306,27 @@ instance FromJSON PendingTaskCount where
                  PendingTaskCount' <$>
                    (x .:? "truncated") <*> (x .: "count"))
 
--- | /See:/ 'recordMarkerDecisionAttributes' smart constructor.
+-- | Provides details of the @RecordMarker@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'recordMarkerDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3595,25 +4353,9 @@ instance ToJSON RecordMarkerDecisionAttributes where
               ["details" .= _rmdaDetails,
                "markerName" .= _rmdaMarkerName]
 
-data RecordMarkerFailedCause = RMFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RecordMarkerFailedCause where
-    parser = takeLowerText >>= \case
-        "OPERATION_NOT_PERMITTED" -> pure RMFCOperationNotPermitted
-        e -> fail ("Failure parsing RecordMarkerFailedCause from " ++ show e)
-
-instance ToText RecordMarkerFailedCause where
-    toText = \case
-        RMFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-
-instance Hashable RecordMarkerFailedCause
-instance ToQuery RecordMarkerFailedCause
-instance ToHeader RecordMarkerFailedCause
-
-instance FromJSON RecordMarkerFailedCause where
-    parseJSON = parseJSONText "RecordMarkerFailedCause"
-
--- | /See:/ 'recordMarkerFailedEventAttributes' smart constructor.
+-- | Provides details of the @RecordMarkerFailed@ event.
+--
+-- /See:/ 'recordMarkerFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3658,30 +4400,27 @@ instance FromJSON RecordMarkerFailedEventAttributes
                    (x .: "markerName") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
-data RegistrationStatus = Registered | Deprecated deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RegistrationStatus where
-    parser = takeLowerText >>= \case
-        "DEPRECATED" -> pure Deprecated
-        "REGISTERED" -> pure Registered
-        e -> fail ("Failure parsing RegistrationStatus from " ++ show e)
-
-instance ToText RegistrationStatus where
-    toText = \case
-        Deprecated -> "DEPRECATED"
-        Registered -> "REGISTERED"
-
-instance Hashable RegistrationStatus
-instance ToQuery RegistrationStatus
-instance ToHeader RegistrationStatus
-
-instance ToJSON RegistrationStatus where
-    toJSON = toJSONText
-
-instance FromJSON RegistrationStatus where
-    parseJSON = parseJSONText "RegistrationStatus"
-
--- | /See:/ 'requestCancelActivityTaskDecisionAttributes' smart constructor.
+-- | Provides details of the @RequestCancelActivityTask@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'requestCancelActivityTaskDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3702,27 +4441,9 @@ instance ToJSON
           RequestCancelActivityTaskDecisionAttributes'{..}
           = object ["activityId" .= _rcatdaActivityId]
 
-data RequestCancelActivityTaskFailedCause = RCATFCActivityIDUnknown | RCATFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RequestCancelActivityTaskFailedCause where
-    parser = takeLowerText >>= \case
-        "ACTIVITY_ID_UNKNOWN" -> pure RCATFCActivityIDUnknown
-        "OPERATION_NOT_PERMITTED" -> pure RCATFCOperationNotPermitted
-        e -> fail ("Failure parsing RequestCancelActivityTaskFailedCause from " ++ show e)
-
-instance ToText RequestCancelActivityTaskFailedCause where
-    toText = \case
-        RCATFCActivityIDUnknown -> "ACTIVITY_ID_UNKNOWN"
-        RCATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-
-instance Hashable RequestCancelActivityTaskFailedCause
-instance ToQuery RequestCancelActivityTaskFailedCause
-instance ToHeader RequestCancelActivityTaskFailedCause
-
-instance FromJSON RequestCancelActivityTaskFailedCause where
-    parseJSON = parseJSONText "RequestCancelActivityTaskFailedCause"
-
--- | /See:/ 'requestCancelActivityTaskFailedEventAttributes' smart constructor.
+-- | Provides details of the @RequestCancelActivityTaskFailed@ event.
+--
+-- /See:/ 'requestCancelActivityTaskFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3770,7 +4491,28 @@ instance FromJSON
                    (x .: "activityId") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'requestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
+-- | Provides details of the @RequestCancelExternalWorkflowExecution@
+-- decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'requestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3809,29 +4551,10 @@ instance ToJSON
                "runId" .= _rcewedaRunId,
                "workflowId" .= _rcewedaWorkflowId]
 
-data RequestCancelExternalWorkflowExecutionFailedCause = RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded | RCEWEFCUnknownExternalWorkflowExecution | RCEWEFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
-    parser = takeLowerText >>= \case
-        "OPERATION_NOT_PERMITTED" -> pure RCEWEFCOperationNotPermitted
-        "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" -> pure RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
-        "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION" -> pure RCEWEFCUnknownExternalWorkflowExecution
-        e -> fail ("Failure parsing RequestCancelExternalWorkflowExecutionFailedCause from " ++ show e)
-
-instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
-    toText = \case
-        RCEWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-        RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded -> "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-        RCEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
-
-instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
-instance ToQuery RequestCancelExternalWorkflowExecutionFailedCause
-instance ToHeader RequestCancelExternalWorkflowExecutionFailedCause
-
-instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
-    parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"
-
--- | /See:/ 'requestCancelExternalWorkflowExecutionFailedEventAttributes' smart constructor.
+-- | Provides details of the @RequestCancelExternalWorkflowExecutionFailed@
+-- event.
+--
+-- /See:/ 'requestCancelExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3906,7 +4629,10 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
+-- | Provides details of the
+-- @RequestCancelExternalWorkflowExecutionInitiated@ event.
+--
+-- /See:/ 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3957,7 +4683,33 @@ instance FromJSON
                      (x .: "workflowId")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'scheduleActivityTaskDecisionAttributes' smart constructor.
+-- | Provides details of the @ScheduleActivityTask@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   Constrain the following parameters by using a @Condition@ element
+--     with the appropriate keys.
+--     -   @activityType.name@: String constraint. The key is
+--         @swf:activityType.name@.
+--     -   @activityType.version@: String constraint. The key is
+--         @swf:activityType.version@.
+--     -   @taskList@: String constraint. The key is @swf:taskList.name@.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'scheduleActivityTaskDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4107,45 +4859,9 @@ instance ToJSON
                "activityType" .= _satdaActivityType,
                "activityId" .= _satdaActivityId]
 
-data ScheduleActivityTaskFailedCause = SATFCDefaultStartTOCloseTimeoutUndefined | SATFCDefaultScheduleTOStartTimeoutUndefined | SATFCOpenActivitiesLimitExceeded | SATFCActivityTypeDoesNotExist | SATFCDefaultTaskListUndefined | SATFCOperationNotPermitted | SATFCActivityTypeDeprecated | SATFCActivityCreationRateExceeded | SATFCDefaultScheduleTOCloseTimeoutUndefined | SATFCActivityIDAlreadyINUse | SATFCDefaultHeartbeatTimeoutUndefined deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ScheduleActivityTaskFailedCause where
-    parser = takeLowerText >>= \case
-        "ACTIVITY_CREATION_RATE_EXCEEDED" -> pure SATFCActivityCreationRateExceeded
-        "ACTIVITY_ID_ALREADY_IN_USE" -> pure SATFCActivityIDAlreadyINUse
-        "ACTIVITY_TYPE_DEPRECATED" -> pure SATFCActivityTypeDeprecated
-        "ACTIVITY_TYPE_DOES_NOT_EXIST" -> pure SATFCActivityTypeDoesNotExist
-        "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED" -> pure SATFCDefaultHeartbeatTimeoutUndefined
-        "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SATFCDefaultScheduleTOCloseTimeoutUndefined
-        "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED" -> pure SATFCDefaultScheduleTOStartTimeoutUndefined
-        "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SATFCDefaultStartTOCloseTimeoutUndefined
-        "DEFAULT_TASK_LIST_UNDEFINED" -> pure SATFCDefaultTaskListUndefined
-        "OPEN_ACTIVITIES_LIMIT_EXCEEDED" -> pure SATFCOpenActivitiesLimitExceeded
-        "OPERATION_NOT_PERMITTED" -> pure SATFCOperationNotPermitted
-        e -> fail ("Failure parsing ScheduleActivityTaskFailedCause from " ++ show e)
-
-instance ToText ScheduleActivityTaskFailedCause where
-    toText = \case
-        SATFCActivityCreationRateExceeded -> "ACTIVITY_CREATION_RATE_EXCEEDED"
-        SATFCActivityIDAlreadyINUse -> "ACTIVITY_ID_ALREADY_IN_USE"
-        SATFCActivityTypeDeprecated -> "ACTIVITY_TYPE_DEPRECATED"
-        SATFCActivityTypeDoesNotExist -> "ACTIVITY_TYPE_DOES_NOT_EXIST"
-        SATFCDefaultHeartbeatTimeoutUndefined -> "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
-        SATFCDefaultScheduleTOCloseTimeoutUndefined -> "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
-        SATFCDefaultScheduleTOStartTimeoutUndefined -> "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
-        SATFCDefaultStartTOCloseTimeoutUndefined -> "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-        SATFCDefaultTaskListUndefined -> "DEFAULT_TASK_LIST_UNDEFINED"
-        SATFCOpenActivitiesLimitExceeded -> "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
-        SATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-
-instance Hashable ScheduleActivityTaskFailedCause
-instance ToQuery ScheduleActivityTaskFailedCause
-instance ToHeader ScheduleActivityTaskFailedCause
-
-instance FromJSON ScheduleActivityTaskFailedCause where
-    parseJSON = parseJSONText "ScheduleActivityTaskFailedCause"
-
--- | /See:/ 'scheduleActivityTaskFailedEventAttributes' smart constructor.
+-- | Provides details of the @ScheduleActivityTaskFailed@ event.
+--
+-- /See:/ 'scheduleActivityTaskFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4200,7 +4916,27 @@ instance FromJSON
                      (x .: "cause")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'signalExternalWorkflowExecutionDecisionAttributes' smart constructor.
+-- | Provides details of the @SignalExternalWorkflowExecution@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'signalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4254,29 +4990,9 @@ instance ToJSON
                "workflowId" .= _sewedaWorkflowId,
                "signalName" .= _sewedaSignalName]
 
-data SignalExternalWorkflowExecutionFailedCause = SEWEFCSignalExternalWorkflowExecutionRateExceeded | SEWEFCUnknownExternalWorkflowExecution | SEWEFCOperationNotPermitted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SignalExternalWorkflowExecutionFailedCause where
-    parser = takeLowerText >>= \case
-        "OPERATION_NOT_PERMITTED" -> pure SEWEFCOperationNotPermitted
-        "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" -> pure SEWEFCSignalExternalWorkflowExecutionRateExceeded
-        "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION" -> pure SEWEFCUnknownExternalWorkflowExecution
-        e -> fail ("Failure parsing SignalExternalWorkflowExecutionFailedCause from " ++ show e)
-
-instance ToText SignalExternalWorkflowExecutionFailedCause where
-    toText = \case
-        SEWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-        SEWEFCSignalExternalWorkflowExecutionRateExceeded -> "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-        SEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
-
-instance Hashable SignalExternalWorkflowExecutionFailedCause
-instance ToQuery SignalExternalWorkflowExecutionFailedCause
-instance ToHeader SignalExternalWorkflowExecutionFailedCause
-
-instance FromJSON SignalExternalWorkflowExecutionFailedCause where
-    parseJSON = parseJSONText "SignalExternalWorkflowExecutionFailedCause"
-
--- | /See:/ 'signalExternalWorkflowExecutionFailedEventAttributes' smart constructor.
+-- | Provides details of the @SignalExternalWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'signalExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4350,7 +5066,10 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'signalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
+-- | Provides details of the @SignalExternalWorkflowExecutionInitiated@
+-- event.
+--
+-- /See:/ 'signalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4414,7 +5133,35 @@ instance FromJSON
                      <*> (x .: "signalName")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'startChildWorkflowExecutionDecisionAttributes' smart constructor.
+-- | Provides details of the @StartChildWorkflowExecution@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   Constrain the following parameters by using a @Condition@ element
+--     with the appropriate keys.
+--     -   @tagList.member.N@: The key is \"swf:tagList.N\" where N is the
+--         tag number from 0 to 4, inclusive.
+--     -   @taskList@: String constraint. The key is @swf:taskList.name@.
+--     -   @workflowType.name@: String constraint. The key is
+--         @swf:workflowType.name@.
+--     -   @workflowType.version@: String constraint. The key is
+--         @swf:workflowType.version@.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'startChildWorkflowExecutionDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4572,45 +5319,9 @@ instance ToJSON
                "workflowType" .= _scwedaWorkflowType,
                "workflowId" .= _scwedaWorkflowId]
 
-data StartChildWorkflowExecutionFailedCause = SCWEFCWorkflowTypeDoesNotExist | SCWEFCChildCreationRateExceeded | SCWEFCOperationNotPermitted | SCWEFCDefaultTaskListUndefined | SCWEFCDefaultChildPolicyUndefined | SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined | SCWEFCWorkflowTypeDeprecated | SCWEFCWorkflowAlreadyRunning | SCWEFCDefaultTaskStartTOCloseTimeoutUndefined | SCWEFCOpenWorkflowsLimitExceeded | SCWEFCOpenChildrenLimitExceeded deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StartChildWorkflowExecutionFailedCause where
-    parser = takeLowerText >>= \case
-        "CHILD_CREATION_RATE_EXCEEDED" -> pure SCWEFCChildCreationRateExceeded
-        "DEFAULT_CHILD_POLICY_UNDEFINED" -> pure SCWEFCDefaultChildPolicyUndefined
-        "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined
-        "DEFAULT_TASK_LIST_UNDEFINED" -> pure SCWEFCDefaultTaskListUndefined
-        "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SCWEFCDefaultTaskStartTOCloseTimeoutUndefined
-        "OPEN_CHILDREN_LIMIT_EXCEEDED" -> pure SCWEFCOpenChildrenLimitExceeded
-        "OPEN_WORKFLOWS_LIMIT_EXCEEDED" -> pure SCWEFCOpenWorkflowsLimitExceeded
-        "OPERATION_NOT_PERMITTED" -> pure SCWEFCOperationNotPermitted
-        "WORKFLOW_ALREADY_RUNNING" -> pure SCWEFCWorkflowAlreadyRunning
-        "WORKFLOW_TYPE_DEPRECATED" -> pure SCWEFCWorkflowTypeDeprecated
-        "WORKFLOW_TYPE_DOES_NOT_EXIST" -> pure SCWEFCWorkflowTypeDoesNotExist
-        e -> fail ("Failure parsing StartChildWorkflowExecutionFailedCause from " ++ show e)
-
-instance ToText StartChildWorkflowExecutionFailedCause where
-    toText = \case
-        SCWEFCChildCreationRateExceeded -> "CHILD_CREATION_RATE_EXCEEDED"
-        SCWEFCDefaultChildPolicyUndefined -> "DEFAULT_CHILD_POLICY_UNDEFINED"
-        SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined -> "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-        SCWEFCDefaultTaskListUndefined -> "DEFAULT_TASK_LIST_UNDEFINED"
-        SCWEFCDefaultTaskStartTOCloseTimeoutUndefined -> "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-        SCWEFCOpenChildrenLimitExceeded -> "OPEN_CHILDREN_LIMIT_EXCEEDED"
-        SCWEFCOpenWorkflowsLimitExceeded -> "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
-        SCWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-        SCWEFCWorkflowAlreadyRunning -> "WORKFLOW_ALREADY_RUNNING"
-        SCWEFCWorkflowTypeDeprecated -> "WORKFLOW_TYPE_DEPRECATED"
-        SCWEFCWorkflowTypeDoesNotExist -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
-
-instance Hashable StartChildWorkflowExecutionFailedCause
-instance ToQuery StartChildWorkflowExecutionFailedCause
-instance ToHeader StartChildWorkflowExecutionFailedCause
-
-instance FromJSON StartChildWorkflowExecutionFailedCause where
-    parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
-
--- | /See:/ 'startChildWorkflowExecutionFailedEventAttributes' smart constructor.
+-- | Provides details of the @StartChildWorkflowExecutionFailed@ event.
+--
+-- /See:/ 'startChildWorkflowExecutionFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4682,7 +5393,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'startChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
+-- | Provides details of the @StartChildWorkflowExecutionInitiated@ event.
+--
+-- /See:/ 'startChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4810,7 +5523,27 @@ instance FromJSON
                      <*> (x .: "decisionTaskCompletedEventId")
                      <*> (x .: "childPolicy"))
 
--- | /See:/ 'startTimerDecisionAttributes' smart constructor.
+-- | Provides details of the @StartTimer@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'startTimerDecisionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4853,31 +5586,9 @@ instance ToJSON StartTimerDecisionAttributes where
                "timerId" .= _stdaTimerId,
                "startToFireTimeout" .= _stdaStartToFireTimeout]
 
-data StartTimerFailedCause = TimerIDAlreadyINUse | TimerCreationRateExceeded | OperationNotPermitted | OpenTimersLimitExceeded deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StartTimerFailedCause where
-    parser = takeLowerText >>= \case
-        "OPEN_TIMERS_LIMIT_EXCEEDED" -> pure OpenTimersLimitExceeded
-        "OPERATION_NOT_PERMITTED" -> pure OperationNotPermitted
-        "TIMER_CREATION_RATE_EXCEEDED" -> pure TimerCreationRateExceeded
-        "TIMER_ID_ALREADY_IN_USE" -> pure TimerIDAlreadyINUse
-        e -> fail ("Failure parsing StartTimerFailedCause from " ++ show e)
-
-instance ToText StartTimerFailedCause where
-    toText = \case
-        OpenTimersLimitExceeded -> "OPEN_TIMERS_LIMIT_EXCEEDED"
-        OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-        TimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
-        TimerIDAlreadyINUse -> "TIMER_ID_ALREADY_IN_USE"
-
-instance Hashable StartTimerFailedCause
-instance ToQuery StartTimerFailedCause
-instance ToHeader StartTimerFailedCause
-
-instance FromJSON StartTimerFailedCause where
-    parseJSON = parseJSONText "StartTimerFailedCause"
-
--- | /See:/ 'startTimerFailedEventAttributes' smart constructor.
+-- | Provides details of the @StartTimerFailed@ event.
+--
+-- /See:/ 'startTimerFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4922,7 +5633,10 @@ instance FromJSON StartTimerFailedEventAttributes
                    (x .: "timerId") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'tagFilter' smart constructor.
+-- | Used to filter the workflow executions in visibility APIs based on a
+-- tag.
+--
+-- /See:/ 'tagFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4941,7 +5655,9 @@ tfTag = lens _tfTag (\ s a -> s{_tfTag = a});
 instance ToJSON TagFilter where
         toJSON TagFilter'{..} = object ["tag" .= _tfTag]
 
--- | /See:/ 'taskList' smart constructor.
+-- | Represents a task list.
+--
+-- /See:/ 'taskList' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4964,7 +5680,9 @@ instance FromJSON TaskList where
 instance ToJSON TaskList where
         toJSON TaskList'{..} = object ["name" .= _tlName]
 
--- | /See:/ 'timerCanceledEventAttributes' smart constructor.
+-- | Provides details of the @TimerCanceled@ event.
+--
+-- /See:/ 'timerCanceledEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5004,7 +5722,9 @@ instance FromJSON TimerCanceledEventAttributes where
                    (x .: "timerId") <*> (x .: "startedEventId") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'timerFiredEventAttributes' smart constructor.
+-- | Provides details of the @TimerFired@ event.
+--
+-- /See:/ 'timerFiredEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5034,7 +5754,9 @@ instance FromJSON TimerFiredEventAttributes where
                  TimerFiredEventAttributes' <$>
                    (x .: "timerId") <*> (x .: "startedEventId"))
 
--- | /See:/ 'timerStartedEventAttributes' smart constructor.
+-- | Provides details of the @TimerStarted@ event.
+--
+-- /See:/ 'timerStartedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5083,7 +5805,9 @@ instance FromJSON TimerStartedEventAttributes where
                      (x .: "startToFireTimeout")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'workflowExecution' smart constructor.
+-- | Represents a workflow execution.
+--
+-- /See:/ 'workflowExecution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5116,25 +5840,9 @@ instance ToJSON WorkflowExecution where
           = object
               ["workflowId" .= _weWorkflowId, "runId" .= _weRunId]
 
-data WorkflowExecutionCancelRequestedCause = ChildPolicyApplied deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText WorkflowExecutionCancelRequestedCause where
-    parser = takeLowerText >>= \case
-        "CHILD_POLICY_APPLIED" -> pure ChildPolicyApplied
-        e -> fail ("Failure parsing WorkflowExecutionCancelRequestedCause from " ++ show e)
-
-instance ToText WorkflowExecutionCancelRequestedCause where
-    toText = \case
-        ChildPolicyApplied -> "CHILD_POLICY_APPLIED"
-
-instance Hashable WorkflowExecutionCancelRequestedCause
-instance ToQuery WorkflowExecutionCancelRequestedCause
-instance ToHeader WorkflowExecutionCancelRequestedCause
-
-instance FromJSON WorkflowExecutionCancelRequestedCause where
-    parseJSON = parseJSONText "WorkflowExecutionCancelRequestedCause"
-
--- | /See:/ 'workflowExecutionCancelRequestedEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionCancelRequested@ event.
+--
+-- /See:/ 'workflowExecutionCancelRequestedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5181,7 +5889,9 @@ instance FromJSON
                      (x .:? "externalInitiatedEventId")
                      <*> (x .:? "cause"))
 
--- | /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionCanceled@ event.
+--
+-- /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5216,7 +5926,9 @@ instance FromJSON
                    (x .:? "details") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'workflowExecutionCompletedEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionCompleted@ event.
+--
+-- /See:/ 'workflowExecutionCompletedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5252,7 +5964,12 @@ instance FromJSON
                    (x .:? "result") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'workflowExecutionConfiguration' smart constructor.
+-- | The configuration settings for a workflow execution including timeout
+-- values, tasklist etc. These configuration settings are determined from
+-- the defaults specified when registering the workflow type and those
+-- specified when starting the workflow execution.
+--
+-- /See:/ 'workflowExecutionConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5330,7 +6047,9 @@ instance FromJSON WorkflowExecutionConfiguration
                      <*> (x .: "taskList")
                      <*> (x .: "childPolicy"))
 
--- | /See:/ 'workflowExecutionContinuedAsNewEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionContinuedAsNew@ event.
+--
+-- /See:/ 'workflowExecutionContinuedAsNewEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5439,7 +6158,10 @@ instance FromJSON
                      <*> (x .: "childPolicy")
                      <*> (x .: "workflowType"))
 
--- | /See:/ 'workflowExecutionCount' smart constructor.
+-- | Contains the count of workflow executions returned from
+-- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions
+--
+-- /See:/ 'workflowExecutionCount' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5469,7 +6191,9 @@ instance FromJSON WorkflowExecutionCount where
                  WorkflowExecutionCount' <$>
                    (x .:? "truncated") <*> (x .: "count"))
 
--- | /See:/ 'workflowExecutionFailedEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionFailed@ event.
+--
+-- /See:/ 'workflowExecutionFailedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5508,7 +6232,10 @@ instance FromJSON
                    (x .:? "reason") <*> (x .:? "details") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
--- | /See:/ 'workflowExecutionFilter' smart constructor.
+-- | Used to filter the workflow executions in visibility APIs by their
+-- @workflowId@.
+--
+-- /See:/ 'workflowExecutionFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5527,7 +6254,9 @@ instance ToJSON WorkflowExecutionFilter where
         toJSON WorkflowExecutionFilter'{..}
           = object ["workflowId" .= _wefWorkflowId]
 
--- | /See:/ 'workflowExecutionInfo' smart constructor.
+-- | Contains information about a workflow execution.
+--
+-- /See:/ 'workflowExecutionInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5621,7 +6350,9 @@ instance FromJSON WorkflowExecutionInfo where
                      <*> (x .: "startTimestamp")
                      <*> (x .: "executionStatus"))
 
--- | /See:/ 'workflowExecutionInfos' smart constructor.
+-- | Contains a paginated list of information about workflow executions.
+--
+-- /See:/ 'workflowExecutionInfos' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5656,7 +6387,10 @@ instance FromJSON WorkflowExecutionInfos where
                    (x .:? "nextPageToken") <*>
                      (x .:? "executionInfos" .!= mempty))
 
--- | /See:/ 'workflowExecutionOpenCounts' smart constructor.
+-- | Contains the counts of open tasks, child workflow executions and timers
+-- for a workflow execution.
+--
+-- /See:/ 'workflowExecutionOpenCounts' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5701,7 +6435,9 @@ instance FromJSON WorkflowExecutionOpenCounts where
                      <*> (x .: "openTimers")
                      <*> (x .: "openChildWorkflowExecutions"))
 
--- | /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionSignaled@ event.
+--
+-- /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5755,7 +6491,9 @@ instance FromJSON
                      <*> (x .:? "input")
                      <*> (x .: "signalName"))
 
--- | /See:/ 'workflowExecutionStartedEventAttributes' smart constructor.
+-- | Provides details of @WorkflowExecutionStarted@ event.
+--
+-- /See:/ 'workflowExecutionStartedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5879,29 +6617,9 @@ instance FromJSON
                      <*> (x .: "taskList")
                      <*> (x .: "workflowType"))
 
-data WorkflowExecutionTerminatedCause = WETCEventLimitExceeded | WETCOperatorInitiated | WETCChildPolicyApplied deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText WorkflowExecutionTerminatedCause where
-    parser = takeLowerText >>= \case
-        "CHILD_POLICY_APPLIED" -> pure WETCChildPolicyApplied
-        "EVENT_LIMIT_EXCEEDED" -> pure WETCEventLimitExceeded
-        "OPERATOR_INITIATED" -> pure WETCOperatorInitiated
-        e -> fail ("Failure parsing WorkflowExecutionTerminatedCause from " ++ show e)
-
-instance ToText WorkflowExecutionTerminatedCause where
-    toText = \case
-        WETCChildPolicyApplied -> "CHILD_POLICY_APPLIED"
-        WETCEventLimitExceeded -> "EVENT_LIMIT_EXCEEDED"
-        WETCOperatorInitiated -> "OPERATOR_INITIATED"
-
-instance Hashable WorkflowExecutionTerminatedCause
-instance ToQuery WorkflowExecutionTerminatedCause
-instance ToHeader WorkflowExecutionTerminatedCause
-
-instance FromJSON WorkflowExecutionTerminatedCause where
-    parseJSON = parseJSONText "WorkflowExecutionTerminatedCause"
-
--- | /See:/ 'workflowExecutionTerminatedEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionTerminated@ event.
+--
+-- /See:/ 'workflowExecutionTerminatedEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5959,7 +6677,9 @@ instance FromJSON
                      (x .:? "details")
                      <*> (x .: "childPolicy"))
 
--- | /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
+-- | Provides details of the @WorkflowExecutionTimedOut@ event.
+--
+-- /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6000,25 +6720,9 @@ instance FromJSON
                  WorkflowExecutionTimedOutEventAttributes' <$>
                    (x .: "timeoutType") <*> (x .: "childPolicy"))
 
-data WorkflowExecutionTimeoutType = WETTStartTOClose deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText WorkflowExecutionTimeoutType where
-    parser = takeLowerText >>= \case
-        "START_TO_CLOSE" -> pure WETTStartTOClose
-        e -> fail ("Failure parsing WorkflowExecutionTimeoutType from " ++ show e)
-
-instance ToText WorkflowExecutionTimeoutType where
-    toText = \case
-        WETTStartTOClose -> "START_TO_CLOSE"
-
-instance Hashable WorkflowExecutionTimeoutType
-instance ToQuery WorkflowExecutionTimeoutType
-instance ToHeader WorkflowExecutionTimeoutType
-
-instance FromJSON WorkflowExecutionTimeoutType where
-    parseJSON = parseJSONText "WorkflowExecutionTimeoutType"
-
--- | /See:/ 'workflowType' smart constructor.
+-- | Represents a workflow type.
+--
+-- /See:/ 'workflowType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6055,7 +6759,9 @@ instance ToJSON WorkflowType where
         toJSON WorkflowType'{..}
           = object ["name" .= _wtName, "version" .= _wtVersion]
 
--- | /See:/ 'workflowTypeConfiguration' smart constructor.
+-- | The configuration settings of a workflow type.
+--
+-- /See:/ 'workflowTypeConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6153,7 +6859,11 @@ instance FromJSON WorkflowTypeConfiguration where
                      <*> (x .:? "defaultExecutionStartToCloseTimeout")
                      <*> (x .:? "defaultTaskStartToCloseTimeout"))
 
--- | /See:/ 'workflowTypeFilter' smart constructor.
+-- | Used to filter workflow execution query results by type. Each parameter,
+-- if specified, defines a rule that must be satisfied by each returned
+-- result.
+--
+-- /See:/ 'workflowTypeFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6179,7 +6889,9 @@ instance ToJSON WorkflowTypeFilter where
           = object
               ["version" .= _wtfVersion, "name" .= _wtfName]
 
--- | /See:/ 'workflowTypeInfo' smart constructor.
+-- | Contains information about a workflow type.
+--
+-- /See:/ 'workflowTypeInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -34,6 +34,8 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     , SetLoadBalancerPoliciesOfListenerResponse
     -- ** Response constructor
     , setLoadBalancerPoliciesOfListenerResponse
+    -- ** Response lenses
+    , slbpolrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -76,8 +78,11 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
              SetLoadBalancerPoliciesOfListenerResponse
         request = post
         response
-          = receiveNull
-              SetLoadBalancerPoliciesOfListenerResponse'
+          = receiveXMLWrapper
+              "SetLoadBalancerPoliciesOfListenerResult"
+              (\ s h x ->
+                 SetLoadBalancerPoliciesOfListenerResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders SetLoadBalancerPoliciesOfListener
          where
@@ -100,8 +105,16 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
                  toQueryList "member" _slbpolPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
-data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slbpolrStatusCode'
+newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'{_slbpolrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
-setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse';
+setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
+setLoadBalancerPoliciesOfListenerResponse pStatusCode = SetLoadBalancerPoliciesOfListenerResponse'{_slbpolrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+slbpolrStatusCode :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
+slbpolrStatusCode = lens _slbpolrStatusCode (\ s a -> s{_slbpolrStatusCode = a});

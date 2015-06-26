@@ -36,10 +36,11 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- ** Response lenses
     , dlbrLoadBalancerDescriptions
     , dlbrNextMarker
+    , dlbrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -91,7 +92,8 @@ instance AWSRequest DescribeLoadBalancers where
                  DescribeLoadBalancersResponse' <$>
                    (x .@? "LoadBalancerDescriptions" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextMarker"))
+                     <*> (x .@? "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
@@ -116,11 +118,13 @@ instance ToQuery DescribeLoadBalancers where
 -- * 'dlbrLoadBalancerDescriptions'
 --
 -- * 'dlbrNextMarker'
-data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions :: Maybe [LoadBalancerDescription], _dlbrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dlbrStatusCode'
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions :: Maybe [LoadBalancerDescription], _dlbrNextMarker :: Maybe Text, _dlbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
-describeLoadBalancersResponse :: DescribeLoadBalancersResponse
-describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions = Nothing, _dlbrNextMarker = Nothing};
+describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
+describeLoadBalancersResponse pStatusCode = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions = Nothing, _dlbrNextMarker = Nothing, _dlbrStatusCode = pStatusCode};
 
 -- | Information about the load balancers.
 dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
@@ -130,3 +134,7 @@ dlbrLoadBalancerDescriptions = lens _dlbrLoadBalancerDescriptions (\ s a -> s{_d
 -- no additional results, the string is empty.
 dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextMarker = lens _dlbrNextMarker (\ s a -> s{_dlbrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+dlbrStatusCode :: Lens' DescribeLoadBalancersResponse Int
+dlbrStatusCode = lens _dlbrStatusCode (\ s a -> s{_dlbrStatusCode = a});

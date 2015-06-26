@@ -43,6 +43,7 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     , associateVPCWithHostedZoneResponse
     -- ** Response lenses
     , avwhzrChangeInfo
+    , avwhzrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -50,7 +51,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'associateVPCWithHostedZone' smart constructor.
+-- | A complex type that contains information about the request to associate
+-- a VPC with an hosted zone.
+--
+-- /See:/ 'associateVPCWithHostedZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +94,7 @@ instance AWSRequest AssociateVPCWithHostedZone where
           = receiveXML
               (\ s h x ->
                  AssociateVPCWithHostedZoneResponse' <$>
-                   (x .@ "ChangeInfo"))
+                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement
@@ -114,18 +118,26 @@ instance ToXML AssociateVPCWithHostedZone where
           = mconcat
               ["Comment" @= _avwhzComment, "VPC" @= _avwhzVPC]
 
--- | /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
+-- | A complex type containing the response information for the request.
+--
+-- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avwhzrChangeInfo'
-newtype AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'{_avwhzrChangeInfo :: ChangeInfo} deriving (Eq, Read, Show)
+--
+-- * 'avwhzrStatusCode'
+data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'{_avwhzrChangeInfo :: ChangeInfo, _avwhzrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
-associateVPCWithHostedZoneResponse :: ChangeInfo -> AssociateVPCWithHostedZoneResponse
-associateVPCWithHostedZoneResponse pChangeInfo = AssociateVPCWithHostedZoneResponse'{_avwhzrChangeInfo = pChangeInfo};
+associateVPCWithHostedZoneResponse :: ChangeInfo -> Int -> AssociateVPCWithHostedZoneResponse
+associateVPCWithHostedZoneResponse pChangeInfo pStatusCode = AssociateVPCWithHostedZoneResponse'{_avwhzrChangeInfo = pChangeInfo, _avwhzrStatusCode = pStatusCode};
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your @AssociateVPCWithHostedZoneRequest@.
 avwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrChangeInfo = lens _avwhzrChangeInfo (\ s a -> s{_avwhzrChangeInfo = a});
+
+-- | FIXME: Undocumented member.
+avwhzrStatusCode :: Lens' AssociateVPCWithHostedZoneResponse Int
+avwhzrStatusCode = lens _avwhzrStatusCode (\ s a -> s{_avwhzrStatusCode = a});

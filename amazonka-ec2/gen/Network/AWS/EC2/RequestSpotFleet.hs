@@ -37,6 +37,7 @@ module Network.AWS.EC2.RequestSpotFleet
     , requestSpotFleetResponse
     -- ** Response lenses
     , rsfrSpotFleetRequestId
+    , rsfrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'requestSpotFleet' smart constructor.
+-- | Contains the parameters for RequestSpotFleet.
+--
+-- /See:/ 'requestSpotFleet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +79,7 @@ instance AWSRequest RequestSpotFleet where
           = receiveXML
               (\ s h x ->
                  RequestSpotFleetResponse' <$>
-                   (x .@ "spotFleetRequestId"))
+                   (x .@ "spotFleetRequestId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty
@@ -93,17 +96,25 @@ instance ToQuery RequestSpotFleet where
                "SpotFleetRequestConfig" =:
                  _rsfSpotFleetRequestConfig]
 
--- | /See:/ 'requestSpotFleetResponse' smart constructor.
+-- | Contains the output of RequestSpotFleet.
+--
+-- /See:/ 'requestSpotFleetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsfrSpotFleetRequestId'
-newtype RequestSpotFleetResponse = RequestSpotFleetResponse'{_rsfrSpotFleetRequestId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'rsfrStatusCode'
+data RequestSpotFleetResponse = RequestSpotFleetResponse'{_rsfrSpotFleetRequestId :: Text, _rsfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
-requestSpotFleetResponse :: Text -> RequestSpotFleetResponse
-requestSpotFleetResponse pSpotFleetRequestId = RequestSpotFleetResponse'{_rsfrSpotFleetRequestId = pSpotFleetRequestId};
+requestSpotFleetResponse :: Text -> Int -> RequestSpotFleetResponse
+requestSpotFleetResponse pSpotFleetRequestId pStatusCode = RequestSpotFleetResponse'{_rsfrSpotFleetRequestId = pSpotFleetRequestId, _rsfrStatusCode = pStatusCode};
 
 -- | The ID of the Spot fleet request.
 rsfrSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
 rsfrSpotFleetRequestId = lens _rsfrSpotFleetRequestId (\ s a -> s{_rsfrSpotFleetRequestId = a});
+
+-- | FIXME: Undocumented member.
+rsfrStatusCode :: Lens' RequestSpotFleetResponse Int
+rsfrStatusCode = lens _rsfrStatusCode (\ s a -> s{_rsfrStatusCode = a});

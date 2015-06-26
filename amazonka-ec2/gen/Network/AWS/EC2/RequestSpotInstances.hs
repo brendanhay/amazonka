@@ -47,6 +47,7 @@ module Network.AWS.EC2.RequestSpotInstances
     , requestSpotInstancesResponse
     -- ** Response lenses
     , rsirSpotInstanceRequests
+    , rsirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -54,7 +55,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'requestSpotInstances' smart constructor.
+-- | Contains the parameters for RequestSpotInstances.
+--
+-- /See:/ 'requestSpotInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -176,7 +179,8 @@ instance AWSRequest RequestSpotInstances where
           = receiveXML
               (\ s h x ->
                  RequestSpotInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
@@ -198,17 +202,25 @@ instance ToQuery RequestSpotInstances where
                "ValidFrom" =: _rsiValidFrom, "DryRun" =: _rsiDryRun,
                "SpotPrice" =: _rsiSpotPrice]
 
--- | /See:/ 'requestSpotInstancesResponse' smart constructor.
+-- | Contains the output of RequestSpotInstances.
+--
+-- /See:/ 'requestSpotInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsirSpotInstanceRequests'
-newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests :: Maybe [SpotInstanceRequest]} deriving (Eq, Read, Show)
+--
+-- * 'rsirStatusCode'
+data RequestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests :: Maybe [SpotInstanceRequest], _rsirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
-requestSpotInstancesResponse :: RequestSpotInstancesResponse
-requestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests = Nothing};
+requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse
+requestSpotInstancesResponse pStatusCode = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests = Nothing, _rsirStatusCode = pStatusCode};
 
 -- | One or more Spot Instance requests.
 rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirSpotInstanceRequests = lens _rsirSpotInstanceRequests (\ s a -> s{_rsirSpotInstanceRequests = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+rsirStatusCode :: Lens' RequestSpotInstancesResponse Int
+rsirStatusCode = lens _rsirStatusCode (\ s a -> s{_rsirStatusCode = a});

@@ -44,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setStatus' smart constructor.
+-- | Contains the parameters for SetStatus.
+--
+-- /See:/ 'setStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

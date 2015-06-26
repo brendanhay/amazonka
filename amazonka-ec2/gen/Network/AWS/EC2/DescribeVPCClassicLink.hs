@@ -34,6 +34,7 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     , describeVPCClassicLinkResponse
     -- ** Response lenses
     , dvclrVPCs
+    , dvclrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -98,7 +99,8 @@ instance AWSRequest DescribeVPCClassicLink where
           = receiveXML
               (\ s h x ->
                  DescribeVPCClassicLinkResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
@@ -121,12 +123,18 @@ instance ToQuery DescribeVPCClassicLink where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvclrVPCs'
-newtype DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs :: Maybe [VPCClassicLink]} deriving (Eq, Read, Show)
+--
+-- * 'dvclrStatusCode'
+data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs :: Maybe [VPCClassicLink], _dvclrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
-describeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs = Nothing};
+describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
+describeVPCClassicLinkResponse pStatusCode = DescribeVPCClassicLinkResponse'{_dvclrVPCs = Nothing, _dvclrStatusCode = pStatusCode};
 
 -- | The ClassicLink status of one or more VPCs.
 dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
 dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvclrStatusCode :: Lens' DescribeVPCClassicLinkResponse Int
+dvclrStatusCode = lens _dvclrStatusCode (\ s a -> s{_dvclrStatusCode = a});

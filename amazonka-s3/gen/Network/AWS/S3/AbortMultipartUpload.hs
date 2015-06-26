@@ -39,6 +39,7 @@ module Network.AWS.S3.AbortMultipartUpload
     , abortMultipartUploadResponse
     -- ** Response lenses
     , amurRequestCharged
+    , amurStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -88,7 +89,8 @@ instance AWSRequest AbortMultipartUpload where
           = receiveXML
               (\ s h x ->
                  AbortMultipartUploadResponse' <$>
-                   (h .#? "x-amz-request-charged"))
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}
@@ -108,12 +110,18 @@ instance ToQuery AbortMultipartUpload where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'amurRequestCharged'
-newtype AbortMultipartUploadResponse = AbortMultipartUploadResponse'{_amurRequestCharged :: Maybe RequestCharged} deriving (Eq, Read, Show)
+--
+-- * 'amurStatusCode'
+data AbortMultipartUploadResponse = AbortMultipartUploadResponse'{_amurRequestCharged :: Maybe RequestCharged, _amurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
-abortMultipartUploadResponse :: AbortMultipartUploadResponse
-abortMultipartUploadResponse = AbortMultipartUploadResponse'{_amurRequestCharged = Nothing};
+abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse
+abortMultipartUploadResponse pStatusCode = AbortMultipartUploadResponse'{_amurRequestCharged = Nothing, _amurStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 amurRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amurRequestCharged = lens _amurRequestCharged (\ s a -> s{_amurRequestCharged = a});
+
+-- | FIXME: Undocumented member.
+amurStatusCode :: Lens' AbortMultipartUploadResponse Int
+amurStatusCode = lens _amurStatusCode (\ s a -> s{_amurStatusCode = a});

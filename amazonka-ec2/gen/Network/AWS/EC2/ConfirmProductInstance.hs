@@ -37,6 +37,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     , confirmProductInstanceResponse
     -- ** Response lenses
     , cpirOwnerId
+    , cpirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -83,7 +84,7 @@ instance AWSRequest ConfirmProductInstance where
           = receiveXML
               (\ s h x ->
                  ConfirmProductInstanceResponse' <$>
-                   (x .@? "ownerId"))
+                   (x .@? "ownerId") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
@@ -106,13 +107,19 @@ instance ToQuery ConfirmProductInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cpirOwnerId'
-newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'{_cpirOwnerId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cpirStatusCode'
+data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'{_cpirOwnerId :: Maybe Text, _cpirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
-confirmProductInstanceResponse :: ConfirmProductInstanceResponse
-confirmProductInstanceResponse = ConfirmProductInstanceResponse'{_cpirOwnerId = Nothing};
+confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
+confirmProductInstanceResponse pStatusCode = ConfirmProductInstanceResponse'{_cpirOwnerId = Nothing, _cpirStatusCode = pStatusCode};
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
 cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\ s a -> s{_cpirOwnerId = a});
+
+-- | FIXME: Undocumented member.
+cpirStatusCode :: Lens' ConfirmProductInstanceResponse Int
+cpirStatusCode = lens _cpirStatusCode (\ s a -> s{_cpirStatusCode = a});

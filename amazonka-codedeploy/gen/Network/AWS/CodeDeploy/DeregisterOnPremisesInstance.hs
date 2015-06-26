@@ -37,7 +37,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deregisterOnPremisesInstance' smart constructor.
+-- | Represents the input of a deregister on-premises instance operation.
+--
+-- /See:/ 'deregisterOnPremisesInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

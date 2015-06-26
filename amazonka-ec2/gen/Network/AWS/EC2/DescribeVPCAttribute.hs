@@ -34,9 +34,10 @@ module Network.AWS.EC2.DescribeVPCAttribute
     -- ** Response constructor
     , describeVPCAttributeResponse
     -- ** Response lenses
-    , dvarEnableDNSHostnames
-    , dvarEnableDNSSupport
-    , dvarVPCId
+    , dvpcarEnableDNSHostnames
+    , dvpcarEnableDNSSupport
+    , dvpcarVPCId
+    , dvpcarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -85,7 +86,8 @@ instance AWSRequest DescribeVPCAttribute where
                  DescribeVPCAttributeResponse' <$>
                    (x .@? "enableDnsHostnames") <*>
                      (x .@? "enableDnsSupport")
-                     <*> (x .@? "vpcId"))
+                     <*> (x .@? "vpcId")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
@@ -105,30 +107,36 @@ instance ToQuery DescribeVPCAttribute where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvarEnableDNSHostnames'
+-- * 'dvpcarEnableDNSHostnames'
 --
--- * 'dvarEnableDNSSupport'
+-- * 'dvpcarEnableDNSSupport'
 --
--- * 'dvarVPCId'
-data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'{_dvarEnableDNSHostnames :: Maybe AttributeBooleanValue, _dvarEnableDNSSupport :: Maybe AttributeBooleanValue, _dvarVPCId :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dvpcarVPCId'
+--
+-- * 'dvpcarStatusCode'
+data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'{_dvpcarEnableDNSHostnames :: Maybe AttributeBooleanValue, _dvpcarEnableDNSSupport :: Maybe AttributeBooleanValue, _dvpcarVPCId :: Maybe Text, _dvpcarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
-describeVPCAttributeResponse :: DescribeVPCAttributeResponse
-describeVPCAttributeResponse = DescribeVPCAttributeResponse'{_dvarEnableDNSHostnames = Nothing, _dvarEnableDNSSupport = Nothing, _dvarVPCId = Nothing};
+describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse
+describeVPCAttributeResponse pStatusCode = DescribeVPCAttributeResponse'{_dvpcarEnableDNSHostnames = Nothing, _dvpcarEnableDNSSupport = Nothing, _dvpcarVPCId = Nothing, _dvpcarStatusCode = pStatusCode};
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
 -- If this attribute is @true@, instances in the VPC get DNS hostnames;
 -- otherwise, they do not.
-dvarEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
-dvarEnableDNSHostnames = lens _dvarEnableDNSHostnames (\ s a -> s{_dvarEnableDNSHostnames = a});
+dvpcarEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
+dvpcarEnableDNSHostnames = lens _dvpcarEnableDNSHostnames (\ s a -> s{_dvpcarEnableDNSHostnames = a});
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this
 -- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
 -- your instances to their corresponding IP addresses; otherwise, it does
 -- not.
-dvarEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
-dvarEnableDNSSupport = lens _dvarEnableDNSSupport (\ s a -> s{_dvarEnableDNSSupport = a});
+dvpcarEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
+dvpcarEnableDNSSupport = lens _dvpcarEnableDNSSupport (\ s a -> s{_dvpcarEnableDNSSupport = a});
 
 -- | The ID of the VPC.
-dvarVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
-dvarVPCId = lens _dvarVPCId (\ s a -> s{_dvarVPCId = a});
+dvpcarVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
+dvpcarVPCId = lens _dvpcarVPCId (\ s a -> s{_dvpcarVPCId = a});
+
+-- | FIXME: Undocumented member.
+dvpcarStatusCode :: Lens' DescribeVPCAttributeResponse Int
+dvpcarStatusCode = lens _dvpcarStatusCode (\ s a -> s{_dvpcarStatusCode = a});

@@ -38,6 +38,7 @@ module Network.AWS.CloudFormation.GetTemplate
     , getTemplateResponse
     -- ** Response lenses
     , gtrTemplateBody
+    , gtrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -45,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getTemplate' smart constructor.
+-- | The input for a GetTemplate action.
+--
+-- /See:/ 'getTemplate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -74,7 +77,8 @@ instance AWSRequest GetTemplate where
         response
           = receiveXMLWrapper "GetTemplateResult"
               (\ s h x ->
-                 GetTemplateResponse' <$> (x .@? "TemplateBody"))
+                 GetTemplateResponse' <$>
+                   (x .@? "TemplateBody") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
@@ -89,19 +93,27 @@ instance ToQuery GetTemplate where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gtStackName]
 
--- | /See:/ 'getTemplateResponse' smart constructor.
+-- | The output for GetTemplate action.
+--
+-- /See:/ 'getTemplateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtrTemplateBody'
-newtype GetTemplateResponse = GetTemplateResponse'{_gtrTemplateBody :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gtrStatusCode'
+data GetTemplateResponse = GetTemplateResponse'{_gtrTemplateBody :: Maybe Text, _gtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetTemplateResponse' smart constructor.
-getTemplateResponse :: GetTemplateResponse
-getTemplateResponse = GetTemplateResponse'{_gtrTemplateBody = Nothing};
+getTemplateResponse :: Int -> GetTemplateResponse
+getTemplateResponse pStatusCode = GetTemplateResponse'{_gtrTemplateBody = Nothing, _gtrStatusCode = pStatusCode};
 
 -- | Structure containing the template body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.)
 gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\ s a -> s{_gtrTemplateBody = a});
+
+-- | FIXME: Undocumented member.
+gtrStatusCode :: Lens' GetTemplateResponse Int
+gtrStatusCode = lens _gtrStatusCode (\ s a -> s{_gtrStatusCode = a});

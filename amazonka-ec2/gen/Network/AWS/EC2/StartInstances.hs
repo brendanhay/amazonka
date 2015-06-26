@@ -53,7 +53,8 @@ module Network.AWS.EC2.StartInstances
     -- ** Response constructor
     , startInstancesResponse
     -- ** Response lenses
-    , sirStartingInstances
+    , staStartingInstances
+    , staStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -99,7 +100,8 @@ instance AWSRequest StartInstances where
           = receiveXML
               (\ s h x ->
                  StartInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders StartInstances where
         toHeaders = const mempty
@@ -120,13 +122,19 @@ instance ToQuery StartInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sirStartingInstances'
-newtype StartInstancesResponse = StartInstancesResponse'{_sirStartingInstances :: Maybe [InstanceStateChange]} deriving (Eq, Read, Show)
+-- * 'staStartingInstances'
+--
+-- * 'staStatusCode'
+data StartInstancesResponse = StartInstancesResponse'{_staStartingInstances :: Maybe [InstanceStateChange], _staStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StartInstancesResponse' smart constructor.
-startInstancesResponse :: StartInstancesResponse
-startInstancesResponse = StartInstancesResponse'{_sirStartingInstances = Nothing};
+startInstancesResponse :: Int -> StartInstancesResponse
+startInstancesResponse pStatusCode = StartInstancesResponse'{_staStartingInstances = Nothing, _staStatusCode = pStatusCode};
 
 -- | Information about one or more started instances.
-sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-sirStartingInstances = lens _sirStartingInstances (\ s a -> s{_sirStartingInstances = a}) . _Default;
+staStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+staStartingInstances = lens _staStartingInstances (\ s a -> s{_staStartingInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+staStatusCode :: Lens' StartInstancesResponse Int
+staStatusCode = lens _staStatusCode (\ s a -> s{_staStatusCode = a});

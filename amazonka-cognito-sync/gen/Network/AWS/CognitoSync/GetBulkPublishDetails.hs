@@ -36,6 +36,7 @@ module Network.AWS.CognitoSync.GetBulkPublishDetails
     , gbpdrBulkPublishCompleteTime
     , gbpdrFailureMessage
     , gbpdrBulkPublishStatus
+    , gbpdrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getBulkPublishDetails' smart constructor.
+-- | The input for the GetBulkPublishDetails operation.
+--
+-- /See:/ 'getBulkPublishDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +76,8 @@ instance AWSRequest GetBulkPublishDetails where
                      (x .?> "IdentityPoolId")
                      <*> (x .?> "BulkPublishCompleteTime")
                      <*> (x .?> "FailureMessage")
-                     <*> (x .?> "BulkPublishStatus"))
+                     <*> (x .?> "BulkPublishStatus")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBulkPublishDetails where
         toHeaders
@@ -94,7 +98,9 @@ instance ToPath GetBulkPublishDetails where
 instance ToQuery GetBulkPublishDetails where
         toQuery = const mempty
 
--- | /See:/ 'getBulkPublishDetailsResponse' smart constructor.
+-- | The output for the GetBulkPublishDetails operation.
+--
+-- /See:/ 'getBulkPublishDetailsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,11 +113,13 @@ instance ToQuery GetBulkPublishDetails where
 -- * 'gbpdrFailureMessage'
 --
 -- * 'gbpdrBulkPublishStatus'
-data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime :: Maybe POSIX, _gbpdrIdentityPoolId :: Maybe Text, _gbpdrBulkPublishCompleteTime :: Maybe POSIX, _gbpdrFailureMessage :: Maybe Text, _gbpdrBulkPublishStatus :: Maybe BulkPublishStatus} deriving (Eq, Read, Show)
+--
+-- * 'gbpdrStatusCode'
+data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime :: Maybe POSIX, _gbpdrIdentityPoolId :: Maybe Text, _gbpdrBulkPublishCompleteTime :: Maybe POSIX, _gbpdrFailureMessage :: Maybe Text, _gbpdrBulkPublishStatus :: Maybe BulkPublishStatus, _gbpdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
-getBulkPublishDetailsResponse :: GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime = Nothing, _gbpdrIdentityPoolId = Nothing, _gbpdrBulkPublishCompleteTime = Nothing, _gbpdrFailureMessage = Nothing, _gbpdrBulkPublishStatus = Nothing};
+getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
+getBulkPublishDetailsResponse pStatusCode = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime = Nothing, _gbpdrIdentityPoolId = Nothing, _gbpdrBulkPublishCompleteTime = Nothing, _gbpdrFailureMessage = Nothing, _gbpdrBulkPublishStatus = Nothing, _gbpdrStatusCode = pStatusCode};
 
 -- | The date\/time at which the last bulk publish was initiated.
 gbpdrBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
@@ -146,3 +154,7 @@ gbpdrFailureMessage = lens _gbpdrFailureMessage (\ s a -> s{_gbpdrFailureMessage
 -- FailureMessage for the cause.
 gbpdrBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrBulkPublishStatus = lens _gbpdrBulkPublishStatus (\ s a -> s{_gbpdrBulkPublishStatus = a});
+
+-- | FIXME: Undocumented member.
+gbpdrStatusCode :: Lens' GetBulkPublishDetailsResponse Int
+gbpdrStatusCode = lens _gbpdrStatusCode (\ s a -> s{_gbpdrStatusCode = a});

@@ -49,6 +49,7 @@ module Network.AWS.IAM.CreateAccessKey
     , createAccessKeyResponse
     -- ** Response lenses
     , cakrAccessKey
+    , cakrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -78,7 +79,8 @@ instance AWSRequest CreateAccessKey where
         response
           = receiveXMLWrapper "CreateAccessKeyResult"
               (\ s h x ->
-                 CreateAccessKeyResponse' <$> (x .@ "AccessKey"))
+                 CreateAccessKeyResponse' <$>
+                   (x .@ "AccessKey") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
@@ -93,17 +95,25 @@ instance ToQuery CreateAccessKey where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _cakUserName]
 
--- | /See:/ 'createAccessKeyResponse' smart constructor.
+-- | Contains the response to a successful CreateAccessKey request.
+--
+-- /See:/ 'createAccessKeyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cakrAccessKey'
-newtype CreateAccessKeyResponse = CreateAccessKeyResponse'{_cakrAccessKey :: AccessKey} deriving (Eq, Read, Show)
+--
+-- * 'cakrStatusCode'
+data CreateAccessKeyResponse = CreateAccessKeyResponse'{_cakrAccessKey :: AccessKey, _cakrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
-createAccessKeyResponse :: AccessKey -> CreateAccessKeyResponse
-createAccessKeyResponse pAccessKey = CreateAccessKeyResponse'{_cakrAccessKey = pAccessKey};
+createAccessKeyResponse :: AccessKey -> Int -> CreateAccessKeyResponse
+createAccessKeyResponse pAccessKey pStatusCode = CreateAccessKeyResponse'{_cakrAccessKey = pAccessKey, _cakrStatusCode = pStatusCode};
 
 -- | Information about the access key.
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\ s a -> s{_cakrAccessKey = a});
+
+-- | FIXME: Undocumented member.
+cakrStatusCode :: Lens' CreateAccessKeyResponse Int
+cakrStatusCode = lens _cakrStatusCode (\ s a -> s{_cakrStatusCode = a});

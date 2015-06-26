@@ -42,6 +42,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , describeAvailabilityZonesResponse
     -- ** Response lenses
     , dazrAvailabilityZones
+    , dazrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -100,7 +101,8 @@ instance AWSRequest DescribeAvailabilityZones where
           = receiveXML
               (\ s h x ->
                  DescribeAvailabilityZonesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
@@ -123,12 +125,18 @@ instance ToQuery DescribeAvailabilityZones where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dazrAvailabilityZones'
-newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones :: Maybe [AvailabilityZone]} deriving (Eq, Read, Show)
+--
+-- * 'dazrStatusCode'
+data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones :: Maybe [AvailabilityZone], _dazrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
-describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones = Nothing};
+describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse
+describeAvailabilityZonesResponse pStatusCode = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones = Nothing, _dazrStatusCode = pStatusCode};
 
 -- | Information about one or more Availability Zones.
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dazrStatusCode :: Lens' DescribeAvailabilityZonesResponse Int
+dazrStatusCode = lens _dazrStatusCode (\ s a -> s{_dazrStatusCode = a});

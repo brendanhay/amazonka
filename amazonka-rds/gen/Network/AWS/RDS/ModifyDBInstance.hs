@@ -55,6 +55,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , modifyDBInstanceResponse
     -- ** Response lenses
     , mdirDBInstance
+    , mdirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -62,7 +63,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyDBInstance' smart constructor.
+-- |
+--
+-- /See:/ 'modifyDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -484,7 +487,8 @@ instance AWSRequest ModifyDBInstance where
         response
           = receiveXMLWrapper "ModifyDBInstanceResult"
               (\ s h x ->
-                 ModifyDBInstanceResponse' <$> (x .@? "DBInstance"))
+                 ModifyDBInstanceResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
@@ -536,12 +540,18 @@ instance ToQuery ModifyDBInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mdirDBInstance'
-newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse'{_mdirDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'mdirStatusCode'
+data ModifyDBInstanceResponse = ModifyDBInstanceResponse'{_mdirDBInstance :: Maybe DBInstance, _mdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyDBInstanceResponse' smart constructor.
-modifyDBInstanceResponse :: ModifyDBInstanceResponse
-modifyDBInstanceResponse = ModifyDBInstanceResponse'{_mdirDBInstance = Nothing};
+modifyDBInstanceResponse :: Int -> ModifyDBInstanceResponse
+modifyDBInstanceResponse pStatusCode = ModifyDBInstanceResponse'{_mdirDBInstance = Nothing, _mdirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mdirDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdirDBInstance = lens _mdirDBInstance (\ s a -> s{_mdirDBInstance = a});
+
+-- | FIXME: Undocumented member.
+mdirStatusCode :: Lens' ModifyDBInstanceResponse Int
+mdirStatusCode = lens _mdirStatusCode (\ s a -> s{_mdirStatusCode = a});

@@ -38,15 +38,18 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- ** Response lenses
     , ddpgrMarker
     , ddpgrDBParameterGroups
+    , ddpgrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDBParameterGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeDBParameterGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -113,7 +116,8 @@ instance AWSRequest DescribeDBParameterGroups where
                  DescribeDBParameterGroupsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "DBParameterGroups" .!@ mempty >>=
-                        may (parseXMLList "DBParameterGroup")))
+                        may (parseXMLList "DBParameterGroup"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBParameterGroups where
         toHeaders = const mempty
@@ -133,18 +137,23 @@ instance ToQuery DescribeDBParameterGroups where
                "MaxRecords" =: _ddpgMaxRecords,
                "Marker" =: _ddpgMarker]
 
--- | /See:/ 'describeDBParameterGroupsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBParameterGroups action.
+--
+-- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddpgrMarker'
 --
 -- * 'ddpgrDBParameterGroups'
-data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker :: Maybe Text, _ddpgrDBParameterGroups :: Maybe [DBParameterGroup]} deriving (Eq, Read, Show)
+--
+-- * 'ddpgrStatusCode'
+data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker :: Maybe Text, _ddpgrDBParameterGroups :: Maybe [DBParameterGroup], _ddpgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
-describeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
-describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker = Nothing, _ddpgrDBParameterGroups = Nothing};
+describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse
+describeDBParameterGroupsResponse pStatusCode = DescribeDBParameterGroupsResponse'{_ddpgrMarker = Nothing, _ddpgrDBParameterGroups = Nothing, _ddpgrStatusCode = pStatusCode};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -155,3 +164,7 @@ ddpgrMarker = lens _ddpgrMarker (\ s a -> s{_ddpgrMarker = a});
 -- | A list of DBParameterGroup instances.
 ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddpgrStatusCode :: Lens' DescribeDBParameterGroupsResponse Int
+ddpgrStatusCode = lens _ddpgrStatusCode (\ s a -> s{_ddpgrStatusCode = a});

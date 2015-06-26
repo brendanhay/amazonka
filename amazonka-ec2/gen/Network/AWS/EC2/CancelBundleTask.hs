@@ -34,6 +34,7 @@ module Network.AWS.EC2.CancelBundleTask
     , cancelBundleTaskResponse
     -- ** Response lenses
     , cbtrBundleTask
+    , cbtrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -73,7 +74,7 @@ instance AWSRequest CancelBundleTask where
           = receiveXML
               (\ s h x ->
                  CancelBundleTaskResponse' <$>
-                   (x .@? "bundleInstanceTask"))
+                   (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelBundleTask where
         toHeaders = const mempty
@@ -93,12 +94,18 @@ instance ToQuery CancelBundleTask where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cbtrBundleTask'
-newtype CancelBundleTaskResponse = CancelBundleTaskResponse'{_cbtrBundleTask :: Maybe BundleTask} deriving (Eq, Read, Show)
+--
+-- * 'cbtrStatusCode'
+data CancelBundleTaskResponse = CancelBundleTaskResponse'{_cbtrBundleTask :: Maybe BundleTask, _cbtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelBundleTaskResponse' smart constructor.
-cancelBundleTaskResponse :: CancelBundleTaskResponse
-cancelBundleTaskResponse = CancelBundleTaskResponse'{_cbtrBundleTask = Nothing};
+cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse
+cancelBundleTaskResponse pStatusCode = CancelBundleTaskResponse'{_cbtrBundleTask = Nothing, _cbtrStatusCode = pStatusCode};
 
 -- | Information about the bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\ s a -> s{_cbtrBundleTask = a});
+
+-- | FIXME: Undocumented member.
+cbtrStatusCode :: Lens' CancelBundleTaskResponse Int
+cbtrStatusCode = lens _cbtrStatusCode (\ s a -> s{_cbtrStatusCode = a});

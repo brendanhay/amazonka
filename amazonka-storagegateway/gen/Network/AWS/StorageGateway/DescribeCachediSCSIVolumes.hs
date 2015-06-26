@@ -38,6 +38,7 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     , describeCachediSCSIVolumesResponse
     -- ** Response lenses
     , dcscsivrCachediSCSIVolumes
+    , dcscsivrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,8 @@ instance AWSRequest DescribeCachediSCSIVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeCachediSCSIVolumesResponse' <$>
-                   (x .?> "CachediSCSIVolumes" .!@ mempty))
+                   (x .?> "CachediSCSIVolumes" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeCachediSCSIVolumes where
         toHeaders
@@ -91,18 +93,26 @@ instance ToPath DescribeCachediSCSIVolumes where
 instance ToQuery DescribeCachediSCSIVolumes where
         toQuery = const mempty
 
--- | /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+-- /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcscsivrCachediSCSIVolumes'
-newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes :: Maybe [CachediSCSIVolume]} deriving (Eq, Read, Show)
+--
+-- * 'dcscsivrStatusCode'
+data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes :: Maybe [CachediSCSIVolume], _dcscsivrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCachediSCSIVolumesResponse' smart constructor.
-describeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes = Nothing};
+describeCachediSCSIVolumesResponse :: Int -> DescribeCachediSCSIVolumesResponse
+describeCachediSCSIVolumesResponse pStatusCode = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes = Nothing, _dcscsivrStatusCode = pStatusCode};
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
 dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
 dcscsivrCachediSCSIVolumes = lens _dcscsivrCachediSCSIVolumes (\ s a -> s{_dcscsivrCachediSCSIVolumes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcscsivrStatusCode :: Lens' DescribeCachediSCSIVolumesResponse Int
+dcscsivrStatusCode = lens _dcscsivrStatusCode (\ s a -> s{_dcscsivrStatusCode = a});

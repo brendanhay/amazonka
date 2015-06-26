@@ -52,6 +52,7 @@ module Network.AWS.OpsWorks.RegisterInstance
     , registerInstanceResponse
     -- ** Response lenses
     , rirInstanceId
+    , rirStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -118,7 +119,8 @@ instance AWSRequest RegisterInstance where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterInstanceResponse' <$> (x .?> "InstanceId"))
+                 RegisterInstanceResponse' <$>
+                   (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterInstance where
         toHeaders
@@ -147,17 +149,25 @@ instance ToPath RegisterInstance where
 instance ToQuery RegisterInstance where
         toQuery = const mempty
 
--- | /See:/ 'registerInstanceResponse' smart constructor.
+-- | Contains the response to a @RegisterInstanceResult@ request.
+--
+-- /See:/ 'registerInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rirInstanceId'
-newtype RegisterInstanceResponse = RegisterInstanceResponse'{_rirInstanceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rirStatusCode'
+data RegisterInstanceResponse = RegisterInstanceResponse'{_rirInstanceId :: Maybe Text, _rirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterInstanceResponse' smart constructor.
-registerInstanceResponse :: RegisterInstanceResponse
-registerInstanceResponse = RegisterInstanceResponse'{_rirInstanceId = Nothing};
+registerInstanceResponse :: Int -> RegisterInstanceResponse
+registerInstanceResponse pStatusCode = RegisterInstanceResponse'{_rirInstanceId = Nothing, _rirStatusCode = pStatusCode};
 
 -- | The registered instance\'s AWS OpsWorks ID.
 rirInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirInstanceId = lens _rirInstanceId (\ s a -> s{_rirInstanceId = a});
+
+-- | FIXME: Undocumented member.
+rirStatusCode :: Lens' RegisterInstanceResponse Int
+rirStatusCode = lens _rirStatusCode (\ s a -> s{_rirStatusCode = a});

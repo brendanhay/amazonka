@@ -69,6 +69,7 @@ module Network.AWS.S3.CopyObject
     , corSSECustomerKeyMD5
     , corServerSideEncryption
     , corCopyObjectResult
+    , corStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -316,7 +317,8 @@ instance AWSRequest CopyObject where
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (x .@? "CopyObjectResult"))
+                     <*> (x .@? "CopyObjectResult")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}
@@ -389,11 +391,13 @@ instance ToQuery CopyObject where
 -- * 'corServerSideEncryption'
 --
 -- * 'corCopyObjectResult'
-data CopyObjectResponse = CopyObjectResponse'{_corRequestCharged :: Maybe RequestCharged, _corExpiration :: Maybe Text, _corSSECustomerAlgorithm :: Maybe Text, _corCopySourceVersionId :: Maybe Text, _corSSEKMSKeyId :: Maybe (Sensitive Text), _corSSECustomerKeyMD5 :: Maybe Text, _corServerSideEncryption :: Maybe ServerSideEncryption, _corCopyObjectResult :: Maybe CopyObjectResult} deriving (Eq, Read, Show)
+--
+-- * 'corStatusCode'
+data CopyObjectResponse = CopyObjectResponse'{_corRequestCharged :: Maybe RequestCharged, _corExpiration :: Maybe Text, _corSSECustomerAlgorithm :: Maybe Text, _corCopySourceVersionId :: Maybe Text, _corSSEKMSKeyId :: Maybe (Sensitive Text), _corSSECustomerKeyMD5 :: Maybe Text, _corServerSideEncryption :: Maybe ServerSideEncryption, _corCopyObjectResult :: Maybe CopyObjectResult, _corStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopyObjectResponse' smart constructor.
-copyObjectResponse :: CopyObjectResponse
-copyObjectResponse = CopyObjectResponse'{_corRequestCharged = Nothing, _corExpiration = Nothing, _corSSECustomerAlgorithm = Nothing, _corCopySourceVersionId = Nothing, _corSSEKMSKeyId = Nothing, _corSSECustomerKeyMD5 = Nothing, _corServerSideEncryption = Nothing, _corCopyObjectResult = Nothing};
+copyObjectResponse :: Int -> CopyObjectResponse
+copyObjectResponse pStatusCode = CopyObjectResponse'{_corRequestCharged = Nothing, _corExpiration = Nothing, _corSSECustomerAlgorithm = Nothing, _corCopySourceVersionId = Nothing, _corSSEKMSKeyId = Nothing, _corSSECustomerKeyMD5 = Nothing, _corServerSideEncryption = Nothing, _corCopyObjectResult = Nothing, _corStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 corRequestCharged :: Lens' CopyObjectResponse (Maybe RequestCharged)
@@ -433,3 +437,7 @@ corServerSideEncryption = lens _corServerSideEncryption (\ s a -> s{_corServerSi
 -- | FIXME: Undocumented member.
 corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corCopyObjectResult = lens _corCopyObjectResult (\ s a -> s{_corCopyObjectResult = a});
+
+-- | FIXME: Undocumented member.
+corStatusCode :: Lens' CopyObjectResponse Int
+corStatusCode = lens _corStatusCode (\ s a -> s{_corStatusCode = a});

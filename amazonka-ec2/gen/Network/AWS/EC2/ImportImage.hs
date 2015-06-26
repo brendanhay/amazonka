@@ -41,17 +41,18 @@ module Network.AWS.EC2.ImportImage
     -- ** Response constructor
     , importImageResponse
     -- ** Response lenses
-    , iirStatus
-    , iirHypervisor
-    , iirPlatform
-    , iirProgress
-    , iirLicenseType
-    , iirSnapshotDetails
-    , iirStatusMessage
-    , iirImageId
-    , iirImportTaskId
-    , iirArchitecture
-    , iirDescription
+    , iStatus
+    , iHypervisor
+    , iPlatform
+    , iProgress
+    , iLicenseType
+    , iSnapshotDetails
+    , iStatusMessage
+    , iImageId
+    , iImportTaskId
+    , iArchitecture
+    , iDescription
+    , iStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -164,7 +165,8 @@ instance AWSRequest ImportImage where
                      <*> (x .@? "imageId")
                      <*> (x .@? "importTaskId")
                      <*> (x .@? "architecture")
-                     <*> (x .@? "description"))
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ImportImage where
         toHeaders = const mempty
@@ -192,73 +194,79 @@ instance ToQuery ImportImage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iirStatus'
+-- * 'iStatus'
 --
--- * 'iirHypervisor'
+-- * 'iHypervisor'
 --
--- * 'iirPlatform'
+-- * 'iPlatform'
 --
--- * 'iirProgress'
+-- * 'iProgress'
 --
--- * 'iirLicenseType'
+-- * 'iLicenseType'
 --
--- * 'iirSnapshotDetails'
+-- * 'iSnapshotDetails'
 --
--- * 'iirStatusMessage'
+-- * 'iStatusMessage'
 --
--- * 'iirImageId'
+-- * 'iImageId'
 --
--- * 'iirImportTaskId'
+-- * 'iImportTaskId'
 --
--- * 'iirArchitecture'
+-- * 'iArchitecture'
 --
--- * 'iirDescription'
-data ImportImageResponse = ImportImageResponse'{_iirStatus :: Maybe Text, _iirHypervisor :: Maybe Text, _iirPlatform :: Maybe Text, _iirProgress :: Maybe Text, _iirLicenseType :: Maybe Text, _iirSnapshotDetails :: Maybe [SnapshotDetail], _iirStatusMessage :: Maybe Text, _iirImageId :: Maybe Text, _iirImportTaskId :: Maybe Text, _iirArchitecture :: Maybe Text, _iirDescription :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'iDescription'
+--
+-- * 'iStatusCode'
+data ImportImageResponse = ImportImageResponse'{_iStatus :: Maybe Text, _iHypervisor :: Maybe Text, _iPlatform :: Maybe Text, _iProgress :: Maybe Text, _iLicenseType :: Maybe Text, _iSnapshotDetails :: Maybe [SnapshotDetail], _iStatusMessage :: Maybe Text, _iImageId :: Maybe Text, _iImportTaskId :: Maybe Text, _iArchitecture :: Maybe Text, _iDescription :: Maybe Text, _iStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ImportImageResponse' smart constructor.
-importImageResponse :: ImportImageResponse
-importImageResponse = ImportImageResponse'{_iirStatus = Nothing, _iirHypervisor = Nothing, _iirPlatform = Nothing, _iirProgress = Nothing, _iirLicenseType = Nothing, _iirSnapshotDetails = Nothing, _iirStatusMessage = Nothing, _iirImageId = Nothing, _iirImportTaskId = Nothing, _iirArchitecture = Nothing, _iirDescription = Nothing};
+importImageResponse :: Int -> ImportImageResponse
+importImageResponse pStatusCode = ImportImageResponse'{_iStatus = Nothing, _iHypervisor = Nothing, _iPlatform = Nothing, _iProgress = Nothing, _iLicenseType = Nothing, _iSnapshotDetails = Nothing, _iStatusMessage = Nothing, _iImageId = Nothing, _iImportTaskId = Nothing, _iArchitecture = Nothing, _iDescription = Nothing, _iStatusCode = pStatusCode};
 
 -- | A brief status of the task.
-iirStatus :: Lens' ImportImageResponse (Maybe Text)
-iirStatus = lens _iirStatus (\ s a -> s{_iirStatus = a});
+iStatus :: Lens' ImportImageResponse (Maybe Text)
+iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
 -- | The target hypervisor of the import task.
-iirHypervisor :: Lens' ImportImageResponse (Maybe Text)
-iirHypervisor = lens _iirHypervisor (\ s a -> s{_iirHypervisor = a});
+iHypervisor :: Lens' ImportImageResponse (Maybe Text)
+iHypervisor = lens _iHypervisor (\ s a -> s{_iHypervisor = a});
 
 -- | The operating system of the virtual machine.
-iirPlatform :: Lens' ImportImageResponse (Maybe Text)
-iirPlatform = lens _iirPlatform (\ s a -> s{_iirPlatform = a});
+iPlatform :: Lens' ImportImageResponse (Maybe Text)
+iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 
 -- | The progress of the task.
-iirProgress :: Lens' ImportImageResponse (Maybe Text)
-iirProgress = lens _iirProgress (\ s a -> s{_iirProgress = a});
+iProgress :: Lens' ImportImageResponse (Maybe Text)
+iProgress = lens _iProgress (\ s a -> s{_iProgress = a});
 
 -- | The license type of the virtual machine.
-iirLicenseType :: Lens' ImportImageResponse (Maybe Text)
-iirLicenseType = lens _iirLicenseType (\ s a -> s{_iirLicenseType = a});
+iLicenseType :: Lens' ImportImageResponse (Maybe Text)
+iLicenseType = lens _iLicenseType (\ s a -> s{_iLicenseType = a});
 
 -- | Information about the snapshots.
-iirSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
-iirSnapshotDetails = lens _iirSnapshotDetails (\ s a -> s{_iirSnapshotDetails = a}) . _Default;
+iSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
+iSnapshotDetails = lens _iSnapshotDetails (\ s a -> s{_iSnapshotDetails = a}) . _Default;
 
 -- | A detailed status message of the import task.
-iirStatusMessage :: Lens' ImportImageResponse (Maybe Text)
-iirStatusMessage = lens _iirStatusMessage (\ s a -> s{_iirStatusMessage = a});
+iStatusMessage :: Lens' ImportImageResponse (Maybe Text)
+iStatusMessage = lens _iStatusMessage (\ s a -> s{_iStatusMessage = a});
 
 -- | The ID of the Amazon Machine Image (AMI) created by the import task.
-iirImageId :: Lens' ImportImageResponse (Maybe Text)
-iirImageId = lens _iirImageId (\ s a -> s{_iirImageId = a});
+iImageId :: Lens' ImportImageResponse (Maybe Text)
+iImageId = lens _iImageId (\ s a -> s{_iImageId = a});
 
 -- | The task ID of the import image task.
-iirImportTaskId :: Lens' ImportImageResponse (Maybe Text)
-iirImportTaskId = lens _iirImportTaskId (\ s a -> s{_iirImportTaskId = a});
+iImportTaskId :: Lens' ImportImageResponse (Maybe Text)
+iImportTaskId = lens _iImportTaskId (\ s a -> s{_iImportTaskId = a});
 
 -- | The architecture of the virtual machine.
-iirArchitecture :: Lens' ImportImageResponse (Maybe Text)
-iirArchitecture = lens _iirArchitecture (\ s a -> s{_iirArchitecture = a});
+iArchitecture :: Lens' ImportImageResponse (Maybe Text)
+iArchitecture = lens _iArchitecture (\ s a -> s{_iArchitecture = a});
 
 -- | A description of the import task.
-iirDescription :: Lens' ImportImageResponse (Maybe Text)
-iirDescription = lens _iirDescription (\ s a -> s{_iirDescription = a});
+iDescription :: Lens' ImportImageResponse (Maybe Text)
+iDescription = lens _iDescription (\ s a -> s{_iDescription = a});
+
+-- | FIXME: Undocumented member.
+iStatusCode :: Lens' ImportImageResponse Int
+iStatusCode = lens _iStatusCode (\ s a -> s{_iStatusCode = a});

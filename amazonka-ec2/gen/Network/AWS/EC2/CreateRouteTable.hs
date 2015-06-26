@@ -38,6 +38,7 @@ module Network.AWS.EC2.CreateRouteTable
     , createRouteTableResponse
     -- ** Response lenses
     , crtrRouteTable
+    , crtrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -76,7 +77,8 @@ instance AWSRequest CreateRouteTable where
         response
           = receiveXML
               (\ s h x ->
-                 CreateRouteTableResponse' <$> (x .@? "routeTable"))
+                 CreateRouteTableResponse' <$>
+                   (x .@? "routeTable") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty
@@ -96,12 +98,18 @@ instance ToQuery CreateRouteTable where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crtrRouteTable'
-newtype CreateRouteTableResponse = CreateRouteTableResponse'{_crtrRouteTable :: Maybe RouteTable} deriving (Eq, Read, Show)
+--
+-- * 'crtrStatusCode'
+data CreateRouteTableResponse = CreateRouteTableResponse'{_crtrRouteTable :: Maybe RouteTable, _crtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateRouteTableResponse' smart constructor.
-createRouteTableResponse :: CreateRouteTableResponse
-createRouteTableResponse = CreateRouteTableResponse'{_crtrRouteTable = Nothing};
+createRouteTableResponse :: Int -> CreateRouteTableResponse
+createRouteTableResponse pStatusCode = CreateRouteTableResponse'{_crtrRouteTable = Nothing, _crtrStatusCode = pStatusCode};
 
 -- | Information about the route table.
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\ s a -> s{_crtrRouteTable = a});
+
+-- | FIXME: Undocumented member.
+crtrStatusCode :: Lens' CreateRouteTableResponse Int
+crtrStatusCode = lens _crtrStatusCode (\ s a -> s{_crtrStatusCode = a});

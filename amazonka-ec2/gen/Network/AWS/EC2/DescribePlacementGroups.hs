@@ -37,6 +37,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     , describePlacementGroupsResponse
     -- ** Response lenses
     , dpgrPlacementGroups
+    , dpgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -94,7 +95,8 @@ instance AWSRequest DescribePlacementGroups where
           = receiveXML
               (\ s h x ->
                  DescribePlacementGroupsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
@@ -118,12 +120,18 @@ instance ToQuery DescribePlacementGroups where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpgrPlacementGroups'
-newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups :: Maybe [PlacementGroup]} deriving (Eq, Read, Show)
+--
+-- * 'dpgrStatusCode'
+data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups :: Maybe [PlacementGroup], _dpgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
-describePlacementGroupsResponse :: DescribePlacementGroupsResponse
-describePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups = Nothing};
+describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
+describePlacementGroupsResponse pStatusCode = DescribePlacementGroupsResponse'{_dpgrPlacementGroups = Nothing, _dpgrStatusCode = pStatusCode};
 
 -- | One or more placement groups.
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dpgrStatusCode :: Lens' DescribePlacementGroupsResponse Int
+dpgrStatusCode = lens _dpgrStatusCode (\ s a -> s{_dpgrStatusCode = a});

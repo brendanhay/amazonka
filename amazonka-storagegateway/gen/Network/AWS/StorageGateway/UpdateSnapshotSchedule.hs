@@ -45,6 +45,7 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     , updateSnapshotScheduleResponse
     -- ** Response lenses
     , ussrVolumeARN
+    , ussrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -52,7 +53,14 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateSnapshotSchedule' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   UpdateSnapshotScheduleInput$Description
+-- -   UpdateSnapshotScheduleInput$RecurrenceInHours
+-- -   UpdateSnapshotScheduleInput$StartAt
+-- -   UpdateSnapshotScheduleInput$VolumeARN
+--
+-- /See:/ 'updateSnapshotSchedule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +106,7 @@ instance AWSRequest UpdateSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  UpdateSnapshotScheduleResponse' <$>
-                   (x .?> "VolumeARN"))
+                   (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
@@ -124,17 +132,25 @@ instance ToPath UpdateSnapshotSchedule where
 instance ToQuery UpdateSnapshotSchedule where
         toQuery = const mempty
 
--- | /See:/ 'updateSnapshotScheduleResponse' smart constructor.
+-- | A JSON object containing the of the updated storage volume.
+--
+-- /See:/ 'updateSnapshotScheduleResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ussrVolumeARN'
-newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'{_ussrVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ussrStatusCode'
+data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'{_ussrVolumeARN :: Maybe Text, _ussrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
-updateSnapshotScheduleResponse :: UpdateSnapshotScheduleResponse
-updateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'{_ussrVolumeARN = Nothing};
+updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse
+updateSnapshotScheduleResponse pStatusCode = UpdateSnapshotScheduleResponse'{_ussrVolumeARN = Nothing, _ussrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrVolumeARN = lens _ussrVolumeARN (\ s a -> s{_ussrVolumeARN = a});
+
+-- | FIXME: Undocumented member.
+ussrStatusCode :: Lens' UpdateSnapshotScheduleResponse Int
+ussrStatusCode = lens _ussrStatusCode (\ s a -> s{_ussrStatusCode = a});

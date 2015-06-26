@@ -40,10 +40,11 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- ** Response lenses
     , dsarScheduledUpdateGroupActions
     , dsarNextToken
+    , dsarStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -122,7 +123,8 @@ instance AWSRequest DescribeScheduledActions where
                  DescribeScheduledActionsResponse' <$>
                    (x .@? "ScheduledUpdateGroupActions" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
@@ -152,11 +154,13 @@ instance ToQuery DescribeScheduledActions where
 -- * 'dsarScheduledUpdateGroupActions'
 --
 -- * 'dsarNextToken'
-data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions :: Maybe [ScheduledUpdateGroupAction], _dsarNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dsarStatusCode'
+data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions :: Maybe [ScheduledUpdateGroupAction], _dsarNextToken :: Maybe Text, _dsarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
-describeScheduledActionsResponse :: DescribeScheduledActionsResponse
-describeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions = Nothing, _dsarNextToken = Nothing};
+describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
+describeScheduledActionsResponse pStatusCode = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions = Nothing, _dsarNextToken = Nothing, _dsarStatusCode = pStatusCode};
 
 -- | The scheduled actions.
 dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
@@ -166,3 +170,7 @@ dsarScheduledUpdateGroupActions = lens _dsarScheduledUpdateGroupActions (\ s a -
 -- additional items to return, the string is empty.
 dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarNextToken = lens _dsarNextToken (\ s a -> s{_dsarNextToken = a});
+
+-- | FIXME: Undocumented member.
+dsarStatusCode :: Lens' DescribeScheduledActionsResponse Int
+dsarStatusCode = lens _dsarStatusCode (\ s a -> s{_dsarStatusCode = a});

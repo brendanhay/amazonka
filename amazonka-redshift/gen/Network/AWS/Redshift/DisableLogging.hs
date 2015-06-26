@@ -45,7 +45,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'disableLogging' smart constructor.
+-- |
+--
+-- /See:/ 'disableLogging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

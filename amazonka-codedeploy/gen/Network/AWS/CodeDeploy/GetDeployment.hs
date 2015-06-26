@@ -32,6 +32,7 @@ module Network.AWS.CodeDeploy.GetDeployment
     , getDeploymentResponse
     -- ** Response lenses
     , gdrDeploymentInfo
+    , gdrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDeployment' smart constructor.
+-- | Represents the input of a get deployment operation.
+--
+-- /See:/ 'getDeployment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -62,7 +65,8 @@ instance AWSRequest GetDeployment where
         response
           = receiveJSON
               (\ s h x ->
-                 GetDeploymentResponse' <$> (x .?> "deploymentInfo"))
+                 GetDeploymentResponse' <$>
+                   (x .?> "deploymentInfo") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetDeployment where
         toHeaders
@@ -83,17 +87,25 @@ instance ToPath GetDeployment where
 instance ToQuery GetDeployment where
         toQuery = const mempty
 
--- | /See:/ 'getDeploymentResponse' smart constructor.
+-- | Represents the output of a get deployment operation.
+--
+-- /See:/ 'getDeploymentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdrDeploymentInfo'
-newtype GetDeploymentResponse = GetDeploymentResponse'{_gdrDeploymentInfo :: Maybe DeploymentInfo} deriving (Eq, Read, Show)
+--
+-- * 'gdrStatusCode'
+data GetDeploymentResponse = GetDeploymentResponse'{_gdrDeploymentInfo :: Maybe DeploymentInfo, _gdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentResponse' smart constructor.
-getDeploymentResponse :: GetDeploymentResponse
-getDeploymentResponse = GetDeploymentResponse'{_gdrDeploymentInfo = Nothing};
+getDeploymentResponse :: Int -> GetDeploymentResponse
+getDeploymentResponse pStatusCode = GetDeploymentResponse'{_gdrDeploymentInfo = Nothing, _gdrStatusCode = pStatusCode};
 
 -- | Information about the deployment.
 gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrDeploymentInfo = lens _gdrDeploymentInfo (\ s a -> s{_gdrDeploymentInfo = a});
+
+-- | FIXME: Undocumented member.
+gdrStatusCode :: Lens' GetDeploymentResponse Int
+gdrStatusCode = lens _gdrStatusCode (\ s a -> s{_gdrStatusCode = a});

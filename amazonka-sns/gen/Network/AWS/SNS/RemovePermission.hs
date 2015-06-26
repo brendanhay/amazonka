@@ -38,7 +38,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'removePermission' smart constructor.
+-- | Input for RemovePermission action.
+--
+-- /See:/ 'removePermission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

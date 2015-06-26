@@ -59,6 +59,7 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     , dwerExecutionInfo
     , dwerExecutionConfiguration
     , dwerOpenCounts
+    , dwerStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -100,7 +101,8 @@ instance AWSRequest DescribeWorkflowExecution where
                      (x .?> "latestExecutionContext")
                      <*> (x .:> "executionInfo")
                      <*> (x .:> "executionConfiguration")
-                     <*> (x .:> "openCounts"))
+                     <*> (x .:> "openCounts")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders
@@ -124,7 +126,9 @@ instance ToPath DescribeWorkflowExecution where
 instance ToQuery DescribeWorkflowExecution where
         toQuery = const mempty
 
--- | /See:/ 'describeWorkflowExecutionResponse' smart constructor.
+-- | Contains details about a workflow execution.
+--
+-- /See:/ 'describeWorkflowExecutionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -137,11 +141,13 @@ instance ToQuery DescribeWorkflowExecution where
 -- * 'dwerExecutionConfiguration'
 --
 -- * 'dwerOpenCounts'
-data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'{_dwerLatestActivityTaskTimestamp :: Maybe POSIX, _dwerLatestExecutionContext :: Maybe Text, _dwerExecutionInfo :: WorkflowExecutionInfo, _dwerExecutionConfiguration :: WorkflowExecutionConfiguration, _dwerOpenCounts :: WorkflowExecutionOpenCounts} deriving (Eq, Read, Show)
+--
+-- * 'dwerStatusCode'
+data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'{_dwerLatestActivityTaskTimestamp :: Maybe POSIX, _dwerLatestExecutionContext :: Maybe Text, _dwerExecutionInfo :: WorkflowExecutionInfo, _dwerExecutionConfiguration :: WorkflowExecutionConfiguration, _dwerOpenCounts :: WorkflowExecutionOpenCounts, _dwerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
-describeWorkflowExecutionResponse :: WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> DescribeWorkflowExecutionResponse
-describeWorkflowExecutionResponse pExecutionInfo pExecutionConfiguration pOpenCounts = DescribeWorkflowExecutionResponse'{_dwerLatestActivityTaskTimestamp = Nothing, _dwerLatestExecutionContext = Nothing, _dwerExecutionInfo = pExecutionInfo, _dwerExecutionConfiguration = pExecutionConfiguration, _dwerOpenCounts = pOpenCounts};
+describeWorkflowExecutionResponse :: WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> Int -> DescribeWorkflowExecutionResponse
+describeWorkflowExecutionResponse pExecutionInfo pExecutionConfiguration pOpenCounts pStatusCode = DescribeWorkflowExecutionResponse'{_dwerLatestActivityTaskTimestamp = Nothing, _dwerLatestExecutionContext = Nothing, _dwerExecutionInfo = pExecutionInfo, _dwerExecutionConfiguration = pExecutionConfiguration, _dwerOpenCounts = pOpenCounts, _dwerStatusCode = pStatusCode};
 
 -- | The time when the last activity task was scheduled for this workflow
 -- execution. You can use this information to determine if the workflow has
@@ -169,3 +175,7 @@ dwerExecutionConfiguration = lens _dwerExecutionConfiguration (\ s a -> s{_dwerE
 -- closed tasks of all types.
 dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwerOpenCounts = lens _dwerOpenCounts (\ s a -> s{_dwerOpenCounts = a});
+
+-- | FIXME: Undocumented member.
+dwerStatusCode :: Lens' DescribeWorkflowExecutionResponse Int
+dwerStatusCode = lens _dwerStatusCode (\ s a -> s{_dwerStatusCode = a});

@@ -34,6 +34,7 @@ module Network.AWS.CodeDeploy.ListApplications
     -- ** Response lenses
     , larNextToken
     , larApplications
+    , larStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listApplications' smart constructor.
+-- | Represents the input of a list applications operation.
+--
+-- /See:/ 'listApplications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,8 @@ instance AWSRequest ListApplications where
               (\ s h x ->
                  ListApplicationsResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "applications" .!@ mempty))
+                     (x .?> "applications" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListApplications where
         toHeaders
@@ -89,18 +93,22 @@ instance ToPath ListApplications where
 instance ToQuery ListApplications where
         toQuery = const mempty
 
--- | /See:/ 'listApplicationsResponse' smart constructor.
+-- | Represents the output of a list applications operation.
+--
+-- /See:/ 'listApplicationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'larNextToken'
 --
 -- * 'larApplications'
-data ListApplicationsResponse = ListApplicationsResponse'{_larNextToken :: Maybe Text, _larApplications :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'larStatusCode'
+data ListApplicationsResponse = ListApplicationsResponse'{_larNextToken :: Maybe Text, _larApplications :: Maybe [Text], _larStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListApplicationsResponse' smart constructor.
-listApplicationsResponse :: ListApplicationsResponse
-listApplicationsResponse = ListApplicationsResponse'{_larNextToken = Nothing, _larApplications = Nothing};
+listApplicationsResponse :: Int -> ListApplicationsResponse
+listApplicationsResponse pStatusCode = ListApplicationsResponse'{_larNextToken = Nothing, _larApplications = Nothing, _larStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -111,3 +119,7 @@ larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 -- | A list of application names.
 larApplications :: Lens' ListApplicationsResponse [Text]
 larApplications = lens _larApplications (\ s a -> s{_larApplications = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+larStatusCode :: Lens' ListApplicationsResponse Int
+larStatusCode = lens _larStatusCode (\ s a -> s{_larStatusCode = a});

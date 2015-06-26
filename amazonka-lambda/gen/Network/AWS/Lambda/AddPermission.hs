@@ -48,6 +48,7 @@ module Network.AWS.Lambda.AddPermission
     , addPermissionResponse
     -- ** Response lenses
     , aprStatement
+    , aprStatusCode
     ) where
 
 import Network.AWS.Lambda.Types
@@ -139,7 +140,8 @@ instance AWSRequest AddPermission where
         response
           = receiveJSON
               (\ s h x ->
-                 AddPermissionResponse' <$> (x .?> "Statement"))
+                 AddPermissionResponse' <$>
+                   (x .?> "Statement") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty
@@ -166,14 +168,20 @@ instance ToQuery AddPermission where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aprStatement'
-newtype AddPermissionResponse = AddPermissionResponse'{_aprStatement :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'aprStatusCode'
+data AddPermissionResponse = AddPermissionResponse'{_aprStatement :: Maybe Text, _aprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddPermissionResponse' smart constructor.
-addPermissionResponse :: AddPermissionResponse
-addPermissionResponse = AddPermissionResponse'{_aprStatement = Nothing};
+addPermissionResponse :: Int -> AddPermissionResponse
+addPermissionResponse pStatusCode = AddPermissionResponse'{_aprStatement = Nothing, _aprStatusCode = pStatusCode};
 
 -- | The permission statement you specified in the request. The response
 -- returns the same as a string using \"\\\" as an escape character in the
 -- JSON.
 aprStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprStatement = lens _aprStatement (\ s a -> s{_aprStatement = a});
+
+-- | FIXME: Undocumented member.
+aprStatusCode :: Lens' AddPermissionResponse Int
+aprStatusCode = lens _aprStatusCode (\ s a -> s{_aprStatusCode = a});

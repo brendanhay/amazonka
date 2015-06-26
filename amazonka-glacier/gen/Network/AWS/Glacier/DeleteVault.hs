@@ -62,7 +62,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteVault' smart constructor.
+-- | Provides options for deleting a vault from Amazon Glacier.
+--
+-- /See:/ 'deleteVault' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -38,6 +38,7 @@ module Network.AWS.OpsWorks.DescribeStacks
     , describeStacksResponse
     -- ** Response lenses
     , dsrStacks
+    , dsrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -70,7 +71,7 @@ instance AWSRequest DescribeStacks where
           = receiveJSON
               (\ s h x ->
                  DescribeStacksResponse' <$>
-                   (x .?> "Stacks" .!@ mempty))
+                   (x .?> "Stacks" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStacks where
         toHeaders
@@ -91,17 +92,25 @@ instance ToPath DescribeStacks where
 instance ToQuery DescribeStacks where
         toQuery = const mempty
 
--- | /See:/ 'describeStacksResponse' smart constructor.
+-- | Contains the response to a @DescribeStacks@ request.
+--
+-- /See:/ 'describeStacksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrStacks'
-newtype DescribeStacksResponse = DescribeStacksResponse'{_dsrStacks :: Maybe [Stack]} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DescribeStacksResponse = DescribeStacksResponse'{_dsrStacks :: Maybe [Stack], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
-describeStacksResponse :: DescribeStacksResponse
-describeStacksResponse = DescribeStacksResponse'{_dsrStacks = Nothing};
+describeStacksResponse :: Int -> DescribeStacksResponse
+describeStacksResponse pStatusCode = DescribeStacksResponse'{_dsrStacks = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | An array of @Stack@ objects that describe the stacks.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DescribeStacksResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

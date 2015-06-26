@@ -46,6 +46,7 @@ module Network.AWS.ImportExport.CreateJob
     , cjrSignatureFileContents
     , cjrWarningMessage
     , cjrArtifactList
+    , cjrStatusCode
     ) where
 
 import Network.AWS.ImportExport.Types
@@ -53,7 +54,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createJob' smart constructor.
+-- | Input structure for the CreateJob operation.
+--
+-- /See:/ 'createJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -106,7 +109,8 @@ instance AWSRequest CreateJob where
                      <*> (x .@? "WarningMessage")
                      <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -125,7 +129,9 @@ instance ToQuery CreateJob where
                "JobType" =: _cjJobType, "Manifest" =: _cjManifest,
                "ValidateOnly" =: _cjValidateOnly]
 
--- | /See:/ 'createJobResponse' smart constructor.
+-- | Output structure for the CreateJob operation.
+--
+-- /See:/ 'createJobResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -140,11 +146,13 @@ instance ToQuery CreateJob where
 -- * 'cjrWarningMessage'
 --
 -- * 'cjrArtifactList'
-data CreateJobResponse = CreateJobResponse'{_cjrSignature :: Maybe Text, _cjrJobType :: Maybe JobType, _cjrJobId :: Maybe Text, _cjrSignatureFileContents :: Maybe Text, _cjrWarningMessage :: Maybe Text, _cjrArtifactList :: Maybe [Artifact]} deriving (Eq, Read, Show)
+--
+-- * 'cjrStatusCode'
+data CreateJobResponse = CreateJobResponse'{_cjrSignature :: Maybe Text, _cjrJobType :: Maybe JobType, _cjrJobId :: Maybe Text, _cjrSignatureFileContents :: Maybe Text, _cjrWarningMessage :: Maybe Text, _cjrArtifactList :: Maybe [Artifact], _cjrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateJobResponse' smart constructor.
-createJobResponse :: CreateJobResponse
-createJobResponse = CreateJobResponse'{_cjrSignature = Nothing, _cjrJobType = Nothing, _cjrJobId = Nothing, _cjrSignatureFileContents = Nothing, _cjrWarningMessage = Nothing, _cjrArtifactList = Nothing};
+createJobResponse :: Int -> CreateJobResponse
+createJobResponse pStatusCode = CreateJobResponse'{_cjrSignature = Nothing, _cjrJobType = Nothing, _cjrJobId = Nothing, _cjrSignatureFileContents = Nothing, _cjrWarningMessage = Nothing, _cjrArtifactList = Nothing, _cjrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cjrSignature :: Lens' CreateJobResponse (Maybe Text)
@@ -169,3 +177,7 @@ cjrWarningMessage = lens _cjrWarningMessage (\ s a -> s{_cjrWarningMessage = a})
 -- | FIXME: Undocumented member.
 cjrArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrArtifactList = lens _cjrArtifactList (\ s a -> s{_cjrArtifactList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+cjrStatusCode :: Lens' CreateJobResponse Int
+cjrStatusCode = lens _cjrStatusCode (\ s a -> s{_cjrStatusCode = a});

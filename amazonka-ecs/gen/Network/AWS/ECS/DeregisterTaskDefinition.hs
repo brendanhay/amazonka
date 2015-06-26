@@ -43,6 +43,7 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     , deregisterTaskDefinitionResponse
     -- ** Response lenses
     , dtdrTaskDefinition
+    , dtdrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -76,7 +77,7 @@ instance AWSRequest DeregisterTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DeregisterTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition"))
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders
@@ -103,12 +104,18 @@ instance ToQuery DeregisterTaskDefinition where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtdrTaskDefinition'
-newtype DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'{_dtdrTaskDefinition :: Maybe TaskDefinition} deriving (Eq, Read, Show)
+--
+-- * 'dtdrStatusCode'
+data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'{_dtdrTaskDefinition :: Maybe TaskDefinition, _dtdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
-deregisterTaskDefinitionResponse :: DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'{_dtdrTaskDefinition = Nothing};
+deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
+deregisterTaskDefinitionResponse pStatusCode = DeregisterTaskDefinitionResponse'{_dtdrTaskDefinition = Nothing, _dtdrStatusCode = pStatusCode};
 
 -- | The full description of the deregistered task.
 dtdrTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
 dtdrTaskDefinition = lens _dtdrTaskDefinition (\ s a -> s{_dtdrTaskDefinition = a});
+
+-- | FIXME: Undocumented member.
+dtdrStatusCode :: Lens' DeregisterTaskDefinitionResponse Int
+dtdrStatusCode = lens _dtdrStatusCode (\ s a -> s{_dtdrStatusCode = a});

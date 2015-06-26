@@ -34,7 +34,8 @@ module Network.AWS.RDS.DeleteDBSnapshot
     -- ** Response constructor
     , deleteDBSnapshotResponse
     -- ** Response lenses
-    , ddsrDBSnapshot
+    , dDBSnapshot
+    , dStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDBSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'deleteDBSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,8 @@ instance AWSRequest DeleteDBSnapshot where
         response
           = receiveXMLWrapper "DeleteDBSnapshotResult"
               (\ s h x ->
-                 DeleteDBSnapshotResponse' <$> (x .@? "DBSnapshot"))
+                 DeleteDBSnapshotResponse' <$>
+                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDBSnapshot where
         toHeaders = const mempty
@@ -86,13 +90,19 @@ instance ToQuery DeleteDBSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrDBSnapshot'
-newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'{_ddsrDBSnapshot :: Maybe DBSnapshot} deriving (Eq, Read, Show)
+-- * 'dDBSnapshot'
+--
+-- * 'dStatusCode'
+data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'{_dDBSnapshot :: Maybe DBSnapshot, _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDBSnapshotResponse' smart constructor.
-deleteDBSnapshotResponse :: DeleteDBSnapshotResponse
-deleteDBSnapshotResponse = DeleteDBSnapshotResponse'{_ddsrDBSnapshot = Nothing};
+deleteDBSnapshotResponse :: Int -> DeleteDBSnapshotResponse
+deleteDBSnapshotResponse pStatusCode = DeleteDBSnapshotResponse'{_dDBSnapshot = Nothing, _dStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-ddsrDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
-ddsrDBSnapshot = lens _ddsrDBSnapshot (\ s a -> s{_ddsrDBSnapshot = a});
+dDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
+dDBSnapshot = lens _dDBSnapshot (\ s a -> s{_dDBSnapshot = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DeleteDBSnapshotResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

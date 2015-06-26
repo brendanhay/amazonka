@@ -61,10 +61,11 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- ** Response lenses
     , disrInstanceStatuses
     , disrNextToken
+    , disrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -186,8 +187,8 @@ instance AWSRequest DescribeInstanceStatus where
           = receiveXML
               (\ s h x ->
                  DescribeInstanceStatusResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (x .@? "nextToken"))
+                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
@@ -216,11 +217,13 @@ instance ToQuery DescribeInstanceStatus where
 -- * 'disrInstanceStatuses'
 --
 -- * 'disrNextToken'
-data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses :: Maybe [InstanceStatus], _disrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'disrStatusCode'
+data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses :: Maybe [InstanceStatus], _disrNextToken :: Maybe Text, _disrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
-describeInstanceStatusResponse :: DescribeInstanceStatusResponse
-describeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses = Nothing, _disrNextToken = Nothing};
+describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
+describeInstanceStatusResponse pStatusCode = DescribeInstanceStatusResponse'{_disrInstanceStatuses = Nothing, _disrNextToken = Nothing, _disrStatusCode = pStatusCode};
 
 -- | One or more instance status descriptions.
 disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
@@ -230,3 +233,7 @@ disrInstanceStatuses = lens _disrInstanceStatuses (\ s a -> s{_disrInstanceStatu
 -- @null@ when there are no more results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\ s a -> s{_disrNextToken = a});
+
+-- | FIXME: Undocumented member.
+disrStatusCode :: Lens' DescribeInstanceStatusResponse Int
+disrStatusCode = lens _disrStatusCode (\ s a -> s{_disrStatusCode = a});

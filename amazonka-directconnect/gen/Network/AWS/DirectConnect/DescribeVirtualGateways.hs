@@ -36,6 +36,7 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     , describeVirtualGatewaysResponse
     -- ** Response lenses
     , dvgrVirtualGateways
+    , dvgrStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -59,7 +60,8 @@ instance AWSRequest DescribeVirtualGateways where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualGatewaysResponse' <$>
-                   (x .?> "virtualGateways" .!@ mempty))
+                   (x .?> "virtualGateways" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
@@ -80,17 +82,25 @@ instance ToPath DescribeVirtualGateways where
 instance ToQuery DescribeVirtualGateways where
         toQuery = const mempty
 
--- | /See:/ 'describeVirtualGatewaysResponse' smart constructor.
+-- | A structure containing a list of virtual private gateways.
+--
+-- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvgrVirtualGateways'
-newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrVirtualGateways :: Maybe [VirtualGateway]} deriving (Eq, Read, Show)
+--
+-- * 'dvgrStatusCode'
+data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrVirtualGateways :: Maybe [VirtualGateway], _dvgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
-describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrVirtualGateways = Nothing};
+describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse
+describeVirtualGatewaysResponse pStatusCode = DescribeVirtualGatewaysResponse'{_dvgrVirtualGateways = Nothing, _dvgrStatusCode = pStatusCode};
 
 -- | A list of virtual private gateways.
 dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways = lens _dvgrVirtualGateways (\ s a -> s{_dvgrVirtualGateways = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvgrStatusCode :: Lens' DescribeVirtualGatewaysResponse Int
+dvgrStatusCode = lens _dvgrStatusCode (\ s a -> s{_dvgrStatusCode = a});

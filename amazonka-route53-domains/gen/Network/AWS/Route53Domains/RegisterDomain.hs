@@ -63,6 +63,7 @@ module Network.AWS.Route53Domains.RegisterDomain
     , registerDomainResponse
     -- ** Response lenses
     , rdrOperationId
+    , rdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -70,7 +71,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'registerDomain' smart constructor.
+-- | The RegisterDomain request includes the following elements.
+--
+-- /See:/ 'registerDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -233,7 +236,8 @@ instance AWSRequest RegisterDomain where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterDomainResponse' <$> (x .:> "OperationId"))
+                 RegisterDomainResponse' <$>
+                   (x .:> "OperationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterDomain where
         toHeaders
@@ -268,16 +272,20 @@ instance ToPath RegisterDomain where
 instance ToQuery RegisterDomain where
         toQuery = const mempty
 
--- | /See:/ 'registerDomainResponse' smart constructor.
+-- | The RegisterDomain response includes the following element.
+--
+-- /See:/ 'registerDomainResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdrOperationId'
-newtype RegisterDomainResponse = RegisterDomainResponse'{_rdrOperationId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'rdrStatusCode'
+data RegisterDomainResponse = RegisterDomainResponse'{_rdrOperationId :: Text, _rdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterDomainResponse' smart constructor.
-registerDomainResponse :: Text -> RegisterDomainResponse
-registerDomainResponse pOperationId = RegisterDomainResponse'{_rdrOperationId = pOperationId};
+registerDomainResponse :: Text -> Int -> RegisterDomainResponse
+registerDomainResponse pOperationId pStatusCode = RegisterDomainResponse'{_rdrOperationId = pOperationId, _rdrStatusCode = pStatusCode};
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -289,3 +297,7 @@ registerDomainResponse pOperationId = RegisterDomainResponse'{_rdrOperationId = 
 -- Constraints: Maximum 255 characters.
 rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\ s a -> s{_rdrOperationId = a});
+
+-- | FIXME: Undocumented member.
+rdrStatusCode :: Lens' RegisterDomainResponse Int
+rdrStatusCode = lens _rdrStatusCode (\ s a -> s{_rdrStatusCode = a});

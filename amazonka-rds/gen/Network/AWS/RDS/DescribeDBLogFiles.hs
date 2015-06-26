@@ -39,15 +39,18 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- ** Response lenses
     , ddlfrDescribeDBLogFiles
     , ddlfrMarker
+    , ddlfrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDBLogFiles' smart constructor.
+-- |
+--
+-- /See:/ 'describeDBLogFiles' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -131,7 +134,8 @@ instance AWSRequest DescribeDBLogFiles where
                  DescribeDBLogFilesResponse' <$>
                    (x .@? "DescribeDBLogFiles" .!@ mempty >>=
                       may (parseXMLList "DescribeDBLogFilesDetails"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
@@ -153,18 +157,22 @@ instance ToQuery DescribeDBLogFiles where
                "Marker" =: _ddlfMarker,
                "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
 
--- | /See:/ 'describeDBLogFilesResponse' smart constructor.
+-- | The response from a call to DescribeDBLogFiles.
+--
+-- /See:/ 'describeDBLogFilesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddlfrDescribeDBLogFiles'
 --
 -- * 'ddlfrMarker'
-data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles :: Maybe [DescribeDBLogFilesDetails], _ddlfrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ddlfrStatusCode'
+data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles :: Maybe [DescribeDBLogFilesDetails], _ddlfrMarker :: Maybe Text, _ddlfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
-describeDBLogFilesResponse :: DescribeDBLogFilesResponse
-describeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles = Nothing, _ddlfrMarker = Nothing};
+describeDBLogFilesResponse :: Int -> DescribeDBLogFilesResponse
+describeDBLogFilesResponse pStatusCode = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles = Nothing, _ddlfrMarker = Nothing, _ddlfrStatusCode = pStatusCode};
 
 -- | The DB log files returned.
 ddlfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
@@ -174,3 +182,7 @@ ddlfrDescribeDBLogFiles = lens _ddlfrDescribeDBLogFiles (\ s a -> s{_ddlfrDescri
 -- request.
 ddlfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrMarker = lens _ddlfrMarker (\ s a -> s{_ddlfrMarker = a});
+
+-- | FIXME: Undocumented member.
+ddlfrStatusCode :: Lens' DescribeDBLogFilesResponse Int
+ddlfrStatusCode = lens _ddlfrStatusCode (\ s a -> s{_ddlfrStatusCode = a});

@@ -33,6 +33,7 @@ module Network.AWS.KMS.GetKeyPolicy
     , getKeyPolicyResponse
     -- ** Response lenses
     , gkprPolicy
+    , gkprStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -75,7 +76,8 @@ instance AWSRequest GetKeyPolicy where
         response
           = receiveJSON
               (\ s h x ->
-                 GetKeyPolicyResponse' <$> (x .?> "Policy"))
+                 GetKeyPolicyResponse' <$>
+                   (x .?> "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetKeyPolicy where
         toHeaders
@@ -103,12 +105,18 @@ instance ToQuery GetKeyPolicy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gkprPolicy'
-newtype GetKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gkprStatusCode'
+data GetKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy :: Maybe Text, _gkprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetKeyPolicyResponse' smart constructor.
-getKeyPolicyResponse :: GetKeyPolicyResponse
-getKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy = Nothing};
+getKeyPolicyResponse :: Int -> GetKeyPolicyResponse
+getKeyPolicyResponse pStatusCode = GetKeyPolicyResponse'{_gkprPolicy = Nothing, _gkprStatusCode = pStatusCode};
 
 -- | A policy document in JSON format.
 gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\ s a -> s{_gkprPolicy = a});
+
+-- | FIXME: Undocumented member.
+gkprStatusCode :: Lens' GetKeyPolicyResponse Int
+gkprStatusCode = lens _gkprStatusCode (\ s a -> s{_gkprStatusCode = a});

@@ -51,7 +51,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createIdentityPool' smart constructor.
+-- | Input to the CreateIdentityPool action.
+--
+-- /See:/ 'createIdentityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -56,7 +56,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteStream' smart constructor.
+-- | Represents the input for @DeleteStream@.
+--
+-- /See:/ 'deleteStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

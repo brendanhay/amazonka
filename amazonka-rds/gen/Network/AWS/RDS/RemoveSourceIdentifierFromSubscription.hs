@@ -34,6 +34,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     , removeSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
     , rsifsrEventSubscription
+    , rsifsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'removeSourceIdentifierFromSubscription' smart constructor.
+-- |
+--
+-- /See:/ 'removeSourceIdentifierFromSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +79,7 @@ instance AWSRequest
               "RemoveSourceIdentifierFromSubscriptionResult"
               (\ s h x ->
                  RemoveSourceIdentifierFromSubscriptionResponse' <$>
-                   (x .@? "EventSubscription"))
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
 instance ToHeaders
          RemoveSourceIdentifierFromSubscription where
@@ -102,12 +105,18 @@ instance ToQuery
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsifsrEventSubscription'
-newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'{_rsifsrEventSubscription :: Maybe EventSubscription} deriving (Eq, Read, Show)
+--
+-- * 'rsifsrStatusCode'
+data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'{_rsifsrEventSubscription :: Maybe EventSubscription, _rsifsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
-removeSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse
-removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'{_rsifsrEventSubscription = Nothing};
+removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse
+removeSourceIdentifierFromSubscriptionResponse pStatusCode = RemoveSourceIdentifierFromSubscriptionResponse'{_rsifsrEventSubscription = Nothing, _rsifsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrEventSubscription = lens _rsifsrEventSubscription (\ s a -> s{_rsifsrEventSubscription = a});
+
+-- | FIXME: Undocumented member.
+rsifsrStatusCode :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
+rsifsrStatusCode = lens _rsifsrStatusCode (\ s a -> s{_rsifsrStatusCode = a});

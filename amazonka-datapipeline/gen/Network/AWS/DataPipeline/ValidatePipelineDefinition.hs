@@ -38,6 +38,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     , vpdrValidationErrors
     , vpdrValidationWarnings
     , vpdrErrored
+    , vpdrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -45,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'validatePipelineDefinition' smart constructor.
+-- | Contains the parameters for ValidatePipelineDefinition.
+--
+-- /See:/ 'validatePipelineDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +93,8 @@ instance AWSRequest ValidatePipelineDefinition where
                  ValidatePipelineDefinitionResponse' <$>
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
-                     <*> (x .:> "errored"))
+                     <*> (x .:> "errored")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ValidatePipelineDefinition where
         toHeaders
@@ -116,7 +120,9 @@ instance ToPath ValidatePipelineDefinition where
 instance ToQuery ValidatePipelineDefinition where
         toQuery = const mempty
 
--- | /See:/ 'validatePipelineDefinitionResponse' smart constructor.
+-- | Contains the output of ValidatePipelineDefinition.
+--
+-- /See:/ 'validatePipelineDefinitionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -125,11 +131,13 @@ instance ToQuery ValidatePipelineDefinition where
 -- * 'vpdrValidationWarnings'
 --
 -- * 'vpdrErrored'
-data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors :: Maybe [ValidationError], _vpdrValidationWarnings :: Maybe [ValidationWarning], _vpdrErrored :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'vpdrStatusCode'
+data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors :: Maybe [ValidationError], _vpdrValidationWarnings :: Maybe [ValidationWarning], _vpdrErrored :: Bool, _vpdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
-validatePipelineDefinitionResponse :: Bool -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pErrored = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors = Nothing, _vpdrValidationWarnings = Nothing, _vpdrErrored = pErrored};
+validatePipelineDefinitionResponse :: Bool -> Int -> ValidatePipelineDefinitionResponse
+validatePipelineDefinitionResponse pErrored pStatusCode = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors = Nothing, _vpdrValidationWarnings = Nothing, _vpdrErrored = pErrored, _vpdrStatusCode = pStatusCode};
 
 -- | Any validation errors that were found.
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
@@ -142,3 +150,7 @@ vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidatio
 -- | Indicates whether there were validation errors.
 vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrErrored = lens _vpdrErrored (\ s a -> s{_vpdrErrored = a});
+
+-- | FIXME: Undocumented member.
+vpdrStatusCode :: Lens' ValidatePipelineDefinitionResponse Int
+vpdrStatusCode = lens _vpdrStatusCode (\ s a -> s{_vpdrStatusCode = a});

@@ -43,8 +43,9 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrNextToken
-    , dsrSnapshots
+    , desNextToken
+    , desSnapshots
+    , desStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -52,7 +53,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSnapshots' smart constructor.
+-- | Contains the inputs for the DescribeSnapshots operation.
+--
+-- /See:/ 'describeSnapshots' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,7 +100,8 @@ instance AWSRequest DescribeSnapshots where
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
                    (x .?> "NextToken") <*>
-                     (x .?> "Snapshots" .!@ mempty))
+                     (x .?> "Snapshots" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders
@@ -122,23 +126,27 @@ instance ToPath DescribeSnapshots where
 instance ToQuery DescribeSnapshots where
         toQuery = const mempty
 
--- | /See:/ 'describeSnapshotsResponse' smart constructor.
+-- | Contains the results of the DescribeSnapshots operation.
+--
+-- /See:/ 'describeSnapshotsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrNextToken'
+-- * 'desNextToken'
 --
--- * 'dsrSnapshots'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken :: Maybe Text, _dsrSnapshots :: Maybe [Snapshot]} deriving (Eq, Read, Show)
+-- * 'desSnapshots'
+--
+-- * 'desStatusCode'
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_desNextToken :: Maybe Text, _desSnapshots :: Maybe [Snapshot], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
-describeSnapshotsResponse :: DescribeSnapshotsResponse
-describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken = Nothing, _dsrSnapshots = Nothing};
+describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
+describeSnapshotsResponse pStatusCode = DescribeSnapshotsResponse'{_desNextToken = Nothing, _desSnapshots = Nothing, _desStatusCode = pStatusCode};
 
 -- | If not null, more results are available. Pass this value in the
 -- /NextToken/ member of a subsequent call to DescribeSnapshots.
-dsrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
+desNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | The list of Snapshot objects that were retrieved.
 --
@@ -146,5 +154,9 @@ dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a}) . _Default;
+desSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+desSnapshots = lens _desSnapshots (\ s a -> s{_desSnapshots = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeSnapshotsResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

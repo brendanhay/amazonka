@@ -43,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setVisibleToAllUsers' smart constructor.
+-- | The input to the SetVisibleToAllUsers action.
+--
+-- /See:/ 'setVisibleToAllUsers' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

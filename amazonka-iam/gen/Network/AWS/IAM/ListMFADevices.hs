@@ -42,10 +42,11 @@ module Network.AWS.IAM.ListMFADevices
     , lmdrMarker
     , lmdrIsTruncated
     , lmdrMFADevices
+    , lmdrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -101,7 +102,8 @@ instance AWSRequest ListMFADevices where
                  ListMFADevicesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "MFADevices" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
@@ -117,7 +119,9 @@ instance ToQuery ListMFADevices where
                "UserName" =: _lmdUserName,
                "MaxItems" =: _lmdMaxItems, "Marker" =: _lmdMarker]
 
--- | /See:/ 'listMFADevicesResponse' smart constructor.
+-- | Contains the response to a successful ListMFADevices request.
+--
+-- /See:/ 'listMFADevicesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -126,11 +130,13 @@ instance ToQuery ListMFADevices where
 -- * 'lmdrIsTruncated'
 --
 -- * 'lmdrMFADevices'
-data ListMFADevicesResponse = ListMFADevicesResponse'{_lmdrMarker :: Maybe Text, _lmdrIsTruncated :: Maybe Bool, _lmdrMFADevices :: [MFADevice]} deriving (Eq, Read, Show)
+--
+-- * 'lmdrStatusCode'
+data ListMFADevicesResponse = ListMFADevicesResponse'{_lmdrMarker :: Maybe Text, _lmdrIsTruncated :: Maybe Bool, _lmdrMFADevices :: [MFADevice], _lmdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
-listMFADevicesResponse :: ListMFADevicesResponse
-listMFADevicesResponse = ListMFADevicesResponse'{_lmdrMarker = Nothing, _lmdrIsTruncated = Nothing, _lmdrMFADevices = mempty};
+listMFADevicesResponse :: Int -> ListMFADevicesResponse
+listMFADevicesResponse pStatusCode = ListMFADevicesResponse'{_lmdrMarker = Nothing, _lmdrIsTruncated = Nothing, _lmdrMFADevices = mempty, _lmdrStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -148,3 +154,7 @@ lmdrIsTruncated = lens _lmdrIsTruncated (\ s a -> s{_lmdrIsTruncated = a});
 -- | A list of MFA devices.
 lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});
+
+-- | FIXME: Undocumented member.
+lmdrStatusCode :: Lens' ListMFADevicesResponse Int
+lmdrStatusCode = lens _lmdrStatusCode (\ s a -> s{_lmdrStatusCode = a});

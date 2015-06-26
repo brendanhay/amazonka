@@ -51,6 +51,7 @@ module Network.AWS.CloudTrail.LookupEvents
     -- ** Response lenses
     , lerNextToken
     , lerEvents
+    , lerStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -58,7 +59,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'lookupEvents' smart constructor.
+-- | Contains a request for LookupEvents.
+--
+-- /See:/ 'lookupEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -115,7 +118,8 @@ instance AWSRequest LookupEvents where
           = receiveJSON
               (\ s h x ->
                  LookupEventsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty))
+                   (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders LookupEvents where
         toHeaders
@@ -141,18 +145,22 @@ instance ToPath LookupEvents where
 instance ToQuery LookupEvents where
         toQuery = const mempty
 
--- | /See:/ 'lookupEventsResponse' smart constructor.
+-- | Contains a response to a LookupEvents action.
+--
+-- /See:/ 'lookupEventsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lerNextToken'
 --
 -- * 'lerEvents'
-data LookupEventsResponse = LookupEventsResponse'{_lerNextToken :: Maybe Text, _lerEvents :: Maybe [Event]} deriving (Eq, Read, Show)
+--
+-- * 'lerStatusCode'
+data LookupEventsResponse = LookupEventsResponse'{_lerNextToken :: Maybe Text, _lerEvents :: Maybe [Event], _lerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'LookupEventsResponse' smart constructor.
-lookupEventsResponse :: LookupEventsResponse
-lookupEventsResponse = LookupEventsResponse'{_lerNextToken = Nothing, _lerEvents = Nothing};
+lookupEventsResponse :: Int -> LookupEventsResponse
+lookupEventsResponse pStatusCode = LookupEventsResponse'{_lerNextToken = Nothing, _lerEvents = Nothing, _lerStatusCode = pStatusCode};
 
 -- | The token to use to get the next page of results after a previous API
 -- call. If the token does not appear, there are no more results to return.
@@ -168,3 +176,7 @@ lerNextToken = lens _lerNextToken (\ s a -> s{_lerNextToken = a});
 -- event is listed first.
 lerEvents :: Lens' LookupEventsResponse [Event]
 lerEvents = lens _lerEvents (\ s a -> s{_lerEvents = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lerStatusCode :: Lens' LookupEventsResponse Int
+lerStatusCode = lens _lerStatusCode (\ s a -> s{_lerStatusCode = a});

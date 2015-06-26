@@ -45,6 +45,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , createJobResponse
     -- ** Response lenses
     , cjrJob
+    , cjrStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -52,7 +53,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createJob' smart constructor.
+-- | The @CreateJobRequest@ structure.
+--
+-- /See:/ 'createJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -126,7 +129,9 @@ instance AWSRequest CreateJob where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateJobResponse' <$> (x .?> "Job"))
+              (\ s h x ->
+                 CreateJobResponse' <$>
+                   (x .?> "Job") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -146,18 +151,26 @@ instance ToPath CreateJob where
 instance ToQuery CreateJob where
         toQuery = const mempty
 
--- | /See:/ 'createJobResponse' smart constructor.
+-- | The CreateJobResponse structure.
+--
+-- /See:/ 'createJobResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cjrJob'
-newtype CreateJobResponse = CreateJobResponse'{_cjrJob :: Maybe Job'} deriving (Eq, Read, Show)
+--
+-- * 'cjrStatusCode'
+data CreateJobResponse = CreateJobResponse'{_cjrJob :: Maybe Job', _cjrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateJobResponse' smart constructor.
-createJobResponse :: CreateJobResponse
-createJobResponse = CreateJobResponse'{_cjrJob = Nothing};
+createJobResponse :: Int -> CreateJobResponse
+createJobResponse pStatusCode = CreateJobResponse'{_cjrJob = Nothing, _cjrStatusCode = pStatusCode};
 
 -- | A section of the response body that provides information about the job
 -- that is created.
 cjrJob :: Lens' CreateJobResponse (Maybe Job')
 cjrJob = lens _cjrJob (\ s a -> s{_cjrJob = a});
+
+-- | FIXME: Undocumented member.
+cjrStatusCode :: Lens' CreateJobResponse Int
+cjrStatusCode = lens _cjrStatusCode (\ s a -> s{_cjrStatusCode = a});

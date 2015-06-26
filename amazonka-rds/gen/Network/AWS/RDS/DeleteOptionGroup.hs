@@ -37,7 +37,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteOptionGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteOptionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

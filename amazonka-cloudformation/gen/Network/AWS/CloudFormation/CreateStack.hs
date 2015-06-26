@@ -45,6 +45,7 @@ module Network.AWS.CloudFormation.CreateStack
     , createStackResponse
     -- ** Response lenses
     , csrStackId
+    , csrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -52,7 +53,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createStack' smart constructor.
+-- | The input for CreateStack action.
+--
+-- /See:/ 'createStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -198,7 +201,8 @@ instance AWSRequest CreateStack where
         response
           = receiveXMLWrapper "CreateStackResult"
               (\ s h x ->
-                 CreateStackResponse' <$> (x .@? "StackId"))
+                 CreateStackResponse' <$>
+                   (x .@? "StackId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateStack where
         toHeaders = const mempty
@@ -228,17 +232,25 @@ instance ToQuery CreateStack where
                "TimeoutInMinutes" =: _csTimeoutInMinutes,
                "StackName" =: _csStackName]
 
--- | /See:/ 'createStackResponse' smart constructor.
+-- | The output for a CreateStack action.
+--
+-- /See:/ 'createStackResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrStackId'
-newtype CreateStackResponse = CreateStackResponse'{_csrStackId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CreateStackResponse = CreateStackResponse'{_csrStackId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateStackResponse' smart constructor.
-createStackResponse :: CreateStackResponse
-createStackResponse = CreateStackResponse'{_csrStackId = Nothing};
+createStackResponse :: Int -> CreateStackResponse
+createStackResponse pStatusCode = CreateStackResponse'{_csrStackId = Nothing, _csrStatusCode = pStatusCode};
 
 -- | Unique identifier of the stack.
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CreateStackResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

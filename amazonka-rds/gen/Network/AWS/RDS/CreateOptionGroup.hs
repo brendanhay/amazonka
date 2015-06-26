@@ -35,7 +35,8 @@ module Network.AWS.RDS.CreateOptionGroup
     -- ** Response constructor
     , createOptionGroupResponse
     -- ** Response lenses
-    , creOptionGroup
+    , creaOptionGroup
+    , creaStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createOptionGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createOptionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +102,8 @@ instance AWSRequest CreateOptionGroup where
         response
           = receiveXMLWrapper "CreateOptionGroupResult"
               (\ s h x ->
-                 CreateOptionGroupResponse' <$> (x .@? "OptionGroup"))
+                 CreateOptionGroupResponse' <$>
+                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty
@@ -123,13 +127,19 @@ instance ToQuery CreateOptionGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creOptionGroup'
-newtype CreateOptionGroupResponse = CreateOptionGroupResponse'{_creOptionGroup :: Maybe OptionGroup} deriving (Eq, Read, Show)
+-- * 'creaOptionGroup'
+--
+-- * 'creaStatusCode'
+data CreateOptionGroupResponse = CreateOptionGroupResponse'{_creaOptionGroup :: Maybe OptionGroup, _creaStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateOptionGroupResponse' smart constructor.
-createOptionGroupResponse :: CreateOptionGroupResponse
-createOptionGroupResponse = CreateOptionGroupResponse'{_creOptionGroup = Nothing};
+createOptionGroupResponse :: Int -> CreateOptionGroupResponse
+createOptionGroupResponse pStatusCode = CreateOptionGroupResponse'{_creaOptionGroup = Nothing, _creaStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-creOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
-creOptionGroup = lens _creOptionGroup (\ s a -> s{_creOptionGroup = a});
+creaOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
+creaOptionGroup = lens _creaOptionGroup (\ s a -> s{_creaOptionGroup = a});
+
+-- | FIXME: Undocumented member.
+creaStatusCode :: Lens' CreateOptionGroupResponse Int
+creaStatusCode = lens _creaStatusCode (\ s a -> s{_creaStatusCode = a});

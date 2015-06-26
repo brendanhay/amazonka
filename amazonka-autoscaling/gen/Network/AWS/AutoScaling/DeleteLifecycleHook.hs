@@ -35,6 +35,8 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     , DeleteLifecycleHookResponse
     -- ** Response constructor
     , deleteLifecycleHookResponse
+    -- ** Response lenses
+    , delStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -68,7 +70,10 @@ instance AWSRequest DeleteLifecycleHook where
         type Rs DeleteLifecycleHook =
              DeleteLifecycleHookResponse
         request = post
-        response = receiveNull DeleteLifecycleHookResponse'
+        response
+          = receiveXMLWrapper "DeleteLifecycleHookResult"
+              (\ s h x ->
+                 DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
@@ -85,8 +90,16 @@ instance ToQuery DeleteLifecycleHook where
                "AutoScalingGroupName" =: _delAutoScalingGroupName]
 
 -- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
-data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'delStatusCode'
+newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
-deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
-deleteLifecycleHookResponse = DeleteLifecycleHookResponse';
+deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
+deleteLifecycleHookResponse pStatusCode = DeleteLifecycleHookResponse'{_delStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteLifecycleHookResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

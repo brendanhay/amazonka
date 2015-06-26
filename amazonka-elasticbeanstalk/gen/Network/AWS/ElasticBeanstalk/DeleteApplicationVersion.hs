@@ -42,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteApplicationVersion' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'deleteApplicationVersion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

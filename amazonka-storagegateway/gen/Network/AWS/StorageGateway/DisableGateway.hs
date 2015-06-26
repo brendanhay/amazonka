@@ -39,6 +39,7 @@ module Network.AWS.StorageGateway.DisableGateway
     , disableGatewayResponse
     -- ** Response lenses
     , dGatewayARN
+    , dStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +47,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'disableGateway' smart constructor.
+-- | DisableGatewayInput
+--
+-- /See:/ 'disableGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest DisableGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 DisableGatewayResponse' <$> (x .?> "GatewayARN"))
+                 DisableGatewayResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DisableGateway where
         toHeaders
@@ -90,17 +94,25 @@ instance ToPath DisableGateway where
 instance ToQuery DisableGateway where
         toQuery = const mempty
 
--- | /See:/ 'disableGatewayResponse' smart constructor.
+-- | DisableGatewayOutput
+--
+-- /See:/ 'disableGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dGatewayARN'
-newtype DisableGatewayResponse = DisableGatewayResponse'{_dGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dStatusCode'
+data DisableGatewayResponse = DisableGatewayResponse'{_dGatewayARN :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableGatewayResponse' smart constructor.
-disableGatewayResponse :: DisableGatewayResponse
-disableGatewayResponse = DisableGatewayResponse'{_dGatewayARN = Nothing};
+disableGatewayResponse :: Int -> DisableGatewayResponse
+disableGatewayResponse pStatusCode = DisableGatewayResponse'{_dGatewayARN = Nothing, _dStatusCode = pStatusCode};
 
 -- | The unique Amazon Resource Name of the disabled gateway.
 dGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DisableGatewayResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

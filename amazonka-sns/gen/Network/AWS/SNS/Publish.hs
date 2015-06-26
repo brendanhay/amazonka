@@ -47,6 +47,7 @@ module Network.AWS.SNS.Publish
     , publishResponse
     -- ** Response lenses
     , prMessageId
+    , prStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -54,7 +55,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'publish' smart constructor.
+-- | Input for Publish action.
+--
+-- /See:/ 'publish' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -159,7 +162,9 @@ instance AWSRequest Publish where
         request = post
         response
           = receiveXMLWrapper "PublishResult"
-              (\ s h x -> PublishResponse' <$> (x .@? "MessageId"))
+              (\ s h x ->
+                 PublishResponse' <$>
+                   (x .@? "MessageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders Publish where
         toHeaders = const mempty
@@ -181,19 +186,27 @@ instance ToQuery Publish where
                "MessageStructure" =: _pubMessageStructure,
                "Message" =: _pubMessage]
 
--- | /See:/ 'publishResponse' smart constructor.
+-- | Response for Publish action.
+--
+-- /See:/ 'publishResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prMessageId'
-newtype PublishResponse = PublishResponse'{_prMessageId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'prStatusCode'
+data PublishResponse = PublishResponse'{_prMessageId :: Maybe Text, _prStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PublishResponse' smart constructor.
-publishResponse :: PublishResponse
-publishResponse = PublishResponse'{_prMessageId = Nothing};
+publishResponse :: Int -> PublishResponse
+publishResponse pStatusCode = PublishResponse'{_prMessageId = Nothing, _prStatusCode = pStatusCode};
 
 -- | Unique identifier assigned to the published message.
 --
 -- Length Constraint: Maximum 100 characters
 prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\ s a -> s{_prMessageId = a});
+
+-- | FIXME: Undocumented member.
+prStatusCode :: Lens' PublishResponse Int
+prStatusCode = lens _prStatusCode (\ s a -> s{_prStatusCode = a});

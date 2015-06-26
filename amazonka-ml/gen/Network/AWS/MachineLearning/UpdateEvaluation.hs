@@ -36,6 +36,7 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     , updateEvaluationResponse
     -- ** Response lenses
     , uerEvaluationId
+    , uerStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -72,7 +73,8 @@ instance AWSRequest UpdateEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateEvaluationResponse' <$> (x .?> "EvaluationId"))
+                 UpdateEvaluationResponse' <$>
+                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateEvaluation where
         toHeaders
@@ -95,18 +97,28 @@ instance ToPath UpdateEvaluation where
 instance ToQuery UpdateEvaluation where
         toQuery = const mempty
 
--- | /See:/ 'updateEvaluationResponse' smart constructor.
+-- | Represents the output of an UpdateEvaluation operation.
+--
+-- You can see the updated content by using the GetEvaluation operation.
+--
+-- /See:/ 'updateEvaluationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uerEvaluationId'
-newtype UpdateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'uerStatusCode'
+data UpdateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId :: Maybe Text, _uerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
-updateEvaluationResponse :: UpdateEvaluationResponse
-updateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId = Nothing};
+updateEvaluationResponse :: Int -> UpdateEvaluationResponse
+updateEvaluationResponse pStatusCode = UpdateEvaluationResponse'{_uerEvaluationId = Nothing, _uerStatusCode = pStatusCode};
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should
 -- be identical to the value of the @Evaluation@ in the request.
 uerEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uerEvaluationId = lens _uerEvaluationId (\ s a -> s{_uerEvaluationId = a});
+
+-- | FIXME: Undocumented member.
+uerStatusCode :: Lens' UpdateEvaluationResponse Int
+uerStatusCode = lens _uerStatusCode (\ s a -> s{_uerStatusCode = a});

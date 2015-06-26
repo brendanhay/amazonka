@@ -51,6 +51,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- ** Response lenses
     , ccscsivrTargetARN
     , ccscsivrVolumeARN
+    , ccscsivrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -112,7 +113,8 @@ instance AWSRequest CreateCachediSCSIVolume where
           = receiveJSON
               (\ s h x ->
                  CreateCachediSCSIVolumeResponse' <$>
-                   (x .?> "TargetARN") <*> (x .?> "VolumeARN"))
+                   (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
@@ -147,11 +149,13 @@ instance ToQuery CreateCachediSCSIVolume where
 -- * 'ccscsivrTargetARN'
 --
 -- * 'ccscsivrVolumeARN'
-data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN :: Maybe Text, _ccscsivrVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ccscsivrStatusCode'
+data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN :: Maybe Text, _ccscsivrVolumeARN :: Maybe Text, _ccscsivrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
-createCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
-createCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN = Nothing, _ccscsivrVolumeARN = Nothing};
+createCachediSCSIVolumeResponse :: Int -> CreateCachediSCSIVolumeResponse
+createCachediSCSIVolumeResponse pStatusCode = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN = Nothing, _ccscsivrVolumeARN = Nothing, _ccscsivrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
@@ -160,3 +164,7 @@ ccscsivrTargetARN = lens _ccscsivrTargetARN (\ s a -> s{_ccscsivrTargetARN = a})
 -- | FIXME: Undocumented member.
 ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN = lens _ccscsivrVolumeARN (\ s a -> s{_ccscsivrVolumeARN = a});
+
+-- | FIXME: Undocumented member.
+ccscsivrStatusCode :: Lens' CreateCachediSCSIVolumeResponse Int
+ccscsivrStatusCode = lens _ccscsivrStatusCode (\ s a -> s{_ccscsivrStatusCode = a});

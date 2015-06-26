@@ -40,7 +40,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'setSubscriptionAttributes' smart constructor.
+-- | Input for SetSubscriptionAttributes action.
+--
+-- /See:/ 'setSubscriptionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

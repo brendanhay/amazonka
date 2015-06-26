@@ -38,6 +38,7 @@ module Network.AWS.CloudHSM.ListHAPGs
     -- ** Response lenses
     , lhrNextToken
     , lhrHAPGList
+    , lhrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -69,8 +70,8 @@ instance AWSRequest ListHAPGs where
           = receiveJSON
               (\ s h x ->
                  ListHAPGsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "HapgList" .!@ mempty))
+                   (x .?> "NextToken") <*> (x .?> "HapgList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListHAPGs where
         toHeaders
@@ -98,11 +99,13 @@ instance ToQuery ListHAPGs where
 -- * 'lhrNextToken'
 --
 -- * 'lhrHAPGList'
-data ListHAPGsResponse = ListHAPGsResponse'{_lhrNextToken :: Maybe Text, _lhrHAPGList :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lhrStatusCode'
+data ListHAPGsResponse = ListHAPGsResponse'{_lhrNextToken :: Maybe Text, _lhrHAPGList :: [Text], _lhrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListHAPGsResponse' smart constructor.
-listHAPGsResponse :: ListHAPGsResponse
-listHAPGsResponse = ListHAPGsResponse'{_lhrNextToken = Nothing, _lhrHAPGList = mempty};
+listHAPGsResponse :: Int -> ListHAPGsResponse
+listHAPGsResponse pStatusCode = ListHAPGsResponse'{_lhrNextToken = Nothing, _lhrHAPGList = mempty, _lhrStatusCode = pStatusCode};
 
 -- | If not null, more results are available. Pass this value to ListHapgs to
 -- retrieve the next set of items.
@@ -112,3 +115,7 @@ lhrNextToken = lens _lhrNextToken (\ s a -> s{_lhrNextToken = a});
 -- | The list of high-availability partition groups.
 lhrHAPGList :: Lens' ListHAPGsResponse [Text]
 lhrHAPGList = lens _lhrHAPGList (\ s a -> s{_lhrHAPGList = a});
+
+-- | FIXME: Undocumented member.
+lhrStatusCode :: Lens' ListHAPGsResponse Int
+lhrStatusCode = lens _lhrStatusCode (\ s a -> s{_lhrStatusCode = a});

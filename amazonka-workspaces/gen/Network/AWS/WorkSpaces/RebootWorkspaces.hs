@@ -38,6 +38,7 @@ module Network.AWS.WorkSpaces.RebootWorkspaces
     , rebootWorkspacesResponse
     -- ** Response lenses
     , rebFailedRequests
+    , rebStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -45,7 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'rebootWorkspaces' smart constructor.
+-- | Contains the inputs for the RebootWorkspaces operation.
+--
+-- /See:/ 'rebootWorkspaces' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest RebootWorkspaces where
           = receiveJSON
               (\ s h x ->
                  RebootWorkspacesResponse' <$>
-                   (x .?> "FailedRequests" .!@ mempty))
+                   (x .?> "FailedRequests" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RebootWorkspaces where
         toHeaders
@@ -91,18 +95,26 @@ instance ToPath RebootWorkspaces where
 instance ToQuery RebootWorkspaces where
         toQuery = const mempty
 
--- | /See:/ 'rebootWorkspacesResponse' smart constructor.
+-- | Contains the results of the RebootWorkspaces operation.
+--
+-- /See:/ 'rebootWorkspacesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rebFailedRequests'
-newtype RebootWorkspacesResponse = RebootWorkspacesResponse'{_rebFailedRequests :: Maybe [FailedWorkspaceChangeRequest]} deriving (Eq, Read, Show)
+--
+-- * 'rebStatusCode'
+data RebootWorkspacesResponse = RebootWorkspacesResponse'{_rebFailedRequests :: Maybe [FailedWorkspaceChangeRequest], _rebStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RebootWorkspacesResponse' smart constructor.
-rebootWorkspacesResponse :: RebootWorkspacesResponse
-rebootWorkspacesResponse = RebootWorkspacesResponse'{_rebFailedRequests = Nothing};
+rebootWorkspacesResponse :: Int -> RebootWorkspacesResponse
+rebootWorkspacesResponse pStatusCode = RebootWorkspacesResponse'{_rebFailedRequests = Nothing, _rebStatusCode = pStatusCode};
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebooted.
 rebFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
 rebFailedRequests = lens _rebFailedRequests (\ s a -> s{_rebFailedRequests = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+rebStatusCode :: Lens' RebootWorkspacesResponse Int
+rebStatusCode = lens _rebStatusCode (\ s a -> s{_rebStatusCode = a});

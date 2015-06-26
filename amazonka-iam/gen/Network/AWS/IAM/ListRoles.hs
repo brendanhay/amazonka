@@ -42,10 +42,11 @@ module Network.AWS.IAM.ListRoles
     , lrrMarker
     , lrrIsTruncated
     , lrrRoles
+    , lrrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,7 +105,8 @@ instance AWSRequest ListRoles where
               (\ s h x ->
                  ListRolesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
+                     (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListRoles where
         toHeaders = const mempty
@@ -120,7 +122,9 @@ instance ToQuery ListRoles where
                "PathPrefix" =: _lrPathPrefix,
                "MaxItems" =: _lrMaxItems, "Marker" =: _lrMarker]
 
--- | /See:/ 'listRolesResponse' smart constructor.
+-- | Contains the response to a successful ListRoles request.
+--
+-- /See:/ 'listRolesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -129,11 +133,13 @@ instance ToQuery ListRoles where
 -- * 'lrrIsTruncated'
 --
 -- * 'lrrRoles'
-data ListRolesResponse = ListRolesResponse'{_lrrMarker :: Maybe Text, _lrrIsTruncated :: Maybe Bool, _lrrRoles :: [Role]} deriving (Eq, Read, Show)
+--
+-- * 'lrrStatusCode'
+data ListRolesResponse = ListRolesResponse'{_lrrMarker :: Maybe Text, _lrrIsTruncated :: Maybe Bool, _lrrRoles :: [Role], _lrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListRolesResponse' smart constructor.
-listRolesResponse :: ListRolesResponse
-listRolesResponse = ListRolesResponse'{_lrrMarker = Nothing, _lrrIsTruncated = Nothing, _lrrRoles = mempty};
+listRolesResponse :: Int -> ListRolesResponse
+listRolesResponse pStatusCode = ListRolesResponse'{_lrrMarker = Nothing, _lrrIsTruncated = Nothing, _lrrRoles = mempty, _lrrStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -150,3 +156,7 @@ lrrIsTruncated = lens _lrrIsTruncated (\ s a -> s{_lrrIsTruncated = a});
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\ s a -> s{_lrrRoles = a});
+
+-- | FIXME: Undocumented member.
+lrrStatusCode :: Lens' ListRolesResponse Int
+lrrStatusCode = lens _lrrStatusCode (\ s a -> s{_lrrStatusCode = a});

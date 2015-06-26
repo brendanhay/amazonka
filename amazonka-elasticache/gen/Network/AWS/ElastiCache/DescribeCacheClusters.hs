@@ -57,17 +57,20 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- ** Response constructor
     , describeCacheClustersResponse
     -- ** Response lenses
-    , dccrCacheClusters
-    , dccrMarker
+    , dCacheClusters
+    , dMarker
+    , dStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeCacheClusters' smart constructor.
+-- | Represents the input of a /DescribeCacheClusters/ action.
+--
+-- /See:/ 'describeCacheClusters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -114,10 +117,9 @@ desShowCacheNodeInfo = lens _desShowCacheNodeInfo (\ s a -> s{_desShowCacheNodeI
 
 instance AWSPager DescribeCacheClusters where
         page rq rs
-          | stop (rs ^. dccrMarker) = Nothing
-          | stop (rs ^. dccrCacheClusters) = Nothing
-          | otherwise =
-            Just $ rq & desMarker .~ rs ^. dccrMarker
+          | stop (rs ^. dMarker) = Nothing
+          | stop (rs ^. dCacheClusters) = Nothing
+          | otherwise = Just $ rq & desMarker .~ rs ^. dMarker
 
 instance AWSRequest DescribeCacheClusters where
         type Sv DescribeCacheClusters = ElastiCache
@@ -130,7 +132,8 @@ instance AWSRequest DescribeCacheClusters where
                  DescribeCacheClustersResponse' <$>
                    (x .@? "CacheClusters" .!@ mempty >>=
                       may (parseXMLList "CacheCluster"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
@@ -148,24 +151,32 @@ instance ToQuery DescribeCacheClusters where
                "Marker" =: _desMarker,
                "ShowCacheNodeInfo" =: _desShowCacheNodeInfo]
 
--- | /See:/ 'describeCacheClustersResponse' smart constructor.
+-- | Represents the output of a /DescribeCacheClusters/ action.
+--
+-- /See:/ 'describeCacheClustersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccrCacheClusters'
+-- * 'dCacheClusters'
 --
--- * 'dccrMarker'
-data DescribeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheClusters :: Maybe [CacheCluster], _dccrMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dMarker'
+--
+-- * 'dStatusCode'
+data DescribeCacheClustersResponse = DescribeCacheClustersResponse'{_dCacheClusters :: Maybe [CacheCluster], _dMarker :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
-describeCacheClustersResponse :: DescribeCacheClustersResponse
-describeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheClusters = Nothing, _dccrMarker = Nothing};
+describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse
+describeCacheClustersResponse pStatusCode = DescribeCacheClustersResponse'{_dCacheClusters = Nothing, _dMarker = Nothing, _dStatusCode = pStatusCode};
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
-dccrCacheClusters = lens _dccrCacheClusters (\ s a -> s{_dccrCacheClusters = a}) . _Default;
+dCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dCacheClusters = lens _dCacheClusters (\ s a -> s{_dCacheClusters = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
-dccrMarker = lens _dccrMarker (\ s a -> s{_dccrMarker = a});
+dMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DescribeCacheClustersResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

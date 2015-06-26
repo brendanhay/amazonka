@@ -47,6 +47,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     , copyClusterSnapshotResponse
     -- ** Response lenses
     , ccsrSnapshot
+    , ccsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -54,7 +55,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'copyClusterSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'copyClusterSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,7 +112,8 @@ instance AWSRequest CopyClusterSnapshot where
         response
           = receiveXMLWrapper "CopyClusterSnapshotResult"
               (\ s h x ->
-                 CopyClusterSnapshotResponse' <$> (x .@? "Snapshot"))
+                 CopyClusterSnapshotResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty
@@ -134,12 +138,18 @@ instance ToQuery CopyClusterSnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccsrSnapshot'
-newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'{_ccsrSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+--
+-- * 'ccsrStatusCode'
+data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'{_ccsrSnapshot :: Maybe Snapshot, _ccsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopyClusterSnapshotResponse' smart constructor.
-copyClusterSnapshotResponse :: CopyClusterSnapshotResponse
-copyClusterSnapshotResponse = CopyClusterSnapshotResponse'{_ccsrSnapshot = Nothing};
+copyClusterSnapshotResponse :: Int -> CopyClusterSnapshotResponse
+copyClusterSnapshotResponse pStatusCode = CopyClusterSnapshotResponse'{_ccsrSnapshot = Nothing, _ccsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrSnapshot = lens _ccsrSnapshot (\ s a -> s{_ccsrSnapshot = a});
+
+-- | FIXME: Undocumented member.
+ccsrStatusCode :: Lens' CopyClusterSnapshotResponse Int
+ccsrStatusCode = lens _ccsrStatusCode (\ s a -> s{_ccsrStatusCode = a});

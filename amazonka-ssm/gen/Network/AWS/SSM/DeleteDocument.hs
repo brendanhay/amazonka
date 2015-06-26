@@ -33,6 +33,8 @@ module Network.AWS.SSM.DeleteDocument
     , DeleteDocumentResponse
     -- ** Response constructor
     , deleteDocumentResponse
+    -- ** Response lenses
+    , ddrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -59,7 +61,10 @@ instance AWSRequest DeleteDocument where
         type Sv DeleteDocument = SSM
         type Rs DeleteDocument = DeleteDocumentResponse
         request = postJSON
-        response = receiveNull DeleteDocumentResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteDocumentResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDocument where
         toHeaders
@@ -81,8 +86,16 @@ instance ToQuery DeleteDocument where
         toQuery = const mempty
 
 -- | /See:/ 'deleteDocumentResponse' smart constructor.
-data DeleteDocumentResponse = DeleteDocumentResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ddrStatusCode'
+newtype DeleteDocumentResponse = DeleteDocumentResponse'{_ddrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDocumentResponse' smart constructor.
-deleteDocumentResponse :: DeleteDocumentResponse
-deleteDocumentResponse = DeleteDocumentResponse';
+deleteDocumentResponse :: Int -> DeleteDocumentResponse
+deleteDocumentResponse pStatusCode = DeleteDocumentResponse'{_ddrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+ddrStatusCode :: Lens' DeleteDocumentResponse Int
+ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});

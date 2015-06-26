@@ -35,6 +35,7 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     -- ** Response lenses
     , dlbrLoadBalancers
     , dlbrNextToken
+    , dlbrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -81,7 +82,8 @@ instance AWSRequest DescribeLoadBalancers where
                  DescribeLoadBalancersResponse' <$>
                    (x .@? "LoadBalancers" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
@@ -105,11 +107,13 @@ instance ToQuery DescribeLoadBalancers where
 -- * 'dlbrLoadBalancers'
 --
 -- * 'dlbrNextToken'
-data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers :: Maybe [LoadBalancerState], _dlbrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dlbrStatusCode'
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers :: Maybe [LoadBalancerState], _dlbrNextToken :: Maybe Text, _dlbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
-describeLoadBalancersResponse :: DescribeLoadBalancersResponse
-describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancers = Nothing, _dlbrNextToken = Nothing};
+describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
+describeLoadBalancersResponse pStatusCode = DescribeLoadBalancersResponse'{_dlbrLoadBalancers = Nothing, _dlbrNextToken = Nothing, _dlbrStatusCode = pStatusCode};
 
 -- | The load balancers.
 dlbrLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
@@ -119,3 +123,7 @@ dlbrLoadBalancers = lens _dlbrLoadBalancers (\ s a -> s{_dlbrLoadBalancers = a})
 -- additional items to return, the string is empty.
 dlbrNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextToken = lens _dlbrNextToken (\ s a -> s{_dlbrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dlbrStatusCode :: Lens' DescribeLoadBalancersResponse Int
+dlbrStatusCode = lens _dlbrStatusCode (\ s a -> s{_dlbrStatusCode = a});

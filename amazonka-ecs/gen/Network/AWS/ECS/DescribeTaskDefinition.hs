@@ -36,7 +36,8 @@ module Network.AWS.ECS.DescribeTaskDefinition
     -- ** Response constructor
     , describeTaskDefinitionResponse
     -- ** Response lenses
-    , desTaskDefinition
+    , descTaskDefinition
+    , descStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -71,7 +72,7 @@ instance AWSRequest DescribeTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DescribeTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition"))
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTaskDefinition where
         toHeaders
@@ -97,13 +98,19 @@ instance ToQuery DescribeTaskDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desTaskDefinition'
-newtype DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'{_desTaskDefinition :: Maybe TaskDefinition} deriving (Eq, Read, Show)
+-- * 'descTaskDefinition'
+--
+-- * 'descStatusCode'
+data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'{_descTaskDefinition :: Maybe TaskDefinition, _descStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
-describeTaskDefinitionResponse :: DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse = DescribeTaskDefinitionResponse'{_desTaskDefinition = Nothing};
+describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
+describeTaskDefinitionResponse pStatusCode = DescribeTaskDefinitionResponse'{_descTaskDefinition = Nothing, _descStatusCode = pStatusCode};
 
 -- | The full task definition description.
-desTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
-desTaskDefinition = lens _desTaskDefinition (\ s a -> s{_desTaskDefinition = a});
+descTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
+descTaskDefinition = lens _descTaskDefinition (\ s a -> s{_descTaskDefinition = a});
+
+-- | FIXME: Undocumented member.
+descStatusCode :: Lens' DescribeTaskDefinitionResponse Int
+descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});

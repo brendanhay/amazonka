@@ -39,6 +39,7 @@ module Network.AWS.EC2.ImportSnapshot
     , isrSnapshotTaskDetail
     , isrImportTaskId
     , isrDescription
+    , isrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -105,7 +106,8 @@ instance AWSRequest ImportSnapshot where
                  ImportSnapshotResponse' <$>
                    (x .@? "snapshotTaskDetail") <*>
                      (x .@? "importTaskId")
-                     <*> (x .@? "description"))
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty
@@ -133,11 +135,13 @@ instance ToQuery ImportSnapshot where
 -- * 'isrImportTaskId'
 --
 -- * 'isrDescription'
-data ImportSnapshotResponse = ImportSnapshotResponse'{_isrSnapshotTaskDetail :: Maybe SnapshotTaskDetail, _isrImportTaskId :: Maybe Text, _isrDescription :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'isrStatusCode'
+data ImportSnapshotResponse = ImportSnapshotResponse'{_isrSnapshotTaskDetail :: Maybe SnapshotTaskDetail, _isrImportTaskId :: Maybe Text, _isrDescription :: Maybe Text, _isrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ImportSnapshotResponse' smart constructor.
-importSnapshotResponse :: ImportSnapshotResponse
-importSnapshotResponse = ImportSnapshotResponse'{_isrSnapshotTaskDetail = Nothing, _isrImportTaskId = Nothing, _isrDescription = Nothing};
+importSnapshotResponse :: Int -> ImportSnapshotResponse
+importSnapshotResponse pStatusCode = ImportSnapshotResponse'{_isrSnapshotTaskDetail = Nothing, _isrImportTaskId = Nothing, _isrDescription = Nothing, _isrStatusCode = pStatusCode};
 
 -- | Information about the import snapshot task.
 isrSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
@@ -150,3 +154,7 @@ isrImportTaskId = lens _isrImportTaskId (\ s a -> s{_isrImportTaskId = a});
 -- | A description of the import snapshot task.
 isrDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrDescription = lens _isrDescription (\ s a -> s{_isrDescription = a});
+
+-- | FIXME: Undocumented member.
+isrStatusCode :: Lens' ImportSnapshotResponse Int
+isrStatusCode = lens _isrStatusCode (\ s a -> s{_isrStatusCode = a});

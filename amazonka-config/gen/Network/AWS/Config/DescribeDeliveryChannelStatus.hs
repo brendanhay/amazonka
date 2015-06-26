@@ -36,6 +36,7 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , describeDeliveryChannelStatusResponse
     -- ** Response lenses
     , ddcsrDeliveryChannelsStatus
+    , ddcsrStatusCode
     ) where
 
 import Network.AWS.Config.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDeliveryChannelStatus' smart constructor.
+-- | The input for the DeliveryChannelStatus action.
+--
+-- /See:/ 'describeDeliveryChannelStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest DescribeDeliveryChannelStatus
           = receiveJSON
               (\ s h x ->
                  DescribeDeliveryChannelStatusResponse' <$>
-                   (x .?> "DeliveryChannelsStatus" .!@ mempty))
+                   (x .?> "DeliveryChannelsStatus" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeDeliveryChannelStatus
          where
@@ -92,17 +96,25 @@ instance ToPath DescribeDeliveryChannelStatus where
 instance ToQuery DescribeDeliveryChannelStatus where
         toQuery = const mempty
 
--- | /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
+-- | The output for the DescribeDeliveryChannelStatus action.
+--
+-- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcsrDeliveryChannelsStatus'
-newtype DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus :: Maybe [DeliveryChannelStatus]} deriving (Eq, Read, Show)
+--
+-- * 'ddcsrStatusCode'
+data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus :: Maybe [DeliveryChannelStatus], _ddcsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
-describeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse
-describeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus = Nothing};
+describeDeliveryChannelStatusResponse :: Int -> DescribeDeliveryChannelStatusResponse
+describeDeliveryChannelStatusResponse pStatusCode = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus = Nothing, _ddcsrStatusCode = pStatusCode};
 
 -- | A list that contains the status of a specified delivery channel.
 ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
 ddcsrDeliveryChannelsStatus = lens _ddcsrDeliveryChannelsStatus (\ s a -> s{_ddcsrDeliveryChannelsStatus = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddcsrStatusCode :: Lens' DescribeDeliveryChannelStatusResponse Int
+ddcsrStatusCode = lens _ddcsrStatusCode (\ s a -> s{_ddcsrStatusCode = a});

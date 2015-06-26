@@ -55,7 +55,8 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- ** Response constructor
     , createReservedInstancesListingResponse
     -- ** Response lenses
-    , creReservedInstancesListings
+    , cReservedInstancesListings
+    , cStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -113,7 +114,8 @@ instance AWSRequest CreateReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CreateReservedInstancesListingResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateReservedInstancesListing
          where
@@ -137,13 +139,19 @@ instance ToQuery CreateReservedInstancesListing where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creReservedInstancesListings'
-newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings :: Maybe [ReservedInstancesListing]} deriving (Eq, Read, Show)
+-- * 'cReservedInstancesListings'
+--
+-- * 'cStatusCode'
+data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_cReservedInstancesListings :: Maybe [ReservedInstancesListing], _cStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
-createReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings = Nothing};
+createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
+createReservedInstancesListingResponse pStatusCode = CreateReservedInstancesListingResponse'{_cReservedInstancesListings = Nothing, _cStatusCode = pStatusCode};
 
 -- | Information about the Reserved Instances listing.
-creReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-creReservedInstancesListings = lens _creReservedInstancesListings (\ s a -> s{_creReservedInstancesListings = a}) . _Default;
+cReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+cReservedInstancesListings = lens _cReservedInstancesListings (\ s a -> s{_cReservedInstancesListings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+cStatusCode :: Lens' CreateReservedInstancesListingResponse Int
+cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});

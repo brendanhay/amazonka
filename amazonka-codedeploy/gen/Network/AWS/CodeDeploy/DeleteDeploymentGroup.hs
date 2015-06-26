@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     , deleteDeploymentGroupResponse
     -- ** Response lenses
     , ddgrHooksNotCleanedUp
+    , ddgrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDeploymentGroup' smart constructor.
+-- | Represents the input of a delete deployment group operation.
+--
+-- /See:/ 'deleteDeploymentGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest DeleteDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  DeleteDeploymentGroupResponse' <$>
-                   (x .?> "hooksNotCleanedUp" .!@ mempty))
+                   (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
@@ -95,16 +99,20 @@ instance ToPath DeleteDeploymentGroup where
 instance ToQuery DeleteDeploymentGroup where
         toQuery = const mempty
 
--- | /See:/ 'deleteDeploymentGroupResponse' smart constructor.
+-- | Represents the output of a delete deployment group operation.
+--
+-- /See:/ 'deleteDeploymentGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddgrHooksNotCleanedUp'
-newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp :: Maybe [AutoScalingGroup]} deriving (Eq, Read, Show)
+--
+-- * 'ddgrStatusCode'
+data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp :: Maybe [AutoScalingGroup], _ddgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
-deleteDeploymentGroupResponse :: DeleteDeploymentGroupResponse
-deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp = Nothing};
+deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
+deleteDeploymentGroupResponse pStatusCode = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp = Nothing, _ddgrStatusCode = pStatusCode};
 
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
@@ -114,3 +122,7 @@ deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotClea
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
 ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddgrStatusCode :: Lens' DeleteDeploymentGroupResponse Int
+ddgrStatusCode = lens _ddgrStatusCode (\ s a -> s{_ddgrStatusCode = a});

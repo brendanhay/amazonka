@@ -96,6 +96,7 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , arwsamlrNameQualifier
     , arwsamlrAssumedRoleUser
     , arwsamlrIssuer
+    , arwsamlrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -183,7 +184,8 @@ instance AWSRequest AssumeRoleWithSAML where
                      <*> (x .@? "SubjectType")
                      <*> (x .@? "NameQualifier")
                      <*> (x .@? "AssumedRoleUser")
-                     <*> (x .@? "Issuer"))
+                     <*> (x .@? "Issuer")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
@@ -202,7 +204,11 @@ instance ToQuery AssumeRoleWithSAML where
                "PrincipalArn" =: _arwsamlPrincipalARN,
                "SAMLAssertion" =: _arwsamlSAMLAssertion]
 
--- | /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
+-- | Contains the response to a successful AssumeRoleWithSAML request,
+-- including temporary AWS credentials that can be used to make AWS
+-- requests.
+--
+-- /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -221,11 +227,13 @@ instance ToQuery AssumeRoleWithSAML where
 -- * 'arwsamlrAssumedRoleUser'
 --
 -- * 'arwsamlrIssuer'
-data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'{_arwsamlrAudience :: Maybe Text, _arwsamlrSubject :: Maybe Text, _arwsamlrPackedPolicySize :: Maybe Nat, _arwsamlrCredentials :: Maybe Credentials, _arwsamlrSubjectType :: Maybe Text, _arwsamlrNameQualifier :: Maybe Text, _arwsamlrAssumedRoleUser :: Maybe AssumedRoleUser, _arwsamlrIssuer :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'arwsamlrStatusCode'
+data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'{_arwsamlrAudience :: Maybe Text, _arwsamlrSubject :: Maybe Text, _arwsamlrPackedPolicySize :: Maybe Nat, _arwsamlrCredentials :: Maybe Credentials, _arwsamlrSubjectType :: Maybe Text, _arwsamlrNameQualifier :: Maybe Text, _arwsamlrAssumedRoleUser :: Maybe AssumedRoleUser, _arwsamlrIssuer :: Maybe Text, _arwsamlrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
-assumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse
-assumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'{_arwsamlrAudience = Nothing, _arwsamlrSubject = Nothing, _arwsamlrPackedPolicySize = Nothing, _arwsamlrCredentials = Nothing, _arwsamlrSubjectType = Nothing, _arwsamlrNameQualifier = Nothing, _arwsamlrAssumedRoleUser = Nothing, _arwsamlrIssuer = Nothing};
+assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse
+assumeRoleWithSAMLResponse pStatusCode = AssumeRoleWithSAMLResponse'{_arwsamlrAudience = Nothing, _arwsamlrSubject = Nothing, _arwsamlrPackedPolicySize = Nothing, _arwsamlrCredentials = Nothing, _arwsamlrSubjectType = Nothing, _arwsamlrNameQualifier = Nothing, _arwsamlrAssumedRoleUser = Nothing, _arwsamlrIssuer = Nothing, _arwsamlrStatusCode = pStatusCode};
 
 -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
 -- element of the SAML assertion.
@@ -277,3 +285,7 @@ arwsamlrAssumedRoleUser = lens _arwsamlrAssumedRoleUser (\ s a -> s{_arwsamlrAss
 -- | The value of the @Issuer@ element of the SAML assertion.
 arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrIssuer = lens _arwsamlrIssuer (\ s a -> s{_arwsamlrIssuer = a});
+
+-- | FIXME: Undocumented member.
+arwsamlrStatusCode :: Lens' AssumeRoleWithSAMLResponse Int
+arwsamlrStatusCode = lens _arwsamlrStatusCode (\ s a -> s{_arwsamlrStatusCode = a});

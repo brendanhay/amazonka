@@ -38,6 +38,7 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     , updateHostedZoneCommentResponse
     -- ** Response lenses
     , uhzcrHostedZone
+    , uhzcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -45,7 +46,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'updateHostedZoneComment' smart constructor.
+-- | A complex type that contains information about the request to update a
+-- hosted zone comment.
+--
+-- /See:/ 'updateHostedZoneComment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -75,7 +79,7 @@ instance AWSRequest UpdateHostedZoneComment where
           = receiveXML
               (\ s h x ->
                  UpdateHostedZoneCommentResponse' <$>
-                   (x .@ "HostedZone"))
+                   (x .@ "HostedZone") <*> (pure (fromEnum s)))
 
 instance ToElement UpdateHostedZoneComment where
         toElement
@@ -96,17 +100,26 @@ instance ToXML UpdateHostedZoneComment where
         toXML UpdateHostedZoneComment'{..}
           = mconcat ["Comment" @= _uhzcComment]
 
--- | /See:/ 'updateHostedZoneCommentResponse' smart constructor.
+-- | A complex type containing information about the specified hosted zone
+-- after the update.
+--
+-- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uhzcrHostedZone'
-newtype UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'{_uhzcrHostedZone :: HostedZone} deriving (Eq, Read, Show)
+--
+-- * 'uhzcrStatusCode'
+data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'{_uhzcrHostedZone :: HostedZone, _uhzcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
-updateHostedZoneCommentResponse :: HostedZone -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pHostedZone = UpdateHostedZoneCommentResponse'{_uhzcrHostedZone = pHostedZone};
+updateHostedZoneCommentResponse :: HostedZone -> Int -> UpdateHostedZoneCommentResponse
+updateHostedZoneCommentResponse pHostedZone pStatusCode = UpdateHostedZoneCommentResponse'{_uhzcrHostedZone = pHostedZone, _uhzcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 uhzcrHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
 uhzcrHostedZone = lens _uhzcrHostedZone (\ s a -> s{_uhzcrHostedZone = a});
+
+-- | FIXME: Undocumented member.
+uhzcrStatusCode :: Lens' UpdateHostedZoneCommentResponse Int
+uhzcrStatusCode = lens _uhzcrStatusCode (\ s a -> s{_uhzcrStatusCode = a});

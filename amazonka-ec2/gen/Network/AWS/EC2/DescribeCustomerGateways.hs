@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     , describeCustomerGatewaysResponse
     -- ** Response lenses
     , dcgrCustomerGateways
+    , dcgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -115,7 +116,8 @@ instance AWSRequest DescribeCustomerGateways where
           = receiveXML
               (\ s h x ->
                  DescribeCustomerGatewaysResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
@@ -140,12 +142,18 @@ instance ToQuery DescribeCustomerGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcgrCustomerGateways'
-newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways :: Maybe [CustomerGateway]} deriving (Eq, Read, Show)
+--
+-- * 'dcgrStatusCode'
+data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways :: Maybe [CustomerGateway], _dcgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
-describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways = Nothing};
+describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
+describeCustomerGatewaysResponse pStatusCode = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways = Nothing, _dcgrStatusCode = pStatusCode};
 
 -- | Information about one or more customer gateways.
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcgrStatusCode :: Lens' DescribeCustomerGatewaysResponse Int
+dcgrStatusCode = lens _dcgrStatusCode (\ s a -> s{_dcgrStatusCode = a});

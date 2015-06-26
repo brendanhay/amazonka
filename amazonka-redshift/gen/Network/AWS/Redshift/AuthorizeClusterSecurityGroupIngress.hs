@@ -53,6 +53,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , authorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirClusterSecurityGroup
+    , acsgirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -60,7 +61,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'authorizeClusterSecurityGroupIngress' smart constructor.
+-- | ???
+--
+-- /See:/ 'authorizeClusterSecurityGroupIngress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,7 +112,8 @@ instance AWSRequest
               "AuthorizeClusterSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeClusterSecurityGroupIngressResponse' <$>
-                   (x .@? "ClusterSecurityGroup"))
+                   (x .@? "ClusterSecurityGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where
@@ -139,12 +143,18 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'acsgirClusterSecurityGroup'
-newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'{_acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'acsgirStatusCode'
+data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'{_acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup, _acsgirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
-authorizeClusterSecurityGroupIngressResponse :: AuthorizeClusterSecurityGroupIngressResponse
-authorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'{_acsgirClusterSecurityGroup = Nothing};
+authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse
+authorizeClusterSecurityGroupIngressResponse pStatusCode = AuthorizeClusterSecurityGroupIngressResponse'{_acsgirClusterSecurityGroup = Nothing, _acsgirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 acsgirClusterSecurityGroup = lens _acsgirClusterSecurityGroup (\ s a -> s{_acsgirClusterSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+acsgirStatusCode :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
+acsgirStatusCode = lens _acsgirStatusCode (\ s a -> s{_acsgirStatusCode = a});

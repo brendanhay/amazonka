@@ -41,15 +41,18 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- ** Response lenses
     , ddsgrDBSubnetGroups
     , ddsgrMarker
+    , ddsgrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDBSubnetGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeDBSubnetGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -110,7 +113,8 @@ instance AWSRequest DescribeDBSubnetGroups where
                  DescribeDBSubnetGroupsResponse' <$>
                    (x .@? "DBSubnetGroups" .!@ mempty >>=
                       may (parseXMLList "DBSubnetGroup"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
@@ -130,18 +134,23 @@ instance ToQuery DescribeDBSubnetGroups where
                "MaxRecords" =: _ddsgMaxRecords,
                "Marker" =: _ddsgMarker]
 
--- | /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBSubnetGroups action.
+--
+-- /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddsgrDBSubnetGroups'
 --
 -- * 'ddsgrMarker'
-data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups :: Maybe [DBSubnetGroup], _ddsgrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ddsgrStatusCode'
+data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups :: Maybe [DBSubnetGroup], _ddsgrMarker :: Maybe Text, _ddsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
-describeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
-describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups = Nothing, _ddsgrMarker = Nothing};
+describeDBSubnetGroupsResponse :: Int -> DescribeDBSubnetGroupsResponse
+describeDBSubnetGroupsResponse pStatusCode = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups = Nothing, _ddsgrMarker = Nothing, _ddsgrStatusCode = pStatusCode};
 
 -- | A list of DBSubnetGroup instances.
 ddsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
@@ -152,3 +161,7 @@ ddsgrDBSubnetGroups = lens _ddsgrDBSubnetGroups (\ s a -> s{_ddsgrDBSubnetGroups
 -- marker, up to the value specified by @MaxRecords@.
 ddsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrMarker = lens _ddsgrMarker (\ s a -> s{_ddsgrMarker = a});
+
+-- | FIXME: Undocumented member.
+ddsgrStatusCode :: Lens' DescribeDBSubnetGroupsResponse Int
+ddsgrStatusCode = lens _ddsgrStatusCode (\ s a -> s{_ddsgrStatusCode = a});

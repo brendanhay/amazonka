@@ -36,8 +36,9 @@ module Network.AWS.EC2.DescribeFlowLogs
     -- ** Response constructor
     , describeFlowLogsResponse
     -- ** Response lenses
-    , dflrNextToken
-    , dflrFlowLogs
+    , dflr1NextToken
+    , dflr1FlowLogs
+    , dflr1StatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -103,8 +104,8 @@ instance AWSRequest DescribeFlowLogs where
           = receiveXML
               (\ s h x ->
                  DescribeFlowLogsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeFlowLogs where
         toHeaders = const mempty
@@ -126,20 +127,26 @@ instance ToQuery DescribeFlowLogs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dflrNextToken'
+-- * 'dflr1NextToken'
 --
--- * 'dflrFlowLogs'
-data DescribeFlowLogsResponse = DescribeFlowLogsResponse'{_dflrNextToken :: Maybe Text, _dflrFlowLogs :: Maybe [FlowLog]} deriving (Eq, Read, Show)
+-- * 'dflr1FlowLogs'
+--
+-- * 'dflr1StatusCode'
+data DescribeFlowLogsResponse = DescribeFlowLogsResponse'{_dflr1NextToken :: Maybe Text, _dflr1FlowLogs :: Maybe [FlowLog], _dflr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
-describeFlowLogsResponse :: DescribeFlowLogsResponse
-describeFlowLogsResponse = DescribeFlowLogsResponse'{_dflrNextToken = Nothing, _dflrFlowLogs = Nothing};
+describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
+describeFlowLogsResponse pStatusCode = DescribeFlowLogsResponse'{_dflr1NextToken = Nothing, _dflr1FlowLogs = Nothing, _dflr1StatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-dflrNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
-dflrNextToken = lens _dflrNextToken (\ s a -> s{_dflrNextToken = a});
+dflr1NextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
+dflr1NextToken = lens _dflr1NextToken (\ s a -> s{_dflr1NextToken = a});
 
 -- | Information about the flow logs.
-dflrFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
-dflrFlowLogs = lens _dflrFlowLogs (\ s a -> s{_dflrFlowLogs = a}) . _Default;
+dflr1FlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
+dflr1FlowLogs = lens _dflr1FlowLogs (\ s a -> s{_dflr1FlowLogs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dflr1StatusCode :: Lens' DescribeFlowLogsResponse Int
+dflr1StatusCode = lens _dflr1StatusCode (\ s a -> s{_dflr1StatusCode = a});

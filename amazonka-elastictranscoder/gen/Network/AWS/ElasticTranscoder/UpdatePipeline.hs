@@ -44,6 +44,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- ** Response lenses
     , uprWarnings
     , uprPipeline
+    , uprStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -51,7 +52,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updatePipeline' smart constructor.
+-- | The @UpdatePipelineRequest@ structure.
+--
+-- /See:/ 'updatePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -235,7 +238,8 @@ instance AWSRequest UpdatePipeline where
           = receiveJSON
               (\ s h x ->
                  UpdatePipelineResponse' <$>
-                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline"))
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty
@@ -257,18 +261,23 @@ instance ToPath UpdatePipeline where
 instance ToQuery UpdatePipeline where
         toQuery = const mempty
 
--- | /See:/ 'updatePipelineResponse' smart constructor.
+-- | When you update a pipeline, Elastic Transcoder returns the values that
+-- you specified in the request.
+--
+-- /See:/ 'updatePipelineResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uprWarnings'
 --
 -- * 'uprPipeline'
-data UpdatePipelineResponse = UpdatePipelineResponse'{_uprWarnings :: Maybe [Warning], _uprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+--
+-- * 'uprStatusCode'
+data UpdatePipelineResponse = UpdatePipelineResponse'{_uprWarnings :: Maybe [Warning], _uprPipeline :: Maybe Pipeline, _uprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineResponse' smart constructor.
-updatePipelineResponse :: UpdatePipelineResponse
-updatePipelineResponse = UpdatePipelineResponse'{_uprWarnings = Nothing, _uprPipeline = Nothing};
+updatePipelineResponse :: Int -> UpdatePipelineResponse
+updatePipelineResponse pStatusCode = UpdatePipelineResponse'{_uprWarnings = Nothing, _uprPipeline = Nothing, _uprStatusCode = pStatusCode};
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -282,3 +291,7 @@ uprWarnings = lens _uprWarnings (\ s a -> s{_uprWarnings = a}) . _Default;
 -- | FIXME: Undocumented member.
 uprPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprPipeline = lens _uprPipeline (\ s a -> s{_uprPipeline = a});
+
+-- | FIXME: Undocumented member.
+uprStatusCode :: Lens' UpdatePipelineResponse Int
+uprStatusCode = lens _uprStatusCode (\ s a -> s{_uprStatusCode = a});

@@ -51,6 +51,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , createDBInstanceReadReplicaResponse
     -- ** Response lenses
     , cdirrrDBInstance
+    , cdirrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -229,7 +230,7 @@ instance AWSRequest CreateDBInstanceReadReplica where
               "CreateDBInstanceReadReplicaResult"
               (\ s h x ->
                  CreateDBInstanceReadReplicaResponse' <$>
-                   (x .@? "DBInstance"))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
@@ -263,12 +264,18 @@ instance ToQuery CreateDBInstanceReadReplica where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdirrrDBInstance'
-newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'{_cdirrrDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'cdirrrStatusCode'
+data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'{_cdirrrDBInstance :: Maybe DBInstance, _cdirrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
-createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
-createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'{_cdirrrDBInstance = Nothing};
+createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse
+createDBInstanceReadReplicaResponse pStatusCode = CreateDBInstanceReadReplicaResponse'{_cdirrrDBInstance = Nothing, _cdirrrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cdirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdirrrDBInstance = lens _cdirrrDBInstance (\ s a -> s{_cdirrrDBInstance = a});
+
+-- | FIXME: Undocumented member.
+cdirrrStatusCode :: Lens' CreateDBInstanceReadReplicaResponse Int
+cdirrrStatusCode = lens _cdirrrStatusCode (\ s a -> s{_cdirrrStatusCode = a});

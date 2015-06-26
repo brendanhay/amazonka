@@ -48,7 +48,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'resetDBParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'resetDBParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

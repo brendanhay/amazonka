@@ -35,6 +35,7 @@ module Network.AWS.Redshift.DescribeEventCategories
     , describeEventCategoriesResponse
     -- ** Response lenses
     , decrEventCategoriesMapList
+    , decrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEventCategories' smart constructor.
+-- |
+--
+-- /See:/ 'describeEventCategories' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest DescribeEventCategories where
               (\ s h x ->
                  DescribeEventCategoriesResponse' <$>
                    (x .@? "EventCategoriesMapList" .!@ mempty >>=
-                      may (parseXMLList "EventCategoriesMap")))
+                      may (parseXMLList "EventCategoriesMap"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
@@ -86,17 +90,25 @@ instance ToQuery DescribeEventCategories where
                "Version" =: ("2012-12-01" :: ByteString),
                "SourceType" =: _decSourceType]
 
--- | /See:/ 'describeEventCategoriesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeEventCategoriesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'decrEventCategoriesMapList'
-newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: Maybe [EventCategoriesMap]} deriving (Eq, Read, Show)
+--
+-- * 'decrStatusCode'
+data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: Maybe [EventCategoriesMap], _decrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
-describeEventCategoriesResponse :: DescribeEventCategoriesResponse
-describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing};
+describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
+describeEventCategoriesResponse pStatusCode = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing, _decrStatusCode = pStatusCode};
 
 -- | A list of event categories descriptions.
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+decrStatusCode :: Lens' DescribeEventCategoriesResponse Int
+decrStatusCode = lens _decrStatusCode (\ s a -> s{_decrStatusCode = a});

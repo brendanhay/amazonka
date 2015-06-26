@@ -33,6 +33,7 @@ module Network.AWS.S3.GetBucketACL
     -- ** Response lenses
     , gbarGrants
     , gbarOwner
+    , gbarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -65,7 +66,8 @@ instance AWSRequest GetBucketACL where
                  GetBucketACLResponse' <$>
                    (x .@? "AccessControlList" .!@ mempty >>=
                       may (parseXMLList "Grant"))
-                     <*> (x .@? "Owner"))
+                     <*> (x .@? "Owner")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketACL where
         toHeaders = const mempty
@@ -84,11 +86,13 @@ instance ToQuery GetBucketACL where
 -- * 'gbarGrants'
 --
 -- * 'gbarOwner'
-data GetBucketACLResponse = GetBucketACLResponse'{_gbarGrants :: Maybe [Grant], _gbarOwner :: Maybe Owner} deriving (Eq, Read, Show)
+--
+-- * 'gbarStatusCode'
+data GetBucketACLResponse = GetBucketACLResponse'{_gbarGrants :: Maybe [Grant], _gbarOwner :: Maybe Owner, _gbarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketACLResponse' smart constructor.
-getBucketACLResponse :: GetBucketACLResponse
-getBucketACLResponse = GetBucketACLResponse'{_gbarGrants = Nothing, _gbarOwner = Nothing};
+getBucketACLResponse :: Int -> GetBucketACLResponse
+getBucketACLResponse pStatusCode = GetBucketACLResponse'{_gbarGrants = Nothing, _gbarOwner = Nothing, _gbarStatusCode = pStatusCode};
 
 -- | A list of grants.
 gbarGrants :: Lens' GetBucketACLResponse [Grant]
@@ -97,3 +101,7 @@ gbarGrants = lens _gbarGrants (\ s a -> s{_gbarGrants = a}) . _Default;
 -- | FIXME: Undocumented member.
 gbarOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\ s a -> s{_gbarOwner = a});
+
+-- | FIXME: Undocumented member.
+gbarStatusCode :: Lens' GetBucketACLResponse Int
+gbarStatusCode = lens _gbarStatusCode (\ s a -> s{_gbarStatusCode = a});

@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeRouteTables
     , describeRouteTablesResponse
     -- ** Response lenses
     , drtrRouteTables
+    , drtrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -145,7 +146,8 @@ instance AWSRequest DescribeRouteTables where
           = receiveXML
               (\ s h x ->
                  DescribeRouteTablesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
@@ -167,12 +169,18 @@ instance ToQuery DescribeRouteTables where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drtrRouteTables'
-newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables :: Maybe [RouteTable]} deriving (Eq, Read, Show)
+--
+-- * 'drtrStatusCode'
+data DescribeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables :: Maybe [RouteTable], _drtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
-describeRouteTablesResponse :: DescribeRouteTablesResponse
-describeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables = Nothing};
+describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
+describeRouteTablesResponse pStatusCode = DescribeRouteTablesResponse'{_drtrRouteTables = Nothing, _drtrStatusCode = pStatusCode};
 
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drtrStatusCode :: Lens' DescribeRouteTablesResponse Int
+drtrStatusCode = lens _drtrStatusCode (\ s a -> s{_drtrStatusCode = a});

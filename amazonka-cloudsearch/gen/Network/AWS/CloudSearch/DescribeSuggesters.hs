@@ -40,7 +40,8 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- ** Response constructor
     , describeSuggestersResponse
     -- ** Response lenses
-    , dsrSuggesters
+    , dsr1Suggesters
+    , dsr1StatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -48,7 +49,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSuggesters' smart constructor.
+-- | Container for the parameters to the @DescribeSuggester@ operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular suggesters, specify the names of the suggesters
+-- you want to describe. To show the active configuration and exclude any
+-- pending changes, set the @Deployed@ option to @true@.
+--
+-- /See:/ 'describeSuggesters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +93,8 @@ instance AWSRequest DescribeSuggesters where
               (\ s h x ->
                  DescribeSuggestersResponse' <$>
                    (x .@? "Suggesters" .!@ mempty >>=
-                      parseXMLList "member"))
+                      parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
@@ -105,17 +113,25 @@ instance ToQuery DescribeSuggesters where
                    (toQueryList "member" <$> _desSuggesterNames),
                "DomainName" =: _desDomainName]
 
--- | /See:/ 'describeSuggestersResponse' smart constructor.
+-- | The result of a @DescribeSuggesters@ request.
+--
+-- /See:/ 'describeSuggestersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSuggesters'
-newtype DescribeSuggestersResponse = DescribeSuggestersResponse'{_dsrSuggesters :: [SuggesterStatus]} deriving (Eq, Read, Show)
+-- * 'dsr1Suggesters'
+--
+-- * 'dsr1StatusCode'
+data DescribeSuggestersResponse = DescribeSuggestersResponse'{_dsr1Suggesters :: [SuggesterStatus], _dsr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
-describeSuggestersResponse :: DescribeSuggestersResponse
-describeSuggestersResponse = DescribeSuggestersResponse'{_dsrSuggesters = mempty};
+describeSuggestersResponse :: Int -> DescribeSuggestersResponse
+describeSuggestersResponse pStatusCode = DescribeSuggestersResponse'{_dsr1Suggesters = mempty, _dsr1StatusCode = pStatusCode};
 
 -- | The suggesters configured for the domain specified in the request.
-dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsrSuggesters = lens _dsrSuggesters (\ s a -> s{_dsrSuggesters = a});
+dsr1Suggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dsr1Suggesters = lens _dsr1Suggesters (\ s a -> s{_dsr1Suggesters = a});
+
+-- | FIXME: Undocumented member.
+dsr1StatusCode :: Lens' DescribeSuggestersResponse Int
+dsr1StatusCode = lens _dsr1StatusCode (\ s a -> s{_dsr1StatusCode = a});

@@ -49,6 +49,7 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     , lefprPolicyUsers
     , lefprMarker
     , lefprIsTruncated
+    , lefprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -127,7 +128,8 @@ instance AWSRequest ListEntitiesForPolicy where
                      (x .@? "PolicyUsers" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "Marker")
-                     <*> (x .@? "IsTruncated"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
@@ -145,7 +147,9 @@ instance ToQuery ListEntitiesForPolicy where
                "MaxItems" =: _lefpMaxItems, "Marker" =: _lefpMarker,
                "PolicyArn" =: _lefpPolicyARN]
 
--- | /See:/ 'listEntitiesForPolicyResponse' smart constructor.
+-- | Contains the response to a successful ListEntitiesForPolicy request.
+--
+-- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -158,11 +162,13 @@ instance ToQuery ListEntitiesForPolicy where
 -- * 'lefprMarker'
 --
 -- * 'lefprIsTruncated'
-data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'{_lefprPolicyGroups :: Maybe [PolicyGroup], _lefprPolicyRoles :: Maybe [PolicyRole], _lefprPolicyUsers :: Maybe [PolicyUser], _lefprMarker :: Maybe Text, _lefprIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'lefprStatusCode'
+data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'{_lefprPolicyGroups :: Maybe [PolicyGroup], _lefprPolicyRoles :: Maybe [PolicyRole], _lefprPolicyUsers :: Maybe [PolicyUser], _lefprMarker :: Maybe Text, _lefprIsTruncated :: Maybe Bool, _lefprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
-listEntitiesForPolicyResponse :: ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'{_lefprPolicyGroups = Nothing, _lefprPolicyRoles = Nothing, _lefprPolicyUsers = Nothing, _lefprMarker = Nothing, _lefprIsTruncated = Nothing};
+listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse
+listEntitiesForPolicyResponse pStatusCode = ListEntitiesForPolicyResponse'{_lefprPolicyGroups = Nothing, _lefprPolicyRoles = Nothing, _lefprPolicyUsers = Nothing, _lefprMarker = Nothing, _lefprIsTruncated = Nothing, _lefprStatusCode = pStatusCode};
 
 -- | A list of groups that the policy is attached to.
 lefprPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
@@ -188,3 +194,7 @@ lefprMarker = lens _lefprMarker (\ s a -> s{_lefprMarker = a});
 -- list.
 lefprIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprIsTruncated = lens _lefprIsTruncated (\ s a -> s{_lefprIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lefprStatusCode :: Lens' ListEntitiesForPolicyResponse Int
+lefprStatusCode = lens _lefprStatusCode (\ s a -> s{_lefprStatusCode = a});

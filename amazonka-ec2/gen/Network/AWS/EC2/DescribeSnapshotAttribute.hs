@@ -41,6 +41,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsarCreateVolumePermissions
     , dsarProductCodes
     , dsarSnapshotId
+    , dsarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -89,7 +90,8 @@ instance AWSRequest DescribeSnapshotAttribute where
                  DescribeSnapshotAttributeResponse' <$>
                    (may (parseXMLList "item") x) <*>
                      (may (parseXMLList "item") x)
-                     <*> (x .@? "snapshotId"))
+                     <*> (x .@? "snapshotId")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
@@ -116,11 +118,13 @@ instance ToQuery DescribeSnapshotAttribute where
 -- * 'dsarProductCodes'
 --
 -- * 'dsarSnapshotId'
-data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions :: Maybe [CreateVolumePermission], _dsarProductCodes :: Maybe [ProductCode], _dsarSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dsarStatusCode'
+data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions :: Maybe [CreateVolumePermission], _dsarProductCodes :: Maybe [ProductCode], _dsarSnapshotId :: Maybe Text, _dsarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
-describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions = Nothing, _dsarProductCodes = Nothing, _dsarSnapshotId = Nothing};
+describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
+describeSnapshotAttributeResponse pStatusCode = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions = Nothing, _dsarProductCodes = Nothing, _dsarSnapshotId = Nothing, _dsarStatusCode = pStatusCode};
 
 -- | A list of permissions for creating volumes from the snapshot.
 dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
@@ -133,3 +137,7 @@ dsarProductCodes = lens _dsarProductCodes (\ s a -> s{_dsarProductCodes = a}) . 
 -- | The ID of the EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\ s a -> s{_dsarSnapshotId = a});
+
+-- | FIXME: Undocumented member.
+dsarStatusCode :: Lens' DescribeSnapshotAttributeResponse Int
+dsarStatusCode = lens _dsarStatusCode (\ s a -> s{_dsarStatusCode = a});

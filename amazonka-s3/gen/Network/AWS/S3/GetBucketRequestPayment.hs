@@ -32,6 +32,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     , getBucketRequestPaymentResponse
     -- ** Response lenses
     , gbrprPayer
+    , gbrprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -62,7 +63,8 @@ instance AWSRequest GetBucketRequestPayment where
         response
           = receiveXML
               (\ s h x ->
-                 GetBucketRequestPaymentResponse' <$> (x .@? "Payer"))
+                 GetBucketRequestPaymentResponse' <$>
+                   (x .@? "Payer") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty
@@ -79,12 +81,18 @@ instance ToQuery GetBucketRequestPayment where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbrprPayer'
-newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'{_gbrprPayer :: Maybe Payer} deriving (Eq, Read, Show)
+--
+-- * 'gbrprStatusCode'
+data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'{_gbrprPayer :: Maybe Payer, _gbrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
-getBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
-getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'{_gbrprPayer = Nothing};
+getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
+getBucketRequestPaymentResponse pStatusCode = GetBucketRequestPaymentResponse'{_gbrprPayer = Nothing, _gbrprStatusCode = pStatusCode};
 
 -- | Specifies who pays for the download and request fees.
 gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprPayer = lens _gbrprPayer (\ s a -> s{_gbrprPayer = a});
+
+-- | FIXME: Undocumented member.
+gbrprStatusCode :: Lens' GetBucketRequestPaymentResponse Int
+gbrprStatusCode = lens _gbrprStatusCode (\ s a -> s{_gbrprStatusCode = a});

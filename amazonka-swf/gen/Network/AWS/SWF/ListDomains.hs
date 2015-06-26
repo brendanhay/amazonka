@@ -61,9 +61,10 @@ module Network.AWS.SWF.ListDomains
     -- ** Response lenses
     , ldrNextPageToken
     , ldrDomainInfos
+    , ldrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -132,7 +133,8 @@ instance AWSRequest ListDomains where
               (\ s h x ->
                  ListDomainsResponse' <$>
                    (x .?> "nextPageToken") <*>
-                     (x .?> "domainInfos" .!@ mempty))
+                     (x .?> "domainInfos" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -157,18 +159,22 @@ instance ToPath ListDomains where
 instance ToQuery ListDomains where
         toQuery = const mempty
 
--- | /See:/ 'listDomainsResponse' smart constructor.
+-- | Contains a paginated collection of DomainInfo structures.
+--
+-- /See:/ 'listDomainsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldrNextPageToken'
 --
 -- * 'ldrDomainInfos'
-data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrDomainInfos :: [DomainInfo]} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrDomainInfos :: [DomainInfo], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrDomainInfos = mempty};
+listDomainsResponse :: Int -> ListDomainsResponse
+listDomainsResponse pStatusCode = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrDomainInfos = mempty, _ldrStatusCode = pStatusCode};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -183,3 +189,7 @@ ldrNextPageToken = lens _ldrNextPageToken (\ s a -> s{_ldrNextPageToken = a});
 -- | A list of DomainInfo structures.
 ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
 ldrDomainInfos = lens _ldrDomainInfos (\ s a -> s{_ldrDomainInfos = a});
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDomainsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

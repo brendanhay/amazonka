@@ -61,6 +61,8 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , PutLifecycleHookResponse
     -- ** Response constructor
     , putLifecycleHookResponse
+    -- ** Response lenses
+    , plhrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -170,7 +172,10 @@ instance AWSRequest PutLifecycleHook where
         type Sv PutLifecycleHook = AutoScaling
         type Rs PutLifecycleHook = PutLifecycleHookResponse
         request = post
-        response = receiveNull PutLifecycleHookResponse'
+        response
+          = receiveXMLWrapper "PutLifecycleHookResult"
+              (\ s h x ->
+                 PutLifecycleHookResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
@@ -193,8 +198,16 @@ instance ToQuery PutLifecycleHook where
                "AutoScalingGroupName" =: _plhAutoScalingGroupName]
 
 -- | /See:/ 'putLifecycleHookResponse' smart constructor.
-data PutLifecycleHookResponse = PutLifecycleHookResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'plhrStatusCode'
+newtype PutLifecycleHookResponse = PutLifecycleHookResponse'{_plhrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutLifecycleHookResponse' smart constructor.
-putLifecycleHookResponse :: PutLifecycleHookResponse
-putLifecycleHookResponse = PutLifecycleHookResponse';
+putLifecycleHookResponse :: Int -> PutLifecycleHookResponse
+putLifecycleHookResponse pStatusCode = PutLifecycleHookResponse'{_plhrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+plhrStatusCode :: Lens' PutLifecycleHookResponse Int
+plhrStatusCode = lens _plhrStatusCode (\ s a -> s{_plhrStatusCode = a});

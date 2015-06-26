@@ -30,6 +30,8 @@ module Network.AWS.CloudTrail.StartLogging
     , StartLoggingResponse
     -- ** Response constructor
     , startLoggingResponse
+    -- ** Response lenses
+    , staStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -37,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'startLogging' smart constructor.
+-- | The request to CloudTrail to start logging AWS API calls for an account.
+--
+-- /See:/ 'startLogging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -56,7 +60,10 @@ instance AWSRequest StartLogging where
         type Sv StartLogging = CloudTrail
         type Rs StartLogging = StartLoggingResponse
         request = postJSON
-        response = receiveNull StartLoggingResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 StartLoggingResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders StartLogging where
         toHeaders
@@ -78,9 +85,20 @@ instance ToPath StartLogging where
 instance ToQuery StartLogging where
         toQuery = const mempty
 
--- | /See:/ 'startLoggingResponse' smart constructor.
-data StartLoggingResponse = StartLoggingResponse' deriving (Eq, Read, Show)
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'startLoggingResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'staStatusCode'
+newtype StartLoggingResponse = StartLoggingResponse'{_staStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StartLoggingResponse' smart constructor.
-startLoggingResponse :: StartLoggingResponse
-startLoggingResponse = StartLoggingResponse';
+startLoggingResponse :: Int -> StartLoggingResponse
+startLoggingResponse pStatusCode = StartLoggingResponse'{_staStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+staStatusCode :: Lens' StartLoggingResponse Int
+staStatusCode = lens _staStatusCode (\ s a -> s{_staStatusCode = a});

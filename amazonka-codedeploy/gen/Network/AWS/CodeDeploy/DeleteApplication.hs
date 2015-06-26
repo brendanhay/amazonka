@@ -37,7 +37,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteApplication' smart constructor.
+-- | Represents the input of a delete application operation.
+--
+-- /See:/ 'deleteApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

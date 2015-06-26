@@ -32,9 +32,10 @@ module Network.AWS.IAM.GetCredentialReport
     -- ** Response constructor
     , getCredentialReportResponse
     -- ** Response lenses
-    , gcrrContent
-    , gcrrGeneratedTime
-    , gcrrReportFormat
+    , getContent
+    , getGeneratedTime
+    , getReportFormat
+    , getStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -59,7 +60,8 @@ instance AWSRequest GetCredentialReport where
               (\ s h x ->
                  GetCredentialReportResponse' <$>
                    (x .@? "Content") <*> (x .@? "GeneratedTime") <*>
-                     (x .@? "ReportFormat"))
+                     (x .@? "ReportFormat")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetCredentialReport where
         toHeaders = const mempty
@@ -74,30 +76,38 @@ instance ToQuery GetCredentialReport where
                  ["Action" =: ("GetCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | /See:/ 'getCredentialReportResponse' smart constructor.
+-- | Contains the response to a successful GetCredentialReport request.
+--
+-- /See:/ 'getCredentialReportResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrrContent'
+-- * 'getContent'
 --
--- * 'gcrrGeneratedTime'
+-- * 'getGeneratedTime'
 --
--- * 'gcrrReportFormat'
-data GetCredentialReportResponse = GetCredentialReportResponse'{_gcrrContent :: Maybe Base64, _gcrrGeneratedTime :: Maybe ISO8601, _gcrrReportFormat :: Maybe ReportFormatType} deriving (Eq, Read, Show)
+-- * 'getReportFormat'
+--
+-- * 'getStatusCode'
+data GetCredentialReportResponse = GetCredentialReportResponse'{_getContent :: Maybe Base64, _getGeneratedTime :: Maybe ISO8601, _getReportFormat :: Maybe ReportFormatType, _getStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetCredentialReportResponse' smart constructor.
-getCredentialReportResponse :: GetCredentialReportResponse
-getCredentialReportResponse = GetCredentialReportResponse'{_gcrrContent = Nothing, _gcrrGeneratedTime = Nothing, _gcrrReportFormat = Nothing};
+getCredentialReportResponse :: Int -> GetCredentialReportResponse
+getCredentialReportResponse pStatusCode = GetCredentialReportResponse'{_getContent = Nothing, _getGeneratedTime = Nothing, _getReportFormat = Nothing, _getStatusCode = pStatusCode};
 
 -- | Contains the credential report. The report is Base64-encoded.
-gcrrContent :: Lens' GetCredentialReportResponse (Maybe Base64)
-gcrrContent = lens _gcrrContent (\ s a -> s{_gcrrContent = a});
+getContent :: Lens' GetCredentialReportResponse (Maybe Base64)
+getContent = lens _getContent (\ s a -> s{_getContent = a});
 
 -- | The date and time when the credential report was created, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
-gcrrGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
-gcrrGeneratedTime = lens _gcrrGeneratedTime (\ s a -> s{_gcrrGeneratedTime = a}) . mapping _Time;
+getGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
+getGeneratedTime = lens _getGeneratedTime (\ s a -> s{_getGeneratedTime = a}) . mapping _Time;
 
 -- | The format (MIME type) of the credential report.
-gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
-gcrrReportFormat = lens _gcrrReportFormat (\ s a -> s{_gcrrReportFormat = a});
+getReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
+getReportFormat = lens _getReportFormat (\ s a -> s{_getReportFormat = a});
+
+-- | FIXME: Undocumented member.
+getStatusCode :: Lens' GetCredentialReportResponse Int
+getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});

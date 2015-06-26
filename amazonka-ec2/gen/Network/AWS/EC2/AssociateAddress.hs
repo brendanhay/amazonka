@@ -56,7 +56,8 @@ module Network.AWS.EC2.AssociateAddress
     -- ** Response constructor
     , associateAddressResponse
     -- ** Response lenses
-    , aarAssociationId
+    , assAssociationId
+    , assStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -136,7 +137,7 @@ instance AWSRequest AssociateAddress where
           = receiveXML
               (\ s h x ->
                  AssociateAddressResponse' <$>
-                   (x .@? "associationId"))
+                   (x .@? "associationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty
@@ -160,14 +161,20 @@ instance ToQuery AssociateAddress where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aarAssociationId'
-newtype AssociateAddressResponse = AssociateAddressResponse'{_aarAssociationId :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'assAssociationId'
+--
+-- * 'assStatusCode'
+data AssociateAddressResponse = AssociateAddressResponse'{_assAssociationId :: Maybe Text, _assStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AssociateAddressResponse' smart constructor.
-associateAddressResponse :: AssociateAddressResponse
-associateAddressResponse = AssociateAddressResponse'{_aarAssociationId = Nothing};
+associateAddressResponse :: Int -> AssociateAddressResponse
+associateAddressResponse pStatusCode = AssociateAddressResponse'{_assAssociationId = Nothing, _assStatusCode = pStatusCode};
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP
 -- address with an instance.
-aarAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
-aarAssociationId = lens _aarAssociationId (\ s a -> s{_aarAssociationId = a});
+assAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
+assAssociationId = lens _assAssociationId (\ s a -> s{_assAssociationId = a});
+
+-- | FIXME: Undocumented member.
+assStatusCode :: Lens' AssociateAddressResponse Int
+assStatusCode = lens _assStatusCode (\ s a -> s{_assStatusCode = a});

@@ -37,6 +37,7 @@ module Network.AWS.SNS.Subscribe
     , subscribeResponse
     -- ** Response lenses
     , srSubscriptionARN
+    , srStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -44,7 +45,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'subscribe' smart constructor.
+-- | Input for Subscribe action.
+--
+-- /See:/ 'subscribe' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,8 @@ instance AWSRequest Subscribe where
         response
           = receiveXMLWrapper "SubscribeResult"
               (\ s h x ->
-                 SubscribeResponse' <$> (x .@? "SubscriptionArn"))
+                 SubscribeResponse' <$>
+                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders Subscribe where
         toHeaders = const mempty
@@ -117,19 +121,27 @@ instance ToQuery Subscribe where
                "Endpoint" =: _sEndpoint, "TopicArn" =: _sTopicARN,
                "Protocol" =: _sProtocol]
 
--- | /See:/ 'subscribeResponse' smart constructor.
+-- | Response for Subscribe action.
+--
+-- /See:/ 'subscribeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'srSubscriptionARN'
-newtype SubscribeResponse = SubscribeResponse'{_srSubscriptionARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'srStatusCode'
+data SubscribeResponse = SubscribeResponse'{_srSubscriptionARN :: Maybe Text, _srStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SubscribeResponse' smart constructor.
-subscribeResponse :: SubscribeResponse
-subscribeResponse = SubscribeResponse'{_srSubscriptionARN = Nothing};
+subscribeResponse :: Int -> SubscribeResponse
+subscribeResponse pStatusCode = SubscribeResponse'{_srSubscriptionARN = Nothing, _srStatusCode = pStatusCode};
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner
 -- confirmation).
 srSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionARN = lens _srSubscriptionARN (\ s a -> s{_srSubscriptionARN = a});
+
+-- | FIXME: Undocumented member.
+srStatusCode :: Lens' SubscribeResponse Int
+srStatusCode = lens _srStatusCode (\ s a -> s{_srStatusCode = a});

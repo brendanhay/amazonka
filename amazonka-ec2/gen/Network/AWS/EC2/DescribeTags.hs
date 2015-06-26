@@ -40,10 +40,11 @@ module Network.AWS.EC2.DescribeTags
     -- ** Response lenses
     , dtrNextToken
     , dtrTags
+    , dtrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -117,8 +118,8 @@ instance AWSRequest DescribeTags where
           = receiveXML
               (\ s h x ->
                  DescribeTagsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -142,11 +143,13 @@ instance ToQuery DescribeTags where
 -- * 'dtrNextToken'
 --
 -- * 'dtrTags'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing};
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return..
@@ -156,3 +159,7 @@ dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTagsResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

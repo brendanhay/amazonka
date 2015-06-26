@@ -49,6 +49,7 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     , ldirNextToken
     , ldirIdentityId
     , ldirDeveloperUserIdentifierList
+    , ldirStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -56,7 +57,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'lookupDeveloperIdentity' smart constructor.
+-- | Input to the @LookupDeveloperIdentityInput@ action.
+--
+-- /See:/ 'lookupDeveloperIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -112,7 +115,8 @@ instance AWSRequest LookupDeveloperIdentity where
               (\ s h x ->
                  LookupDeveloperIdentityResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "IdentityId") <*>
-                     (x .?> "DeveloperUserIdentifierList" .!@ mempty))
+                     (x .?> "DeveloperUserIdentifierList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
@@ -140,7 +144,9 @@ instance ToPath LookupDeveloperIdentity where
 instance ToQuery LookupDeveloperIdentity where
         toQuery = const mempty
 
--- | /See:/ 'lookupDeveloperIdentityResponse' smart constructor.
+-- | Returned in response to a successful @LookupDeveloperIdentity@ action.
+--
+-- /See:/ 'lookupDeveloperIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -149,11 +155,13 @@ instance ToQuery LookupDeveloperIdentity where
 -- * 'ldirIdentityId'
 --
 -- * 'ldirDeveloperUserIdentifierList'
-data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirNextToken :: Maybe Text, _ldirIdentityId :: Maybe Text, _ldirDeveloperUserIdentifierList :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ldirStatusCode'
+data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirNextToken :: Maybe Text, _ldirIdentityId :: Maybe Text, _ldirDeveloperUserIdentifierList :: Maybe [Text], _ldirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
-lookupDeveloperIdentityResponse :: LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirNextToken = Nothing, _ldirIdentityId = Nothing, _ldirDeveloperUserIdentifierList = Nothing};
+lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse
+lookupDeveloperIdentityResponse pStatusCode = LookupDeveloperIdentityResponse'{_ldirNextToken = Nothing, _ldirIdentityId = Nothing, _ldirDeveloperUserIdentifierList = Nothing, _ldirStatusCode = pStatusCode};
 
 -- | A pagination token. The first call you make will have @NextToken@ set to
 -- null. After that the service will return @NextToken@ values as needed.
@@ -173,3 +181,7 @@ ldirIdentityId = lens _ldirIdentityId (\ s a -> s{_ldirIdentityId = a});
 -- identifiers with an identity ID.
 ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ldirStatusCode :: Lens' LookupDeveloperIdentityResponse Int
+ldirStatusCode = lens _ldirStatusCode (\ s a -> s{_ldirStatusCode = a});

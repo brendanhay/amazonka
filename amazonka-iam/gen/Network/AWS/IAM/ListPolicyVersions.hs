@@ -41,6 +41,7 @@ module Network.AWS.IAM.ListPolicyVersions
     , lpvrVersions
     , lpvrMarker
     , lpvrIsTruncated
+    , lpvrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -94,7 +95,8 @@ instance AWSRequest ListPolicyVersions where
                    (x .@? "Versions" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
-                     <*> (x .@? "IsTruncated"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
@@ -110,7 +112,9 @@ instance ToQuery ListPolicyVersions where
                "MaxItems" =: _lpvMaxItems, "Marker" =: _lpvMarker,
                "PolicyArn" =: _lpvPolicyARN]
 
--- | /See:/ 'listPolicyVersionsResponse' smart constructor.
+-- | Contains the response to a successful ListPolicyVersions request.
+--
+-- /See:/ 'listPolicyVersionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -119,11 +123,13 @@ instance ToQuery ListPolicyVersions where
 -- * 'lpvrMarker'
 --
 -- * 'lpvrIsTruncated'
-data ListPolicyVersionsResponse = ListPolicyVersionsResponse'{_lpvrVersions :: Maybe [PolicyVersion], _lpvrMarker :: Maybe Text, _lpvrIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'lpvrStatusCode'
+data ListPolicyVersionsResponse = ListPolicyVersionsResponse'{_lpvrVersions :: Maybe [PolicyVersion], _lpvrMarker :: Maybe Text, _lpvrIsTruncated :: Maybe Bool, _lpvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
-listPolicyVersionsResponse :: ListPolicyVersionsResponse
-listPolicyVersionsResponse = ListPolicyVersionsResponse'{_lpvrVersions = Nothing, _lpvrMarker = Nothing, _lpvrIsTruncated = Nothing};
+listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
+listPolicyVersionsResponse pStatusCode = ListPolicyVersionsResponse'{_lpvrVersions = Nothing, _lpvrMarker = Nothing, _lpvrIsTruncated = Nothing, _lpvrStatusCode = pStatusCode};
 
 -- | A list of policy versions.
 --
@@ -145,3 +151,7 @@ lpvrMarker = lens _lpvrMarker (\ s a -> s{_lpvrMarker = a});
 -- versions in the list.
 lpvrIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrIsTruncated = lens _lpvrIsTruncated (\ s a -> s{_lpvrIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lpvrStatusCode :: Lens' ListPolicyVersionsResponse Int
+lpvrStatusCode = lens _lpvrStatusCode (\ s a -> s{_lpvrStatusCode = a});

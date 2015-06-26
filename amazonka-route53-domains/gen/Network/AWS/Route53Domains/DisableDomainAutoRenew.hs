@@ -36,6 +36,8 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     , DisableDomainAutoRenewResponse
     -- ** Response constructor
     , disableDomainAutoRenewResponse
+    -- ** Response lenses
+    , ddarrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -64,7 +66,10 @@ instance AWSRequest DisableDomainAutoRenew where
              DisableDomainAutoRenewResponse
         request = postJSON
         response
-          = receiveNull DisableDomainAutoRenewResponse'
+          = receiveJSON
+              (\ s h x ->
+                 DisableDomainAutoRenewResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders DisableDomainAutoRenew where
         toHeaders
@@ -87,8 +92,16 @@ instance ToQuery DisableDomainAutoRenew where
         toQuery = const mempty
 
 -- | /See:/ 'disableDomainAutoRenewResponse' smart constructor.
-data DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ddarrStatusCode'
+newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'{_ddarrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableDomainAutoRenewResponse' smart constructor.
-disableDomainAutoRenewResponse :: DisableDomainAutoRenewResponse
-disableDomainAutoRenewResponse = DisableDomainAutoRenewResponse';
+disableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse
+disableDomainAutoRenewResponse pStatusCode = DisableDomainAutoRenewResponse'{_ddarrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+ddarrStatusCode :: Lens' DisableDomainAutoRenewResponse Int
+ddarrStatusCode = lens _ddarrStatusCode (\ s a -> s{_ddarrStatusCode = a});

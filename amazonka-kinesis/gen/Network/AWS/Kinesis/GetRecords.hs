@@ -82,6 +82,7 @@ module Network.AWS.Kinesis.GetRecords
     , grrMillisBehindLatest
     , grrNextShardIterator
     , grrRecords
+    , grrStatusCode
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -89,7 +90,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getRecords' smart constructor.
+-- | Represents the input for GetRecords.
+--
+-- /See:/ 'getRecords' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,7 +127,8 @@ instance AWSRequest GetRecords where
                  GetRecordsResponse' <$>
                    (x .?> "MillisBehindLatest") <*>
                      (x .?> "NextShardIterator")
-                     <*> (x .?> "Records" .!@ mempty))
+                     <*> (x .?> "Records" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetRecords where
         toHeaders
@@ -147,7 +151,9 @@ instance ToPath GetRecords where
 instance ToQuery GetRecords where
         toQuery = const mempty
 
--- | /See:/ 'getRecordsResponse' smart constructor.
+-- | Represents the output for GetRecords.
+--
+-- /See:/ 'getRecordsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -156,11 +162,13 @@ instance ToQuery GetRecords where
 -- * 'grrNextShardIterator'
 --
 -- * 'grrRecords'
-data GetRecordsResponse = GetRecordsResponse'{_grrMillisBehindLatest :: Maybe Nat, _grrNextShardIterator :: Maybe Text, _grrRecords :: [Record]} deriving (Eq, Read, Show)
+--
+-- * 'grrStatusCode'
+data GetRecordsResponse = GetRecordsResponse'{_grrMillisBehindLatest :: Maybe Nat, _grrNextShardIterator :: Maybe Text, _grrRecords :: [Record], _grrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetRecordsResponse' smart constructor.
-getRecordsResponse :: GetRecordsResponse
-getRecordsResponse = GetRecordsResponse'{_grrMillisBehindLatest = Nothing, _grrNextShardIterator = Nothing, _grrRecords = mempty};
+getRecordsResponse :: Int -> GetRecordsResponse
+getRecordsResponse pStatusCode = GetRecordsResponse'{_grrMillisBehindLatest = Nothing, _grrNextShardIterator = Nothing, _grrRecords = mempty, _grrStatusCode = pStatusCode};
 
 -- | The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
@@ -178,3 +186,7 @@ grrNextShardIterator = lens _grrNextShardIterator (\ s a -> s{_grrNextShardItera
 -- | The data records retrieved from the shard.
 grrRecords :: Lens' GetRecordsResponse [Record]
 grrRecords = lens _grrRecords (\ s a -> s{_grrRecords = a});
+
+-- | FIXME: Undocumented member.
+grrStatusCode :: Lens' GetRecordsResponse Int
+grrStatusCode = lens _grrStatusCode (\ s a -> s{_grrStatusCode = a});

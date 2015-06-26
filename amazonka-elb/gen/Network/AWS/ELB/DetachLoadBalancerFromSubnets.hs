@@ -39,6 +39,7 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , detachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
     , dlbfsrSubnets
+    , dlbfsrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -79,7 +80,8 @@ instance AWSRequest DetachLoadBalancerFromSubnets
               (\ s h x ->
                  DetachLoadBalancerFromSubnetsResponse' <$>
                    (x .@? "Subnets" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DetachLoadBalancerFromSubnets
          where
@@ -102,12 +104,18 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbfsrSubnets'
-newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'dlbfsrStatusCode'
+data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets :: Maybe [Text], _dlbfsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
-detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
-detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets = Nothing};
+detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
+detachLoadBalancerFromSubnetsResponse pStatusCode = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets = Nothing, _dlbfsrStatusCode = pStatusCode};
 
 -- | The IDs of the remaining subnets for the load balancer.
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlbfsrStatusCode :: Lens' DetachLoadBalancerFromSubnetsResponse Int
+dlbfsrStatusCode = lens _dlbfsrStatusCode (\ s a -> s{_dlbfsrStatusCode = a});

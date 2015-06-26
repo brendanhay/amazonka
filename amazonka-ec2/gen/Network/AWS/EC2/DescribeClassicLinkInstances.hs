@@ -40,6 +40,7 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     -- ** Response lenses
     , dclirNextToken
     , dclirInstances
+    , dclirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -130,8 +131,8 @@ instance AWSRequest DescribeClassicLinkInstances
           = receiveXML
               (\ s h x ->
                  DescribeClassicLinkInstancesResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
@@ -159,11 +160,13 @@ instance ToQuery DescribeClassicLinkInstances where
 -- * 'dclirNextToken'
 --
 -- * 'dclirInstances'
-data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken :: Maybe Text, _dclirInstances :: Maybe [ClassicLinkInstance]} deriving (Eq, Read, Show)
+--
+-- * 'dclirStatusCode'
+data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken :: Maybe Text, _dclirInstances :: Maybe [ClassicLinkInstance], _dclirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
-describeClassicLinkInstancesResponse :: DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken = Nothing, _dclirInstances = Nothing};
+describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse
+describeClassicLinkInstancesResponse pStatusCode = DescribeClassicLinkInstancesResponse'{_dclirNextToken = Nothing, _dclirInstances = Nothing, _dclirStatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -173,3 +176,7 @@ dclirNextToken = lens _dclirNextToken (\ s a -> s{_dclirNextToken = a});
 -- | Information about one or more linked EC2-Classic instances.
 dclirInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
 dclirInstances = lens _dclirInstances (\ s a -> s{_dclirInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dclirStatusCode :: Lens' DescribeClassicLinkInstancesResponse Int
+dclirStatusCode = lens _dclirStatusCode (\ s a -> s{_dclirStatusCode = a});

@@ -35,6 +35,7 @@ module Network.AWS.ECS.DeregisterContainerInstance
     , deregisterContainerInstanceResponse
     -- ** Response lenses
     , dcirContainerInstance
+    , dcirStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -89,7 +90,7 @@ instance AWSRequest DeregisterContainerInstance where
           = receiveJSON
               (\ s h x ->
                  DeregisterContainerInstanceResponse' <$>
-                   (x .?> "containerInstance"))
+                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeregisterContainerInstance where
         toHeaders
@@ -118,12 +119,18 @@ instance ToQuery DeregisterContainerInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcirContainerInstance'
-newtype DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'{_dcirContainerInstance :: Maybe ContainerInstance} deriving (Eq, Read, Show)
+--
+-- * 'dcirStatusCode'
+data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'{_dcirContainerInstance :: Maybe ContainerInstance, _dcirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
-deregisterContainerInstanceResponse :: DeregisterContainerInstanceResponse
-deregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'{_dcirContainerInstance = Nothing};
+deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
+deregisterContainerInstanceResponse pStatusCode = DeregisterContainerInstanceResponse'{_dcirContainerInstance = Nothing, _dcirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dcirContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
 dcirContainerInstance = lens _dcirContainerInstance (\ s a -> s{_dcirContainerInstance = a});
+
+-- | FIXME: Undocumented member.
+dcirStatusCode :: Lens' DeregisterContainerInstanceResponse Int
+dcirStatusCode = lens _dcirStatusCode (\ s a -> s{_dcirStatusCode = a});

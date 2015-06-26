@@ -30,6 +30,7 @@ module Network.AWS.CloudHSM.ListAvailableZones
     , listAvailableZonesResponse
     -- ** Response lenses
     , lazrAZList
+    , lazrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -37,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listAvailableZones' smart constructor.
+-- | Contains the inputs for the ListAvailableZones action.
+--
+-- /See:/ 'listAvailableZones' smart constructor.
 data ListAvailableZones = ListAvailableZones' deriving (Eq, Read, Show)
 
 -- | 'ListAvailableZones' smart constructor.
@@ -53,7 +56,7 @@ instance AWSRequest ListAvailableZones where
           = receiveJSON
               (\ s h x ->
                  ListAvailableZonesResponse' <$>
-                   (x .?> "AZList" .!@ mempty))
+                   (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAvailableZones where
         toHeaders
@@ -79,13 +82,19 @@ instance ToQuery ListAvailableZones where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lazrAZList'
-newtype ListAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lazrStatusCode'
+data ListAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList :: Maybe [Text], _lazrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAvailableZonesResponse' smart constructor.
-listAvailableZonesResponse :: ListAvailableZonesResponse
-listAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList = Nothing};
+listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
+listAvailableZonesResponse pStatusCode = ListAvailableZonesResponse'{_lazrAZList = Nothing, _lazrStatusCode = pStatusCode};
 
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
 lazrAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lazrStatusCode :: Lens' ListAvailableZonesResponse Int
+lazrStatusCode = lens _lazrStatusCode (\ s a -> s{_lazrStatusCode = a});

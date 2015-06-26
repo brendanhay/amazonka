@@ -34,7 +34,8 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- ** Response constructor
     , createDBSecurityGroupResponse
     -- ** Response lenses
-    , cdsgrDBSecurityGroup
+    , cDBSecurityGroup
+    , cStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDBSecurityGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createDBSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -89,7 +92,7 @@ instance AWSRequest CreateDBSecurityGroup where
           = receiveXMLWrapper "CreateDBSecurityGroupResult"
               (\ s h x ->
                  CreateDBSecurityGroupResponse' <$>
-                   (x .@? "DBSecurityGroup"))
+                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty
@@ -111,13 +114,19 @@ instance ToQuery CreateDBSecurityGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsgrDBSecurityGroup'
-newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'{_cdsgrDBSecurityGroup :: Maybe DBSecurityGroup} deriving (Eq, Read, Show)
+-- * 'cDBSecurityGroup'
+--
+-- * 'cStatusCode'
+data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'{_cDBSecurityGroup :: Maybe DBSecurityGroup, _cStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
-createDBSecurityGroupResponse :: CreateDBSecurityGroupResponse
-createDBSecurityGroupResponse = CreateDBSecurityGroupResponse'{_cdsgrDBSecurityGroup = Nothing};
+createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
+createDBSecurityGroupResponse pStatusCode = CreateDBSecurityGroupResponse'{_cDBSecurityGroup = Nothing, _cStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-cdsgrDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-cdsgrDBSecurityGroup = lens _cdsgrDBSecurityGroup (\ s a -> s{_cdsgrDBSecurityGroup = a});
+cDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
+cDBSecurityGroup = lens _cDBSecurityGroup (\ s a -> s{_cDBSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+cStatusCode :: Lens' CreateDBSecurityGroupResponse Int
+cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});

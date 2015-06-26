@@ -39,6 +39,7 @@ module Network.AWS.DirectoryService.CreateAlias
     -- ** Response lenses
     , carDirectoryId
     , carAlias
+    , carStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createAlias' smart constructor.
+-- | Contains the inputs for the CreateAlias operation.
+--
+-- /See:/ 'createAlias' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -78,7 +81,8 @@ instance AWSRequest CreateAlias where
           = receiveJSON
               (\ s h x ->
                  CreateAliasResponse' <$>
-                   (x .?> "DirectoryId") <*> (x .?> "Alias"))
+                   (x .?> "DirectoryId") <*> (x .?> "Alias") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateAlias where
         toHeaders
@@ -102,18 +106,22 @@ instance ToPath CreateAlias where
 instance ToQuery CreateAlias where
         toQuery = const mempty
 
--- | /See:/ 'createAliasResponse' smart constructor.
+-- | Contains the results of the CreateAlias operation.
+--
+-- /See:/ 'createAliasResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'carDirectoryId'
 --
 -- * 'carAlias'
-data CreateAliasResponse = CreateAliasResponse'{_carDirectoryId :: Maybe Text, _carAlias :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'carStatusCode'
+data CreateAliasResponse = CreateAliasResponse'{_carDirectoryId :: Maybe Text, _carAlias :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateAliasResponse' smart constructor.
-createAliasResponse :: CreateAliasResponse
-createAliasResponse = CreateAliasResponse'{_carDirectoryId = Nothing, _carAlias = Nothing};
+createAliasResponse :: Int -> CreateAliasResponse
+createAliasResponse pStatusCode = CreateAliasResponse'{_carDirectoryId = Nothing, _carAlias = Nothing, _carStatusCode = pStatusCode};
 
 -- | The identifier of the directory.
 carDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
@@ -122,3 +130,7 @@ carDirectoryId = lens _carDirectoryId (\ s a -> s{_carDirectoryId = a});
 -- | The alias for the directory.
 carAlias :: Lens' CreateAliasResponse (Maybe Text)
 carAlias = lens _carAlias (\ s a -> s{_carAlias = a});
+
+-- | FIXME: Undocumented member.
+carStatusCode :: Lens' CreateAliasResponse Int
+carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});

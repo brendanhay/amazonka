@@ -39,6 +39,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     , describeBundleTasksResponse
     -- ** Response lenses
     , dbtrBundleTasks
+    , dbtrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -111,7 +112,8 @@ instance AWSRequest DescribeBundleTasks where
           = receiveXML
               (\ s h x ->
                  DescribeBundleTasksResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
@@ -133,12 +135,18 @@ instance ToQuery DescribeBundleTasks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbtrBundleTasks'
-newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks :: Maybe [BundleTask]} deriving (Eq, Read, Show)
+--
+-- * 'dbtrStatusCode'
+data DescribeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks :: Maybe [BundleTask], _dbtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
-describeBundleTasksResponse :: DescribeBundleTasksResponse
-describeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks = Nothing};
+describeBundleTasksResponse :: Int -> DescribeBundleTasksResponse
+describeBundleTasksResponse pStatusCode = DescribeBundleTasksResponse'{_dbtrBundleTasks = Nothing, _dbtrStatusCode = pStatusCode};
 
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\ s a -> s{_dbtrBundleTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dbtrStatusCode :: Lens' DescribeBundleTasksResponse Int
+dbtrStatusCode = lens _dbtrStatusCode (\ s a -> s{_dbtrStatusCode = a});

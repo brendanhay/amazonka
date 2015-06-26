@@ -49,6 +49,7 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     , createVirtualMFADeviceResponse
     -- ** Response lenses
     , cvmdrVirtualMFADevice
+    , cvmdrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -93,7 +94,7 @@ instance AWSRequest CreateVirtualMFADevice where
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->
                  CreateVirtualMFADeviceResponse' <$>
-                   (x .@ "VirtualMFADevice"))
+                   (x .@ "VirtualMFADevice") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
@@ -110,17 +111,25 @@ instance ToQuery CreateVirtualMFADevice where
                "Path" =: _cvmdPath,
                "VirtualMFADeviceName" =: _cvmdVirtualMFADeviceName]
 
--- | /See:/ 'createVirtualMFADeviceResponse' smart constructor.
+-- | Contains the response to a successful CreateVirtualMFADevice request.
+--
+-- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvmdrVirtualMFADevice'
-newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'{_cvmdrVirtualMFADevice :: VirtualMFADevice} deriving (Eq, Read, Show)
+--
+-- * 'cvmdrStatusCode'
+data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'{_cvmdrVirtualMFADevice :: VirtualMFADevice, _cvmdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
-createVirtualMFADeviceResponse :: VirtualMFADevice -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse pVirtualMFADevice = CreateVirtualMFADeviceResponse'{_cvmdrVirtualMFADevice = pVirtualMFADevice};
+createVirtualMFADeviceResponse :: VirtualMFADevice -> Int -> CreateVirtualMFADeviceResponse
+createVirtualMFADeviceResponse pVirtualMFADevice pStatusCode = CreateVirtualMFADeviceResponse'{_cvmdrVirtualMFADevice = pVirtualMFADevice, _cvmdrStatusCode = pStatusCode};
 
 -- | A newly created virtual MFA device.
 cvmdrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrVirtualMFADevice = lens _cvmdrVirtualMFADevice (\ s a -> s{_cvmdrVirtualMFADevice = a});
+
+-- | FIXME: Undocumented member.
+cvmdrStatusCode :: Lens' CreateVirtualMFADeviceResponse Int
+cvmdrStatusCode = lens _cvmdrStatusCode (\ s a -> s{_cvmdrStatusCode = a});

@@ -38,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteCloudFrontOriginAccessIdentity' smart constructor.
+-- | The request to delete a origin access identity.
+--
+-- /See:/ 'deleteCloudFrontOriginAccessIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

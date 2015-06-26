@@ -41,10 +41,11 @@ module Network.AWS.IAM.ListAccountAliases
     , laarMarker
     , laarIsTruncated
     , laarAccountAliases
+    , laarStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,7 +96,8 @@ instance AWSRequest ListAccountAliases where
                  ListAccountAliasesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "AccountAliases" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
@@ -110,7 +112,9 @@ instance ToQuery ListAccountAliases where
                "Version" =: ("2010-05-08" :: ByteString),
                "MaxItems" =: _laaMaxItems, "Marker" =: _laaMarker]
 
--- | /See:/ 'listAccountAliasesResponse' smart constructor.
+-- | Contains the response to a successful ListAccountAliases request.
+--
+-- /See:/ 'listAccountAliasesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -119,11 +123,13 @@ instance ToQuery ListAccountAliases where
 -- * 'laarIsTruncated'
 --
 -- * 'laarAccountAliases'
-data ListAccountAliasesResponse = ListAccountAliasesResponse'{_laarMarker :: Maybe Text, _laarIsTruncated :: Maybe Bool, _laarAccountAliases :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'laarStatusCode'
+data ListAccountAliasesResponse = ListAccountAliasesResponse'{_laarMarker :: Maybe Text, _laarIsTruncated :: Maybe Bool, _laarAccountAliases :: [Text], _laarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
-listAccountAliasesResponse :: ListAccountAliasesResponse
-listAccountAliasesResponse = ListAccountAliasesResponse'{_laarMarker = Nothing, _laarIsTruncated = Nothing, _laarAccountAliases = mempty};
+listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
+listAccountAliasesResponse pStatusCode = ListAccountAliasesResponse'{_laarMarker = Nothing, _laarIsTruncated = Nothing, _laarAccountAliases = mempty, _laarStatusCode = pStatusCode};
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
@@ -142,3 +148,7 @@ laarIsTruncated = lens _laarIsTruncated (\ s a -> s{_laarIsTruncated = a});
 -- | A list of aliases associated with the account.
 laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});
+
+-- | FIXME: Undocumented member.
+laarStatusCode :: Lens' ListAccountAliasesResponse Int
+laarStatusCode = lens _laarStatusCode (\ s a -> s{_laarStatusCode = a});

@@ -50,6 +50,7 @@ module Network.AWS.RDS.RebootDBInstance
     , rebootDBInstanceResponse
     -- ** Response lenses
     , rdirDBInstance
+    , rdirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -57,7 +58,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'rebootDBInstance' smart constructor.
+-- |
+--
+-- /See:/ 'rebootDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,8 @@ instance AWSRequest RebootDBInstance where
         response
           = receiveXMLWrapper "RebootDBInstanceResult"
               (\ s h x ->
-                 RebootDBInstanceResponse' <$> (x .@? "DBInstance"))
+                 RebootDBInstanceResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty
@@ -116,12 +120,18 @@ instance ToQuery RebootDBInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdirDBInstance'
-newtype RebootDBInstanceResponse = RebootDBInstanceResponse'{_rdirDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'rdirStatusCode'
+data RebootDBInstanceResponse = RebootDBInstanceResponse'{_rdirDBInstance :: Maybe DBInstance, _rdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RebootDBInstanceResponse' smart constructor.
-rebootDBInstanceResponse :: RebootDBInstanceResponse
-rebootDBInstanceResponse = RebootDBInstanceResponse'{_rdirDBInstance = Nothing};
+rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
+rebootDBInstanceResponse pStatusCode = RebootDBInstanceResponse'{_rdirDBInstance = Nothing, _rdirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rdirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdirDBInstance = lens _rdirDBInstance (\ s a -> s{_rdirDBInstance = a});
+
+-- | FIXME: Undocumented member.
+rdirStatusCode :: Lens' RebootDBInstanceResponse Int
+rdirStatusCode = lens _rdirStatusCode (\ s a -> s{_rdirStatusCode = a});

@@ -35,6 +35,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
     , deleteIdentitiesResponse
     -- ** Response lenses
     , dirUnprocessedIdentityIds
+    , dirStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteIdentities' smart constructor.
+-- | Input to the @DeleteIdentities@ action.
+--
+-- /See:/ 'deleteIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -65,7 +68,8 @@ instance AWSRequest DeleteIdentities where
           = receiveJSON
               (\ s h x ->
                  DeleteIdentitiesResponse' <$>
-                   (x .?> "UnprocessedIdentityIds" .!@ mempty))
+                   (x .?> "UnprocessedIdentityIds" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteIdentities where
         toHeaders
@@ -88,18 +92,26 @@ instance ToPath DeleteIdentities where
 instance ToQuery DeleteIdentities where
         toQuery = const mempty
 
--- | /See:/ 'deleteIdentitiesResponse' smart constructor.
+-- | Returned in response to a successful @DeleteIdentities@ operation.
+--
+-- /See:/ 'deleteIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirUnprocessedIdentityIds'
-newtype DeleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds :: Maybe [UnprocessedIdentityId]} deriving (Eq, Read, Show)
+--
+-- * 'dirStatusCode'
+data DeleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds :: Maybe [UnprocessedIdentityId], _dirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
-deleteIdentitiesResponse :: DeleteIdentitiesResponse
-deleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds = Nothing};
+deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
+deleteIdentitiesResponse pStatusCode = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds = Nothing, _dirStatusCode = pStatusCode};
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
 dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
 dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dirStatusCode :: Lens' DeleteIdentitiesResponse Int
+dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});

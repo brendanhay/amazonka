@@ -36,9 +36,10 @@ module Network.AWS.SNS.ListTopics
     -- ** Response lenses
     , ltrTopics
     , ltrNextToken
+    , ltrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -76,7 +77,8 @@ instance AWSRequest ListTopics where
                  ListTopicsResponse' <$>
                    (x .@? "Topics" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTopics where
         toHeaders = const mempty
@@ -91,18 +93,22 @@ instance ToQuery ListTopics where
                "Version" =: ("2010-03-31" :: ByteString),
                "NextToken" =: _ltNextToken]
 
--- | /See:/ 'listTopicsResponse' smart constructor.
+-- | Response for ListTopics action.
+--
+-- /See:/ 'listTopicsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltrTopics'
 --
 -- * 'ltrNextToken'
-data ListTopicsResponse = ListTopicsResponse'{_ltrTopics :: Maybe [Topic], _ltrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ltrStatusCode'
+data ListTopicsResponse = ListTopicsResponse'{_ltrTopics :: Maybe [Topic], _ltrNextToken :: Maybe Text, _ltrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTopicsResponse' smart constructor.
-listTopicsResponse :: ListTopicsResponse
-listTopicsResponse = ListTopicsResponse'{_ltrTopics = Nothing, _ltrNextToken = Nothing};
+listTopicsResponse :: Int -> ListTopicsResponse
+listTopicsResponse pStatusCode = ListTopicsResponse'{_ltrTopics = Nothing, _ltrNextToken = Nothing, _ltrStatusCode = pStatusCode};
 
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
@@ -112,3 +118,7 @@ ltrTopics = lens _ltrTopics (\ s a -> s{_ltrTopics = a}) . _Default;
 -- returned if there are additional topics to retrieve.
 ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
+
+-- | FIXME: Undocumented member.
+ltrStatusCode :: Lens' ListTopicsResponse Int
+ltrStatusCode = lens _ltrStatusCode (\ s a -> s{_ltrStatusCode = a});

@@ -50,6 +50,7 @@ module Network.AWS.ECS.UpdateService
     , updateServiceResponse
     -- ** Response lenses
     , usrService
+    , usrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -105,7 +106,8 @@ instance AWSRequest UpdateService where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateServiceResponse' <$> (x .?> "service"))
+                 UpdateServiceResponse' <$>
+                   (x .?> "service") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateService where
         toHeaders
@@ -136,12 +138,18 @@ instance ToQuery UpdateService where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usrService'
-newtype UpdateServiceResponse = UpdateServiceResponse'{_usrService :: Maybe ContainerService} deriving (Eq, Read, Show)
+--
+-- * 'usrStatusCode'
+data UpdateServiceResponse = UpdateServiceResponse'{_usrService :: Maybe ContainerService, _usrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateServiceResponse' smart constructor.
-updateServiceResponse :: UpdateServiceResponse
-updateServiceResponse = UpdateServiceResponse'{_usrService = Nothing};
+updateServiceResponse :: Int -> UpdateServiceResponse
+updateServiceResponse pStatusCode = UpdateServiceResponse'{_usrService = Nothing, _usrStatusCode = pStatusCode};
 
 -- | The full description of your service following the update call.
 usrService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrService = lens _usrService (\ s a -> s{_usrService = a});
+
+-- | FIXME: Undocumented member.
+usrStatusCode :: Lens' UpdateServiceResponse Int
+usrStatusCode = lens _usrStatusCode (\ s a -> s{_usrStatusCode = a});

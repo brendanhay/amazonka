@@ -32,6 +32,7 @@ module Network.AWS.KMS.GenerateRandom
     , generateRandomResponse
     -- ** Response lenses
     , grrPlaintext
+    , grrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -62,7 +63,8 @@ instance AWSRequest GenerateRandom where
         response
           = receiveJSON
               (\ s h x ->
-                 GenerateRandomResponse' <$> (x .?> "Plaintext"))
+                 GenerateRandomResponse' <$>
+                   (x .?> "Plaintext") <*> (pure (fromEnum s)))
 
 instance ToHeaders GenerateRandom where
         toHeaders
@@ -88,12 +90,18 @@ instance ToQuery GenerateRandom where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grrPlaintext'
-newtype GenerateRandomResponse = GenerateRandomResponse'{_grrPlaintext :: Maybe (Sensitive Base64)} deriving (Eq, Read, Show)
+--
+-- * 'grrStatusCode'
+data GenerateRandomResponse = GenerateRandomResponse'{_grrPlaintext :: Maybe (Sensitive Base64), _grrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GenerateRandomResponse' smart constructor.
-generateRandomResponse :: GenerateRandomResponse
-generateRandomResponse = GenerateRandomResponse'{_grrPlaintext = Nothing};
+generateRandomResponse :: Int -> GenerateRandomResponse
+generateRandomResponse pStatusCode = GenerateRandomResponse'{_grrPlaintext = Nothing, _grrStatusCode = pStatusCode};
 
 -- | Plaintext that contains the unpredictable byte string.
 grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
 grrPlaintext = lens _grrPlaintext (\ s a -> s{_grrPlaintext = a}) . mapping _Sensitive;
+
+-- | FIXME: Undocumented member.
+grrStatusCode :: Lens' GenerateRandomResponse Int
+grrStatusCode = lens _grrStatusCode (\ s a -> s{_grrStatusCode = a});

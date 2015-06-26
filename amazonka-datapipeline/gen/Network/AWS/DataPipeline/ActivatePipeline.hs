@@ -39,6 +39,8 @@ module Network.AWS.DataPipeline.ActivatePipeline
     , ActivatePipelineResponse
     -- ** Response constructor
     , activatePipelineResponse
+    -- ** Response lenses
+    , aprStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -46,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'activatePipeline' smart constructor.
+-- | Contains the parameters for ActivatePipeline.
+--
+-- /See:/ 'activatePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -78,7 +82,10 @@ instance AWSRequest ActivatePipeline where
         type Sv ActivatePipeline = DataPipeline
         type Rs ActivatePipeline = ActivatePipelineResponse
         request = postJSON
-        response = receiveNull ActivatePipelineResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ActivatePipelineResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders ActivatePipeline where
         toHeaders
@@ -102,9 +109,19 @@ instance ToPath ActivatePipeline where
 instance ToQuery ActivatePipeline where
         toQuery = const mempty
 
--- | /See:/ 'activatePipelineResponse' smart constructor.
-data ActivatePipelineResponse = ActivatePipelineResponse' deriving (Eq, Read, Show)
+-- | Contains the output of ActivatePipeline.
+--
+-- /See:/ 'activatePipelineResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aprStatusCode'
+newtype ActivatePipelineResponse = ActivatePipelineResponse'{_aprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ActivatePipelineResponse' smart constructor.
-activatePipelineResponse :: ActivatePipelineResponse
-activatePipelineResponse = ActivatePipelineResponse';
+activatePipelineResponse :: Int -> ActivatePipelineResponse
+activatePipelineResponse pStatusCode = ActivatePipelineResponse'{_aprStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+aprStatusCode :: Lens' ActivatePipelineResponse Int
+aprStatusCode = lens _aprStatusCode (\ s a -> s{_aprStatusCode = a});

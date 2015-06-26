@@ -21,11 +21,44 @@ module Network.AWS.MachineLearning.Types
     (
     -- * Service
       MachineLearning
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InternalServerException
+    , _InvalidInputException
+    , _IdempotentParameterMismatchException
+    , _PredictorNotMountedException
+    , _ResourceNotFoundException
+    , _LimitExceededException
 
     -- * Algorithm
     , Algorithm (..)
+
+    -- * BatchPredictionFilterVariable
+    , BatchPredictionFilterVariable (..)
+
+    -- * DataSourceFilterVariable
+    , DataSourceFilterVariable (..)
+
+    -- * DetailsAttributes
+    , DetailsAttributes (..)
+
+    -- * EntityStatus
+    , EntityStatus (..)
+
+    -- * EvaluationFilterVariable
+    , EvaluationFilterVariable (..)
+
+    -- * MLModelFilterVariable
+    , MLModelFilterVariable (..)
+
+    -- * MLModelType
+    , MLModelType (..)
+
+    -- * RealtimeEndpointStatus
+    , RealtimeEndpointStatus (..)
+
+    -- * SortOrder
+    , SortOrder (..)
 
     -- * BatchPrediction
     , BatchPrediction
@@ -41,9 +74,6 @@ module Network.AWS.MachineLearning.Types
     , bpCreatedByIAMUser
     , bpMessage
     , bpOutputURI
-
-    -- * BatchPredictionFilterVariable
-    , BatchPredictionFilterVariable (..)
 
     -- * DataSource
     , DataSource
@@ -64,15 +94,6 @@ module Network.AWS.MachineLearning.Types
     , dsRoleARN
     , dsDataRearrangement
 
-    -- * DataSourceFilterVariable
-    , DataSourceFilterVariable (..)
-
-    -- * DetailsAttributes
-    , DetailsAttributes (..)
-
-    -- * EntityStatus
-    , EntityStatus (..)
-
     -- * Evaluation
     , Evaluation
     , evaluation
@@ -87,9 +108,6 @@ module Network.AWS.MachineLearning.Types
     , evaMessage
     , evaEvaluationId
     , evaEvaluationDataSourceId
-
-    -- * EvaluationFilterVariable
-    , EvaluationFilterVariable (..)
 
     -- * MLModel
     , MLModel
@@ -110,12 +128,6 @@ module Network.AWS.MachineLearning.Types
     , mlmTrainingDataSourceId
     , mlmMessage
     , mlmMLModelType
-
-    -- * MLModelFilterVariable
-    , MLModelFilterVariable (..)
-
-    -- * MLModelType
-    , MLModelType (..)
 
     -- * PerformanceMetrics
     , PerformanceMetrics
@@ -175,9 +187,6 @@ module Network.AWS.MachineLearning.Types
     , reiEndpointStatus
     , reiPeakRequestsPerSecond
 
-    -- * RealtimeEndpointStatus
-    , RealtimeEndpointStatus (..)
-
     -- * RedshiftDataSpec
     , RedshiftDataSpec
     , redshiftDataSpec
@@ -216,8 +225,6 @@ module Network.AWS.MachineLearning.Types
     , sdsDataRearrangement
     , sdsDataLocationS3
 
-    -- * SortOrder
-    , SortOrder (..)
     ) where
 
 import Network.AWS.Prelude
@@ -228,31 +235,66 @@ data MachineLearning
 
 instance AWSService MachineLearning where
     type Sg MachineLearning = V4
-    type Er MachineLearning = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service MachineLearning
-        service' = Service
-            { _svcAbbrev  = "MachineLearning"
-            , _svcPrefix  = "machinelearning"
-            , _svcVersion = "2014-12-12"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service MachineLearning
+        svc = Service
+            { _svcAbbrev   = "MachineLearning"
+            , _svcPrefix   = "machinelearning"
+            , _svcVersion  = "2014-12-12"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry MachineLearning
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | An error on the server occurred when trying to process a request.
+_InternalServerException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerException = _ServiceError . hasCode "InternalServerException" . hasStatus 500;
 
+-- | An error on the client occurred. Typically, the cause is an invalid
+-- input value.
+_InvalidInputException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInputException = _ServiceError . hasCode "InvalidInputException" . hasStatus 400;
+
+-- | A second request to use or change an object was not allowed. This can
+-- result from retrying a request using a parameter that was not present in
+-- the original request.
+_IdempotentParameterMismatchException :: AWSError a => Geting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException = _ServiceError . hasCode "IdempotentParameterMismatchException" . hasStatus 400;
+
+-- | The exception is thrown when a predict request is made to an unmounted
+-- @MLModel@.
+_PredictorNotMountedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PredictorNotMountedException = _ServiceError . hasCode "PredictorNotMountedException" . hasStatus 400;
+
+-- | A specified resource cannot be located.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+
+-- | The subscriber exceeded the maximum number of operations. This exception
+-- can occur when listing objects such as @DataSource@.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 417;
+
+-- | The function used to train a @MLModel@. Training choices supported by
+-- Amazon ML include the following:
+--
+-- -   SGD - Stochastic Gradient Descent.
+-- -   RandomForest - Random forest of decision trees.
 data Algorithm = Sgd deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText Algorithm where
@@ -271,7 +313,319 @@ instance ToHeader Algorithm
 instance FromJSON Algorithm where
     parseJSON = parseJSONText "Algorithm"
 
--- | /See:/ 'batchPrediction' smart constructor.
+-- | A list of the variables to use in searching or filtering
+-- @BatchPrediction@.
+--
+-- -   @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation
+--     date.
+-- -   @Status@ - Sets the search criteria to @BatchPrediction@ status.
+-- -   @Name@ - Sets the search criteria to the contents of
+--     @BatchPrediction@ ____ @Name@.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @BatchPrediction@ creation.
+-- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
+--     @BatchPrediction@.
+-- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+--     in the @BatchPrediction@.
+-- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
+--     @BatchPrediction@. The URL can identify either a file or an Amazon
+--     Simple Storage Service (Amazon S3) bucket or directory.
+data BatchPredictionFilterVariable = BatchDataSourceId | BatchMLModelId | BatchIAMUser | BatchStatus | BatchCreatedAt | BatchDataURI | BatchName | BatchLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText BatchPredictionFilterVariable where
+    parser = takeLowerText >>= \case
+        "CreatedAt" -> pure BatchCreatedAt
+        "DataSourceId" -> pure BatchDataSourceId
+        "DataURI" -> pure BatchDataURI
+        "IAMUser" -> pure BatchIAMUser
+        "LastUpdatedAt" -> pure BatchLastUpdatedAt
+        "MLModelId" -> pure BatchMLModelId
+        "Name" -> pure BatchName
+        "Status" -> pure BatchStatus
+        e -> fail ("Failure parsing BatchPredictionFilterVariable from " ++ show e)
+
+instance ToText BatchPredictionFilterVariable where
+    toText = \case
+        BatchCreatedAt -> "CreatedAt"
+        BatchDataSourceId -> "DataSourceId"
+        BatchDataURI -> "DataURI"
+        BatchIAMUser -> "IAMUser"
+        BatchLastUpdatedAt -> "LastUpdatedAt"
+        BatchMLModelId -> "MLModelId"
+        BatchName -> "Name"
+        BatchStatus -> "Status"
+
+instance Hashable BatchPredictionFilterVariable
+instance ToQuery BatchPredictionFilterVariable
+instance ToHeader BatchPredictionFilterVariable
+
+instance ToJSON BatchPredictionFilterVariable where
+    toJSON = toJSONText
+
+-- | A list of the variables to use in searching or filtering @DataSource@.
+--
+-- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
+--     date.
+-- -   @Status@ - Sets the search criteria to @DataSource@ status.
+-- -   @Name@ - Sets the search criteria to the contents of @DataSource@
+--     ____ @Name@.
+-- -   @DataUri@ - Sets the search criteria to the URI of data files used
+--     to create the @DataSource@. The URI can identify either a file or an
+--     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @DataSource@ creation.
+--
+-- Note
+--
+-- The variable names should match the variable names in the @DataSource@.
+data DataSourceFilterVariable = DSFVDataStatus | DSFVDataDATALOCATIONS3 | DSFVDataCreatedAt | DSFVDataLastUpdatedAt | DSFVDataName | DSFVDataIAMUser deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DataSourceFilterVariable where
+    parser = takeLowerText >>= \case
+        "CreatedAt" -> pure DSFVDataCreatedAt
+        "DataLocationS3" -> pure DSFVDataDATALOCATIONS3
+        "IAMUser" -> pure DSFVDataIAMUser
+        "LastUpdatedAt" -> pure DSFVDataLastUpdatedAt
+        "Name" -> pure DSFVDataName
+        "Status" -> pure DSFVDataStatus
+        e -> fail ("Failure parsing DataSourceFilterVariable from " ++ show e)
+
+instance ToText DataSourceFilterVariable where
+    toText = \case
+        DSFVDataCreatedAt -> "CreatedAt"
+        DSFVDataDATALOCATIONS3 -> "DataLocationS3"
+        DSFVDataIAMUser -> "IAMUser"
+        DSFVDataLastUpdatedAt -> "LastUpdatedAt"
+        DSFVDataName -> "Name"
+        DSFVDataStatus -> "Status"
+
+instance Hashable DataSourceFilterVariable
+instance ToQuery DataSourceFilterVariable
+instance ToHeader DataSourceFilterVariable
+
+instance ToJSON DataSourceFilterVariable where
+    toJSON = toJSONText
+
+-- | Contains the key values of @DetailsMap@: PredictiveModelType - Indicates
+-- the type of the @MLModel@. Algorithm - Indicates the algorithm was used
+-- for the @MLModel@.
+data DetailsAttributes = Algorithm | PredictiveModelType deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DetailsAttributes where
+    parser = takeLowerText >>= \case
+        "Algorithm" -> pure Algorithm
+        "PredictiveModelType" -> pure PredictiveModelType
+        e -> fail ("Failure parsing DetailsAttributes from " ++ show e)
+
+instance ToText DetailsAttributes where
+    toText = \case
+        Algorithm -> "Algorithm"
+        PredictiveModelType -> "PredictiveModelType"
+
+instance Hashable DetailsAttributes
+instance ToQuery DetailsAttributes
+instance ToHeader DetailsAttributes
+
+instance FromJSON DetailsAttributes where
+    parseJSON = parseJSONText "DetailsAttributes"
+
+-- | Entity status with the following possible values:
+--
+-- -   PENDING
+-- -   INPROGRESS
+-- -   FAILED
+-- -   COMPLETED
+-- -   DELETED
+data EntityStatus = Pending | Inprogress | Deleted | Completed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EntityStatus where
+    parser = takeLowerText >>= \case
+        "COMPLETED" -> pure Completed
+        "DELETED" -> pure Deleted
+        "FAILED" -> pure Failed
+        "INPROGRESS" -> pure Inprogress
+        "PENDING" -> pure Pending
+        e -> fail ("Failure parsing EntityStatus from " ++ show e)
+
+instance ToText EntityStatus where
+    toText = \case
+        Completed -> "COMPLETED"
+        Deleted -> "DELETED"
+        Failed -> "FAILED"
+        Inprogress -> "INPROGRESS"
+        Pending -> "PENDING"
+
+instance Hashable EntityStatus
+instance ToQuery EntityStatus
+instance ToHeader EntityStatus
+
+instance FromJSON EntityStatus where
+    parseJSON = parseJSONText "EntityStatus"
+
+-- | A list of the variables to use in searching or filtering @Evaluation@.
+--
+-- -   @CreatedAt@ - Sets the search criteria to @Evaluation@ creation
+--     date.
+-- -   @Status@ - Sets the search criteria to @Evaluation@ status.
+-- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
+--     ____ @Name@.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked an evaluation.
+-- -   @MLModelId@ - Sets the search criteria to the @Predictor@ that was
+--     evaluated.
+-- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+--     in evaluation.
+-- -   @DataUri@ - Sets the search criteria to the data file(s) used in
+--     evaluation. The URL can identify either a file or an Amazon Simple
+--     Storage Service (Amazon S3) bucket or directory.
+data EvaluationFilterVariable = EFVEvalStatus | EFVEvalDataURI | EFVEvalDataSourceId | EFVEvalCreatedAt | EFVEvalName | EFVEvalIAMUser | EFVEvalMLModelId | EFVEvalLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EvaluationFilterVariable where
+    parser = takeLowerText >>= \case
+        "CreatedAt" -> pure EFVEvalCreatedAt
+        "DataSourceId" -> pure EFVEvalDataSourceId
+        "DataURI" -> pure EFVEvalDataURI
+        "IAMUser" -> pure EFVEvalIAMUser
+        "LastUpdatedAt" -> pure EFVEvalLastUpdatedAt
+        "MLModelId" -> pure EFVEvalMLModelId
+        "Name" -> pure EFVEvalName
+        "Status" -> pure EFVEvalStatus
+        e -> fail ("Failure parsing EvaluationFilterVariable from " ++ show e)
+
+instance ToText EvaluationFilterVariable where
+    toText = \case
+        EFVEvalCreatedAt -> "CreatedAt"
+        EFVEvalDataSourceId -> "DataSourceId"
+        EFVEvalDataURI -> "DataURI"
+        EFVEvalIAMUser -> "IAMUser"
+        EFVEvalLastUpdatedAt -> "LastUpdatedAt"
+        EFVEvalMLModelId -> "MLModelId"
+        EFVEvalName -> "Name"
+        EFVEvalStatus -> "Status"
+
+instance Hashable EvaluationFilterVariable
+instance ToQuery EvaluationFilterVariable
+instance ToHeader EvaluationFilterVariable
+
+instance ToJSON EvaluationFilterVariable where
+    toJSON = toJSONText
+
+data MLModelFilterVariable = MLMFVRealtimeEndpointStatus | MLMFVMLModelType | MLMFVTrainingDataURI | MLMFVStatus | MLMFVIAMUser | MLMFVCreatedAt | MLMFVTrainingDataSourceId | MLMFVAlgorithm | MLMFVName | MLMFVLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MLModelFilterVariable where
+    parser = takeLowerText >>= \case
+        "Algorithm" -> pure MLMFVAlgorithm
+        "CreatedAt" -> pure MLMFVCreatedAt
+        "IAMUser" -> pure MLMFVIAMUser
+        "LastUpdatedAt" -> pure MLMFVLastUpdatedAt
+        "MLModelType" -> pure MLMFVMLModelType
+        "Name" -> pure MLMFVName
+        "RealtimeEndpointStatus" -> pure MLMFVRealtimeEndpointStatus
+        "Status" -> pure MLMFVStatus
+        "TrainingDataSourceId" -> pure MLMFVTrainingDataSourceId
+        "TrainingDataURI" -> pure MLMFVTrainingDataURI
+        e -> fail ("Failure parsing MLModelFilterVariable from " ++ show e)
+
+instance ToText MLModelFilterVariable where
+    toText = \case
+        MLMFVAlgorithm -> "Algorithm"
+        MLMFVCreatedAt -> "CreatedAt"
+        MLMFVIAMUser -> "IAMUser"
+        MLMFVLastUpdatedAt -> "LastUpdatedAt"
+        MLMFVMLModelType -> "MLModelType"
+        MLMFVName -> "Name"
+        MLMFVRealtimeEndpointStatus -> "RealtimeEndpointStatus"
+        MLMFVStatus -> "Status"
+        MLMFVTrainingDataSourceId -> "TrainingDataSourceId"
+        MLMFVTrainingDataURI -> "TrainingDataURI"
+
+instance Hashable MLModelFilterVariable
+instance ToQuery MLModelFilterVariable
+instance ToHeader MLModelFilterVariable
+
+instance ToJSON MLModelFilterVariable where
+    toJSON = toJSONText
+
+data MLModelType = Multiclass | Regression | Binary deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MLModelType where
+    parser = takeLowerText >>= \case
+        "BINARY" -> pure Binary
+        "MULTICLASS" -> pure Multiclass
+        "REGRESSION" -> pure Regression
+        e -> fail ("Failure parsing MLModelType from " ++ show e)
+
+instance ToText MLModelType where
+    toText = \case
+        Binary -> "BINARY"
+        Multiclass -> "MULTICLASS"
+        Regression -> "REGRESSION"
+
+instance Hashable MLModelType
+instance ToQuery MLModelType
+instance ToHeader MLModelType
+
+instance ToJSON MLModelType where
+    toJSON = toJSONText
+
+instance FromJSON MLModelType where
+    parseJSON = parseJSONText "MLModelType"
+
+data RealtimeEndpointStatus = RESUpdating | RESReady | RESFailed | RESNone deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RealtimeEndpointStatus where
+    parser = takeLowerText >>= \case
+        "FAILED" -> pure RESFailed
+        "NONE" -> pure RESNone
+        "READY" -> pure RESReady
+        "UPDATING" -> pure RESUpdating
+        e -> fail ("Failure parsing RealtimeEndpointStatus from " ++ show e)
+
+instance ToText RealtimeEndpointStatus where
+    toText = \case
+        RESFailed -> "FAILED"
+        RESNone -> "NONE"
+        RESReady -> "READY"
+        RESUpdating -> "UPDATING"
+
+instance Hashable RealtimeEndpointStatus
+instance ToQuery RealtimeEndpointStatus
+instance ToHeader RealtimeEndpointStatus
+
+instance FromJSON RealtimeEndpointStatus where
+    parseJSON = parseJSONText "RealtimeEndpointStatus"
+
+-- | The sort order specified in a listing condition. Possible values include
+-- the following:
+--
+-- -   @asc@ - Present the information in ascending order (from A-Z).
+-- -   @dsc@ - Present the information in descending order (from Z-A).
+data SortOrder = Dsc | Asc deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SortOrder where
+    parser = takeLowerText >>= \case
+        "asc" -> pure Asc
+        "dsc" -> pure Dsc
+        e -> fail ("Failure parsing SortOrder from " ++ show e)
+
+instance ToText SortOrder where
+    toText = \case
+        Asc -> "asc"
+        Dsc -> "dsc"
+
+instance Hashable SortOrder
+instance ToQuery SortOrder
+instance ToHeader SortOrder
+
+instance ToJSON SortOrder where
+    toJSON = toJSONText
+
+-- | Represents the output of GetBatchPrediction operation.
+--
+-- The content consists of the detailed metadata, the status, and the data
+-- file information of a /Batch Prediction/.
+--
+-- /See:/ 'batchPrediction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -384,39 +738,12 @@ instance FromJSON BatchPrediction where
                      <*> (x .:? "Message")
                      <*> (x .:? "OutputUri"))
 
-data BatchPredictionFilterVariable = BatchDataSourceId | BatchMLModelId | BatchIAMUser | BatchStatus | BatchCreatedAt | BatchDataURI | BatchName | BatchLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText BatchPredictionFilterVariable where
-    parser = takeLowerText >>= \case
-        "CreatedAt" -> pure BatchCreatedAt
-        "DataSourceId" -> pure BatchDataSourceId
-        "DataURI" -> pure BatchDataURI
-        "IAMUser" -> pure BatchIAMUser
-        "LastUpdatedAt" -> pure BatchLastUpdatedAt
-        "MLModelId" -> pure BatchMLModelId
-        "Name" -> pure BatchName
-        "Status" -> pure BatchStatus
-        e -> fail ("Failure parsing BatchPredictionFilterVariable from " ++ show e)
-
-instance ToText BatchPredictionFilterVariable where
-    toText = \case
-        BatchCreatedAt -> "CreatedAt"
-        BatchDataSourceId -> "DataSourceId"
-        BatchDataURI -> "DataURI"
-        BatchIAMUser -> "IAMUser"
-        BatchLastUpdatedAt -> "LastUpdatedAt"
-        BatchMLModelId -> "MLModelId"
-        BatchName -> "Name"
-        BatchStatus -> "Status"
-
-instance Hashable BatchPredictionFilterVariable
-instance ToQuery BatchPredictionFilterVariable
-instance ToHeader BatchPredictionFilterVariable
-
-instance ToJSON BatchPredictionFilterVariable where
-    toJSON = toJSONText
-
--- | /See:/ 'dataSource' smart constructor.
+-- | Represents the output of the GetDataSource operation.
+--
+-- The content consists of the detailed metadata and data file information
+-- and the current status of the @DataSource@.
+--
+-- /See:/ 'dataSource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -553,81 +880,12 @@ instance FromJSON DataSource where
                      <*> (x .:? "RoleARN")
                      <*> (x .:? "DataRearrangement"))
 
-data DataSourceFilterVariable = DSFVDataStatus | DSFVDataDATALOCATIONS3 | DSFVDataCreatedAt | DSFVDataLastUpdatedAt | DSFVDataName | DSFVDataIAMUser deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DataSourceFilterVariable where
-    parser = takeLowerText >>= \case
-        "CreatedAt" -> pure DSFVDataCreatedAt
-        "DataLocationS3" -> pure DSFVDataDATALOCATIONS3
-        "IAMUser" -> pure DSFVDataIAMUser
-        "LastUpdatedAt" -> pure DSFVDataLastUpdatedAt
-        "Name" -> pure DSFVDataName
-        "Status" -> pure DSFVDataStatus
-        e -> fail ("Failure parsing DataSourceFilterVariable from " ++ show e)
-
-instance ToText DataSourceFilterVariable where
-    toText = \case
-        DSFVDataCreatedAt -> "CreatedAt"
-        DSFVDataDATALOCATIONS3 -> "DataLocationS3"
-        DSFVDataIAMUser -> "IAMUser"
-        DSFVDataLastUpdatedAt -> "LastUpdatedAt"
-        DSFVDataName -> "Name"
-        DSFVDataStatus -> "Status"
-
-instance Hashable DataSourceFilterVariable
-instance ToQuery DataSourceFilterVariable
-instance ToHeader DataSourceFilterVariable
-
-instance ToJSON DataSourceFilterVariable where
-    toJSON = toJSONText
-
-data DetailsAttributes = Algorithm | PredictiveModelType deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DetailsAttributes where
-    parser = takeLowerText >>= \case
-        "Algorithm" -> pure Algorithm
-        "PredictiveModelType" -> pure PredictiveModelType
-        e -> fail ("Failure parsing DetailsAttributes from " ++ show e)
-
-instance ToText DetailsAttributes where
-    toText = \case
-        Algorithm -> "Algorithm"
-        PredictiveModelType -> "PredictiveModelType"
-
-instance Hashable DetailsAttributes
-instance ToQuery DetailsAttributes
-instance ToHeader DetailsAttributes
-
-instance FromJSON DetailsAttributes where
-    parseJSON = parseJSONText "DetailsAttributes"
-
-data EntityStatus = Pending | Inprogress | Deleted | Completed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EntityStatus where
-    parser = takeLowerText >>= \case
-        "COMPLETED" -> pure Completed
-        "DELETED" -> pure Deleted
-        "FAILED" -> pure Failed
-        "INPROGRESS" -> pure Inprogress
-        "PENDING" -> pure Pending
-        e -> fail ("Failure parsing EntityStatus from " ++ show e)
-
-instance ToText EntityStatus where
-    toText = \case
-        Completed -> "COMPLETED"
-        Deleted -> "DELETED"
-        Failed -> "FAILED"
-        Inprogress -> "INPROGRESS"
-        Pending -> "PENDING"
-
-instance Hashable EntityStatus
-instance ToQuery EntityStatus
-instance ToHeader EntityStatus
-
-instance FromJSON EntityStatus where
-    parseJSON = parseJSONText "EntityStatus"
-
--- | /See:/ 'evaluation' smart constructor.
+-- | Represents the output of GetEvaluation operation.
+--
+-- The content consists of the detailed metadata and data file information
+-- and the current status of the @Evaluation@.
+--
+-- /See:/ 'evaluation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -748,39 +1006,12 @@ instance FromJSON Evaluation where
                      <*> (x .:? "EvaluationId")
                      <*> (x .:? "EvaluationDataSourceId"))
 
-data EvaluationFilterVariable = EFVEvalStatus | EFVEvalDataURI | EFVEvalDataSourceId | EFVEvalCreatedAt | EFVEvalName | EFVEvalIAMUser | EFVEvalMLModelId | EFVEvalLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EvaluationFilterVariable where
-    parser = takeLowerText >>= \case
-        "CreatedAt" -> pure EFVEvalCreatedAt
-        "DataSourceId" -> pure EFVEvalDataSourceId
-        "DataURI" -> pure EFVEvalDataURI
-        "IAMUser" -> pure EFVEvalIAMUser
-        "LastUpdatedAt" -> pure EFVEvalLastUpdatedAt
-        "MLModelId" -> pure EFVEvalMLModelId
-        "Name" -> pure EFVEvalName
-        "Status" -> pure EFVEvalStatus
-        e -> fail ("Failure parsing EvaluationFilterVariable from " ++ show e)
-
-instance ToText EvaluationFilterVariable where
-    toText = \case
-        EFVEvalCreatedAt -> "CreatedAt"
-        EFVEvalDataSourceId -> "DataSourceId"
-        EFVEvalDataURI -> "DataURI"
-        EFVEvalIAMUser -> "IAMUser"
-        EFVEvalLastUpdatedAt -> "LastUpdatedAt"
-        EFVEvalMLModelId -> "MLModelId"
-        EFVEvalName -> "Name"
-        EFVEvalStatus -> "Status"
-
-instance Hashable EvaluationFilterVariable
-instance ToQuery EvaluationFilterVariable
-instance ToHeader EvaluationFilterVariable
-
-instance ToJSON EvaluationFilterVariable where
-    toJSON = toJSONText
-
--- | /See:/ 'mLModel' smart constructor.
+-- | Represents the output of a GetMLModel operation.
+--
+-- The content consists of the detailed metadata and the current status of
+-- the @MLModel@.
+--
+-- /See:/ 'mLModel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -970,68 +1201,25 @@ instance FromJSON MLModel where
                      <*> (x .:? "Message")
                      <*> (x .:? "MLModelType"))
 
-data MLModelFilterVariable = MLMFVRealtimeEndpointStatus | MLMFVMLModelType | MLMFVTrainingDataURI | MLMFVStatus | MLMFVIAMUser | MLMFVCreatedAt | MLMFVTrainingDataSourceId | MLMFVAlgorithm | MLMFVName | MLMFVLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MLModelFilterVariable where
-    parser = takeLowerText >>= \case
-        "Algorithm" -> pure MLMFVAlgorithm
-        "CreatedAt" -> pure MLMFVCreatedAt
-        "IAMUser" -> pure MLMFVIAMUser
-        "LastUpdatedAt" -> pure MLMFVLastUpdatedAt
-        "MLModelType" -> pure MLMFVMLModelType
-        "Name" -> pure MLMFVName
-        "RealtimeEndpointStatus" -> pure MLMFVRealtimeEndpointStatus
-        "Status" -> pure MLMFVStatus
-        "TrainingDataSourceId" -> pure MLMFVTrainingDataSourceId
-        "TrainingDataURI" -> pure MLMFVTrainingDataURI
-        e -> fail ("Failure parsing MLModelFilterVariable from " ++ show e)
-
-instance ToText MLModelFilterVariable where
-    toText = \case
-        MLMFVAlgorithm -> "Algorithm"
-        MLMFVCreatedAt -> "CreatedAt"
-        MLMFVIAMUser -> "IAMUser"
-        MLMFVLastUpdatedAt -> "LastUpdatedAt"
-        MLMFVMLModelType -> "MLModelType"
-        MLMFVName -> "Name"
-        MLMFVRealtimeEndpointStatus -> "RealtimeEndpointStatus"
-        MLMFVStatus -> "Status"
-        MLMFVTrainingDataSourceId -> "TrainingDataSourceId"
-        MLMFVTrainingDataURI -> "TrainingDataURI"
-
-instance Hashable MLModelFilterVariable
-instance ToQuery MLModelFilterVariable
-instance ToHeader MLModelFilterVariable
-
-instance ToJSON MLModelFilterVariable where
-    toJSON = toJSONText
-
-data MLModelType = Multiclass | Regression | Binary deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MLModelType where
-    parser = takeLowerText >>= \case
-        "BINARY" -> pure Binary
-        "MULTICLASS" -> pure Multiclass
-        "REGRESSION" -> pure Regression
-        e -> fail ("Failure parsing MLModelType from " ++ show e)
-
-instance ToText MLModelType where
-    toText = \case
-        Binary -> "BINARY"
-        Multiclass -> "MULTICLASS"
-        Regression -> "REGRESSION"
-
-instance Hashable MLModelType
-instance ToQuery MLModelType
-instance ToHeader MLModelType
-
-instance ToJSON MLModelType where
-    toJSON = toJSONText
-
-instance FromJSON MLModelType where
-    parseJSON = parseJSONText "MLModelType"
-
--- | /See:/ 'performanceMetrics' smart constructor.
+-- | Measurements of how well the @MLModel@ performed on known observations.
+-- One of the following metrics is returned, based on the type of the
+-- @MLModel@:
+--
+-- -   BinaryAUC: The binary @MLModel@ uses the Area Under the Curve (AUC)
+--     technique to measure performance.
+--
+-- -   RegressionRMSE: The regression @MLModel@ uses the Root Mean Square
+--     Error (RMSE) technique to measure performance. RMSE measures the
+--     difference between predicted and actual values for a single
+--     variable.
+--
+-- -   MulticlassAvgFScore: The multiclass @MLModel@ uses the F1 score
+--     technique to measure performance.
+--
+-- For more information about performance metrics, please see the
+-- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+--
+-- /See:/ 'performanceMetrics' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1053,7 +1241,22 @@ instance FromJSON PerformanceMetrics where
                  PerformanceMetrics' <$>
                    (x .:? "Properties" .!= mempty))
 
--- | /See:/ 'prediction' smart constructor.
+-- | The output from a @Predict@ operation:
+--
+-- -   @Details@ - Contains the following attributes:
+--     DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY |
+--     MULTICLASS DetailsAttributes.ALGORITHM - SGD
+--
+-- -   @PredictedLabel@ - Present for either a BINARY or MULTICLASS
+--     @MLModel@ request.
+--
+-- -   @PredictedScores@ - Contains the raw classification score
+--     corresponding to each label.
+--
+-- -   @PredictedValue@ - Present for a REGRESSION @MLModel@ request.
+--
+--
+-- /See:/ 'prediction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1095,7 +1298,10 @@ instance FromJSON Prediction where
                      <*> (x .:? "predictedScores" .!= mempty)
                      <*> (x .:? "details" .!= mempty))
 
--- | /See:/ 'rdsDataSpec' smart constructor.
+-- | The data specification of an Amazon Relational Database Service (Amazon
+-- RDS) @DataSource@.
+--
+-- /See:/ 'rdsDataSpec' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1207,7 +1413,9 @@ instance ToJSON RDSDataSpec where
                "SubnetId" .= _rdsdsSubnetId,
                "SecurityGroupIds" .= _rdsdsSecurityGroupIds]
 
--- | /See:/ 'rdsDatabase' smart constructor.
+-- | The database details of an Amazon RDS database.
+--
+-- /See:/ 'rdsDatabase' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1242,7 +1450,9 @@ instance ToJSON RDSDatabase where
               ["InstanceIdentifier" .= _rdsInstanceIdentifier,
                "DatabaseName" .= _rdsDatabaseName]
 
--- | /See:/ 'rdsDatabaseCredentials' smart constructor.
+-- | The database credentials to connect to a database on an RDS DB instance.
+--
+-- /See:/ 'rdsDatabaseCredentials' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1269,7 +1479,9 @@ instance ToJSON RDSDatabaseCredentials where
               ["Username" .= _rdsUsername,
                "Password" .= _rdsPassword]
 
--- | /See:/ 'rdsMetadata' smart constructor.
+-- | The datasource details that are specific to Amazon RDS.
+--
+-- /See:/ 'rdsMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1336,7 +1548,9 @@ instance FromJSON RDSMetadata where
                      <*> (x .:? "ResourceRole")
                      <*> (x .:? "ServiceRole"))
 
--- | /See:/ 'realtimeEndpointInfo' smart constructor.
+-- | Describes the real-time endpoint information for an @MLModel@.
+--
+-- /See:/ 'realtimeEndpointInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1391,31 +1605,9 @@ instance FromJSON RealtimeEndpointInfo where
                      (x .:? "EndpointStatus")
                      <*> (x .:? "PeakRequestsPerSecond"))
 
-data RealtimeEndpointStatus = RESUpdating | RESReady | RESFailed | RESNone deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RealtimeEndpointStatus where
-    parser = takeLowerText >>= \case
-        "FAILED" -> pure RESFailed
-        "NONE" -> pure RESNone
-        "READY" -> pure RESReady
-        "UPDATING" -> pure RESUpdating
-        e -> fail ("Failure parsing RealtimeEndpointStatus from " ++ show e)
-
-instance ToText RealtimeEndpointStatus where
-    toText = \case
-        RESFailed -> "FAILED"
-        RESNone -> "NONE"
-        RESReady -> "READY"
-        RESUpdating -> "UPDATING"
-
-instance Hashable RealtimeEndpointStatus
-instance ToQuery RealtimeEndpointStatus
-instance ToHeader RealtimeEndpointStatus
-
-instance FromJSON RealtimeEndpointStatus where
-    parseJSON = parseJSONText "RealtimeEndpointStatus"
-
--- | /See:/ 'redshiftDataSpec' smart constructor.
+-- | Describes the data specification of an Amazon Redshift @DataSource@.
+--
+-- /See:/ 'redshiftDataSpec' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1481,7 +1673,10 @@ instance ToJSON RedshiftDataSpec where
                "DatabaseCredentials" .= _redDatabaseCredentials,
                "S3StagingLocation" .= _redS3StagingLocation]
 
--- | /See:/ 'redshiftDatabase' smart constructor.
+-- | Describes the database details required to connect to an Amazon Redshift
+-- database.
+--
+-- /See:/ 'redshiftDatabase' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1515,7 +1710,10 @@ instance ToJSON RedshiftDatabase where
               ["DatabaseName" .= _rdDatabaseName,
                "ClusterIdentifier" .= _rdClusterIdentifier]
 
--- | /See:/ 'redshiftDatabaseCredentials' smart constructor.
+-- | Describes the database credentials for connecting to a database on an
+-- Amazon Redshift cluster.
+--
+-- /See:/ 'redshiftDatabaseCredentials' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1542,7 +1740,9 @@ instance ToJSON RedshiftDatabaseCredentials where
               ["Username" .= _rdcUsername,
                "Password" .= _rdcPassword]
 
--- | /See:/ 'redshiftMetadata' smart constructor.
+-- | Describes the @DataSource@ details specific to Amazon Redshift.
+--
+-- /See:/ 'redshiftMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1579,7 +1779,9 @@ instance FromJSON RedshiftMetadata where
                      (x .:? "RedshiftDatabase")
                      <*> (x .:? "DatabaseUserName"))
 
--- | /See:/ 's3DataSpec' smart constructor.
+-- | Describes the data specification of a @DataSource@.
+--
+-- /See:/ 's3DataSpec' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1621,23 +1823,3 @@ instance ToJSON S3DataSpec where
                "DataSchemaLocationS3" .= _sdsDataSchemaLocationS3,
                "DataRearrangement" .= _sdsDataRearrangement,
                "DataLocationS3" .= _sdsDataLocationS3]
-
-data SortOrder = Dsc | Asc deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SortOrder where
-    parser = takeLowerText >>= \case
-        "asc" -> pure Asc
-        "dsc" -> pure Dsc
-        e -> fail ("Failure parsing SortOrder from " ++ show e)
-
-instance ToText SortOrder where
-    toText = \case
-        Asc -> "asc"
-        Dsc -> "dsc"
-
-instance Hashable SortOrder
-instance ToQuery SortOrder
-instance ToHeader SortOrder
-
-instance ToJSON SortOrder where
-    toJSON = toJSONText

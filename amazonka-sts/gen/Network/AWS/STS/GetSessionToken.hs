@@ -68,6 +68,7 @@ module Network.AWS.STS.GetSessionToken
     , getSessionTokenResponse
     -- ** Response lenses
     , gstrCredentials
+    , gstrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -126,7 +127,8 @@ instance AWSRequest GetSessionToken where
         response
           = receiveXMLWrapper "GetSessionTokenResult"
               (\ s h x ->
-                 GetSessionTokenResponse' <$> (x .@? "Credentials"))
+                 GetSessionTokenResponse' <$>
+                   (x .@? "Credentials") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
@@ -143,17 +145,26 @@ instance ToQuery GetSessionToken where
                "DurationSeconds" =: _gstDurationSeconds,
                "SerialNumber" =: _gstSerialNumber]
 
--- | /See:/ 'getSessionTokenResponse' smart constructor.
+-- | Contains the response to a successful GetSessionToken request, including
+-- temporary AWS credentials that can be used to make AWS requests.
+--
+-- /See:/ 'getSessionTokenResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gstrCredentials'
-newtype GetSessionTokenResponse = GetSessionTokenResponse'{_gstrCredentials :: Maybe Credentials} deriving (Eq, Read, Show)
+--
+-- * 'gstrStatusCode'
+data GetSessionTokenResponse = GetSessionTokenResponse'{_gstrCredentials :: Maybe Credentials, _gstrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetSessionTokenResponse' smart constructor.
-getSessionTokenResponse :: GetSessionTokenResponse
-getSessionTokenResponse = GetSessionTokenResponse'{_gstrCredentials = Nothing};
+getSessionTokenResponse :: Int -> GetSessionTokenResponse
+getSessionTokenResponse pStatusCode = GetSessionTokenResponse'{_gstrCredentials = Nothing, _gstrStatusCode = pStatusCode};
 
 -- | The session credentials for API authentication.
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\ s a -> s{_gstrCredentials = a});
+
+-- | FIXME: Undocumented member.
+gstrStatusCode :: Lens' GetSessionTokenResponse Int
+gstrStatusCode = lens _gstrStatusCode (\ s a -> s{_gstrStatusCode = a});

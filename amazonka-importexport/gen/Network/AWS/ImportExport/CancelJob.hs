@@ -33,7 +33,8 @@ module Network.AWS.ImportExport.CancelJob
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , cjrSuccess
+    , canSuccess
+    , canStatusCode
     ) where
 
 import Network.AWS.ImportExport.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'cancelJob' smart constructor.
+-- | Input structure for the CancelJob operation.
+--
+-- /See:/ 'cancelJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,9 @@ instance AWSRequest CancelJob where
         request = post
         response
           = receiveXMLWrapper "CancelJobResult"
-              (\ s h x -> CancelJobResponse' <$> (x .@? "Success"))
+              (\ s h x ->
+                 CancelJobResponse' <$>
+                   (x .@? "Success") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty
@@ -84,17 +89,25 @@ instance ToQuery CancelJob where
                "Version" =: ("2010-06-01" :: ByteString),
                "APIVersion" =: _canAPIVersion, "JobId" =: _canJobId]
 
--- | /See:/ 'cancelJobResponse' smart constructor.
+-- | Output structure for the CancelJob operation.
+--
+-- /See:/ 'cancelJobResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrSuccess'
-newtype CancelJobResponse = CancelJobResponse'{_cjrSuccess :: Maybe Bool} deriving (Eq, Read, Show)
+-- * 'canSuccess'
+--
+-- * 'canStatusCode'
+data CancelJobResponse = CancelJobResponse'{_canSuccess :: Maybe Bool, _canStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelJobResponse' smart constructor.
-cancelJobResponse :: CancelJobResponse
-cancelJobResponse = CancelJobResponse'{_cjrSuccess = Nothing};
+cancelJobResponse :: Int -> CancelJobResponse
+cancelJobResponse pStatusCode = CancelJobResponse'{_canSuccess = Nothing, _canStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
-cjrSuccess = lens _cjrSuccess (\ s a -> s{_cjrSuccess = a});
+canSuccess :: Lens' CancelJobResponse (Maybe Bool)
+canSuccess = lens _canSuccess (\ s a -> s{_canSuccess = a});
+
+-- | FIXME: Undocumented member.
+canStatusCode :: Lens' CancelJobResponse Int
+canStatusCode = lens _canStatusCode (\ s a -> s{_canStatusCode = a});

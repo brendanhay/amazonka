@@ -36,6 +36,7 @@ module Network.AWS.RDS.ListTagsForResource
     , listTagsForResourceResponse
     -- ** Response lenses
     , ltfrrTagList
+    , ltfrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- |
+--
+-- /See:/ 'listTagsForResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +79,8 @@ instance AWSRequest ListTagsForResource where
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
                    (x .@? "TagList" .!@ mempty >>=
-                      may (parseXMLList "Tag")))
+                      may (parseXMLList "Tag"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -93,17 +97,25 @@ instance ToQuery ListTagsForResource where
                  toQuery (toQueryList "Filter" <$> _ltfrFilters),
                "ResourceName" =: _ltfrResourceName]
 
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'listTagsForResourceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfrrTagList'
-newtype ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList :: Maybe [Tag]} deriving (Eq, Read, Show)
+--
+-- * 'ltfrrStatusCode'
+data ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList :: Maybe [Tag], _ltfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: ListTagsForResourceResponse
-listTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList = Nothing};
+listTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+listTagsForResourceResponse pStatusCode = ListTagsForResourceResponse'{_ltfrrTagList = Nothing, _ltfrrStatusCode = pStatusCode};
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ltfrrStatusCode :: Lens' ListTagsForResourceResponse Int
+ltfrrStatusCode = lens _ltfrrStatusCode (\ s a -> s{_ltfrrStatusCode = a});

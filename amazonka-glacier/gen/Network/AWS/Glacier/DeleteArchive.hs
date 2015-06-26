@@ -64,7 +64,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteArchive' smart constructor.
+-- | Provides options for deleting an archive from an Amazon Glacier vault.
+--
+-- /See:/ 'deleteArchive' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

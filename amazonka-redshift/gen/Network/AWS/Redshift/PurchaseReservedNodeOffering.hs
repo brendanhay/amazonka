@@ -42,6 +42,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     , purchaseReservedNodeOfferingResponse
     -- ** Response lenses
     , prnorReservedNode
+    , prnorStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -49,7 +50,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'purchaseReservedNodeOffering' smart constructor.
+-- |
+--
+-- /See:/ 'purchaseReservedNodeOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,7 @@ instance AWSRequest PurchaseReservedNodeOffering
               "PurchaseReservedNodeOfferingResult"
               (\ s h x ->
                  PurchaseReservedNodeOfferingResponse' <$>
-                   (x .@? "ReservedNode"))
+                   (x .@? "ReservedNode") <*> (pure (fromEnum s)))
 
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
@@ -107,12 +110,18 @@ instance ToQuery PurchaseReservedNodeOffering where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prnorReservedNode'
-newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'{_prnorReservedNode :: Maybe ReservedNode} deriving (Eq, Read, Show)
+--
+-- * 'prnorStatusCode'
+data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'{_prnorReservedNode :: Maybe ReservedNode, _prnorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
-purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse
-purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'{_prnorReservedNode = Nothing};
+purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse
+purchaseReservedNodeOfferingResponse pStatusCode = PurchaseReservedNodeOfferingResponse'{_prnorReservedNode = Nothing, _prnorStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorReservedNode = lens _prnorReservedNode (\ s a -> s{_prnorReservedNode = a});
+
+-- | FIXME: Undocumented member.
+prnorStatusCode :: Lens' PurchaseReservedNodeOfferingResponse Int
+prnorStatusCode = lens _prnorStatusCode (\ s a -> s{_prnorStatusCode = a});

@@ -36,6 +36,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     , estimateTemplateCostResponse
     -- ** Response lenses
     , etcrURL
+    , etcrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -91,7 +92,8 @@ instance AWSRequest EstimateTemplateCost where
         response
           = receiveXMLWrapper "EstimateTemplateCostResult"
               (\ s h x ->
-                 EstimateTemplateCostResponse' <$> (x .@? "Url"))
+                 EstimateTemplateCostResponse' <$>
+                   (x .@? "Url") <*> (pure (fromEnum s)))
 
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
@@ -109,18 +111,26 @@ instance ToQuery EstimateTemplateCost where
                "TemplateBody" =: _etcTemplateBody,
                "TemplateURL" =: _etcTemplateURL]
 
--- | /See:/ 'estimateTemplateCostResponse' smart constructor.
+-- | The output for a EstimateTemplateCost action.
+--
+-- /See:/ 'estimateTemplateCostResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'etcrURL'
-newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse'{_etcrURL :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'etcrStatusCode'
+data EstimateTemplateCostResponse = EstimateTemplateCostResponse'{_etcrURL :: Maybe Text, _etcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
-estimateTemplateCostResponse :: EstimateTemplateCostResponse
-estimateTemplateCostResponse = EstimateTemplateCostResponse'{_etcrURL = Nothing};
+estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
+estimateTemplateCostResponse pStatusCode = EstimateTemplateCostResponse'{_etcrURL = Nothing, _etcrStatusCode = pStatusCode};
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes
 -- the resources required to run the template.
 etcrURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrURL = lens _etcrURL (\ s a -> s{_etcrURL = a});
+
+-- | FIXME: Undocumented member.
+etcrStatusCode :: Lens' EstimateTemplateCostResponse Int
+etcrStatusCode = lens _etcrStatusCode (\ s a -> s{_etcrStatusCode = a});

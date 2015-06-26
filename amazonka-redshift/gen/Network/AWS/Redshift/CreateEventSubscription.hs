@@ -62,6 +62,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     , createEventSubscriptionResponse
     -- ** Response lenses
     , cesrEventSubscription
+    , cesrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createEventSubscription' smart constructor.
+-- |
+--
+-- /See:/ 'createEventSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -166,7 +169,7 @@ instance AWSRequest CreateEventSubscription where
           = receiveXMLWrapper "CreateEventSubscriptionResult"
               (\ s h x ->
                  CreateEventSubscriptionResponse' <$>
-                   (x .@? "EventSubscription"))
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
@@ -198,12 +201,18 @@ instance ToQuery CreateEventSubscription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cesrEventSubscription'
-newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'{_cesrEventSubscription :: Maybe EventSubscription} deriving (Eq, Read, Show)
+--
+-- * 'cesrStatusCode'
+data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'{_cesrEventSubscription :: Maybe EventSubscription, _cesrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateEventSubscriptionResponse' smart constructor.
-createEventSubscriptionResponse :: CreateEventSubscriptionResponse
-createEventSubscriptionResponse = CreateEventSubscriptionResponse'{_cesrEventSubscription = Nothing};
+createEventSubscriptionResponse :: Int -> CreateEventSubscriptionResponse
+createEventSubscriptionResponse pStatusCode = CreateEventSubscriptionResponse'{_cesrEventSubscription = Nothing, _cesrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrEventSubscription = lens _cesrEventSubscription (\ s a -> s{_cesrEventSubscription = a});
+
+-- | FIXME: Undocumented member.
+cesrStatusCode :: Lens' CreateEventSubscriptionResponse Int
+cesrStatusCode = lens _cesrStatusCode (\ s a -> s{_cesrStatusCode = a});

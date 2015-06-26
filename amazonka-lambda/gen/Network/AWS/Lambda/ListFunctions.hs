@@ -39,10 +39,11 @@ module Network.AWS.Lambda.ListFunctions
     -- ** Response lenses
     , lfrNextMarker
     , lfrFunctions
+    , lfrStatusCode
     ) where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,7 +88,8 @@ instance AWSRequest ListFunctions where
               (\ s h x ->
                  ListFunctionsResponse' <$>
                    (x .?> "NextMarker") <*>
-                     (x .?> "Functions" .!@ mempty))
+                     (x .?> "Functions" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListFunctions where
         toHeaders = const mempty
@@ -100,18 +102,23 @@ instance ToQuery ListFunctions where
           = mconcat
               ["MaxItems" =: _lfMaxItems, "Marker" =: _lfMarker]
 
--- | /See:/ 'listFunctionsResponse' smart constructor.
+-- | Contains a list of AWS Lambda function configurations (see
+-- FunctionConfiguration.
+--
+-- /See:/ 'listFunctionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lfrNextMarker'
 --
 -- * 'lfrFunctions'
-data ListFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker :: Maybe Text, _lfrFunctions :: Maybe [FunctionConfiguration]} deriving (Eq, Read, Show)
+--
+-- * 'lfrStatusCode'
+data ListFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker :: Maybe Text, _lfrFunctions :: Maybe [FunctionConfiguration], _lfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListFunctionsResponse' smart constructor.
-listFunctionsResponse :: ListFunctionsResponse
-listFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker = Nothing, _lfrFunctions = Nothing};
+listFunctionsResponse :: Int -> ListFunctionsResponse
+listFunctionsResponse pStatusCode = ListFunctionsResponse'{_lfrNextMarker = Nothing, _lfrFunctions = Nothing, _lfrStatusCode = pStatusCode};
 
 -- | A string, present if there are more functions.
 lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
@@ -120,3 +127,7 @@ lfrNextMarker = lens _lfrNextMarker (\ s a -> s{_lfrNextMarker = a});
 -- | A list of Lambda functions.
 lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrFunctions = lens _lfrFunctions (\ s a -> s{_lfrFunctions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lfrStatusCode :: Lens' ListFunctionsResponse Int
+lfrStatusCode = lens _lfrStatusCode (\ s a -> s{_lfrStatusCode = a});

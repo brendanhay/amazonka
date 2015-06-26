@@ -31,6 +31,7 @@ module Network.AWS.Route53.GetHealthCheckCount
     , getHealthCheckCountResponse
     -- ** Response lenses
     , ghccrHealthCheckCount
+    , ghccrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -38,7 +39,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'getHealthCheckCount' smart constructor.
+-- | To retrieve a count of all your health checks, send a @GET@ request to
+-- the @2013-04-01\/healthcheckcount@ resource.
+--
+-- /See:/ 'getHealthCheckCount' smart constructor.
 data GetHealthCheckCount = GetHealthCheckCount' deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckCount' smart constructor.
@@ -54,7 +58,7 @@ instance AWSRequest GetHealthCheckCount where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckCountResponse' <$>
-                   (x .@ "HealthCheckCount"))
+                   (x .@ "HealthCheckCount") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty
@@ -65,17 +69,26 @@ instance ToPath GetHealthCheckCount where
 instance ToQuery GetHealthCheckCount where
         toQuery = const mempty
 
--- | /See:/ 'getHealthCheckCountResponse' smart constructor.
+-- | A complex type that contains the count of health checks associated with
+-- the current AWS account.
+--
+-- /See:/ 'getHealthCheckCountResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghccrHealthCheckCount'
-newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse'{_ghccrHealthCheckCount :: Integer} deriving (Eq, Read, Show)
+--
+-- * 'ghccrStatusCode'
+data GetHealthCheckCountResponse = GetHealthCheckCountResponse'{_ghccrHealthCheckCount :: Integer, _ghccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckCountResponse' smart constructor.
-getHealthCheckCountResponse :: Integer -> GetHealthCheckCountResponse
-getHealthCheckCountResponse pHealthCheckCount = GetHealthCheckCountResponse'{_ghccrHealthCheckCount = pHealthCheckCount};
+getHealthCheckCountResponse :: Integer -> Int -> GetHealthCheckCountResponse
+getHealthCheckCountResponse pHealthCheckCount pStatusCode = GetHealthCheckCountResponse'{_ghccrHealthCheckCount = pHealthCheckCount, _ghccrStatusCode = pStatusCode};
 
 -- | The number of health checks associated with the current AWS account.
 ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount = lens _ghccrHealthCheckCount (\ s a -> s{_ghccrHealthCheckCount = a});
+
+-- | FIXME: Undocumented member.
+ghccrStatusCode :: Lens' GetHealthCheckCountResponse Int
+ghccrStatusCode = lens _ghccrStatusCode (\ s a -> s{_ghccrStatusCode = a});

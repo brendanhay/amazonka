@@ -81,6 +81,7 @@ module Network.AWS.SQS.GetQueueAttributes
     , getQueueAttributesResponse
     -- ** Response lenses
     , gqarAttributes
+    , gqarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -118,7 +119,8 @@ instance AWSRequest GetQueueAttributes where
           = receiveXMLWrapper "GetQueueAttributesResult"
               (\ s h x ->
                  GetQueueAttributesResponse' <$>
-                   (may (parseXMLMap "Attribute" "Name" "Value") x))
+                   (may (parseXMLMap "Attribute" "Name" "Value") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty
@@ -135,17 +137,25 @@ instance ToQuery GetQueueAttributes where
                  (toQueryList "AttributeName" <$> _gqaAttributeNames),
                "QueueUrl" =: _gqaQueueURL]
 
--- | /See:/ 'getQueueAttributesResponse' smart constructor.
+-- | A list of returned queue attributes.
+--
+-- /See:/ 'getQueueAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gqarAttributes'
-newtype GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: Maybe (Map QueueAttributeName Text)} deriving (Eq, Read, Show)
+--
+-- * 'gqarStatusCode'
+data GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: Maybe (Map QueueAttributeName Text), _gqarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
-getQueueAttributesResponse :: GetQueueAttributesResponse
-getQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes = Nothing};
+getQueueAttributesResponse :: Int -> GetQueueAttributesResponse
+getQueueAttributesResponse pStatusCode = GetQueueAttributesResponse'{_gqarAttributes = Nothing, _gqarStatusCode = pStatusCode};
 
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
 gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+gqarStatusCode :: Lens' GetQueueAttributesResponse Int
+gqarStatusCode = lens _gqarStatusCode (\ s a -> s{_gqarStatusCode = a});

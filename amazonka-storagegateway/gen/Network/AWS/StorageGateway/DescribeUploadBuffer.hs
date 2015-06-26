@@ -41,6 +41,7 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     , dubrGatewayARN
     , dubrDiskIds
     , dubrUploadBufferUsedInBytes
+    , dubrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -75,7 +76,8 @@ instance AWSRequest DescribeUploadBuffer where
                    (x .?> "UploadBufferAllocatedInBytes") <*>
                      (x .?> "GatewayARN")
                      <*> (x .?> "DiskIds" .!@ mempty)
-                     <*> (x .?> "UploadBufferUsedInBytes"))
+                     <*> (x .?> "UploadBufferUsedInBytes")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
@@ -108,11 +110,13 @@ instance ToQuery DescribeUploadBuffer where
 -- * 'dubrDiskIds'
 --
 -- * 'dubrUploadBufferUsedInBytes'
-data DescribeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes :: Maybe Integer, _dubrGatewayARN :: Maybe Text, _dubrDiskIds :: Maybe [Text], _dubrUploadBufferUsedInBytes :: Maybe Integer} deriving (Eq, Read, Show)
+--
+-- * 'dubrStatusCode'
+data DescribeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes :: Maybe Integer, _dubrGatewayARN :: Maybe Text, _dubrDiskIds :: Maybe [Text], _dubrUploadBufferUsedInBytes :: Maybe Integer, _dubrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
-describeUploadBufferResponse :: DescribeUploadBufferResponse
-describeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes = Nothing, _dubrGatewayARN = Nothing, _dubrDiskIds = Nothing, _dubrUploadBufferUsedInBytes = Nothing};
+describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse
+describeUploadBufferResponse pStatusCode = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes = Nothing, _dubrGatewayARN = Nothing, _dubrDiskIds = Nothing, _dubrUploadBufferUsedInBytes = Nothing, _dubrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dubrUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
@@ -129,3 +133,7 @@ dubrDiskIds = lens _dubrDiskIds (\ s a -> s{_dubrDiskIds = a}) . _Default;
 -- | FIXME: Undocumented member.
 dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrUploadBufferUsedInBytes = lens _dubrUploadBufferUsedInBytes (\ s a -> s{_dubrUploadBufferUsedInBytes = a});
+
+-- | FIXME: Undocumented member.
+dubrStatusCode :: Lens' DescribeUploadBufferResponse Int
+dubrStatusCode = lens _dubrStatusCode (\ s a -> s{_dubrStatusCode = a});

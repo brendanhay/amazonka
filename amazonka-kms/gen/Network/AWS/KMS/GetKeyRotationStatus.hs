@@ -33,6 +33,7 @@ module Network.AWS.KMS.GetKeyRotationStatus
     , getKeyRotationStatusResponse
     -- ** Response lenses
     , gkrsrKeyRotationEnabled
+    , gkrsrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -70,7 +71,7 @@ instance AWSRequest GetKeyRotationStatus where
           = receiveJSON
               (\ s h x ->
                  GetKeyRotationStatusResponse' <$>
-                   (x .?> "KeyRotationEnabled"))
+                   (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetKeyRotationStatus where
         toHeaders
@@ -96,12 +97,18 @@ instance ToQuery GetKeyRotationStatus where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gkrsrKeyRotationEnabled'
-newtype GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'{_gkrsrKeyRotationEnabled :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'gkrsrStatusCode'
+data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'{_gkrsrKeyRotationEnabled :: Maybe Bool, _gkrsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
-getKeyRotationStatusResponse :: GetKeyRotationStatusResponse
-getKeyRotationStatusResponse = GetKeyRotationStatusResponse'{_gkrsrKeyRotationEnabled = Nothing};
+getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse
+getKeyRotationStatusResponse pStatusCode = GetKeyRotationStatusResponse'{_gkrsrKeyRotationEnabled = Nothing, _gkrsrStatusCode = pStatusCode};
 
 -- | A Boolean value that specifies whether key rotation is enabled.
 gkrsrKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrKeyRotationEnabled = lens _gkrsrKeyRotationEnabled (\ s a -> s{_gkrsrKeyRotationEnabled = a});
+
+-- | FIXME: Undocumented member.
+gkrsrStatusCode :: Lens' GetKeyRotationStatusResponse Int
+gkrsrStatusCode = lens _gkrsrStatusCode (\ s a -> s{_gkrsrStatusCode = a});

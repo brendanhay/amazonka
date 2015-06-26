@@ -33,6 +33,7 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     , disableSnapshotCopyResponse
     -- ** Response lenses
     , dscrCluster
+    , dscrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +41,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'disableSnapshotCopy' smart constructor.
+-- |
+--
+-- /See:/ 'disableSnapshotCopy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,8 @@ instance AWSRequest DisableSnapshotCopy where
         response
           = receiveXMLWrapper "DisableSnapshotCopyResult"
               (\ s h x ->
-                 DisableSnapshotCopyResponse' <$> (x .@? "Cluster"))
+                 DisableSnapshotCopyResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty
@@ -87,12 +91,18 @@ instance ToQuery DisableSnapshotCopy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dscrCluster'
-newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'{_dscrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'dscrStatusCode'
+data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'{_dscrCluster :: Maybe Cluster, _dscrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableSnapshotCopyResponse' smart constructor.
-disableSnapshotCopyResponse :: DisableSnapshotCopyResponse
-disableSnapshotCopyResponse = DisableSnapshotCopyResponse'{_dscrCluster = Nothing};
+disableSnapshotCopyResponse :: Int -> DisableSnapshotCopyResponse
+disableSnapshotCopyResponse pStatusCode = DisableSnapshotCopyResponse'{_dscrCluster = Nothing, _dscrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\ s a -> s{_dscrCluster = a});
+
+-- | FIXME: Undocumented member.
+dscrStatusCode :: Lens' DisableSnapshotCopyResponse Int
+dscrStatusCode = lens _dscrStatusCode (\ s a -> s{_dscrStatusCode = a});

@@ -68,6 +68,7 @@ module Network.AWS.S3.HeadObject
     , horContentDisposition
     , horServerSideEncryption
     , horContentType
+    , horStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -203,7 +204,8 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "Last-Modified")
                      <*> (h .#? "Content-Disposition")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (h .#? "Content-Type"))
+                     <*> (h .#? "Content-Type")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
@@ -278,11 +280,13 @@ instance ToQuery HeadObject where
 -- * 'horServerSideEncryption'
 --
 -- * 'horContentType'
-data HeadObjectResponse = HeadObjectResponse'{_horVersionId :: Maybe ObjectVersionId, _horETag :: Maybe ETag, _horRequestCharged :: Maybe RequestCharged, _horContentLength :: Maybe Int, _horRestore :: Maybe Text, _horExpires :: Maybe RFC822, _horDeleteMarker :: Maybe Bool, _horExpiration :: Maybe Text, _horSSECustomerAlgorithm :: Maybe Text, _horMissingMeta :: Maybe Int, _horWebsiteRedirectLocation :: Maybe Text, _horAcceptRanges :: Maybe Text, _horContentEncoding :: Maybe Text, _horSSEKMSKeyId :: Maybe (Sensitive Text), _horSSECustomerKeyMD5 :: Maybe Text, _horMetadata :: Map Text Text, _horReplicationStatus :: Maybe ReplicationStatus, _horCacheControl :: Maybe Text, _horContentLanguage :: Maybe Text, _horLastModified :: Maybe RFC822, _horContentDisposition :: Maybe Text, _horServerSideEncryption :: Maybe ServerSideEncryption, _horContentType :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'horStatusCode'
+data HeadObjectResponse = HeadObjectResponse'{_horVersionId :: Maybe ObjectVersionId, _horETag :: Maybe ETag, _horRequestCharged :: Maybe RequestCharged, _horContentLength :: Maybe Int, _horRestore :: Maybe Text, _horExpires :: Maybe RFC822, _horDeleteMarker :: Maybe Bool, _horExpiration :: Maybe Text, _horSSECustomerAlgorithm :: Maybe Text, _horMissingMeta :: Maybe Int, _horWebsiteRedirectLocation :: Maybe Text, _horAcceptRanges :: Maybe Text, _horContentEncoding :: Maybe Text, _horSSEKMSKeyId :: Maybe (Sensitive Text), _horSSECustomerKeyMD5 :: Maybe Text, _horMetadata :: Map Text Text, _horReplicationStatus :: Maybe ReplicationStatus, _horCacheControl :: Maybe Text, _horContentLanguage :: Maybe Text, _horLastModified :: Maybe RFC822, _horContentDisposition :: Maybe Text, _horServerSideEncryption :: Maybe ServerSideEncryption, _horContentType :: Maybe Text, _horStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'HeadObjectResponse' smart constructor.
-headObjectResponse :: HeadObjectResponse
-headObjectResponse = HeadObjectResponse'{_horVersionId = Nothing, _horETag = Nothing, _horRequestCharged = Nothing, _horContentLength = Nothing, _horRestore = Nothing, _horExpires = Nothing, _horDeleteMarker = Nothing, _horExpiration = Nothing, _horSSECustomerAlgorithm = Nothing, _horMissingMeta = Nothing, _horWebsiteRedirectLocation = Nothing, _horAcceptRanges = Nothing, _horContentEncoding = Nothing, _horSSEKMSKeyId = Nothing, _horSSECustomerKeyMD5 = Nothing, _horMetadata = mempty, _horReplicationStatus = Nothing, _horCacheControl = Nothing, _horContentLanguage = Nothing, _horLastModified = Nothing, _horContentDisposition = Nothing, _horServerSideEncryption = Nothing, _horContentType = Nothing};
+headObjectResponse :: Int -> HeadObjectResponse
+headObjectResponse pStatusCode = HeadObjectResponse'{_horVersionId = Nothing, _horETag = Nothing, _horRequestCharged = Nothing, _horContentLength = Nothing, _horRestore = Nothing, _horExpires = Nothing, _horDeleteMarker = Nothing, _horExpiration = Nothing, _horSSECustomerAlgorithm = Nothing, _horMissingMeta = Nothing, _horWebsiteRedirectLocation = Nothing, _horAcceptRanges = Nothing, _horContentEncoding = Nothing, _horSSEKMSKeyId = Nothing, _horSSECustomerKeyMD5 = Nothing, _horMetadata = mempty, _horReplicationStatus = Nothing, _horCacheControl = Nothing, _horContentLanguage = Nothing, _horLastModified = Nothing, _horContentDisposition = Nothing, _horServerSideEncryption = Nothing, _horContentType = Nothing, _horStatusCode = pStatusCode};
 
 -- | Version of the object.
 horVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
@@ -396,3 +400,7 @@ horServerSideEncryption = lens _horServerSideEncryption (\ s a -> s{_horServerSi
 -- | A standard MIME type describing the format of the object data.
 horContentType :: Lens' HeadObjectResponse (Maybe Text)
 horContentType = lens _horContentType (\ s a -> s{_horContentType = a});
+
+-- | FIXME: Undocumented member.
+horStatusCode :: Lens' HeadObjectResponse Int
+horStatusCode = lens _horStatusCode (\ s a -> s{_horStatusCode = a});

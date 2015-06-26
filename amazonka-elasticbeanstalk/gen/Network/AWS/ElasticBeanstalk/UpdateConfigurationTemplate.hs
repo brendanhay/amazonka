@@ -60,7 +60,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateConfigurationTemplate' smart constructor.
+-- | The result message containing the options for the specified solution
+-- stack.
+--
+-- /See:/ 'updateConfigurationTemplate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

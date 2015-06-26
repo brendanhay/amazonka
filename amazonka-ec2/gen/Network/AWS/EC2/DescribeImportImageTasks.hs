@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeImportImageTasks
     -- ** Response lenses
     , diitrImportImageTasks
     , diitrNextToken
+    , diitrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -96,8 +97,8 @@ instance AWSRequest DescribeImportImageTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportImageTasksResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (x .@? "nextToken"))
+                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
@@ -125,11 +126,13 @@ instance ToQuery DescribeImportImageTasks where
 -- * 'diitrImportImageTasks'
 --
 -- * 'diitrNextToken'
-data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks :: Maybe [ImportImageTask], _diitrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'diitrStatusCode'
+data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks :: Maybe [ImportImageTask], _diitrNextToken :: Maybe Text, _diitrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
-describeImportImageTasksResponse :: DescribeImportImageTasksResponse
-describeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks = Nothing, _diitrNextToken = Nothing};
+describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
+describeImportImageTasksResponse pStatusCode = DescribeImportImageTasksResponse'{_diitrImportImageTasks = Nothing, _diitrNextToken = Nothing, _diitrStatusCode = pStatusCode};
 
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
@@ -140,3 +143,7 @@ diitrImportImageTasks = lens _diitrImportImageTasks (\ s a -> s{_diitrImportImag
 -- when there are no more results to return.
 diitrNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrNextToken = lens _diitrNextToken (\ s a -> s{_diitrNextToken = a});
+
+-- | FIXME: Undocumented member.
+diitrStatusCode :: Lens' DescribeImportImageTasksResponse Int
+diitrStatusCode = lens _diitrStatusCode (\ s a -> s{_diitrStatusCode = a});

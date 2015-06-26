@@ -81,6 +81,7 @@ module Network.AWS.SQS.ReceiveMessage
     , receiveMessageResponse
     -- ** Response lenses
     , rmrMessages
+    , rmrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -175,7 +176,8 @@ instance AWSRequest ReceiveMessage where
           = receiveXMLWrapper "ReceiveMessageResult"
               (\ s h x ->
                  ReceiveMessageResponse' <$>
-                   (may (parseXMLList "Message") x))
+                   (may (parseXMLList "Message") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
@@ -198,17 +200,25 @@ instance ToQuery ReceiveMessage where
                "MaxNumberOfMessages" =: _rmMaxNumberOfMessages,
                "QueueUrl" =: _rmQueueURL]
 
--- | /See:/ 'receiveMessageResponse' smart constructor.
+-- | A list of received messages.
+--
+-- /See:/ 'receiveMessageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rmrMessages'
-newtype ReceiveMessageResponse = ReceiveMessageResponse'{_rmrMessages :: Maybe [Message]} deriving (Eq, Read, Show)
+--
+-- * 'rmrStatusCode'
+data ReceiveMessageResponse = ReceiveMessageResponse'{_rmrMessages :: Maybe [Message], _rmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReceiveMessageResponse' smart constructor.
-receiveMessageResponse :: ReceiveMessageResponse
-receiveMessageResponse = ReceiveMessageResponse'{_rmrMessages = Nothing};
+receiveMessageResponse :: Int -> ReceiveMessageResponse
+receiveMessageResponse pStatusCode = ReceiveMessageResponse'{_rmrMessages = Nothing, _rmrStatusCode = pStatusCode};
 
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\ s a -> s{_rmrMessages = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+rmrStatusCode :: Lens' ReceiveMessageResponse Int
+rmrStatusCode = lens _rmrStatusCode (\ s a -> s{_rmrStatusCode = a});

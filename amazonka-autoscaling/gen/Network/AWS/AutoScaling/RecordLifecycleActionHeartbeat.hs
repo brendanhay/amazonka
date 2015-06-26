@@ -53,6 +53,8 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     , RecordLifecycleActionHeartbeatResponse
     -- ** Response constructor
     , recordLifecycleActionHeartbeatResponse
+    -- ** Response lenses
+    , rlahrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -96,7 +98,11 @@ instance AWSRequest RecordLifecycleActionHeartbeat
              RecordLifecycleActionHeartbeatResponse
         request = post
         response
-          = receiveNull RecordLifecycleActionHeartbeatResponse'
+          = receiveXMLWrapper
+              "RecordLifecycleActionHeartbeatResult"
+              (\ s h x ->
+                 RecordLifecycleActionHeartbeatResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders RecordLifecycleActionHeartbeat
          where
@@ -116,8 +122,16 @@ instance ToQuery RecordLifecycleActionHeartbeat where
                "LifecycleActionToken" =: _rlahLifecycleActionToken]
 
 -- | /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
-data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rlahrStatusCode'
+newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'{_rlahrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
-recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
-recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse';
+recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse
+recordLifecycleActionHeartbeatResponse pStatusCode = RecordLifecycleActionHeartbeatResponse'{_rlahrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+rlahrStatusCode :: Lens' RecordLifecycleActionHeartbeatResponse Int
+rlahrStatusCode = lens _rlahrStatusCode (\ s a -> s{_rlahrStatusCode = a});

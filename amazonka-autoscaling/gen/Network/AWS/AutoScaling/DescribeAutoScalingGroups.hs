@@ -36,10 +36,11 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- ** Response lenses
     , dasgrNextToken
     , dasgrAutoScalingGroups
+    , dasgrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,7 +91,8 @@ instance AWSRequest DescribeAutoScalingGroups where
                  DescribeAutoScalingGroupsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "AutoScalingGroups" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty
@@ -118,11 +120,13 @@ instance ToQuery DescribeAutoScalingGroups where
 -- * 'dasgrNextToken'
 --
 -- * 'dasgrAutoScalingGroups'
-data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'{_dasgrNextToken :: Maybe Text, _dasgrAutoScalingGroups :: [AutoScalingGroup]} deriving (Eq, Read, Show)
+--
+-- * 'dasgrStatusCode'
+data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'{_dasgrNextToken :: Maybe Text, _dasgrAutoScalingGroups :: [AutoScalingGroup], _dasgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
-describeAutoScalingGroupsResponse :: DescribeAutoScalingGroupsResponse
-describeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'{_dasgrNextToken = Nothing, _dasgrAutoScalingGroups = mempty};
+describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
+describeAutoScalingGroupsResponse pStatusCode = DescribeAutoScalingGroupsResponse'{_dasgrNextToken = Nothing, _dasgrAutoScalingGroups = mempty, _dasgrStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -132,3 +136,7 @@ dasgrNextToken = lens _dasgrNextToken (\ s a -> s{_dasgrNextToken = a});
 -- | The groups.
 dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrAutoScalingGroups = lens _dasgrAutoScalingGroups (\ s a -> s{_dasgrAutoScalingGroups = a});
+
+-- | FIXME: Undocumented member.
+dasgrStatusCode :: Lens' DescribeAutoScalingGroupsResponse Int
+dasgrStatusCode = lens _dasgrStatusCode (\ s a -> s{_dasgrStatusCode = a});

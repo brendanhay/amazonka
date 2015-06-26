@@ -37,6 +37,7 @@ module Network.AWS.DirectoryService.CreateComputer
     , createComputerResponse
     -- ** Response lenses
     , ccrComputer
+    , ccrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createComputer' smart constructor.
+-- | Contains the inputs for the CreateComputer operation.
+--
+-- /See:/ 'createComputer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +96,8 @@ instance AWSRequest CreateComputer where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateComputerResponse' <$> (x .?> "Computer"))
+                 CreateComputerResponse' <$>
+                   (x .?> "Computer") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateComputer where
         toHeaders
@@ -121,17 +125,25 @@ instance ToPath CreateComputer where
 instance ToQuery CreateComputer where
         toQuery = const mempty
 
--- | /See:/ 'createComputerResponse' smart constructor.
+-- | Contains the results for the CreateComputer operation.
+--
+-- /See:/ 'createComputerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccrComputer'
-newtype CreateComputerResponse = CreateComputerResponse'{_ccrComputer :: Maybe Computer} deriving (Eq, Read, Show)
+--
+-- * 'ccrStatusCode'
+data CreateComputerResponse = CreateComputerResponse'{_ccrComputer :: Maybe Computer, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateComputerResponse' smart constructor.
-createComputerResponse :: CreateComputerResponse
-createComputerResponse = CreateComputerResponse'{_ccrComputer = Nothing};
+createComputerResponse :: Int -> CreateComputerResponse
+createComputerResponse pStatusCode = CreateComputerResponse'{_ccrComputer = Nothing, _ccrStatusCode = pStatusCode};
 
 -- | A Computer object the represents the computer account.
 ccrComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrComputer = lens _ccrComputer (\ s a -> s{_ccrComputer = a});
+
+-- | FIXME: Undocumented member.
+ccrStatusCode :: Lens' CreateComputerResponse Int
+ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});

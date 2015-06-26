@@ -32,6 +32,7 @@ module Network.AWS.Redshift.RotateEncryptionKey
     , rotateEncryptionKeyResponse
     -- ** Response lenses
     , rekrCluster
+    , rekrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -39,7 +40,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'rotateEncryptionKey' smart constructor.
+-- |
+--
+-- /See:/ 'rotateEncryptionKey' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +69,8 @@ instance AWSRequest RotateEncryptionKey where
         response
           = receiveXMLWrapper "RotateEncryptionKeyResult"
               (\ s h x ->
-                 RotateEncryptionKeyResponse' <$> (x .@? "Cluster"))
+                 RotateEncryptionKeyResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
@@ -86,12 +90,18 @@ instance ToQuery RotateEncryptionKey where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rekrCluster'
-newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'{_rekrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'rekrStatusCode'
+data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'{_rekrCluster :: Maybe Cluster, _rekrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
-rotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse = RotateEncryptionKeyResponse'{_rekrCluster = Nothing};
+rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse
+rotateEncryptionKeyResponse pStatusCode = RotateEncryptionKeyResponse'{_rekrCluster = Nothing, _rekrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\ s a -> s{_rekrCluster = a});
+
+-- | FIXME: Undocumented member.
+rekrStatusCode :: Lens' RotateEncryptionKeyResponse Int
+rekrStatusCode = lens _rekrStatusCode (\ s a -> s{_rekrStatusCode = a});

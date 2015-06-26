@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DescribeCommands
     , describeCommandsResponse
     -- ** Response lenses
     , dcrCommands
+    , dcrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -90,7 +91,8 @@ instance AWSRequest DescribeCommands where
           = receiveJSON
               (\ s h x ->
                  DescribeCommandsResponse' <$>
-                   (x .?> "Commands" .!@ mempty))
+                   (x .?> "Commands" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeCommands where
         toHeaders
@@ -114,18 +116,26 @@ instance ToPath DescribeCommands where
 instance ToQuery DescribeCommands where
         toQuery = const mempty
 
--- | /See:/ 'describeCommandsResponse' smart constructor.
+-- | Contains the response to a @DescribeCommands@ request.
+--
+-- /See:/ 'describeCommandsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrCommands'
-newtype DescribeCommandsResponse = DescribeCommandsResponse'{_dcrCommands :: Maybe [Command]} deriving (Eq, Read, Show)
+--
+-- * 'dcrStatusCode'
+data DescribeCommandsResponse = DescribeCommandsResponse'{_dcrCommands :: Maybe [Command], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCommandsResponse' smart constructor.
-describeCommandsResponse :: DescribeCommandsResponse
-describeCommandsResponse = DescribeCommandsResponse'{_dcrCommands = Nothing};
+describeCommandsResponse :: Int -> DescribeCommandsResponse
+describeCommandsResponse pStatusCode = DescribeCommandsResponse'{_dcrCommands = Nothing, _dcrStatusCode = pStatusCode};
 
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
 dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcrStatusCode :: Lens' DescribeCommandsResponse Int
+dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});

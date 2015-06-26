@@ -44,7 +44,8 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- ** Response constructor
     , describeVirtualInterfacesResponse
     -- ** Response lenses
-    , dvirVirtualInterfaces
+    , desVirtualInterfaces
+    , desStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -52,7 +53,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeVirtualInterfaces' smart constructor.
+-- | Container for the parameters to the DescribeVirtualInterfaces operation.
+--
+-- /See:/ 'describeVirtualInterfaces' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest DescribeVirtualInterfaces where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualInterfacesResponse' <$>
-                   (x .?> "virtualInterfaces" .!@ mempty))
+                   (x .?> "virtualInterfaces" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
@@ -106,17 +110,25 @@ instance ToPath DescribeVirtualInterfaces where
 instance ToQuery DescribeVirtualInterfaces where
         toQuery = const mempty
 
--- | /See:/ 'describeVirtualInterfacesResponse' smart constructor.
+-- | A structure containing a list of virtual interfaces.
+--
+-- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvirVirtualInterfaces'
-newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirVirtualInterfaces :: Maybe [VirtualInterface]} deriving (Eq, Read, Show)
+-- * 'desVirtualInterfaces'
+--
+-- * 'desStatusCode'
+data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_desVirtualInterfaces :: Maybe [VirtualInterface], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
-describeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirVirtualInterfaces = Nothing};
+describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
+describeVirtualInterfacesResponse pStatusCode = DescribeVirtualInterfacesResponse'{_desVirtualInterfaces = Nothing, _desStatusCode = pStatusCode};
 
 -- | A list of virtual interfaces.
-dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvirVirtualInterfaces = lens _dvirVirtualInterfaces (\ s a -> s{_dvirVirtualInterfaces = a}) . _Default;
+desVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+desVirtualInterfaces = lens _desVirtualInterfaces (\ s a -> s{_desVirtualInterfaces = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeVirtualInterfacesResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , deleteHAPGResponse
     -- ** Response lenses
     , dhrStatus
+    , dhrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteHAPG' smart constructor.
+-- | Contains the inputs for the DeleteHapg action.
+--
+-- /See:/ 'deleteHAPG' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -60,7 +63,9 @@ instance AWSRequest DeleteHAPG where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteHAPGResponse' <$> (x .:> "Status"))
+              (\ s h x ->
+                 DeleteHAPGResponse' <$>
+                   (x .:> "Status") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteHAPG where
         toHeaders
@@ -81,17 +86,25 @@ instance ToPath DeleteHAPG where
 instance ToQuery DeleteHAPG where
         toQuery = const mempty
 
--- | /See:/ 'deleteHAPGResponse' smart constructor.
+-- | Contains the output of the DeleteHapg action.
+--
+-- /See:/ 'deleteHAPGResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhrStatus'
-newtype DeleteHAPGResponse = DeleteHAPGResponse'{_dhrStatus :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dhrStatusCode'
+data DeleteHAPGResponse = DeleteHAPGResponse'{_dhrStatus :: Text, _dhrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteHAPGResponse' smart constructor.
-deleteHAPGResponse :: Text -> DeleteHAPGResponse
-deleteHAPGResponse pStatus = DeleteHAPGResponse'{_dhrStatus = pStatus};
+deleteHAPGResponse :: Text -> Int -> DeleteHAPGResponse
+deleteHAPGResponse pStatus pStatusCode = DeleteHAPGResponse'{_dhrStatus = pStatus, _dhrStatusCode = pStatusCode};
 
 -- | The status of the action.
 dhrStatus :: Lens' DeleteHAPGResponse Text
 dhrStatus = lens _dhrStatus (\ s a -> s{_dhrStatus = a});
+
+-- | FIXME: Undocumented member.
+dhrStatusCode :: Lens' DeleteHAPGResponse Int
+dhrStatusCode = lens _dhrStatusCode (\ s a -> s{_dhrStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.EC2.DeleteFlowLogs
     , deleteFlowLogsResponse
     -- ** Response lenses
     , dflrUnsuccessful
+    , dflrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -62,7 +63,8 @@ instance AWSRequest DeleteFlowLogs where
           = receiveXML
               (\ s h x ->
                  DeleteFlowLogsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty
@@ -82,12 +84,18 @@ instance ToQuery DeleteFlowLogs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dflrUnsuccessful'
-newtype DeleteFlowLogsResponse = DeleteFlowLogsResponse'{_dflrUnsuccessful :: Maybe [UnsuccessfulItem]} deriving (Eq, Read, Show)
+--
+-- * 'dflrStatusCode'
+data DeleteFlowLogsResponse = DeleteFlowLogsResponse'{_dflrUnsuccessful :: Maybe [UnsuccessfulItem], _dflrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteFlowLogsResponse' smart constructor.
-deleteFlowLogsResponse :: DeleteFlowLogsResponse
-deleteFlowLogsResponse = DeleteFlowLogsResponse'{_dflrUnsuccessful = Nothing};
+deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
+deleteFlowLogsResponse pStatusCode = DeleteFlowLogsResponse'{_dflrUnsuccessful = Nothing, _dflrStatusCode = pStatusCode};
 
 -- | Information about the flow logs that could not be deleted successfully.
 dflrUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrUnsuccessful = lens _dflrUnsuccessful (\ s a -> s{_dflrUnsuccessful = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dflrStatusCode :: Lens' DeleteFlowLogsResponse Int
+dflrStatusCode = lens _dflrStatusCode (\ s a -> s{_dflrStatusCode = a});

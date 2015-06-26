@@ -35,6 +35,7 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     , describeStorediSCSIVolumesResponse
     -- ** Response lenses
     , dsscsivrStorediSCSIVolumes
+    , dsscsivrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeStorediSCSIVolumes' smart constructor.
+-- | A JSON Object containing a list of
+-- DescribeStorediSCSIVolumesInput$VolumeARNs.
+--
+-- /See:/ 'describeStorediSCSIVolumes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +72,8 @@ instance AWSRequest DescribeStorediSCSIVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeStorediSCSIVolumesResponse' <$>
-                   (x .?> "StorediSCSIVolumes" .!@ mempty))
+                   (x .?> "StorediSCSIVolumes" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders
@@ -95,12 +100,18 @@ instance ToQuery DescribeStorediSCSIVolumes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsscsivrStorediSCSIVolumes'
-newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes :: Maybe [StorediSCSIVolume]} deriving (Eq, Read, Show)
+--
+-- * 'dsscsivrStatusCode'
+data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes :: Maybe [StorediSCSIVolume], _dsscsivrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
-describeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes = Nothing};
+describeStorediSCSIVolumesResponse :: Int -> DescribeStorediSCSIVolumesResponse
+describeStorediSCSIVolumesResponse pStatusCode = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes = Nothing, _dsscsivrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
 dsscsivrStorediSCSIVolumes = lens _dsscsivrStorediSCSIVolumes (\ s a -> s{_dsscsivrStorediSCSIVolumes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsscsivrStatusCode :: Lens' DescribeStorediSCSIVolumesResponse Int
+dsscsivrStatusCode = lens _dsscsivrStatusCode (\ s a -> s{_dsscsivrStatusCode = a});

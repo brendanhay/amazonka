@@ -61,6 +61,7 @@ module Network.AWS.RDS.CreateDBInstance
     , createDBInstanceResponse
     -- ** Response lenses
     , cdirDBInstance
+    , cdirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -68,7 +69,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDBInstance' smart constructor.
+-- |
+--
+-- /See:/ 'createDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -709,7 +712,8 @@ instance AWSRequest CreateDBInstance where
         response
           = receiveXMLWrapper "CreateDBInstanceResult"
               (\ s h x ->
-                 CreateDBInstanceResponse' <$> (x .@? "DBInstance"))
+                 CreateDBInstanceResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
@@ -765,12 +769,18 @@ instance ToQuery CreateDBInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdirDBInstance'
-newtype CreateDBInstanceResponse = CreateDBInstanceResponse'{_cdirDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'cdirStatusCode'
+data CreateDBInstanceResponse = CreateDBInstanceResponse'{_cdirDBInstance :: Maybe DBInstance, _cdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstanceResponse' smart constructor.
-createDBInstanceResponse :: CreateDBInstanceResponse
-createDBInstanceResponse = CreateDBInstanceResponse'{_cdirDBInstance = Nothing};
+createDBInstanceResponse :: Int -> CreateDBInstanceResponse
+createDBInstanceResponse pStatusCode = CreateDBInstanceResponse'{_cdirDBInstance = Nothing, _cdirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cdirDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdirDBInstance = lens _cdirDBInstance (\ s a -> s{_cdirDBInstance = a});
+
+-- | FIXME: Undocumented member.
+cdirStatusCode :: Lens' CreateDBInstanceResponse Int
+cdirStatusCode = lens _cdirStatusCode (\ s a -> s{_cdirStatusCode = a});

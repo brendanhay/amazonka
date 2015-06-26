@@ -37,6 +37,7 @@ module Network.AWS.MachineLearning.UpdateMLModel
     , updateMLModelResponse
     -- ** Response lenses
     , umlmrMLModelId
+    , umlmrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -84,7 +85,8 @@ instance AWSRequest UpdateMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateMLModelResponse' <$> (x .?> "MLModelId"))
+                 UpdateMLModelResponse' <$>
+                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateMLModel where
         toHeaders
@@ -108,18 +110,28 @@ instance ToPath UpdateMLModel where
 instance ToQuery UpdateMLModel where
         toQuery = const mempty
 
--- | /See:/ 'updateMLModelResponse' smart constructor.
+-- | Represents the output of an UpdateMLModel operation.
+--
+-- You can see the updated content by using the GetMLModel operation.
+--
+-- /See:/ 'updateMLModelResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'umlmrMLModelId'
-newtype UpdateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'umlmrStatusCode'
+data UpdateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId :: Maybe Text, _umlmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateMLModelResponse' smart constructor.
-updateMLModelResponse :: UpdateMLModelResponse
-updateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId = Nothing};
+updateMLModelResponse :: Int -> UpdateMLModelResponse
+updateMLModelResponse pStatusCode = UpdateMLModelResponse'{_umlmrMLModelId = Nothing, _umlmrStatusCode = pStatusCode};
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be
 -- identical to the value of the @MLModelID@ in the request.
 umlmrMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrMLModelId = lens _umlmrMLModelId (\ s a -> s{_umlmrMLModelId = a});
+
+-- | FIXME: Undocumented member.
+umlmrStatusCode :: Lens' UpdateMLModelResponse Int
+umlmrStatusCode = lens _umlmrStatusCode (\ s a -> s{_umlmrStatusCode = a});

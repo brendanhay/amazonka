@@ -49,6 +49,7 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     , larprAttachedPolicies
     , larprMarker
     , larprIsTruncated
+    , larprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -111,7 +112,8 @@ instance AWSRequest ListAttachedRolePolicies where
                    (x .@? "AttachedPolicies" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
-                     <*> (x .@? "IsTruncated"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAttachedRolePolicies where
         toHeaders = const mempty
@@ -129,7 +131,9 @@ instance ToQuery ListAttachedRolePolicies where
                "MaxItems" =: _larpMaxItems, "Marker" =: _larpMarker,
                "RoleName" =: _larpRoleName]
 
--- | /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
+-- | Contains the response to a successful ListAttachedRolePolicies request.
+--
+-- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -138,11 +142,13 @@ instance ToQuery ListAttachedRolePolicies where
 -- * 'larprMarker'
 --
 -- * 'larprIsTruncated'
-data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies :: Maybe [AttachedPolicy], _larprMarker :: Maybe Text, _larprIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'larprStatusCode'
+data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies :: Maybe [AttachedPolicy], _larprMarker :: Maybe Text, _larprIsTruncated :: Maybe Bool, _larprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedRolePoliciesResponse' smart constructor.
-listAttachedRolePoliciesResponse :: ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies = Nothing, _larprMarker = Nothing, _larprIsTruncated = Nothing};
+listAttachedRolePoliciesResponse :: Int -> ListAttachedRolePoliciesResponse
+listAttachedRolePoliciesResponse pStatusCode = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies = Nothing, _larprMarker = Nothing, _larprIsTruncated = Nothing, _larprStatusCode = pStatusCode};
 
 -- | A list of the attached policies.
 larprAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
@@ -160,3 +166,7 @@ larprMarker = lens _larprMarker (\ s a -> s{_larprMarker = a});
 -- list.
 larprIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
 larprIsTruncated = lens _larprIsTruncated (\ s a -> s{_larprIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+larprStatusCode :: Lens' ListAttachedRolePoliciesResponse Int
+larprStatusCode = lens _larprStatusCode (\ s a -> s{_larprStatusCode = a});

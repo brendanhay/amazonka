@@ -21,8 +21,27 @@ module Network.AWS.Lambda.Types
     (
     -- * Service
       Lambda
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _PolicyLengthExceededException
+    , _InvalidRequestContentException
+    , _InvalidParameterValueException
+    , _TooManyRequestsException
+    , _ServiceException
+    , _ResourceConflictException
+    , _ResourceNotFoundException
+
+    -- * EventSourcePosition
+    , EventSourcePosition (..)
+
+    -- * InvocationType
+    , InvocationType (..)
+
+    -- * LogType
+    , LogType (..)
+
+    -- * Runtime
+    , Runtime (..)
 
     -- * EventSourceMappingConfiguration
     , EventSourceMappingConfiguration
@@ -35,9 +54,6 @@ module Network.AWS.Lambda.Types
     , esmcBatchSize
     , esmcStateTransitionReason
     , esmcLastModified
-
-    -- * EventSourcePosition
-    , EventSourcePosition (..)
 
     -- * FunctionCode
     , FunctionCode
@@ -67,14 +83,6 @@ module Network.AWS.Lambda.Types
     , fcLastModified
     , fcDescription
 
-    -- * InvocationType
-    , InvocationType (..)
-
-    -- * LogType
-    , LogType (..)
-
-    -- * Runtime
-    , Runtime (..)
     ) where
 
 import Network.AWS.Prelude
@@ -85,32 +93,151 @@ data Lambda
 
 instance AWSService Lambda where
     type Sg Lambda = V4
-    type Er Lambda = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Lambda
-        service' = Service
-            { _svcAbbrev  = "Lambda"
-            , _svcPrefix  = "lambda"
-            , _svcVersion = "2015-03-31"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Lambda
+        svc = Service
+            { _svcAbbrev   = "Lambda"
+            , _svcPrefix   = "lambda"
+            , _svcVersion  = "2015-03-31"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Lambda
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Lambda function access policy is limited to 20 KB.
+_PolicyLengthExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PolicyLengthExceededException = _ServiceError . hasCode "PolicyLengthExceededException" . hasStatus 400;
 
--- | /See:/ 'eventSourceMappingConfiguration' smart constructor.
+-- | The request body could not be parsed as JSON.
+_InvalidRequestContentException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRequestContentException = _ServiceError . hasCode "InvalidRequestContentException" . hasStatus 400;
+
+-- | One of the parameters in the request is invalid. For example, if you
+-- provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or
+-- the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to
+-- assume you will get this exception.
+_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValueException" . hasStatus 400;
+
+-- | Prism for TooManyRequestsException' errors.
+_TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyRequestsException = _ServiceError . hasCode "TooManyRequestsException" . hasStatus 429;
+
+-- | The AWS Lambda service encountered an internal error.
+_ServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceException = _ServiceError . hasCode "ServiceException" . hasStatus 500;
+
+-- | The resource already exists.
+_ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceConflictException = _ServiceError . hasCode "ResourceConflictException" . hasStatus 409;
+
+-- | The resource (for example, a Lambda function or access policy statement)
+-- specified in the request does not exist.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+
+data EventSourcePosition = TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EventSourcePosition where
+    parser = takeLowerText >>= \case
+        "LATEST" -> pure Latest
+        "TRIM_HORIZON" -> pure TrimHorizon
+        e -> fail ("Failure parsing EventSourcePosition from " ++ show e)
+
+instance ToText EventSourcePosition where
+    toText = \case
+        Latest -> "LATEST"
+        TrimHorizon -> "TRIM_HORIZON"
+
+instance Hashable EventSourcePosition
+instance ToQuery EventSourcePosition
+instance ToHeader EventSourcePosition
+
+instance ToJSON EventSourcePosition where
+    toJSON = toJSONText
+
+data InvocationType = Event | RequestResponse | DryRun deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InvocationType where
+    parser = takeLowerText >>= \case
+        "DryRun" -> pure DryRun
+        "Event" -> pure Event
+        "RequestResponse" -> pure RequestResponse
+        e -> fail ("Failure parsing InvocationType from " ++ show e)
+
+instance ToText InvocationType where
+    toText = \case
+        DryRun -> "DryRun"
+        Event -> "Event"
+        RequestResponse -> "RequestResponse"
+
+instance Hashable InvocationType
+instance ToQuery InvocationType
+instance ToHeader InvocationType
+
+instance ToJSON InvocationType where
+    toJSON = toJSONText
+
+data LogType = None | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LogType where
+    parser = takeLowerText >>= \case
+        "None" -> pure None
+        "Tail" -> pure Tail
+        e -> fail ("Failure parsing LogType from " ++ show e)
+
+instance ToText LogType where
+    toText = \case
+        None -> "None"
+        Tail -> "Tail"
+
+instance Hashable LogType
+instance ToQuery LogType
+instance ToHeader LogType
+
+instance ToJSON LogType where
+    toJSON = toJSONText
+
+data Runtime = Nodejs deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Runtime where
+    parser = takeLowerText >>= \case
+        "nodejs" -> pure Nodejs
+        e -> fail ("Failure parsing Runtime from " ++ show e)
+
+instance ToText Runtime where
+    toText = \case
+        Nodejs -> "nodejs"
+
+instance Hashable Runtime
+instance ToQuery Runtime
+instance ToHeader Runtime
+
+instance ToJSON Runtime where
+    toJSON = toJSONText
+
+instance FromJSON Runtime where
+    parseJSON = parseJSONText "Runtime"
+
+-- | Describes mapping between an Amazon Kinesis stream and a Lambda
+-- function.
+--
+-- /See:/ 'eventSourceMappingConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -189,27 +316,9 @@ instance FromJSON EventSourceMappingConfiguration
                      <*> (x .:? "StateTransitionReason")
                      <*> (x .:? "LastModified"))
 
-data EventSourcePosition = TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EventSourcePosition where
-    parser = takeLowerText >>= \case
-        "LATEST" -> pure Latest
-        "TRIM_HORIZON" -> pure TrimHorizon
-        e -> fail ("Failure parsing EventSourcePosition from " ++ show e)
-
-instance ToText EventSourcePosition where
-    toText = \case
-        Latest -> "LATEST"
-        TrimHorizon -> "TRIM_HORIZON"
-
-instance Hashable EventSourcePosition
-instance ToQuery EventSourcePosition
-instance ToHeader EventSourcePosition
-
-instance ToJSON EventSourcePosition where
-    toJSON = toJSONText
-
--- | /See:/ 'functionCode' smart constructor.
+-- | The code for the Lambda function.
+--
+-- /See:/ 'functionCode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -256,7 +365,9 @@ instance ToJSON FunctionCode where
                "S3Key" .= _fcS3Key, "ZipFile" .= _fcZipFile,
                "S3Bucket" .= _fcS3Bucket]
 
--- | /See:/ 'functionCodeLocation' smart constructor.
+-- | The object for the Lambda function location.
+--
+-- /See:/ 'functionCodeLocation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -285,7 +396,9 @@ instance FromJSON FunctionCodeLocation where
                  FunctionCodeLocation' <$>
                    (x .:? "Location") <*> (x .:? "RepositoryType"))
 
--- | /See:/ 'functionConfiguration' smart constructor.
+-- | A complex type that describes function metadata.
+--
+-- /See:/ 'functionConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -374,66 +487,3 @@ instance FromJSON FunctionConfiguration where
                      <*> (x .:? "Timeout")
                      <*> (x .:? "LastModified")
                      <*> (x .:? "Description"))
-
-data InvocationType = Event | RequestResponse | DryRun deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InvocationType where
-    parser = takeLowerText >>= \case
-        "DryRun" -> pure DryRun
-        "Event" -> pure Event
-        "RequestResponse" -> pure RequestResponse
-        e -> fail ("Failure parsing InvocationType from " ++ show e)
-
-instance ToText InvocationType where
-    toText = \case
-        DryRun -> "DryRun"
-        Event -> "Event"
-        RequestResponse -> "RequestResponse"
-
-instance Hashable InvocationType
-instance ToQuery InvocationType
-instance ToHeader InvocationType
-
-instance ToJSON InvocationType where
-    toJSON = toJSONText
-
-data LogType = None | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LogType where
-    parser = takeLowerText >>= \case
-        "None" -> pure None
-        "Tail" -> pure Tail
-        e -> fail ("Failure parsing LogType from " ++ show e)
-
-instance ToText LogType where
-    toText = \case
-        None -> "None"
-        Tail -> "Tail"
-
-instance Hashable LogType
-instance ToQuery LogType
-instance ToHeader LogType
-
-instance ToJSON LogType where
-    toJSON = toJSONText
-
-data Runtime = Nodejs deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Runtime where
-    parser = takeLowerText >>= \case
-        "nodejs" -> pure Nodejs
-        e -> fail ("Failure parsing Runtime from " ++ show e)
-
-instance ToText Runtime where
-    toText = \case
-        Nodejs -> "nodejs"
-
-instance Hashable Runtime
-instance ToQuery Runtime
-instance ToHeader Runtime
-
-instance ToJSON Runtime where
-    toJSON = toJSONText
-
-instance FromJSON Runtime where
-    parseJSON = parseJSONText "Runtime"

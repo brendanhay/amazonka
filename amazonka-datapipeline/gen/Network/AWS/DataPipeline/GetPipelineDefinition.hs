@@ -37,6 +37,7 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     , gpdrPipelineObjects
     , gpdrParameterObjects
     , gpdrParameterValues
+    , gpdrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getPipelineDefinition' smart constructor.
+-- | Contains the parameters for GetPipelineDefinition.
+--
+-- /See:/ 'getPipelineDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -78,7 +81,8 @@ instance AWSRequest GetPipelineDefinition where
                  GetPipelineDefinitionResponse' <$>
                    (x .?> "pipelineObjects" .!@ mempty) <*>
                      (x .?> "parameterObjects" .!@ mempty)
-                     <*> (x .?> "parameterValues" .!@ mempty))
+                     <*> (x .?> "parameterValues" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetPipelineDefinition where
         toHeaders
@@ -101,7 +105,9 @@ instance ToPath GetPipelineDefinition where
 instance ToQuery GetPipelineDefinition where
         toQuery = const mempty
 
--- | /See:/ 'getPipelineDefinitionResponse' smart constructor.
+-- | Contains the output of GetPipelineDefinition.
+--
+-- /See:/ 'getPipelineDefinitionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -110,11 +116,13 @@ instance ToQuery GetPipelineDefinition where
 -- * 'gpdrParameterObjects'
 --
 -- * 'gpdrParameterValues'
-data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects :: Maybe [PipelineObject], _gpdrParameterObjects :: Maybe [ParameterObject], _gpdrParameterValues :: Maybe [ParameterValue]} deriving (Eq, Read, Show)
+--
+-- * 'gpdrStatusCode'
+data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects :: Maybe [PipelineObject], _gpdrParameterObjects :: Maybe [ParameterObject], _gpdrParameterValues :: Maybe [ParameterValue], _gpdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
-getPipelineDefinitionResponse :: GetPipelineDefinitionResponse
-getPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects = Nothing, _gpdrParameterObjects = Nothing, _gpdrParameterValues = Nothing};
+getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
+getPipelineDefinitionResponse pStatusCode = GetPipelineDefinitionResponse'{_gpdrPipelineObjects = Nothing, _gpdrParameterObjects = Nothing, _gpdrParameterValues = Nothing, _gpdrStatusCode = pStatusCode};
 
 -- | The objects defined in the pipeline.
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
@@ -127,3 +135,7 @@ gpdrParameterObjects = lens _gpdrParameterObjects (\ s a -> s{_gpdrParameterObje
 -- | The parameter values used in the pipeline definition.
 gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrParameterValues = lens _gpdrParameterValues (\ s a -> s{_gpdrParameterValues = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+gpdrStatusCode :: Lens' GetPipelineDefinitionResponse Int
+gpdrStatusCode = lens _gpdrStatusCode (\ s a -> s{_gpdrStatusCode = a});

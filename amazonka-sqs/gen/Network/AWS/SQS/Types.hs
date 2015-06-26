@@ -21,8 +21,27 @@ module Network.AWS.SQS.Types
     (
     -- * Service
       SQS
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _InvalidBatchEntryId
+    , _TooManyEntriesInBatchRequest
+    , _InvalidAttributeName
+    , _QueueDeletedRecently
+    , _QueueDoesNotExist
+    , _UnsupportedOperation
+    , _InvalidMessageContents
+    , _BatchRequestTooLong
+    , _OverLimit
+    , _PurgeQueueInProgress
+    , _QueueNameExists
+    , _InvalidIdFormat
+    , _ReceiptHandleIsInvalid
+    , _EmptyBatchRequest
+    , _MessageNotInflight
+    , _BatchEntryIdsNotDistinct
+
+    -- * QueueAttributeName
+    , QueueAttributeName (..)
 
     -- * BatchResultErrorEntry
     , BatchResultErrorEntry
@@ -75,9 +94,6 @@ module Network.AWS.SQS.Types
     , mavBinaryListValues
     , mavDataType
 
-    -- * QueueAttributeName
-    , QueueAttributeName (..)
-
     -- * SendMessageBatchRequestEntry
     , SendMessageBatchRequestEntry
     , sendMessageBatchRequestEntry
@@ -93,6 +109,7 @@ module Network.AWS.SQS.Types
     , smbreId
     , smbreMessageId
     , smbreMD5OfMessageBody
+
     ) where
 
 import Network.AWS.Prelude
@@ -103,32 +120,152 @@ data SQS
 
 instance AWSService SQS where
     type Sg SQS = V4
-    type Er SQS = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service SQS
-        service' = Service
-            { _svcAbbrev  = "SQS"
-            , _svcPrefix  = "sqs"
-            , _svcVersion = "2012-11-05"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service SQS
+        svc = Service
+            { _svcAbbrev   = "SQS"
+            , _svcPrefix   = "sqs"
+            , _svcVersion  = "2012-11-05"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry SQS
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The @Id@ of a batch entry in a batch request does not abide by the
+-- specification.
+_InvalidBatchEntryId :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidBatchEntryId = _ServiceError . hasCode "AWS.SimpleQueueService.InvalidBatchEntryId" . hasStatus 400;
 
--- | /See:/ 'batchResultErrorEntry' smart constructor.
+-- | Batch request contains more number of entries than permissible.
+_TooManyEntriesInBatchRequest :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyEntriesInBatchRequest = _ServiceError . hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" . hasStatus 400;
+
+-- | The attribute referred to does not exist.
+_InvalidAttributeName :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidAttributeName = _ServiceError . hasCode "InvalidAttributeName";
+
+-- | You must wait 60 seconds after deleting a queue before you can create
+-- another with the same name.
+_QueueDeletedRecently :: AWSError a => Geting (First ServiceError) a ServiceError
+_QueueDeletedRecently = _ServiceError . hasCode "AWS.SimpleQueueService.QueueDeletedRecently" . hasStatus 400;
+
+-- | The queue referred to does not exist.
+_QueueDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
+_QueueDoesNotExist = _ServiceError . hasCode "AWS.SimpleQueueService.NonExistentQueue" . hasStatus 400;
+
+-- | Error code 400. Unsupported operation.
+_UnsupportedOperation :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnsupportedOperation = _ServiceError . hasCode "AWS.SimpleQueueService.UnsupportedOperation" . hasStatus 400;
+
+-- | The message contains characters outside the allowed set.
+_InvalidMessageContents :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidMessageContents = _ServiceError . hasCode "InvalidMessageContents";
+
+-- | The length of all the messages put together is more than the limit.
+_BatchRequestTooLong :: AWSError a => Geting (First ServiceError) a ServiceError
+_BatchRequestTooLong = _ServiceError . hasCode "AWS.SimpleQueueService.BatchRequestTooLong" . hasStatus 400;
+
+-- | The action that you requested would violate a limit. For example,
+-- ReceiveMessage returns this error if the maximum number of messages
+-- inflight has already been reached. AddPermission returns this error if
+-- the maximum number of permissions for the queue has already been
+-- reached.
+_OverLimit :: AWSError a => Geting (First ServiceError) a ServiceError
+_OverLimit = _ServiceError . hasCode "OverLimit" . hasStatus 403;
+
+-- | Indicates that the specified queue previously received a @PurgeQueue@
+-- request within the last 60 seconds, the time it can take to delete the
+-- messages in the queue.
+_PurgeQueueInProgress :: AWSError a => Geting (First ServiceError) a ServiceError
+_PurgeQueueInProgress = _ServiceError . hasCode "AWS.SimpleQueueService.PurgeQueueInProgress" . hasStatus 403;
+
+-- | A queue already exists with this name. Amazon SQS returns this error
+-- only if the request includes attributes whose values differ from those
+-- of the existing queue.
+_QueueNameExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_QueueNameExists = _ServiceError . hasCode "QueueAlreadyExists" . hasStatus 400;
+
+-- | The receipt handle is not valid for the current version.
+_InvalidIdFormat :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidIdFormat = _ServiceError . hasCode "InvalidIdFormat";
+
+-- | The receipt handle provided is not valid.
+_ReceiptHandleIsInvalid :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReceiptHandleIsInvalid = _ServiceError . hasCode "ReceiptHandleIsInvalid";
+
+-- | Batch request does not contain an entry.
+_EmptyBatchRequest :: AWSError a => Geting (First ServiceError) a ServiceError
+_EmptyBatchRequest = _ServiceError . hasCode "AWS.SimpleQueueService.EmptyBatchRequest" . hasStatus 400;
+
+-- | The message referred to is not in flight.
+_MessageNotInflight :: AWSError a => Geting (First ServiceError) a ServiceError
+_MessageNotInflight = _ServiceError . hasCode "AWS.SimpleQueueService.MessageNotInflight" . hasStatus 400;
+
+-- | Two or more batch entries have the same @Id@ in the request.
+_BatchEntryIdsNotDistinct :: AWSError a => Geting (First ServiceError) a ServiceError
+_BatchEntryIdsNotDistinct = _ServiceError . hasCode "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" . hasStatus 400;
+
+data QueueAttributeName = MessageRetentionPeriod | LastModifiedTimestamp | VisibilityTimeout | RedrivePolicy | ApproximateNumberOfMessagesDelayed | MaximumMessageSize | DelaySeconds | QueueARN | ApproximateNumberOfMessages | ReceiveMessageWaitTimeSeconds | Policy | CreatedTimestamp | ApproximateNumberOfMessagesNotVisible deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText QueueAttributeName where
+    parser = takeLowerText >>= \case
+        "ApproximateNumberOfMessages" -> pure ApproximateNumberOfMessages
+        "ApproximateNumberOfMessagesDelayed" -> pure ApproximateNumberOfMessagesDelayed
+        "ApproximateNumberOfMessagesNotVisible" -> pure ApproximateNumberOfMessagesNotVisible
+        "CreatedTimestamp" -> pure CreatedTimestamp
+        "DelaySeconds" -> pure DelaySeconds
+        "LastModifiedTimestamp" -> pure LastModifiedTimestamp
+        "MaximumMessageSize" -> pure MaximumMessageSize
+        "MessageRetentionPeriod" -> pure MessageRetentionPeriod
+        "Policy" -> pure Policy
+        "QueueArn" -> pure QueueARN
+        "ReceiveMessageWaitTimeSeconds" -> pure ReceiveMessageWaitTimeSeconds
+        "RedrivePolicy" -> pure RedrivePolicy
+        "VisibilityTimeout" -> pure VisibilityTimeout
+        e -> fail ("Failure parsing QueueAttributeName from " ++ show e)
+
+instance ToText QueueAttributeName where
+    toText = \case
+        ApproximateNumberOfMessages -> "ApproximateNumberOfMessages"
+        ApproximateNumberOfMessagesDelayed -> "ApproximateNumberOfMessagesDelayed"
+        ApproximateNumberOfMessagesNotVisible -> "ApproximateNumberOfMessagesNotVisible"
+        CreatedTimestamp -> "CreatedTimestamp"
+        DelaySeconds -> "DelaySeconds"
+        LastModifiedTimestamp -> "LastModifiedTimestamp"
+        MaximumMessageSize -> "MaximumMessageSize"
+        MessageRetentionPeriod -> "MessageRetentionPeriod"
+        Policy -> "Policy"
+        QueueARN -> "QueueArn"
+        ReceiveMessageWaitTimeSeconds -> "ReceiveMessageWaitTimeSeconds"
+        RedrivePolicy -> "RedrivePolicy"
+        VisibilityTimeout -> "VisibilityTimeout"
+
+instance Hashable QueueAttributeName
+instance ToQuery QueueAttributeName
+instance ToHeader QueueAttributeName
+
+instance FromXML QueueAttributeName where
+    parseXML = parseXMLText "QueueAttributeName"
+
+-- | This is used in the responses of batch API to give a detailed
+-- description of the result of an action on each entry in the request.
+--
+-- /See:/ 'batchResultErrorEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -168,7 +305,21 @@ instance FromXML BatchResultErrorEntry where
                 (x .@ "SenderFault")
                 <*> (x .@ "Code")
 
--- | /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
+-- | Encloses a receipt handle and an entry id for each message in
+-- ChangeMessageVisibilityBatch.
+--
+-- All of the following parameters are list parameters that must be
+-- prefixed with @ChangeMessageVisibilityBatchRequestEntry.n@, where @n@ is
+-- an integer value starting with 1. For example, a parameter list for this
+-- action might look like this:
+--
+-- @&ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2@
+--
+-- @&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=Your_Receipt_Handle@
+--
+-- @&ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45@
+--
+-- /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -204,7 +355,9 @@ instance ToQuery
               ["VisibilityTimeout" =: _chaVisibilityTimeout,
                "Id" =: _chaId, "ReceiptHandle" =: _chaReceiptHandle]
 
--- | /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
+-- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
+--
+-- /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -226,7 +379,9 @@ instance FromXML
           = ChangeMessageVisibilityBatchResultEntry' <$>
               (x .@ "Id")
 
--- | /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
+-- | Encloses a receipt handle and an identifier for it.
+--
+-- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -255,7 +410,9 @@ instance ToQuery DeleteMessageBatchRequestEntry where
               ["Id" =: _dmbreId,
                "ReceiptHandle" =: _dmbreReceiptHandle]
 
--- | /See:/ 'deleteMessageBatchResultEntry' smart constructor.
+-- | Encloses the id an entry in DeleteMessageBatch.
+--
+-- /See:/ 'deleteMessageBatchResultEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -274,7 +431,9 @@ instance FromXML DeleteMessageBatchResultEntry where
         parseXML x
           = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
 
--- | /See:/ 'message' smart constructor.
+-- | An Amazon SQS message.
+--
+-- /See:/ 'message' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -350,7 +509,17 @@ instance FromXML Message where
                 <*> (x .@? "ReceiptHandle")
                 <*> (x .@? "MD5OfMessageAttributes")
 
--- | /See:/ 'messageAttributeValue' smart constructor.
+-- | The user-specified message attribute value. For string data types, the
+-- value attribute has the same restrictions on the content as the message
+-- body. For more information, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html SendMessage>.
+--
+-- Name, type, and value must not be empty or null. In addition, the
+-- message body should not be empty or null. All parts of the message
+-- attribute, including name, type, and value, are included in the message
+-- size restriction, which is currently 256 KB (262,144 bytes).
+--
+-- /See:/ 'messageAttributeValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -422,49 +591,9 @@ instance ToQuery MessageAttributeValue where
                       _mavBinaryListValues),
                "DataType" =: _mavDataType]
 
-data QueueAttributeName = MessageRetentionPeriod | LastModifiedTimestamp | VisibilityTimeout | RedrivePolicy | ApproximateNumberOfMessagesDelayed | MaximumMessageSize | DelaySeconds | QueueARN | ApproximateNumberOfMessages | ReceiveMessageWaitTimeSeconds | Policy | CreatedTimestamp | ApproximateNumberOfMessagesNotVisible deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText QueueAttributeName where
-    parser = takeLowerText >>= \case
-        "ApproximateNumberOfMessages" -> pure ApproximateNumberOfMessages
-        "ApproximateNumberOfMessagesDelayed" -> pure ApproximateNumberOfMessagesDelayed
-        "ApproximateNumberOfMessagesNotVisible" -> pure ApproximateNumberOfMessagesNotVisible
-        "CreatedTimestamp" -> pure CreatedTimestamp
-        "DelaySeconds" -> pure DelaySeconds
-        "LastModifiedTimestamp" -> pure LastModifiedTimestamp
-        "MaximumMessageSize" -> pure MaximumMessageSize
-        "MessageRetentionPeriod" -> pure MessageRetentionPeriod
-        "Policy" -> pure Policy
-        "QueueArn" -> pure QueueARN
-        "ReceiveMessageWaitTimeSeconds" -> pure ReceiveMessageWaitTimeSeconds
-        "RedrivePolicy" -> pure RedrivePolicy
-        "VisibilityTimeout" -> pure VisibilityTimeout
-        e -> fail ("Failure parsing QueueAttributeName from " ++ show e)
-
-instance ToText QueueAttributeName where
-    toText = \case
-        ApproximateNumberOfMessages -> "ApproximateNumberOfMessages"
-        ApproximateNumberOfMessagesDelayed -> "ApproximateNumberOfMessagesDelayed"
-        ApproximateNumberOfMessagesNotVisible -> "ApproximateNumberOfMessagesNotVisible"
-        CreatedTimestamp -> "CreatedTimestamp"
-        DelaySeconds -> "DelaySeconds"
-        LastModifiedTimestamp -> "LastModifiedTimestamp"
-        MaximumMessageSize -> "MaximumMessageSize"
-        MessageRetentionPeriod -> "MessageRetentionPeriod"
-        Policy -> "Policy"
-        QueueARN -> "QueueArn"
-        ReceiveMessageWaitTimeSeconds -> "ReceiveMessageWaitTimeSeconds"
-        RedrivePolicy -> "RedrivePolicy"
-        VisibilityTimeout -> "VisibilityTimeout"
-
-instance Hashable QueueAttributeName
-instance ToQuery QueueAttributeName
-instance ToHeader QueueAttributeName
-
-instance FromXML QueueAttributeName where
-    parseXML = parseXMLText "QueueAttributeName"
-
--- | /See:/ 'sendMessageBatchRequestEntry' smart constructor.
+-- | Contains the details of a single Amazon SQS message along with a @Id@.
+--
+-- /See:/ 'sendMessageBatchRequestEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -510,7 +639,10 @@ instance ToQuery SendMessageBatchRequestEntry where
                "DelaySeconds" =: _senDelaySeconds, "Id" =: _senId,
                "MessageBody" =: _senMessageBody]
 
--- | /See:/ 'sendMessageBatchResultEntry' smart constructor.
+-- | Encloses a message ID for successfully enqueued message of a
+-- SendMessageBatch.
+--
+-- /See:/ 'sendMessageBatchResultEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

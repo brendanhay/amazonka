@@ -35,6 +35,7 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     , getHealthCheckLastFailureReasonResponse
     -- ** Response lenses
     , ghclfrrHealthCheckObservations
+    , ghclfrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'getHealthCheckLastFailureReason' smart constructor.
+-- | A complex type that contains information about the request to get the
+-- most recent failure reason for a health check.
+--
+-- /See:/ 'getHealthCheckLastFailureReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -69,7 +73,8 @@ instance AWSRequest GetHealthCheckLastFailureReason
               (\ s h x ->
                  GetHealthCheckLastFailureReasonResponse' <$>
                    (x .@? "HealthCheckObservations" .!@ mempty >>=
-                      parseXMLList "HealthCheckObservation"))
+                      parseXMLList "HealthCheckObservation")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetHealthCheckLastFailureReason
          where
@@ -85,18 +90,27 @@ instance ToQuery GetHealthCheckLastFailureReason
          where
         toQuery = const mempty
 
--- | /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
+-- | A complex type that contains information about the most recent failure
+-- for the specified health check.
+--
+-- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ghclfrrHealthCheckObservations'
-newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations :: [HealthCheckObservation]} deriving (Eq, Read, Show)
+--
+-- * 'ghclfrrStatusCode'
+data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations :: [HealthCheckObservation], _ghclfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
-getHealthCheckLastFailureReasonResponse :: GetHealthCheckLastFailureReasonResponse
-getHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations = mempty};
+getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse
+getHealthCheckLastFailureReasonResponse pStatusCode = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations = mempty, _ghclfrrStatusCode = pStatusCode};
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
 ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrHealthCheckObservations = lens _ghclfrrHealthCheckObservations (\ s a -> s{_ghclfrrHealthCheckObservations = a});
+
+-- | FIXME: Undocumented member.
+ghclfrrStatusCode :: Lens' GetHealthCheckLastFailureReasonResponse Int
+ghclfrrStatusCode = lens _ghclfrrStatusCode (\ s a -> s{_ghclfrrStatusCode = a});

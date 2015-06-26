@@ -40,6 +40,8 @@ module Network.AWS.ELB.AddTags
     , AddTagsResponse
     -- ** Response constructor
     , addTagsResponse
+    -- ** Response lenses
+    , atrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -72,7 +74,9 @@ instance AWSRequest AddTags where
         type Sv AddTags = ELB
         type Rs AddTags = AddTagsResponse
         request = post
-        response = receiveNull AddTagsResponse'
+        response
+          = receiveXMLWrapper "AddTagsResult"
+              (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders AddTags where
         toHeaders = const mempty
@@ -90,8 +94,16 @@ instance ToQuery AddTags where
                "Tags" =: toQueryList "member" _atTags]
 
 -- | /See:/ 'addTagsResponse' smart constructor.
-data AddTagsResponse = AddTagsResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atrStatusCode'
+newtype AddTagsResponse = AddTagsResponse'{_atrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddTagsResponse' smart constructor.
-addTagsResponse :: AddTagsResponse
-addTagsResponse = AddTagsResponse';
+addTagsResponse :: Int -> AddTagsResponse
+addTagsResponse pStatusCode = AddTagsResponse'{_atrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+atrStatusCode :: Lens' AddTagsResponse Int
+atrStatusCode = lens _atrStatusCode (\ s a -> s{_atrStatusCode = a});

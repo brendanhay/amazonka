@@ -45,6 +45,7 @@ module Network.AWS.IAM.GetUserPolicy
     , guprUserName
     , guprPolicyName
     , guprPolicyDocument
+    , guprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -82,7 +83,8 @@ instance AWSRequest GetUserPolicy where
               (\ s h x ->
                  GetUserPolicyResponse' <$>
                    (x .@ "UserName") <*> (x .@ "PolicyName") <*>
-                     (x .@ "PolicyDocument"))
+                     (x .@ "PolicyDocument")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetUserPolicy where
         toHeaders = const mempty
@@ -98,7 +100,9 @@ instance ToQuery GetUserPolicy where
                "UserName" =: _gupUserName,
                "PolicyName" =: _gupPolicyName]
 
--- | /See:/ 'getUserPolicyResponse' smart constructor.
+-- | Contains the response to a successful GetUserPolicy request.
+--
+-- /See:/ 'getUserPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,11 +111,13 @@ instance ToQuery GetUserPolicy where
 -- * 'guprPolicyName'
 --
 -- * 'guprPolicyDocument'
-data GetUserPolicyResponse = GetUserPolicyResponse'{_guprUserName :: Text, _guprPolicyName :: Text, _guprPolicyDocument :: Text} deriving (Eq, Read, Show)
+--
+-- * 'guprStatusCode'
+data GetUserPolicyResponse = GetUserPolicyResponse'{_guprUserName :: Text, _guprPolicyName :: Text, _guprPolicyDocument :: Text, _guprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetUserPolicyResponse' smart constructor.
-getUserPolicyResponse :: Text -> Text -> Text -> GetUserPolicyResponse
-getUserPolicyResponse pUserName pPolicyName pPolicyDocument = GetUserPolicyResponse'{_guprUserName = pUserName, _guprPolicyName = pPolicyName, _guprPolicyDocument = pPolicyDocument};
+getUserPolicyResponse :: Text -> Text -> Text -> Int -> GetUserPolicyResponse
+getUserPolicyResponse pUserName pPolicyName pPolicyDocument pStatusCode = GetUserPolicyResponse'{_guprUserName = pUserName, _guprPolicyName = pPolicyName, _guprPolicyDocument = pPolicyDocument, _guprStatusCode = pStatusCode};
 
 -- | The user the policy is associated with.
 guprUserName :: Lens' GetUserPolicyResponse Text
@@ -124,3 +130,7 @@ guprPolicyName = lens _guprPolicyName (\ s a -> s{_guprPolicyName = a});
 -- | The policy document.
 guprPolicyDocument :: Lens' GetUserPolicyResponse Text
 guprPolicyDocument = lens _guprPolicyDocument (\ s a -> s{_guprPolicyDocument = a});
+
+-- | FIXME: Undocumented member.
+guprStatusCode :: Lens' GetUserPolicyResponse Int
+guprStatusCode = lens _guprStatusCode (\ s a -> s{_guprStatusCode = a});

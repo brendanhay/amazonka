@@ -44,6 +44,7 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gerMessage
     , gerEvaluationId
     , gerEvaluationDataSourceId
+    , gerStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -86,7 +87,8 @@ instance AWSRequest GetEvaluation where
                      <*> (x .?> "LogUri")
                      <*> (x .?> "Message")
                      <*> (x .?> "EvaluationId")
-                     <*> (x .?> "EvaluationDataSourceId"))
+                     <*> (x .?> "EvaluationDataSourceId")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetEvaluation where
         toHeaders
@@ -107,7 +109,10 @@ instance ToPath GetEvaluation where
 instance ToQuery GetEvaluation where
         toQuery = const mempty
 
--- | /See:/ 'getEvaluationResponse' smart constructor.
+-- | Represents the output of a GetEvaluation operation and describes an
+-- @Evaluation@.
+--
+-- /See:/ 'getEvaluationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -134,11 +139,13 @@ instance ToQuery GetEvaluation where
 -- * 'gerEvaluationId'
 --
 -- * 'gerEvaluationDataSourceId'
-data GetEvaluationResponse = GetEvaluationResponse'{_gerStatus :: Maybe EntityStatus, _gerPerformanceMetrics :: Maybe PerformanceMetrics, _gerLastUpdatedAt :: Maybe POSIX, _gerCreatedAt :: Maybe POSIX, _gerInputDataLocationS3 :: Maybe Text, _gerMLModelId :: Maybe Text, _gerName :: Maybe Text, _gerCreatedByIAMUser :: Maybe Text, _gerLogURI :: Maybe Text, _gerMessage :: Maybe Text, _gerEvaluationId :: Maybe Text, _gerEvaluationDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gerStatusCode'
+data GetEvaluationResponse = GetEvaluationResponse'{_gerStatus :: Maybe EntityStatus, _gerPerformanceMetrics :: Maybe PerformanceMetrics, _gerLastUpdatedAt :: Maybe POSIX, _gerCreatedAt :: Maybe POSIX, _gerInputDataLocationS3 :: Maybe Text, _gerMLModelId :: Maybe Text, _gerName :: Maybe Text, _gerCreatedByIAMUser :: Maybe Text, _gerLogURI :: Maybe Text, _gerMessage :: Maybe Text, _gerEvaluationId :: Maybe Text, _gerEvaluationDataSourceId :: Maybe Text, _gerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetEvaluationResponse' smart constructor.
-getEvaluationResponse :: GetEvaluationResponse
-getEvaluationResponse = GetEvaluationResponse'{_gerStatus = Nothing, _gerPerformanceMetrics = Nothing, _gerLastUpdatedAt = Nothing, _gerCreatedAt = Nothing, _gerInputDataLocationS3 = Nothing, _gerMLModelId = Nothing, _gerName = Nothing, _gerCreatedByIAMUser = Nothing, _gerLogURI = Nothing, _gerMessage = Nothing, _gerEvaluationId = Nothing, _gerEvaluationDataSourceId = Nothing};
+getEvaluationResponse :: Int -> GetEvaluationResponse
+getEvaluationResponse pStatusCode = GetEvaluationResponse'{_gerStatus = Nothing, _gerPerformanceMetrics = Nothing, _gerLastUpdatedAt = Nothing, _gerCreatedAt = Nothing, _gerInputDataLocationS3 = Nothing, _gerMLModelId = Nothing, _gerName = Nothing, _gerCreatedByIAMUser = Nothing, _gerLogURI = Nothing, _gerMessage = Nothing, _gerEvaluationId = Nothing, _gerEvaluationDataSourceId = Nothing, _gerStatusCode = pStatusCode};
 
 -- | The status of the evaluation. This element can have one of the following
 -- values:
@@ -217,3 +224,7 @@ gerEvaluationId = lens _gerEvaluationId (\ s a -> s{_gerEvaluationId = a});
 -- | The @DataSource@ used for this evaluation.
 gerEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
 gerEvaluationDataSourceId = lens _gerEvaluationDataSourceId (\ s a -> s{_gerEvaluationDataSourceId = a});
+
+-- | FIXME: Undocumented member.
+gerStatusCode :: Lens' GetEvaluationResponse Int
+gerStatusCode = lens _gerStatusCode (\ s a -> s{_gerStatusCode = a});

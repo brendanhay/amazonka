@@ -47,6 +47,7 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , attachClassicLinkVPCResponse
     -- ** Response lenses
     , aclvrReturn
+    , aclvrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -100,7 +101,8 @@ instance AWSRequest AttachClassicLinkVPC where
         response
           = receiveXML
               (\ s h x ->
-                 AttachClassicLinkVPCResponse' <$> (x .@? "return"))
+                 AttachClassicLinkVPCResponse' <$>
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
@@ -123,12 +125,18 @@ instance ToQuery AttachClassicLinkVPC where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aclvrReturn'
-newtype AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'{_aclvrReturn :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'aclvrStatusCode'
+data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'{_aclvrReturn :: Maybe Bool, _aclvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
-attachClassicLinkVPCResponse :: AttachClassicLinkVPCResponse
-attachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'{_aclvrReturn = Nothing};
+attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
+attachClassicLinkVPCResponse pStatusCode = AttachClassicLinkVPCResponse'{_aclvrReturn = Nothing, _aclvrStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 aclvrReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrReturn = lens _aclvrReturn (\ s a -> s{_aclvrReturn = a});
+
+-- | FIXME: Undocumented member.
+aclvrStatusCode :: Lens' AttachClassicLinkVPCResponse Int
+aclvrStatusCode = lens _aclvrStatusCode (\ s a -> s{_aclvrStatusCode = a});

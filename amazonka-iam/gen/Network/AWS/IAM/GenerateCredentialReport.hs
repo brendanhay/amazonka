@@ -34,6 +34,7 @@ module Network.AWS.IAM.GenerateCredentialReport
     -- ** Response lenses
     , gcrrState
     , gcrrDescription
+    , gcrrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -57,7 +58,8 @@ instance AWSRequest GenerateCredentialReport where
           = receiveXMLWrapper "GenerateCredentialReportResult"
               (\ s h x ->
                  GenerateCredentialReportResponse' <$>
-                   (x .@? "State") <*> (x .@? "Description"))
+                   (x .@? "State") <*> (x .@? "Description") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty
@@ -73,18 +75,22 @@ instance ToQuery GenerateCredentialReport where
                     ("GenerateCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | /See:/ 'generateCredentialReportResponse' smart constructor.
+-- | Contains the response to a successful GenerateCredentialReport request.
+--
+-- /See:/ 'generateCredentialReportResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcrrState'
 --
 -- * 'gcrrDescription'
-data GenerateCredentialReportResponse = GenerateCredentialReportResponse'{_gcrrState :: Maybe ReportStateType, _gcrrDescription :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gcrrStatusCode'
+data GenerateCredentialReportResponse = GenerateCredentialReportResponse'{_gcrrState :: Maybe ReportStateType, _gcrrDescription :: Maybe Text, _gcrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GenerateCredentialReportResponse' smart constructor.
-generateCredentialReportResponse :: GenerateCredentialReportResponse
-generateCredentialReportResponse = GenerateCredentialReportResponse'{_gcrrState = Nothing, _gcrrDescription = Nothing};
+generateCredentialReportResponse :: Int -> GenerateCredentialReportResponse
+generateCredentialReportResponse pStatusCode = GenerateCredentialReportResponse'{_gcrrState = Nothing, _gcrrDescription = Nothing, _gcrrStatusCode = pStatusCode};
 
 -- | Information about the state of the credential report.
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
@@ -93,3 +99,7 @@ gcrrState = lens _gcrrState (\ s a -> s{_gcrrState = a});
 -- | Information about the credential report.
 gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrDescription = lens _gcrrDescription (\ s a -> s{_gcrrDescription = a});
+
+-- | FIXME: Undocumented member.
+gcrrStatusCode :: Lens' GenerateCredentialReportResponse Int
+gcrrStatusCode = lens _gcrrStatusCode (\ s a -> s{_gcrrStatusCode = a});

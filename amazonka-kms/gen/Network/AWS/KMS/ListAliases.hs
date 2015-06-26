@@ -35,6 +35,7 @@ module Network.AWS.KMS.ListAliases
     , larTruncated
     , larAliases
     , larNextMarker
+    , larStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -78,7 +79,8 @@ instance AWSRequest ListAliases where
               (\ s h x ->
                  ListAliasesResponse' <$>
                    (x .?> "Truncated") <*> (x .?> "Aliases" .!@ mempty)
-                     <*> (x .?> "NextMarker"))
+                     <*> (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAliases where
         toHeaders
@@ -108,11 +110,13 @@ instance ToQuery ListAliases where
 -- * 'larAliases'
 --
 -- * 'larNextMarker'
-data ListAliasesResponse = ListAliasesResponse'{_larTruncated :: Maybe Bool, _larAliases :: Maybe [AliasListEntry], _larNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'larStatusCode'
+data ListAliasesResponse = ListAliasesResponse'{_larTruncated :: Maybe Bool, _larAliases :: Maybe [AliasListEntry], _larNextMarker :: Maybe Text, _larStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAliasesResponse' smart constructor.
-listAliasesResponse :: ListAliasesResponse
-listAliasesResponse = ListAliasesResponse'{_larTruncated = Nothing, _larAliases = Nothing, _larNextMarker = Nothing};
+listAliasesResponse :: Int -> ListAliasesResponse
+listAliasesResponse pStatusCode = ListAliasesResponse'{_larTruncated = Nothing, _larAliases = Nothing, _larNextMarker = Nothing, _larStatusCode = pStatusCode};
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -130,3 +134,7 @@ larAliases = lens _larAliases (\ s a -> s{_larAliases = a}) . _Default;
 -- request.
 larNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larNextMarker = lens _larNextMarker (\ s a -> s{_larNextMarker = a});
+
+-- | FIXME: Undocumented member.
+larStatusCode :: Lens' ListAliasesResponse Int
+larStatusCode = lens _larStatusCode (\ s a -> s{_larStatusCode = a});

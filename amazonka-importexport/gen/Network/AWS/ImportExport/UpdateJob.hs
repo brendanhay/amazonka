@@ -42,6 +42,7 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrSuccess
     , ujrWarningMessage
     , ujrArtifactList
+    , ujrStatusCode
     ) where
 
 import Network.AWS.ImportExport.Types
@@ -49,7 +50,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateJob' smart constructor.
+-- | Input structure for the UpateJob operation.
+--
+-- /See:/ 'updateJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +101,8 @@ instance AWSRequest UpdateJob where
                  UpdateJobResponse' <$>
                    (x .@? "Success") <*> (x .@? "WarningMessage") <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
@@ -116,7 +120,9 @@ instance ToQuery UpdateJob where
                "Manifest" =: _ujManifest, "JobType" =: _ujJobType,
                "ValidateOnly" =: _ujValidateOnly]
 
--- | /See:/ 'updateJobResponse' smart constructor.
+-- | Output structure for the UpateJob operation.
+--
+-- /See:/ 'updateJobResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -125,11 +131,13 @@ instance ToQuery UpdateJob where
 -- * 'ujrWarningMessage'
 --
 -- * 'ujrArtifactList'
-data UpdateJobResponse = UpdateJobResponse'{_ujrSuccess :: Maybe Bool, _ujrWarningMessage :: Maybe Text, _ujrArtifactList :: Maybe [Artifact]} deriving (Eq, Read, Show)
+--
+-- * 'ujrStatusCode'
+data UpdateJobResponse = UpdateJobResponse'{_ujrSuccess :: Maybe Bool, _ujrWarningMessage :: Maybe Text, _ujrArtifactList :: Maybe [Artifact], _ujrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateJobResponse' smart constructor.
-updateJobResponse :: UpdateJobResponse
-updateJobResponse = UpdateJobResponse'{_ujrSuccess = Nothing, _ujrWarningMessage = Nothing, _ujrArtifactList = Nothing};
+updateJobResponse :: Int -> UpdateJobResponse
+updateJobResponse pStatusCode = UpdateJobResponse'{_ujrSuccess = Nothing, _ujrWarningMessage = Nothing, _ujrArtifactList = Nothing, _ujrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
@@ -142,3 +150,7 @@ ujrWarningMessage = lens _ujrWarningMessage (\ s a -> s{_ujrWarningMessage = a})
 -- | FIXME: Undocumented member.
 ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ujrStatusCode :: Lens' UpdateJobResponse Int
+ujrStatusCode = lens _ujrStatusCode (\ s a -> s{_ujrStatusCode = a});

@@ -21,8 +21,46 @@ module Network.AWS.OpsWorks.Types
     (
     -- * Service
       OpsWorks
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _ValidationException
+    , _ResourceNotFoundException
+
+    -- * AppAttributesKeys
+    , AppAttributesKeys (..)
+
+    -- * AppType
+    , AppType (..)
+
+    -- * Architecture
+    , Architecture (..)
+
+    -- * AutoScalingType
+    , AutoScalingType (..)
+
+    -- * DeploymentCommandName
+    , DeploymentCommandName (..)
+
+    -- * LayerAttributesKeys
+    , LayerAttributesKeys (..)
+
+    -- * LayerType
+    , LayerType (..)
+
+    -- * RootDeviceType
+    , RootDeviceType (..)
+
+    -- * SourceType
+    , SourceType (..)
+
+    -- * StackAttributesKeys
+    , StackAttributesKeys (..)
+
+    -- * VirtualizationType
+    , VirtualizationType (..)
+
+    -- * VolumeType
+    , VolumeType (..)
 
     -- * App
     , App
@@ -42,15 +80,6 @@ module Network.AWS.OpsWorks.Types
     , appStackId
     , appDescription
 
-    -- * AppAttributesKeys
-    , AppAttributesKeys (..)
-
-    -- * AppType
-    , AppType (..)
-
-    -- * Architecture
-    , Architecture (..)
-
     -- * AutoScalingThresholds
     , AutoScalingThresholds
     , autoScalingThresholds
@@ -61,9 +90,6 @@ module Network.AWS.OpsWorks.Types
     , astAlarms
     , astMemoryThreshold
     , astCPUThreshold
-
-    -- * AutoScalingType
-    , AutoScalingType (..)
 
     -- * BlockDeviceMapping
     , BlockDeviceMapping
@@ -121,9 +147,6 @@ module Network.AWS.OpsWorks.Types
     , deploymentCommand
     , dcArgs
     , dcName
-
-    -- * DeploymentCommandName
-    , DeploymentCommandName (..)
 
     -- * EBSBlockDevice
     , EBSBlockDevice
@@ -255,12 +278,6 @@ module Network.AWS.OpsWorks.Types
     , layDefaultSecurityGroupNames
     , layAutoAssignElasticIPs
 
-    -- * LayerAttributesKeys
-    , LayerAttributesKeys (..)
-
-    -- * LayerType
-    , LayerType (..)
-
     -- * LifecycleEventConfiguration
     , LifecycleEventConfiguration
     , lifecycleEventConfiguration
@@ -329,9 +346,6 @@ module Network.AWS.OpsWorks.Types
     , roName
     , roVersion
 
-    -- * RootDeviceType
-    , RootDeviceType (..)
-
     -- * SSLConfiguration
     , SSLConfiguration
     , sslConfiguration
@@ -373,9 +387,6 @@ module Network.AWS.OpsWorks.Types
     , souType
     , souRevision
 
-    -- * SourceType
-    , SourceType (..)
-
     -- * Stack
     , Stack
     , stack
@@ -400,9 +411,6 @@ module Network.AWS.OpsWorks.Types
     , staConfigurationManager
     , staStackId
     , staHostnameTheme
-
-    -- * StackAttributesKeys
-    , StackAttributesKeys (..)
 
     -- * StackConfigurationManager
     , StackConfigurationManager
@@ -443,9 +451,6 @@ module Network.AWS.OpsWorks.Types
     , upIAMUserARN
     , upName
 
-    -- * VirtualizationType
-    , VirtualizationType (..)
-
     -- * Volume
     , Volume
     , volume
@@ -473,9 +478,6 @@ module Network.AWS.OpsWorks.Types
     , vcNumberOfDisks
     , vcSize
 
-    -- * VolumeType
-    , VolumeType (..)
-
     -- * WeeklyAutoScalingSchedule
     , WeeklyAutoScalingSchedule
     , weeklyAutoScalingSchedule
@@ -486,6 +488,7 @@ module Network.AWS.OpsWorks.Types
     , wassFriday
     , wassSunday
     , wassTuesday
+
     ) where
 
 import Network.AWS.Prelude
@@ -496,32 +499,406 @@ data OpsWorks
 
 instance AWSService OpsWorks where
     type Sg OpsWorks = V4
-    type Er OpsWorks = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service OpsWorks
-        service' = Service
-            { _svcAbbrev  = "OpsWorks"
-            , _svcPrefix  = "opsworks"
-            , _svcVersion = "2013-02-18"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service OpsWorks
+        svc = Service
+            { _svcAbbrev   = "OpsWorks"
+            , _svcPrefix   = "opsworks"
+            , _svcVersion  = "2013-02-18"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry OpsWorks
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Indicates that a request was invalid.
+_ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ValidationException = _ServiceError . hasCode "ValidationException";
 
--- | /See:/ 'app' smart constructor.
+-- | Indicates that a resource was not found.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException";
+
+data AppAttributesKeys = DocumentRoot | RailsEnv | AutoBundleOnDeploy deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AppAttributesKeys where
+    parser = takeLowerText >>= \case
+        "AutoBundleOnDeploy" -> pure AutoBundleOnDeploy
+        "DocumentRoot" -> pure DocumentRoot
+        "RailsEnv" -> pure RailsEnv
+        e -> fail ("Failure parsing AppAttributesKeys from " ++ show e)
+
+instance ToText AppAttributesKeys where
+    toText = \case
+        AutoBundleOnDeploy -> "AutoBundleOnDeploy"
+        DocumentRoot -> "DocumentRoot"
+        RailsEnv -> "RailsEnv"
+
+instance Hashable AppAttributesKeys
+instance ToQuery AppAttributesKeys
+instance ToHeader AppAttributesKeys
+
+instance ToJSON AppAttributesKeys where
+    toJSON = toJSONText
+
+instance FromJSON AppAttributesKeys where
+    parseJSON = parseJSONText "AppAttributesKeys"
+
+data AppType = Java | Other | Rails | Static | PHP | Nodejs deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AppType where
+    parser = takeLowerText >>= \case
+        "java" -> pure Java
+        "nodejs" -> pure Nodejs
+        "other" -> pure Other
+        "php" -> pure PHP
+        "rails" -> pure Rails
+        "static" -> pure Static
+        e -> fail ("Failure parsing AppType from " ++ show e)
+
+instance ToText AppType where
+    toText = \case
+        Java -> "java"
+        Nodejs -> "nodejs"
+        Other -> "other"
+        PHP -> "php"
+        Rails -> "rails"
+        Static -> "static"
+
+instance Hashable AppType
+instance ToQuery AppType
+instance ToHeader AppType
+
+instance ToJSON AppType where
+    toJSON = toJSONText
+
+instance FromJSON AppType where
+    parseJSON = parseJSONText "AppType"
+
+data Architecture = I386 | X8664 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Architecture where
+    parser = takeLowerText >>= \case
+        "i386" -> pure I386
+        "x86_64" -> pure X8664
+        e -> fail ("Failure parsing Architecture from " ++ show e)
+
+instance ToText Architecture where
+    toText = \case
+        I386 -> "i386"
+        X8664 -> "x86_64"
+
+instance Hashable Architecture
+instance ToQuery Architecture
+instance ToHeader Architecture
+
+instance ToJSON Architecture where
+    toJSON = toJSONText
+
+instance FromJSON Architecture where
+    parseJSON = parseJSONText "Architecture"
+
+data AutoScalingType = Timer | Load deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AutoScalingType where
+    parser = takeLowerText >>= \case
+        "load" -> pure Load
+        "timer" -> pure Timer
+        e -> fail ("Failure parsing AutoScalingType from " ++ show e)
+
+instance ToText AutoScalingType where
+    toText = \case
+        Load -> "load"
+        Timer -> "timer"
+
+instance Hashable AutoScalingType
+instance ToQuery AutoScalingType
+instance ToHeader AutoScalingType
+
+instance ToJSON AutoScalingType where
+    toJSON = toJSONText
+
+instance FromJSON AutoScalingType where
+    parseJSON = parseJSONText "AutoScalingType"
+
+data DeploymentCommandName = ExecuteRecipes | Start | UpdateCustomCookbooks | InstallDependencies | Undeploy | Rollback | Restart | Stop | UpdateDependencies | Deploy deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DeploymentCommandName where
+    parser = takeLowerText >>= \case
+        "deploy" -> pure Deploy
+        "execute_recipes" -> pure ExecuteRecipes
+        "install_dependencies" -> pure InstallDependencies
+        "restart" -> pure Restart
+        "rollback" -> pure Rollback
+        "start" -> pure Start
+        "stop" -> pure Stop
+        "undeploy" -> pure Undeploy
+        "update_custom_cookbooks" -> pure UpdateCustomCookbooks
+        "update_dependencies" -> pure UpdateDependencies
+        e -> fail ("Failure parsing DeploymentCommandName from " ++ show e)
+
+instance ToText DeploymentCommandName where
+    toText = \case
+        Deploy -> "deploy"
+        ExecuteRecipes -> "execute_recipes"
+        InstallDependencies -> "install_dependencies"
+        Restart -> "restart"
+        Rollback -> "rollback"
+        Start -> "start"
+        Stop -> "stop"
+        Undeploy -> "undeploy"
+        UpdateCustomCookbooks -> "update_custom_cookbooks"
+        UpdateDependencies -> "update_dependencies"
+
+instance Hashable DeploymentCommandName
+instance ToQuery DeploymentCommandName
+instance ToHeader DeploymentCommandName
+
+instance ToJSON DeploymentCommandName where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentCommandName where
+    parseJSON = parseJSONText "DeploymentCommandName"
+
+data LayerAttributesKeys = HaproxyHealthCheckURL | MemcachedMemory | GangliaPassword | JavaAppServerVersion | GangliaURL | HaproxyHealthCheckMethod | PassengerVersion | JVMVersion | MysqlRootPassword | HaproxyStatsPassword | RubyVersion | JVMOptions | JVM | BundlerVersion | HaproxyStatsURL | ManageBundler | RubygemsVersion | GangliaUser | EnableHaproxyStats | MysqlRootPasswordUbiquitous | HaproxyStatsUser | JavaAppServer | NodejsVersion | RailsStack deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LayerAttributesKeys where
+    parser = takeLowerText >>= \case
+        "BundlerVersion" -> pure BundlerVersion
+        "EnableHaproxyStats" -> pure EnableHaproxyStats
+        "GangliaPassword" -> pure GangliaPassword
+        "GangliaUrl" -> pure GangliaURL
+        "GangliaUser" -> pure GangliaUser
+        "HaproxyHealthCheckMethod" -> pure HaproxyHealthCheckMethod
+        "HaproxyHealthCheckUrl" -> pure HaproxyHealthCheckURL
+        "HaproxyStatsPassword" -> pure HaproxyStatsPassword
+        "HaproxyStatsUrl" -> pure HaproxyStatsURL
+        "HaproxyStatsUser" -> pure HaproxyStatsUser
+        "Jvm" -> pure JVM
+        "JvmOptions" -> pure JVMOptions
+        "JvmVersion" -> pure JVMVersion
+        "JavaAppServer" -> pure JavaAppServer
+        "JavaAppServerVersion" -> pure JavaAppServerVersion
+        "ManageBundler" -> pure ManageBundler
+        "MemcachedMemory" -> pure MemcachedMemory
+        "MysqlRootPassword" -> pure MysqlRootPassword
+        "MysqlRootPasswordUbiquitous" -> pure MysqlRootPasswordUbiquitous
+        "NodejsVersion" -> pure NodejsVersion
+        "PassengerVersion" -> pure PassengerVersion
+        "RailsStack" -> pure RailsStack
+        "RubyVersion" -> pure RubyVersion
+        "RubygemsVersion" -> pure RubygemsVersion
+        e -> fail ("Failure parsing LayerAttributesKeys from " ++ show e)
+
+instance ToText LayerAttributesKeys where
+    toText = \case
+        BundlerVersion -> "BundlerVersion"
+        EnableHaproxyStats -> "EnableHaproxyStats"
+        GangliaPassword -> "GangliaPassword"
+        GangliaURL -> "GangliaUrl"
+        GangliaUser -> "GangliaUser"
+        HaproxyHealthCheckMethod -> "HaproxyHealthCheckMethod"
+        HaproxyHealthCheckURL -> "HaproxyHealthCheckUrl"
+        HaproxyStatsPassword -> "HaproxyStatsPassword"
+        HaproxyStatsURL -> "HaproxyStatsUrl"
+        HaproxyStatsUser -> "HaproxyStatsUser"
+        JVM -> "Jvm"
+        JVMOptions -> "JvmOptions"
+        JVMVersion -> "JvmVersion"
+        JavaAppServer -> "JavaAppServer"
+        JavaAppServerVersion -> "JavaAppServerVersion"
+        ManageBundler -> "ManageBundler"
+        MemcachedMemory -> "MemcachedMemory"
+        MysqlRootPassword -> "MysqlRootPassword"
+        MysqlRootPasswordUbiquitous -> "MysqlRootPasswordUbiquitous"
+        NodejsVersion -> "NodejsVersion"
+        PassengerVersion -> "PassengerVersion"
+        RailsStack -> "RailsStack"
+        RubyVersion -> "RubyVersion"
+        RubygemsVersion -> "RubygemsVersion"
+
+instance Hashable LayerAttributesKeys
+instance ToQuery LayerAttributesKeys
+instance ToHeader LayerAttributesKeys
+
+instance ToJSON LayerAttributesKeys where
+    toJSON = toJSONText
+
+instance FromJSON LayerAttributesKeys where
+    parseJSON = parseJSONText "LayerAttributesKeys"
+
+data LayerType = Memcached | JavaApp | MonitoringMaster | NodejsApp | Custom | LB | RailsApp | DBMaster | Web | PHPApp deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LayerType where
+    parser = takeLowerText >>= \case
+        "custom" -> pure Custom
+        "db-master" -> pure DBMaster
+        "java-app" -> pure JavaApp
+        "lb" -> pure LB
+        "memcached" -> pure Memcached
+        "monitoring-master" -> pure MonitoringMaster
+        "nodejs-app" -> pure NodejsApp
+        "php-app" -> pure PHPApp
+        "rails-app" -> pure RailsApp
+        "web" -> pure Web
+        e -> fail ("Failure parsing LayerType from " ++ show e)
+
+instance ToText LayerType where
+    toText = \case
+        Custom -> "custom"
+        DBMaster -> "db-master"
+        JavaApp -> "java-app"
+        LB -> "lb"
+        Memcached -> "memcached"
+        MonitoringMaster -> "monitoring-master"
+        NodejsApp -> "nodejs-app"
+        PHPApp -> "php-app"
+        RailsApp -> "rails-app"
+        Web -> "web"
+
+instance Hashable LayerType
+instance ToQuery LayerType
+instance ToHeader LayerType
+
+instance ToJSON LayerType where
+    toJSON = toJSONText
+
+instance FromJSON LayerType where
+    parseJSON = parseJSONText "LayerType"
+
+data RootDeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RootDeviceType where
+    parser = takeLowerText >>= \case
+        "ebs" -> pure EBS
+        "instance-store" -> pure InstanceStore
+        e -> fail ("Failure parsing RootDeviceType from " ++ show e)
+
+instance ToText RootDeviceType where
+    toText = \case
+        EBS -> "ebs"
+        InstanceStore -> "instance-store"
+
+instance Hashable RootDeviceType
+instance ToQuery RootDeviceType
+instance ToHeader RootDeviceType
+
+instance ToJSON RootDeviceType where
+    toJSON = toJSONText
+
+instance FromJSON RootDeviceType where
+    parseJSON = parseJSONText "RootDeviceType"
+
+data SourceType = SVN | Git | Archive | S3 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "archive" -> pure Archive
+        "git" -> pure Git
+        "s3" -> pure S3
+        "svn" -> pure SVN
+        e -> fail ("Failure parsing SourceType from " ++ show e)
+
+instance ToText SourceType where
+    toText = \case
+        Archive -> "archive"
+        Git -> "git"
+        S3 -> "s3"
+        SVN -> "svn"
+
+instance Hashable SourceType
+instance ToQuery SourceType
+instance ToHeader SourceType
+
+instance ToJSON SourceType where
+    toJSON = toJSONText
+
+instance FromJSON SourceType where
+    parseJSON = parseJSONText "SourceType"
+
+data StackAttributesKeys = Color deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StackAttributesKeys where
+    parser = takeLowerText >>= \case
+        "Color" -> pure Color
+        e -> fail ("Failure parsing StackAttributesKeys from " ++ show e)
+
+instance ToText StackAttributesKeys where
+    toText = \case
+        Color -> "Color"
+
+instance Hashable StackAttributesKeys
+instance ToQuery StackAttributesKeys
+instance ToHeader StackAttributesKeys
+
+instance ToJSON StackAttributesKeys where
+    toJSON = toJSONText
+
+instance FromJSON StackAttributesKeys where
+    parseJSON = parseJSONText "StackAttributesKeys"
+
+data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VirtualizationType where
+    parser = takeLowerText >>= \case
+        "hvm" -> pure HVM
+        "paravirtual" -> pure Paravirtual
+        e -> fail ("Failure parsing VirtualizationType from " ++ show e)
+
+instance ToText VirtualizationType where
+    toText = \case
+        HVM -> "hvm"
+        Paravirtual -> "paravirtual"
+
+instance Hashable VirtualizationType
+instance ToQuery VirtualizationType
+instance ToHeader VirtualizationType
+
+instance FromJSON VirtualizationType where
+    parseJSON = parseJSONText "VirtualizationType"
+
+data VolumeType = Standard | IO1 | GP2 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeType where
+    parser = takeLowerText >>= \case
+        "gp2" -> pure GP2
+        "io1" -> pure IO1
+        "standard" -> pure Standard
+        e -> fail ("Failure parsing VolumeType from " ++ show e)
+
+instance ToText VolumeType where
+    toText = \case
+        GP2 -> "gp2"
+        IO1 -> "io1"
+        Standard -> "standard"
+
+instance Hashable VolumeType
+instance ToQuery VolumeType
+instance ToHeader VolumeType
+
+instance ToJSON VolumeType where
+    toJSON = toJSONText
+
+instance FromJSON VolumeType where
+    parseJSON = parseJSONText "VolumeType"
+
+-- | A description of the app.
+--
+-- /See:/ 'app' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -645,86 +1022,11 @@ instance FromJSON App where
                      <*> (x .:? "StackId")
                      <*> (x .:? "Description"))
 
-data AppAttributesKeys = DocumentRoot | RailsEnv | AutoBundleOnDeploy deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AppAttributesKeys where
-    parser = takeLowerText >>= \case
-        "AutoBundleOnDeploy" -> pure AutoBundleOnDeploy
-        "DocumentRoot" -> pure DocumentRoot
-        "RailsEnv" -> pure RailsEnv
-        e -> fail ("Failure parsing AppAttributesKeys from " ++ show e)
-
-instance ToText AppAttributesKeys where
-    toText = \case
-        AutoBundleOnDeploy -> "AutoBundleOnDeploy"
-        DocumentRoot -> "DocumentRoot"
-        RailsEnv -> "RailsEnv"
-
-instance Hashable AppAttributesKeys
-instance ToQuery AppAttributesKeys
-instance ToHeader AppAttributesKeys
-
-instance ToJSON AppAttributesKeys where
-    toJSON = toJSONText
-
-instance FromJSON AppAttributesKeys where
-    parseJSON = parseJSONText "AppAttributesKeys"
-
-data AppType = Java | Other | Rails | Static | PHP | Nodejs deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AppType where
-    parser = takeLowerText >>= \case
-        "java" -> pure Java
-        "nodejs" -> pure Nodejs
-        "other" -> pure Other
-        "php" -> pure PHP
-        "rails" -> pure Rails
-        "static" -> pure Static
-        e -> fail ("Failure parsing AppType from " ++ show e)
-
-instance ToText AppType where
-    toText = \case
-        Java -> "java"
-        Nodejs -> "nodejs"
-        Other -> "other"
-        PHP -> "php"
-        Rails -> "rails"
-        Static -> "static"
-
-instance Hashable AppType
-instance ToQuery AppType
-instance ToHeader AppType
-
-instance ToJSON AppType where
-    toJSON = toJSONText
-
-instance FromJSON AppType where
-    parseJSON = parseJSONText "AppType"
-
-data Architecture = I386 | X8664 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Architecture where
-    parser = takeLowerText >>= \case
-        "i386" -> pure I386
-        "x86_64" -> pure X8664
-        e -> fail ("Failure parsing Architecture from " ++ show e)
-
-instance ToText Architecture where
-    toText = \case
-        I386 -> "i386"
-        X8664 -> "x86_64"
-
-instance Hashable Architecture
-instance ToQuery Architecture
-instance ToHeader Architecture
-
-instance ToJSON Architecture where
-    toJSON = toJSONText
-
-instance FromJSON Architecture where
-    parseJSON = parseJSONText "Architecture"
-
--- | /See:/ 'autoScalingThresholds' smart constructor.
+-- | Describes a load-based auto scaling upscaling or downscaling threshold
+-- configuration, which specifies when AWS OpsWorks starts or stops
+-- load-based instances.
+--
+-- /See:/ 'autoScalingThresholds' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -817,30 +1119,12 @@ instance ToJSON AutoScalingThresholds where
                "MemoryThreshold" .= _astMemoryThreshold,
                "CpuThreshold" .= _astCPUThreshold]
 
-data AutoScalingType = Timer | Load deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AutoScalingType where
-    parser = takeLowerText >>= \case
-        "load" -> pure Load
-        "timer" -> pure Timer
-        e -> fail ("Failure parsing AutoScalingType from " ++ show e)
-
-instance ToText AutoScalingType where
-    toText = \case
-        Load -> "load"
-        Timer -> "timer"
-
-instance Hashable AutoScalingType
-instance ToQuery AutoScalingType
-instance ToHeader AutoScalingType
-
-instance ToJSON AutoScalingType where
-    toJSON = toJSONText
-
-instance FromJSON AutoScalingType where
-    parseJSON = parseJSONText "AutoScalingType"
-
--- | /See:/ 'blockDeviceMapping' smart constructor.
+-- | Describes a block device mapping. This data type maps directly to the
+-- Amazon EC2
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>
+-- data type.
+--
+-- /See:/ 'blockDeviceMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -895,7 +1179,9 @@ instance ToJSON BlockDeviceMapping where
                "NoDevice" .= _bdmNoDevice, "Ebs" .= _bdmEBS,
                "DeviceName" .= _bdmDeviceName]
 
--- | /See:/ 'chefConfiguration' smart constructor.
+-- | Describes the Chef configuration.
+--
+-- /See:/ 'chefConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -930,7 +1216,9 @@ instance ToJSON ChefConfiguration where
               ["BerkshelfVersion" .= _ccBerkshelfVersion,
                "ManageBerkshelf" .= _ccManageBerkshelf]
 
--- | /See:/ 'command' smart constructor.
+-- | Describes a command.
+--
+-- /See:/ 'command' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1030,7 +1318,9 @@ instance FromJSON Command where
                      <*> (x .:? "CompletedAt")
                      <*> (x .:? "AcknowledgedAt"))
 
--- | /See:/ 'dataSource' smart constructor.
+-- | Describes an app\'s data source.
+--
+-- /See:/ 'dataSource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1072,7 +1362,9 @@ instance ToJSON DataSource where
               ["Arn" .= _dsARN, "DatabaseName" .= _dsDatabaseName,
                "Type" .= _dsType]
 
--- | /See:/ 'deployment' smart constructor.
+-- | Describes a deployment of a stack or app.
+--
+-- /See:/ 'deployment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1182,7 +1474,9 @@ instance FromJSON Deployment where
                      <*> (x .:? "Comment")
                      <*> (x .:? "Duration"))
 
--- | /See:/ 'deploymentCommand' smart constructor.
+-- | Used to specify a stack or deployment command.
+--
+-- /See:/ 'deploymentCommand' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1262,46 +1556,12 @@ instance ToJSON DeploymentCommand where
         toJSON DeploymentCommand'{..}
           = object ["Args" .= _dcArgs, "Name" .= _dcName]
 
-data DeploymentCommandName = ExecuteRecipes | Start | UpdateCustomCookbooks | InstallDependencies | Undeploy | Rollback | Restart | Stop | UpdateDependencies | Deploy deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DeploymentCommandName where
-    parser = takeLowerText >>= \case
-        "deploy" -> pure Deploy
-        "execute_recipes" -> pure ExecuteRecipes
-        "install_dependencies" -> pure InstallDependencies
-        "restart" -> pure Restart
-        "rollback" -> pure Rollback
-        "start" -> pure Start
-        "stop" -> pure Stop
-        "undeploy" -> pure Undeploy
-        "update_custom_cookbooks" -> pure UpdateCustomCookbooks
-        "update_dependencies" -> pure UpdateDependencies
-        e -> fail ("Failure parsing DeploymentCommandName from " ++ show e)
-
-instance ToText DeploymentCommandName where
-    toText = \case
-        Deploy -> "deploy"
-        ExecuteRecipes -> "execute_recipes"
-        InstallDependencies -> "install_dependencies"
-        Restart -> "restart"
-        Rollback -> "rollback"
-        Start -> "start"
-        Stop -> "stop"
-        Undeploy -> "undeploy"
-        UpdateCustomCookbooks -> "update_custom_cookbooks"
-        UpdateDependencies -> "update_dependencies"
-
-instance Hashable DeploymentCommandName
-instance ToQuery DeploymentCommandName
-instance ToHeader DeploymentCommandName
-
-instance ToJSON DeploymentCommandName where
-    toJSON = toJSONText
-
-instance FromJSON DeploymentCommandName where
-    parseJSON = parseJSONText "DeploymentCommandName"
-
--- | /See:/ 'ebsBlockDevice' smart constructor.
+-- | Describes an Amazon EBS volume. This data type maps directly to the
+-- Amazon EC2
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>
+-- data type.
+--
+-- /See:/ 'ebsBlockDevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1363,7 +1623,9 @@ instance ToJSON EBSBlockDevice where
                "VolumeType" .= _ebdVolumeType,
                "SnapshotId" .= _ebdSnapshotId]
 
--- | /See:/ 'elasticIP' smart constructor.
+-- | Describes an Elastic IP address.
+--
+-- /See:/ 'elasticIP' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1413,7 +1675,9 @@ instance FromJSON ElasticIP where
                      <*> (x .:? "Name")
                      <*> (x .:? "Region"))
 
--- | /See:/ 'elasticLoadBalancer' smart constructor.
+-- | Describes an Elastic Load Balancing instance.
+--
+-- /See:/ 'elasticLoadBalancer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1491,7 +1755,9 @@ instance FromJSON ElasticLoadBalancer where
                      <*> (x .:? "LayerId")
                      <*> (x .:? "DnsName"))
 
--- | /See:/ 'environmentVariable' smart constructor.
+-- | Represents an app\'s environment variable.
+--
+-- /See:/ 'environmentVariable' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1539,7 +1805,9 @@ instance ToJSON EnvironmentVariable where
               ["Secure" .= _evSecure, "Key" .= _evKey,
                "Value" .= _evValue]
 
--- | /See:/ 'instance'' smart constructor.
+-- | Describes an instance.
+--
+-- /See:/ 'instance'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1837,7 +2105,11 @@ instance FromJSON Instance where
                      <*> (x .:? "BlockDeviceMappings" .!= mempty)
                      <*> (x .:? "RootDeviceType"))
 
--- | /See:/ 'instanceIdentity' smart constructor.
+-- | Contains a description of an Amazon EC2 instance from the Amazon EC2
+-- metadata service. For more information, see
+-- <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data>.
+--
+-- /See:/ 'instanceIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1865,7 +2137,9 @@ instance ToJSON InstanceIdentity where
               ["Signature" .= _iiSignature,
                "Document" .= _iiDocument]
 
--- | /See:/ 'instancesCount' smart constructor.
+-- | Describes how many instances a stack has for each status.
+--
+-- /See:/ 'instancesCount' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2012,7 +2286,9 @@ instance FromJSON InstancesCount where
                      <*> (x .:? "StartFailed")
                      <*> (x .:? "Registering"))
 
--- | /See:/ 'layer' smart constructor.
+-- | Describes a layer.
+--
+-- /See:/ 'layer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2189,113 +2465,9 @@ instance FromJSON Layer where
                      <*> (x .:? "DefaultSecurityGroupNames" .!= mempty)
                      <*> (x .:? "AutoAssignElasticIps"))
 
-data LayerAttributesKeys = HaproxyHealthCheckURL | MemcachedMemory | GangliaPassword | JavaAppServerVersion | GangliaURL | HaproxyHealthCheckMethod | PassengerVersion | JVMVersion | MysqlRootPassword | HaproxyStatsPassword | RubyVersion | JVMOptions | JVM | BundlerVersion | HaproxyStatsURL | ManageBundler | RubygemsVersion | GangliaUser | EnableHaproxyStats | MysqlRootPasswordUbiquitous | HaproxyStatsUser | JavaAppServer | NodejsVersion | RailsStack deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LayerAttributesKeys where
-    parser = takeLowerText >>= \case
-        "BundlerVersion" -> pure BundlerVersion
-        "EnableHaproxyStats" -> pure EnableHaproxyStats
-        "GangliaPassword" -> pure GangliaPassword
-        "GangliaUrl" -> pure GangliaURL
-        "GangliaUser" -> pure GangliaUser
-        "HaproxyHealthCheckMethod" -> pure HaproxyHealthCheckMethod
-        "HaproxyHealthCheckUrl" -> pure HaproxyHealthCheckURL
-        "HaproxyStatsPassword" -> pure HaproxyStatsPassword
-        "HaproxyStatsUrl" -> pure HaproxyStatsURL
-        "HaproxyStatsUser" -> pure HaproxyStatsUser
-        "Jvm" -> pure JVM
-        "JvmOptions" -> pure JVMOptions
-        "JvmVersion" -> pure JVMVersion
-        "JavaAppServer" -> pure JavaAppServer
-        "JavaAppServerVersion" -> pure JavaAppServerVersion
-        "ManageBundler" -> pure ManageBundler
-        "MemcachedMemory" -> pure MemcachedMemory
-        "MysqlRootPassword" -> pure MysqlRootPassword
-        "MysqlRootPasswordUbiquitous" -> pure MysqlRootPasswordUbiquitous
-        "NodejsVersion" -> pure NodejsVersion
-        "PassengerVersion" -> pure PassengerVersion
-        "RailsStack" -> pure RailsStack
-        "RubyVersion" -> pure RubyVersion
-        "RubygemsVersion" -> pure RubygemsVersion
-        e -> fail ("Failure parsing LayerAttributesKeys from " ++ show e)
-
-instance ToText LayerAttributesKeys where
-    toText = \case
-        BundlerVersion -> "BundlerVersion"
-        EnableHaproxyStats -> "EnableHaproxyStats"
-        GangliaPassword -> "GangliaPassword"
-        GangliaURL -> "GangliaUrl"
-        GangliaUser -> "GangliaUser"
-        HaproxyHealthCheckMethod -> "HaproxyHealthCheckMethod"
-        HaproxyHealthCheckURL -> "HaproxyHealthCheckUrl"
-        HaproxyStatsPassword -> "HaproxyStatsPassword"
-        HaproxyStatsURL -> "HaproxyStatsUrl"
-        HaproxyStatsUser -> "HaproxyStatsUser"
-        JVM -> "Jvm"
-        JVMOptions -> "JvmOptions"
-        JVMVersion -> "JvmVersion"
-        JavaAppServer -> "JavaAppServer"
-        JavaAppServerVersion -> "JavaAppServerVersion"
-        ManageBundler -> "ManageBundler"
-        MemcachedMemory -> "MemcachedMemory"
-        MysqlRootPassword -> "MysqlRootPassword"
-        MysqlRootPasswordUbiquitous -> "MysqlRootPasswordUbiquitous"
-        NodejsVersion -> "NodejsVersion"
-        PassengerVersion -> "PassengerVersion"
-        RailsStack -> "RailsStack"
-        RubyVersion -> "RubyVersion"
-        RubygemsVersion -> "RubygemsVersion"
-
-instance Hashable LayerAttributesKeys
-instance ToQuery LayerAttributesKeys
-instance ToHeader LayerAttributesKeys
-
-instance ToJSON LayerAttributesKeys where
-    toJSON = toJSONText
-
-instance FromJSON LayerAttributesKeys where
-    parseJSON = parseJSONText "LayerAttributesKeys"
-
-data LayerType = Memcached | JavaApp | MonitoringMaster | NodejsApp | Custom | LB | RailsApp | DBMaster | Web | PHPApp deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LayerType where
-    parser = takeLowerText >>= \case
-        "custom" -> pure Custom
-        "db-master" -> pure DBMaster
-        "java-app" -> pure JavaApp
-        "lb" -> pure LB
-        "memcached" -> pure Memcached
-        "monitoring-master" -> pure MonitoringMaster
-        "nodejs-app" -> pure NodejsApp
-        "php-app" -> pure PHPApp
-        "rails-app" -> pure RailsApp
-        "web" -> pure Web
-        e -> fail ("Failure parsing LayerType from " ++ show e)
-
-instance ToText LayerType where
-    toText = \case
-        Custom -> "custom"
-        DBMaster -> "db-master"
-        JavaApp -> "java-app"
-        LB -> "lb"
-        Memcached -> "memcached"
-        MonitoringMaster -> "monitoring-master"
-        NodejsApp -> "nodejs-app"
-        PHPApp -> "php-app"
-        RailsApp -> "rails-app"
-        Web -> "web"
-
-instance Hashable LayerType
-instance ToQuery LayerType
-instance ToHeader LayerType
-
-instance ToJSON LayerType where
-    toJSON = toJSONText
-
-instance FromJSON LayerType where
-    parseJSON = parseJSONText "LayerType"
-
--- | /See:/ 'lifecycleEventConfiguration' smart constructor.
+-- | Specifies the lifecycle event configuration
+--
+-- /See:/ 'lifecycleEventConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2321,7 +2493,9 @@ instance ToJSON LifecycleEventConfiguration where
         toJSON LifecycleEventConfiguration'{..}
           = object ["Shutdown" .= _lecShutdown]
 
--- | /See:/ 'loadBasedAutoScalingConfiguration' smart constructor.
+-- | Describes a layer\'s load-based auto scaling configuration.
+--
+-- /See:/ 'loadBasedAutoScalingConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2368,7 +2542,9 @@ instance FromJSON LoadBasedAutoScalingConfiguration
                      (x .:? "DownScaling")
                      <*> (x .:? "LayerId"))
 
--- | /See:/ 'permission' smart constructor.
+-- | Describes stack or user permissions.
+--
+-- /See:/ 'permission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2429,7 +2605,9 @@ instance FromJSON Permission where
                      <*> (x .:? "Level")
                      <*> (x .:? "AllowSsh"))
 
--- | /See:/ 'raidArray' smart constructor.
+-- | Describes an instance\'s RAID array.
+--
+-- /See:/ 'raidArray' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2535,7 +2713,9 @@ instance FromJSON RAIDArray where
                      <*> (x .:? "StackId")
                      <*> (x .:? "MountPoint"))
 
--- | /See:/ 'rdsDBInstance' smart constructor.
+-- | Describes an Amazon RDS instance.
+--
+-- /See:/ 'rdsDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2615,7 +2795,21 @@ instance FromJSON RDSDBInstance where
                      <*> (x .:? "StackId")
                      <*> (x .:? "DbPassword"))
 
--- | /See:/ 'recipes' smart constructor.
+-- | AWS OpsWorks supports five lifecycle events, __setup__,
+-- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
+-- layer, AWS OpsWorks runs a set of standard recipes for each event. In
+-- addition, you can provide custom recipes for any or all layers and
+-- events. AWS OpsWorks runs custom event recipes after the standard
+-- recipes. @LayerCustomRecipes@ specifies the custom recipes for a
+-- particular layer to be run in response to each of the five events.
+--
+-- To specify a recipe, use the cookbook\'s directory name in the
+-- repository followed by two colons and the recipe name, which is the
+-- recipe\'s file name without the .rb extension. For example:
+-- phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository\'s
+-- phpapp2 folder.
+--
+-- /See:/ 'recipes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2672,7 +2866,9 @@ instance ToJSON Recipes where
                "Shutdown" .= _recShutdown,
                "Configure" .= _recConfigure, "Deploy" .= _recDeploy]
 
--- | /See:/ 'reportedOS' smart constructor.
+-- | A registered instance\'s reported operating system.
+--
+-- /See:/ 'reportedOS' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2707,30 +2903,9 @@ instance FromJSON ReportedOS where
                    (x .:? "Family") <*> (x .:? "Name") <*>
                      (x .:? "Version"))
 
-data RootDeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RootDeviceType where
-    parser = takeLowerText >>= \case
-        "ebs" -> pure EBS
-        "instance-store" -> pure InstanceStore
-        e -> fail ("Failure parsing RootDeviceType from " ++ show e)
-
-instance ToText RootDeviceType where
-    toText = \case
-        EBS -> "ebs"
-        InstanceStore -> "instance-store"
-
-instance Hashable RootDeviceType
-instance ToQuery RootDeviceType
-instance ToHeader RootDeviceType
-
-instance ToJSON RootDeviceType where
-    toJSON = toJSONText
-
-instance FromJSON RootDeviceType where
-    parseJSON = parseJSONText "RootDeviceType"
-
--- | /See:/ 'sslConfiguration' smart constructor.
+-- | Describes an app\'s SSL configuration.
+--
+-- /See:/ 'sslConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2773,7 +2948,9 @@ instance ToJSON SSLConfiguration where
                "Certificate" .= _scCertificate,
                "PrivateKey" .= _scPrivateKey]
 
--- | /See:/ 'selfUserProfile' smart constructor.
+-- | Describes a user\'s SSH information.
+--
+-- /See:/ 'selfUserProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2815,7 +2992,9 @@ instance FromJSON SelfUserProfile where
                      (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
 
--- | /See:/ 'serviceError'' smart constructor.
+-- | Describes an AWS OpsWorks service error.
+--
+-- /See:/ 'serviceError'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2871,7 +3050,9 @@ instance FromJSON ServiceError' where
                      <*> (x .:? "Message")
                      <*> (x .:? "StackId"))
 
--- | /See:/ 'shutdownEventConfiguration' smart constructor.
+-- | The Shutdown event configuration.
+--
+-- /See:/ 'shutdownEventConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2910,7 +3091,13 @@ instance ToJSON ShutdownEventConfiguration where
                "DelayUntilElbConnectionsDrained" .=
                  _secDelayUntilElbConnectionsDrained]
 
--- | /See:/ 'source' smart constructor.
+-- | Contains the information required to retrieve an app or cookbook from a
+-- repository. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps>
+-- or
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Custom Recipes and Cookbooks>.
+--
+-- /See:/ 'source' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2996,34 +3183,9 @@ instance ToJSON Source where
                "SshKey" .= _souSSHKey, "Password" .= _souPassword,
                "Type" .= _souType, "Revision" .= _souRevision]
 
-data SourceType = SVN | Git | Archive | S3 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SourceType where
-    parser = takeLowerText >>= \case
-        "archive" -> pure Archive
-        "git" -> pure Git
-        "s3" -> pure S3
-        "svn" -> pure SVN
-        e -> fail ("Failure parsing SourceType from " ++ show e)
-
-instance ToText SourceType where
-    toText = \case
-        Archive -> "archive"
-        Git -> "git"
-        S3 -> "s3"
-        SVN -> "svn"
-
-instance Hashable SourceType
-instance ToQuery SourceType
-instance ToHeader SourceType
-
-instance ToJSON SourceType where
-    toJSON = toJSONText
-
-instance FromJSON SourceType where
-    parseJSON = parseJSONText "SourceType"
-
--- | /See:/ 'stack' smart constructor.
+-- | Describes a stack.
+--
+-- /See:/ 'stack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3205,28 +3367,9 @@ instance FromJSON Stack where
                      <*> (x .:? "StackId")
                      <*> (x .:? "HostnameTheme"))
 
-data StackAttributesKeys = Color deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StackAttributesKeys where
-    parser = takeLowerText >>= \case
-        "Color" -> pure Color
-        e -> fail ("Failure parsing StackAttributesKeys from " ++ show e)
-
-instance ToText StackAttributesKeys where
-    toText = \case
-        Color -> "Color"
-
-instance Hashable StackAttributesKeys
-instance ToQuery StackAttributesKeys
-instance ToHeader StackAttributesKeys
-
-instance ToJSON StackAttributesKeys where
-    toJSON = toJSONText
-
-instance FromJSON StackAttributesKeys where
-    parseJSON = parseJSONText "StackAttributesKeys"
-
--- | /See:/ 'stackConfigurationManager' smart constructor.
+-- | Describes the configuration manager.
+--
+-- /See:/ 'stackConfigurationManager' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3260,7 +3403,9 @@ instance ToJSON StackConfigurationManager where
           = object
               ["Name" .= _scmName, "Version" .= _scmVersion]
 
--- | /See:/ 'stackSummary' smart constructor.
+-- | Summarizes the number of layers, instances, and apps in a stack.
+--
+-- /See:/ 'stackSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3316,7 +3461,10 @@ instance FromJSON StackSummary where
                      <*> (x .:? "LayersCount")
                      <*> (x .:? "InstancesCount"))
 
--- | /See:/ 'temporaryCredential' smart constructor.
+-- | Contains the data needed by RDP clients such as the Microsoft Remote
+-- Desktop Connection to log in to the instance.
+--
+-- /See:/ 'temporaryCredential' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3361,7 +3509,9 @@ instance FromJSON TemporaryCredential where
                      (x .:? "Password")
                      <*> (x .:? "ValidForInMinutes"))
 
--- | /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
+-- | Describes an instance\'s time-based auto scaling configuration.
+--
+-- /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3391,7 +3541,9 @@ instance FromJSON TimeBasedAutoScalingConfiguration
                    (x .:? "InstanceId") <*>
                      (x .:? "AutoScalingSchedule"))
 
--- | /See:/ 'userProfile' smart constructor.
+-- | Describes a user\'s SSH information.
+--
+-- /See:/ 'userProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3442,27 +3594,9 @@ instance FromJSON UserProfile where
                      <*> (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
 
-data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VirtualizationType where
-    parser = takeLowerText >>= \case
-        "hvm" -> pure HVM
-        "paravirtual" -> pure Paravirtual
-        e -> fail ("Failure parsing VirtualizationType from " ++ show e)
-
-instance ToText VirtualizationType where
-    toText = \case
-        HVM -> "hvm"
-        Paravirtual -> "paravirtual"
-
-instance Hashable VirtualizationType
-instance ToQuery VirtualizationType
-instance ToHeader VirtualizationType
-
-instance FromJSON VirtualizationType where
-    parseJSON = parseJSONText "VirtualizationType"
-
--- | /See:/ 'volume' smart constructor.
+-- | Describes an instance\'s Amazon EBS volume.
+--
+-- /See:/ 'volume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3570,7 +3704,9 @@ instance FromJSON Volume where
                      <*> (x .:? "Ec2VolumeId")
                      <*> (x .:? "MountPoint"))
 
--- | /See:/ 'volumeConfiguration' smart constructor.
+-- | Describes an Amazon EBS volume configuration.
+--
+-- /See:/ 'volumeConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3640,32 +3776,26 @@ instance ToJSON VolumeConfiguration where
                "NumberOfDisks" .= _vcNumberOfDisks,
                "Size" .= _vcSize]
 
-data VolumeType = Standard | IO1 | GP2 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeType where
-    parser = takeLowerText >>= \case
-        "gp2" -> pure GP2
-        "io1" -> pure IO1
-        "standard" -> pure Standard
-        e -> fail ("Failure parsing VolumeType from " ++ show e)
-
-instance ToText VolumeType where
-    toText = \case
-        GP2 -> "gp2"
-        IO1 -> "io1"
-        Standard -> "standard"
-
-instance Hashable VolumeType
-instance ToQuery VolumeType
-instance ToHeader VolumeType
-
-instance ToJSON VolumeType where
-    toJSON = toJSONText
-
-instance FromJSON VolumeType where
-    parseJSON = parseJSONText "VolumeType"
-
--- | /See:/ 'weeklyAutoScalingSchedule' smart constructor.
+-- | Describes a time-based instance\'s auto scaling schedule. The schedule
+-- consists of a set of key-value pairs.
+--
+-- -   The key is the time period (a UTC hour) and must be an integer from
+--     0 - 23.
+-- -   The value indicates whether the instance should be online or offline
+--     for the specified period, and must be set to \"on\" or \"off\"
+--
+-- The default setting for all time periods is off, so you use the
+-- following parameters primarily to specify the online periods. You don\'t
+-- have to explicitly specify offline periods unless you want to change an
+-- online period to an offline period.
+--
+-- The following example specifies that the instance should be online for
+-- four hours, from UTC 1200 - 1600. It will be off for the remainder of
+-- the day.
+--
+-- @ { \"12\":\"on\", \"13\":\"on\", \"14\":\"on\", \"15\":\"on\" } @
+--
+-- /See:/ 'weeklyAutoScalingSchedule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

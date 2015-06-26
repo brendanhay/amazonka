@@ -50,15 +50,18 @@ module Network.AWS.Kinesis.ListStreams
     -- ** Response lenses
     , lsrStreamNames
     , lsrHasMoreStreams
+    , lsrStatusCode
     ) where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listStreams' smart constructor.
+-- | Represents the input for @ListStreams@.
+--
+-- /See:/ 'listStreams' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,7 +100,8 @@ instance AWSRequest ListStreams where
               (\ s h x ->
                  ListStreamsResponse' <$>
                    (x .?> "StreamNames" .!@ mempty) <*>
-                     (x .:> "HasMoreStreams"))
+                     (x .:> "HasMoreStreams")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListStreams where
         toHeaders
@@ -121,18 +125,22 @@ instance ToPath ListStreams where
 instance ToQuery ListStreams where
         toQuery = const mempty
 
--- | /See:/ 'listStreamsResponse' smart constructor.
+-- | Represents the output for @ListStreams@.
+--
+-- /See:/ 'listStreamsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsrStreamNames'
 --
 -- * 'lsrHasMoreStreams'
-data ListStreamsResponse = ListStreamsResponse'{_lsrStreamNames :: [Text], _lsrHasMoreStreams :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'lsrStatusCode'
+data ListStreamsResponse = ListStreamsResponse'{_lsrStreamNames :: [Text], _lsrHasMoreStreams :: Bool, _lsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListStreamsResponse' smart constructor.
-listStreamsResponse :: Bool -> ListStreamsResponse
-listStreamsResponse pHasMoreStreams = ListStreamsResponse'{_lsrStreamNames = mempty, _lsrHasMoreStreams = pHasMoreStreams};
+listStreamsResponse :: Bool -> Int -> ListStreamsResponse
+listStreamsResponse pHasMoreStreams pStatusCode = ListStreamsResponse'{_lsrStreamNames = mempty, _lsrHasMoreStreams = pHasMoreStreams, _lsrStatusCode = pStatusCode};
 
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
@@ -142,3 +150,7 @@ lsrStreamNames = lens _lsrStreamNames (\ s a -> s{_lsrStreamNames = a});
 -- | If set to @true@, there are more streams available to list.
 lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrHasMoreStreams = lens _lsrHasMoreStreams (\ s a -> s{_lsrHasMoreStreams = a});
+
+-- | FIXME: Undocumented member.
+lsrStatusCode :: Lens' ListStreamsResponse Int
+lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});

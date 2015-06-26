@@ -38,6 +38,8 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     , CreateLoadBalancerListenersResponse
     -- ** Response constructor
     , createLoadBalancerListenersResponse
+    -- ** Response lenses
+    , clblrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -72,7 +74,11 @@ instance AWSRequest CreateLoadBalancerListeners where
              CreateLoadBalancerListenersResponse
         request = post
         response
-          = receiveNull CreateLoadBalancerListenersResponse'
+          = receiveXMLWrapper
+              "CreateLoadBalancerListenersResult"
+              (\ s h x ->
+                 CreateLoadBalancerListenersResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
@@ -90,8 +96,16 @@ instance ToQuery CreateLoadBalancerListeners where
                "Listeners" =: toQueryList "member" _clblListeners]
 
 -- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
-data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'clblrStatusCode'
+newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'{_clblrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
-createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
-createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse';
+createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
+createLoadBalancerListenersResponse pStatusCode = CreateLoadBalancerListenersResponse'{_clblrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+clblrStatusCode :: Lens' CreateLoadBalancerListenersResponse Int
+clblrStatusCode = lens _clblrStatusCode (\ s a -> s{_clblrStatusCode = a});

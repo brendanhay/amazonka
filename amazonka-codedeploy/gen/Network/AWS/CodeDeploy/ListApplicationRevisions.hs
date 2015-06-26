@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     -- ** Response lenses
     , larrNextToken
     , larrRevisions
+    , larrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listApplicationRevisions' smart constructor.
+-- | Represents the input of a list application revisions operation.
+--
+-- /See:/ 'listApplicationRevisions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -138,7 +141,8 @@ instance AWSRequest ListApplicationRevisions where
               (\ s h x ->
                  ListApplicationRevisionsResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "revisions" .!@ mempty))
+                     (x .?> "revisions" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListApplicationRevisions where
         toHeaders
@@ -166,18 +170,22 @@ instance ToPath ListApplicationRevisions where
 instance ToQuery ListApplicationRevisions where
         toQuery = const mempty
 
--- | /See:/ 'listApplicationRevisionsResponse' smart constructor.
+-- | Represents the output of a list application revisions operation.
+--
+-- /See:/ 'listApplicationRevisionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'larrNextToken'
 --
 -- * 'larrRevisions'
-data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken :: Maybe Text, _larrRevisions :: Maybe [RevisionLocation]} deriving (Eq, Read, Show)
+--
+-- * 'larrStatusCode'
+data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken :: Maybe Text, _larrRevisions :: Maybe [RevisionLocation], _larrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
-listApplicationRevisionsResponse :: ListApplicationRevisionsResponse
-listApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken = Nothing, _larrRevisions = Nothing};
+listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
+listApplicationRevisionsResponse pStatusCode = ListApplicationRevisionsResponse'{_larrNextToken = Nothing, _larrRevisions = Nothing, _larrStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -189,3 +197,7 @@ larrNextToken = lens _larrNextToken (\ s a -> s{_larrNextToken = a});
 -- | A list of revision locations that contain the matching revisions.
 larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+larrStatusCode :: Lens' ListApplicationRevisionsResponse Int
+larrStatusCode = lens _larrStatusCode (\ s a -> s{_larrStatusCode = a});

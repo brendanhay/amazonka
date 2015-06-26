@@ -46,8 +46,9 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Response constructor
     , describeVolumesResponse
     -- ** Response lenses
-    , dvrNextToken
-    , dvrVolumes
+    , dvr1NextToken
+    , dvr1Volumes
+    , dvr1StatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -168,8 +169,8 @@ instance AWSRequest DescribeVolumes where
           = receiveXML
               (\ s h x ->
                  DescribeVolumesResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVolumes where
         toHeaders = const mempty
@@ -192,22 +193,28 @@ instance ToQuery DescribeVolumes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrNextToken'
+-- * 'dvr1NextToken'
 --
--- * 'dvrVolumes'
-data DescribeVolumesResponse = DescribeVolumesResponse'{_dvrNextToken :: Maybe Text, _dvrVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
+-- * 'dvr1Volumes'
+--
+-- * 'dvr1StatusCode'
+data DescribeVolumesResponse = DescribeVolumesResponse'{_dvr1NextToken :: Maybe Text, _dvr1Volumes :: Maybe [Volume], _dvr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
-describeVolumesResponse :: DescribeVolumesResponse
-describeVolumesResponse = DescribeVolumesResponse'{_dvrNextToken = Nothing, _dvrVolumes = Nothing};
+describeVolumesResponse :: Int -> DescribeVolumesResponse
+describeVolumesResponse pStatusCode = DescribeVolumesResponse'{_dvr1NextToken = Nothing, _dvr1Volumes = Nothing, _dvr1StatusCode = pStatusCode};
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
 -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
 -- this value can be used to retrieve the next page of results. This value
 -- is @null@ when there are no more results to return.
-dvrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
-dvrNextToken = lens _dvrNextToken (\ s a -> s{_dvrNextToken = a});
+dvr1NextToken :: Lens' DescribeVolumesResponse (Maybe Text)
+dvr1NextToken = lens _dvr1NextToken (\ s a -> s{_dvr1NextToken = a});
 
 -- | Information about the volumes.
-dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;
+dvr1Volumes :: Lens' DescribeVolumesResponse [Volume]
+dvr1Volumes = lens _dvr1Volumes (\ s a -> s{_dvr1Volumes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvr1StatusCode :: Lens' DescribeVolumesResponse Int
+dvr1StatusCode = lens _dvr1StatusCode (\ s a -> s{_dvr1StatusCode = a});

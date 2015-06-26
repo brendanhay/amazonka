@@ -47,6 +47,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     , describeSpotInstanceRequestsResponse
     -- ** Response lenses
     , dsirrSpotInstanceRequests
+    , dsirrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -54,7 +55,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSpotInstanceRequests' smart constructor.
+-- | Contains the parameters for DescribeSpotInstanceRequests.
+--
+-- /See:/ 'describeSpotInstanceRequests' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -212,7 +215,8 @@ instance AWSRequest DescribeSpotInstanceRequests
           = receiveXML
               (\ s h x ->
                  DescribeSpotInstanceRequestsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
@@ -232,17 +236,25 @@ instance ToQuery DescribeSpotInstanceRequests where
                     _dsirSpotInstanceRequestIds),
                "DryRun" =: _dsirDryRun]
 
--- | /See:/ 'describeSpotInstanceRequestsResponse' smart constructor.
+-- | Contains the output of DescribeSpotInstanceRequests.
+--
+-- /See:/ 'describeSpotInstanceRequestsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsirrSpotInstanceRequests'
-newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests :: Maybe [SpotInstanceRequest]} deriving (Eq, Read, Show)
+--
+-- * 'dsirrStatusCode'
+data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests :: Maybe [SpotInstanceRequest], _dsirrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
-describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
-describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests = Nothing};
+describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse
+describeSpotInstanceRequestsResponse pStatusCode = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests = Nothing, _dsirrStatusCode = pStatusCode};
 
 -- | One or more Spot Instance requests.
 dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsirrStatusCode :: Lens' DescribeSpotInstanceRequestsResponse Int
+dsirrStatusCode = lens _dsirrStatusCode (\ s a -> s{_dsirrStatusCode = a});

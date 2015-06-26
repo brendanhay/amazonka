@@ -46,6 +46,7 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     , createVPCPeeringConnectionResponse
     -- ** Response lenses
     , cvpcrVPCPeeringConnection
+    , cvpcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -101,7 +102,8 @@ instance AWSRequest CreateVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  CreateVPCPeeringConnectionResponse' <$>
-                   (x .@? "vpcPeeringConnection"))
+                   (x .@? "vpcPeeringConnection") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty
@@ -124,12 +126,18 @@ instance ToQuery CreateVPCPeeringConnection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvpcrVPCPeeringConnection'
-newtype CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'{_cvpcrVPCPeeringConnection :: Maybe VPCPeeringConnection} deriving (Eq, Read, Show)
+--
+-- * 'cvpcrStatusCode'
+data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'{_cvpcrVPCPeeringConnection :: Maybe VPCPeeringConnection, _cvpcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
-createVPCPeeringConnectionResponse :: CreateVPCPeeringConnectionResponse
-createVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'{_cvpcrVPCPeeringConnection = Nothing};
+createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
+createVPCPeeringConnectionResponse pStatusCode = CreateVPCPeeringConnectionResponse'{_cvpcrVPCPeeringConnection = Nothing, _cvpcrStatusCode = pStatusCode};
 
 -- | Information about the VPC peering connection.
 cvpcrVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 cvpcrVPCPeeringConnection = lens _cvpcrVPCPeeringConnection (\ s a -> s{_cvpcrVPCPeeringConnection = a});
+
+-- | FIXME: Undocumented member.
+cvpcrStatusCode :: Lens' CreateVPCPeeringConnectionResponse Int
+cvpcrStatusCode = lens _cvpcrStatusCode (\ s a -> s{_cvpcrStatusCode = a});

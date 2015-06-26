@@ -39,7 +39,8 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- ** Response constructor
     , describeIndexFieldsResponse
     -- ** Response lenses
-    , difrIndexFields
+    , difr1IndexFields
+    , difr1StatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -47,7 +48,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeIndexFields' smart constructor.
+-- | Container for the parameters to the @DescribeIndexFields@ operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular index fields, specify the names of the index
+-- fields you want to describe. To show the active configuration and
+-- exclude any pending changes, set the @Deployed@ option to @true@.
+--
+-- /See:/ 'describeIndexFields' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +93,8 @@ instance AWSRequest DescribeIndexFields where
               (\ s h x ->
                  DescribeIndexFieldsResponse' <$>
                    (x .@? "IndexFields" .!@ mempty >>=
-                      parseXMLList "member"))
+                      parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
@@ -104,17 +112,26 @@ instance ToQuery DescribeIndexFields where
                  toQuery (toQueryList "member" <$> _difFieldNames),
                "DomainName" =: _difDomainName]
 
--- | /See:/ 'describeIndexFieldsResponse' smart constructor.
+-- | The result of a @DescribeIndexFields@ request. Contains the index fields
+-- configured for the domain specified in the request.
+--
+-- /See:/ 'describeIndexFieldsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difrIndexFields'
-newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'{_difrIndexFields :: [IndexFieldStatus]} deriving (Eq, Read, Show)
+-- * 'difr1IndexFields'
+--
+-- * 'difr1StatusCode'
+data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'{_difr1IndexFields :: [IndexFieldStatus], _difr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
-describeIndexFieldsResponse :: DescribeIndexFieldsResponse
-describeIndexFieldsResponse = DescribeIndexFieldsResponse'{_difrIndexFields = mempty};
+describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
+describeIndexFieldsResponse pStatusCode = DescribeIndexFieldsResponse'{_difr1IndexFields = mempty, _difr1StatusCode = pStatusCode};
 
 -- | The index fields configured for the domain.
-difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difrIndexFields = lens _difrIndexFields (\ s a -> s{_difrIndexFields = a});
+difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difr1IndexFields = lens _difr1IndexFields (\ s a -> s{_difr1IndexFields = a});
+
+-- | FIXME: Undocumented member.
+difr1StatusCode :: Lens' DescribeIndexFieldsResponse Int
+difr1StatusCode = lens _difr1StatusCode (\ s a -> s{_difr1StatusCode = a});

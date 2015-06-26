@@ -57,6 +57,7 @@ module Network.AWS.Glacier.ListVaults
     -- ** Response lenses
     , lvrMarker
     , lvrVaultList
+    , lvrStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -64,7 +65,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listVaults' smart constructor.
+-- | Provides options to retrieve the vault list owned by the calling user\'s
+-- account. The list provides metadata information for each vault.
+--
+-- /See:/ 'listVaults' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,7 +111,8 @@ instance AWSRequest ListVaults where
           = receiveJSON
               (\ s h x ->
                  ListVaultsResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty))
+                   (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListVaults where
         toHeaders = const mempty
@@ -121,18 +126,22 @@ instance ToQuery ListVaults where
           = mconcat
               ["marker" =: _lvMarker, "limit" =: _lvLimit]
 
--- | /See:/ 'listVaultsResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'listVaultsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lvrMarker'
 --
 -- * 'lvrVaultList'
-data ListVaultsResponse = ListVaultsResponse'{_lvrMarker :: Maybe Text, _lvrVaultList :: Maybe [DescribeVaultOutput]} deriving (Eq, Read, Show)
+--
+-- * 'lvrStatusCode'
+data ListVaultsResponse = ListVaultsResponse'{_lvrMarker :: Maybe Text, _lvrVaultList :: Maybe [DescribeVaultOutput], _lvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListVaultsResponse' smart constructor.
-listVaultsResponse :: ListVaultsResponse
-listVaultsResponse = ListVaultsResponse'{_lvrMarker = Nothing, _lvrVaultList = Nothing};
+listVaultsResponse :: Int -> ListVaultsResponse
+listVaultsResponse pStatusCode = ListVaultsResponse'{_lvrMarker = Nothing, _lvrVaultList = Nothing, _lvrStatusCode = pStatusCode};
 
 -- | The vault ARN at which to continue pagination of the results. You use
 -- the marker in another List Vaults request to obtain more vaults in the
@@ -143,3 +152,7 @@ lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
 -- | List of vaults.
 lvrVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
 lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lvrStatusCode :: Lens' ListVaultsResponse Int
+lvrStatusCode = lens _lvrStatusCode (\ s a -> s{_lvrStatusCode = a});

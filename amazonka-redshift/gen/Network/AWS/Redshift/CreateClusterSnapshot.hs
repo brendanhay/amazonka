@@ -38,7 +38,8 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- ** Response constructor
     , createClusterSnapshotResponse
     -- ** Response lenses
-    , creSnapshot
+    , cSnapshot
+    , cStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +47,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createClusterSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'createClusterSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -92,7 +95,7 @@ instance AWSRequest CreateClusterSnapshot where
           = receiveXMLWrapper "CreateClusterSnapshotResult"
               (\ s h x ->
                  CreateClusterSnapshotResponse' <$>
-                   (x .@? "Snapshot"))
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateClusterSnapshot where
         toHeaders = const mempty
@@ -113,13 +116,19 @@ instance ToQuery CreateClusterSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creSnapshot'
-newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'{_creSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+-- * 'cSnapshot'
+--
+-- * 'cStatusCode'
+data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'{_cSnapshot :: Maybe Snapshot, _cStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSnapshotResponse' smart constructor.
-createClusterSnapshotResponse :: CreateClusterSnapshotResponse
-createClusterSnapshotResponse = CreateClusterSnapshotResponse'{_creSnapshot = Nothing};
+createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse
+createClusterSnapshotResponse pStatusCode = CreateClusterSnapshotResponse'{_cSnapshot = Nothing, _cStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-creSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-creSnapshot = lens _creSnapshot (\ s a -> s{_creSnapshot = a});
+cSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
+cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
+
+-- | FIXME: Undocumented member.
+cStatusCode :: Lens' CreateClusterSnapshotResponse Int
+cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});

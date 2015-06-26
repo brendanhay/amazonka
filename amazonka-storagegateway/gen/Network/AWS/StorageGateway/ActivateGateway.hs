@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.ActivateGateway
     , activateGatewayResponse
     -- ** Response lenses
     , agrGatewayARN
+    , agrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -55,7 +56,17 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'activateGateway' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   ActivateGatewayInput$ActivationKey
+-- -   GatewayName
+-- -   ActivateGatewayInput$GatewayRegion
+-- -   ActivateGatewayInput$GatewayTimezone
+-- -   ActivateGatewayInput$GatewayType
+-- -   ActivateGatewayInput$TapeDriveType
+-- -   ActivateGatewayInput$MediumChangerType
+--
+-- /See:/ 'activateGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -139,7 +150,8 @@ instance AWSRequest ActivateGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 ActivateGatewayResponse' <$> (x .?> "GatewayARN"))
+                 ActivateGatewayResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders ActivateGateway where
         toHeaders
@@ -168,17 +180,28 @@ instance ToPath ActivateGateway where
 instance ToQuery ActivateGateway where
         toQuery = const mempty
 
--- | /See:/ 'activateGatewayResponse' smart constructor.
+-- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the
+-- activated gateway. It is a string made of information such as your
+-- account, gateway name, and region. This ARN is used to reference the
+-- gateway in other API operations as well as resource-based authorization.
+--
+-- /See:/ 'activateGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'agrGatewayARN'
-newtype ActivateGatewayResponse = ActivateGatewayResponse'{_agrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'agrStatusCode'
+data ActivateGatewayResponse = ActivateGatewayResponse'{_agrGatewayARN :: Maybe Text, _agrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ActivateGatewayResponse' smart constructor.
-activateGatewayResponse :: ActivateGatewayResponse
-activateGatewayResponse = ActivateGatewayResponse'{_agrGatewayARN = Nothing};
+activateGatewayResponse :: Int -> ActivateGatewayResponse
+activateGatewayResponse pStatusCode = ActivateGatewayResponse'{_agrGatewayARN = Nothing, _agrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrGatewayARN = lens _agrGatewayARN (\ s a -> s{_agrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+agrStatusCode :: Lens' ActivateGatewayResponse Int
+agrStatusCode = lens _agrStatusCode (\ s a -> s{_agrStatusCode = a});

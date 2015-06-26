@@ -48,6 +48,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- ** Response lenses
     , dmbrSuccessful
     , dmbrFailed
+    , dmbrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -86,7 +87,8 @@ instance AWSRequest DeleteMessageBatch where
               (\ s h x ->
                  DeleteMessageBatchResponse' <$>
                    (parseXMLList "DeleteMessageBatchResultEntry" x) <*>
-                     (parseXMLList "BatchResultErrorEntry" x))
+                     (parseXMLList "BatchResultErrorEntry" x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
@@ -103,18 +105,24 @@ instance ToQuery DeleteMessageBatch where
                toQueryList "DeleteMessageBatchRequestEntry"
                  _dmbEntries]
 
--- | /See:/ 'deleteMessageBatchResponse' smart constructor.
+-- | For each message in the batch, the response contains a
+-- DeleteMessageBatchResultEntry tag if the message is deleted or a
+-- BatchResultErrorEntry tag if the message cannot be deleted.
+--
+-- /See:/ 'deleteMessageBatchResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmbrSuccessful'
 --
 -- * 'dmbrFailed'
-data DeleteMessageBatchResponse = DeleteMessageBatchResponse'{_dmbrSuccessful :: [DeleteMessageBatchResultEntry], _dmbrFailed :: [BatchResultErrorEntry]} deriving (Eq, Read, Show)
+--
+-- * 'dmbrStatusCode'
+data DeleteMessageBatchResponse = DeleteMessageBatchResponse'{_dmbrSuccessful :: [DeleteMessageBatchResultEntry], _dmbrFailed :: [BatchResultErrorEntry], _dmbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
-deleteMessageBatchResponse :: DeleteMessageBatchResponse
-deleteMessageBatchResponse = DeleteMessageBatchResponse'{_dmbrSuccessful = mempty, _dmbrFailed = mempty};
+deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse
+deleteMessageBatchResponse pStatusCode = DeleteMessageBatchResponse'{_dmbrSuccessful = mempty, _dmbrFailed = mempty, _dmbrStatusCode = pStatusCode};
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
@@ -123,3 +131,7 @@ dmbrSuccessful = lens _dmbrSuccessful (\ s a -> s{_dmbrSuccessful = a});
 -- | A list of BatchResultErrorEntry items.
 dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrFailed = lens _dmbrFailed (\ s a -> s{_dmbrFailed = a});
+
+-- | FIXME: Undocumented member.
+dmbrStatusCode :: Lens' DeleteMessageBatchResponse Int
+dmbrStatusCode = lens _dmbrStatusCode (\ s a -> s{_dmbrStatusCode = a});

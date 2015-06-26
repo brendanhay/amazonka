@@ -42,12 +42,13 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     -- ** Response constructor
     , describeBatchPredictionsResponse
     -- ** Response lenses
-    , dbprResults
-    , dbprNextToken
+    , desResults
+    , desNextToken
+    , desStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -176,10 +177,10 @@ dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
 
 instance AWSPager DescribeBatchPredictions where
         page rq rs
-          | stop (rs ^. dbprNextToken) = Nothing
-          | stop (rs ^. dbprResults) = Nothing
+          | stop (rs ^. desNextToken) = Nothing
+          | stop (rs ^. desResults) = Nothing
           | otherwise =
-            Just $ rq & dbpNextToken .~ rs ^. dbprNextToken
+            Just $ rq & dbpNextToken .~ rs ^. desNextToken
 
 instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning
@@ -190,7 +191,8 @@ instance AWSRequest DescribeBatchPredictions where
           = receiveJSON
               (\ s h x ->
                  DescribeBatchPredictionsResponse' <$>
-                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
@@ -219,24 +221,33 @@ instance ToPath DescribeBatchPredictions where
 instance ToQuery DescribeBatchPredictions where
         toQuery = const mempty
 
--- | /See:/ 'describeBatchPredictionsResponse' smart constructor.
+-- | Represents the output of a DescribeBatchPredictions operation. The
+-- content is essentially a list of @BatchPrediction@s.
+--
+-- /See:/ 'describeBatchPredictionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbprResults'
+-- * 'desResults'
 --
--- * 'dbprNextToken'
-data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults :: Maybe [BatchPrediction], _dbprNextToken :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'desNextToken'
+--
+-- * 'desStatusCode'
+data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_desResults :: Maybe [BatchPrediction], _desNextToken :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
-describeBatchPredictionsResponse :: DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults = Nothing, _dbprNextToken = Nothing};
+describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
+describeBatchPredictionsResponse pStatusCode = DescribeBatchPredictionsResponse'{_desResults = Nothing, _desNextToken = Nothing, _desStatusCode = pStatusCode};
 
 -- | A list of BatchPrediction objects that meet the search criteria.
-dbprResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
-dbprResults = lens _dbprResults (\ s a -> s{_dbprResults = a}) . _Default;
+desResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
+desResults = lens _desResults (\ s a -> s{_desResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-dbprNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
-dbprNextToken = lens _dbprNextToken (\ s a -> s{_dbprNextToken = a});
+desNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeBatchPredictionsResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

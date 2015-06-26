@@ -68,6 +68,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- ** Response lenses
     , gmsrDatapoints
     , gmsrLabel
+    , gmsrStatusCode
     ) where
 
 import Network.AWS.CloudWatch.Types
@@ -154,7 +155,8 @@ instance AWSRequest GetMetricStatistics where
                  GetMetricStatisticsResponse' <$>
                    (x .@? "Datapoints" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "Label"))
+                     <*> (x .@? "Label")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
@@ -175,18 +177,22 @@ instance ToQuery GetMetricStatistics where
                "EndTime" =: _gmsEndTime, "Period" =: _gmsPeriod,
                "Statistics" =: toQueryList "member" _gmsStatistics]
 
--- | /See:/ 'getMetricStatisticsResponse' smart constructor.
+-- | The output for the GetMetricStatistics action.
+--
+-- /See:/ 'getMetricStatisticsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gmsrDatapoints'
 --
 -- * 'gmsrLabel'
-data GetMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints :: Maybe [Datapoint], _gmsrLabel :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gmsrStatusCode'
+data GetMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints :: Maybe [Datapoint], _gmsrLabel :: Maybe Text, _gmsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
-getMetricStatisticsResponse :: GetMetricStatisticsResponse
-getMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints = Nothing, _gmsrLabel = Nothing};
+getMetricStatisticsResponse :: Int -> GetMetricStatisticsResponse
+getMetricStatisticsResponse pStatusCode = GetMetricStatisticsResponse'{_gmsrDatapoints = Nothing, _gmsrLabel = Nothing, _gmsrStatusCode = pStatusCode};
 
 -- | The datapoints for the specified metric.
 gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
@@ -195,3 +201,7 @@ gmsrDatapoints = lens _gmsrDatapoints (\ s a -> s{_gmsrDatapoints = a}) . _Defau
 -- | A label describing the specified metric.
 gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrLabel = lens _gmsrLabel (\ s a -> s{_gmsrLabel = a});
+
+-- | FIXME: Undocumented member.
+gmsrStatusCode :: Lens' GetMetricStatisticsResponse Int
+gmsrStatusCode = lens _gmsrStatusCode (\ s a -> s{_gmsrStatusCode = a});

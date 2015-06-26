@@ -43,6 +43,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- ** Response lenses
     , dmfrNextToken
     , dmfrMetricFilters
+    , dmfrStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -98,7 +99,8 @@ instance AWSRequest DescribeMetricFilters where
               (\ s h x ->
                  DescribeMetricFiltersResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "metricFilters" .!@ mempty))
+                     (x .?> "metricFilters" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMetricFilters where
         toHeaders
@@ -130,11 +132,13 @@ instance ToQuery DescribeMetricFilters where
 -- * 'dmfrNextToken'
 --
 -- * 'dmfrMetricFilters'
-data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'{_dmfrNextToken :: Maybe Text, _dmfrMetricFilters :: Maybe [MetricFilter]} deriving (Eq, Read, Show)
+--
+-- * 'dmfrStatusCode'
+data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'{_dmfrNextToken :: Maybe Text, _dmfrMetricFilters :: Maybe [MetricFilter], _dmfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
-describeMetricFiltersResponse :: DescribeMetricFiltersResponse
-describeMetricFiltersResponse = DescribeMetricFiltersResponse'{_dmfrNextToken = Nothing, _dmfrMetricFilters = Nothing};
+describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
+describeMetricFiltersResponse pStatusCode = DescribeMetricFiltersResponse'{_dmfrNextToken = Nothing, _dmfrMetricFilters = Nothing, _dmfrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
@@ -143,3 +147,7 @@ dmfrNextToken = lens _dmfrNextToken (\ s a -> s{_dmfrNextToken = a});
 -- | FIXME: Undocumented member.
 dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrMetricFilters = lens _dmfrMetricFilters (\ s a -> s{_dmfrMetricFilters = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dmfrStatusCode :: Lens' DescribeMetricFiltersResponse Int
+dmfrStatusCode = lens _dmfrStatusCode (\ s a -> s{_dmfrStatusCode = a});

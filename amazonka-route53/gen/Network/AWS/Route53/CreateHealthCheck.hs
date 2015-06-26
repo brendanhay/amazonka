@@ -40,6 +40,7 @@ module Network.AWS.Route53.CreateHealthCheck
     -- ** Response lenses
     , chcrHealthCheck
     , chcrLocation
+    , chcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +48,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'createHealthCheck' smart constructor.
+-- | >A complex type that contains information about the request to create a
+-- health check.
+--
+-- /See:/ 'createHealthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -85,7 +89,8 @@ instance AWSRequest CreateHealthCheck where
           = receiveXML
               (\ s h x ->
                  CreateHealthCheckResponse' <$>
-                   (x .@ "HealthCheck") <*> (h .# "Location"))
+                   (x .@ "HealthCheck") <*> (h .# "Location") <*>
+                     (pure (fromEnum s)))
 
 instance ToElement CreateHealthCheck where
         toElement
@@ -107,18 +112,23 @@ instance ToXML CreateHealthCheck where
               ["CallerReference" @= _chcCallerReference,
                "HealthCheckConfig" @= _chcHealthCheckConfig]
 
--- | /See:/ 'createHealthCheckResponse' smart constructor.
+-- | A complex type containing the response information for the new health
+-- check.
+--
+-- /See:/ 'createHealthCheckResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chcrHealthCheck'
 --
 -- * 'chcrLocation'
-data CreateHealthCheckResponse = CreateHealthCheckResponse'{_chcrHealthCheck :: HealthCheck, _chcrLocation :: Text} deriving (Eq, Read, Show)
+--
+-- * 'chcrStatusCode'
+data CreateHealthCheckResponse = CreateHealthCheckResponse'{_chcrHealthCheck :: HealthCheck, _chcrLocation :: Text, _chcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
-createHealthCheckResponse :: HealthCheck -> Text -> CreateHealthCheckResponse
-createHealthCheckResponse pHealthCheck pLocation = CreateHealthCheckResponse'{_chcrHealthCheck = pHealthCheck, _chcrLocation = pLocation};
+createHealthCheckResponse :: HealthCheck -> Text -> Int -> CreateHealthCheckResponse
+createHealthCheckResponse pHealthCheck pLocation pStatusCode = CreateHealthCheckResponse'{_chcrHealthCheck = pHealthCheck, _chcrLocation = pLocation, _chcrStatusCode = pStatusCode};
 
 -- | A complex type that contains identifying information about the health
 -- check.
@@ -128,3 +138,7 @@ chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
 -- | The unique URL representing the new health check.
 chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\ s a -> s{_chcrLocation = a});
+
+-- | FIXME: Undocumented member.
+chcrStatusCode :: Lens' CreateHealthCheckResponse Int
+chcrStatusCode = lens _chcrStatusCode (\ s a -> s{_chcrStatusCode = a});

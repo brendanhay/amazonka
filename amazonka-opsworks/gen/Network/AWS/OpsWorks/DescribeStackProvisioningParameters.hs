@@ -39,6 +39,7 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     -- ** Response lenses
     , dspprAgentInstallerURL
     , dspprParameters
+    , dspprStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -73,7 +74,8 @@ instance AWSRequest
               (\ s h x ->
                  DescribeStackProvisioningParametersResponse' <$>
                    (x .?> "AgentInstallerUrl") <*>
-                     (x .?> "Parameters" .!@ mempty))
+                     (x .?> "Parameters" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeStackProvisioningParameters where
@@ -99,18 +101,23 @@ instance ToQuery DescribeStackProvisioningParameters
          where
         toQuery = const mempty
 
--- | /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
+-- | Contains the response to a @DescribeStackProvisioningParameters@
+-- request.
+--
+-- /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dspprAgentInstallerURL'
 --
 -- * 'dspprParameters'
-data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+--
+-- * 'dspprStatusCode'
+data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: Maybe (Map Text Text), _dspprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
-describeStackProvisioningParametersResponse :: DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL = Nothing, _dspprParameters = Nothing};
+describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
+describeStackProvisioningParametersResponse pStatusCode = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL = Nothing, _dspprParameters = Nothing, _dspprStatusCode = pStatusCode};
 
 -- | The AWS OpsWorks agent installer\'s URL.
 dspprAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
@@ -119,3 +126,7 @@ dspprAgentInstallerURL = lens _dspprAgentInstallerURL (\ s a -> s{_dspprAgentIns
 -- | An embedded object that contains the provisioning parameters.
 dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
 dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+dspprStatusCode :: Lens' DescribeStackProvisioningParametersResponse Int
+dspprStatusCode = lens _dspprStatusCode (\ s a -> s{_dspprStatusCode = a});

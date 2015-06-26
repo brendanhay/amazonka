@@ -41,7 +41,8 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- ** Response constructor
     , deleteReplicationGroupResponse
     -- ** Response lenses
-    , drgrReplicationGroup
+    , delReplicationGroup
+    , delStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -49,7 +50,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteReplicationGroup' smart constructor.
+-- | Represents the input of a /DeleteReplicationGroup/ action.
+--
+-- /See:/ 'deleteReplicationGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +93,7 @@ instance AWSRequest DeleteReplicationGroup where
           = receiveXMLWrapper "DeleteReplicationGroupResult"
               (\ s h x ->
                  DeleteReplicationGroupResponse' <$>
-                   (x .@? "ReplicationGroup"))
+                   (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
@@ -113,13 +116,19 @@ instance ToQuery DeleteReplicationGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgrReplicationGroup'
-newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'{_drgrReplicationGroup :: Maybe ReplicationGroup} deriving (Eq, Read, Show)
+-- * 'delReplicationGroup'
+--
+-- * 'delStatusCode'
+data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'{_delReplicationGroup :: Maybe ReplicationGroup, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
-deleteReplicationGroupResponse :: DeleteReplicationGroupResponse
-deleteReplicationGroupResponse = DeleteReplicationGroupResponse'{_drgrReplicationGroup = Nothing};
+deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
+deleteReplicationGroupResponse pStatusCode = DeleteReplicationGroupResponse'{_delReplicationGroup = Nothing, _delStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-drgrReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
-drgrReplicationGroup = lens _drgrReplicationGroup (\ s a -> s{_drgrReplicationGroup = a});
+delReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
+delReplicationGroup = lens _delReplicationGroup (\ s a -> s{_delReplicationGroup = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteReplicationGroupResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

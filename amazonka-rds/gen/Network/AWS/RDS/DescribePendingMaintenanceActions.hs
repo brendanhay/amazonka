@@ -37,6 +37,7 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- ** Response lenses
     , dpmarPendingMaintenanceActions
     , dpmarMarker
+    , dpmarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -44,7 +45,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describePendingMaintenanceActions' smart constructor.
+-- |
+--
+-- /See:/ 'describePendingMaintenanceActions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,7 +112,8 @@ instance AWSRequest DescribePendingMaintenanceActions
                    (x .@? "PendingMaintenanceActions" .!@ mempty >>=
                       may
                         (parseXMLList "ResourcePendingMaintenanceActions"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribePendingMaintenanceActions
          where
@@ -132,18 +136,22 @@ instance ToQuery DescribePendingMaintenanceActions
                "Marker" =: _dpmaMarker,
                "ResourceIdentifier" =: _dpmaResourceIdentifier]
 
--- | /See:/ 'describePendingMaintenanceActionsResponse' smart constructor.
+-- | Data returned from the __DescribePendingMaintenanceActions__ action.
+--
+-- /See:/ 'describePendingMaintenanceActionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpmarPendingMaintenanceActions'
 --
 -- * 'dpmarMarker'
-data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions], _dpmarMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dpmarStatusCode'
+data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions], _dpmarMarker :: Maybe Text, _dpmarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
-describePendingMaintenanceActionsResponse :: DescribePendingMaintenanceActionsResponse
-describePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions = Nothing, _dpmarMarker = Nothing};
+describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse
+describePendingMaintenanceActionsResponse pStatusCode = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions = Nothing, _dpmarMarker = Nothing, _dpmarStatusCode = pStatusCode};
 
 -- | A list of the pending maintenance actions for the resource.
 dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
@@ -155,3 +163,7 @@ dpmarPendingMaintenanceActions = lens _dpmarPendingMaintenanceActions (\ s a -> 
 -- number of records specified by @MaxRecords@.
 dpmarMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarMarker = lens _dpmarMarker (\ s a -> s{_dpmarMarker = a});
+
+-- | FIXME: Undocumented member.
+dpmarStatusCode :: Lens' DescribePendingMaintenanceActionsResponse Int
+dpmarStatusCode = lens _dpmarStatusCode (\ s a -> s{_dpmarStatusCode = a});

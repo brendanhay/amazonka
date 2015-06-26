@@ -55,6 +55,7 @@ module Network.AWS.OpsWorks.CreateStack
     , createStackResponse
     -- ** Response lenses
     , creStackId
+    , creStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -303,7 +304,8 @@ instance AWSRequest CreateStack where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateStackResponse' <$> (x .?> "StackId"))
+                 CreateStackResponse' <$>
+                   (x .?> "StackId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateStack where
         toHeaders
@@ -344,18 +346,26 @@ instance ToPath CreateStack where
 instance ToQuery CreateStack where
         toQuery = const mempty
 
--- | /See:/ 'createStackResponse' smart constructor.
+-- | Contains the response to a @CreateStack@ request.
+--
+-- /See:/ 'createStackResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'creStackId'
-newtype CreateStackResponse = CreateStackResponse'{_creStackId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'creStatusCode'
+data CreateStackResponse = CreateStackResponse'{_creStackId :: Maybe Text, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateStackResponse' smart constructor.
-createStackResponse :: CreateStackResponse
-createStackResponse = CreateStackResponse'{_creStackId = Nothing};
+createStackResponse :: Int -> CreateStackResponse
+createStackResponse pStatusCode = CreateStackResponse'{_creStackId = Nothing, _creStatusCode = pStatusCode};
 
 -- | The stack ID, which is an opaque string that you use to identify the
 -- stack when performing actions such as @DescribeStacks@.
 creStackId :: Lens' CreateStackResponse (Maybe Text)
 creStackId = lens _creStackId (\ s a -> s{_creStackId = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateStackResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

@@ -33,6 +33,7 @@ module Network.AWS.SSM.GetDocument
     -- ** Response lenses
     , gdrContent
     , gdrName
+    , gdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -63,7 +64,8 @@ instance AWSRequest GetDocument where
           = receiveJSON
               (\ s h x ->
                  GetDocumentResponse' <$>
-                   (x .?> "Content") <*> (x .?> "Name"))
+                   (x .?> "Content") <*> (x .?> "Name") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDocument where
         toHeaders
@@ -90,11 +92,13 @@ instance ToQuery GetDocument where
 -- * 'gdrContent'
 --
 -- * 'gdrName'
-data GetDocumentResponse = GetDocumentResponse'{_gdrContent :: Maybe Text, _gdrName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gdrStatusCode'
+data GetDocumentResponse = GetDocumentResponse'{_gdrContent :: Maybe Text, _gdrName :: Maybe Text, _gdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDocumentResponse' smart constructor.
-getDocumentResponse :: GetDocumentResponse
-getDocumentResponse = GetDocumentResponse'{_gdrContent = Nothing, _gdrName = Nothing};
+getDocumentResponse :: Int -> GetDocumentResponse
+getDocumentResponse pStatusCode = GetDocumentResponse'{_gdrContent = Nothing, _gdrName = Nothing, _gdrStatusCode = pStatusCode};
 
 -- | The contents of the configuration document.
 gdrContent :: Lens' GetDocumentResponse (Maybe Text)
@@ -103,3 +107,7 @@ gdrContent = lens _gdrContent (\ s a -> s{_gdrContent = a});
 -- | The name of the configuration document.
 gdrName :: Lens' GetDocumentResponse (Maybe Text)
 gdrName = lens _gdrName (\ s a -> s{_gdrName = a});
+
+-- | FIXME: Undocumented member.
+gdrStatusCode :: Lens' GetDocumentResponse Int
+gdrStatusCode = lens _gdrStatusCode (\ s a -> s{_gdrStatusCode = a});

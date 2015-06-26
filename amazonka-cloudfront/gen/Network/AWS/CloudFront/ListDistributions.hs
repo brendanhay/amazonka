@@ -33,15 +33,18 @@ module Network.AWS.CloudFront.ListDistributions
     , listDistributionsResponse
     -- ** Response lenses
     , ldrDistributionList
+    , ldrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listDistributions' smart constructor.
+-- | The request to list your distributions.
+--
+-- /See:/ 'listDistributions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +89,7 @@ instance AWSRequest ListDistributions where
           = receiveXML
               (\ s h x ->
                  ListDistributionsResponse' <$>
-                   (x .@ "DistributionList"))
+                   (x .@ "DistributionList") <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
@@ -99,17 +102,25 @@ instance ToQuery ListDistributions where
           = mconcat
               ["MaxItems" =: _ldMaxItems, "Marker" =: _ldMarker]
 
--- | /See:/ 'listDistributionsResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'listDistributionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldrDistributionList'
-newtype ListDistributionsResponse = ListDistributionsResponse'{_ldrDistributionList :: DistributionList} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDistributionsResponse = ListDistributionsResponse'{_ldrDistributionList :: DistributionList, _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDistributionsResponse' smart constructor.
-listDistributionsResponse :: DistributionList -> ListDistributionsResponse
-listDistributionsResponse pDistributionList = ListDistributionsResponse'{_ldrDistributionList = pDistributionList};
+listDistributionsResponse :: DistributionList -> Int -> ListDistributionsResponse
+listDistributionsResponse pDistributionList pStatusCode = ListDistributionsResponse'{_ldrDistributionList = pDistributionList, _ldrStatusCode = pStatusCode};
 
 -- | The DistributionList type.
 ldrDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrDistributionList = lens _ldrDistributionList (\ s a -> s{_ldrDistributionList = a});
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDistributionsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

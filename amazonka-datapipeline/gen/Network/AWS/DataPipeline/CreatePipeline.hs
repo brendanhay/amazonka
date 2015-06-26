@@ -36,6 +36,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     , createPipelineResponse
     -- ** Response lenses
     , cprPipelineId
+    , cprStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createPipeline' smart constructor.
+-- | Contains the parameters for CreatePipeline.
+--
+-- /See:/ 'createPipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +102,8 @@ instance AWSRequest CreatePipeline where
         response
           = receiveJSON
               (\ s h x ->
-                 CreatePipelineResponse' <$> (x .:> "pipelineId"))
+                 CreatePipelineResponse' <$>
+                   (x .:> "pipelineId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -122,18 +126,26 @@ instance ToPath CreatePipeline where
 instance ToQuery CreatePipeline where
         toQuery = const mempty
 
--- | /See:/ 'createPipelineResponse' smart constructor.
+-- | Contains the output of CreatePipeline.
+--
+-- /See:/ 'createPipelineResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cprPipelineId'
-newtype CreatePipelineResponse = CreatePipelineResponse'{_cprPipelineId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cprStatusCode'
+data CreatePipelineResponse = CreatePipelineResponse'{_cprPipelineId :: Text, _cprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Text -> CreatePipelineResponse
-createPipelineResponse pPipelineId = CreatePipelineResponse'{_cprPipelineId = pPipelineId};
+createPipelineResponse :: Text -> Int -> CreatePipelineResponse
+createPipelineResponse pPipelineId pStatusCode = CreatePipelineResponse'{_cprPipelineId = pPipelineId, _cprStatusCode = pStatusCode};
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 -- example, @df-06372391ZG65EXAMPLE@.
 cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\ s a -> s{_cprPipelineId = a});
+
+-- | FIXME: Undocumented member.
+cprStatusCode :: Lens' CreatePipelineResponse Int
+cprStatusCode = lens _cprStatusCode (\ s a -> s{_cprStatusCode = a});

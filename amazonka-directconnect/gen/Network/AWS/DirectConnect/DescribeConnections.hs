@@ -42,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeConnections' smart constructor.
+-- | Container for the parameters to the DescribeConnections operation.
+--
+-- /See:/ 'describeConnections' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

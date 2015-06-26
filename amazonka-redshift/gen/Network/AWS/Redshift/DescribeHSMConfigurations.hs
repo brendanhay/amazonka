@@ -49,15 +49,18 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     -- ** Response lenses
     , dhcrMarker
     , dhcrHSMConfigurations
+    , dhcrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeHSMConfigurations' smart constructor.
+-- |
+--
+-- /See:/ 'describeHSMConfigurations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -141,7 +144,8 @@ instance AWSRequest DescribeHSMConfigurations where
                  DescribeHSMConfigurationsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "HsmConfigurations" .!@ mempty >>=
-                        may (parseXMLList "HsmConfiguration")))
+                        may (parseXMLList "HsmConfiguration"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
@@ -164,18 +168,22 @@ instance ToQuery DescribeHSMConfigurations where
                "MaxRecords" =: _dhsmcMaxRecords,
                "Marker" =: _dhsmcMarker]
 
--- | /See:/ 'describeHSMConfigurationsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeHSMConfigurationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhcrMarker'
 --
 -- * 'dhcrHSMConfigurations'
-data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker :: Maybe Text, _dhcrHSMConfigurations :: Maybe [HSMConfiguration]} deriving (Eq, Read, Show)
+--
+-- * 'dhcrStatusCode'
+data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker :: Maybe Text, _dhcrHSMConfigurations :: Maybe [HSMConfiguration], _dhcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
-describeHSMConfigurationsResponse :: DescribeHSMConfigurationsResponse
-describeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker = Nothing, _dhcrHSMConfigurations = Nothing};
+describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
+describeHSMConfigurationsResponse pStatusCode = DescribeHSMConfigurationsResponse'{_dhcrMarker = Nothing, _dhcrHSMConfigurations = Nothing, _dhcrStatusCode = pStatusCode};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -189,3 +197,7 @@ dhcrMarker = lens _dhcrMarker (\ s a -> s{_dhcrMarker = a});
 -- | A list of Amazon Redshift HSM configurations.
 dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
 dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dhcrStatusCode :: Lens' DescribeHSMConfigurationsResponse Int
+dhcrStatusCode = lens _dhcrStatusCode (\ s a -> s{_dhcrStatusCode = a});

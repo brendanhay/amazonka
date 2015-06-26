@@ -38,6 +38,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , configureHealthCheckResponse
     -- ** Response lenses
     , chcrHealthCheck
+    , chcrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -75,7 +76,7 @@ instance AWSRequest ConfigureHealthCheck where
           = receiveXMLWrapper "ConfigureHealthCheckResult"
               (\ s h x ->
                  ConfigureHealthCheckResponse' <$>
-                   (x .@? "HealthCheck"))
+                   (x .@? "HealthCheck") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConfigureHealthCheck where
         toHeaders = const mempty
@@ -96,12 +97,18 @@ instance ToQuery ConfigureHealthCheck where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chcrHealthCheck'
-newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'{_chcrHealthCheck :: Maybe HealthCheck} deriving (Eq, Read, Show)
+--
+-- * 'chcrStatusCode'
+data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'{_chcrHealthCheck :: Maybe HealthCheck, _chcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
-configureHealthCheckResponse :: ConfigureHealthCheckResponse
-configureHealthCheckResponse = ConfigureHealthCheckResponse'{_chcrHealthCheck = Nothing};
+configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
+configureHealthCheckResponse pStatusCode = ConfigureHealthCheckResponse'{_chcrHealthCheck = Nothing, _chcrStatusCode = pStatusCode};
 
 -- | The updated health check.
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
+
+-- | FIXME: Undocumented member.
+chcrStatusCode :: Lens' ConfigureHealthCheckResponse Int
+chcrStatusCode = lens _chcrStatusCode (\ s a -> s{_chcrStatusCode = a});

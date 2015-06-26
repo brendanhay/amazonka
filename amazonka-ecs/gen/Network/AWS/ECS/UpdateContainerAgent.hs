@@ -34,6 +34,7 @@ module Network.AWS.ECS.UpdateContainerAgent
     , updateContainerAgentResponse
     -- ** Response lenses
     , ucarContainerInstance
+    , ucarStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -75,7 +76,7 @@ instance AWSRequest UpdateContainerAgent where
           = receiveJSON
               (\ s h x ->
                  UpdateContainerAgentResponse' <$>
-                   (x .?> "containerInstance"))
+                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateContainerAgent where
         toHeaders
@@ -104,12 +105,18 @@ instance ToQuery UpdateContainerAgent where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ucarContainerInstance'
-newtype UpdateContainerAgentResponse = UpdateContainerAgentResponse'{_ucarContainerInstance :: Maybe ContainerInstance} deriving (Eq, Read, Show)
+--
+-- * 'ucarStatusCode'
+data UpdateContainerAgentResponse = UpdateContainerAgentResponse'{_ucarContainerInstance :: Maybe ContainerInstance, _ucarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
-updateContainerAgentResponse :: UpdateContainerAgentResponse
-updateContainerAgentResponse = UpdateContainerAgentResponse'{_ucarContainerInstance = Nothing};
+updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
+updateContainerAgentResponse pStatusCode = UpdateContainerAgentResponse'{_ucarContainerInstance = Nothing, _ucarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ucarContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarContainerInstance = lens _ucarContainerInstance (\ s a -> s{_ucarContainerInstance = a});
+
+-- | FIXME: Undocumented member.
+ucarStatusCode :: Lens' UpdateContainerAgentResponse Int
+ucarStatusCode = lens _ucarStatusCode (\ s a -> s{_ucarStatusCode = a});

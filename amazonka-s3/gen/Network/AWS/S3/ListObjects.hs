@@ -48,9 +48,10 @@ module Network.AWS.S3.ListObjects
     , lorMaxKeys
     , lorIsTruncated
     , lorDelimiter
+    , lorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -134,7 +135,8 @@ instance AWSRequest ListObjects where
                      <*> (x .@? "NextMarker")
                      <*> (x .@? "MaxKeys")
                      <*> (x .@? "IsTruncated")
-                     <*> (x .@? "Delimiter"))
+                     <*> (x .@? "Delimiter")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListObjects where
         toHeaders = const mempty
@@ -174,11 +176,13 @@ instance ToQuery ListObjects where
 -- * 'lorIsTruncated'
 --
 -- * 'lorDelimiter'
-data ListObjectsResponse = ListObjectsResponse'{_lorContents :: Maybe [Object], _lorPrefix :: Maybe Text, _lorEncodingType :: Maybe EncodingType, _lorCommonPrefixes :: Maybe [CommonPrefix], _lorName :: Maybe BucketName, _lorMarker :: Maybe Text, _lorNextMarker :: Maybe Text, _lorMaxKeys :: Maybe Int, _lorIsTruncated :: Maybe Bool, _lorDelimiter :: Maybe Char} deriving (Eq, Read, Show)
+--
+-- * 'lorStatusCode'
+data ListObjectsResponse = ListObjectsResponse'{_lorContents :: Maybe [Object], _lorPrefix :: Maybe Text, _lorEncodingType :: Maybe EncodingType, _lorCommonPrefixes :: Maybe [CommonPrefix], _lorName :: Maybe BucketName, _lorMarker :: Maybe Text, _lorNextMarker :: Maybe Text, _lorMaxKeys :: Maybe Int, _lorIsTruncated :: Maybe Bool, _lorDelimiter :: Maybe Char, _lorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListObjectsResponse' smart constructor.
-listObjectsResponse :: ListObjectsResponse
-listObjectsResponse = ListObjectsResponse'{_lorContents = Nothing, _lorPrefix = Nothing, _lorEncodingType = Nothing, _lorCommonPrefixes = Nothing, _lorName = Nothing, _lorMarker = Nothing, _lorNextMarker = Nothing, _lorMaxKeys = Nothing, _lorIsTruncated = Nothing, _lorDelimiter = Nothing};
+listObjectsResponse :: Int -> ListObjectsResponse
+listObjectsResponse pStatusCode = ListObjectsResponse'{_lorContents = Nothing, _lorPrefix = Nothing, _lorEncodingType = Nothing, _lorCommonPrefixes = Nothing, _lorName = Nothing, _lorMarker = Nothing, _lorNextMarker = Nothing, _lorMaxKeys = Nothing, _lorIsTruncated = Nothing, _lorDelimiter = Nothing, _lorStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 lorContents :: Lens' ListObjectsResponse [Object]
@@ -227,3 +231,7 @@ lorIsTruncated = lens _lorIsTruncated (\ s a -> s{_lorIsTruncated = a});
 -- | FIXME: Undocumented member.
 lorDelimiter :: Lens' ListObjectsResponse (Maybe Char)
 lorDelimiter = lens _lorDelimiter (\ s a -> s{_lorDelimiter = a});
+
+-- | FIXME: Undocumented member.
+lorStatusCode :: Lens' ListObjectsResponse Int
+lorStatusCode = lens _lorStatusCode (\ s a -> s{_lorStatusCode = a});

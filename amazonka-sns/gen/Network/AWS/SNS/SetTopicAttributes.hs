@@ -39,7 +39,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'setTopicAttributes' smart constructor.
+-- | Input for SetTopicAttributes action.
+--
+-- /See:/ 'setTopicAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

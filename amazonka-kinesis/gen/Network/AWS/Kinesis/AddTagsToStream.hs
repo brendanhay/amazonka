@@ -42,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addTagsToStream' smart constructor.
+-- | Represents the input for @AddTagsToStream@.
+--
+-- /See:/ 'addTagsToStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

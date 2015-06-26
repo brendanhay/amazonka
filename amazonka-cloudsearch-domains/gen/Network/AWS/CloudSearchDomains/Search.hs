@@ -70,6 +70,7 @@ module Network.AWS.CloudSearchDomains.Search
     , seaStatus
     , seaFacets
     , seaHits
+    , seaStatusCode
     ) where
 
 import Network.AWS.CloudSearchDomains.Types
@@ -77,7 +78,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'search' smart constructor.
+-- | Container for the parameters to the @Search@ request.
+--
+-- /See:/ 'search' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -457,7 +460,8 @@ instance AWSRequest Search where
               (\ s h x ->
                  SearchResponse' <$>
                    (x .?> "status") <*> (x .?> "facets" .!@ mempty) <*>
-                     (x .?> "hits"))
+                     (x .?> "hits")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Search where
         toHeaders
@@ -481,7 +485,11 @@ instance ToQuery Search where
                "partial" =: _seaPartial, "q" =: _seaQuery,
                "format=sdk&pretty=true"]
 
--- | /See:/ 'searchResponse' smart constructor.
+-- | The result of a @Search@ request. Contains the documents that match the
+-- specified search criteria and any requested fields, highlights, and
+-- facet information.
+--
+-- /See:/ 'searchResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -490,11 +498,13 @@ instance ToQuery Search where
 -- * 'seaFacets'
 --
 -- * 'seaHits'
-data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: Maybe (Map Text BucketInfo), _seaHits :: Maybe Hits} deriving (Eq, Read, Show)
+--
+-- * 'seaStatusCode'
+data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: Maybe (Map Text BucketInfo), _seaHits :: Maybe Hits, _seaStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SearchResponse' smart constructor.
-searchResponse :: SearchResponse
-searchResponse = SearchResponse'{_seaStatus = Nothing, _seaFacets = Nothing, _seaHits = Nothing};
+searchResponse :: Int -> SearchResponse
+searchResponse pStatusCode = SearchResponse'{_seaStatus = Nothing, _seaFacets = Nothing, _seaHits = Nothing, _seaStatusCode = pStatusCode};
 
 -- | The status information returned for the search request.
 seaStatus :: Lens' SearchResponse (Maybe SearchStatus)
@@ -507,3 +517,7 @@ seaFacets = lens _seaFacets (\ s a -> s{_seaFacets = a}) . _Default . _Map;
 -- | The documents that match the search criteria.
 seaHits :: Lens' SearchResponse (Maybe Hits)
 seaHits = lens _seaHits (\ s a -> s{_seaHits = a});
+
+-- | FIXME: Undocumented member.
+seaStatusCode :: Lens' SearchResponse Int
+seaStatusCode = lens _seaStatusCode (\ s a -> s{_seaStatusCode = a});

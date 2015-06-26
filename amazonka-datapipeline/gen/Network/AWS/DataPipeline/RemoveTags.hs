@@ -31,6 +31,8 @@ module Network.AWS.DataPipeline.RemoveTags
     , RemoveTagsResponse
     -- ** Response constructor
     , removeTagsResponse
+    -- ** Response lenses
+    , rtrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -38,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'removeTags' smart constructor.
+-- | Contains the parameters for RemoveTags.
+--
+-- /See:/ 'removeTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +67,10 @@ instance AWSRequest RemoveTags where
         type Sv RemoveTags = DataPipeline
         type Rs RemoveTags = RemoveTagsResponse
         request = postJSON
-        response = receiveNull RemoveTagsResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RemoveTagsResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders RemoveTags where
         toHeaders
@@ -86,9 +93,19 @@ instance ToPath RemoveTags where
 instance ToQuery RemoveTags where
         toQuery = const mempty
 
--- | /See:/ 'removeTagsResponse' smart constructor.
-data RemoveTagsResponse = RemoveTagsResponse' deriving (Eq, Read, Show)
+-- | Contains the output of RemoveTags.
+--
+-- /See:/ 'removeTagsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rtrStatusCode'
+newtype RemoveTagsResponse = RemoveTagsResponse'{_rtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
-removeTagsResponse :: RemoveTagsResponse
-removeTagsResponse = RemoveTagsResponse';
+removeTagsResponse :: Int -> RemoveTagsResponse
+removeTagsResponse pStatusCode = RemoveTagsResponse'{_rtrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+rtrStatusCode :: Lens' RemoveTagsResponse Int
+rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});

@@ -36,6 +36,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , vtrCapabilitiesReason
     , vtrCapabilities
     , vtrDescription
+    , vtrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'validateTemplate' smart constructor.
+-- | The input for ValidateTemplate action.
+--
+-- /See:/ 'validateTemplate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,7 +94,8 @@ instance AWSRequest ValidateTemplate where
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (x .@? "Description"))
+                     <*> (x .@? "Description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
@@ -107,7 +111,9 @@ instance ToQuery ValidateTemplate where
                "TemplateBody" =: _vtTemplateBody,
                "TemplateURL" =: _vtTemplateURL]
 
--- | /See:/ 'validateTemplateResponse' smart constructor.
+-- | The output for ValidateTemplate action.
+--
+-- /See:/ 'validateTemplateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -118,11 +124,13 @@ instance ToQuery ValidateTemplate where
 -- * 'vtrCapabilities'
 --
 -- * 'vtrDescription'
-data ValidateTemplateResponse = ValidateTemplateResponse'{_vtrParameters :: Maybe [TemplateParameter], _vtrCapabilitiesReason :: Maybe Text, _vtrCapabilities :: Maybe [Capability], _vtrDescription :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'vtrStatusCode'
+data ValidateTemplateResponse = ValidateTemplateResponse'{_vtrParameters :: Maybe [TemplateParameter], _vtrCapabilitiesReason :: Maybe Text, _vtrCapabilities :: Maybe [Capability], _vtrDescription :: Maybe Text, _vtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ValidateTemplateResponse' smart constructor.
-validateTemplateResponse :: ValidateTemplateResponse
-validateTemplateResponse = ValidateTemplateResponse'{_vtrParameters = Nothing, _vtrCapabilitiesReason = Nothing, _vtrCapabilities = Nothing, _vtrDescription = Nothing};
+validateTemplateResponse :: Int -> ValidateTemplateResponse
+validateTemplateResponse pStatusCode = ValidateTemplateResponse'{_vtrParameters = Nothing, _vtrCapabilitiesReason = Nothing, _vtrCapabilities = Nothing, _vtrDescription = Nothing, _vtrStatusCode = pStatusCode};
 
 -- | A list of @TemplateParameter@ structures.
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
@@ -145,3 +153,7 @@ vtrCapabilities = lens _vtrCapabilities (\ s a -> s{_vtrCapabilities = a}) . _De
 -- | The description found within the template.
 vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrDescription = lens _vtrDescription (\ s a -> s{_vtrDescription = a});
+
+-- | FIXME: Undocumented member.
+vtrStatusCode :: Lens' ValidateTemplateResponse Int
+vtrStatusCode = lens _vtrStatusCode (\ s a -> s{_vtrStatusCode = a});

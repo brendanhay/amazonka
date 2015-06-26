@@ -43,15 +43,18 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- ** Response lenses
     , lebparNextToken
     , lebparEndpoints
+    , lebparStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'listEndpointsByPlatformApplication' smart constructor.
+-- | Input for ListEndpointsByPlatformApplication action.
+--
+-- /See:/ 'listEndpointsByPlatformApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,7 +99,8 @@ instance AWSRequest
                  ListEndpointsByPlatformApplicationResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Endpoints" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListEndpointsByPlatformApplication
          where
@@ -117,18 +121,22 @@ instance ToQuery ListEndpointsByPlatformApplication
                "PlatformApplicationArn" =:
                  _lebpaPlatformApplicationARN]
 
--- | /See:/ 'listEndpointsByPlatformApplicationResponse' smart constructor.
+-- | Response for ListEndpointsByPlatformApplication action.
+--
+-- /See:/ 'listEndpointsByPlatformApplicationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lebparNextToken'
 --
 -- * 'lebparEndpoints'
-data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken :: Maybe Text, _lebparEndpoints :: Maybe [Endpoint]} deriving (Eq, Read, Show)
+--
+-- * 'lebparStatusCode'
+data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken :: Maybe Text, _lebparEndpoints :: Maybe [Endpoint], _lebparStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
-listEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
-listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken = Nothing, _lebparEndpoints = Nothing};
+listEndpointsByPlatformApplicationResponse :: Int -> ListEndpointsByPlatformApplicationResponse
+listEndpointsByPlatformApplicationResponse pStatusCode = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken = Nothing, _lebparEndpoints = Nothing, _lebparStatusCode = pStatusCode};
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
@@ -139,3 +147,7 @@ lebparNextToken = lens _lebparNextToken (\ s a -> s{_lebparNextToken = a});
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparEndpoints = lens _lebparEndpoints (\ s a -> s{_lebparEndpoints = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lebparStatusCode :: Lens' ListEndpointsByPlatformApplicationResponse Int
+lebparStatusCode = lens _lebparStatusCode (\ s a -> s{_lebparStatusCode = a});

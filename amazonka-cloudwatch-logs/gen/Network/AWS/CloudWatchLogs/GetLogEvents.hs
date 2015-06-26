@@ -49,6 +49,7 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , glerNextBackwardToken
     , glerNextForwardToken
     , glerEvents
+    , glerStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -123,7 +124,8 @@ instance AWSRequest GetLogEvents where
                  GetLogEventsResponse' <$>
                    (x .?> "nextBackwardToken") <*>
                      (x .?> "nextForwardToken")
-                     <*> (x .?> "events" .!@ mempty))
+                     <*> (x .?> "events" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetLogEvents where
         toHeaders
@@ -159,11 +161,13 @@ instance ToQuery GetLogEvents where
 -- * 'glerNextForwardToken'
 --
 -- * 'glerEvents'
-data GetLogEventsResponse = GetLogEventsResponse'{_glerNextBackwardToken :: Maybe Text, _glerNextForwardToken :: Maybe Text, _glerEvents :: Maybe [OutputLogEvent]} deriving (Eq, Read, Show)
+--
+-- * 'glerStatusCode'
+data GetLogEventsResponse = GetLogEventsResponse'{_glerNextBackwardToken :: Maybe Text, _glerNextForwardToken :: Maybe Text, _glerEvents :: Maybe [OutputLogEvent], _glerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetLogEventsResponse' smart constructor.
-getLogEventsResponse :: GetLogEventsResponse
-getLogEventsResponse = GetLogEventsResponse'{_glerNextBackwardToken = Nothing, _glerNextForwardToken = Nothing, _glerEvents = Nothing};
+getLogEventsResponse :: Int -> GetLogEventsResponse
+getLogEventsResponse pStatusCode = GetLogEventsResponse'{_glerNextBackwardToken = Nothing, _glerNextForwardToken = Nothing, _glerEvents = Nothing, _glerStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 glerNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
@@ -176,3 +180,7 @@ glerNextForwardToken = lens _glerNextForwardToken (\ s a -> s{_glerNextForwardTo
 -- | FIXME: Undocumented member.
 glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glerEvents = lens _glerEvents (\ s a -> s{_glerEvents = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+glerStatusCode :: Lens' GetLogEventsResponse Int
+glerStatusCode = lens _glerStatusCode (\ s a -> s{_glerStatusCode = a});

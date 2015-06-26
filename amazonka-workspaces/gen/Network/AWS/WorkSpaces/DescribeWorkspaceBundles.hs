@@ -44,6 +44,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     -- ** Response lenses
     , dwbrBundles
     , dwbrNextToken
+    , dwbrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -51,7 +52,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspaceBundles' smart constructor.
+-- | Contains the inputs for the DescribeWorkspaceBundles operation.
+--
+-- /See:/ 'describeWorkspaceBundles' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,7 +100,8 @@ instance AWSRequest DescribeWorkspaceBundles where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkspaceBundlesResponse' <$>
-                   (x .?> "Bundles" .!@ mempty) <*> (x .?> "NextToken"))
+                   (x .?> "Bundles" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
@@ -121,18 +125,22 @@ instance ToPath DescribeWorkspaceBundles where
 instance ToQuery DescribeWorkspaceBundles where
         toQuery = const mempty
 
--- | /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
+-- | Contains the results of the DescribeWorkspaceBundles operation.
+--
+-- /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dwbrBundles'
 --
 -- * 'dwbrNextToken'
-data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles :: Maybe [WorkspaceBundle], _dwbrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dwbrStatusCode'
+data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles :: Maybe [WorkspaceBundle], _dwbrNextToken :: Maybe Text, _dwbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
-describeWorkspaceBundlesResponse :: DescribeWorkspaceBundlesResponse
-describeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles = Nothing, _dwbrNextToken = Nothing};
+describeWorkspaceBundlesResponse :: Int -> DescribeWorkspaceBundlesResponse
+describeWorkspaceBundlesResponse pStatusCode = DescribeWorkspaceBundlesResponse'{_dwbrBundles = Nothing, _dwbrNextToken = Nothing, _dwbrStatusCode = pStatusCode};
 
 -- | An array of structures that contain information about the bundles.
 dwbrBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
@@ -144,3 +152,7 @@ dwbrBundles = lens _dwbrBundles (\ s a -> s{_dwbrBundles = a}) . _Default;
 -- within that timeframe.
 dwbrNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrNextToken = lens _dwbrNextToken (\ s a -> s{_dwbrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dwbrStatusCode :: Lens' DescribeWorkspaceBundlesResponse Int
+dwbrStatusCode = lens _dwbrStatusCode (\ s a -> s{_dwbrStatusCode = a});

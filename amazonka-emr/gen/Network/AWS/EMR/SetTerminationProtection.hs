@@ -57,7 +57,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setTerminationProtection' smart constructor.
+-- | The input argument to the TerminationProtection operation.
+--
+-- /See:/ 'setTerminationProtection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

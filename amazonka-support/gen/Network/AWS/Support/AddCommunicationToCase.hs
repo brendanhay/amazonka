@@ -44,6 +44,7 @@ module Network.AWS.Support.AddCommunicationToCase
     , addCommunicationToCaseResponse
     -- ** Response lenses
     , actcrResult
+    , actcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -51,7 +52,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Support.Types
 
--- | /See:/ 'addCommunicationToCase' smart constructor.
+-- | To be written.
+--
+-- /See:/ 'addCommunicationToCase' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,7 +99,8 @@ instance AWSRequest AddCommunicationToCase where
         response
           = receiveJSON
               (\ s h x ->
-                 AddCommunicationToCaseResponse' <$> (x .?> "result"))
+                 AddCommunicationToCaseResponse' <$>
+                   (x .?> "result") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddCommunicationToCase where
         toHeaders
@@ -122,17 +126,25 @@ instance ToPath AddCommunicationToCase where
 instance ToQuery AddCommunicationToCase where
         toQuery = const mempty
 
--- | /See:/ 'addCommunicationToCaseResponse' smart constructor.
+-- | The result of the AddCommunicationToCase operation.
+--
+-- /See:/ 'addCommunicationToCaseResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'actcrResult'
-newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'{_actcrResult :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'actcrStatusCode'
+data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'{_actcrResult :: Maybe Bool, _actcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
-addCommunicationToCaseResponse :: AddCommunicationToCaseResponse
-addCommunicationToCaseResponse = AddCommunicationToCaseResponse'{_actcrResult = Nothing};
+addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse
+addCommunicationToCaseResponse pStatusCode = AddCommunicationToCaseResponse'{_actcrResult = Nothing, _actcrStatusCode = pStatusCode};
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\ s a -> s{_actcrResult = a});
+
+-- | FIXME: Undocumented member.
+actcrStatusCode :: Lens' AddCommunicationToCaseResponse Int
+actcrStatusCode = lens _actcrStatusCode (\ s a -> s{_actcrStatusCode = a});

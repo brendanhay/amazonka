@@ -32,6 +32,8 @@ module Network.AWS.DirectoryService.UpdateRadius
     , UpdateRadiusResponse
     -- ** Response constructor
     , updateRadiusResponse
+    -- ** Response lenses
+    , urrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateRadius' smart constructor.
+-- | Contains the inputs for the UpdateRadius operation.
+--
+-- /See:/ 'updateRadius' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +70,10 @@ instance AWSRequest UpdateRadius where
         type Sv UpdateRadius = DirectoryService
         type Rs UpdateRadius = UpdateRadiusResponse
         request = postJSON
-        response = receiveNull UpdateRadiusResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateRadiusResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders UpdateRadius where
         toHeaders
@@ -90,9 +97,19 @@ instance ToPath UpdateRadius where
 instance ToQuery UpdateRadius where
         toQuery = const mempty
 
--- | /See:/ 'updateRadiusResponse' smart constructor.
-data UpdateRadiusResponse = UpdateRadiusResponse' deriving (Eq, Read, Show)
+-- | Contains the results of the UpdateRadius operation.
+--
+-- /See:/ 'updateRadiusResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'urrStatusCode'
+newtype UpdateRadiusResponse = UpdateRadiusResponse'{_urrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateRadiusResponse' smart constructor.
-updateRadiusResponse :: UpdateRadiusResponse
-updateRadiusResponse = UpdateRadiusResponse';
+updateRadiusResponse :: Int -> UpdateRadiusResponse
+updateRadiusResponse pStatusCode = UpdateRadiusResponse'{_urrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+urrStatusCode :: Lens' UpdateRadiusResponse Int
+urrStatusCode = lens _urrStatusCode (\ s a -> s{_urrStatusCode = a});

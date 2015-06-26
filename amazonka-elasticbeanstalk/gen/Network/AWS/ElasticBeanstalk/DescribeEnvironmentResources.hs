@@ -33,6 +33,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     , describeEnvironmentResourcesResponse
     -- ** Response lenses
     , derrEnvironmentResources
+    , derrStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEnvironmentResources' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeEnvironmentResources' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -81,7 +84,8 @@ instance AWSRequest DescribeEnvironmentResources
               "DescribeEnvironmentResourcesResult"
               (\ s h x ->
                  DescribeEnvironmentResourcesResponse' <$>
-                   (x .@? "EnvironmentResources"))
+                   (x .@? "EnvironmentResources") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
@@ -98,17 +102,25 @@ instance ToQuery DescribeEnvironmentResources where
                "EnvironmentName" =: _derEnvironmentName,
                "EnvironmentId" =: _derEnvironmentId]
 
--- | /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
+-- | Result message containing a list of environment resource descriptions.
+--
+-- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derrEnvironmentResources'
-newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'{_derrEnvironmentResources :: Maybe EnvironmentResourceDescription} deriving (Eq, Read, Show)
+--
+-- * 'derrStatusCode'
+data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'{_derrEnvironmentResources :: Maybe EnvironmentResourceDescription, _derrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
-describeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
-describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'{_derrEnvironmentResources = Nothing};
+describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
+describeEnvironmentResourcesResponse pStatusCode = DescribeEnvironmentResourcesResponse'{_derrEnvironmentResources = Nothing, _derrStatusCode = pStatusCode};
 
 -- | A list of EnvironmentResourceDescription.
 derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrEnvironmentResources = lens _derrEnvironmentResources (\ s a -> s{_derrEnvironmentResources = a});
+
+-- | FIXME: Undocumented member.
+derrStatusCode :: Lens' DescribeEnvironmentResourcesResponse Int
+derrStatusCode = lens _derrStatusCode (\ s a -> s{_derrStatusCode = a});

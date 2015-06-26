@@ -32,6 +32,7 @@ module Network.AWS.EC2.DescribeExportTasks
     , describeExportTasksResponse
     -- ** Response lenses
     , detrExportTasks
+    , detrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -63,7 +64,8 @@ instance AWSRequest DescribeExportTasks where
           = receiveXML
               (\ s h x ->
                  DescribeExportTasksResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
@@ -84,12 +86,18 @@ instance ToQuery DescribeExportTasks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'detrExportTasks'
-newtype DescribeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks :: Maybe [ExportTask]} deriving (Eq, Read, Show)
+--
+-- * 'detrStatusCode'
+data DescribeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks :: Maybe [ExportTask], _detrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
-describeExportTasksResponse :: DescribeExportTasksResponse
-describeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks = Nothing};
+describeExportTasksResponse :: Int -> DescribeExportTasksResponse
+describeExportTasksResponse pStatusCode = DescribeExportTasksResponse'{_detrExportTasks = Nothing, _detrStatusCode = pStatusCode};
 
 -- | Information about the export tasks.
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+detrStatusCode :: Lens' DescribeExportTasksResponse Int
+detrStatusCode = lens _detrStatusCode (\ s a -> s{_detrStatusCode = a});

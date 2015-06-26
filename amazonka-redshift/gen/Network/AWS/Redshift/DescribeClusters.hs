@@ -52,15 +52,18 @@ module Network.AWS.Redshift.DescribeClusters
     -- ** Response lenses
     , dcrMarker
     , dcrClusters
+    , dcrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeClusters' smart constructor.
+-- |
+--
+-- /See:/ 'describeClusters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -144,7 +147,8 @@ instance AWSRequest DescribeClusters where
                  DescribeClustersResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "Clusters" .!@ mempty >>=
-                        may (parseXMLList "Cluster")))
+                        may (parseXMLList "Cluster"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusters where
         toHeaders = const mempty
@@ -164,18 +168,22 @@ instance ToQuery DescribeClusters where
                "ClusterIdentifier" =: _dcClusterIdentifier,
                "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
 
--- | /See:/ 'describeClustersResponse' smart constructor.
+-- | Contains the output from the DescribeClusters action.
+--
+-- /See:/ 'describeClustersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrMarker'
 --
 -- * 'dcrClusters'
-data DescribeClustersResponse = DescribeClustersResponse'{_dcrMarker :: Maybe Text, _dcrClusters :: Maybe [Cluster]} deriving (Eq, Read, Show)
+--
+-- * 'dcrStatusCode'
+data DescribeClustersResponse = DescribeClustersResponse'{_dcrMarker :: Maybe Text, _dcrClusters :: Maybe [Cluster], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
-describeClustersResponse :: DescribeClustersResponse
-describeClustersResponse = DescribeClustersResponse'{_dcrMarker = Nothing, _dcrClusters = Nothing};
+describeClustersResponse :: Int -> DescribeClustersResponse
+describeClustersResponse pStatusCode = DescribeClustersResponse'{_dcrMarker = Nothing, _dcrClusters = Nothing, _dcrStatusCode = pStatusCode};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -189,3 +197,7 @@ dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
 -- | A list of Cluster objects, where each object describes one cluster.
 dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcrStatusCode :: Lens' DescribeClustersResponse Int
+dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});

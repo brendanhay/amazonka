@@ -38,6 +38,7 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     , rejectVPCPeeringConnectionResponse
     -- ** Response lenses
     , rvpcrReturn
+    , rvpcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -78,7 +79,7 @@ instance AWSRequest RejectVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  RejectVPCPeeringConnectionResponse' <$>
-                   (x .@? "return"))
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
@@ -101,12 +102,18 @@ instance ToQuery RejectVPCPeeringConnection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rvpcrReturn'
-newtype RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'{_rvpcrReturn :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'rvpcrStatusCode'
+data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'{_rvpcrReturn :: Maybe Bool, _rvpcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
-rejectVPCPeeringConnectionResponse :: RejectVPCPeeringConnectionResponse
-rejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'{_rvpcrReturn = Nothing};
+rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse
+rejectVPCPeeringConnectionResponse pStatusCode = RejectVPCPeeringConnectionResponse'{_rvpcrReturn = Nothing, _rvpcrStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 rvpcrReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\ s a -> s{_rvpcrReturn = a});
+
+-- | FIXME: Undocumented member.
+rvpcrStatusCode :: Lens' RejectVPCPeeringConnectionResponse Int
+rvpcrStatusCode = lens _rvpcrStatusCode (\ s a -> s{_rvpcrStatusCode = a});

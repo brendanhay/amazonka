@@ -17,4 +17,4 @@ module Network.AWS.DataPipeline.Waiters where
 
 import Network.AWS.DataPipeline.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

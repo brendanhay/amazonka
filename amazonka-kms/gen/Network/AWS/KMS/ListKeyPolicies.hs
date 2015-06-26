@@ -36,6 +36,7 @@ module Network.AWS.KMS.ListKeyPolicies
     , lkprPolicyNames
     , lkprTruncated
     , lkprNextMarker
+    , lkprStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -96,7 +97,8 @@ instance AWSRequest ListKeyPolicies where
                  ListKeyPoliciesResponse' <$>
                    (x .?> "PolicyNames" .!@ mempty) <*>
                      (x .?> "Truncated")
-                     <*> (x .?> "NextMarker"))
+                     <*> (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListKeyPolicies where
         toHeaders
@@ -128,11 +130,13 @@ instance ToQuery ListKeyPolicies where
 -- * 'lkprTruncated'
 --
 -- * 'lkprNextMarker'
-data ListKeyPoliciesResponse = ListKeyPoliciesResponse'{_lkprPolicyNames :: Maybe [Text], _lkprTruncated :: Maybe Bool, _lkprNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lkprStatusCode'
+data ListKeyPoliciesResponse = ListKeyPoliciesResponse'{_lkprPolicyNames :: Maybe [Text], _lkprTruncated :: Maybe Bool, _lkprNextMarker :: Maybe Text, _lkprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
-listKeyPoliciesResponse :: ListKeyPoliciesResponse
-listKeyPoliciesResponse = ListKeyPoliciesResponse'{_lkprPolicyNames = Nothing, _lkprTruncated = Nothing, _lkprNextMarker = Nothing};
+listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse
+listKeyPoliciesResponse pStatusCode = ListKeyPoliciesResponse'{_lkprPolicyNames = Nothing, _lkprTruncated = Nothing, _lkprNextMarker = Nothing, _lkprStatusCode = pStatusCode};
 
 -- | A list of policy names. Currently, there is only one policy and it is
 -- named \"Default\".
@@ -151,3 +155,7 @@ lkprTruncated = lens _lkprTruncated (\ s a -> s{_lkprTruncated = a});
 -- request.
 lkprNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprNextMarker = lens _lkprNextMarker (\ s a -> s{_lkprNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lkprStatusCode :: Lens' ListKeyPoliciesResponse Int
+lkprStatusCode = lens _lkprStatusCode (\ s a -> s{_lkprStatusCode = a});

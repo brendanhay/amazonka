@@ -41,6 +41,7 @@ module Network.AWS.SDB.GetAttributes
     , getAttributesResponse
     -- ** Response lenses
     , garAttributes
+    , garStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -93,7 +94,8 @@ instance AWSRequest GetAttributes where
           = receiveXMLWrapper "GetAttributesResult"
               (\ s h x ->
                  GetAttributesResponse' <$>
-                   (may (parseXMLList "Attribute") x))
+                   (may (parseXMLList "Attribute") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetAttributes where
         toHeaders = const mempty
@@ -117,12 +119,18 @@ instance ToQuery GetAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'garAttributes'
-newtype GetAttributesResponse = GetAttributesResponse'{_garAttributes :: Maybe [Attribute]} deriving (Eq, Read, Show)
+--
+-- * 'garStatusCode'
+data GetAttributesResponse = GetAttributesResponse'{_garAttributes :: Maybe [Attribute], _garStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetAttributesResponse' smart constructor.
-getAttributesResponse :: GetAttributesResponse
-getAttributesResponse = GetAttributesResponse'{_garAttributes = Nothing};
+getAttributesResponse :: Int -> GetAttributesResponse
+getAttributesResponse pStatusCode = GetAttributesResponse'{_garAttributes = Nothing, _garStatusCode = pStatusCode};
 
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+garStatusCode :: Lens' GetAttributesResponse Int
+garStatusCode = lens _garStatusCode (\ s a -> s{_garStatusCode = a});

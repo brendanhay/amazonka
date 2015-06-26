@@ -21,8 +21,32 @@ module Network.AWS.Route53Domains.Types
     (
     -- * Service
       Route53Domains
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidInput
+    , _OperationLimitExceeded
+    , _DomainLimitExceeded
+    , _UnsupportedTLD
+    , _TLDRulesViolation
+    , _DuplicateRequest
+
+    -- * ContactType
+    , ContactType (..)
+
+    -- * CountryCode
+    , CountryCode (..)
+
+    -- * DomainAvailability
+    , DomainAvailability (..)
+
+    -- * ExtraParamName
+    , ExtraParamName (..)
+
+    -- * OperationStatus
+    , OperationStatus (..)
+
+    -- * OperationType
+    , OperationType (..)
 
     -- * ContactDetail
     , ContactDetail
@@ -42,15 +66,6 @@ module Network.AWS.Route53Domains.Types
     , cdCountryCode
     , cdContactType
 
-    -- * ContactType
-    , ContactType (..)
-
-    -- * CountryCode
-    , CountryCode (..)
-
-    -- * DomainAvailability
-    , DomainAvailability (..)
-
     -- * DomainSummary
     , DomainSummary
     , domainSummary
@@ -65,17 +80,11 @@ module Network.AWS.Route53Domains.Types
     , epName
     , epValue
 
-    -- * ExtraParamName
-    , ExtraParamName (..)
-
     -- * Nameserver
     , Nameserver
     , nameserver
     , namGlueIPs
     , namName
-
-    -- * OperationStatus
-    , OperationStatus (..)
 
     -- * OperationSummary
     , OperationSummary
@@ -85,14 +94,12 @@ module Network.AWS.Route53Domains.Types
     , osType
     , osSubmittedDate
 
-    -- * OperationType
-    , OperationType (..)
-
     -- * Tag
     , Tag
     , tag
     , tagValue
     , tagKey
+
     ) where
 
 import Network.AWS.Prelude
@@ -103,307 +110,60 @@ data Route53Domains
 
 instance AWSService Route53Domains where
     type Sg Route53Domains = V4
-    type Er Route53Domains = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Route53Domains
-        service' = Service
-            { _svcAbbrev  = "Route53Domains"
-            , _svcPrefix  = "route53domains"
-            , _svcVersion = "2014-05-15"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Route53Domains
+        svc = Service
+            { _svcAbbrev   = "Route53Domains"
+            , _svcPrefix   = "route53domains"
+            , _svcVersion  = "2014-05-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Route53Domains
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The requested item is not acceptable. For example, for an OperationId it
+-- may refer to the ID of an operation that is already completed. For a
+-- domain name, it may not be a valid domain name or belong to the
+-- requester account.
+_InvalidInput :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInput = _ServiceError . hasCode "InvalidInput" . hasStatus 400;
 
--- | /See:/ 'contactDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdOrganizationName'
---
--- * 'cdEmail'
---
--- * 'cdFax'
---
--- * 'cdState'
---
--- * 'cdLastName'
---
--- * 'cdExtraParams'
---
--- * 'cdZipCode'
---
--- * 'cdAddressLine1'
---
--- * 'cdCity'
---
--- * 'cdPhoneNumber'
---
--- * 'cdAddressLine2'
---
--- * 'cdFirstName'
---
--- * 'cdCountryCode'
---
--- * 'cdContactType'
-data ContactDetail = ContactDetail'{_cdOrganizationName :: Maybe Text, _cdEmail :: Maybe Text, _cdFax :: Maybe Text, _cdState :: Maybe Text, _cdLastName :: Maybe Text, _cdExtraParams :: Maybe [ExtraParam], _cdZipCode :: Maybe Text, _cdAddressLine1 :: Maybe Text, _cdCity :: Maybe Text, _cdPhoneNumber :: Maybe Text, _cdAddressLine2 :: Maybe Text, _cdFirstName :: Maybe Text, _cdCountryCode :: Maybe CountryCode, _cdContactType :: Maybe ContactType} deriving (Eq, Read, Show)
+-- | The number of operations or jobs running exceeded the allowed threshold
+-- for the account.
+_OperationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_OperationLimitExceeded = _ServiceError . hasCode "OperationLimitExceeded" . hasStatus 400;
 
--- | 'ContactDetail' smart constructor.
-contactDetail :: ContactDetail
-contactDetail = ContactDetail'{_cdOrganizationName = Nothing, _cdEmail = Nothing, _cdFax = Nothing, _cdState = Nothing, _cdLastName = Nothing, _cdExtraParams = Nothing, _cdZipCode = Nothing, _cdAddressLine1 = Nothing, _cdCity = Nothing, _cdPhoneNumber = Nothing, _cdAddressLine2 = Nothing, _cdFirstName = Nothing, _cdCountryCode = Nothing, _cdContactType = Nothing};
+-- | The number of domains has exceeded the allowed threshold for the
+-- account.
+_DomainLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_DomainLimitExceeded = _ServiceError . hasCode "DomainLimitExceeded" . hasStatus 400;
 
--- | Name of the organization for contact types other than @PERSON@.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters. Contact type must not be @PERSON@.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: No
-cdOrganizationName :: Lens' ContactDetail (Maybe Text)
-cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = a});
+-- | Amazon Route 53 does not support this top-level domain.
+_UnsupportedTLD :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnsupportedTLD = _ServiceError . hasCode "UnsupportedTLD" . hasStatus 400;
 
--- | Email address of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 254 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdEmail :: Lens' ContactDetail (Maybe Text)
-cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
+-- | The top-level domain does not support this operation.
+_TLDRulesViolation :: AWSError a => Geting (First ServiceError) a ServiceError
+_TLDRulesViolation = _ServiceError . hasCode "TLDRulesViolation" . hasStatus 400;
 
--- | Fax number of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Phone number must be specified in the format \"+[country
--- dialing code].[number including any area code]\". For example, a US
--- phone number might appear as @\"+1.1234567890\"@.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: No
-cdFax :: Lens' ContactDetail (Maybe Text)
-cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
-
--- | The state or province of the contact\'s city.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: No
-cdState :: Lens' ContactDetail (Maybe Text)
-cdState = lens _cdState (\ s a -> s{_cdState = a});
-
--- | Last name of contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdLastName :: Lens' ContactDetail (Maybe Text)
-cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
-
--- | A list of name-value pairs for parameters required by certain top-level
--- domains.
---
--- Type: Complex
---
--- Default: None
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Children: @Name@, @Value@
---
--- Required: No
-cdExtraParams :: Lens' ContactDetail [ExtraParam]
-cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default;
-
--- | The zip or postal code of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: No
-cdZipCode :: Lens' ContactDetail (Maybe Text)
-cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a});
-
--- | First line of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
-cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a});
-
--- | The city of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdCity :: Lens' ContactDetail (Maybe Text)
-cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
-
--- | The phone number of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Phone number must be specified in the format \"+[country
--- dialing code].[number including any area code>]\". For example, a US
--- phone number might appear as @\"+1.1234567890\"@.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
-cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a});
-
--- | Second line of contact\'s address, if any.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: No
-cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
-cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a});
-
--- | First name of contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdFirstName :: Lens' ContactDetail (Maybe Text)
-cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
-
--- | Code for the country of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
-cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
-
--- | Indicates whether the contact is a person, company, association, or
--- public organization. If you choose an option other than @PERSON@, you
--- must enter an organization name, and you can\'t enable privacy
--- protection for the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Valid values: @PERSON@ | @COMPANY@ | @ASSOCIATION@ | @PUBLIC_BODY@
---
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
---
--- Required: Yes
-cdContactType :: Lens' ContactDetail (Maybe ContactType)
-cdContactType = lens _cdContactType (\ s a -> s{_cdContactType = a});
-
-instance FromJSON ContactDetail where
-        parseJSON
-          = withObject "ContactDetail"
-              (\ x ->
-                 ContactDetail' <$>
-                   (x .:? "OrganizationName") <*> (x .:? "Email") <*>
-                     (x .:? "Fax")
-                     <*> (x .:? "State")
-                     <*> (x .:? "LastName")
-                     <*> (x .:? "ExtraParams" .!= mempty)
-                     <*> (x .:? "ZipCode")
-                     <*> (x .:? "AddressLine1")
-                     <*> (x .:? "City")
-                     <*> (x .:? "PhoneNumber")
-                     <*> (x .:? "AddressLine2")
-                     <*> (x .:? "FirstName")
-                     <*> (x .:? "CountryCode")
-                     <*> (x .:? "ContactType"))
-
-instance ToJSON ContactDetail where
-        toJSON ContactDetail'{..}
-          = object
-              ["OrganizationName" .= _cdOrganizationName,
-               "Email" .= _cdEmail, "Fax" .= _cdFax,
-               "State" .= _cdState, "LastName" .= _cdLastName,
-               "ExtraParams" .= _cdExtraParams,
-               "ZipCode" .= _cdZipCode,
-               "AddressLine1" .= _cdAddressLine1, "City" .= _cdCity,
-               "PhoneNumber" .= _cdPhoneNumber,
-               "AddressLine2" .= _cdAddressLine2,
-               "FirstName" .= _cdFirstName,
-               "CountryCode" .= _cdCountryCode,
-               "ContactType" .= _cdContactType]
+-- | The request is already in progress for the domain.
+_DuplicateRequest :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateRequest = _ServiceError . hasCode "DuplicateRequest" . hasStatus 400;
 
 data ContactType = Person | Company | Reseller | Association | PublicBody deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -943,118 +703,6 @@ instance ToHeader DomainAvailability
 instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
 
--- | /See:/ 'domainSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsExpiry'
---
--- * 'dsTransferLock'
---
--- * 'dsAutoRenew'
---
--- * 'dsDomainName'
-data DomainSummary = DomainSummary'{_dsExpiry :: Maybe POSIX, _dsTransferLock :: Maybe Bool, _dsAutoRenew :: Maybe Bool, _dsDomainName :: Text} deriving (Eq, Read, Show)
-
--- | 'DomainSummary' smart constructor.
-domainSummary :: Text -> DomainSummary
-domainSummary pDomainName = DomainSummary'{_dsExpiry = Nothing, _dsTransferLock = Nothing, _dsAutoRenew = Nothing, _dsDomainName = pDomainName};
-
--- | Expiration date of the domain in Coordinated Universal Time (UTC).
---
--- Type: Long
-dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
-dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
-
--- | Indicates whether a domain is locked from unauthorized transfer to
--- another party.
---
--- Type: Boolean
---
--- Valid values: @True@ | @False@
-dsTransferLock :: Lens' DomainSummary (Maybe Bool)
-dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
-
--- | Indicates whether the domain is automatically renewed upon expiration.
---
--- Type: Boolean
---
--- Valid values: @True@ | @False@
-dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
-dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a});
-
--- | The name of a domain.
---
--- Type: String
-dsDomainName :: Lens' DomainSummary Text
-dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
-
-instance FromJSON DomainSummary where
-        parseJSON
-          = withObject "DomainSummary"
-              (\ x ->
-                 DomainSummary' <$>
-                   (x .:? "Expiry") <*> (x .:? "TransferLock") <*>
-                     (x .:? "AutoRenew")
-                     <*> (x .: "DomainName"))
-
--- | /See:/ 'extraParam' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'epName'
---
--- * 'epValue'
-data ExtraParam = ExtraParam'{_epName :: ExtraParamName, _epValue :: Text} deriving (Eq, Read, Show)
-
--- | 'ExtraParam' smart constructor.
-extraParam :: ExtraParamName -> Text -> ExtraParam
-extraParam pName pValue = ExtraParam'{_epName = pName, _epValue = pValue};
-
--- | Name of the additional parameter required by the top-level domain.
---
--- Type: String
---
--- Default: None
---
--- Valid values: @DUNS_NUMBER@ | @BRAND_NUMBER@ | @BIRTH_DEPARTMENT@ |
--- @BIRTH_DATE_IN_YYYY_MM_DD@ | @BIRTH_COUNTRY@ | @BIRTH_CITY@ |
--- @DOCUMENT_NUMBER@ | @AU_ID_NUMBER@ | @AU_ID_TYPE@ | @CA_LEGAL_TYPE@ |
--- @ES_IDENTIFICATION@ | @ES_IDENTIFICATION_TYPE@ | @ES_LEGAL_FORM@ |
--- @FI_BUSINESS_NUMBER@ | @FI_ID_NUMBER@ | @IT_PIN@ | @RU_PASSPORT_DATA@ |
--- @SE_ID_NUMBER@ | @SG_ID_NUMBER@ | @VAT_NUMBER@
---
--- Parent: @ExtraParams@
---
--- Required: Yes
-epName :: Lens' ExtraParam ExtraParamName
-epName = lens _epName (\ s a -> s{_epName = a});
-
--- | Values corresponding to the additional parameter names required by some
--- top-level domains.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 2048 characters.
---
--- Parent: @ExtraParams@
---
--- Required: Yes
-epValue :: Lens' ExtraParam Text
-epValue = lens _epValue (\ s a -> s{_epValue = a});
-
-instance FromJSON ExtraParam where
-        parseJSON
-          = withObject "ExtraParam"
-              (\ x ->
-                 ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
-
-instance ToJSON ExtraParam where
-        toJSON ExtraParam'{..}
-          = object ["Name" .= _epName, "Value" .= _epValue]
-
 data ExtraParamName = DocumentNumber | ESIdentificationType | RUPassportData | SGIDNumber | FIBusinessNumber | AUIDNumber | ESLegalForm | BirthDateINYyyyMMDD | CALegalType | AUIDType | BirthDepartment | ESIdentification | DunsNumber | BirthCity | ITPin | BirthCountry | VatNumber | BrandNumber | SEIDNumber | FIIDNumber deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText ExtraParamName where
@@ -1114,7 +762,458 @@ instance ToJSON ExtraParamName where
 instance FromJSON ExtraParamName where
     parseJSON = parseJSONText "ExtraParamName"
 
--- | /See:/ 'nameserver' smart constructor.
+data OperationStatus = Error | Successful | INProgress | Failed | Submitted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OperationStatus where
+    parser = takeLowerText >>= \case
+        "ERROR" -> pure Error
+        "FAILED" -> pure Failed
+        "IN_PROGRESS" -> pure INProgress
+        "SUBMITTED" -> pure Submitted
+        "SUCCESSFUL" -> pure Successful
+        e -> fail ("Failure parsing OperationStatus from " ++ show e)
+
+instance ToText OperationStatus where
+    toText = \case
+        Error -> "ERROR"
+        Failed -> "FAILED"
+        INProgress -> "IN_PROGRESS"
+        Submitted -> "SUBMITTED"
+        Successful -> "SUCCESSFUL"
+
+instance Hashable OperationStatus
+instance ToQuery OperationStatus
+instance ToHeader OperationStatus
+
+instance FromJSON OperationStatus where
+    parseJSON = parseJSONText "OperationStatus"
+
+data OperationType = TransferINDomain | ChangePrivacyProtection | UpdateDomainContact | RegisterDomain | UpdateNameserver | DomainLock | DeleteDomain deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OperationType where
+    parser = takeLowerText >>= \case
+        "CHANGE_PRIVACY_PROTECTION" -> pure ChangePrivacyProtection
+        "DELETE_DOMAIN" -> pure DeleteDomain
+        "DOMAIN_LOCK" -> pure DomainLock
+        "REGISTER_DOMAIN" -> pure RegisterDomain
+        "TRANSFER_IN_DOMAIN" -> pure TransferINDomain
+        "UPDATE_DOMAIN_CONTACT" -> pure UpdateDomainContact
+        "UPDATE_NAMESERVER" -> pure UpdateNameserver
+        e -> fail ("Failure parsing OperationType from " ++ show e)
+
+instance ToText OperationType where
+    toText = \case
+        ChangePrivacyProtection -> "CHANGE_PRIVACY_PROTECTION"
+        DeleteDomain -> "DELETE_DOMAIN"
+        DomainLock -> "DOMAIN_LOCK"
+        RegisterDomain -> "REGISTER_DOMAIN"
+        TransferINDomain -> "TRANSFER_IN_DOMAIN"
+        UpdateDomainContact -> "UPDATE_DOMAIN_CONTACT"
+        UpdateNameserver -> "UPDATE_NAMESERVER"
+
+instance Hashable OperationType
+instance ToQuery OperationType
+instance ToHeader OperationType
+
+instance FromJSON OperationType where
+    parseJSON = parseJSONText "OperationType"
+
+-- | ContactDetail includes the following elements.
+--
+-- /See:/ 'contactDetail' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cdOrganizationName'
+--
+-- * 'cdEmail'
+--
+-- * 'cdFax'
+--
+-- * 'cdState'
+--
+-- * 'cdLastName'
+--
+-- * 'cdExtraParams'
+--
+-- * 'cdZipCode'
+--
+-- * 'cdAddressLine1'
+--
+-- * 'cdCity'
+--
+-- * 'cdPhoneNumber'
+--
+-- * 'cdAddressLine2'
+--
+-- * 'cdFirstName'
+--
+-- * 'cdCountryCode'
+--
+-- * 'cdContactType'
+data ContactDetail = ContactDetail'{_cdOrganizationName :: Maybe Text, _cdEmail :: Maybe Text, _cdFax :: Maybe Text, _cdState :: Maybe Text, _cdLastName :: Maybe Text, _cdExtraParams :: Maybe [ExtraParam], _cdZipCode :: Maybe Text, _cdAddressLine1 :: Maybe Text, _cdCity :: Maybe Text, _cdPhoneNumber :: Maybe Text, _cdAddressLine2 :: Maybe Text, _cdFirstName :: Maybe Text, _cdCountryCode :: Maybe CountryCode, _cdContactType :: Maybe ContactType} deriving (Eq, Read, Show)
+
+-- | 'ContactDetail' smart constructor.
+contactDetail :: ContactDetail
+contactDetail = ContactDetail'{_cdOrganizationName = Nothing, _cdEmail = Nothing, _cdFax = Nothing, _cdState = Nothing, _cdLastName = Nothing, _cdExtraParams = Nothing, _cdZipCode = Nothing, _cdAddressLine1 = Nothing, _cdCity = Nothing, _cdPhoneNumber = Nothing, _cdAddressLine2 = Nothing, _cdFirstName = Nothing, _cdCountryCode = Nothing, _cdContactType = Nothing};
+
+-- | Name of the organization for contact types other than @PERSON@.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters. Contact type must not be @PERSON@.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: No
+cdOrganizationName :: Lens' ContactDetail (Maybe Text)
+cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = a});
+
+-- | Email address of the contact.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 254 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdEmail :: Lens' ContactDetail (Maybe Text)
+cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
+
+-- | Fax number of the contact.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Phone number must be specified in the format \"+[country
+-- dialing code].[number including any area code]\". For example, a US
+-- phone number might appear as @\"+1.1234567890\"@.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: No
+cdFax :: Lens' ContactDetail (Maybe Text)
+cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
+
+-- | The state or province of the contact\'s city.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: No
+cdState :: Lens' ContactDetail (Maybe Text)
+cdState = lens _cdState (\ s a -> s{_cdState = a});
+
+-- | Last name of contact.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdLastName :: Lens' ContactDetail (Maybe Text)
+cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
+
+-- | A list of name-value pairs for parameters required by certain top-level
+-- domains.
+--
+-- Type: Complex
+--
+-- Default: None
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Children: @Name@, @Value@
+--
+-- Required: No
+cdExtraParams :: Lens' ContactDetail [ExtraParam]
+cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default;
+
+-- | The zip or postal code of the contact\'s address.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: No
+cdZipCode :: Lens' ContactDetail (Maybe Text)
+cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a});
+
+-- | First line of the contact\'s address.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
+cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a});
+
+-- | The city of the contact\'s address.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdCity :: Lens' ContactDetail (Maybe Text)
+cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
+
+-- | The phone number of the contact.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Phone number must be specified in the format \"+[country
+-- dialing code].[number including any area code>]\". For example, a US
+-- phone number might appear as @\"+1.1234567890\"@.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
+cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a});
+
+-- | Second line of contact\'s address, if any.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: No
+cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
+cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a});
+
+-- | First name of contact.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdFirstName :: Lens' ContactDetail (Maybe Text)
+cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
+
+-- | Code for the country of the contact\'s address.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
+cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
+
+-- | Indicates whether the contact is a person, company, association, or
+-- public organization. If you choose an option other than @PERSON@, you
+-- must enter an organization name, and you can\'t enable privacy
+-- protection for the contact.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Valid values: @PERSON@ | @COMPANY@ | @ASSOCIATION@ | @PUBLIC_BODY@
+--
+-- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+--
+-- Required: Yes
+cdContactType :: Lens' ContactDetail (Maybe ContactType)
+cdContactType = lens _cdContactType (\ s a -> s{_cdContactType = a});
+
+instance FromJSON ContactDetail where
+        parseJSON
+          = withObject "ContactDetail"
+              (\ x ->
+                 ContactDetail' <$>
+                   (x .:? "OrganizationName") <*> (x .:? "Email") <*>
+                     (x .:? "Fax")
+                     <*> (x .:? "State")
+                     <*> (x .:? "LastName")
+                     <*> (x .:? "ExtraParams" .!= mempty)
+                     <*> (x .:? "ZipCode")
+                     <*> (x .:? "AddressLine1")
+                     <*> (x .:? "City")
+                     <*> (x .:? "PhoneNumber")
+                     <*> (x .:? "AddressLine2")
+                     <*> (x .:? "FirstName")
+                     <*> (x .:? "CountryCode")
+                     <*> (x .:? "ContactType"))
+
+instance ToJSON ContactDetail where
+        toJSON ContactDetail'{..}
+          = object
+              ["OrganizationName" .= _cdOrganizationName,
+               "Email" .= _cdEmail, "Fax" .= _cdFax,
+               "State" .= _cdState, "LastName" .= _cdLastName,
+               "ExtraParams" .= _cdExtraParams,
+               "ZipCode" .= _cdZipCode,
+               "AddressLine1" .= _cdAddressLine1, "City" .= _cdCity,
+               "PhoneNumber" .= _cdPhoneNumber,
+               "AddressLine2" .= _cdAddressLine2,
+               "FirstName" .= _cdFirstName,
+               "CountryCode" .= _cdCountryCode,
+               "ContactType" .= _cdContactType]
+
+-- | /See:/ 'domainSummary' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dsExpiry'
+--
+-- * 'dsTransferLock'
+--
+-- * 'dsAutoRenew'
+--
+-- * 'dsDomainName'
+data DomainSummary = DomainSummary'{_dsExpiry :: Maybe POSIX, _dsTransferLock :: Maybe Bool, _dsAutoRenew :: Maybe Bool, _dsDomainName :: Text} deriving (Eq, Read, Show)
+
+-- | 'DomainSummary' smart constructor.
+domainSummary :: Text -> DomainSummary
+domainSummary pDomainName = DomainSummary'{_dsExpiry = Nothing, _dsTransferLock = Nothing, _dsAutoRenew = Nothing, _dsDomainName = pDomainName};
+
+-- | Expiration date of the domain in Coordinated Universal Time (UTC).
+--
+-- Type: Long
+dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
+dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
+
+-- | Indicates whether a domain is locked from unauthorized transfer to
+-- another party.
+--
+-- Type: Boolean
+--
+-- Valid values: @True@ | @False@
+dsTransferLock :: Lens' DomainSummary (Maybe Bool)
+dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
+
+-- | Indicates whether the domain is automatically renewed upon expiration.
+--
+-- Type: Boolean
+--
+-- Valid values: @True@ | @False@
+dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
+dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a});
+
+-- | The name of a domain.
+--
+-- Type: String
+dsDomainName :: Lens' DomainSummary Text
+dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
+
+instance FromJSON DomainSummary where
+        parseJSON
+          = withObject "DomainSummary"
+              (\ x ->
+                 DomainSummary' <$>
+                   (x .:? "Expiry") <*> (x .:? "TransferLock") <*>
+                     (x .:? "AutoRenew")
+                     <*> (x .: "DomainName"))
+
+-- | ExtraParam includes the following elements.
+--
+-- /See:/ 'extraParam' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'epName'
+--
+-- * 'epValue'
+data ExtraParam = ExtraParam'{_epName :: ExtraParamName, _epValue :: Text} deriving (Eq, Read, Show)
+
+-- | 'ExtraParam' smart constructor.
+extraParam :: ExtraParamName -> Text -> ExtraParam
+extraParam pName pValue = ExtraParam'{_epName = pName, _epValue = pValue};
+
+-- | Name of the additional parameter required by the top-level domain.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Valid values: @DUNS_NUMBER@ | @BRAND_NUMBER@ | @BIRTH_DEPARTMENT@ |
+-- @BIRTH_DATE_IN_YYYY_MM_DD@ | @BIRTH_COUNTRY@ | @BIRTH_CITY@ |
+-- @DOCUMENT_NUMBER@ | @AU_ID_NUMBER@ | @AU_ID_TYPE@ | @CA_LEGAL_TYPE@ |
+-- @ES_IDENTIFICATION@ | @ES_IDENTIFICATION_TYPE@ | @ES_LEGAL_FORM@ |
+-- @FI_BUSINESS_NUMBER@ | @FI_ID_NUMBER@ | @IT_PIN@ | @RU_PASSPORT_DATA@ |
+-- @SE_ID_NUMBER@ | @SG_ID_NUMBER@ | @VAT_NUMBER@
+--
+-- Parent: @ExtraParams@
+--
+-- Required: Yes
+epName :: Lens' ExtraParam ExtraParamName
+epName = lens _epName (\ s a -> s{_epName = a});
+
+-- | Values corresponding to the additional parameter names required by some
+-- top-level domains.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 2048 characters.
+--
+-- Parent: @ExtraParams@
+--
+-- Required: Yes
+epValue :: Lens' ExtraParam Text
+epValue = lens _epValue (\ s a -> s{_epValue = a});
+
+instance FromJSON ExtraParam where
+        parseJSON
+          = withObject "ExtraParam"
+              (\ x ->
+                 ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
+
+instance ToJSON ExtraParam where
+        toJSON ExtraParam'{..}
+          = object ["Name" .= _epName, "Value" .= _epValue]
+
+-- | Nameserver includes the following elements.
+--
+-- /See:/ 'nameserver' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1163,33 +1262,9 @@ instance ToJSON Nameserver where
           = object
               ["GlueIps" .= _namGlueIPs, "Name" .= _namName]
 
-data OperationStatus = Error | Successful | INProgress | Failed | Submitted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OperationStatus where
-    parser = takeLowerText >>= \case
-        "ERROR" -> pure Error
-        "FAILED" -> pure Failed
-        "IN_PROGRESS" -> pure INProgress
-        "SUBMITTED" -> pure Submitted
-        "SUCCESSFUL" -> pure Successful
-        e -> fail ("Failure parsing OperationStatus from " ++ show e)
-
-instance ToText OperationStatus where
-    toText = \case
-        Error -> "ERROR"
-        Failed -> "FAILED"
-        INProgress -> "IN_PROGRESS"
-        Submitted -> "SUBMITTED"
-        Successful -> "SUCCESSFUL"
-
-instance Hashable OperationStatus
-instance ToQuery OperationStatus
-instance ToHeader OperationStatus
-
-instance FromJSON OperationStatus where
-    parseJSON = parseJSONText "OperationStatus"
-
--- | /See:/ 'operationSummary' smart constructor.
+-- | OperationSummary includes the following elements.
+--
+-- /See:/ 'operationSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1241,37 +1316,9 @@ instance FromJSON OperationSummary where
                      (x .: "Type")
                      <*> (x .: "SubmittedDate"))
 
-data OperationType = TransferINDomain | ChangePrivacyProtection | UpdateDomainContact | RegisterDomain | UpdateNameserver | DomainLock | DeleteDomain deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OperationType where
-    parser = takeLowerText >>= \case
-        "CHANGE_PRIVACY_PROTECTION" -> pure ChangePrivacyProtection
-        "DELETE_DOMAIN" -> pure DeleteDomain
-        "DOMAIN_LOCK" -> pure DomainLock
-        "REGISTER_DOMAIN" -> pure RegisterDomain
-        "TRANSFER_IN_DOMAIN" -> pure TransferINDomain
-        "UPDATE_DOMAIN_CONTACT" -> pure UpdateDomainContact
-        "UPDATE_NAMESERVER" -> pure UpdateNameserver
-        e -> fail ("Failure parsing OperationType from " ++ show e)
-
-instance ToText OperationType where
-    toText = \case
-        ChangePrivacyProtection -> "CHANGE_PRIVACY_PROTECTION"
-        DeleteDomain -> "DELETE_DOMAIN"
-        DomainLock -> "DOMAIN_LOCK"
-        RegisterDomain -> "REGISTER_DOMAIN"
-        TransferINDomain -> "TRANSFER_IN_DOMAIN"
-        UpdateDomainContact -> "UPDATE_DOMAIN_CONTACT"
-        UpdateNameserver -> "UPDATE_NAMESERVER"
-
-instance Hashable OperationType
-instance ToQuery OperationType
-instance ToHeader OperationType
-
-instance FromJSON OperationType where
-    parseJSON = parseJSONText "OperationType"
-
--- | /See:/ 'tag' smart constructor.
+-- | Each tag includes the following elements.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

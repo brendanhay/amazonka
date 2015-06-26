@@ -43,6 +43,7 @@ module Network.AWS.S3.PutObjectACL
     , putObjectACLResponse
     -- ** Response lenses
     , poarRequestCharged
+    , poarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -135,7 +136,8 @@ instance AWSRequest PutObjectACL where
           = receiveXML
               (\ s h x ->
                  PutObjectACLResponse' <$>
-                   (h .#? "x-amz-request-charged"))
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s)))
 
 instance ToElement PutObjectACL where
         toElement
@@ -169,12 +171,18 @@ instance ToQuery PutObjectACL where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'poarRequestCharged'
-newtype PutObjectACLResponse = PutObjectACLResponse'{_poarRequestCharged :: Maybe RequestCharged} deriving (Eq, Read, Show)
+--
+-- * 'poarStatusCode'
+data PutObjectACLResponse = PutObjectACLResponse'{_poarRequestCharged :: Maybe RequestCharged, _poarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutObjectACLResponse' smart constructor.
-putObjectACLResponse :: PutObjectACLResponse
-putObjectACLResponse = PutObjectACLResponse'{_poarRequestCharged = Nothing};
+putObjectACLResponse :: Int -> PutObjectACLResponse
+putObjectACLResponse pStatusCode = PutObjectACLResponse'{_poarRequestCharged = Nothing, _poarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 poarRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarRequestCharged = lens _poarRequestCharged (\ s a -> s{_poarRequestCharged = a});
+
+-- | FIXME: Undocumented member.
+poarStatusCode :: Lens' PutObjectACLResponse Int
+poarStatusCode = lens _poarStatusCode (\ s a -> s{_poarStatusCode = a});

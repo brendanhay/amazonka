@@ -45,15 +45,18 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- ** Response lenses
     , docorMarker
     , docorOrderableClusterOptions
+    , docorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeOrderableClusterOptions' smart constructor.
+-- |
+--
+-- /See:/ 'describeOrderableClusterOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -128,7 +131,8 @@ instance AWSRequest DescribeOrderableClusterOptions
                  DescribeOrderableClusterOptionsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "OrderableClusterOptions" .!@ mempty >>=
-                        may (parseXMLList "OrderableClusterOption")))
+                        may (parseXMLList "OrderableClusterOption"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeOrderableClusterOptions
          where
@@ -149,18 +153,22 @@ instance ToQuery DescribeOrderableClusterOptions
                "ClusterVersion" =: _docoClusterVersion,
                "NodeType" =: _docoNodeType]
 
--- | /See:/ 'describeOrderableClusterOptionsResponse' smart constructor.
+-- | Contains the output from the DescribeOrderableClusterOptions action.
+--
+-- /See:/ 'describeOrderableClusterOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'docorMarker'
 --
 -- * 'docorOrderableClusterOptions'
-data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker :: Maybe Text, _docorOrderableClusterOptions :: Maybe [OrderableClusterOption]} deriving (Eq, Read, Show)
+--
+-- * 'docorStatusCode'
+data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker :: Maybe Text, _docorOrderableClusterOptions :: Maybe [OrderableClusterOption], _docorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
-describeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
-describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker = Nothing, _docorOrderableClusterOptions = Nothing};
+describeOrderableClusterOptionsResponse :: Int -> DescribeOrderableClusterOptionsResponse
+describeOrderableClusterOptionsResponse pStatusCode = DescribeOrderableClusterOptionsResponse'{_docorMarker = Nothing, _docorOrderableClusterOptions = Nothing, _docorStatusCode = pStatusCode};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -175,3 +183,7 @@ docorMarker = lens _docorMarker (\ s a -> s{_docorMarker = a});
 -- orderable options for the Cluster.
 docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
 docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+docorStatusCode :: Lens' DescribeOrderableClusterOptionsResponse Int
+docorStatusCode = lens _docorStatusCode (\ s a -> s{_docorStatusCode = a});

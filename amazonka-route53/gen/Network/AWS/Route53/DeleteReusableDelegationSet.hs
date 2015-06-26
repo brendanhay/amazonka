@@ -39,6 +39,8 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     , DeleteReusableDelegationSetResponse
     -- ** Response constructor
     , deleteReusableDelegationSetResponse
+    -- ** Response lenses
+    , drdsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +48,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'deleteReusableDelegationSet' smart constructor.
+-- | A complex type containing the information for the delete request.
+--
+-- /See:/ 'deleteReusableDelegationSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +71,10 @@ instance AWSRequest DeleteReusableDelegationSet where
              DeleteReusableDelegationSetResponse
         request = delete
         response
-          = receiveNull DeleteReusableDelegationSetResponse'
+          = receiveXML
+              (\ s h x ->
+                 DeleteReusableDelegationSetResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty
@@ -80,9 +87,19 @@ instance ToPath DeleteReusableDelegationSet where
 instance ToQuery DeleteReusableDelegationSet where
         toQuery = const mempty
 
--- | /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
-data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse' deriving (Eq, Read, Show)
+-- | Empty response for the request.
+--
+-- /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drdsrStatusCode'
+newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'{_drdsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteReusableDelegationSetResponse' smart constructor.
-deleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse
-deleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse';
+deleteReusableDelegationSetResponse :: Int -> DeleteReusableDelegationSetResponse
+deleteReusableDelegationSetResponse pStatusCode = DeleteReusableDelegationSetResponse'{_drdsrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+drdsrStatusCode :: Lens' DeleteReusableDelegationSetResponse Int
+drdsrStatusCode = lens _drdsrStatusCode (\ s a -> s{_drdsrStatusCode = a});

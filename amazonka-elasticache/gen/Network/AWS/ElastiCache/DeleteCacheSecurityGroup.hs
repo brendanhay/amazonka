@@ -40,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteCacheSecurityGroup' smart constructor.
+-- | Represents the input of a /DeleteCacheSecurityGroup/ action.
+--
+-- /See:/ 'deleteCacheSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

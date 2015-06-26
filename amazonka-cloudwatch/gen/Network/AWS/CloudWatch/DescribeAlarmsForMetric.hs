@@ -38,6 +38,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , describeAlarmsForMetricResponse
     -- ** Response lenses
     , dafmrMetricAlarms
+    , dafmrStatusCode
     ) where
 
 import Network.AWS.CloudWatch.Types
@@ -100,7 +101,8 @@ instance AWSRequest DescribeAlarmsForMetric where
               (\ s h x ->
                  DescribeAlarmsForMetricResponse' <$>
                    (x .@? "MetricAlarms" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
@@ -121,17 +123,25 @@ instance ToQuery DescribeAlarmsForMetric where
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 
--- | /See:/ 'describeAlarmsForMetricResponse' smart constructor.
+-- | The output for the DescribeAlarmsForMetric action.
+--
+-- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dafmrMetricAlarms'
-newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms :: Maybe [MetricAlarm]} deriving (Eq, Read, Show)
+--
+-- * 'dafmrStatusCode'
+data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms :: Maybe [MetricAlarm], _dafmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
-describeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms = Nothing};
+describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse
+describeAlarmsForMetricResponse pStatusCode = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms = Nothing, _dafmrStatusCode = pStatusCode};
 
 -- | A list of information for each alarm with the specified metric.
 dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms = lens _dafmrMetricAlarms (\ s a -> s{_dafmrMetricAlarms = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dafmrStatusCode :: Lens' DescribeAlarmsForMetricResponse Int
+dafmrStatusCode = lens _dafmrStatusCode (\ s a -> s{_dafmrStatusCode = a});

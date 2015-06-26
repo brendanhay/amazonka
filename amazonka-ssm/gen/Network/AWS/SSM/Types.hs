@@ -21,8 +21,38 @@ module Network.AWS.SSM.Types
     (
     -- * Service
       SSM
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _AssociatedInstances
+    , _InvalidNextToken
+    , _InvalidInstanceId
+    , _StatusUnchanged
+    , _DuplicateInstanceId
+    , _InvalidDocument
+    , _AssociationLimitExceeded
+    , _InvalidDocumentContent
+    , _AssociationAlreadyExists
+    , _AssociationDoesNotExist
+    , _InternalServerError
+    , _MaxDocumentSizeExceeded
+    , _TooManyUpdates
+    , _DocumentAlreadyExists
+    , _DocumentLimitExceeded
+
+    -- * AssociationFilterKey
+    , AssociationFilterKey (..)
+
+    -- * AssociationStatusName
+    , AssociationStatusName (..)
+
+    -- * DocumentFilterKey
+    , DocumentFilterKey (..)
+
+    -- * DocumentStatus
+    , DocumentStatus (..)
+
+    -- * Fault
+    , Fault (..)
 
     -- * Association
     , Association
@@ -44,9 +74,6 @@ module Network.AWS.SSM.Types
     , afKey
     , afValue
 
-    -- * AssociationFilterKey
-    , AssociationFilterKey (..)
-
     -- * AssociationStatus
     , AssociationStatus
     , associationStatus
@@ -54,9 +81,6 @@ module Network.AWS.SSM.Types
     , asDate
     , asName
     , asMessage
-
-    -- * AssociationStatusName
-    , AssociationStatusName (..)
 
     -- * CreateAssociationBatchRequestEntry
     , CreateAssociationBatchRequestEntry
@@ -78,16 +102,10 @@ module Network.AWS.SSM.Types
     , dfKey
     , dfValue
 
-    -- * DocumentFilterKey
-    , DocumentFilterKey (..)
-
     -- * DocumentIdentifier
     , DocumentIdentifier
     , documentIdentifier
     , diName
-
-    -- * DocumentStatus
-    , DocumentStatus (..)
 
     -- * FailedCreateAssociation
     , FailedCreateAssociation
@@ -96,8 +114,6 @@ module Network.AWS.SSM.Types
     , fcaFault
     , fcaMessage
 
-    -- * Fault
-    , Fault (..)
     ) where
 
 import Network.AWS.Prelude
@@ -108,32 +124,204 @@ data SSM
 
 instance AWSService SSM where
     type Sg SSM = V4
-    type Er SSM = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service SSM
-        service' = Service
-            { _svcAbbrev  = "SSM"
-            , _svcPrefix  = "ssm"
-            , _svcVersion = "2014-11-06"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service SSM
+        svc = Service
+            { _svcAbbrev   = "SSM"
+            , _svcPrefix   = "ssm"
+            , _svcVersion  = "2014-11-06"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry SSM
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | You must disassociate a configuration document from all instances before
+-- you can delete it.
+_AssociatedInstances :: AWSError a => Geting (First ServiceError) a ServiceError
+_AssociatedInstances = _ServiceError . hasCode "AssociatedInstances" . hasStatus 400;
 
--- | /See:/ 'association' smart constructor.
+-- | The specified token is not valid.
+_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+
+-- | You must specify the ID of a running instance.
+_InvalidInstanceId :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInstanceId = _ServiceError . hasCode "InvalidInstanceId" . hasStatus 404;
+
+-- | The updated status is the same as the current status.
+_StatusUnchanged :: AWSError a => Geting (First ServiceError) a ServiceError
+_StatusUnchanged = _ServiceError . hasCode "StatusUnchanged" . hasStatus 400;
+
+-- | You cannot specify an instance ID in more than one association.
+_DuplicateInstanceId :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateInstanceId = _ServiceError . hasCode "DuplicateInstanceId" . hasStatus 404;
+
+-- | The configuration document is not valid.
+_InvalidDocument :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDocument = _ServiceError . hasCode "InvalidDocument" . hasStatus 404;
+
+-- | You can have at most 2,000 active associations.
+_AssociationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_AssociationLimitExceeded = _ServiceError . hasCode "AssociationLimitExceeded" . hasStatus 400;
+
+-- | The content for the configuration document is not valid.
+_InvalidDocumentContent :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDocumentContent = _ServiceError . hasCode "InvalidDocumentContent" . hasStatus 400;
+
+-- | The specified association already exists.
+_AssociationAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_AssociationAlreadyExists = _ServiceError . hasCode "AssociationAlreadyExists" . hasStatus 400;
+
+-- | The specified association does not exist.
+_AssociationDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
+_AssociationDoesNotExist = _ServiceError . hasCode "AssociationDoesNotExist" . hasStatus 404;
+
+-- | An error occurred on the server side.
+_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalServerError" . hasStatus 500;
+
+-- | The size limit of a configuration document is 64 KB.
+_MaxDocumentSizeExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_MaxDocumentSizeExceeded = _ServiceError . hasCode "MaxDocumentSizeExceeded" . hasStatus 400;
+
+-- | There are concurrent updates for a resource that supports one update at
+-- a time.
+_TooManyUpdates :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyUpdates = _ServiceError . hasCode "TooManyUpdates" . hasStatus 429;
+
+-- | The specified configuration document already exists.
+_DocumentAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_DocumentAlreadyExists = _ServiceError . hasCode "DocumentAlreadyExists" . hasStatus 400;
+
+-- | You can have at most 100 active configuration documents.
+_DocumentLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_DocumentLimitExceeded = _ServiceError . hasCode "DocumentLimitExceeded" . hasStatus 400;
+
+data AssociationFilterKey = AFKInstanceId | AFKName deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AssociationFilterKey where
+    parser = takeLowerText >>= \case
+        "InstanceId" -> pure AFKInstanceId
+        "Name" -> pure AFKName
+        e -> fail ("Failure parsing AssociationFilterKey from " ++ show e)
+
+instance ToText AssociationFilterKey where
+    toText = \case
+        AFKInstanceId -> "InstanceId"
+        AFKName -> "Name"
+
+instance Hashable AssociationFilterKey
+instance ToQuery AssociationFilterKey
+instance ToHeader AssociationFilterKey
+
+instance ToJSON AssociationFilterKey where
+    toJSON = toJSONText
+
+data AssociationStatusName = Pending | Success | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AssociationStatusName where
+    parser = takeLowerText >>= \case
+        "Failed" -> pure Failed
+        "Pending" -> pure Pending
+        "Success" -> pure Success
+        e -> fail ("Failure parsing AssociationStatusName from " ++ show e)
+
+instance ToText AssociationStatusName where
+    toText = \case
+        Failed -> "Failed"
+        Pending -> "Pending"
+        Success -> "Success"
+
+instance Hashable AssociationStatusName
+instance ToQuery AssociationStatusName
+instance ToHeader AssociationStatusName
+
+instance ToJSON AssociationStatusName where
+    toJSON = toJSONText
+
+instance FromJSON AssociationStatusName where
+    parseJSON = parseJSONText "AssociationStatusName"
+
+data DocumentFilterKey = Name deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DocumentFilterKey where
+    parser = takeLowerText >>= \case
+        "Name" -> pure Name
+        e -> fail ("Failure parsing DocumentFilterKey from " ++ show e)
+
+instance ToText DocumentFilterKey where
+    toText = \case
+        Name -> "Name"
+
+instance Hashable DocumentFilterKey
+instance ToQuery DocumentFilterKey
+instance ToHeader DocumentFilterKey
+
+instance ToJSON DocumentFilterKey where
+    toJSON = toJSONText
+
+data DocumentStatus = Deleting | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DocumentStatus where
+    parser = takeLowerText >>= \case
+        "Active" -> pure Active
+        "Creating" -> pure Creating
+        "Deleting" -> pure Deleting
+        e -> fail ("Failure parsing DocumentStatus from " ++ show e)
+
+instance ToText DocumentStatus where
+    toText = \case
+        Active -> "Active"
+        Creating -> "Creating"
+        Deleting -> "Deleting"
+
+instance Hashable DocumentStatus
+instance ToQuery DocumentStatus
+instance ToHeader DocumentStatus
+
+instance FromJSON DocumentStatus where
+    parseJSON = parseJSONText "DocumentStatus"
+
+data Fault = Unknown | Server | Client deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Fault where
+    parser = takeLowerText >>= \case
+        "Client" -> pure Client
+        "Server" -> pure Server
+        "Unknown" -> pure Unknown
+        e -> fail ("Failure parsing Fault from " ++ show e)
+
+instance ToText Fault where
+    toText = \case
+        Client -> "Client"
+        Server -> "Server"
+        Unknown -> "Unknown"
+
+instance Hashable Fault
+instance ToQuery Fault
+instance ToHeader Fault
+
+instance FromJSON Fault where
+    parseJSON = parseJSONText "Fault"
+
+-- | Describes an association of a configuration document and an instance.
+--
+-- /See:/ 'association' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -161,7 +349,9 @@ instance FromJSON Association where
                  Association' <$>
                    (x .:? "InstanceId") <*> (x .:? "Name"))
 
--- | /See:/ 'associationDescription' smart constructor.
+-- | Describes an association.
+--
+-- /See:/ 'associationDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -203,7 +393,9 @@ instance FromJSON AssociationDescription where
                      (x .:? "Date")
                      <*> (x .:? "Name"))
 
--- | /See:/ 'associationFilter' smart constructor.
+-- | Describes a filter.
+--
+-- /See:/ 'associationFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -228,27 +420,9 @@ instance ToJSON AssociationFilter where
         toJSON AssociationFilter'{..}
           = object ["key" .= _afKey, "value" .= _afValue]
 
-data AssociationFilterKey = AFKInstanceId | AFKName deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AssociationFilterKey where
-    parser = takeLowerText >>= \case
-        "InstanceId" -> pure AFKInstanceId
-        "Name" -> pure AFKName
-        e -> fail ("Failure parsing AssociationFilterKey from " ++ show e)
-
-instance ToText AssociationFilterKey where
-    toText = \case
-        AFKInstanceId -> "InstanceId"
-        AFKName -> "Name"
-
-instance Hashable AssociationFilterKey
-instance ToQuery AssociationFilterKey
-instance ToHeader AssociationFilterKey
-
-instance ToJSON AssociationFilterKey where
-    toJSON = toJSONText
-
--- | /See:/ 'associationStatus' smart constructor.
+-- | Describes an association status.
+--
+-- /See:/ 'associationStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -297,32 +471,9 @@ instance ToJSON AssociationStatus where
                "Date" .= _asDate, "Name" .= _asName,
                "Message" .= _asMessage]
 
-data AssociationStatusName = Pending | Success | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AssociationStatusName where
-    parser = takeLowerText >>= \case
-        "Failed" -> pure Failed
-        "Pending" -> pure Pending
-        "Success" -> pure Success
-        e -> fail ("Failure parsing AssociationStatusName from " ++ show e)
-
-instance ToText AssociationStatusName where
-    toText = \case
-        Failed -> "Failed"
-        Pending -> "Pending"
-        Success -> "Success"
-
-instance Hashable AssociationStatusName
-instance ToQuery AssociationStatusName
-instance ToHeader AssociationStatusName
-
-instance ToJSON AssociationStatusName where
-    toJSON = toJSONText
-
-instance FromJSON AssociationStatusName where
-    parseJSON = parseJSONText "AssociationStatusName"
-
--- | /See:/ 'createAssociationBatchRequestEntry' smart constructor.
+-- | Describes the association of a configuration document and an instance.
+--
+-- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -358,7 +509,9 @@ instance ToJSON CreateAssociationBatchRequestEntry
               ["InstanceId" .= _cabreInstanceId,
                "Name" .= _cabreName]
 
--- | /See:/ 'documentDescription' smart constructor.
+-- | Describes a configuration document.
+--
+-- /See:/ 'documentDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -401,7 +554,9 @@ instance FromJSON DocumentDescription where
                      (x .:? "CreatedDate")
                      <*> (x .:? "Name"))
 
--- | /See:/ 'documentFilter' smart constructor.
+-- | Describes a filter.
+--
+-- /See:/ 'documentFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -426,25 +581,9 @@ instance ToJSON DocumentFilter where
         toJSON DocumentFilter'{..}
           = object ["key" .= _dfKey, "value" .= _dfValue]
 
-data DocumentFilterKey = Name deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DocumentFilterKey where
-    parser = takeLowerText >>= \case
-        "Name" -> pure Name
-        e -> fail ("Failure parsing DocumentFilterKey from " ++ show e)
-
-instance ToText DocumentFilterKey where
-    toText = \case
-        Name -> "Name"
-
-instance Hashable DocumentFilterKey
-instance ToQuery DocumentFilterKey
-instance ToHeader DocumentFilterKey
-
-instance ToJSON DocumentFilterKey where
-    toJSON = toJSONText
-
--- | /See:/ 'documentIdentifier' smart constructor.
+-- | Describes the name of a configuration document.
+--
+-- /See:/ 'documentIdentifier' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -464,29 +603,9 @@ instance FromJSON DocumentIdentifier where
           = withObject "DocumentIdentifier"
               (\ x -> DocumentIdentifier' <$> (x .:? "Name"))
 
-data DocumentStatus = Deleting | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DocumentStatus where
-    parser = takeLowerText >>= \case
-        "Active" -> pure Active
-        "Creating" -> pure Creating
-        "Deleting" -> pure Deleting
-        e -> fail ("Failure parsing DocumentStatus from " ++ show e)
-
-instance ToText DocumentStatus where
-    toText = \case
-        Active -> "Active"
-        Creating -> "Creating"
-        Deleting -> "Deleting"
-
-instance Hashable DocumentStatus
-instance ToQuery DocumentStatus
-instance ToHeader DocumentStatus
-
-instance FromJSON DocumentStatus where
-    parseJSON = parseJSONText "DocumentStatus"
-
--- | /See:/ 'failedCreateAssociation' smart constructor.
+-- | Describes a failed association.
+--
+-- /See:/ 'failedCreateAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -520,25 +639,3 @@ instance FromJSON FailedCreateAssociation where
                  FailedCreateAssociation' <$>
                    (x .:? "Entry") <*> (x .:? "Fault") <*>
                      (x .:? "Message"))
-
-data Fault = Unknown | Server | Client deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Fault where
-    parser = takeLowerText >>= \case
-        "Client" -> pure Client
-        "Server" -> pure Server
-        "Unknown" -> pure Unknown
-        e -> fail ("Failure parsing Fault from " ++ show e)
-
-instance ToText Fault where
-    toText = \case
-        Client -> "Client"
-        Server -> "Server"
-        Unknown -> "Unknown"
-
-instance Hashable Fault
-instance ToQuery Fault
-instance ToHeader Fault
-
-instance FromJSON Fault where
-    parseJSON = parseJSONText "Fault"

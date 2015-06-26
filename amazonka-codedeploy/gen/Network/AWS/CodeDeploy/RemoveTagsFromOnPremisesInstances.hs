@@ -38,7 +38,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
+-- | Represents the input of a remove tags from on-premises instances
+-- operation.
+--
+-- /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

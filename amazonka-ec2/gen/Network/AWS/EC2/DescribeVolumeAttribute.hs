@@ -41,6 +41,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , dvarProductCodes
     , dvarVolumeId
     , dvarAutoEnableIO
+    , dvarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -88,7 +89,8 @@ instance AWSRequest DescribeVolumeAttribute where
               (\ s h x ->
                  DescribeVolumeAttributeResponse' <$>
                    (may (parseXMLList "item") x) <*> (x .@? "volumeId")
-                     <*> (x .@? "autoEnableIO"))
+                     <*> (x .@? "autoEnableIO")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
@@ -114,11 +116,13 @@ instance ToQuery DescribeVolumeAttribute where
 -- * 'dvarVolumeId'
 --
 -- * 'dvarAutoEnableIO'
-data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes :: Maybe [ProductCode], _dvarVolumeId :: Maybe Text, _dvarAutoEnableIO :: Maybe AttributeBooleanValue} deriving (Eq, Read, Show)
+--
+-- * 'dvarStatusCode'
+data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes :: Maybe [ProductCode], _dvarVolumeId :: Maybe Text, _dvarAutoEnableIO :: Maybe AttributeBooleanValue, _dvarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
-describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes = Nothing, _dvarVolumeId = Nothing, _dvarAutoEnableIO = Nothing};
+describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
+describeVolumeAttributeResponse pStatusCode = DescribeVolumeAttributeResponse'{_dvarProductCodes = Nothing, _dvarVolumeId = Nothing, _dvarAutoEnableIO = Nothing, _dvarStatusCode = pStatusCode};
 
 -- | A list of product codes.
 dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
@@ -131,3 +135,7 @@ dvarVolumeId = lens _dvarVolumeId (\ s a -> s{_dvarVolumeId = a});
 -- | The state of @autoEnableIO@ attribute.
 dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarAutoEnableIO = lens _dvarAutoEnableIO (\ s a -> s{_dvarAutoEnableIO = a});
+
+-- | FIXME: Undocumented member.
+dvarStatusCode :: Lens' DescribeVolumeAttributeResponse Int
+dvarStatusCode = lens _dvarStatusCode (\ s a -> s{_dvarStatusCode = a});

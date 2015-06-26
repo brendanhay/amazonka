@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DescribeInstances
     , describeInstancesResponse
     -- ** Response lenses
     , dirInstances
+    , dirStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -88,7 +89,8 @@ instance AWSRequest DescribeInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeInstancesResponse' <$>
-                   (x .?> "Instances" .!@ mempty))
+                   (x .?> "Instances" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstances where
         toHeaders
@@ -112,17 +114,25 @@ instance ToPath DescribeInstances where
 instance ToQuery DescribeInstances where
         toQuery = const mempty
 
--- | /See:/ 'describeInstancesResponse' smart constructor.
+-- | Contains the response to a @DescribeInstances@ request.
+--
+-- /See:/ 'describeInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirInstances'
-newtype DescribeInstancesResponse = DescribeInstancesResponse'{_dirInstances :: Maybe [Instance]} deriving (Eq, Read, Show)
+--
+-- * 'dirStatusCode'
+data DescribeInstancesResponse = DescribeInstancesResponse'{_dirInstances :: Maybe [Instance], _dirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
-describeInstancesResponse :: DescribeInstancesResponse
-describeInstancesResponse = DescribeInstancesResponse'{_dirInstances = Nothing};
+describeInstancesResponse :: Int -> DescribeInstancesResponse
+describeInstancesResponse pStatusCode = DescribeInstancesResponse'{_dirInstances = Nothing, _dirStatusCode = pStatusCode};
 
 -- | An array of @Instance@ objects that describe the instances.
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\ s a -> s{_dirInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dirStatusCode :: Lens' DescribeInstancesResponse Int
+dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});

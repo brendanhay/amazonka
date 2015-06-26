@@ -44,6 +44,7 @@ module Network.AWS.EC2.CreateVPCEndpoint
     -- ** Response lenses
     , cverClientToken
     , cverVPCEndpoint
+    , cverStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -114,7 +115,8 @@ instance AWSRequest CreateVPCEndpoint where
           = receiveXML
               (\ s h x ->
                  CreateVPCEndpointResponse' <$>
-                   (x .@? "clientToken") <*> (x .@? "vpcEndpoint"))
+                   (x .@? "clientToken") <*> (x .@? "vpcEndpoint") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
@@ -141,11 +143,13 @@ instance ToQuery CreateVPCEndpoint where
 -- * 'cverClientToken'
 --
 -- * 'cverVPCEndpoint'
-data CreateVPCEndpointResponse = CreateVPCEndpointResponse'{_cverClientToken :: Maybe Text, _cverVPCEndpoint :: Maybe VPCEndpoint} deriving (Eq, Read, Show)
+--
+-- * 'cverStatusCode'
+data CreateVPCEndpointResponse = CreateVPCEndpointResponse'{_cverClientToken :: Maybe Text, _cverVPCEndpoint :: Maybe VPCEndpoint, _cverStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
-createVPCEndpointResponse :: CreateVPCEndpointResponse
-createVPCEndpointResponse = CreateVPCEndpointResponse'{_cverClientToken = Nothing, _cverVPCEndpoint = Nothing};
+createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse
+createVPCEndpointResponse pStatusCode = CreateVPCEndpointResponse'{_cverClientToken = Nothing, _cverVPCEndpoint = Nothing, _cverStatusCode = pStatusCode};
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request.
@@ -155,3 +159,7 @@ cverClientToken = lens _cverClientToken (\ s a -> s{_cverClientToken = a});
 -- | Information about the endpoint.
 cverVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cverVPCEndpoint = lens _cverVPCEndpoint (\ s a -> s{_cverVPCEndpoint = a});
+
+-- | FIXME: Undocumented member.
+cverStatusCode :: Lens' CreateVPCEndpointResponse Int
+cverStatusCode = lens _cverStatusCode (\ s a -> s{_cverStatusCode = a});

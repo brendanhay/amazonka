@@ -36,6 +36,7 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrNextToken
     , ldgrApplicationName
     , ldgrDeploymentGroups
+    , ldgrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listDeploymentGroups' smart constructor.
+-- | Represents the input of a list deployment groups operation.
+--
+-- /See:/ 'listDeploymentGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -77,7 +80,8 @@ instance AWSRequest ListDeploymentGroups where
               (\ s h x ->
                  ListDeploymentGroupsResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "applicationName") <*>
-                     (x .?> "deploymentGroups" .!@ mempty))
+                     (x .?> "deploymentGroups" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDeploymentGroups where
         toHeaders
@@ -101,7 +105,9 @@ instance ToPath ListDeploymentGroups where
 instance ToQuery ListDeploymentGroups where
         toQuery = const mempty
 
--- | /See:/ 'listDeploymentGroupsResponse' smart constructor.
+-- | Represents the output of a list deployment groups operation.
+--
+-- /See:/ 'listDeploymentGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -110,11 +116,13 @@ instance ToQuery ListDeploymentGroups where
 -- * 'ldgrApplicationName'
 --
 -- * 'ldgrDeploymentGroups'
-data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken :: Maybe Text, _ldgrApplicationName :: Maybe Text, _ldgrDeploymentGroups :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ldgrStatusCode'
+data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken :: Maybe Text, _ldgrApplicationName :: Maybe Text, _ldgrDeploymentGroups :: Maybe [Text], _ldgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
-listDeploymentGroupsResponse :: ListDeploymentGroupsResponse
-listDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken = Nothing, _ldgrApplicationName = Nothing, _ldgrDeploymentGroups = Nothing};
+listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
+listDeploymentGroupsResponse pStatusCode = ListDeploymentGroupsResponse'{_ldgrNextToken = Nothing, _ldgrApplicationName = Nothing, _ldgrDeploymentGroups = Nothing, _ldgrStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -130,3 +138,7 @@ ldgrApplicationName = lens _ldgrApplicationName (\ s a -> s{_ldgrApplicationName
 -- | A list of corresponding deployment group names.
 ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ldgrStatusCode :: Lens' ListDeploymentGroupsResponse Int
+ldgrStatusCode = lens _ldgrStatusCode (\ s a -> s{_ldgrStatusCode = a});

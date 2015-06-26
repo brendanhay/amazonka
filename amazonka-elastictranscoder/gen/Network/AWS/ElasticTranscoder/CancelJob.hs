@@ -34,6 +34,8 @@ module Network.AWS.ElasticTranscoder.CancelJob
     , CancelJobResponse
     -- ** Response constructor
     , cancelJobResponse
+    -- ** Response lenses
+    , canStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'cancelJob' smart constructor.
+-- | The @CancelJobRequest@ structure.
+--
+-- /See:/ 'cancelJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +67,10 @@ instance AWSRequest CancelJob where
         type Sv CancelJob = ElasticTranscoder
         type Rs CancelJob = CancelJobResponse
         request = delete
-        response = receiveNull CancelJobResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CancelJobResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty
@@ -75,9 +82,20 @@ instance ToPath CancelJob where
 instance ToQuery CancelJob where
         toQuery = const mempty
 
--- | /See:/ 'cancelJobResponse' smart constructor.
-data CancelJobResponse = CancelJobResponse' deriving (Eq, Read, Show)
+-- | The response body contains a JSON object. If the job is successfully
+-- canceled, the value of @Success@ is @true@.
+--
+-- /See:/ 'cancelJobResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'canStatusCode'
+newtype CancelJobResponse = CancelJobResponse'{_canStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelJobResponse' smart constructor.
-cancelJobResponse :: CancelJobResponse
-cancelJobResponse = CancelJobResponse';
+cancelJobResponse :: Int -> CancelJobResponse
+cancelJobResponse pStatusCode = CancelJobResponse'{_canStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+canStatusCode :: Lens' CancelJobResponse Int
+canStatusCode = lens _canStatusCode (\ s a -> s{_canStatusCode = a});

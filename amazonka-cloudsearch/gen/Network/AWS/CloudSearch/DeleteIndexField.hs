@@ -36,6 +36,7 @@ module Network.AWS.CloudSearch.DeleteIndexField
     , deleteIndexFieldResponse
     -- ** Response lenses
     , difrIndexField
+    , difrStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -43,7 +44,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteIndexField' smart constructor.
+-- | Container for the parameters to the @DeleteIndexField@ operation.
+-- Specifies the name of the domain you want to update and the name of the
+-- index field you want to delete.
+--
+-- /See:/ 'deleteIndexField' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -72,7 +77,8 @@ instance AWSRequest DeleteIndexField where
         response
           = receiveXMLWrapper "DeleteIndexFieldResult"
               (\ s h x ->
-                 DeleteIndexFieldResponse' <$> (x .@ "IndexField"))
+                 DeleteIndexFieldResponse' <$>
+                   (x .@ "IndexField") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
@@ -88,17 +94,25 @@ instance ToQuery DeleteIndexField where
                "DomainName" =: _dif1DomainName,
                "IndexFieldName" =: _dif1IndexFieldName]
 
--- | /See:/ 'deleteIndexFieldResponse' smart constructor.
+-- | The result of a @DeleteIndexField@ request.
+--
+-- /See:/ 'deleteIndexFieldResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'difrIndexField'
-newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse'{_difrIndexField :: IndexFieldStatus} deriving (Eq, Read, Show)
+--
+-- * 'difrStatusCode'
+data DeleteIndexFieldResponse = DeleteIndexFieldResponse'{_difrIndexField :: IndexFieldStatus, _difrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
-deleteIndexFieldResponse :: IndexFieldStatus -> DeleteIndexFieldResponse
-deleteIndexFieldResponse pIndexField = DeleteIndexFieldResponse'{_difrIndexField = pIndexField};
+deleteIndexFieldResponse :: IndexFieldStatus -> Int -> DeleteIndexFieldResponse
+deleteIndexFieldResponse pIndexField pStatusCode = DeleteIndexFieldResponse'{_difrIndexField = pIndexField, _difrStatusCode = pStatusCode};
 
 -- | The status of the index field being deleted.
 difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\ s a -> s{_difrIndexField = a});
+
+-- | FIXME: Undocumented member.
+difrStatusCode :: Lens' DeleteIndexFieldResponse Int
+difrStatusCode = lens _difrStatusCode (\ s a -> s{_difrStatusCode = a});

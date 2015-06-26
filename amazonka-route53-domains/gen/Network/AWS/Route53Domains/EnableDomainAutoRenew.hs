@@ -39,6 +39,8 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     , EnableDomainAutoRenewResponse
     -- ** Response constructor
     , enableDomainAutoRenewResponse
+    -- ** Response lenses
+    , edarrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -66,7 +68,11 @@ instance AWSRequest EnableDomainAutoRenew where
         type Rs EnableDomainAutoRenew =
              EnableDomainAutoRenewResponse
         request = postJSON
-        response = receiveNull EnableDomainAutoRenewResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 EnableDomainAutoRenewResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders EnableDomainAutoRenew where
         toHeaders
@@ -89,8 +95,16 @@ instance ToQuery EnableDomainAutoRenew where
         toQuery = const mempty
 
 -- | /See:/ 'enableDomainAutoRenewResponse' smart constructor.
-data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'edarrStatusCode'
+newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'{_edarrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnableDomainAutoRenewResponse' smart constructor.
-enableDomainAutoRenewResponse :: EnableDomainAutoRenewResponse
-enableDomainAutoRenewResponse = EnableDomainAutoRenewResponse';
+enableDomainAutoRenewResponse :: Int -> EnableDomainAutoRenewResponse
+enableDomainAutoRenewResponse pStatusCode = EnableDomainAutoRenewResponse'{_edarrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+edarrStatusCode :: Lens' EnableDomainAutoRenewResponse Int
+edarrStatusCode = lens _edarrStatusCode (\ s a -> s{_edarrStatusCode = a});

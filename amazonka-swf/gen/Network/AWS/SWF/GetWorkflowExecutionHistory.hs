@@ -60,9 +60,10 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     -- ** Response lenses
     , gwehrNextPageToken
     , gwehrEvents
+    , gwehrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -126,8 +127,8 @@ instance AWSPager GetWorkflowExecutionHistory where
           | stop (rs ^. gwehrNextPageToken) = Nothing
           | stop (rs ^. gwehrEvents) = Nothing
           | otherwise =
-            Just $
-              rq & gwehNextPageToken .~ rs ^. gwehrNextPageToken
+            Just $ rq &
+              gwehNextPageToken .~ rs ^. gwehrNextPageToken
 
 instance AWSRequest GetWorkflowExecutionHistory where
         type Sv GetWorkflowExecutionHistory = SWF
@@ -139,7 +140,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
               (\ s h x ->
                  GetWorkflowExecutionHistoryResponse' <$>
                    (x .?> "nextPageToken") <*>
-                     (x .?> "events" .!@ mempty))
+                     (x .?> "events" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
@@ -166,18 +168,24 @@ instance ToPath GetWorkflowExecutionHistory where
 instance ToQuery GetWorkflowExecutionHistory where
         toQuery = const mempty
 
--- | /See:/ 'getWorkflowExecutionHistoryResponse' smart constructor.
+-- | Paginated representation of a workflow history for a workflow execution.
+-- This is the up to date, complete and authoritative record of the events
+-- related to all tasks and events in the life of the workflow execution.
+--
+-- /See:/ 'getWorkflowExecutionHistoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gwehrNextPageToken'
 --
 -- * 'gwehrEvents'
-data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken :: Maybe Text, _gwehrEvents :: [HistoryEvent]} deriving (Eq, Read, Show)
+--
+-- * 'gwehrStatusCode'
+data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken :: Maybe Text, _gwehrEvents :: [HistoryEvent], _gwehrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
-getWorkflowExecutionHistoryResponse :: GetWorkflowExecutionHistoryResponse
-getWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken = Nothing, _gwehrEvents = mempty};
+getWorkflowExecutionHistoryResponse :: Int -> GetWorkflowExecutionHistoryResponse
+getWorkflowExecutionHistoryResponse pStatusCode = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken = Nothing, _gwehrEvents = mempty, _gwehrStatusCode = pStatusCode};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -192,3 +200,7 @@ gwehrNextPageToken = lens _gwehrNextPageToken (\ s a -> s{_gwehrNextPageToken = 
 -- | The list of history events.
 gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
 gwehrEvents = lens _gwehrEvents (\ s a -> s{_gwehrEvents = a});
+
+-- | FIXME: Undocumented member.
+gwehrStatusCode :: Lens' GetWorkflowExecutionHistoryResponse Int
+gwehrStatusCode = lens _gwehrStatusCode (\ s a -> s{_gwehrStatusCode = a});

@@ -43,6 +43,8 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     , SetIdentityFeedbackForwardingEnabledResponse
     -- ** Response constructor
     , setIdentityFeedbackForwardingEnabledResponse
+    -- ** Response lenses
+    , sifferStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -85,8 +87,11 @@ instance AWSRequest
              SetIdentityFeedbackForwardingEnabledResponse
         request = post
         response
-          = receiveNull
-              SetIdentityFeedbackForwardingEnabledResponse'
+          = receiveXMLWrapper
+              "SetIdentityFeedbackForwardingEnabledResult"
+              (\ s h x ->
+                 SetIdentityFeedbackForwardingEnabledResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders
          SetIdentityFeedbackForwardingEnabled where
@@ -107,9 +112,20 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
                "Identity" =: _siffeIdentity,
                "ForwardingEnabled" =: _siffeForwardingEnabled]
 
--- | /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
-data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse' deriving (Eq, Read, Show)
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sifferStatusCode'
+newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'{_sifferStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
-setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
-setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse';
+setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse
+setIdentityFeedbackForwardingEnabledResponse pStatusCode = SetIdentityFeedbackForwardingEnabledResponse'{_sifferStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+sifferStatusCode :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
+sifferStatusCode = lens _sifferStatusCode (\ s a -> s{_sifferStatusCode = a});

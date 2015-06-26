@@ -34,6 +34,8 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     , DeletePresetResponse
     -- ** Response constructor
     , deletePresetResponse
+    -- ** Response lenses
+    , dprStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deletePreset' smart constructor.
+-- | The @DeletePresetRequest@ structure.
+--
+-- /See:/ 'deletePreset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -61,7 +65,10 @@ instance AWSRequest DeletePreset where
         type Sv DeletePreset = ElasticTranscoder
         type Rs DeletePreset = DeletePresetResponse
         request = delete
-        response = receiveNull DeletePresetResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeletePresetResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeletePreset where
         toHeaders = const mempty
@@ -73,9 +80,19 @@ instance ToPath DeletePreset where
 instance ToQuery DeletePreset where
         toQuery = const mempty
 
--- | /See:/ 'deletePresetResponse' smart constructor.
-data DeletePresetResponse = DeletePresetResponse' deriving (Eq, Read, Show)
+-- | The @DeletePresetResponse@ structure.
+--
+-- /See:/ 'deletePresetResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dprStatusCode'
+newtype DeletePresetResponse = DeletePresetResponse'{_dprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeletePresetResponse' smart constructor.
-deletePresetResponse :: DeletePresetResponse
-deletePresetResponse = DeletePresetResponse';
+deletePresetResponse :: Int -> DeletePresetResponse
+deletePresetResponse pStatusCode = DeletePresetResponse'{_dprStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+dprStatusCode :: Lens' DeletePresetResponse Int
+dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});

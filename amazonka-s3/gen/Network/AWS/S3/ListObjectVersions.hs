@@ -50,9 +50,10 @@ module Network.AWS.S3.ListObjectVersions
     , lovrMaxKeys
     , lovrIsTruncated
     , lovrDelimiter
+    , lovrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -140,7 +141,8 @@ instance AWSRequest ListObjectVersions where
                      <*> (x .@? "VersionIdMarker")
                      <*> (x .@? "MaxKeys")
                      <*> (x .@? "IsTruncated")
-                     <*> (x .@? "Delimiter"))
+                     <*> (x .@? "Delimiter")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
@@ -188,11 +190,13 @@ instance ToQuery ListObjectVersions where
 -- * 'lovrIsTruncated'
 --
 -- * 'lovrDelimiter'
-data ListObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker :: Maybe Text, _lovrKeyMarker :: Maybe Text, _lovrPrefix :: Maybe Text, _lovrDeleteMarkers :: Maybe [DeleteMarkerEntry], _lovrEncodingType :: Maybe EncodingType, _lovrCommonPrefixes :: Maybe [CommonPrefix], _lovrVersions :: Maybe [ObjectVersion], _lovrName :: Maybe BucketName, _lovrNextKeyMarker :: Maybe Text, _lovrVersionIdMarker :: Maybe Text, _lovrMaxKeys :: Maybe Int, _lovrIsTruncated :: Maybe Bool, _lovrDelimiter :: Maybe Char} deriving (Eq, Read, Show)
+--
+-- * 'lovrStatusCode'
+data ListObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker :: Maybe Text, _lovrKeyMarker :: Maybe Text, _lovrPrefix :: Maybe Text, _lovrDeleteMarkers :: Maybe [DeleteMarkerEntry], _lovrEncodingType :: Maybe EncodingType, _lovrCommonPrefixes :: Maybe [CommonPrefix], _lovrVersions :: Maybe [ObjectVersion], _lovrName :: Maybe BucketName, _lovrNextKeyMarker :: Maybe Text, _lovrVersionIdMarker :: Maybe Text, _lovrMaxKeys :: Maybe Int, _lovrIsTruncated :: Maybe Bool, _lovrDelimiter :: Maybe Char, _lovrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListObjectVersionsResponse' smart constructor.
-listObjectVersionsResponse :: ListObjectVersionsResponse
-listObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker = Nothing, _lovrKeyMarker = Nothing, _lovrPrefix = Nothing, _lovrDeleteMarkers = Nothing, _lovrEncodingType = Nothing, _lovrCommonPrefixes = Nothing, _lovrVersions = Nothing, _lovrName = Nothing, _lovrNextKeyMarker = Nothing, _lovrVersionIdMarker = Nothing, _lovrMaxKeys = Nothing, _lovrIsTruncated = Nothing, _lovrDelimiter = Nothing};
+listObjectVersionsResponse :: Int -> ListObjectVersionsResponse
+listObjectVersionsResponse pStatusCode = ListObjectVersionsResponse'{_lovrNextVersionIdMarker = Nothing, _lovrKeyMarker = Nothing, _lovrPrefix = Nothing, _lovrDeleteMarkers = Nothing, _lovrEncodingType = Nothing, _lovrCommonPrefixes = Nothing, _lovrVersions = Nothing, _lovrName = Nothing, _lovrNextKeyMarker = Nothing, _lovrVersionIdMarker = Nothing, _lovrMaxKeys = Nothing, _lovrIsTruncated = Nothing, _lovrDelimiter = Nothing, _lovrStatusCode = pStatusCode};
 
 -- | Use this value for the next version id marker parameter in a subsequent
 -- request.
@@ -251,3 +255,7 @@ lovrIsTruncated = lens _lovrIsTruncated (\ s a -> s{_lovrIsTruncated = a});
 -- | FIXME: Undocumented member.
 lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Char)
 lovrDelimiter = lens _lovrDelimiter (\ s a -> s{_lovrDelimiter = a});
+
+-- | FIXME: Undocumented member.
+lovrStatusCode :: Lens' ListObjectVersionsResponse Int
+lovrStatusCode = lens _lovrStatusCode (\ s a -> s{_lovrStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.CodeDeploy.GetApplication
     , getApplicationResponse
     -- ** Response lenses
     , garApplication
+    , garStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getApplication' smart constructor.
+-- | Represents the input of a get application operation.
+--
+-- /See:/ 'getApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -62,7 +65,8 @@ instance AWSRequest GetApplication where
         response
           = receiveJSON
               (\ s h x ->
-                 GetApplicationResponse' <$> (x .?> "application"))
+                 GetApplicationResponse' <$>
+                   (x .?> "application") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetApplication where
         toHeaders
@@ -83,17 +87,25 @@ instance ToPath GetApplication where
 instance ToQuery GetApplication where
         toQuery = const mempty
 
--- | /See:/ 'getApplicationResponse' smart constructor.
+-- | Represents the output of a get application operation.
+--
+-- /See:/ 'getApplicationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'garApplication'
-newtype GetApplicationResponse = GetApplicationResponse'{_garApplication :: Maybe ApplicationInfo} deriving (Eq, Read, Show)
+--
+-- * 'garStatusCode'
+data GetApplicationResponse = GetApplicationResponse'{_garApplication :: Maybe ApplicationInfo, _garStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetApplicationResponse' smart constructor.
-getApplicationResponse :: GetApplicationResponse
-getApplicationResponse = GetApplicationResponse'{_garApplication = Nothing};
+getApplicationResponse :: Int -> GetApplicationResponse
+getApplicationResponse pStatusCode = GetApplicationResponse'{_garApplication = Nothing, _garStatusCode = pStatusCode};
 
 -- | Information about the application.
 garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garApplication = lens _garApplication (\ s a -> s{_garApplication = a});
+
+-- | FIXME: Undocumented member.
+garStatusCode :: Lens' GetApplicationResponse Int
+garStatusCode = lens _garStatusCode (\ s a -> s{_garStatusCode = a});

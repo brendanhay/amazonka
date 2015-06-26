@@ -51,6 +51,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     , createLoadBalancerResponse
     -- ** Response lenses
     , clbrDNSName
+    , clbrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -148,7 +149,8 @@ instance AWSRequest CreateLoadBalancer where
         response
           = receiveXMLWrapper "CreateLoadBalancerResult"
               (\ s h x ->
-                 CreateLoadBalancerResponse' <$> (x .@? "DNSName"))
+                 CreateLoadBalancerResponse' <$>
+                   (x .@? "DNSName") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
@@ -180,12 +182,18 @@ instance ToQuery CreateLoadBalancer where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'clbrDNSName'
-newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse'{_clbrDNSName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'clbrStatusCode'
+data CreateLoadBalancerResponse = CreateLoadBalancerResponse'{_clbrDNSName :: Maybe Text, _clbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
-createLoadBalancerResponse :: CreateLoadBalancerResponse
-createLoadBalancerResponse = CreateLoadBalancerResponse'{_clbrDNSName = Nothing};
+createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
+createLoadBalancerResponse pStatusCode = CreateLoadBalancerResponse'{_clbrDNSName = Nothing, _clbrStatusCode = pStatusCode};
 
 -- | The DNS name of the load balancer.
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\ s a -> s{_clbrDNSName = a});
+
+-- | FIXME: Undocumented member.
+clbrStatusCode :: Lens' CreateLoadBalancerResponse Int
+clbrStatusCode = lens _clbrStatusCode (\ s a -> s{_clbrStatusCode = a});

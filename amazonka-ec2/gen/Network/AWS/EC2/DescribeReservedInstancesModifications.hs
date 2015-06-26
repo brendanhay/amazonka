@@ -42,10 +42,11 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- ** Response lenses
     , drimrNextToken
     , drimrReservedInstancesModifications
+    , drimrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -133,8 +134,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesModificationsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeReservedInstancesModifications where
@@ -165,11 +166,13 @@ instance ToQuery
 -- * 'drimrNextToken'
 --
 -- * 'drimrReservedInstancesModifications'
-data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken :: Maybe Text, _drimrReservedInstancesModifications :: Maybe [ReservedInstancesModification]} deriving (Eq, Read, Show)
+--
+-- * 'drimrStatusCode'
+data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken :: Maybe Text, _drimrReservedInstancesModifications :: Maybe [ReservedInstancesModification], _drimrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
-describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
-describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken = Nothing, _drimrReservedInstancesModifications = Nothing};
+describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
+describeReservedInstancesModificationsResponse pStatusCode = DescribeReservedInstancesModificationsResponse'{_drimrNextToken = Nothing, _drimrReservedInstancesModifications = Nothing, _drimrStatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -179,3 +182,7 @@ drimrNextToken = lens _drimrNextToken (\ s a -> s{_drimrNextToken = a});
 -- | The Reserved Instance modification information.
 drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drimrStatusCode :: Lens' DescribeReservedInstancesModificationsResponse Int
+drimrStatusCode = lens _drimrStatusCode (\ s a -> s{_drimrStatusCode = a});

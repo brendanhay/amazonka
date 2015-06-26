@@ -36,6 +36,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     , updateGatewayInformationResponse
     -- ** Response lenses
     , ugirGatewayARN
+    , ugirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -79,7 +80,7 @@ instance AWSRequest UpdateGatewayInformation where
           = receiveJSON
               (\ s h x ->
                  UpdateGatewayInformationResponse' <$>
-                   (x .?> "GatewayARN"))
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
@@ -104,17 +105,25 @@ instance ToPath UpdateGatewayInformation where
 instance ToQuery UpdateGatewayInformation where
         toQuery = const mempty
 
--- | /See:/ 'updateGatewayInformationResponse' smart constructor.
+-- | A JSON object containing the of the gateway that was updated.
+--
+-- /See:/ 'updateGatewayInformationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ugirGatewayARN'
-newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ugirStatusCode'
+data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN :: Maybe Text, _ugirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateGatewayInformationResponse' smart constructor.
-updateGatewayInformationResponse :: UpdateGatewayInformationResponse
-updateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN = Nothing};
+updateGatewayInformationResponse :: Int -> UpdateGatewayInformationResponse
+updateGatewayInformationResponse pStatusCode = UpdateGatewayInformationResponse'{_ugirGatewayARN = Nothing, _ugirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirGatewayARN = lens _ugirGatewayARN (\ s a -> s{_ugirGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+ugirStatusCode :: Lens' UpdateGatewayInformationResponse Int
+ugirStatusCode = lens _ugirStatusCode (\ s a -> s{_ugirStatusCode = a});

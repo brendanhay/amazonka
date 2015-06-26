@@ -45,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeIdentity' smart constructor.
+-- | Input to the @DescribeIdentity@ action.
+--
+-- /See:/ 'describeIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

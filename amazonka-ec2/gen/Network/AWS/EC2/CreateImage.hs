@@ -48,6 +48,7 @@ module Network.AWS.EC2.CreateImage
     , createImageResponse
     -- ** Response lenses
     , cirImageId
+    , cirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -119,7 +120,8 @@ instance AWSRequest CreateImage where
         response
           = receiveXML
               (\ s h x ->
-                 CreateImageResponse' <$> (x .@? "imageId"))
+                 CreateImageResponse' <$>
+                   (x .@? "imageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateImage where
         toHeaders = const mempty
@@ -145,12 +147,18 @@ instance ToQuery CreateImage where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cirImageId'
-newtype CreateImageResponse = CreateImageResponse'{_cirImageId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cirStatusCode'
+data CreateImageResponse = CreateImageResponse'{_cirImageId :: Maybe Text, _cirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateImageResponse' smart constructor.
-createImageResponse :: CreateImageResponse
-createImageResponse = CreateImageResponse'{_cirImageId = Nothing};
+createImageResponse :: Int -> CreateImageResponse
+createImageResponse pStatusCode = CreateImageResponse'{_cirImageId = Nothing, _cirStatusCode = pStatusCode};
 
 -- | The ID of the new AMI.
 cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\ s a -> s{_cirImageId = a});
+
+-- | FIXME: Undocumented member.
+cirStatusCode :: Lens' CreateImageResponse Int
+cirStatusCode = lens _cirStatusCode (\ s a -> s{_cirStatusCode = a});

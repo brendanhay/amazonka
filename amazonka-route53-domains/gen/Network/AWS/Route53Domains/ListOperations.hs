@@ -35,15 +35,18 @@ module Network.AWS.Route53Domains.ListOperations
     -- ** Response lenses
     , lorNextPageMarker
     , lorOperations
+    , lorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'listOperations' smart constructor.
+-- | The ListOperations request includes the following elements.
+--
+-- /See:/ 'listOperations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +102,8 @@ instance AWSRequest ListOperations where
               (\ s h x ->
                  ListOperationsResponse' <$>
                    (x .?> "NextPageMarker") <*>
-                     (x .?> "Operations" .!@ mempty))
+                     (x .?> "Operations" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListOperations where
         toHeaders
@@ -122,18 +126,22 @@ instance ToPath ListOperations where
 instance ToQuery ListOperations where
         toQuery = const mempty
 
--- | /See:/ 'listOperationsResponse' smart constructor.
+-- | The ListOperations response includes the following elements.
+--
+-- /See:/ 'listOperationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lorNextPageMarker'
 --
 -- * 'lorOperations'
-data ListOperationsResponse = ListOperationsResponse'{_lorNextPageMarker :: Maybe Text, _lorOperations :: [OperationSummary]} deriving (Eq, Read, Show)
+--
+-- * 'lorStatusCode'
+data ListOperationsResponse = ListOperationsResponse'{_lorNextPageMarker :: Maybe Text, _lorOperations :: [OperationSummary], _lorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListOperationsResponse' smart constructor.
-listOperationsResponse :: ListOperationsResponse
-listOperationsResponse = ListOperationsResponse'{_lorNextPageMarker = Nothing, _lorOperations = mempty};
+listOperationsResponse :: Int -> ListOperationsResponse
+listOperationsResponse pStatusCode = ListOperationsResponse'{_lorNextPageMarker = Nothing, _lorOperations = mempty, _lorStatusCode = pStatusCode};
 
 -- | If there are more operations than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
@@ -152,3 +160,7 @@ lorNextPageMarker = lens _lorNextPageMarker (\ s a -> s{_lorNextPageMarker = a})
 -- Children: @OperationId@, @Status@, @SubmittedDate@, @Type@
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\ s a -> s{_lorOperations = a});
+
+-- | FIXME: Undocumented member.
+lorStatusCode :: Lens' ListOperationsResponse Int
+lorStatusCode = lens _lorStatusCode (\ s a -> s{_lorStatusCode = a});

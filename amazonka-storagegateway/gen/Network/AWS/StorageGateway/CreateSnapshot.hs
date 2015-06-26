@@ -54,6 +54,7 @@ module Network.AWS.StorageGateway.CreateSnapshot
     -- ** Response lenses
     , csrVolumeARN
     , csrSnapshotId
+    , csrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -61,7 +62,12 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'createSnapshot' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   CreateSnapshotInput$SnapshotDescription
+-- -   CreateSnapshotInput$VolumeARN
+--
+-- /See:/ 'createSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -94,7 +100,8 @@ instance AWSRequest CreateSnapshot where
           = receiveJSON
               (\ s h x ->
                  CreateSnapshotResponse' <$>
-                   (x .?> "VolumeARN") <*> (x .?> "SnapshotId"))
+                   (x .?> "VolumeARN") <*> (x .?> "SnapshotId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -118,18 +125,22 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
         toQuery = const mempty
 
--- | /See:/ 'createSnapshotResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+-- /See:/ 'createSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrVolumeARN'
 --
 -- * 'csrSnapshotId'
-data CreateSnapshotResponse = CreateSnapshotResponse'{_csrVolumeARN :: Maybe Text, _csrSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CreateSnapshotResponse = CreateSnapshotResponse'{_csrVolumeARN :: Maybe Text, _csrSnapshotId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: CreateSnapshotResponse
-createSnapshotResponse = CreateSnapshotResponse'{_csrVolumeARN = Nothing, _csrSnapshotId = Nothing};
+createSnapshotResponse :: Int -> CreateSnapshotResponse
+createSnapshotResponse pStatusCode = CreateSnapshotResponse'{_csrVolumeARN = Nothing, _csrSnapshotId = Nothing, _csrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
@@ -142,3 +153,7 @@ csrVolumeARN = lens _csrVolumeARN (\ s a -> s{_csrVolumeARN = a});
 -- (CreateStorediSCSIVolume).
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CreateSnapshotResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

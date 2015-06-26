@@ -52,7 +52,8 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- ** Response constructor
     , describeStackResourcesResponse
     -- ** Response lenses
-    , dsrrStackResources
+    , desStackResources
+    , desStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -60,7 +61,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeStackResources' smart constructor.
+-- | The input for DescribeStackResources action.
+--
+-- /See:/ 'describeStackResources' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -120,7 +123,8 @@ instance AWSRequest DescribeStackResources where
               (\ s h x ->
                  DescribeStackResourcesResponse' <$>
                    (x .@? "StackResources" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStackResources where
         toHeaders = const mempty
@@ -138,17 +142,25 @@ instance ToQuery DescribeStackResources where
                "PhysicalResourceId" =: _dsrPhysicalResourceId,
                "StackName" =: _dsrStackName]
 
--- | /See:/ 'describeStackResourcesResponse' smart constructor.
+-- | The output for a DescribeStackResources action.
+--
+-- /See:/ 'describeStackResourcesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrrStackResources'
-newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources :: Maybe [StackResource]} deriving (Eq, Read, Show)
+-- * 'desStackResources'
+--
+-- * 'desStatusCode'
+data DescribeStackResourcesResponse = DescribeStackResourcesResponse'{_desStackResources :: Maybe [StackResource], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
-describeStackResourcesResponse :: DescribeStackResourcesResponse
-describeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources = Nothing};
+describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
+describeStackResourcesResponse pStatusCode = DescribeStackResourcesResponse'{_desStackResources = Nothing, _desStatusCode = pStatusCode};
 
 -- | A list of @StackResource@ structures.
-dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-dsrrStackResources = lens _dsrrStackResources (\ s a -> s{_dsrrStackResources = a}) . _Default;
+desStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+desStackResources = lens _desStackResources (\ s a -> s{_desStackResources = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeStackResourcesResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

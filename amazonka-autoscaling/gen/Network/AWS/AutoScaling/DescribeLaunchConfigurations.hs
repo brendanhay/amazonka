@@ -36,10 +36,11 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- ** Response lenses
     , dlcrNextToken
     , dlcrLaunchConfigurations
+    , dlcrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -93,7 +94,8 @@ instance AWSRequest DescribeLaunchConfigurations
                  DescribeLaunchConfigurationsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
@@ -121,11 +123,13 @@ instance ToQuery DescribeLaunchConfigurations where
 -- * 'dlcrNextToken'
 --
 -- * 'dlcrLaunchConfigurations'
-data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'{_dlcrNextToken :: Maybe Text, _dlcrLaunchConfigurations :: [LaunchConfiguration]} deriving (Eq, Read, Show)
+--
+-- * 'dlcrStatusCode'
+data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'{_dlcrNextToken :: Maybe Text, _dlcrLaunchConfigurations :: [LaunchConfiguration], _dlcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
-describeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'{_dlcrNextToken = Nothing, _dlcrLaunchConfigurations = mempty};
+describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse pStatusCode = DescribeLaunchConfigurationsResponse'{_dlcrNextToken = Nothing, _dlcrLaunchConfigurations = mempty, _dlcrStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -135,3 +139,7 @@ dlcrNextToken = lens _dlcrNextToken (\ s a -> s{_dlcrNextToken = a});
 -- | The launch configurations.
 dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
 dlcrLaunchConfigurations = lens _dlcrLaunchConfigurations (\ s a -> s{_dlcrLaunchConfigurations = a});
+
+-- | FIXME: Undocumented member.
+dlcrStatusCode :: Lens' DescribeLaunchConfigurationsResponse Int
+dlcrStatusCode = lens _dlcrStatusCode (\ s a -> s{_dlcrStatusCode = a});

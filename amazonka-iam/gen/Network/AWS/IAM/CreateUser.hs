@@ -38,6 +38,7 @@ module Network.AWS.IAM.CreateUser
     , createUserResponse
     -- ** Response lenses
     , curUser
+    , curStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -77,7 +78,9 @@ instance AWSRequest CreateUser where
         request = post
         response
           = receiveXMLWrapper "CreateUserResult"
-              (\ s h x -> CreateUserResponse' <$> (x .@? "User"))
+              (\ s h x ->
+                 CreateUserResponse' <$>
+                   (x .@? "User") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateUser where
         toHeaders = const mempty
@@ -92,17 +95,25 @@ instance ToQuery CreateUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cuPath, "UserName" =: _cuUserName]
 
--- | /See:/ 'createUserResponse' smart constructor.
+-- | Contains the response to a successful CreateUser request.
+--
+-- /See:/ 'createUserResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'curUser'
-newtype CreateUserResponse = CreateUserResponse'{_curUser :: Maybe User} deriving (Eq, Read, Show)
+--
+-- * 'curStatusCode'
+data CreateUserResponse = CreateUserResponse'{_curUser :: Maybe User, _curStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateUserResponse' smart constructor.
-createUserResponse :: CreateUserResponse
-createUserResponse = CreateUserResponse'{_curUser = Nothing};
+createUserResponse :: Int -> CreateUserResponse
+createUserResponse pStatusCode = CreateUserResponse'{_curUser = Nothing, _curStatusCode = pStatusCode};
 
 -- | Information about the user.
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\ s a -> s{_curUser = a});
+
+-- | FIXME: Undocumented member.
+curStatusCode :: Lens' CreateUserResponse Int
+curStatusCode = lens _curStatusCode (\ s a -> s{_curStatusCode = a});

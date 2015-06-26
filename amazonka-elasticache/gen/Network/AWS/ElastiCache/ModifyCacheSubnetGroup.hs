@@ -35,6 +35,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     , modifyCacheSubnetGroupResponse
     -- ** Response lenses
     , mcsgrCacheSubnetGroup
+    , mcsgrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyCacheSubnetGroup' smart constructor.
+-- | Represents the input of a /ModifyCacheSubnetGroup/ action.
+--
+-- /See:/ 'modifyCacheSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,7 @@ instance AWSRequest ModifyCacheSubnetGroup where
           = receiveXMLWrapper "ModifyCacheSubnetGroupResult"
               (\ s h x ->
                  ModifyCacheSubnetGroupResponse' <$>
-                   (x .@? "CacheSubnetGroup"))
+                   (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty
@@ -110,12 +113,18 @@ instance ToQuery ModifyCacheSubnetGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mcsgrCacheSubnetGroup'
-newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'{_mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup} deriving (Eq, Read, Show)
+--
+-- * 'mcsgrStatusCode'
+data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'{_mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup, _mcsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheSubnetGroupResponse' smart constructor.
-modifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse
-modifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'{_mcsgrCacheSubnetGroup = Nothing};
+modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse
+modifyCacheSubnetGroupResponse pStatusCode = ModifyCacheSubnetGroupResponse'{_mcsgrCacheSubnetGroup = Nothing, _mcsgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 mcsgrCacheSubnetGroup = lens _mcsgrCacheSubnetGroup (\ s a -> s{_mcsgrCacheSubnetGroup = a});
+
+-- | FIXME: Undocumented member.
+mcsgrStatusCode :: Lens' ModifyCacheSubnetGroupResponse Int
+mcsgrStatusCode = lens _mcsgrStatusCode (\ s a -> s{_mcsgrStatusCode = a});

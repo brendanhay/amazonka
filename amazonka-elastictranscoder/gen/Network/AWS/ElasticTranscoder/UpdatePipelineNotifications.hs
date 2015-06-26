@@ -37,6 +37,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , updatePipelineNotificationsResponse
     -- ** Response lenses
     , upnrPipeline
+    , upnrStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updatePipelineNotifications' smart constructor.
+-- | The @UpdatePipelineNotificationsRequest@ structure.
+--
+-- /See:/ 'updatePipelineNotifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,7 @@ instance AWSRequest UpdatePipelineNotifications where
           = receiveJSON
               (\ s h x ->
                  UpdatePipelineNotificationsResponse' <$>
-                   (x .?> "Pipeline"))
+                   (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty
@@ -113,18 +116,26 @@ instance ToPath UpdatePipelineNotifications where
 instance ToQuery UpdatePipelineNotifications where
         toQuery = const mempty
 
--- | /See:/ 'updatePipelineNotificationsResponse' smart constructor.
+-- | The @UpdatePipelineNotificationsResponse@ structure.
+--
+-- /See:/ 'updatePipelineNotificationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'upnrPipeline'
-newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'{_upnrPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+--
+-- * 'upnrStatusCode'
+data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'{_upnrPipeline :: Maybe Pipeline, _upnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineNotificationsResponse' smart constructor.
-updatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'{_upnrPipeline = Nothing};
+updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
+updatePipelineNotificationsResponse pStatusCode = UpdatePipelineNotificationsResponse'{_upnrPipeline = Nothing, _upnrStatusCode = pStatusCode};
 
 -- | A section of the response body that provides information about the
 -- pipeline.
 upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrPipeline = lens _upnrPipeline (\ s a -> s{_upnrPipeline = a});
+
+-- | FIXME: Undocumented member.
+upnrStatusCode :: Lens' UpdatePipelineNotificationsResponse Int
+upnrStatusCode = lens _upnrStatusCode (\ s a -> s{_upnrStatusCode = a});

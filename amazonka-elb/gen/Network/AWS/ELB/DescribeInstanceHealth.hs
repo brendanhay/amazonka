@@ -36,6 +36,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     , describeInstanceHealthResponse
     -- ** Response lenses
     , dihrInstanceStates
+    , dihrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -74,7 +75,8 @@ instance AWSRequest DescribeInstanceHealth where
               (\ s h x ->
                  DescribeInstanceHealthResponse' <$>
                    (x .@? "InstanceStates" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstanceHealth where
         toHeaders = const mempty
@@ -97,12 +99,18 @@ instance ToQuery DescribeInstanceHealth where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dihrInstanceStates'
-newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates :: Maybe [InstanceState]} deriving (Eq, Read, Show)
+--
+-- * 'dihrStatusCode'
+data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates :: Maybe [InstanceState], _dihrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
-describeInstanceHealthResponse :: DescribeInstanceHealthResponse
-describeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates = Nothing};
+describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
+describeInstanceHealthResponse pStatusCode = DescribeInstanceHealthResponse'{_dihrInstanceStates = Nothing, _dihrStatusCode = pStatusCode};
 
 -- | Information about the health of the instances.
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dihrStatusCode :: Lens' DescribeInstanceHealthResponse Int
+dihrStatusCode = lens _dihrStatusCode (\ s a -> s{_dihrStatusCode = a});

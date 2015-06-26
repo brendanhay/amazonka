@@ -36,10 +36,11 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- ** Response lenses
     , dprNextToken
     , dprScalingPolicies
+    , dprStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,7 +99,8 @@ instance AWSRequest DescribePolicies where
                  DescribePoliciesResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "ScalingPolicies" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribePolicies where
         toHeaders = const mempty
@@ -124,11 +126,13 @@ instance ToQuery DescribePolicies where
 -- * 'dprNextToken'
 --
 -- * 'dprScalingPolicies'
-data DescribePoliciesResponse = DescribePoliciesResponse'{_dprNextToken :: Maybe Text, _dprScalingPolicies :: Maybe [ScalingPolicy]} deriving (Eq, Read, Show)
+--
+-- * 'dprStatusCode'
+data DescribePoliciesResponse = DescribePoliciesResponse'{_dprNextToken :: Maybe Text, _dprScalingPolicies :: Maybe [ScalingPolicy], _dprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePoliciesResponse' smart constructor.
-describePoliciesResponse :: DescribePoliciesResponse
-describePoliciesResponse = DescribePoliciesResponse'{_dprNextToken = Nothing, _dprScalingPolicies = Nothing};
+describePoliciesResponse :: Int -> DescribePoliciesResponse
+describePoliciesResponse pStatusCode = DescribePoliciesResponse'{_dprNextToken = Nothing, _dprScalingPolicies = Nothing, _dprStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -138,3 +142,7 @@ dprNextToken = lens _dprNextToken (\ s a -> s{_dprNextToken = a});
 -- | The scaling policies.
 dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies = lens _dprScalingPolicies (\ s a -> s{_dprScalingPolicies = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dprStatusCode :: Lens' DescribePoliciesResponse Int
+dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});

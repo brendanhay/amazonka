@@ -42,6 +42,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     , deregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
     , diflbrInstances
+    , diflbrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -82,7 +83,8 @@ instance AWSRequest
               (\ s h x ->
                  DeregisterInstancesFromLoadBalancerResponse' <$>
                    (x .@? "Instances" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DeregisterInstancesFromLoadBalancer where
@@ -108,12 +110,18 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diflbrInstances'
-newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances :: Maybe [Instance]} deriving (Eq, Read, Show)
+--
+-- * 'diflbrStatusCode'
+data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances :: Maybe [Instance], _diflbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
-deregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances = Nothing};
+deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
+deregisterInstancesFromLoadBalancerResponse pStatusCode = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances = Nothing, _diflbrStatusCode = pStatusCode};
 
 -- | The remaining instances registered with the load balancer.
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+diflbrStatusCode :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
+diflbrStatusCode = lens _diflbrStatusCode (\ s a -> s{_diflbrStatusCode = a});

@@ -33,6 +33,7 @@ module Network.AWS.S3.GetBucketVersioning
     -- ** Response lenses
     , gbvrStatus
     , gbvrMFADelete
+    , gbvrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -64,7 +65,8 @@ instance AWSRequest GetBucketVersioning where
           = receiveXML
               (\ s h x ->
                  GetBucketVersioningResponse' <$>
-                   (x .@? "Status") <*> (x .@? "MfaDelete"))
+                   (x .@? "Status") <*> (x .@? "MfaDelete") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
@@ -83,11 +85,13 @@ instance ToQuery GetBucketVersioning where
 -- * 'gbvrStatus'
 --
 -- * 'gbvrMFADelete'
-data GetBucketVersioningResponse = GetBucketVersioningResponse'{_gbvrStatus :: Maybe BucketVersioningStatus, _gbvrMFADelete :: Maybe MFADeleteStatus} deriving (Eq, Read, Show)
+--
+-- * 'gbvrStatusCode'
+data GetBucketVersioningResponse = GetBucketVersioningResponse'{_gbvrStatus :: Maybe BucketVersioningStatus, _gbvrMFADelete :: Maybe MFADeleteStatus, _gbvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketVersioningResponse' smart constructor.
-getBucketVersioningResponse :: GetBucketVersioningResponse
-getBucketVersioningResponse = GetBucketVersioningResponse'{_gbvrStatus = Nothing, _gbvrMFADelete = Nothing};
+getBucketVersioningResponse :: Int -> GetBucketVersioningResponse
+getBucketVersioningResponse pStatusCode = GetBucketVersioningResponse'{_gbvrStatus = Nothing, _gbvrMFADelete = Nothing, _gbvrStatusCode = pStatusCode};
 
 -- | The versioning state of the bucket.
 gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
@@ -99,3 +103,7 @@ gbvrStatus = lens _gbvrStatus (\ s a -> s{_gbvrStatus = a});
 -- this element is not returned.
 gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrMFADelete = lens _gbvrMFADelete (\ s a -> s{_gbvrMFADelete = a});
+
+-- | FIXME: Undocumented member.
+gbvrStatusCode :: Lens' GetBucketVersioningResponse Int
+gbvrStatusCode = lens _gbvrStatusCode (\ s a -> s{_gbvrStatusCode = a});

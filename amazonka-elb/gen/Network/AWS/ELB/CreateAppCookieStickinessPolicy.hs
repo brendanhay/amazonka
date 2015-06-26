@@ -48,6 +48,8 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     , CreateAppCookieStickinessPolicyResponse
     -- ** Response constructor
     , createAppCookieStickinessPolicyResponse
+    -- ** Response lenses
+    , cacsprStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -90,8 +92,11 @@ instance AWSRequest CreateAppCookieStickinessPolicy
              CreateAppCookieStickinessPolicyResponse
         request = post
         response
-          = receiveNull
-              CreateAppCookieStickinessPolicyResponse'
+          = receiveXMLWrapper
+              "CreateAppCookieStickinessPolicyResult"
+              (\ s h x ->
+                 CreateAppCookieStickinessPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders CreateAppCookieStickinessPolicy
          where
@@ -112,8 +117,16 @@ instance ToQuery CreateAppCookieStickinessPolicy
                "CookieName" =: _cacspCookieName]
 
 -- | /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
-data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cacsprStatusCode'
+newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'{_cacsprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
-createAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
-createAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse';
+createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse
+createAppCookieStickinessPolicyResponse pStatusCode = CreateAppCookieStickinessPolicyResponse'{_cacsprStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+cacsprStatusCode :: Lens' CreateAppCookieStickinessPolicyResponse Int
+cacsprStatusCode = lens _cacsprStatusCode (\ s a -> s{_cacsprStatusCode = a});

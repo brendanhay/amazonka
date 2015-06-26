@@ -45,6 +45,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     , updateHealthCheckResponse
     -- ** Response lenses
     , uhcrHealthCheck
+    , uhcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -52,7 +53,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'updateHealthCheck' smart constructor.
+-- | >A complex type that contains information about the request to update a
+-- health check.
+--
+-- /See:/ 'updateHealthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -145,7 +149,8 @@ instance AWSRequest UpdateHealthCheck where
         response
           = receiveXML
               (\ s h x ->
-                 UpdateHealthCheckResponse' <$> (x .@ "HealthCheck"))
+                 UpdateHealthCheckResponse' <$>
+                   (x .@ "HealthCheck") <*> (pure (fromEnum s)))
 
 instance ToElement UpdateHealthCheck where
         toElement
@@ -181,12 +186,18 @@ instance ToXML UpdateHealthCheck where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uhcrHealthCheck'
-newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse'{_uhcrHealthCheck :: HealthCheck} deriving (Eq, Read, Show)
+--
+-- * 'uhcrStatusCode'
+data UpdateHealthCheckResponse = UpdateHealthCheckResponse'{_uhcrHealthCheck :: HealthCheck, _uhcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
-updateHealthCheckResponse :: HealthCheck -> UpdateHealthCheckResponse
-updateHealthCheckResponse pHealthCheck = UpdateHealthCheckResponse'{_uhcrHealthCheck = pHealthCheck};
+updateHealthCheckResponse :: HealthCheck -> Int -> UpdateHealthCheckResponse
+updateHealthCheckResponse pHealthCheck pStatusCode = UpdateHealthCheckResponse'{_uhcrHealthCheck = pHealthCheck, _uhcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrHealthCheck = lens _uhcrHealthCheck (\ s a -> s{_uhcrHealthCheck = a});
+
+-- | FIXME: Undocumented member.
+uhcrStatusCode :: Lens' UpdateHealthCheckResponse Int
+uhcrStatusCode = lens _uhcrStatusCode (\ s a -> s{_uhcrStatusCode = a});

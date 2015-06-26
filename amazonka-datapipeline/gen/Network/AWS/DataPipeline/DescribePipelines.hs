@@ -41,6 +41,7 @@ module Network.AWS.DataPipeline.DescribePipelines
     , describePipelinesResponse
     -- ** Response lenses
     , dprPipelineDescriptionList
+    , dprStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -48,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describePipelines' smart constructor.
+-- | Contains the parameters for DescribePipelines.
+--
+-- /See:/ 'describePipelines' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +76,8 @@ instance AWSRequest DescribePipelines where
           = receiveJSON
               (\ s h x ->
                  DescribePipelinesResponse' <$>
-                   (x .?> "pipelineDescriptionList" .!@ mempty))
+                   (x .?> "pipelineDescriptionList" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribePipelines where
         toHeaders
@@ -94,17 +98,25 @@ instance ToPath DescribePipelines where
 instance ToQuery DescribePipelines where
         toQuery = const mempty
 
--- | /See:/ 'describePipelinesResponse' smart constructor.
+-- | Contains the output of DescribePipelines.
+--
+-- /See:/ 'describePipelinesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dprPipelineDescriptionList'
-newtype DescribePipelinesResponse = DescribePipelinesResponse'{_dprPipelineDescriptionList :: [PipelineDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dprStatusCode'
+data DescribePipelinesResponse = DescribePipelinesResponse'{_dprPipelineDescriptionList :: [PipelineDescription], _dprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
-describePipelinesResponse :: DescribePipelinesResponse
-describePipelinesResponse = DescribePipelinesResponse'{_dprPipelineDescriptionList = mempty};
+describePipelinesResponse :: Int -> DescribePipelinesResponse
+describePipelinesResponse pStatusCode = DescribePipelinesResponse'{_dprPipelineDescriptionList = mempty, _dprStatusCode = pStatusCode};
 
 -- | An array of descriptions for the specified pipelines.
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprPipelineDescriptionList = lens _dprPipelineDescriptionList (\ s a -> s{_dprPipelineDescriptionList = a});
+
+-- | FIXME: Undocumented member.
+dprStatusCode :: Lens' DescribePipelinesResponse Int
+dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});

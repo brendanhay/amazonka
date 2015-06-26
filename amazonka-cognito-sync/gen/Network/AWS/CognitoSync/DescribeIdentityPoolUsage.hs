@@ -37,6 +37,7 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     , describeIdentityPoolUsageResponse
     -- ** Response lenses
     , dipurIdentityPoolUsage
+    , dipurStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeIdentityPoolUsage' smart constructor.
+-- | A request for usage information about the identity pool.
+--
+-- /See:/ 'describeIdentityPoolUsage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,7 @@ instance AWSRequest DescribeIdentityPoolUsage where
           = receiveJSON
               (\ s h x ->
                  DescribeIdentityPoolUsageResponse' <$>
-                   (x .?> "IdentityPoolUsage"))
+                   (x .?> "IdentityPoolUsage") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeIdentityPoolUsage where
         toHeaders
@@ -87,17 +90,25 @@ instance ToPath DescribeIdentityPoolUsage where
 instance ToQuery DescribeIdentityPoolUsage where
         toQuery = const mempty
 
--- | /See:/ 'describeIdentityPoolUsageResponse' smart constructor.
+-- | Response to a successful DescribeIdentityPoolUsage request.
+--
+-- /See:/ 'describeIdentityPoolUsageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dipurIdentityPoolUsage'
-newtype DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'{_dipurIdentityPoolUsage :: Maybe IdentityPoolUsage} deriving (Eq, Read, Show)
+--
+-- * 'dipurStatusCode'
+data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'{_dipurIdentityPoolUsage :: Maybe IdentityPoolUsage, _dipurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
-describeIdentityPoolUsageResponse :: DescribeIdentityPoolUsageResponse
-describeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'{_dipurIdentityPoolUsage = Nothing};
+describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
+describeIdentityPoolUsageResponse pStatusCode = DescribeIdentityPoolUsageResponse'{_dipurIdentityPoolUsage = Nothing, _dipurStatusCode = pStatusCode};
 
 -- | Information about the usage of the identity pool.
 dipurIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
 dipurIdentityPoolUsage = lens _dipurIdentityPoolUsage (\ s a -> s{_dipurIdentityPoolUsage = a});
+
+-- | FIXME: Undocumented member.
+dipurStatusCode :: Lens' DescribeIdentityPoolUsageResponse Int
+dipurStatusCode = lens _dipurStatusCode (\ s a -> s{_dipurStatusCode = a});

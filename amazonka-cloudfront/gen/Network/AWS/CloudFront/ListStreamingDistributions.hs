@@ -33,15 +33,18 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     , listStreamingDistributionsResponse
     -- ** Response lenses
     , lsdrStreamingDistributionList
+    , lsdrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listStreamingDistributions' smart constructor.
+-- | The request to list your streaming distributions.
+--
+-- /See:/ 'listStreamingDistributions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +96,8 @@ instance AWSRequest ListStreamingDistributions where
           = receiveXML
               (\ s h x ->
                  ListStreamingDistributionsResponse' <$>
-                   (x .@ "StreamingDistributionList"))
+                   (x .@ "StreamingDistributionList") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
@@ -106,17 +110,25 @@ instance ToQuery ListStreamingDistributions where
           = mconcat
               ["MaxItems" =: _lsdMaxItems, "Marker" =: _lsdMarker]
 
--- | /See:/ 'listStreamingDistributionsResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'listStreamingDistributionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsdrStreamingDistributionList'
-newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'{_lsdrStreamingDistributionList :: StreamingDistributionList} deriving (Eq, Read, Show)
+--
+-- * 'lsdrStatusCode'
+data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'{_lsdrStreamingDistributionList :: StreamingDistributionList, _lsdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
-listStreamingDistributionsResponse :: StreamingDistributionList -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStreamingDistributionList = ListStreamingDistributionsResponse'{_lsdrStreamingDistributionList = pStreamingDistributionList};
+listStreamingDistributionsResponse :: StreamingDistributionList -> Int -> ListStreamingDistributionsResponse
+listStreamingDistributionsResponse pStreamingDistributionList pStatusCode = ListStreamingDistributionsResponse'{_lsdrStreamingDistributionList = pStreamingDistributionList, _lsdrStatusCode = pStatusCode};
 
 -- | The StreamingDistributionList type.
 lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrStreamingDistributionList = lens _lsdrStreamingDistributionList (\ s a -> s{_lsdrStreamingDistributionList = a});
+
+-- | FIXME: Undocumented member.
+lsdrStatusCode :: Lens' ListStreamingDistributionsResponse Int
+lsdrStatusCode = lens _lsdrStatusCode (\ s a -> s{_lsdrStatusCode = a});

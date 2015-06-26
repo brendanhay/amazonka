@@ -60,7 +60,15 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'abortMultipartUpload' smart constructor.
+-- | Provides options to abort a multipart upload identified by the upload
+-- ID.
+--
+-- For information about the underlying REST API, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload>.
+-- For conceptual information, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>.
+--
+-- /See:/ 'abortMultipartUpload' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

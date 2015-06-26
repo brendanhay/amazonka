@@ -21,8 +21,16 @@ module Network.AWS.CloudSearchDomains.Types
     (
     -- * Service
       CloudSearchDomains
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _DocumentServiceException
+    , _SearchException
+
+    -- * ContentType
+    , ContentType (..)
+
+    -- * QueryParser
+    , QueryParser (..)
 
     -- * Bucket
     , Bucket
@@ -34,9 +42,6 @@ module Network.AWS.CloudSearchDomains.Types
     , BucketInfo
     , bucketInfo
     , biBuckets
-
-    -- * ContentType
-    , ContentType (..)
 
     -- * DocumentServiceWarning
     , DocumentServiceWarning
@@ -58,9 +63,6 @@ module Network.AWS.CloudSearchDomains.Types
     , hitHit
     , hitStart
     , hitFound
-
-    -- * QueryParser
-    , QueryParser (..)
 
     -- * SearchStatus
     , SearchStatus
@@ -87,6 +89,7 @@ module Network.AWS.CloudSearchDomains.Types
     , smSuggestion
     , smScore
     , smId
+
     ) where
 
 import Network.AWS.Prelude
@@ -97,32 +100,89 @@ data CloudSearchDomains
 
 instance AWSService CloudSearchDomains where
     type Sg CloudSearchDomains = V4
-    type Er CloudSearchDomains = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudSearchDomains
-        service' = Service
-            { _svcAbbrev  = "CloudSearchDomains"
-            , _svcPrefix  = "cloudsearchdomain"
-            , _svcVersion = "2013-01-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudSearchDomains
+        svc = Service
+            { _svcAbbrev   = "CloudSearchDomains"
+            , _svcPrefix   = "cloudsearchdomain"
+            , _svcVersion  = "2013-01-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudSearchDomains
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Information about any problems encountered while processing an upload
+-- request.
+_DocumentServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DocumentServiceException = _ServiceError . hasCode "DocumentServiceException";
 
--- | /See:/ 'bucket' smart constructor.
+-- | Information about any problems encountered while processing a search
+-- request.
+_SearchException :: AWSError a => Geting (First ServiceError) a ServiceError
+_SearchException = _ServiceError . hasCode "SearchException";
+
+data ContentType = ApplicationJSON | ApplicationXML deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ContentType where
+    parser = takeLowerText >>= \case
+        "application/json" -> pure ApplicationJSON
+        "application/xml" -> pure ApplicationXML
+        e -> fail ("Failure parsing ContentType from " ++ show e)
+
+instance ToText ContentType where
+    toText = \case
+        ApplicationJSON -> "application/json"
+        ApplicationXML -> "application/xml"
+
+instance Hashable ContentType
+instance ToQuery ContentType
+instance ToHeader ContentType
+
+instance ToJSON ContentType where
+    toJSON = toJSONText
+
+data QueryParser = Lucene | Dismax | Simple | Structured deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText QueryParser where
+    parser = takeLowerText >>= \case
+        "dismax" -> pure Dismax
+        "lucene" -> pure Lucene
+        "simple" -> pure Simple
+        "structured" -> pure Structured
+        e -> fail ("Failure parsing QueryParser from " ++ show e)
+
+instance ToText QueryParser where
+    toText = \case
+        Dismax -> "dismax"
+        Lucene -> "lucene"
+        Simple -> "simple"
+        Structured -> "structured"
+
+instance Hashable QueryParser
+instance ToQuery QueryParser
+instance ToHeader QueryParser
+
+instance ToJSON QueryParser where
+    toJSON = toJSONText
+
+-- | A container for facet information.
+--
+-- /See:/ 'bucket' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -150,7 +210,9 @@ instance FromJSON Bucket where
               (\ x ->
                  Bucket' <$> (x .:? "value") <*> (x .:? "count"))
 
--- | /See:/ 'bucketInfo' smart constructor.
+-- | A container for the calculated facet values and counts.
+--
+-- /See:/ 'bucketInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -170,27 +232,10 @@ instance FromJSON BucketInfo where
           = withObject "BucketInfo"
               (\ x -> BucketInfo' <$> (x .:? "buckets" .!= mempty))
 
-data ContentType = ApplicationJSON | ApplicationXML deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ContentType where
-    parser = takeLowerText >>= \case
-        "application/json" -> pure ApplicationJSON
-        "application/xml" -> pure ApplicationXML
-        e -> fail ("Failure parsing ContentType from " ++ show e)
-
-instance ToText ContentType where
-    toText = \case
-        ApplicationJSON -> "application/json"
-        ApplicationXML -> "application/xml"
-
-instance Hashable ContentType
-instance ToQuery ContentType
-instance ToHeader ContentType
-
-instance ToJSON ContentType where
-    toJSON = toJSONText
-
--- | /See:/ 'documentServiceWarning' smart constructor.
+-- | A warning returned by the document service when an issue is discovered
+-- while processing an upload request.
+--
+-- /See:/ 'documentServiceWarning' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -211,7 +256,9 @@ instance FromJSON DocumentServiceWarning where
               (\ x ->
                  DocumentServiceWarning' <$> (x .:? "message"))
 
--- | /See:/ 'hit' smart constructor.
+-- | Information about a document that matches the search request.
+--
+-- /See:/ 'hit' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -254,7 +301,9 @@ instance FromJSON Hit where
                      (x .:? "highlights" .!= mempty)
                      <*> (x .:? "fields" .!= mempty))
 
--- | /See:/ 'hits' smart constructor.
+-- | The collection of documents that match the search request.
+--
+-- /See:/ 'hits' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -297,31 +346,10 @@ instance FromJSON Hits where
                      (x .:? "start")
                      <*> (x .:? "found"))
 
-data QueryParser = Lucene | Dismax | Simple | Structured deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText QueryParser where
-    parser = takeLowerText >>= \case
-        "dismax" -> pure Dismax
-        "lucene" -> pure Lucene
-        "simple" -> pure Simple
-        "structured" -> pure Structured
-        e -> fail ("Failure parsing QueryParser from " ++ show e)
-
-instance ToText QueryParser where
-    toText = \case
-        Dismax -> "dismax"
-        Lucene -> "lucene"
-        Simple -> "simple"
-        Structured -> "structured"
-
-instance Hashable QueryParser
-instance ToQuery QueryParser
-instance ToHeader QueryParser
-
-instance ToJSON QueryParser where
-    toJSON = toJSONText
-
--- | /See:/ 'searchStatus' smart constructor.
+-- | Contains the resource id (@rid@) and the time it took to process the
+-- request (@timems@).
+--
+-- /See:/ 'searchStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -348,7 +376,10 @@ instance FromJSON SearchStatus where
               (\ x ->
                  SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
 
--- | /See:/ 'suggestModel' smart constructor.
+-- | Container for the suggestion information returned in a
+-- @SuggestResponse@.
+--
+-- /See:/ 'suggestModel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -383,7 +414,10 @@ instance FromJSON SuggestModel where
                    (x .:? "found") <*> (x .:? "suggestions" .!= mempty)
                      <*> (x .:? "query"))
 
--- | /See:/ 'suggestStatus' smart constructor.
+-- | Contains the resource id (@rid@) and the time it took to process the
+-- request (@timems@).
+--
+-- /See:/ 'suggestStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -411,7 +445,10 @@ instance FromJSON SuggestStatus where
                  SuggestStatus' <$>
                    (x .:? "rid") <*> (x .:? "timems"))
 
--- | /See:/ 'suggestionMatch' smart constructor.
+-- | An autocomplete suggestion that matches the query string specified in a
+-- @SuggestRequest@.
+--
+-- /See:/ 'suggestionMatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

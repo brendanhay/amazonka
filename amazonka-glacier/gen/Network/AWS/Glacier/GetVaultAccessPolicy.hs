@@ -39,6 +39,7 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     , getVaultAccessPolicyResponse
     -- ** Response lenses
     , gvaprPolicy
+    , gvaprStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getVaultAccessPolicy' smart constructor.
+-- | Input for GetVaultAccessPolicy.
+--
+-- /See:/ 'getVaultAccessPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,8 @@ instance AWSRequest GetVaultAccessPolicy where
         response
           = receiveJSON
               (\ s h x ->
-                 GetVaultAccessPolicyResponse' <$> (x .?> "policy"))
+                 GetVaultAccessPolicyResponse' <$>
+                   (x .?> "policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty
@@ -93,17 +97,25 @@ instance ToPath GetVaultAccessPolicy where
 instance ToQuery GetVaultAccessPolicy where
         toQuery = const mempty
 
--- | /See:/ 'getVaultAccessPolicyResponse' smart constructor.
+-- | Output for GetVaultAccessPolicy.
+--
+-- /See:/ 'getVaultAccessPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gvaprPolicy'
-newtype GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'{_gvaprPolicy :: Maybe VaultAccessPolicy} deriving (Eq, Read, Show)
+--
+-- * 'gvaprStatusCode'
+data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'{_gvaprPolicy :: Maybe VaultAccessPolicy, _gvaprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
-getVaultAccessPolicyResponse :: GetVaultAccessPolicyResponse
-getVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'{_gvaprPolicy = Nothing};
+getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse
+getVaultAccessPolicyResponse pStatusCode = GetVaultAccessPolicyResponse'{_gvaprPolicy = Nothing, _gvaprStatusCode = pStatusCode};
 
 -- | Contains the returned vault access policy as a JSON string.
 gvaprPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
 gvaprPolicy = lens _gvaprPolicy (\ s a -> s{_gvaprPolicy = a});
+
+-- | FIXME: Undocumented member.
+gvaprStatusCode :: Lens' GetVaultAccessPolicyResponse Int
+gvaprStatusCode = lens _gvaprStatusCode (\ s a -> s{_gvaprStatusCode = a});

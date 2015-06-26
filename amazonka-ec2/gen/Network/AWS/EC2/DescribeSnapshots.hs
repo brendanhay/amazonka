@@ -83,12 +83,13 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrNextToken
-    , dsrSnapshots
+    , dsr1NextToken
+    , dsr1Snapshots
+    , dsr1StatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -201,10 +202,10 @@ ds1MaxResults = lens _ds1MaxResults (\ s a -> s{_ds1MaxResults = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop (rs ^. dsrNextToken) = Nothing
-          | stop (rs ^. dsrSnapshots) = Nothing
+          | stop (rs ^. dsr1NextToken) = Nothing
+          | stop (rs ^. dsr1Snapshots) = Nothing
           | otherwise =
-            Just $ rq & ds1NextToken .~ rs ^. dsrNextToken
+            Just $ rq & ds1NextToken .~ rs ^. dsr1NextToken
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2
@@ -214,8 +215,8 @@ instance AWSRequest DescribeSnapshots where
           = receiveXML
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
@@ -243,22 +244,28 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrNextToken'
+-- * 'dsr1NextToken'
 --
--- * 'dsrSnapshots'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken :: Maybe Text, _dsrSnapshots :: Maybe [Snapshot]} deriving (Eq, Read, Show)
+-- * 'dsr1Snapshots'
+--
+-- * 'dsr1StatusCode'
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsr1NextToken :: Maybe Text, _dsr1Snapshots :: Maybe [Snapshot], _dsr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
-describeSnapshotsResponse :: DescribeSnapshotsResponse
-describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken = Nothing, _dsrSnapshots = Nothing};
+describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
+describeSnapshotsResponse pStatusCode = DescribeSnapshotsResponse'{_dsr1NextToken = Nothing, _dsr1Snapshots = Nothing, _dsr1StatusCode = pStatusCode};
 
 -- | The @NextToken@ value to include in a future @DescribeSnapshots@
 -- request. When the results of a @DescribeSnapshots@ request exceed
 -- @MaxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-dsrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
+dsr1NextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsr1NextToken = lens _dsr1NextToken (\ s a -> s{_dsr1NextToken = a});
 
 -- | Information about the snapshots.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a}) . _Default;
+dsr1Snapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsr1Snapshots = lens _dsr1Snapshots (\ s a -> s{_dsr1Snapshots = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsr1StatusCode :: Lens' DescribeSnapshotsResponse Int
+dsr1StatusCode = lens _dsr1StatusCode (\ s a -> s{_dsr1StatusCode = a});

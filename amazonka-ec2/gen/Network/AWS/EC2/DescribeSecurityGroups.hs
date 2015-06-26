@@ -42,6 +42,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , describeSecurityGroupsResponse
     -- ** Response lenses
     , dsgrSecurityGroups
+    , dsgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -142,7 +143,8 @@ instance AWSRequest DescribeSecurityGroups where
           = receiveXML
               (\ s h x ->
                  DescribeSecurityGroupsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
@@ -167,12 +169,18 @@ instance ToQuery DescribeSecurityGroups where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsgrSecurityGroups'
-newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups :: Maybe [SecurityGroup]} deriving (Eq, Read, Show)
+--
+-- * 'dsgrStatusCode'
+data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups :: Maybe [SecurityGroup], _dsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
-describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups = Nothing};
+describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
+describeSecurityGroupsResponse pStatusCode = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups = Nothing, _dsgrStatusCode = pStatusCode};
 
 -- | Information about one or more security groups.
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups = lens _dsgrSecurityGroups (\ s a -> s{_dsgrSecurityGroups = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsgrStatusCode :: Lens' DescribeSecurityGroupsResponse Int
+dsgrStatusCode = lens _dsgrStatusCode (\ s a -> s{_dsgrStatusCode = a});

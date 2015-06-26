@@ -33,6 +33,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshot
+    , csrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'copySnapshot' smart constructor.
+-- | Represents the input of a /CopySnapshotMessage/ action.
+--
+-- /See:/ 'copySnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest CopySnapshot where
         response
           = receiveXMLWrapper "CopySnapshotResult"
               (\ s h x ->
-                 CopySnapshotResponse' <$> (x .@? "Snapshot"))
+                 CopySnapshotResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
@@ -89,12 +93,18 @@ instance ToQuery CopySnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSnapshot'
-newtype CopySnapshotResponse = CopySnapshotResponse'{_csrSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CopySnapshotResponse = CopySnapshotResponse'{_csrSnapshot :: Maybe Snapshot, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopySnapshotResponse' smart constructor.
-copySnapshotResponse :: CopySnapshotResponse
-copySnapshotResponse = CopySnapshotResponse'{_csrSnapshot = Nothing};
+copySnapshotResponse :: Int -> CopySnapshotResponse
+copySnapshotResponse pStatusCode = CopySnapshotResponse'{_csrSnapshot = Nothing, _csrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\ s a -> s{_csrSnapshot = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CopySnapshotResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

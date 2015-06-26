@@ -51,7 +51,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addTagsToResource' smart constructor.
+-- | Represents the input of an /AddTagsToResource/ action.
+--
+-- /See:/ 'addTagsToResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

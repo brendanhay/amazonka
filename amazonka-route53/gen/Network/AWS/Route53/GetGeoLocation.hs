@@ -36,6 +36,7 @@ module Network.AWS.Route53.GetGeoLocation
     , getGeoLocationResponse
     -- ** Response lenses
     , gglrGeoLocationDetails
+    , gglrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'getGeoLocation' smart constructor.
+-- | A complex type that contains information about the request to get a geo
+-- location.
+--
+-- /See:/ 'getGeoLocation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +97,7 @@ instance AWSRequest GetGeoLocation where
           = receiveXML
               (\ s h x ->
                  GetGeoLocationResponse' <$>
-                   (x .@ "GeoLocationDetails"))
+                   (x .@ "GeoLocationDetails") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
@@ -108,18 +112,26 @@ instance ToQuery GetGeoLocation where
                "countrycode" =: _gglCountryCode,
                "continentcode" =: _gglContinentCode]
 
--- | /See:/ 'getGeoLocationResponse' smart constructor.
+-- | A complex type containing information about the specified geo location.
+--
+-- /See:/ 'getGeoLocationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gglrGeoLocationDetails'
-newtype GetGeoLocationResponse = GetGeoLocationResponse'{_gglrGeoLocationDetails :: GeoLocationDetails} deriving (Eq, Read, Show)
+--
+-- * 'gglrStatusCode'
+data GetGeoLocationResponse = GetGeoLocationResponse'{_gglrGeoLocationDetails :: GeoLocationDetails, _gglrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetGeoLocationResponse' smart constructor.
-getGeoLocationResponse :: GeoLocationDetails -> GetGeoLocationResponse
-getGeoLocationResponse pGeoLocationDetails = GetGeoLocationResponse'{_gglrGeoLocationDetails = pGeoLocationDetails};
+getGeoLocationResponse :: GeoLocationDetails -> Int -> GetGeoLocationResponse
+getGeoLocationResponse pGeoLocationDetails pStatusCode = GetGeoLocationResponse'{_gglrGeoLocationDetails = pGeoLocationDetails, _gglrStatusCode = pStatusCode};
 
 -- | A complex type that contains the information about the specified geo
 -- location.
 gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails = lens _gglrGeoLocationDetails (\ s a -> s{_gglrGeoLocationDetails = a});
+
+-- | FIXME: Undocumented member.
+gglrStatusCode :: Lens' GetGeoLocationResponse Int
+gglrStatusCode = lens _gglrStatusCode (\ s a -> s{_gglrStatusCode = a});

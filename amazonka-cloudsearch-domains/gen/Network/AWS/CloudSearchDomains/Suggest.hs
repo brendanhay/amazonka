@@ -53,6 +53,7 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- ** Response lenses
     , srSuggest
     , srStatus
+    , srStatusCode
     ) where
 
 import Network.AWS.CloudSearchDomains.Types
@@ -60,7 +61,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'suggest' smart constructor.
+-- | Container for the parameters to the @Suggest@ request.
+--
+-- /See:/ 'suggest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,8 @@ instance AWSRequest Suggest where
           = receiveJSON
               (\ s h x ->
                  SuggestResponse' <$>
-                   (x .?> "suggest") <*> (x .?> "status"))
+                   (x .?> "suggest") <*> (x .?> "status") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders Suggest where
         toHeaders
@@ -114,18 +118,22 @@ instance ToQuery Suggest where
                "suggester" =: _sugSuggester,
                "format=sdk&pretty=true"]
 
--- | /See:/ 'suggestResponse' smart constructor.
+-- | Contains the response to a @Suggest@ request.
+--
+-- /See:/ 'suggestResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'srSuggest'
 --
 -- * 'srStatus'
-data SuggestResponse = SuggestResponse'{_srSuggest :: Maybe SuggestModel, _srStatus :: Maybe SuggestStatus} deriving (Eq, Read, Show)
+--
+-- * 'srStatusCode'
+data SuggestResponse = SuggestResponse'{_srSuggest :: Maybe SuggestModel, _srStatus :: Maybe SuggestStatus, _srStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SuggestResponse' smart constructor.
-suggestResponse :: SuggestResponse
-suggestResponse = SuggestResponse'{_srSuggest = Nothing, _srStatus = Nothing};
+suggestResponse :: Int -> SuggestResponse
+suggestResponse pStatusCode = SuggestResponse'{_srSuggest = Nothing, _srStatus = Nothing, _srStatusCode = pStatusCode};
 
 -- | Container for the matching search suggestion information.
 srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
@@ -135,3 +143,7 @@ srSuggest = lens _srSuggest (\ s a -> s{_srSuggest = a});
 -- how long it took to process the request (@timems@).
 srStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
+
+-- | FIXME: Undocumented member.
+srStatusCode :: Lens' SuggestResponse Int
+srStatusCode = lens _srStatusCode (\ s a -> s{_srStatusCode = a});

@@ -38,15 +38,18 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- ** Response lenses
     , lsbtrNextToken
     , lsbtrSubscriptions
+    , lsbtrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'listSubscriptionsByTopic' smart constructor.
+-- | Input for ListSubscriptionsByTopic action.
+--
+-- /See:/ 'listSubscriptionsByTopic' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -85,7 +88,8 @@ instance AWSRequest ListSubscriptionsByTopic where
                  ListSubscriptionsByTopicResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Subscriptions" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
@@ -102,18 +106,22 @@ instance ToQuery ListSubscriptionsByTopic where
                "NextToken" =: _lsbtNextToken,
                "TopicArn" =: _lsbtTopicARN]
 
--- | /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
+-- | Response for ListSubscriptionsByTopic action.
+--
+-- /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsbtrNextToken'
 --
 -- * 'lsbtrSubscriptions'
-data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken :: Maybe Text, _lsbtrSubscriptions :: Maybe [Subscription]} deriving (Eq, Read, Show)
+--
+-- * 'lsbtrStatusCode'
+data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken :: Maybe Text, _lsbtrSubscriptions :: Maybe [Subscription], _lsbtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListSubscriptionsByTopicResponse' smart constructor.
-listSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken = Nothing, _lsbtrSubscriptions = Nothing};
+listSubscriptionsByTopicResponse :: Int -> ListSubscriptionsByTopicResponse
+listSubscriptionsByTopicResponse pStatusCode = ListSubscriptionsByTopicResponse'{_lsbtrNextToken = Nothing, _lsbtrSubscriptions = Nothing, _lsbtrStatusCode = pStatusCode};
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
 -- element is returned if there are more subscriptions to retrieve.
@@ -123,3 +131,7 @@ lsbtrNextToken = lens _lsbtrNextToken (\ s a -> s{_lsbtrNextToken = a});
 -- | A list of subscriptions.
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions = lens _lsbtrSubscriptions (\ s a -> s{_lsbtrSubscriptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lsbtrStatusCode :: Lens' ListSubscriptionsByTopicResponse Int
+lsbtrStatusCode = lens _lsbtrStatusCode (\ s a -> s{_lsbtrStatusCode = a});

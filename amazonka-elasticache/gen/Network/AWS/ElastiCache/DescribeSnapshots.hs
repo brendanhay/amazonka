@@ -38,17 +38,20 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrSnapshots
-    , dsrMarker
+    , dsr1Snapshots
+    , dsr1Marker
+    , dsr1StatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSnapshots' smart constructor.
+-- | Represents the input of a /DescribeSnapshotsMessage/ action.
+--
+-- /See:/ 'describeSnapshots' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,9 +106,10 @@ dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop (rs ^. dsrMarker) = Nothing
-          | stop (rs ^. dsrSnapshots) = Nothing
-          | otherwise = Just $ rq & dsMarker .~ rs ^. dsrMarker
+          | stop (rs ^. dsr1Marker) = Nothing
+          | stop (rs ^. dsr1Snapshots) = Nothing
+          | otherwise =
+            Just $ rq & dsMarker .~ rs ^. dsr1Marker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
@@ -117,7 +121,8 @@ instance AWSRequest DescribeSnapshots where
                  DescribeSnapshotsResponse' <$>
                    (x .@? "Snapshots" .!@ mempty >>=
                       may (parseXMLList "Snapshot"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
@@ -135,27 +140,35 @@ instance ToQuery DescribeSnapshots where
                "SnapshotName" =: _dsSnapshotName,
                "SnapshotSource" =: _dsSnapshotSource]
 
--- | /See:/ 'describeSnapshotsResponse' smart constructor.
+-- | Represents the output of a /DescribeSnapshots/ action.
+--
+-- /See:/ 'describeSnapshotsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSnapshots'
+-- * 'dsr1Snapshots'
 --
--- * 'dsrMarker'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots :: Maybe [Snapshot], _dsrMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dsr1Marker'
+--
+-- * 'dsr1StatusCode'
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsr1Snapshots :: Maybe [Snapshot], _dsr1Marker :: Maybe Text, _dsr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
-describeSnapshotsResponse :: DescribeSnapshotsResponse
-describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots = Nothing, _dsrMarker = Nothing};
+describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
+describeSnapshotsResponse pStatusCode = DescribeSnapshotsResponse'{_dsr1Snapshots = Nothing, _dsr1Marker = Nothing, _dsr1StatusCode = pStatusCode};
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a}) . _Default;
+dsr1Snapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsr1Snapshots = lens _dsr1Snapshots (\ s a -> s{_dsr1Snapshots = a}) . _Default;
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dsrMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrMarker = lens _dsrMarker (\ s a -> s{_dsrMarker = a});
+dsr1Marker :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsr1Marker = lens _dsr1Marker (\ s a -> s{_dsr1Marker = a});
+
+-- | FIXME: Undocumented member.
+dsr1StatusCode :: Lens' DescribeSnapshotsResponse Int
+dsr1StatusCode = lens _dsr1StatusCode (\ s a -> s{_dsr1StatusCode = a});

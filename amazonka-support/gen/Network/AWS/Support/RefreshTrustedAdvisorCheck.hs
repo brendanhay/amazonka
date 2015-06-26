@@ -43,6 +43,7 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     , refreshTrustedAdvisorCheckResponse
     -- ** Response lenses
     , rtacrStatus
+    , rtacrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -74,7 +75,7 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
           = receiveJSON
               (\ s h x ->
                  RefreshTrustedAdvisorCheckResponse' <$>
-                   (x .:> "status"))
+                   (x .:> "status") <*> (pure (fromEnum s)))
 
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders
@@ -96,18 +97,26 @@ instance ToPath RefreshTrustedAdvisorCheck where
 instance ToQuery RefreshTrustedAdvisorCheck where
         toQuery = const mempty
 
--- | /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
+-- | The current refresh status of a Trusted Advisor check.
+--
+-- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtacrStatus'
-newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'{_rtacrStatus :: TrustedAdvisorCheckRefreshStatus} deriving (Eq, Read, Show)
+--
+-- * 'rtacrStatusCode'
+data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'{_rtacrStatus :: TrustedAdvisorCheckRefreshStatus, _rtacrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
-refreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -> RefreshTrustedAdvisorCheckResponse
-refreshTrustedAdvisorCheckResponse pStatus = RefreshTrustedAdvisorCheckResponse'{_rtacrStatus = pStatus};
+refreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -> Int -> RefreshTrustedAdvisorCheckResponse
+refreshTrustedAdvisorCheckResponse pStatus pStatusCode = RefreshTrustedAdvisorCheckResponse'{_rtacrStatus = pStatus, _rtacrStatusCode = pStatusCode};
 
 -- | The current refresh status for a check, including the amount of time
 -- until the check is eligible for refresh.
 rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrStatus = lens _rtacrStatus (\ s a -> s{_rtacrStatus = a});
+
+-- | FIXME: Undocumented member.
+rtacrStatusCode :: Lens' RefreshTrustedAdvisorCheckResponse Int
+rtacrStatusCode = lens _rtacrStatusCode (\ s a -> s{_rtacrStatusCode = a});

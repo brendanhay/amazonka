@@ -37,6 +37,8 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     , DetachLoadBalancersResponse
     -- ** Response constructor
     , detachLoadBalancersResponse
+    -- ** Response lenses
+    , detStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -70,7 +72,10 @@ instance AWSRequest DetachLoadBalancers where
         type Rs DetachLoadBalancers =
              DetachLoadBalancersResponse
         request = post
-        response = receiveNull DetachLoadBalancersResponse'
+        response
+          = receiveXMLWrapper "DetachLoadBalancersResult"
+              (\ s h x ->
+                 DetachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
@@ -89,8 +94,16 @@ instance ToQuery DetachLoadBalancers where
                    (toQueryList "member" <$> _detLoadBalancerNames)]
 
 -- | /See:/ 'detachLoadBalancersResponse' smart constructor.
-data DetachLoadBalancersResponse = DetachLoadBalancersResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'detStatusCode'
+newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'{_detStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
-detachLoadBalancersResponse :: DetachLoadBalancersResponse
-detachLoadBalancersResponse = DetachLoadBalancersResponse';
+detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
+detachLoadBalancersResponse pStatusCode = DetachLoadBalancersResponse'{_detStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+detStatusCode :: Lens' DetachLoadBalancersResponse Int
+detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a});

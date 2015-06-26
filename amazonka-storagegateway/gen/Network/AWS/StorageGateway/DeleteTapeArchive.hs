@@ -31,7 +31,8 @@ module Network.AWS.StorageGateway.DeleteTapeArchive
     -- ** Response constructor
     , deleteTapeArchiveResponse
     -- ** Response lenses
-    , dtarTapeARN
+    , dtar1TapeARN
+    , dtar1StatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -39,7 +40,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'deleteTapeArchive' smart constructor.
+-- | DeleteTapeArchiveInput
+--
+-- /See:/ 'deleteTapeArchive' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -62,7 +65,8 @@ instance AWSRequest DeleteTapeArchive where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteTapeArchiveResponse' <$> (x .?> "TapeARN"))
+                 DeleteTapeArchiveResponse' <$>
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteTapeArchive where
         toHeaders
@@ -84,18 +88,26 @@ instance ToPath DeleteTapeArchive where
 instance ToQuery DeleteTapeArchive where
         toQuery = const mempty
 
--- | /See:/ 'deleteTapeArchiveResponse' smart constructor.
+-- | DeleteTapeArchiveOutput
+--
+-- /See:/ 'deleteTapeArchiveResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtarTapeARN'
-newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'{_dtarTapeARN :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dtar1TapeARN'
+--
+-- * 'dtar1StatusCode'
+data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'{_dtar1TapeARN :: Maybe Text, _dtar1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteTapeArchiveResponse' smart constructor.
-deleteTapeArchiveResponse :: DeleteTapeArchiveResponse
-deleteTapeArchiveResponse = DeleteTapeArchiveResponse'{_dtarTapeARN = Nothing};
+deleteTapeArchiveResponse :: Int -> DeleteTapeArchiveResponse
+deleteTapeArchiveResponse pStatusCode = DeleteTapeArchiveResponse'{_dtar1TapeARN = Nothing, _dtar1StatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from
 -- the virtual tape shelf (VTS).
-dtarTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
-dtarTapeARN = lens _dtarTapeARN (\ s a -> s{_dtarTapeARN = a});
+dtar1TapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
+dtar1TapeARN = lens _dtar1TapeARN (\ s a -> s{_dtar1TapeARN = a});
+
+-- | FIXME: Undocumented member.
+dtar1StatusCode :: Lens' DeleteTapeArchiveResponse Int
+dtar1StatusCode = lens _dtar1StatusCode (\ s a -> s{_dtar1StatusCode = a});

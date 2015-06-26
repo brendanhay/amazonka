@@ -52,7 +52,8 @@ module Network.AWS.IAM.UploadServerCertificate
     -- ** Response constructor
     , uploadServerCertificateResponse
     -- ** Response lenses
-    , uscrServerCertificateMetadata
+    , uplServerCertificateMetadata
+    , uplStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -121,7 +122,8 @@ instance AWSRequest UploadServerCertificate where
           = receiveXMLWrapper "UploadServerCertificateResult"
               (\ s h x ->
                  UploadServerCertificateResponse' <$>
-                   (x .@? "ServerCertificateMetadata"))
+                   (x .@? "ServerCertificateMetadata") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
@@ -141,18 +143,26 @@ instance ToQuery UploadServerCertificate where
                "CertificateBody" =: _uscCertificateBody,
                "PrivateKey" =: _uscPrivateKey]
 
--- | /See:/ 'uploadServerCertificateResponse' smart constructor.
+-- | Contains the response to a successful UploadServerCertificate request.
+--
+-- /See:/ 'uploadServerCertificateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uscrServerCertificateMetadata'
-newtype UploadServerCertificateResponse = UploadServerCertificateResponse'{_uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata} deriving (Eq, Read, Show)
+-- * 'uplServerCertificateMetadata'
+--
+-- * 'uplStatusCode'
+data UploadServerCertificateResponse = UploadServerCertificateResponse'{_uplServerCertificateMetadata :: Maybe ServerCertificateMetadata, _uplStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
-uploadServerCertificateResponse :: UploadServerCertificateResponse
-uploadServerCertificateResponse = UploadServerCertificateResponse'{_uscrServerCertificateMetadata = Nothing};
+uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
+uploadServerCertificateResponse pStatusCode = UploadServerCertificateResponse'{_uplServerCertificateMetadata = Nothing, _uplStatusCode = pStatusCode};
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
-uscrServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
-uscrServerCertificateMetadata = lens _uscrServerCertificateMetadata (\ s a -> s{_uscrServerCertificateMetadata = a});
+uplServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
+uplServerCertificateMetadata = lens _uplServerCertificateMetadata (\ s a -> s{_uplServerCertificateMetadata = a});
+
+-- | FIXME: Undocumented member.
+uplStatusCode :: Lens' UploadServerCertificateResponse Int
+uplStatusCode = lens _uplStatusCode (\ s a -> s{_uplStatusCode = a});

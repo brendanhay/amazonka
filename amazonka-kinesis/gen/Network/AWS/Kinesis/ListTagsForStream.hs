@@ -35,6 +35,7 @@ module Network.AWS.Kinesis.ListTagsForStream
     -- ** Response lenses
     , ltfsrTags
     , ltfsrHasMoreTags
+    , ltfsrStatusCode
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listTagsForStream' smart constructor.
+-- | Represents the input for @ListTagsForStream@.
+--
+-- /See:/ 'listTagsForStream' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest ListTagsForStream where
           = receiveJSON
               (\ s h x ->
                  ListTagsForStreamResponse' <$>
-                   (x .?> "Tags" .!@ mempty) <*> (x .:> "HasMoreTags"))
+                   (x .?> "Tags" .!@ mempty) <*> (x .:> "HasMoreTags")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTagsForStream where
         toHeaders
@@ -106,18 +110,22 @@ instance ToPath ListTagsForStream where
 instance ToQuery ListTagsForStream where
         toQuery = const mempty
 
--- | /See:/ 'listTagsForStreamResponse' smart constructor.
+-- | Represents the output for @ListTagsForStream@.
+--
+-- /See:/ 'listTagsForStreamResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfsrTags'
 --
 -- * 'ltfsrHasMoreTags'
-data ListTagsForStreamResponse = ListTagsForStreamResponse'{_ltfsrTags :: [Tag], _ltfsrHasMoreTags :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'ltfsrStatusCode'
+data ListTagsForStreamResponse = ListTagsForStreamResponse'{_ltfsrTags :: [Tag], _ltfsrHasMoreTags :: Bool, _ltfsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
-listTagsForStreamResponse :: Bool -> ListTagsForStreamResponse
-listTagsForStreamResponse pHasMoreTags = ListTagsForStreamResponse'{_ltfsrTags = mempty, _ltfsrHasMoreTags = pHasMoreTags};
+listTagsForStreamResponse :: Bool -> Int -> ListTagsForStreamResponse
+listTagsForStreamResponse pHasMoreTags pStatusCode = ListTagsForStreamResponse'{_ltfsrTags = mempty, _ltfsrHasMoreTags = pHasMoreTags, _ltfsrStatusCode = pStatusCode};
 
 -- | A list of tags associated with @StreamName@, starting with the first tag
 -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
@@ -128,3 +136,7 @@ ltfsrTags = lens _ltfsrTags (\ s a -> s{_ltfsrTags = a});
 -- set @ExclusiveStartTagKey@ to the key of the last tag returned.
 ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\ s a -> s{_ltfsrHasMoreTags = a});
+
+-- | FIXME: Undocumented member.
+ltfsrStatusCode :: Lens' ListTagsForStreamResponse Int
+ltfsrStatusCode = lens _ltfsrStatusCode (\ s a -> s{_ltfsrStatusCode = a});

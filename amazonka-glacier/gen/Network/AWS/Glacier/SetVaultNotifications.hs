@@ -73,7 +73,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setVaultNotifications' smart constructor.
+-- | Provides options to configure notifications that will be sent when
+-- specific events happen to a vault.
+--
+-- /See:/ 'setVaultNotifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

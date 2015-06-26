@@ -35,6 +35,7 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     , getDataRetrievalPolicyResponse
     -- ** Response lenses
     , gdrprPolicy
+    , gdrprStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDataRetrievalPolicy' smart constructor.
+-- | Input for GetDataRetrievalPolicy.
+--
+-- /See:/ 'getDataRetrievalPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest GetDataRetrievalPolicy where
         response
           = receiveJSON
               (\ s h x ->
-                 GetDataRetrievalPolicyResponse' <$> (x .?> "Policy"))
+                 GetDataRetrievalPolicyResponse' <$>
+                   (x .?> "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty
@@ -85,17 +89,26 @@ instance ToPath GetDataRetrievalPolicy where
 instance ToQuery GetDataRetrievalPolicy where
         toQuery = const mempty
 
--- | /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
+-- | Contains the Amazon Glacier response to the @GetDataRetrievalPolicy@
+-- request.
+--
+-- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdrprPolicy'
-newtype GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'{_gdrprPolicy :: Maybe DataRetrievalPolicy} deriving (Eq, Read, Show)
+--
+-- * 'gdrprStatusCode'
+data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'{_gdrprPolicy :: Maybe DataRetrievalPolicy, _gdrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
-getDataRetrievalPolicyResponse :: GetDataRetrievalPolicyResponse
-getDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'{_gdrprPolicy = Nothing};
+getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
+getDataRetrievalPolicyResponse pStatusCode = GetDataRetrievalPolicyResponse'{_gdrprPolicy = Nothing, _gdrprStatusCode = pStatusCode};
 
 -- | Contains the returned data retrieval policy in JSON format.
 gdrprPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprPolicy = lens _gdrprPolicy (\ s a -> s{_gdrprPolicy = a});
+
+-- | FIXME: Undocumented member.
+gdrprStatusCode :: Lens' GetDataRetrievalPolicyResponse Int
+gdrprStatusCode = lens _gdrprStatusCode (\ s a -> s{_gdrprStatusCode = a});

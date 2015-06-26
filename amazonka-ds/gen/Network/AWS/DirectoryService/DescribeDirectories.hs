@@ -48,6 +48,7 @@ module Network.AWS.DirectoryService.DescribeDirectories
     -- ** Response lenses
     , ddrDirectoryDescriptions
     , ddrNextToken
+    , ddrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -55,7 +56,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDirectories' smart constructor.
+-- | Contains the inputs for the DescribeDirectories operation.
+--
+-- /See:/ 'describeDirectories' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +102,8 @@ instance AWSRequest DescribeDirectories where
               (\ s h x ->
                  DescribeDirectoriesResponse' <$>
                    (x .?> "DirectoryDescriptions" .!@ mempty) <*>
-                     (x .?> "NextToken"))
+                     (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDirectories where
         toHeaders
@@ -124,18 +128,22 @@ instance ToPath DescribeDirectories where
 instance ToQuery DescribeDirectories where
         toQuery = const mempty
 
--- | /See:/ 'describeDirectoriesResponse' smart constructor.
+-- | Contains the results of the DescribeDirectories operation.
+--
+-- /See:/ 'describeDirectoriesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddrDirectoryDescriptions'
 --
 -- * 'ddrNextToken'
-data DescribeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions :: Maybe [DirectoryDescription], _ddrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ddrStatusCode'
+data DescribeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions :: Maybe [DirectoryDescription], _ddrNextToken :: Maybe Text, _ddrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
-describeDirectoriesResponse :: DescribeDirectoriesResponse
-describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions = Nothing, _ddrNextToken = Nothing};
+describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse
+describeDirectoriesResponse pStatusCode = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions = Nothing, _ddrNextToken = Nothing, _ddrStatusCode = pStatusCode};
 
 -- | The list of DirectoryDescription objects that were retrieved.
 --
@@ -151,3 +159,7 @@ ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirect
 -- retrieve the next set of items.
 ddrNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrNextToken = lens _ddrNextToken (\ s a -> s{_ddrNextToken = a});
+
+-- | FIXME: Undocumented member.
+ddrStatusCode :: Lens' DescribeDirectoriesResponse Int
+ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});

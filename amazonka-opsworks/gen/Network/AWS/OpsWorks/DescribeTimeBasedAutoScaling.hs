@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     , describeTimeBasedAutoScalingResponse
     -- ** Response lenses
     , dtbasrTimeBasedAutoScalingConfigurations
+    , dtbasrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -74,7 +75,8 @@ instance AWSRequest DescribeTimeBasedAutoScaling
               (\ s h x ->
                  DescribeTimeBasedAutoScalingResponse' <$>
                    (x .?> "TimeBasedAutoScalingConfigurations" .!@
-                      mempty))
+                      mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
@@ -96,18 +98,26 @@ instance ToPath DescribeTimeBasedAutoScaling where
 instance ToQuery DescribeTimeBasedAutoScaling where
         toQuery = const mempty
 
--- | /See:/ 'describeTimeBasedAutoScalingResponse' smart constructor.
+-- | Contains the response to a @DescribeTimeBasedAutoScaling@ request.
+--
+-- /See:/ 'describeTimeBasedAutoScalingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtbasrTimeBasedAutoScalingConfigurations'
-newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration]} deriving (Eq, Read, Show)
+--
+-- * 'dtbasrStatusCode'
+data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration], _dtbasrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
-describeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse
-describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations = Nothing};
+describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
+describeTimeBasedAutoScalingResponse pStatusCode = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations = Nothing, _dtbasrStatusCode = pStatusCode};
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
 dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
 dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtbasrStatusCode :: Lens' DescribeTimeBasedAutoScalingResponse Int
+dtbasrStatusCode = lens _dtbasrStatusCode (\ s a -> s{_dtbasrStatusCode = a});

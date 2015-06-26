@@ -47,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeIdentityPool' smart constructor.
+-- | Input to the DescribeIdentityPool action.
+--
+-- /See:/ 'describeIdentityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

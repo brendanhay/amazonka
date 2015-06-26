@@ -46,15 +46,27 @@ module Network.AWS.Route53.ListHealthChecks
     , lhcrMarker
     , lhcrIsTruncated
     , lhcrMaxItems
+    , lhcrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listHealthChecks' smart constructor.
+-- | To retrieve a list of your health checks, send a @GET@ request to the
+-- @2013-04-01\/healthcheck@ resource. The response to this request
+-- includes a @HealthChecks@ element with zero or more @HealthCheck@ child
+-- elements. By default, the list of health checks is displayed on a single
+-- page. You can control the length of the page that is displayed by using
+-- the @MaxItems@ parameter. You can use the @Marker@ parameter to control
+-- the health check that the list begins with.
+--
+-- Route 53 returns a maximum of 100 items. If you set @MaxItems@ to a
+-- value greater than 100, Route 53 returns only the first 100.
+--
+-- /See:/ 'listHealthChecks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +110,8 @@ instance AWSRequest ListHealthChecks where
                         parseXMLList "HealthCheck")
                      <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems"))
+                     <*> (x .@ "MaxItems")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
@@ -111,7 +124,9 @@ instance ToQuery ListHealthChecks where
           = mconcat
               ["maxitems" =: _lhcMaxItems, "marker" =: _lhcMarker]
 
--- | /See:/ 'listHealthChecksResponse' smart constructor.
+-- | A complex type that contains the response for the request.
+--
+-- /See:/ 'listHealthChecksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,11 +139,13 @@ instance ToQuery ListHealthChecks where
 -- * 'lhcrIsTruncated'
 --
 -- * 'lhcrMaxItems'
-data ListHealthChecksResponse = ListHealthChecksResponse'{_lhcrNextMarker :: Maybe Text, _lhcrHealthChecks :: [HealthCheck], _lhcrMarker :: Text, _lhcrIsTruncated :: Bool, _lhcrMaxItems :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lhcrStatusCode'
+data ListHealthChecksResponse = ListHealthChecksResponse'{_lhcrNextMarker :: Maybe Text, _lhcrHealthChecks :: [HealthCheck], _lhcrMarker :: Text, _lhcrIsTruncated :: Bool, _lhcrMaxItems :: Text, _lhcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
-listHealthChecksResponse :: Text -> Bool -> Text -> ListHealthChecksResponse
-listHealthChecksResponse pMarker pIsTruncated pMaxItems = ListHealthChecksResponse'{_lhcrNextMarker = Nothing, _lhcrHealthChecks = mempty, _lhcrMarker = pMarker, _lhcrIsTruncated = pIsTruncated, _lhcrMaxItems = pMaxItems};
+listHealthChecksResponse :: Text -> Bool -> Text -> Int -> ListHealthChecksResponse
+listHealthChecksResponse pMarker pIsTruncated pMaxItems pStatusCode = ListHealthChecksResponse'{_lhcrNextMarker = Nothing, _lhcrHealthChecks = mempty, _lhcrMarker = pMarker, _lhcrIsTruncated = pIsTruncated, _lhcrMaxItems = pMaxItems, _lhcrStatusCode = pStatusCode};
 
 -- | Indicates where to continue listing health checks. If
 -- ListHealthChecksResponse$IsTruncated is @true@, make another request to
@@ -164,3 +181,7 @@ lhcrIsTruncated = lens _lhcrIsTruncated (\ s a -> s{_lhcrIsTruncated = a});
 -- ListHostedZonesRequest$Marker element to get the next page of results.
 lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\ s a -> s{_lhcrMaxItems = a});
+
+-- | FIXME: Undocumented member.
+lhcrStatusCode :: Lens' ListHealthChecksResponse Int
+lhcrStatusCode = lens _lhcrStatusCode (\ s a -> s{_lhcrStatusCode = a});

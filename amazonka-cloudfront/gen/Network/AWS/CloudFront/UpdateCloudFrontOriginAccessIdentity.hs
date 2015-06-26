@@ -35,6 +35,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- ** Response lenses
     , ucfoairETag
     , ucfoairCloudFrontOriginAccessIdentity
+    , ucfoairStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateCloudFrontOriginAccessIdentity' smart constructor.
+-- | The request to update an origin access identity.
+--
+-- /See:/ 'updateCloudFrontOriginAccessIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest
               (\ s h x ->
                  UpdateCloudFrontOriginAccessIdentityResponse' <$>
                    (h .#? "ETag") <*>
-                     (x .@? "CloudFrontOriginAccessIdentity"))
+                     (x .@? "CloudFrontOriginAccessIdentity")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
@@ -108,18 +112,22 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
          where
         toQuery = const mempty
 
--- | /See:/ 'updateCloudFrontOriginAccessIdentityResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'updateCloudFrontOriginAccessIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ucfoairETag'
 --
 -- * 'ucfoairCloudFrontOriginAccessIdentity'
-data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'{_ucfoairETag :: Maybe Text, _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity} deriving (Eq, Read, Show)
+--
+-- * 'ucfoairStatusCode'
+data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'{_ucfoairETag :: Maybe Text, _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity, _ucfoairStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
-updateCloudFrontOriginAccessIdentityResponse :: UpdateCloudFrontOriginAccessIdentityResponse
-updateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'{_ucfoairETag = Nothing, _ucfoairCloudFrontOriginAccessIdentity = Nothing};
+updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
+updateCloudFrontOriginAccessIdentityResponse pStatusCode = UpdateCloudFrontOriginAccessIdentityResponse'{_ucfoairETag = Nothing, _ucfoairCloudFrontOriginAccessIdentity = Nothing, _ucfoairStatusCode = pStatusCode};
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 ucfoairETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -128,3 +136,7 @@ ucfoairETag = lens _ucfoairETag (\ s a -> s{_ucfoairETag = a});
 -- | The origin access identity\'s information.
 ucfoairCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ucfoairCloudFrontOriginAccessIdentity = lens _ucfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairCloudFrontOriginAccessIdentity = a});
+
+-- | FIXME: Undocumented member.
+ucfoairStatusCode :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
+ucfoairStatusCode = lens _ucfoairStatusCode (\ s a -> s{_ucfoairStatusCode = a});

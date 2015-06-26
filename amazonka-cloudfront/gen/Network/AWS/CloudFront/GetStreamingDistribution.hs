@@ -33,6 +33,7 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     -- ** Response lenses
     , gsdrETag
     , gsdrStreamingDistribution
+    , gsdrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getStreamingDistribution' smart constructor.
+-- | The request to get a streaming distribution\'s information.
+--
+-- /See:/ 'getStreamingDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -64,7 +67,8 @@ instance AWSRequest GetStreamingDistribution where
           = receiveXML
               (\ s h x ->
                  GetStreamingDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "StreamingDistribution"))
+                   (h .#? "ETag") <*> (x .@? "StreamingDistribution")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty
@@ -78,18 +82,22 @@ instance ToPath GetStreamingDistribution where
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty
 
--- | /See:/ 'getStreamingDistributionResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getStreamingDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsdrETag'
 --
 -- * 'gsdrStreamingDistribution'
-data GetStreamingDistributionResponse = GetStreamingDistributionResponse'{_gsdrETag :: Maybe Text, _gsdrStreamingDistribution :: Maybe StreamingDistribution} deriving (Eq, Read, Show)
+--
+-- * 'gsdrStatusCode'
+data GetStreamingDistributionResponse = GetStreamingDistributionResponse'{_gsdrETag :: Maybe Text, _gsdrStreamingDistribution :: Maybe StreamingDistribution, _gsdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetStreamingDistributionResponse' smart constructor.
-getStreamingDistributionResponse :: GetStreamingDistributionResponse
-getStreamingDistributionResponse = GetStreamingDistributionResponse'{_gsdrETag = Nothing, _gsdrStreamingDistribution = Nothing};
+getStreamingDistributionResponse :: Int -> GetStreamingDistributionResponse
+getStreamingDistributionResponse pStatusCode = GetStreamingDistributionResponse'{_gsdrETag = Nothing, _gsdrStreamingDistribution = Nothing, _gsdrStatusCode = pStatusCode};
 
 -- | The current version of the streaming distribution\'s information. For
 -- example: E2QWRUHAPOMQZL.
@@ -99,3 +107,7 @@ gsdrETag = lens _gsdrETag (\ s a -> s{_gsdrETag = a});
 -- | The streaming distribution\'s information.
 gsdrStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
 gsdrStreamingDistribution = lens _gsdrStreamingDistribution (\ s a -> s{_gsdrStreamingDistribution = a});
+
+-- | FIXME: Undocumented member.
+gsdrStatusCode :: Lens' GetStreamingDistributionResponse Int
+gsdrStatusCode = lens _gsdrStatusCode (\ s a -> s{_gsdrStatusCode = a});

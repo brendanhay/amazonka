@@ -84,6 +84,7 @@ module Network.AWS.Glacier.UploadMultipartPart
     , uploadMultipartPartResponse
     -- ** Response lenses
     , umprChecksum
+    , umprStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -91,7 +92,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'uploadMultipartPart' smart constructor.
+-- | Provides options to upload a part of an archive in a multipart upload
+-- operation.
+--
+-- /See:/ 'uploadMultipartPart' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -152,7 +156,8 @@ instance AWSRequest UploadMultipartPart where
           = receiveJSON
               (\ s h x ->
                  UploadMultipartPartResponse' <$>
-                   (h .#? "x-amz-sha256-tree-hash"))
+                   (h .#? "x-amz-sha256-tree-hash") <*>
+                     (pure (fromEnum s)))
 
 instance ToBody UploadMultipartPart where
         toBody = _umpBody
@@ -173,17 +178,25 @@ instance ToPath UploadMultipartPart where
 instance ToQuery UploadMultipartPart where
         toQuery = const mempty
 
--- | /See:/ 'uploadMultipartPartResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'uploadMultipartPartResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'umprChecksum'
-newtype UploadMultipartPartResponse = UploadMultipartPartResponse'{_umprChecksum :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'umprStatusCode'
+data UploadMultipartPartResponse = UploadMultipartPartResponse'{_umprChecksum :: Maybe Text, _umprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UploadMultipartPartResponse' smart constructor.
-uploadMultipartPartResponse :: UploadMultipartPartResponse
-uploadMultipartPartResponse = UploadMultipartPartResponse'{_umprChecksum = Nothing};
+uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse
+uploadMultipartPartResponse pStatusCode = UploadMultipartPartResponse'{_umprChecksum = Nothing, _umprStatusCode = pStatusCode};
 
 -- | The SHA256 tree hash that Amazon Glacier computed for the uploaded part.
 umprChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
 umprChecksum = lens _umprChecksum (\ s a -> s{_umprChecksum = a});
+
+-- | FIXME: Undocumented member.
+umprStatusCode :: Lens' UploadMultipartPartResponse Int
+umprStatusCode = lens _umprStatusCode (\ s a -> s{_umprStatusCode = a});

@@ -21,8 +21,20 @@ module Network.AWS.AutoScaling.Types
     (
     -- * Service
       AutoScaling
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _LimitExceededFault
+    , _AlreadyExistsFault
+    , _ResourceInUseFault
+    , _InvalidNextToken
+    , _ScalingActivityInProgressFault
+    , _ResourceContentionFault
+
+    -- * LifecycleState
+    , LifecycleState (..)
+
+    -- * ScalingActivityStatusCode
+    , ScalingActivityStatusCode (..)
 
     -- * Activity
     , Activity
@@ -162,9 +174,6 @@ module Network.AWS.AutoScaling.Types
     , lhLifecycleTransition
     , lhNotificationTargetARN
 
-    -- * LifecycleState
-    , LifecycleState (..)
-
     -- * LoadBalancerState
     , LoadBalancerState
     , loadBalancerState
@@ -192,9 +201,6 @@ module Network.AWS.AutoScaling.Types
     , ProcessType
     , processType
     , ptProcessName
-
-    -- * ScalingActivityStatusCode
-    , ScalingActivityStatusCode (..)
 
     -- * ScalingPolicy
     , ScalingPolicy
@@ -251,6 +257,7 @@ module Network.AWS.AutoScaling.Types
     , tdKey
     , tdPropagateAtLaunch
     , tdValue
+
     ) where
 
 import Network.AWS.Prelude
@@ -261,32 +268,145 @@ data AutoScaling
 
 instance AWSService AutoScaling where
     type Sg AutoScaling = V4
-    type Er AutoScaling = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service AutoScaling
-        service' = Service
-            { _svcAbbrev  = "AutoScaling"
-            , _svcPrefix  = "autoscaling"
-            , _svcVersion = "2011-01-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service AutoScaling
+        svc = Service
+            { _svcAbbrev   = "AutoScaling"
+            , _svcPrefix   = "autoscaling"
+            , _svcVersion  = "2011-01-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry AutoScaling
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | You have already reached a limit for your Auto Scaling resources (for
+-- example, groups, launch configurations, or lifecycle hooks). For more
+-- information, see DescribeAccountLimits.
+_LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededFault = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
 
--- | /See:/ 'activity' smart constructor.
+-- | You already have an Auto Scaling group or launch configuration with this
+-- name.
+_AlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AlreadyExistsFault = _ServiceError . hasCode "AlreadyExists" . hasStatus 400;
+
+-- | The Auto Scaling group or launch configuration can\'t be deleted because
+-- it is in use.
+_ResourceInUseFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceInUseFault = _ServiceError . hasCode "ResourceInUse" . hasStatus 400;
+
+-- | The @NextToken@ value is not valid.
+_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+
+-- | The Auto Scaling group can\'t be deleted because there are scaling
+-- activities in progress.
+_ScalingActivityInProgressFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ScalingActivityInProgressFault = _ServiceError . hasCode "ScalingActivityInProgress" . hasStatus 400;
+
+-- | You already have a pending update to an Auto Scaling resource (for
+-- example, a group, instance, or load balancer).
+_ResourceContentionFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceContentionFault = _ServiceError . hasCode "ResourceContention" . hasStatus 500;
+
+data LifecycleState = PendingWait | Terminating | TerminatingWait | Pending | Standby | EnteringStandby | InService | Detached | Detaching | Quarantined | PendingProceed | Terminated | TerminatingProceed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LifecycleState where
+    parser = takeLowerText >>= \case
+        "Detached" -> pure Detached
+        "Detaching" -> pure Detaching
+        "EnteringStandby" -> pure EnteringStandby
+        "InService" -> pure InService
+        "Pending" -> pure Pending
+        "Pending:Proceed" -> pure PendingProceed
+        "Pending:Wait" -> pure PendingWait
+        "Quarantined" -> pure Quarantined
+        "Standby" -> pure Standby
+        "Terminated" -> pure Terminated
+        "Terminating" -> pure Terminating
+        "Terminating:Proceed" -> pure TerminatingProceed
+        "Terminating:Wait" -> pure TerminatingWait
+        e -> fail ("Failure parsing LifecycleState from " ++ show e)
+
+instance ToText LifecycleState where
+    toText = \case
+        Detached -> "Detached"
+        Detaching -> "Detaching"
+        EnteringStandby -> "EnteringStandby"
+        InService -> "InService"
+        Pending -> "Pending"
+        PendingProceed -> "Pending:Proceed"
+        PendingWait -> "Pending:Wait"
+        Quarantined -> "Quarantined"
+        Standby -> "Standby"
+        Terminated -> "Terminated"
+        Terminating -> "Terminating"
+        TerminatingProceed -> "Terminating:Proceed"
+        TerminatingWait -> "Terminating:Wait"
+
+instance Hashable LifecycleState
+instance ToQuery LifecycleState
+instance ToHeader LifecycleState
+
+instance FromXML LifecycleState where
+    parseXML = parseXMLText "LifecycleState"
+
+data ScalingActivityStatusCode = WaitingForSpotInstanceId | WaitingForSpotInstanceRequestId | WaitingForInstanceId | Successful | InProgress | PreInService | WaitingForELBConnectionDraining | MidLifecycleAction | Cancelled | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ScalingActivityStatusCode where
+    parser = takeLowerText >>= \case
+        "Cancelled" -> pure Cancelled
+        "Failed" -> pure Failed
+        "InProgress" -> pure InProgress
+        "MidLifecycleAction" -> pure MidLifecycleAction
+        "PreInService" -> pure PreInService
+        "Successful" -> pure Successful
+        "WaitingForELBConnectionDraining" -> pure WaitingForELBConnectionDraining
+        "WaitingForInstanceId" -> pure WaitingForInstanceId
+        "WaitingForSpotInstanceId" -> pure WaitingForSpotInstanceId
+        "WaitingForSpotInstanceRequestId" -> pure WaitingForSpotInstanceRequestId
+        e -> fail ("Failure parsing ScalingActivityStatusCode from " ++ show e)
+
+instance ToText ScalingActivityStatusCode where
+    toText = \case
+        Cancelled -> "Cancelled"
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        MidLifecycleAction -> "MidLifecycleAction"
+        PreInService -> "PreInService"
+        Successful -> "Successful"
+        WaitingForELBConnectionDraining -> "WaitingForELBConnectionDraining"
+        WaitingForInstanceId -> "WaitingForInstanceId"
+        WaitingForSpotInstanceId -> "WaitingForSpotInstanceId"
+        WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
+
+instance Hashable ScalingActivityStatusCode
+instance ToQuery ScalingActivityStatusCode
+instance ToHeader ScalingActivityStatusCode
+
+instance FromXML ScalingActivityStatusCode where
+    parseXML = parseXMLText "ScalingActivityStatusCode"
+
+-- | Describes scaling activity, which is a long-running process that
+-- represents a change to your Auto Scaling group, such as changing its
+-- size or replacing an instance.
+--
+-- /See:/ 'activity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -368,7 +488,13 @@ instance FromXML Activity where
                 <*> (x .@ "StartTime")
                 <*> (x .@ "StatusCode")
 
--- | /See:/ 'adjustmentType' smart constructor.
+-- | Describes a policy adjustment type.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling>
+-- in the /Auto Scaling Developer Guide/.
+--
+-- /See:/ 'adjustmentType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -388,7 +514,9 @@ instance FromXML AdjustmentType where
         parseXML x
           = AdjustmentType' <$> (x .@? "AdjustmentType")
 
--- | /See:/ 'alarm' smart constructor.
+-- | Describes an alarm.
+--
+-- /See:/ 'alarm' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -414,7 +542,9 @@ instance FromXML Alarm where
           = Alarm' <$>
               (x .@? "AlarmName") <*> (x .@? "AlarmARN")
 
--- | /See:/ 'autoScalingGroup' smart constructor.
+-- | Describes an Auto Scaling group.
+--
+-- /See:/ 'autoScalingGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -591,7 +721,9 @@ instance FromXML AutoScalingGroup where
                 <*> (x .@ "HealthCheckType")
                 <*> (x .@ "CreatedTime")
 
--- | /See:/ 'autoScalingInstanceDetails' smart constructor.
+-- | Describes an EC2 instance associated with an Auto Scaling group.
+--
+-- /See:/ 'autoScalingInstanceDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -649,7 +781,9 @@ instance FromXML AutoScalingInstanceDetails where
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "LaunchConfigurationName")
 
--- | /See:/ 'blockDeviceMapping' smart constructor.
+-- | Describes a block device mapping.
+--
+-- /See:/ 'blockDeviceMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -701,7 +835,9 @@ instance ToQuery BlockDeviceMapping where
                "NoDevice" =: _bdmNoDevice, "Ebs" =: _bdmEBS,
                "DeviceName" =: _bdmDeviceName]
 
--- | /See:/ 'ebs' smart constructor.
+-- | Describes an Amazon EBS volume.
+--
+-- /See:/ 'ebs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -777,7 +913,9 @@ instance ToQuery EBS where
                "VolumeType" =: _ebsVolumeType,
                "SnapshotId" =: _ebsSnapshotId]
 
--- | /See:/ 'enabledMetric' smart constructor.
+-- | Describes an enabled metric.
+--
+-- /See:/ 'enabledMetric' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -820,7 +958,9 @@ instance FromXML EnabledMetric where
           = EnabledMetric' <$>
               (x .@? "Granularity") <*> (x .@? "Metric")
 
--- | /See:/ 'filter'' smart constructor.
+-- | Describes a filter.
+--
+-- /See:/ 'filter'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -849,7 +989,9 @@ instance ToQuery Filter where
                  toQuery (toQueryList "member" <$> _filValues),
                "Name" =: _filName]
 
--- | /See:/ 'instance'' smart constructor.
+-- | Describes an EC2 instance.
+--
+-- /See:/ 'instance'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -897,7 +1039,9 @@ instance FromXML Instance where
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "LaunchConfigurationName")
 
--- | /See:/ 'instanceMonitoring' smart constructor.
+-- | Describes whether instance monitoring is enabled.
+--
+-- /See:/ 'instanceMonitoring' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -920,7 +1064,9 @@ instance ToQuery InstanceMonitoring where
         toQuery InstanceMonitoring'{..}
           = mconcat ["Enabled" =: _imEnabled]
 
--- | /See:/ 'launchConfiguration' smart constructor.
+-- | Describes a launch configuration.
+--
+-- /See:/ 'launchConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1086,7 +1232,22 @@ instance FromXML LaunchConfiguration where
                 <*> (x .@ "InstanceType")
                 <*> (x .@ "CreatedTime")
 
--- | /See:/ 'lifecycleHook' smart constructor.
+-- | Describes a lifecycle hook, which tells Auto Scaling that you want to
+-- perform an action when an instance launches or terminates. When you have
+-- a lifecycle hook in place, the Auto Scaling group will either:
+--
+-- -   Pause the instance after it launches, but before it is put into
+--     service
+-- -   Pause the instance as it terminates, but before it is fully
+--     terminated
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State>
+-- and
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
+-- in the /Auto Scaling Developer Guide/.
+--
+-- /See:/ 'lifecycleHook' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1183,49 +1344,9 @@ instance FromXML LifecycleHook where
                 <*> (x .@? "LifecycleTransition")
                 <*> (x .@? "NotificationTargetARN")
 
-data LifecycleState = PendingWait | Terminating | TerminatingWait | Pending | Standby | EnteringStandby | InService | Detached | Detaching | Quarantined | PendingProceed | Terminated | TerminatingProceed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LifecycleState where
-    parser = takeLowerText >>= \case
-        "Detached" -> pure Detached
-        "Detaching" -> pure Detaching
-        "EnteringStandby" -> pure EnteringStandby
-        "InService" -> pure InService
-        "Pending" -> pure Pending
-        "Pending:Proceed" -> pure PendingProceed
-        "Pending:Wait" -> pure PendingWait
-        "Quarantined" -> pure Quarantined
-        "Standby" -> pure Standby
-        "Terminated" -> pure Terminated
-        "Terminating" -> pure Terminating
-        "Terminating:Proceed" -> pure TerminatingProceed
-        "Terminating:Wait" -> pure TerminatingWait
-        e -> fail ("Failure parsing LifecycleState from " ++ show e)
-
-instance ToText LifecycleState where
-    toText = \case
-        Detached -> "Detached"
-        Detaching -> "Detaching"
-        EnteringStandby -> "EnteringStandby"
-        InService -> "InService"
-        Pending -> "Pending"
-        PendingProceed -> "Pending:Proceed"
-        PendingWait -> "Pending:Wait"
-        Quarantined -> "Quarantined"
-        Standby -> "Standby"
-        Terminated -> "Terminated"
-        Terminating -> "Terminating"
-        TerminatingProceed -> "Terminating:Proceed"
-        TerminatingWait -> "Terminating:Wait"
-
-instance Hashable LifecycleState
-instance ToQuery LifecycleState
-instance ToHeader LifecycleState
-
-instance FromXML LifecycleState where
-    parseXML = parseXMLText "LifecycleState"
-
--- | /See:/ 'loadBalancerState' smart constructor.
+-- | Describes the state of a load balancer.
+--
+-- /See:/ 'loadBalancerState' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1266,7 +1387,9 @@ instance FromXML LoadBalancerState where
           = LoadBalancerState' <$>
               (x .@? "State") <*> (x .@? "LoadBalancerName")
 
--- | /See:/ 'metricCollectionType' smart constructor.
+-- | Describes a metric.
+--
+-- /See:/ 'metricCollectionType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1302,7 +1425,9 @@ instance FromXML MetricCollectionType where
         parseXML x
           = MetricCollectionType' <$> (x .@? "Metric")
 
--- | /See:/ 'metricGranularityType' smart constructor.
+-- | Describes a granularity of a metric.
+--
+-- /See:/ 'metricGranularityType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1321,7 +1446,9 @@ instance FromXML MetricGranularityType where
         parseXML x
           = MetricGranularityType' <$> (x .@? "Granularity")
 
--- | /See:/ 'notificationConfiguration' smart constructor.
+-- | Describes a notification.
+--
+-- /See:/ 'notificationConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1366,7 +1493,13 @@ instance FromXML NotificationConfiguration where
               (x .@? "TopicARN") <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "NotificationType")
 
--- | /See:/ 'processType' smart constructor.
+-- | Describes a process type.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html#process-types Auto Scaling Processes>
+-- in the /Auto Scaling Developer Guide/.
+--
+-- /See:/ 'processType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1401,43 +1534,9 @@ ptProcessName = lens _ptProcessName (\ s a -> s{_ptProcessName = a});
 instance FromXML ProcessType where
         parseXML x = ProcessType' <$> (x .@ "ProcessName")
 
-data ScalingActivityStatusCode = WaitingForSpotInstanceId | WaitingForSpotInstanceRequestId | WaitingForInstanceId | Successful | InProgress | PreInService | WaitingForELBConnectionDraining | MidLifecycleAction | Cancelled | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ScalingActivityStatusCode where
-    parser = takeLowerText >>= \case
-        "Cancelled" -> pure Cancelled
-        "Failed" -> pure Failed
-        "InProgress" -> pure InProgress
-        "MidLifecycleAction" -> pure MidLifecycleAction
-        "PreInService" -> pure PreInService
-        "Successful" -> pure Successful
-        "WaitingForELBConnectionDraining" -> pure WaitingForELBConnectionDraining
-        "WaitingForInstanceId" -> pure WaitingForInstanceId
-        "WaitingForSpotInstanceId" -> pure WaitingForSpotInstanceId
-        "WaitingForSpotInstanceRequestId" -> pure WaitingForSpotInstanceRequestId
-        e -> fail ("Failure parsing ScalingActivityStatusCode from " ++ show e)
-
-instance ToText ScalingActivityStatusCode where
-    toText = \case
-        Cancelled -> "Cancelled"
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        MidLifecycleAction -> "MidLifecycleAction"
-        PreInService -> "PreInService"
-        Successful -> "Successful"
-        WaitingForELBConnectionDraining -> "WaitingForELBConnectionDraining"
-        WaitingForInstanceId -> "WaitingForInstanceId"
-        WaitingForSpotInstanceId -> "WaitingForSpotInstanceId"
-        WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
-
-instance Hashable ScalingActivityStatusCode
-instance ToQuery ScalingActivityStatusCode
-instance ToHeader ScalingActivityStatusCode
-
-instance FromXML ScalingActivityStatusCode where
-    parseXML = parseXMLText "ScalingActivityStatusCode"
-
--- | /See:/ 'scalingPolicy' smart constructor.
+-- | Describes a scaling policy.
+--
+-- /See:/ 'scalingPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1559,7 +1658,9 @@ instance ToQuery ScalingProcessQuery where
                    (toQueryList "member" <$> _spqScalingProcesses),
                "AutoScalingGroupName" =: _spqAutoScalingGroupName]
 
--- | /See:/ 'scheduledUpdateGroupAction' smart constructor.
+-- | Describes a scheduled update to an Auto Scaling group.
+--
+-- /See:/ 'scheduledUpdateGroupAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1646,7 +1747,10 @@ instance FromXML ScheduledUpdateGroupAction where
                 <*> (x .@? "EndTime")
                 <*> (x .@? "AutoScalingGroupName")
 
--- | /See:/ 'suspendedProcess' smart constructor.
+-- | Describes an Auto Scaling process that has been suspended. For more
+-- information, see ProcessType.
+--
+-- /See:/ 'suspendedProcess' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1672,7 +1776,9 @@ instance FromXML SuspendedProcess where
           = SuspendedProcess' <$>
               (x .@? "ProcessName") <*> (x .@? "SuspensionReason")
 
--- | /See:/ 'tag' smart constructor.
+-- | Describes a tag for an Auto Scaling group.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1720,7 +1826,9 @@ instance ToQuery Tag where
                "PropagateAtLaunch" =: _tagPropagateAtLaunch,
                "Value" =: _tagValue]
 
--- | /See:/ 'tagDescription' smart constructor.
+-- | Describes a tag for an Auto Scaling group.
+--
+-- /See:/ 'tagDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

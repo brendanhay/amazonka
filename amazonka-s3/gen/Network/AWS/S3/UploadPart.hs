@@ -53,6 +53,7 @@ module Network.AWS.S3.UploadPart
     , uprSSEKMSKeyId
     , uprSSECustomerKeyMD5
     , uprServerSideEncryption
+    , uprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -162,7 +163,8 @@ instance AWSRequest UploadPart where
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
-                     <*> (h .#? "x-amz-server-side-encryption"))
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (pure (fromEnum s)))
 
 instance ToBody UploadPart where
         toBody = _upBody
@@ -205,11 +207,13 @@ instance ToQuery UploadPart where
 -- * 'uprSSECustomerKeyMD5'
 --
 -- * 'uprServerSideEncryption'
-data UploadPartResponse = UploadPartResponse'{_uprETag :: Maybe ETag, _uprRequestCharged :: Maybe RequestCharged, _uprSSECustomerAlgorithm :: Maybe Text, _uprSSEKMSKeyId :: Maybe (Sensitive Text), _uprSSECustomerKeyMD5 :: Maybe Text, _uprServerSideEncryption :: Maybe ServerSideEncryption} deriving (Eq, Read, Show)
+--
+-- * 'uprStatusCode'
+data UploadPartResponse = UploadPartResponse'{_uprETag :: Maybe ETag, _uprRequestCharged :: Maybe RequestCharged, _uprSSECustomerAlgorithm :: Maybe Text, _uprSSEKMSKeyId :: Maybe (Sensitive Text), _uprSSECustomerKeyMD5 :: Maybe Text, _uprServerSideEncryption :: Maybe ServerSideEncryption, _uprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UploadPartResponse' smart constructor.
-uploadPartResponse :: UploadPartResponse
-uploadPartResponse = UploadPartResponse'{_uprETag = Nothing, _uprRequestCharged = Nothing, _uprSSECustomerAlgorithm = Nothing, _uprSSEKMSKeyId = Nothing, _uprSSECustomerKeyMD5 = Nothing, _uprServerSideEncryption = Nothing};
+uploadPartResponse :: Int -> UploadPartResponse
+uploadPartResponse pStatusCode = UploadPartResponse'{_uprETag = Nothing, _uprRequestCharged = Nothing, _uprSSECustomerAlgorithm = Nothing, _uprSSEKMSKeyId = Nothing, _uprSSECustomerKeyMD5 = Nothing, _uprServerSideEncryption = Nothing, _uprStatusCode = pStatusCode};
 
 -- | Entity tag for the uploaded object.
 uprETag :: Lens' UploadPartResponse (Maybe ETag)
@@ -240,3 +244,7 @@ uprSSECustomerKeyMD5 = lens _uprSSECustomerKeyMD5 (\ s a -> s{_uprSSECustomerKey
 -- (e.g., AES256, aws:kms).
 uprServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprServerSideEncryption = lens _uprServerSideEncryption (\ s a -> s{_uprServerSideEncryption = a});
+
+-- | FIXME: Undocumented member.
+uprStatusCode :: Lens' UploadPartResponse Int
+uprStatusCode = lens _uprStatusCode (\ s a -> s{_uprStatusCode = a});

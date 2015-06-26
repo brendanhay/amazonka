@@ -42,7 +42,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDeliveryChannel' smart constructor.
+-- | The input for the DeleteDeliveryChannel action. The action accepts the
+-- following data in JSON format.
+--
+-- /See:/ 'deleteDeliveryChannel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

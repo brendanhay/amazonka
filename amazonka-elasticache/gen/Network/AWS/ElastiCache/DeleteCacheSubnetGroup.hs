@@ -40,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteCacheSubnetGroup' smart constructor.
+-- | Represents the input of a /DeleteCacheSubnetGroup/ action.
+--
+-- /See:/ 'deleteCacheSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

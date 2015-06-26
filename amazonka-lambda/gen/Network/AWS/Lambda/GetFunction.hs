@@ -39,6 +39,7 @@ module Network.AWS.Lambda.GetFunction
     -- ** Response lenses
     , gfrCode
     , gfrConfiguration
+    , gfrStatusCode
     ) where
 
 import Network.AWS.Lambda.Types
@@ -78,7 +79,8 @@ instance AWSRequest GetFunction where
           = receiveJSON
               (\ s h x ->
                  GetFunctionResponse' <$>
-                   (x .?> "Code") <*> (x .?> "Configuration"))
+                   (x .?> "Code") <*> (x .?> "Configuration") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetFunction where
         toHeaders = const mempty
@@ -92,18 +94,23 @@ instance ToPath GetFunction where
 instance ToQuery GetFunction where
         toQuery = const mempty
 
--- | /See:/ 'getFunctionResponse' smart constructor.
+-- | This response contains the object for the Lambda function location (see
+-- API_FunctionCodeLocation
+--
+-- /See:/ 'getFunctionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gfrCode'
 --
 -- * 'gfrConfiguration'
-data GetFunctionResponse = GetFunctionResponse'{_gfrCode :: Maybe FunctionCodeLocation, _gfrConfiguration :: Maybe FunctionConfiguration} deriving (Eq, Read, Show)
+--
+-- * 'gfrStatusCode'
+data GetFunctionResponse = GetFunctionResponse'{_gfrCode :: Maybe FunctionCodeLocation, _gfrConfiguration :: Maybe FunctionConfiguration, _gfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetFunctionResponse' smart constructor.
-getFunctionResponse :: GetFunctionResponse
-getFunctionResponse = GetFunctionResponse'{_gfrCode = Nothing, _gfrConfiguration = Nothing};
+getFunctionResponse :: Int -> GetFunctionResponse
+getFunctionResponse pStatusCode = GetFunctionResponse'{_gfrCode = Nothing, _gfrConfiguration = Nothing, _gfrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 gfrCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
@@ -112,3 +119,7 @@ gfrCode = lens _gfrCode (\ s a -> s{_gfrCode = a});
 -- | FIXME: Undocumented member.
 gfrConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrConfiguration = lens _gfrConfiguration (\ s a -> s{_gfrConfiguration = a});
+
+-- | FIXME: Undocumented member.
+gfrStatusCode :: Lens' GetFunctionResponse Int
+gfrStatusCode = lens _gfrStatusCode (\ s a -> s{_gfrStatusCode = a});

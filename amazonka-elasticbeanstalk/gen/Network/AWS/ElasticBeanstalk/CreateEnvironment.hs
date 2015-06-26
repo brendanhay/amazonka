@@ -65,7 +65,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createEnvironment' smart constructor.
+-- |
+--
+-- /See:/ 'createEnvironment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

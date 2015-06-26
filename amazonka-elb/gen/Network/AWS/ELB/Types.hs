@@ -21,8 +21,27 @@ module Network.AWS.ELB.Types
     (
     -- * Service
       ELB
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _PolicyNotFoundException
+    , _AccessPointNotFoundException
+    , _DuplicatePolicyNameException
+    , _InvalidConfigurationRequestException
+    , _SubnetNotFoundException
+    , _LoadBalancerAttributeNotFoundException
+    , _InvalidSubnetException
+    , _DuplicateTagKeysException
+    , _DuplicateListenerException
+    , _TooManyTagsException
+    , _PolicyTypeNotFoundException
+    , _DuplicateAccessPointNameException
+    , _InvalidSecurityGroupException
+    , _ListenerNotFoundException
+    , _InvalidEndPointException
+    , _TooManyAccessPointsException
+    , _InvalidSchemeException
+    , _TooManyPoliciesException
+    , _CertificateNotFoundException
 
     -- * AccessLog
     , AccessLog
@@ -202,6 +221,7 @@ module Network.AWS.ELB.Types
     , TagKeyOnly
     , tagKeyOnly
     , tkoKey
+
     ) where
 
 import Network.AWS.Prelude
@@ -212,32 +232,118 @@ data ELB
 
 instance AWSService ELB where
     type Sg ELB = V4
-    type Er ELB = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ELB
-        service' = Service
-            { _svcAbbrev  = "ELB"
-            , _svcPrefix  = "elasticloadbalancing"
-            , _svcVersion = "2012-06-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ELB
+        svc = Service
+            { _svcAbbrev   = "ELB"
+            , _svcPrefix   = "elasticloadbalancing"
+            , _svcVersion  = "2012-06-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ELB
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | One or more of the specified policies do not exist.
+_PolicyNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PolicyNotFoundException = _ServiceError . hasCode "PolicyNotFound" . hasStatus 400;
 
--- | /See:/ 'accessLog' smart constructor.
+-- | The specified load balancer does not exist.
+_AccessPointNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AccessPointNotFoundException = _ServiceError . hasCode "LoadBalancerNotFound" . hasStatus 400;
+
+-- | A policy with the specified name already exists for this load balancer.
+_DuplicatePolicyNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicatePolicyNameException = _ServiceError . hasCode "DuplicatePolicyName" . hasStatus 400;
+
+-- | The requested configuration change is not valid.
+_InvalidConfigurationRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidConfigurationRequestException = _ServiceError . hasCode "InvalidConfigurationRequest" . hasStatus 409;
+
+-- | One or more of the specified subnets do not exist.
+_SubnetNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubnetNotFoundException = _ServiceError . hasCode "SubnetNotFound" . hasStatus 400;
+
+-- | The specified load balancer attribute does not exist.
+_LoadBalancerAttributeNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LoadBalancerAttributeNotFoundException = _ServiceError . hasCode "LoadBalancerAttributeNotFound" . hasStatus 400;
+
+-- | The specified VPC has no associated Internet gateway.
+_InvalidSubnetException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSubnetException = _ServiceError . hasCode "InvalidSubnet" . hasStatus 400;
+
+-- | A tag key was specified more than once.
+_DuplicateTagKeysException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateTagKeysException = _ServiceError . hasCode "DuplicateTagKeys" . hasStatus 400;
+
+-- | A listener already exists for the specified @LoadBalancerName@ and
+-- @LoadBalancerPort@, but with a different @InstancePort@, @Protocol@, or
+-- @SSLCertificateId@.
+_DuplicateListenerException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateListenerException = _ServiceError . hasCode "DuplicateListener" . hasStatus 400;
+
+-- | The quota for the number of tags that can be assigned to a load balancer
+-- has been reached.
+_TooManyTagsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyTagsException = _ServiceError . hasCode "TooManyTags" . hasStatus 400;
+
+-- | One or more of the specified policy types do not exist.
+_PolicyTypeNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PolicyTypeNotFoundException = _ServiceError . hasCode "PolicyTypeNotFound" . hasStatus 400;
+
+-- | The specified load balancer name already exists for this account.
+_DuplicateAccessPointNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateAccessPointNameException = _ServiceError . hasCode "DuplicateLoadBalancerName" . hasStatus 400;
+
+-- | One or more of the specified security groups do not exist.
+_InvalidSecurityGroupException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSecurityGroupException = _ServiceError . hasCode "InvalidSecurityGroup" . hasStatus 400;
+
+-- | The load balancer does not have a listener configured at the specified
+-- port.
+_ListenerNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ListenerNotFoundException = _ServiceError . hasCode "ListenerNotFound" . hasStatus 400;
+
+-- | The specified endpoint is not valid.
+_InvalidEndPointException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidEndPointException = _ServiceError . hasCode "InvalidInstance" . hasStatus 400;
+
+-- | The quota for the number of load balancers has been reached.
+_TooManyAccessPointsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyAccessPointsException = _ServiceError . hasCode "TooManyLoadBalancers" . hasStatus 400;
+
+-- | The specified value for the schema is not valid. You can only specify a
+-- scheme for load balancers in a VPC.
+_InvalidSchemeException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSchemeException = _ServiceError . hasCode "InvalidScheme" . hasStatus 400;
+
+-- | The quota for the number of policies for this load balancer has been
+-- reached.
+_TooManyPoliciesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyPoliciesException = _ServiceError . hasCode "TooManyPolicies" . hasStatus 400;
+
+-- | The specified SSL ID does not refer to a valid SSL certificate in AWS
+-- Identity and Access Management (IAM).
+_CertificateNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CertificateNotFoundException = _ServiceError . hasCode "CertificateNotFound" . hasStatus 400;
+
+-- | Information about the @AccessLog@ attribute.
+--
+-- /See:/ 'accessLog' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -290,7 +396,9 @@ instance ToQuery AccessLog where
                "S3BucketName" =: _alS3BucketName,
                "Enabled" =: _alEnabled]
 
--- | /See:/ 'additionalAttribute' smart constructor.
+-- | This data type is reserved.
+--
+-- /See:/ 'additionalAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -320,7 +428,10 @@ instance ToQuery AdditionalAttribute where
         toQuery AdditionalAttribute'{..}
           = mconcat ["Value" =: _aaValue, "Key" =: _aaKey]
 
--- | /See:/ 'appCookieStickinessPolicy' smart constructor.
+-- | Information about a policy for application-controlled session
+-- stickiness.
+--
+-- /See:/ 'appCookieStickinessPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -347,7 +458,9 @@ instance FromXML AppCookieStickinessPolicy where
           = AppCookieStickinessPolicy' <$>
               (x .@? "PolicyName") <*> (x .@? "CookieName")
 
--- | /See:/ 'backendServerDescription' smart constructor.
+-- | Information about the configuration of a back-end server.
+--
+-- /See:/ 'backendServerDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -375,7 +488,9 @@ instance FromXML BackendServerDescription where
                  may (parseXMLList "member"))
                 <*> (x .@? "InstancePort")
 
--- | /See:/ 'connectionDraining' smart constructor.
+-- | Information about the @ConnectionDraining@ attribute.
+--
+-- /See:/ 'connectionDraining' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -407,7 +522,9 @@ instance ToQuery ConnectionDraining where
           = mconcat
               ["Timeout" =: _cdTimeout, "Enabled" =: _cdEnabled]
 
--- | /See:/ 'connectionSettings' smart constructor.
+-- | Information about the @ConnectionSettings@ attribute.
+--
+-- /See:/ 'connectionSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -432,7 +549,9 @@ instance ToQuery ConnectionSettings where
         toQuery ConnectionSettings'{..}
           = mconcat ["IdleTimeout" =: _csIdleTimeout]
 
--- | /See:/ 'crossZoneLoadBalancing' smart constructor.
+-- | Information about the @CrossZoneLoadBalancing@ attribute.
+--
+-- /See:/ 'crossZoneLoadBalancing' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -456,7 +575,9 @@ instance ToQuery CrossZoneLoadBalancing where
         toQuery CrossZoneLoadBalancing'{..}
           = mconcat ["Enabled" =: _czlbEnabled]
 
--- | /See:/ 'healthCheck' smart constructor.
+-- | Information about a health check.
+--
+-- /See:/ 'healthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -534,7 +655,9 @@ instance ToQuery HealthCheck where
                "UnhealthyThreshold" =: _hcUnhealthyThreshold,
                "HealthyThreshold" =: _hcHealthyThreshold]
 
--- | /See:/ 'instance'' smart constructor.
+-- | The ID of a back-end instance.
+--
+-- /See:/ 'instance'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -556,7 +679,9 @@ instance ToQuery Instance where
         toQuery Instance'{..}
           = mconcat ["InstanceId" =: _insInstanceId]
 
--- | /See:/ 'instanceState' smart constructor.
+-- | Information about the state of a back-end instance.
+--
+-- /See:/ 'instanceState' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -627,7 +752,9 @@ instance FromXML InstanceState where
                 (x .@? "ReasonCode")
                 <*> (x .@? "Description")
 
--- | /See:/ 'lBCookieStickinessPolicy' smart constructor.
+-- | Information about a policy for duration-based session stickiness.
+--
+-- /See:/ 'lBCookieStickinessPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -657,7 +784,14 @@ instance FromXML LBCookieStickinessPolicy where
               (x .@? "PolicyName") <*>
                 (x .@? "CookieExpirationPeriod")
 
--- | /See:/ 'listener' smart constructor.
+-- | Information about a listener.
+--
+-- For information about the protocols and the ports supported by Elastic
+-- Load Balancing, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing>
+-- in the /Elastic Load Balancing Developer Guide/.
+--
+-- /See:/ 'listener' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -728,7 +862,9 @@ instance ToQuery Listener where
                "LoadBalancerPort" =: _lisLoadBalancerPort,
                "InstancePort" =: _lisInstancePort]
 
--- | /See:/ 'listenerDescription' smart constructor.
+-- | The policies enabled for a listener.
+--
+-- /See:/ 'listenerDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -756,7 +892,9 @@ instance FromXML ListenerDescription where
                  may (parseXMLList "member"))
                 <*> (x .@? "Listener")
 
--- | /See:/ 'loadBalancerAttributes' smart constructor.
+-- | The attributes for a load balancer.
+--
+-- /See:/ 'loadBalancerAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -842,7 +980,9 @@ instance ToQuery LoadBalancerAttributes where
                "ConnectionSettings" =: _lbaConnectionSettings,
                "ConnectionDraining" =: _lbaConnectionDraining]
 
--- | /See:/ 'loadBalancerDescription' smart constructor.
+-- | Information about a load balancer.
+--
+-- /See:/ 'loadBalancerDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -995,7 +1135,9 @@ instance FromXML LoadBalancerDescription where
                 <*> (x .@? "DNSName")
                 <*> (x .@? "Policies")
 
--- | /See:/ 'policies' smart constructor.
+-- | The policies for a load balancer.
+--
+-- /See:/ 'policies' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1034,7 +1176,9 @@ instance FromXML Policies where
                 (x .@? "AppCookieStickinessPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'policyAttribute' smart constructor.
+-- | Information about a policy attribute.
+--
+-- /See:/ 'policyAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1061,7 +1205,9 @@ instance ToQuery PolicyAttribute where
               ["AttributeValue" =: _paAttributeValue,
                "AttributeName" =: _paAttributeName]
 
--- | /See:/ 'policyAttributeDescription' smart constructor.
+-- | Information about a policy attribute.
+--
+-- /See:/ 'policyAttributeDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1087,7 +1233,9 @@ instance FromXML PolicyAttributeDescription where
           = PolicyAttributeDescription' <$>
               (x .@? "AttributeValue") <*> (x .@? "AttributeName")
 
--- | /See:/ 'policyAttributeTypeDescription' smart constructor.
+-- | Information about a policy attribute type.
+--
+-- /See:/ 'policyAttributeTypeDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1141,7 +1289,9 @@ instance FromXML PolicyAttributeTypeDescription where
                 <*> (x .@? "AttributeName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'policyDescription' smart constructor.
+-- | Information about a policy.
+--
+-- /See:/ 'policyDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1176,7 +1326,9 @@ instance FromXML PolicyDescription where
                    may (parseXMLList "member"))
                 <*> (x .@? "PolicyTypeName")
 
--- | /See:/ 'policyTypeDescription' smart constructor.
+-- | Information about a policy type.
+--
+-- /See:/ 'policyTypeDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1212,7 +1364,9 @@ instance FromXML PolicyTypeDescription where
                 (x .@? "PolicyAttributeTypeDescriptions" .!@ mempty
                    >>= may (parseXMLList "member"))
 
--- | /See:/ 'sourceSecurityGroup' smart constructor.
+-- | Information about a source security group.
+--
+-- /See:/ 'sourceSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1238,7 +1392,9 @@ instance FromXML SourceSecurityGroup where
           = SourceSecurityGroup' <$>
               (x .@? "OwnerAlias") <*> (x .@? "GroupName")
 
--- | /See:/ 'tag' smart constructor.
+-- | Information about a tag.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1267,7 +1423,9 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | /See:/ 'tagDescription' smart constructor.
+-- | The tags associated with a load balancer.
+--
+-- /See:/ 'tagDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1295,7 +1453,9 @@ instance FromXML TagDescription where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList1 "member"))
 
--- | /See:/ 'tagKeyOnly' smart constructor.
+-- | The key of a tag.
+--
+-- /See:/ 'tagKeyOnly' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

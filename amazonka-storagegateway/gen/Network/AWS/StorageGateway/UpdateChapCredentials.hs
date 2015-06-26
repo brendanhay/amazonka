@@ -42,6 +42,7 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     -- ** Response lenses
     , uccrTargetARN
     , uccrInitiatorName
+    , uccrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -49,7 +50,14 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateChapCredentials' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   UpdateChapCredentialsInput$InitiatorName
+-- -   UpdateChapCredentialsInput$SecretToAuthenticateInitiator
+-- -   UpdateChapCredentialsInput$SecretToAuthenticateTarget
+-- -   UpdateChapCredentialsInput$TargetARN
+--
+-- /See:/ 'updateChapCredentials' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +109,8 @@ instance AWSRequest UpdateChapCredentials where
           = receiveJSON
               (\ s h x ->
                  UpdateChapCredentialsResponse' <$>
-                   (x .?> "TargetARN") <*> (x .?> "InitiatorName"))
+                   (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UpdateChapCredentials where
         toHeaders
@@ -129,18 +138,22 @@ instance ToPath UpdateChapCredentials where
 instance ToQuery UpdateChapCredentials where
         toQuery = const mempty
 
--- | /See:/ 'updateChapCredentialsResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+-- /See:/ 'updateChapCredentialsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uccrTargetARN'
 --
 -- * 'uccrInitiatorName'
-data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'{_uccrTargetARN :: Maybe Text, _uccrInitiatorName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'uccrStatusCode'
+data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'{_uccrTargetARN :: Maybe Text, _uccrInitiatorName :: Maybe Text, _uccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateChapCredentialsResponse' smart constructor.
-updateChapCredentialsResponse :: UpdateChapCredentialsResponse
-updateChapCredentialsResponse = UpdateChapCredentialsResponse'{_uccrTargetARN = Nothing, _uccrInitiatorName = Nothing};
+updateChapCredentialsResponse :: Int -> UpdateChapCredentialsResponse
+updateChapCredentialsResponse pStatusCode = UpdateChapCredentialsResponse'{_uccrTargetARN = Nothing, _uccrInitiatorName = Nothing, _uccrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
@@ -151,3 +164,7 @@ uccrTargetARN = lens _uccrTargetARN (\ s a -> s{_uccrTargetARN = a});
 -- initiator name specified in the request.
 uccrInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrInitiatorName = lens _uccrInitiatorName (\ s a -> s{_uccrInitiatorName = a});
+
+-- | FIXME: Undocumented member.
+uccrStatusCode :: Lens' UpdateChapCredentialsResponse Int
+uccrStatusCode = lens _uccrStatusCode (\ s a -> s{_uccrStatusCode = a});

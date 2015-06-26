@@ -36,6 +36,7 @@ module Network.AWS.EC2.MonitorInstances
     , monitorInstancesResponse
     -- ** Response lenses
     , mirInstanceMonitorings
+    , mirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -75,7 +76,8 @@ instance AWSRequest MonitorInstances where
           = receiveXML
               (\ s h x ->
                  MonitorInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
@@ -96,12 +98,18 @@ instance ToQuery MonitorInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mirInstanceMonitorings'
-newtype MonitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings :: Maybe [InstanceMonitoring]} deriving (Eq, Read, Show)
+--
+-- * 'mirStatusCode'
+data MonitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings :: Maybe [InstanceMonitoring], _mirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'MonitorInstancesResponse' smart constructor.
-monitorInstancesResponse :: MonitorInstancesResponse
-monitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings = Nothing};
+monitorInstancesResponse :: Int -> MonitorInstancesResponse
+monitorInstancesResponse pStatusCode = MonitorInstancesResponse'{_mirInstanceMonitorings = Nothing, _mirStatusCode = pStatusCode};
 
 -- | Monitoring information for one or more instances.
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings = lens _mirInstanceMonitorings (\ s a -> s{_mirInstanceMonitorings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+mirStatusCode :: Lens' MonitorInstancesResponse Int
+mirStatusCode = lens _mirStatusCode (\ s a -> s{_mirStatusCode = a});

@@ -39,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteStack' smart constructor.
+-- | The input for DeleteStack action.
+--
+-- /See:/ 'deleteStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -54,6 +54,7 @@ module Network.AWS.Route53.ListGeoLocations
     , lglrGeoLocationDetailsList
     , lglrIsTruncated
     , lglrMaxItems
+    , lglrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -61,7 +62,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listGeoLocations' smart constructor.
+-- | The input for a ListGeoLocations request.
+--
+-- /See:/ 'listGeoLocations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,7 +127,8 @@ instance AWSRequest ListGeoLocations where
                      (x .@? "GeoLocationDetailsList" .!@ mempty >>=
                         parseXMLList "GeoLocationDetails")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems"))
+                     <*> (x .@ "MaxItems")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
@@ -140,7 +144,10 @@ instance ToQuery ListGeoLocations where
                "startcountrycode" =: _lglStartCountryCode,
                "startcontinentcode" =: _lglStartContinentCode]
 
--- | /See:/ 'listGeoLocationsResponse' smart constructor.
+-- | A complex type that contains information about the geo locations that
+-- are returned by the request and information about the response.
+--
+-- /See:/ 'listGeoLocationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -155,11 +162,13 @@ instance ToQuery ListGeoLocations where
 -- * 'lglrIsTruncated'
 --
 -- * 'lglrMaxItems'
-data ListGeoLocationsResponse = ListGeoLocationsResponse'{_lglrNextContinentCode :: Maybe Text, _lglrNextCountryCode :: Maybe Text, _lglrNextSubdivisionCode :: Maybe Text, _lglrGeoLocationDetailsList :: [GeoLocationDetails], _lglrIsTruncated :: Bool, _lglrMaxItems :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lglrStatusCode'
+data ListGeoLocationsResponse = ListGeoLocationsResponse'{_lglrNextContinentCode :: Maybe Text, _lglrNextCountryCode :: Maybe Text, _lglrNextSubdivisionCode :: Maybe Text, _lglrGeoLocationDetailsList :: [GeoLocationDetails], _lglrIsTruncated :: Bool, _lglrMaxItems :: Text, _lglrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
-listGeoLocationsResponse :: Bool -> Text -> ListGeoLocationsResponse
-listGeoLocationsResponse pIsTruncated pMaxItems = ListGeoLocationsResponse'{_lglrNextContinentCode = Nothing, _lglrNextCountryCode = Nothing, _lglrNextSubdivisionCode = Nothing, _lglrGeoLocationDetailsList = mempty, _lglrIsTruncated = pIsTruncated, _lglrMaxItems = pMaxItems};
+listGeoLocationsResponse :: Bool -> Text -> Int -> ListGeoLocationsResponse
+listGeoLocationsResponse pIsTruncated pMaxItems pStatusCode = ListGeoLocationsResponse'{_lglrNextContinentCode = Nothing, _lglrNextCountryCode = Nothing, _lglrNextSubdivisionCode = Nothing, _lglrGeoLocationDetailsList = mempty, _lglrIsTruncated = pIsTruncated, _lglrMaxItems = pMaxItems, _lglrStatusCode = pStatusCode};
 
 -- | If the results were truncated, the continent code of the next geo
 -- location in the list. This element is present only if
@@ -202,3 +211,7 @@ lglrIsTruncated = lens _lglrIsTruncated (\ s a -> s{_lglrIsTruncated = a});
 -- @MaxItems@ is 100.
 lglrMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrMaxItems = lens _lglrMaxItems (\ s a -> s{_lglrMaxItems = a});
+
+-- | FIXME: Undocumented member.
+lglrStatusCode :: Lens' ListGeoLocationsResponse Int
+lglrStatusCode = lens _lglrStatusCode (\ s a -> s{_lglrStatusCode = a});

@@ -46,6 +46,7 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     , updateDomainContactPrivacyResponse
     -- ** Response lenses
     , udcprOperationId
+    , udcprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -53,7 +54,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'updateDomainContactPrivacy' smart constructor.
+-- | The UpdateDomainContactPrivacy request includes the following elements.
+--
+-- /See:/ 'updateDomainContactPrivacy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -138,7 +141,7 @@ instance AWSRequest UpdateDomainContactPrivacy where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactPrivacyResponse' <$>
-                   (x .:> "OperationId"))
+                   (x .:> "OperationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateDomainContactPrivacy where
         toHeaders
@@ -164,16 +167,20 @@ instance ToPath UpdateDomainContactPrivacy where
 instance ToQuery UpdateDomainContactPrivacy where
         toQuery = const mempty
 
--- | /See:/ 'updateDomainContactPrivacyResponse' smart constructor.
+-- | The UpdateDomainContactPrivacy response includes the following element.
+--
+-- /See:/ 'updateDomainContactPrivacyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udcprOperationId'
-newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'{_udcprOperationId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'udcprStatusCode'
+data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'{_udcprOperationId :: Text, _udcprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
-updateDomainContactPrivacyResponse :: Text -> UpdateDomainContactPrivacyResponse
-updateDomainContactPrivacyResponse pOperationId = UpdateDomainContactPrivacyResponse'{_udcprOperationId = pOperationId};
+updateDomainContactPrivacyResponse :: Text -> Int -> UpdateDomainContactPrivacyResponse
+updateDomainContactPrivacyResponse pOperationId pStatusCode = UpdateDomainContactPrivacyResponse'{_udcprOperationId = pOperationId, _udcprStatusCode = pStatusCode};
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -185,3 +192,7 @@ updateDomainContactPrivacyResponse pOperationId = UpdateDomainContactPrivacyResp
 -- Constraints: Maximum 255 characters.
 udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\ s a -> s{_udcprOperationId = a});
+
+-- | FIXME: Undocumented member.
+udcprStatusCode :: Lens' UpdateDomainContactPrivacyResponse Int
+udcprStatusCode = lens _udcprStatusCode (\ s a -> s{_udcprStatusCode = a});

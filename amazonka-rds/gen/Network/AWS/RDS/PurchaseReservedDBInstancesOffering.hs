@@ -35,6 +35,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , purchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
     , prdiorReservedDBInstance
+    , prdiorStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'purchaseReservedDBInstancesOffering' smart constructor.
+-- |
+--
+-- /See:/ 'purchaseReservedDBInstancesOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -92,7 +95,7 @@ instance AWSRequest
               "PurchaseReservedDBInstancesOfferingResult"
               (\ s h x ->
                  PurchaseReservedDBInstancesOfferingResponse' <$>
-                   (x .@? "ReservedDBInstance"))
+                   (x .@? "ReservedDBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders
          PurchaseReservedDBInstancesOffering where
@@ -121,12 +124,18 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prdiorReservedDBInstance'
-newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'{_prdiorReservedDBInstance :: Maybe ReservedDBInstance} deriving (Eq, Read, Show)
+--
+-- * 'prdiorStatusCode'
+data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'{_prdiorReservedDBInstance :: Maybe ReservedDBInstance, _prdiorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
-purchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse
-purchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'{_prdiorReservedDBInstance = Nothing};
+purchaseReservedDBInstancesOfferingResponse :: Int -> PurchaseReservedDBInstancesOfferingResponse
+purchaseReservedDBInstancesOfferingResponse pStatusCode = PurchaseReservedDBInstancesOfferingResponse'{_prdiorReservedDBInstance = Nothing, _prdiorStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 prdiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 prdiorReservedDBInstance = lens _prdiorReservedDBInstance (\ s a -> s{_prdiorReservedDBInstance = a});
+
+-- | FIXME: Undocumented member.
+prdiorStatusCode :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
+prdiorStatusCode = lens _prdiorStatusCode (\ s a -> s{_prdiorStatusCode = a});

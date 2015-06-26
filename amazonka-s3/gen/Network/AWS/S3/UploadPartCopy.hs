@@ -54,6 +54,7 @@ module Network.AWS.S3.UploadPartCopy
     , upcrSSEKMSKeyId
     , upcrSSECustomerKeyMD5
     , upcrServerSideEncryption
+    , upcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -211,7 +212,8 @@ instance AWSRequest UploadPartCopy where
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
-                     <*> (h .#? "x-amz-server-side-encryption"))
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}
@@ -268,11 +270,13 @@ instance ToQuery UploadPartCopy where
 -- * 'upcrSSECustomerKeyMD5'
 --
 -- * 'upcrServerSideEncryption'
-data UploadPartCopyResponse = UploadPartCopyResponse'{_upcrRequestCharged :: Maybe RequestCharged, _upcrCopyPartResult :: Maybe CopyPartResult, _upcrSSECustomerAlgorithm :: Maybe Text, _upcrCopySourceVersionId :: Maybe Text, _upcrSSEKMSKeyId :: Maybe (Sensitive Text), _upcrSSECustomerKeyMD5 :: Maybe Text, _upcrServerSideEncryption :: Maybe ServerSideEncryption} deriving (Eq, Read, Show)
+--
+-- * 'upcrStatusCode'
+data UploadPartCopyResponse = UploadPartCopyResponse'{_upcrRequestCharged :: Maybe RequestCharged, _upcrCopyPartResult :: Maybe CopyPartResult, _upcrSSECustomerAlgorithm :: Maybe Text, _upcrCopySourceVersionId :: Maybe Text, _upcrSSEKMSKeyId :: Maybe (Sensitive Text), _upcrSSECustomerKeyMD5 :: Maybe Text, _upcrServerSideEncryption :: Maybe ServerSideEncryption, _upcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UploadPartCopyResponse' smart constructor.
-uploadPartCopyResponse :: UploadPartCopyResponse
-uploadPartCopyResponse = UploadPartCopyResponse'{_upcrRequestCharged = Nothing, _upcrCopyPartResult = Nothing, _upcrSSECustomerAlgorithm = Nothing, _upcrCopySourceVersionId = Nothing, _upcrSSEKMSKeyId = Nothing, _upcrSSECustomerKeyMD5 = Nothing, _upcrServerSideEncryption = Nothing};
+uploadPartCopyResponse :: Int -> UploadPartCopyResponse
+uploadPartCopyResponse pStatusCode = UploadPartCopyResponse'{_upcrRequestCharged = Nothing, _upcrCopyPartResult = Nothing, _upcrSSECustomerAlgorithm = Nothing, _upcrCopySourceVersionId = Nothing, _upcrSSEKMSKeyId = Nothing, _upcrSSECustomerKeyMD5 = Nothing, _upcrServerSideEncryption = Nothing, _upcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 upcrRequestCharged :: Lens' UploadPartCopyResponse (Maybe RequestCharged)
@@ -308,3 +312,7 @@ upcrSSECustomerKeyMD5 = lens _upcrSSECustomerKeyMD5 (\ s a -> s{_upcrSSECustomer
 -- (e.g., AES256, aws:kms).
 upcrServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryption)
 upcrServerSideEncryption = lens _upcrServerSideEncryption (\ s a -> s{_upcrServerSideEncryption = a});
+
+-- | FIXME: Undocumented member.
+upcrStatusCode :: Lens' UploadPartCopyResponse Int
+upcrStatusCode = lens _upcrStatusCode (\ s a -> s{_upcrStatusCode = a});

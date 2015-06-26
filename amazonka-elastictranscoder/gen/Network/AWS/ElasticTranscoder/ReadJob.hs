@@ -32,6 +32,7 @@ module Network.AWS.ElasticTranscoder.ReadJob
     , readJobResponse
     -- ** Response lenses
     , rjrJob
+    , rjrStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'readJob' smart constructor.
+-- | The @ReadJobRequest@ structure.
+--
+-- /See:/ 'readJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -61,7 +64,9 @@ instance AWSRequest ReadJob where
         request = get
         response
           = receiveJSON
-              (\ s h x -> ReadJobResponse' <$> (x .:> "Job"))
+              (\ s h x ->
+                 ReadJobResponse' <$>
+                   (x .:> "Job") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReadJob where
         toHeaders = const mempty
@@ -73,17 +78,25 @@ instance ToPath ReadJob where
 instance ToQuery ReadJob where
         toQuery = const mempty
 
--- | /See:/ 'readJobResponse' smart constructor.
+-- | The @ReadJobResponse@ structure.
+--
+-- /See:/ 'readJobResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rjrJob'
-newtype ReadJobResponse = ReadJobResponse'{_rjrJob :: Job'} deriving (Eq, Read, Show)
+--
+-- * 'rjrStatusCode'
+data ReadJobResponse = ReadJobResponse'{_rjrJob :: Job', _rjrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReadJobResponse' smart constructor.
-readJobResponse :: Job' -> ReadJobResponse
-readJobResponse pJob = ReadJobResponse'{_rjrJob = pJob};
+readJobResponse :: Job' -> Int -> ReadJobResponse
+readJobResponse pJob pStatusCode = ReadJobResponse'{_rjrJob = pJob, _rjrStatusCode = pStatusCode};
 
 -- | A section of the response body that provides information about the job.
 rjrJob :: Lens' ReadJobResponse Job'
 rjrJob = lens _rjrJob (\ s a -> s{_rjrJob = a});
+
+-- | FIXME: Undocumented member.
+rjrStatusCode :: Lens' ReadJobResponse Int
+rjrStatusCode = lens _rjrStatusCode (\ s a -> s{_rjrStatusCode = a});

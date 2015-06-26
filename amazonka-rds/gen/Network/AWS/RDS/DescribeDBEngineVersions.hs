@@ -40,9 +40,10 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- ** Response lenses
     , ddevrMarker
     , ddevrDBEngineVersions
+    , ddevrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -143,7 +144,8 @@ instance AWSRequest DescribeDBEngineVersions where
                  DescribeDBEngineVersionsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "DBEngineVersions" .!@ mempty >>=
-                        may (parseXMLList "DBEngineVersion")))
+                        may (parseXMLList "DBEngineVersion"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
@@ -169,18 +171,23 @@ instance ToQuery DescribeDBEngineVersions where
                "MaxRecords" =: _ddevMaxRecords,
                "Marker" =: _ddevMarker]
 
--- | /See:/ 'describeDBEngineVersionsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBEngineVersions action.
+--
+-- /See:/ 'describeDBEngineVersionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddevrMarker'
 --
 -- * 'ddevrDBEngineVersions'
-data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker :: Maybe Text, _ddevrDBEngineVersions :: Maybe [DBEngineVersion]} deriving (Eq, Read, Show)
+--
+-- * 'ddevrStatusCode'
+data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker :: Maybe Text, _ddevrDBEngineVersions :: Maybe [DBEngineVersion], _ddevrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
-describeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
-describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker = Nothing, _ddevrDBEngineVersions = Nothing};
+describeDBEngineVersionsResponse :: Int -> DescribeDBEngineVersionsResponse
+describeDBEngineVersionsResponse pStatusCode = DescribeDBEngineVersionsResponse'{_ddevrMarker = Nothing, _ddevrDBEngineVersions = Nothing, _ddevrStatusCode = pStatusCode};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -191,3 +198,7 @@ ddevrMarker = lens _ddevrMarker (\ s a -> s{_ddevrMarker = a});
 -- | A list of @DBEngineVersion@ elements.
 ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
 ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddevrStatusCode :: Lens' DescribeDBEngineVersionsResponse Int
+ddevrStatusCode = lens _ddevrStatusCode (\ s a -> s{_ddevrStatusCode = a});

@@ -54,6 +54,7 @@ module Network.AWS.EC2.GetConsoleOutput
     , gcorInstanceId
     , gcorOutput
     , gcorTimestamp
+    , gcorStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -94,7 +95,8 @@ instance AWSRequest GetConsoleOutput where
               (\ s h x ->
                  GetConsoleOutputResponse' <$>
                    (x .@? "instanceId") <*> (x .@? "output") <*>
-                     (x .@? "timestamp"))
+                     (x .@? "timestamp")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
@@ -119,11 +121,13 @@ instance ToQuery GetConsoleOutput where
 -- * 'gcorOutput'
 --
 -- * 'gcorTimestamp'
-data GetConsoleOutputResponse = GetConsoleOutputResponse'{_gcorInstanceId :: Maybe Text, _gcorOutput :: Maybe Text, _gcorTimestamp :: Maybe ISO8601} deriving (Eq, Read, Show)
+--
+-- * 'gcorStatusCode'
+data GetConsoleOutputResponse = GetConsoleOutputResponse'{_gcorInstanceId :: Maybe Text, _gcorOutput :: Maybe Text, _gcorTimestamp :: Maybe ISO8601, _gcorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
-getConsoleOutputResponse :: GetConsoleOutputResponse
-getConsoleOutputResponse = GetConsoleOutputResponse'{_gcorInstanceId = Nothing, _gcorOutput = Nothing, _gcorTimestamp = Nothing};
+getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
+getConsoleOutputResponse pStatusCode = GetConsoleOutputResponse'{_gcorInstanceId = Nothing, _gcorOutput = Nothing, _gcorTimestamp = Nothing, _gcorStatusCode = pStatusCode};
 
 -- | The ID of the instance.
 gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
@@ -136,3 +140,7 @@ gcorOutput = lens _gcorOutput (\ s a -> s{_gcorOutput = a});
 -- | The time the output was last updated.
 gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\ s a -> s{_gcorTimestamp = a}) . mapping _Time;
+
+-- | FIXME: Undocumented member.
+gcorStatusCode :: Lens' GetConsoleOutputResponse Int
+gcorStatusCode = lens _gcorStatusCode (\ s a -> s{_gcorStatusCode = a});

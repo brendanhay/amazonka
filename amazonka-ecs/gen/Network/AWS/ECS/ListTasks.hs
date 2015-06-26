@@ -43,10 +43,11 @@ module Network.AWS.ECS.ListTasks
     -- ** Response lenses
     , ltrNextToken
     , ltrTaskARNs
+    , ltrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -149,8 +150,8 @@ instance AWSRequest ListTasks where
           = receiveJSON
               (\ s h x ->
                  ListTasksResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "taskArns" .!@ mempty))
+                   (x .?> "nextToken") <*> (x .?> "taskArns" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTasks where
         toHeaders
@@ -186,11 +187,13 @@ instance ToQuery ListTasks where
 -- * 'ltrNextToken'
 --
 -- * 'ltrTaskARNs'
-data ListTasksResponse = ListTasksResponse'{_ltrNextToken :: Maybe Text, _ltrTaskARNs :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ltrStatusCode'
+data ListTasksResponse = ListTasksResponse'{_ltrNextToken :: Maybe Text, _ltrTaskARNs :: Maybe [Text], _ltrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTasksResponse' smart constructor.
-listTasksResponse :: ListTasksResponse
-listTasksResponse = ListTasksResponse'{_ltrNextToken = Nothing, _ltrTaskARNs = Nothing};
+listTasksResponse :: Int -> ListTasksResponse
+listTasksResponse pStatusCode = ListTasksResponse'{_ltrNextToken = Nothing, _ltrTaskARNs = Nothing, _ltrStatusCode = pStatusCode};
 
 -- | The @nextToken@ value to include in a future @ListTasks@ request. When
 -- the results of a @ListTasks@ request exceed @maxResults@, this value can
@@ -203,3 +206,7 @@ ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 -- request.
 ltrTaskARNs :: Lens' ListTasksResponse [Text]
 ltrTaskARNs = lens _ltrTaskARNs (\ s a -> s{_ltrTaskARNs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ltrStatusCode :: Lens' ListTasksResponse Int
+ltrStatusCode = lens _ltrStatusCode (\ s a -> s{_ltrStatusCode = a});

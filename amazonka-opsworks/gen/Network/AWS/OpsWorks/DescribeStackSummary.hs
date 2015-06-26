@@ -39,6 +39,7 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     , describeStackSummaryResponse
     -- ** Response lenses
     , dssrStackSummary
+    , dssrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -70,7 +71,7 @@ instance AWSRequest DescribeStackSummary where
           = receiveJSON
               (\ s h x ->
                  DescribeStackSummaryResponse' <$>
-                   (x .?> "StackSummary"))
+                   (x .?> "StackSummary") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStackSummary where
         toHeaders
@@ -92,17 +93,25 @@ instance ToPath DescribeStackSummary where
 instance ToQuery DescribeStackSummary where
         toQuery = const mempty
 
--- | /See:/ 'describeStackSummaryResponse' smart constructor.
+-- | Contains the response to a @DescribeStackSummary@ request.
+--
+-- /See:/ 'describeStackSummaryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dssrStackSummary'
-newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse'{_dssrStackSummary :: Maybe StackSummary} deriving (Eq, Read, Show)
+--
+-- * 'dssrStatusCode'
+data DescribeStackSummaryResponse = DescribeStackSummaryResponse'{_dssrStackSummary :: Maybe StackSummary, _dssrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
-describeStackSummaryResponse :: DescribeStackSummaryResponse
-describeStackSummaryResponse = DescribeStackSummaryResponse'{_dssrStackSummary = Nothing};
+describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
+describeStackSummaryResponse pStatusCode = DescribeStackSummaryResponse'{_dssrStackSummary = Nothing, _dssrStatusCode = pStatusCode};
 
 -- | A @StackSummary@ object that contains the results.
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\ s a -> s{_dssrStackSummary = a});
+
+-- | FIXME: Undocumented member.
+dssrStatusCode :: Lens' DescribeStackSummaryResponse Int
+dssrStatusCode = lens _dssrStatusCode (\ s a -> s{_dssrStatusCode = a});

@@ -39,6 +39,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     , retrieveEnvironmentInfoResponse
     -- ** Response lenses
     , reirEnvironmentInfo
+    , reirStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'retrieveEnvironmentInfo' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'retrieveEnvironmentInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,7 +100,8 @@ instance AWSRequest RetrieveEnvironmentInfo where
               (\ s h x ->
                  RetrieveEnvironmentInfoResponse' <$>
                    (x .@? "EnvironmentInfo" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders RetrieveEnvironmentInfo where
         toHeaders = const mempty
@@ -115,17 +119,26 @@ instance ToQuery RetrieveEnvironmentInfo where
                "EnvironmentId" =: _retEnvironmentId,
                "InfoType" =: _retInfoType]
 
--- | /See:/ 'retrieveEnvironmentInfoResponse' smart constructor.
+-- | Result message containing a description of the requested environment
+-- info.
+--
+-- /See:/ 'retrieveEnvironmentInfoResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'reirEnvironmentInfo'
-newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo :: Maybe [EnvironmentInfoDescription]} deriving (Eq, Read, Show)
+--
+-- * 'reirStatusCode'
+data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo :: Maybe [EnvironmentInfoDescription], _reirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
-retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
-retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo = Nothing};
+retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
+retrieveEnvironmentInfoResponse pStatusCode = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo = Nothing, _reirStatusCode = pStatusCode};
 
 -- | The EnvironmentInfoDescription of the environment.
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirEnvironmentInfo = lens _reirEnvironmentInfo (\ s a -> s{_reirEnvironmentInfo = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+reirStatusCode :: Lens' RetrieveEnvironmentInfoResponse Int
+reirStatusCode = lens _reirStatusCode (\ s a -> s{_reirStatusCode = a});

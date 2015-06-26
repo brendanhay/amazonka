@@ -42,6 +42,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     , diarProductCodes
     , diarBlockDeviceMappings
     , diarDescription
+    , diarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -99,7 +100,8 @@ instance AWSRequest DescribeImageAttribute where
                      <*> (x .@? "imageId")
                      <*> (may (parseXMLList "item") x)
                      <*> (may (parseXMLList "item") x)
-                     <*> (x .@? "description"))
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty
@@ -116,7 +118,9 @@ instance ToQuery DescribeImageAttribute where
                "DryRun" =: _dia1DryRun, "ImageId" =: _dia1ImageId,
                "Attribute" =: _dia1Attribute]
 
--- | /See:/ 'describeImageAttributeResponse' smart constructor.
+-- | Describes an image attribute.
+--
+-- /See:/ 'describeImageAttributeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -135,11 +139,13 @@ instance ToQuery DescribeImageAttribute where
 -- * 'diarBlockDeviceMappings'
 --
 -- * 'diarDescription'
-data DescribeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions :: Maybe [LaunchPermission], _diarRAMDiskId :: Maybe AttributeValue, _diarKernelId :: Maybe AttributeValue, _diarSRIOVNetSupport :: Maybe AttributeValue, _diarImageId :: Maybe Text, _diarProductCodes :: Maybe [ProductCode], _diarBlockDeviceMappings :: Maybe [BlockDeviceMapping], _diarDescription :: Maybe AttributeValue} deriving (Eq, Read, Show)
+--
+-- * 'diarStatusCode'
+data DescribeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions :: Maybe [LaunchPermission], _diarRAMDiskId :: Maybe AttributeValue, _diarKernelId :: Maybe AttributeValue, _diarSRIOVNetSupport :: Maybe AttributeValue, _diarImageId :: Maybe Text, _diarProductCodes :: Maybe [ProductCode], _diarBlockDeviceMappings :: Maybe [BlockDeviceMapping], _diarDescription :: Maybe AttributeValue, _diarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
-describeImageAttributeResponse :: DescribeImageAttributeResponse
-describeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions = Nothing, _diarRAMDiskId = Nothing, _diarKernelId = Nothing, _diarSRIOVNetSupport = Nothing, _diarImageId = Nothing, _diarProductCodes = Nothing, _diarBlockDeviceMappings = Nothing, _diarDescription = Nothing};
+describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
+describeImageAttributeResponse pStatusCode = DescribeImageAttributeResponse'{_diarLaunchPermissions = Nothing, _diarRAMDiskId = Nothing, _diarKernelId = Nothing, _diarSRIOVNetSupport = Nothing, _diarImageId = Nothing, _diarProductCodes = Nothing, _diarBlockDeviceMappings = Nothing, _diarDescription = Nothing, _diarStatusCode = pStatusCode};
 
 -- | One or more launch permissions.
 diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
@@ -172,3 +178,7 @@ diarBlockDeviceMappings = lens _diarBlockDeviceMappings (\ s a -> s{_diarBlockDe
 -- | A description for the AMI.
 diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarDescription = lens _diarDescription (\ s a -> s{_diarDescription = a});
+
+-- | FIXME: Undocumented member.
+diarStatusCode :: Lens' DescribeImageAttributeResponse Int
+diarStatusCode = lens _diarStatusCode (\ s a -> s{_diarStatusCode = a});

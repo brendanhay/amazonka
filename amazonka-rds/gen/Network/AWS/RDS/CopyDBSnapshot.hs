@@ -35,6 +35,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     , copyDBSnapshotResponse
     -- ** Response lenses
     , cdsrDBSnapshot
+    , cdsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'copyDBSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'copyDBSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +102,8 @@ instance AWSRequest CopyDBSnapshot where
         response
           = receiveXMLWrapper "CopyDBSnapshotResult"
               (\ s h x ->
-                 CopyDBSnapshotResponse' <$> (x .@? "DBSnapshot"))
+                 CopyDBSnapshotResponse' <$>
+                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
@@ -123,12 +127,18 @@ instance ToQuery CopyDBSnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdsrDBSnapshot'
-newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse'{_cdsrDBSnapshot :: Maybe DBSnapshot} deriving (Eq, Read, Show)
+--
+-- * 'cdsrStatusCode'
+data CopyDBSnapshotResponse = CopyDBSnapshotResponse'{_cdsrDBSnapshot :: Maybe DBSnapshot, _cdsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopyDBSnapshotResponse' smart constructor.
-copyDBSnapshotResponse :: CopyDBSnapshotResponse
-copyDBSnapshotResponse = CopyDBSnapshotResponse'{_cdsrDBSnapshot = Nothing};
+copyDBSnapshotResponse :: Int -> CopyDBSnapshotResponse
+copyDBSnapshotResponse pStatusCode = CopyDBSnapshotResponse'{_cdsrDBSnapshot = Nothing, _cdsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cdsrDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrDBSnapshot = lens _cdsrDBSnapshot (\ s a -> s{_cdsrDBSnapshot = a});
+
+-- | FIXME: Undocumented member.
+cdsrStatusCode :: Lens' CopyDBSnapshotResponse Int
+cdsrStatusCode = lens _cdsrStatusCode (\ s a -> s{_cdsrStatusCode = a});

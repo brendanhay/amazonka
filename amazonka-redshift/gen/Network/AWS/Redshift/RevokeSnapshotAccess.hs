@@ -40,6 +40,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     , revokeSnapshotAccessResponse
     -- ** Response lenses
     , rsarSnapshot
+    , rsarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +48,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'revokeSnapshotAccess' smart constructor.
+-- |
+--
+-- /See:/ 'revokeSnapshotAccess' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +89,8 @@ instance AWSRequest RevokeSnapshotAccess where
         response
           = receiveXMLWrapper "RevokeSnapshotAccessResult"
               (\ s h x ->
-                 RevokeSnapshotAccessResponse' <$> (x .@? "Snapshot"))
+                 RevokeSnapshotAccessResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
@@ -110,12 +114,18 @@ instance ToQuery RevokeSnapshotAccess where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsarSnapshot'
-newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'{_rsarSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+--
+-- * 'rsarStatusCode'
+data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'{_rsarSnapshot :: Maybe Snapshot, _rsarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
-revokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse
-revokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'{_rsarSnapshot = Nothing};
+revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse
+revokeSnapshotAccessResponse pStatusCode = RevokeSnapshotAccessResponse'{_rsarSnapshot = Nothing, _rsarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\ s a -> s{_rsarSnapshot = a});
+
+-- | FIXME: Undocumented member.
+rsarStatusCode :: Lens' RevokeSnapshotAccessResponse Int
+rsarStatusCode = lens _rsarStatusCode (\ s a -> s{_rsarStatusCode = a});

@@ -42,6 +42,7 @@ module Network.AWS.StorageGateway.DescribeCache
     , dcrCacheMissPercentage
     , dcrCacheAllocatedInBytes
     , dcrCacheDirtyPercentage
+    , dcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -77,7 +78,8 @@ instance AWSRequest DescribeCache where
                      <*> (x .?> "CacheHitPercentage")
                      <*> (x .?> "CacheMissPercentage")
                      <*> (x .?> "CacheAllocatedInBytes")
-                     <*> (x .?> "CacheDirtyPercentage"))
+                     <*> (x .?> "CacheDirtyPercentage")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCache where
         toHeaders
@@ -116,11 +118,13 @@ instance ToQuery DescribeCache where
 -- * 'dcrCacheAllocatedInBytes'
 --
 -- * 'dcrCacheDirtyPercentage'
-data DescribeCacheResponse = DescribeCacheResponse'{_dcrGatewayARN :: Maybe Text, _dcrDiskIds :: Maybe [Text], _dcrCacheUsedPercentage :: Maybe Double, _dcrCacheHitPercentage :: Maybe Double, _dcrCacheMissPercentage :: Maybe Double, _dcrCacheAllocatedInBytes :: Maybe Integer, _dcrCacheDirtyPercentage :: Maybe Double} deriving (Eq, Read, Show)
+--
+-- * 'dcrStatusCode'
+data DescribeCacheResponse = DescribeCacheResponse'{_dcrGatewayARN :: Maybe Text, _dcrDiskIds :: Maybe [Text], _dcrCacheUsedPercentage :: Maybe Double, _dcrCacheHitPercentage :: Maybe Double, _dcrCacheMissPercentage :: Maybe Double, _dcrCacheAllocatedInBytes :: Maybe Integer, _dcrCacheDirtyPercentage :: Maybe Double, _dcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheResponse' smart constructor.
-describeCacheResponse :: DescribeCacheResponse
-describeCacheResponse = DescribeCacheResponse'{_dcrGatewayARN = Nothing, _dcrDiskIds = Nothing, _dcrCacheUsedPercentage = Nothing, _dcrCacheHitPercentage = Nothing, _dcrCacheMissPercentage = Nothing, _dcrCacheAllocatedInBytes = Nothing, _dcrCacheDirtyPercentage = Nothing};
+describeCacheResponse :: Int -> DescribeCacheResponse
+describeCacheResponse pStatusCode = DescribeCacheResponse'{_dcrGatewayARN = Nothing, _dcrDiskIds = Nothing, _dcrCacheUsedPercentage = Nothing, _dcrCacheHitPercentage = Nothing, _dcrCacheMissPercentage = Nothing, _dcrCacheAllocatedInBytes = Nothing, _dcrCacheDirtyPercentage = Nothing, _dcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
@@ -149,3 +153,7 @@ dcrCacheAllocatedInBytes = lens _dcrCacheAllocatedInBytes (\ s a -> s{_dcrCacheA
 -- | FIXME: Undocumented member.
 dcrCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrCacheDirtyPercentage = lens _dcrCacheDirtyPercentage (\ s a -> s{_dcrCacheDirtyPercentage = a});
+
+-- | FIXME: Undocumented member.
+dcrStatusCode :: Lens' DescribeCacheResponse Int
+dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});

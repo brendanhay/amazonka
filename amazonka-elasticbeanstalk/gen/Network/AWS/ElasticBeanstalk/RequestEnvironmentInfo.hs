@@ -54,7 +54,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'requestEnvironmentInfo' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'requestEnvironmentInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

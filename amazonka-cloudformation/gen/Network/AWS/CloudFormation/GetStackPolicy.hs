@@ -33,6 +33,7 @@ module Network.AWS.CloudFormation.GetStackPolicy
     , getStackPolicyResponse
     -- ** Response lenses
     , gsprStackPolicyBody
+    , gsprStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getStackPolicy' smart constructor.
+-- | The input for the GetStackPolicy action.
+--
+-- /See:/ 'getStackPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -64,7 +67,7 @@ instance AWSRequest GetStackPolicy where
           = receiveXMLWrapper "GetStackPolicyResult"
               (\ s h x ->
                  GetStackPolicyResponse' <$>
-                   (x .@? "StackPolicyBody"))
+                   (x .@? "StackPolicyBody") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetStackPolicy where
         toHeaders = const mempty
@@ -79,19 +82,27 @@ instance ToQuery GetStackPolicy where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gspStackName]
 
--- | /See:/ 'getStackPolicyResponse' smart constructor.
+-- | The output for the GetStackPolicy action.
+--
+-- /See:/ 'getStackPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsprStackPolicyBody'
-newtype GetStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gsprStatusCode'
+data GetStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody :: Maybe Text, _gsprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetStackPolicyResponse' smart constructor.
-getStackPolicyResponse :: GetStackPolicyResponse
-getStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody = Nothing};
+getStackPolicyResponse :: Int -> GetStackPolicyResponse
+getStackPolicyResponse pStatusCode = GetStackPolicyResponse'{_gsprStackPolicyBody = Nothing, _gsprStatusCode = pStatusCode};
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
 -- in the AWS CloudFormation User Guide.)
 gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody = lens _gsprStackPolicyBody (\ s a -> s{_gsprStackPolicyBody = a});
+
+-- | FIXME: Undocumented member.
+gsprStatusCode :: Lens' GetStackPolicyResponse Int
+gsprStatusCode = lens _gsprStatusCode (\ s a -> s{_gsprStatusCode = a});

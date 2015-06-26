@@ -21,8 +21,60 @@ module Network.AWS.Route53.Types
     (
     -- * Service
       Route53
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _HealthCheckVersionMismatch
+    , _InvalidInput
+    , _HostedZoneNotEmpty
+    , _InvalidArgument
+    , _DelegationSetAlreadyReusable
+    , _PriorRequestNotComplete
+    , _InvalidChangeBatch
+    , _InvalidDomainName
+    , _DelegationSetNotReusable
+    , _HealthCheckAlreadyExists
+    , _HostedZoneNotFound
+    , _DelegationSetInUse
+    , _NoSuchDelegationSet
+    , _NoSuchGeoLocation
+    , _DelegationSetNotAvailable
+    , _VPCAssociationNotFound
+    , _ThrottlingException
+    , _NoSuchChange
+    , _LimitsExceeded
+    , _IncompatibleVersion
+    , _NoSuchHostedZone
+    , _TooManyHostedZones
+    , _PublicZoneVPCAssociation
+    , _ConflictingDomainExists
+    , _LastVPCAssociation
+    , _HealthCheckInUse
+    , _DelegationSetAlreadyCreated
+    , _TooManyHealthChecks
+    , _NoSuchHealthCheck
+    , _HostedZoneAlreadyExists
+    , _InvalidVPCId
+
+    -- * ChangeAction
+    , ChangeAction (..)
+
+    -- * ChangeStatus
+    , ChangeStatus (..)
+
+    -- * Failover
+    , Failover (..)
+
+    -- * HealthCheckType
+    , HealthCheckType (..)
+
+    -- * RecordType
+    , RecordType (..)
+
+    -- * TagResourceType
+    , TagResourceType (..)
+
+    -- * VPCRegion
+    , VPCRegion (..)
 
     -- * AliasTarget
     , AliasTarget
@@ -36,9 +88,6 @@ module Network.AWS.Route53.Types
     , change
     , chaAction
     , chaResourceRecordSet
-
-    -- * ChangeAction
-    , ChangeAction (..)
 
     -- * ChangeBatch
     , ChangeBatch
@@ -54,18 +103,12 @@ module Network.AWS.Route53.Types
     , ciStatus
     , ciSubmittedAt
 
-    -- * ChangeStatus
-    , ChangeStatus (..)
-
     -- * DelegationSet
     , DelegationSet
     , delegationSet
     , dsId
     , dsCallerReference
     , dsNameServers
-
-    -- * Failover
-    , Failover (..)
 
     -- * GeoLocation
     , GeoLocation
@@ -110,9 +153,6 @@ module Network.AWS.Route53.Types
     , hcoIPAddress
     , hcoStatusReport
 
-    -- * HealthCheckType
-    , HealthCheckType (..)
-
     -- * HostedZone
     , HostedZone
     , hostedZone
@@ -127,9 +167,6 @@ module Network.AWS.Route53.Types
     , hostedZoneConfig
     , hzcPrivateZone
     , hzcComment
-
-    -- * RecordType
-    , RecordType (..)
 
     -- * ResourceRecord
     , ResourceRecord
@@ -170,17 +207,11 @@ module Network.AWS.Route53.Types
     , tagValue
     , tagKey
 
-    -- * TagResourceType
-    , TagResourceType (..)
-
     -- * VPC
     , VPC
     , vpc
     , vpcVPCRegion
     , vpcVPCId
-
-    -- * VPCRegion
-    , VPCRegion (..)
 
     , module Network.AWS.Route53.Internal
     ) where
@@ -194,32 +225,391 @@ data Route53
 
 instance AWSService Route53 where
     type Sg Route53 = V4
-    type Er Route53 = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Route53
-        service' = Service
-            { _svcAbbrev  = "Route53"
-            , _svcPrefix  = "route53"
-            , _svcVersion = "2013-04-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Route53
+        svc = Service
+            { _svcAbbrev   = "Route53"
+            , _svcPrefix   = "route53"
+            , _svcVersion  = "2013-04-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Route53
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Prism for HealthCheckVersionMismatch' errors.
+_HealthCheckVersionMismatch :: AWSError a => Geting (First ServiceError) a ServiceError
+_HealthCheckVersionMismatch = _ServiceError . hasCode "HealthCheckVersionMismatch" . hasStatus 409;
 
--- | /See:/ 'aliasTarget' smart constructor.
+-- | Some value specified in the request is invalid or the XML document is
+-- malformed.
+_InvalidInput :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInput = _ServiceError . hasCode "InvalidInput" . hasStatus 400;
+
+-- | The hosted zone contains resource record sets in addition to the default
+-- NS and SOA resource record sets. Before you can delete the hosted zone,
+-- you must delete the additional resource record sets.
+_HostedZoneNotEmpty :: AWSError a => Geting (First ServiceError) a ServiceError
+_HostedZoneNotEmpty = _ServiceError . hasCode "HostedZoneNotEmpty" . hasStatus 400;
+
+-- | At least one of the specified arguments is invalid.
+_InvalidArgument :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidArgument = _ServiceError . hasCode "InvalidArgument";
+
+-- | The specified delegation set has already been marked as reusable.
+_DelegationSetAlreadyReusable :: AWSError a => Geting (First ServiceError) a ServiceError
+_DelegationSetAlreadyReusable = _ServiceError . hasCode "DelegationSetAlreadyReusable";
+
+-- | The request was rejected because Route 53 was still processing a prior
+-- request.
+_PriorRequestNotComplete :: AWSError a => Geting (First ServiceError) a ServiceError
+_PriorRequestNotComplete = _ServiceError . hasCode "PriorRequestNotComplete" . hasStatus 400;
+
+-- | This error contains a list of one or more error messages. Each error
+-- message indicates one error in the change batch. For more information,
+-- see
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#example_Errors Example InvalidChangeBatch Errors>.
+_InvalidChangeBatch :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch";
+
+-- | This error indicates that the specified domain name is not valid.
+_InvalidDomainName :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDomainName = _ServiceError . hasCode "InvalidDomainName" . hasStatus 400;
+
+-- | The specified delegation set has not been marked as reusable.
+_DelegationSetNotReusable :: AWSError a => Geting (First ServiceError) a ServiceError
+_DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable";
+
+-- | The health check you are trying to create already exists. Route 53
+-- returns this error when a health check has already been created with the
+-- specified @CallerReference@.
+_HealthCheckAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_HealthCheckAlreadyExists = _ServiceError . hasCode "HealthCheckAlreadyExists" . hasStatus 409;
+
+-- | The specified HostedZone cannot be found.
+_HostedZoneNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_HostedZoneNotFound = _ServiceError . hasCode "HostedZoneNotFound";
+
+-- | The specified delegation contains associated hosted zones which must be
+-- deleted before the reusable delegation set can be deleted.
+_DelegationSetInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse";
+
+-- | The specified delegation set does not exist.
+_NoSuchDelegationSet :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet";
+
+-- | The geo location you are trying to get does not exist.
+_NoSuchGeoLocation :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchGeoLocation = _ServiceError . hasCode "NoSuchGeoLocation" . hasStatus 404;
+
+-- | Route 53 allows some duplicate domain names, but there is a maximum
+-- number of duplicate names. This error indicates that you have reached
+-- that maximum. If you want to create another hosted zone with the same
+-- name and Route 53 generates this error, you can request an increase to
+-- the limit on the <http://aws.amazon.com/route53-request/ Contact Us>
+-- page.
+_DelegationSetNotAvailable :: AWSError a => Geting (First ServiceError) a ServiceError
+_DelegationSetNotAvailable = _ServiceError . hasCode "DelegationSetNotAvailable";
+
+-- | The VPC you specified is not currently associated with the hosted zone.
+_VPCAssociationNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
+_VPCAssociationNotFound = _ServiceError . hasCode "VPCAssociationNotFound" . hasStatus 404;
+
+-- | Prism for ThrottlingException' errors.
+_ThrottlingException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ThrottlingException = _ServiceError . hasCode "ThrottlingException" . hasStatus 400;
+
+-- | Prism for NoSuchChange' errors.
+_NoSuchChange :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchChange = _ServiceError . hasCode "NoSuchChange" . hasStatus 404;
+
+-- | The limits specified for a resource have been exceeded.
+_LimitsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitsExceeded = _ServiceError . hasCode "LimitsExceeded";
+
+-- | The resource you are trying to access is unsupported on this Route 53
+-- endpoint. Please consider using a newer endpoint or a tool that does so.
+_IncompatibleVersion :: AWSError a => Geting (First ServiceError) a ServiceError
+_IncompatibleVersion = _ServiceError . hasCode "IncompatibleVersion" . hasStatus 400;
+
+-- | Prism for NoSuchHostedZone' errors.
+_NoSuchHostedZone :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchHostedZone = _ServiceError . hasCode "NoSuchHostedZone" . hasStatus 404;
+
+-- | This error indicates that you\'ve reached the maximum number of hosted
+-- zones that can be created for the current AWS account. You can request
+-- an increase to the limit on the
+-- <http://aws.amazon.com/route53-request/ Contact Us> page.
+_TooManyHostedZones :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyHostedZones = _ServiceError . hasCode "TooManyHostedZones" . hasStatus 400;
+
+-- | The hosted zone you are trying to associate VPC with doesn\'t have any
+-- VPC association. Route 53 currently doesn\'t support associate a VPC
+-- with a public hosted zone.
+_PublicZoneVPCAssociation :: AWSError a => Geting (First ServiceError) a ServiceError
+_PublicZoneVPCAssociation = _ServiceError . hasCode "PublicZoneVPCAssociation" . hasStatus 400;
+
+-- | Prism for ConflictingDomainExists' errors.
+_ConflictingDomainExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists";
+
+-- | The VPC you are trying to disassociate from the hosted zone is the last
+-- the VPC that is associated with the hosted zone. Route 53 currently
+-- doesn\'t support disassociate the last VPC from the hosted zone.
+_LastVPCAssociation :: AWSError a => Geting (First ServiceError) a ServiceError
+_LastVPCAssociation = _ServiceError . hasCode "LastVPCAssociation" . hasStatus 400;
+
+-- | There are resource records associated with this health check. Before you
+-- can delete the health check, you must disassociate it from the resource
+-- record sets.
+_HealthCheckInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_HealthCheckInUse = _ServiceError . hasCode "HealthCheckInUse" . hasStatus 400;
+
+-- | A delegation set with the same owner and caller reference combination
+-- has already been created.
+_DelegationSetAlreadyCreated :: AWSError a => Geting (First ServiceError) a ServiceError
+_DelegationSetAlreadyCreated = _ServiceError . hasCode "DelegationSetAlreadyCreated";
+
+-- | Prism for TooManyHealthChecks' errors.
+_TooManyHealthChecks :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks";
+
+-- | The health check you are trying to get or delete does not exist.
+_NoSuchHealthCheck :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchHealthCheck = _ServiceError . hasCode "NoSuchHealthCheck" . hasStatus 404;
+
+-- | The hosted zone you are trying to create already exists. Route 53
+-- returns this error when a hosted zone has already been created with the
+-- specified @CallerReference@.
+_HostedZoneAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_HostedZoneAlreadyExists = _ServiceError . hasCode "HostedZoneAlreadyExists" . hasStatus 409;
+
+-- | The hosted zone you are trying to create for your VPC_ID does not belong
+-- to you. Route 53 returns this error when the VPC specified by @VPCId@
+-- does not belong to you.
+_InvalidVPCId :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidVPCId = _ServiceError . hasCode "InvalidVPCId" . hasStatus 400;
+
+data ChangeAction = Create | Upsert | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ChangeAction where
+    parser = takeLowerText >>= \case
+        "CREATE" -> pure Create
+        "DELETE" -> pure Delete
+        "UPSERT" -> pure Upsert
+        e -> fail ("Failure parsing ChangeAction from " ++ show e)
+
+instance ToText ChangeAction where
+    toText = \case
+        Create -> "CREATE"
+        Delete -> "DELETE"
+        Upsert -> "UPSERT"
+
+instance Hashable ChangeAction
+instance ToQuery ChangeAction
+instance ToHeader ChangeAction
+
+instance ToXML ChangeAction where
+    toXML = toXMLText
+
+data ChangeStatus = Pending | Insync deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ChangeStatus where
+    parser = takeLowerText >>= \case
+        "INSYNC" -> pure Insync
+        "PENDING" -> pure Pending
+        e -> fail ("Failure parsing ChangeStatus from " ++ show e)
+
+instance ToText ChangeStatus where
+    toText = \case
+        Insync -> "INSYNC"
+        Pending -> "PENDING"
+
+instance Hashable ChangeStatus
+instance ToQuery ChangeStatus
+instance ToHeader ChangeStatus
+
+instance FromXML ChangeStatus where
+    parseXML = parseXMLText "ChangeStatus"
+
+data Failover = Secondary | Primary deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Failover where
+    parser = takeLowerText >>= \case
+        "PRIMARY" -> pure Primary
+        "SECONDARY" -> pure Secondary
+        e -> fail ("Failure parsing Failover from " ++ show e)
+
+instance ToText Failover where
+    toText = \case
+        Primary -> "PRIMARY"
+        Secondary -> "SECONDARY"
+
+instance Hashable Failover
+instance ToQuery Failover
+instance ToHeader Failover
+
+instance FromXML Failover where
+    parseXML = parseXMLText "Failover"
+
+instance ToXML Failover where
+    toXML = toXMLText
+
+data HealthCheckType = HTTPS | TCP | HTTPSStrMatch | HTTP | HTTPStrMatch deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText HealthCheckType where
+    parser = takeLowerText >>= \case
+        "HTTP" -> pure HTTP
+        "HTTPS" -> pure HTTPS
+        "HTTPS_STR_MATCH" -> pure HTTPSStrMatch
+        "HTTP_STR_MATCH" -> pure HTTPStrMatch
+        "TCP" -> pure TCP
+        e -> fail ("Failure parsing HealthCheckType from " ++ show e)
+
+instance ToText HealthCheckType where
+    toText = \case
+        HTTP -> "HTTP"
+        HTTPS -> "HTTPS"
+        HTTPSStrMatch -> "HTTPS_STR_MATCH"
+        HTTPStrMatch -> "HTTP_STR_MATCH"
+        TCP -> "TCP"
+
+instance Hashable HealthCheckType
+instance ToQuery HealthCheckType
+instance ToHeader HealthCheckType
+
+instance FromXML HealthCheckType where
+    parseXML = parseXMLText "HealthCheckType"
+
+instance ToXML HealthCheckType where
+    toXML = toXMLText
+
+data RecordType = Cname | Srv | MX | NS | Aaaa | A | Spf | Soa | Txt | Ptr deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RecordType where
+    parser = takeLowerText >>= \case
+        "A" -> pure A
+        "AAAA" -> pure Aaaa
+        "CNAME" -> pure Cname
+        "MX" -> pure MX
+        "NS" -> pure NS
+        "PTR" -> pure Ptr
+        "SOA" -> pure Soa
+        "SPF" -> pure Spf
+        "SRV" -> pure Srv
+        "TXT" -> pure Txt
+        e -> fail ("Failure parsing RecordType from " ++ show e)
+
+instance ToText RecordType where
+    toText = \case
+        A -> "A"
+        Aaaa -> "AAAA"
+        Cname -> "CNAME"
+        MX -> "MX"
+        NS -> "NS"
+        Ptr -> "PTR"
+        Soa -> "SOA"
+        Spf -> "SPF"
+        Srv -> "SRV"
+        Txt -> "TXT"
+
+instance Hashable RecordType
+instance ToQuery RecordType
+instance ToHeader RecordType
+
+instance FromXML RecordType where
+    parseXML = parseXMLText "RecordType"
+
+instance ToXML RecordType where
+    toXML = toXMLText
+
+data TagResourceType = Healthcheck | Hostedzone deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TagResourceType where
+    parser = takeLowerText >>= \case
+        "healthcheck" -> pure Healthcheck
+        "hostedzone" -> pure Hostedzone
+        e -> fail ("Failure parsing TagResourceType from " ++ show e)
+
+instance ToText TagResourceType where
+    toText = \case
+        Healthcheck -> "healthcheck"
+        Hostedzone -> "hostedzone"
+
+instance Hashable TagResourceType
+instance ToQuery TagResourceType
+instance ToHeader TagResourceType
+
+instance FromXML TagResourceType where
+    parseXML = parseXMLText "TagResourceType"
+
+instance ToXML TagResourceType where
+    toXML = toXMLText
+
+data VPCRegion = APNortheast1 | SAEast1 | CNNorth1 | USWest2 | EUWest1 | USEast1 | USWest1 | EUCentral1 | APSoutheast2 | APSoutheast1 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VPCRegion where
+    parser = takeLowerText >>= \case
+        "ap-northeast-1" -> pure APNortheast1
+        "ap-southeast-1" -> pure APSoutheast1
+        "ap-southeast-2" -> pure APSoutheast2
+        "cn-north-1" -> pure CNNorth1
+        "eu-central-1" -> pure EUCentral1
+        "eu-west-1" -> pure EUWest1
+        "sa-east-1" -> pure SAEast1
+        "us-east-1" -> pure USEast1
+        "us-west-1" -> pure USWest1
+        "us-west-2" -> pure USWest2
+        e -> fail ("Failure parsing VPCRegion from " ++ show e)
+
+instance ToText VPCRegion where
+    toText = \case
+        APNortheast1 -> "ap-northeast-1"
+        APSoutheast1 -> "ap-southeast-1"
+        APSoutheast2 -> "ap-southeast-2"
+        CNNorth1 -> "cn-north-1"
+        EUCentral1 -> "eu-central-1"
+        EUWest1 -> "eu-west-1"
+        SAEast1 -> "sa-east-1"
+        USEast1 -> "us-east-1"
+        USWest1 -> "us-west-1"
+        USWest2 -> "us-west-2"
+
+instance Hashable VPCRegion
+instance ToQuery VPCRegion
+instance ToHeader VPCRegion
+
+instance FromXML VPCRegion where
+    parseXML = parseXMLText "VPCRegion"
+
+instance ToXML VPCRegion where
+    toXML = toXMLText
+
+-- | /Alias resource record sets only:/ Information about the domain to which
+-- you are redirecting traffic.
+--
+-- For more information and an example, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html Creating Alias Resource Record Sets>
+-- in the /Amazon Route 53 Developer Guide/
+--
+-- .
+--
+-- /See:/ 'aliasTarget' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -282,7 +672,10 @@ instance ToXML AliasTarget where
                "DNSName" @= _atDNSName,
                "EvaluateTargetHealth" @= _atEvaluateTargetHealth]
 
--- | /See:/ 'change' smart constructor.
+-- | A complex type that contains the information for each change in a change
+-- batch request.
+--
+-- /See:/ 'change' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -311,29 +704,10 @@ instance ToXML Change where
               ["Action" @= _chaAction,
                "ResourceRecordSet" @= _chaResourceRecordSet]
 
-data ChangeAction = Create | Upsert | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ChangeAction where
-    parser = takeLowerText >>= \case
-        "CREATE" -> pure Create
-        "DELETE" -> pure Delete
-        "UPSERT" -> pure Upsert
-        e -> fail ("Failure parsing ChangeAction from " ++ show e)
-
-instance ToText ChangeAction where
-    toText = \case
-        Create -> "CREATE"
-        Delete -> "DELETE"
-        Upsert -> "UPSERT"
-
-instance Hashable ChangeAction
-instance ToQuery ChangeAction
-instance ToHeader ChangeAction
-
-instance ToXML ChangeAction where
-    toXML = toXMLText
-
--- | /See:/ 'changeBatch' smart constructor.
+-- | A complex type that contains an optional comment and the changes that
+-- you want to make with a change batch request.
+--
+-- /See:/ 'changeBatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -362,7 +736,13 @@ instance ToXML ChangeBatch where
               ["Comment" @= _cbComment,
                "Changes" @= toXMLList "Change" _cbChanges]
 
--- | /See:/ 'changeInfo' smart constructor.
+-- | A complex type that describes change information about changes made to
+-- your hosted zone.
+--
+-- This element contains an ID that you use when performing a GetChange
+-- action to get detailed information about the change.
+--
+-- /See:/ 'changeInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -413,27 +793,9 @@ instance FromXML ChangeInfo where
               (x .@? "Comment") <*> (x .@ "Id") <*> (x .@ "Status")
                 <*> (x .@ "SubmittedAt")
 
-data ChangeStatus = Pending | Insync deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ChangeStatus where
-    parser = takeLowerText >>= \case
-        "INSYNC" -> pure Insync
-        "PENDING" -> pure Pending
-        e -> fail ("Failure parsing ChangeStatus from " ++ show e)
-
-instance ToText ChangeStatus where
-    toText = \case
-        Insync -> "INSYNC"
-        Pending -> "PENDING"
-
-instance Hashable ChangeStatus
-instance ToQuery ChangeStatus
-instance ToHeader ChangeStatus
-
-instance FromXML ChangeStatus where
-    parseXML = parseXMLText "ChangeStatus"
-
--- | /See:/ 'delegationSet' smart constructor.
+-- | A complex type that contains name server information.
+--
+-- /See:/ 'delegationSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -470,30 +832,9 @@ instance FromXML DelegationSet where
                 (x .@? "NameServers" .!@ mempty >>=
                    parseXMLList1 "NameServer")
 
-data Failover = Secondary | Primary deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Failover where
-    parser = takeLowerText >>= \case
-        "PRIMARY" -> pure Primary
-        "SECONDARY" -> pure Secondary
-        e -> fail ("Failure parsing Failover from " ++ show e)
-
-instance ToText Failover where
-    toText = \case
-        Primary -> "PRIMARY"
-        Secondary -> "SECONDARY"
-
-instance Hashable Failover
-instance ToQuery Failover
-instance ToHeader Failover
-
-instance FromXML Failover where
-    parseXML = parseXMLText "Failover"
-
-instance ToXML Failover where
-    toXML = toXMLText
-
--- | /See:/ 'geoLocation' smart constructor.
+-- | A complex type that contains information about a geo location.
+--
+-- /See:/ 'geoLocation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -548,7 +889,9 @@ instance ToXML GeoLocation where
                "CountryCode" @= _glCountryCode,
                "ContinentCode" @= _glContinentCode]
 
--- | /See:/ 'geoLocationDetails' smart constructor.
+-- | A complex type that contains information about a @GeoLocation@.
+--
+-- /See:/ 'geoLocationDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -613,7 +956,10 @@ instance FromXML GeoLocationDetails where
                 <*> (x .@? "ContinentCode")
                 <*> (x .@? "ContinentName")
 
--- | /See:/ 'healthCheck' smart constructor.
+-- | A complex type that contains identifying information about the health
+-- check.
+--
+-- /See:/ 'healthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -655,7 +1001,9 @@ instance FromXML HealthCheck where
                 (x .@ "HealthCheckConfig")
                 <*> (x .@ "HealthCheckVersion")
 
--- | /See:/ 'healthCheckConfig' smart constructor.
+-- | A complex type that contains the health check configuration.
+--
+-- /See:/ 'healthCheckConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -753,7 +1101,10 @@ instance ToXML HealthCheckConfig where
                "RequestInterval" @= _hccRequestInterval,
                "Port" @= _hccPort, "Type" @= _hccType]
 
--- | /See:/ 'healthCheckObservation' smart constructor.
+-- | A complex type that contains the IP address of a Route 53 health checker
+-- and the reason for the health check status.
+--
+-- /See:/ 'healthCheckObservation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -781,36 +1132,9 @@ instance FromXML HealthCheckObservation where
           = HealthCheckObservation' <$>
               (x .@? "IPAddress") <*> (x .@? "StatusReport")
 
-data HealthCheckType = HTTPS | TCP | HTTPSStrMatch | HTTP | HTTPStrMatch deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText HealthCheckType where
-    parser = takeLowerText >>= \case
-        "HTTP" -> pure HTTP
-        "HTTPS" -> pure HTTPS
-        "HTTPS_STR_MATCH" -> pure HTTPSStrMatch
-        "HTTP_STR_MATCH" -> pure HTTPStrMatch
-        "TCP" -> pure TCP
-        e -> fail ("Failure parsing HealthCheckType from " ++ show e)
-
-instance ToText HealthCheckType where
-    toText = \case
-        HTTP -> "HTTP"
-        HTTPS -> "HTTPS"
-        HTTPSStrMatch -> "HTTPS_STR_MATCH"
-        HTTPStrMatch -> "HTTP_STR_MATCH"
-        TCP -> "TCP"
-
-instance Hashable HealthCheckType
-instance ToQuery HealthCheckType
-instance ToHeader HealthCheckType
-
-instance FromXML HealthCheckType where
-    parseXML = parseXMLText "HealthCheckType"
-
-instance ToXML HealthCheckType where
-    toXML = toXMLText
-
--- | /See:/ 'hostedZone' smart constructor.
+-- | A complex type that contain information about the specified hosted zone.
+--
+-- /See:/ 'hostedZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -865,7 +1189,11 @@ instance FromXML HostedZone where
                 <*> (x .@ "Name")
                 <*> (x .@ "CallerReference")
 
--- | /See:/ 'hostedZoneConfig' smart constructor.
+-- | A complex type that contains an optional comment about your hosted zone.
+-- If you don\'t want to specify a comment, you can omit the
+-- @HostedZoneConfig@ and @Comment@ elements from the XML document.
+--
+-- /See:/ 'hostedZoneConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -900,46 +1228,10 @@ instance ToXML HostedZoneConfig where
               ["PrivateZone" @= _hzcPrivateZone,
                "Comment" @= _hzcComment]
 
-data RecordType = Cname | Srv | MX | NS | Aaaa | A | Spf | Soa | Txt | Ptr deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RecordType where
-    parser = takeLowerText >>= \case
-        "A" -> pure A
-        "AAAA" -> pure Aaaa
-        "CNAME" -> pure Cname
-        "MX" -> pure MX
-        "NS" -> pure NS
-        "PTR" -> pure Ptr
-        "SOA" -> pure Soa
-        "SPF" -> pure Spf
-        "SRV" -> pure Srv
-        "TXT" -> pure Txt
-        e -> fail ("Failure parsing RecordType from " ++ show e)
-
-instance ToText RecordType where
-    toText = \case
-        A -> "A"
-        Aaaa -> "AAAA"
-        Cname -> "CNAME"
-        MX -> "MX"
-        NS -> "NS"
-        Ptr -> "PTR"
-        Soa -> "SOA"
-        Spf -> "SPF"
-        Srv -> "SRV"
-        Txt -> "TXT"
-
-instance Hashable RecordType
-instance ToQuery RecordType
-instance ToHeader RecordType
-
-instance FromXML RecordType where
-    parseXML = parseXMLText "RecordType"
-
-instance ToXML RecordType where
-    toXML = toXMLText
-
--- | /See:/ 'resourceRecord' smart constructor.
+-- | A complex type that contains the value of the @Value@ element for the
+-- current resource record set.
+--
+-- /See:/ 'resourceRecord' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -961,7 +1253,10 @@ instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
           = mconcat ["Value" @= _rrValue]
 
--- | /See:/ 'resourceRecordSet' smart constructor.
+-- | A complex type that contains information about the current resource
+-- record set.
+--
+-- /See:/ 'resourceRecordSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1095,7 +1390,9 @@ instance ToXML ResourceRecordSet where
                "ResourceRecords" @=
                  toXMLList "ResourceRecord" _rrsResourceRecords]
 
--- | /See:/ 'resourceTagSet' smart constructor.
+-- | A complex type containing a resource and its associated tags.
+--
+-- /See:/ 'resourceTagSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1133,7 +1430,10 @@ instance FromXML ResourceTagSet where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList1 "Tag"))
 
--- | /See:/ 'statusReport' smart constructor.
+-- | A complex type that contains information about the health check status
+-- for the current observation.
+--
+-- /See:/ 'statusReport' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1163,7 +1463,9 @@ instance FromXML StatusReport where
           = StatusReport' <$>
               (x .@? "Status") <*> (x .@? "CheckedTime")
 
--- | /See:/ 'tag' smart constructor.
+-- | A single tag containing a key and value.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1191,29 +1493,6 @@ instance FromXML Tag where
 instance ToXML Tag where
         toXML Tag'{..}
           = mconcat ["Value" @= _tagValue, "Key" @= _tagKey]
-
-data TagResourceType = Healthcheck | Hostedzone deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TagResourceType where
-    parser = takeLowerText >>= \case
-        "healthcheck" -> pure Healthcheck
-        "hostedzone" -> pure Hostedzone
-        e -> fail ("Failure parsing TagResourceType from " ++ show e)
-
-instance ToText TagResourceType where
-    toText = \case
-        Healthcheck -> "healthcheck"
-        Hostedzone -> "hostedzone"
-
-instance Hashable TagResourceType
-instance ToQuery TagResourceType
-instance ToHeader TagResourceType
-
-instance FromXML TagResourceType where
-    parseXML = parseXMLText "TagResourceType"
-
-instance ToXML TagResourceType where
-    toXML = toXMLText
 
 -- | /See:/ 'vpc' smart constructor.
 --
@@ -1244,42 +1523,3 @@ instance ToXML VPC where
         toXML VPC'{..}
           = mconcat
               ["VPCRegion" @= _vpcVPCRegion, "VPCId" @= _vpcVPCId]
-
-data VPCRegion = APNortheast1 | SAEast1 | CNNorth1 | USWest2 | EUWest1 | USEast1 | USWest1 | EUCentral1 | APSoutheast2 | APSoutheast1 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VPCRegion where
-    parser = takeLowerText >>= \case
-        "ap-northeast-1" -> pure APNortheast1
-        "ap-southeast-1" -> pure APSoutheast1
-        "ap-southeast-2" -> pure APSoutheast2
-        "cn-north-1" -> pure CNNorth1
-        "eu-central-1" -> pure EUCentral1
-        "eu-west-1" -> pure EUWest1
-        "sa-east-1" -> pure SAEast1
-        "us-east-1" -> pure USEast1
-        "us-west-1" -> pure USWest1
-        "us-west-2" -> pure USWest2
-        e -> fail ("Failure parsing VPCRegion from " ++ show e)
-
-instance ToText VPCRegion where
-    toText = \case
-        APNortheast1 -> "ap-northeast-1"
-        APSoutheast1 -> "ap-southeast-1"
-        APSoutheast2 -> "ap-southeast-2"
-        CNNorth1 -> "cn-north-1"
-        EUCentral1 -> "eu-central-1"
-        EUWest1 -> "eu-west-1"
-        SAEast1 -> "sa-east-1"
-        USEast1 -> "us-east-1"
-        USWest1 -> "us-west-1"
-        USWest2 -> "us-west-2"
-
-instance Hashable VPCRegion
-instance ToQuery VPCRegion
-instance ToHeader VPCRegion
-
-instance FromXML VPCRegion where
-    parseXML = parseXMLText "VPCRegion"
-
-instance ToXML VPCRegion where
-    toXML = toXMLText

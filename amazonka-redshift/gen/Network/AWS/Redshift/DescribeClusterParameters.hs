@@ -48,9 +48,10 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- ** Response lenses
     , dcprParameters
     , dcprMarker
+    , dcprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -126,7 +127,8 @@ instance AWSRequest DescribeClusterParameters where
                  DescribeClusterParametersResponse' <$>
                    (x .@? "Parameters" .!@ mempty >>=
                       may (parseXMLList "Parameter"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
@@ -144,18 +146,22 @@ instance ToQuery DescribeClusterParameters where
                "Marker" =: _dcp1Marker, "Source" =: _dcp1Source,
                "ParameterGroupName" =: _dcp1ParameterGroupName]
 
--- | /See:/ 'describeClusterParametersResponse' smart constructor.
+-- | Contains the output from the DescribeClusterParameters action.
+--
+-- /See:/ 'describeClusterParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcprParameters'
 --
 -- * 'dcprMarker'
-data DescribeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcprStatusCode'
+data DescribeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text, _dcprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterParametersResponse' smart constructor.
-describeClusterParametersResponse :: DescribeClusterParametersResponse
-describeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters = Nothing, _dcprMarker = Nothing};
+describeClusterParametersResponse :: Int -> DescribeClusterParametersResponse
+describeClusterParametersResponse pStatusCode = DescribeClusterParametersResponse'{_dcprParameters = Nothing, _dcprMarker = Nothing, _dcprStatusCode = pStatusCode};
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
@@ -170,3 +176,7 @@ dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a}) . _Defau
 -- the request.
 dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\ s a -> s{_dcprMarker = a});
+
+-- | FIXME: Undocumented member.
+dcprStatusCode :: Lens' DescribeClusterParametersResponse Int
+dcprStatusCode = lens _dcprStatusCode (\ s a -> s{_dcprStatusCode = a});

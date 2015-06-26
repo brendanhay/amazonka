@@ -30,6 +30,8 @@ module Network.AWS.CloudTrail.DeleteTrail
     , DeleteTrailResponse
     -- ** Response constructor
     , deleteTrailResponse
+    -- ** Response lenses
+    , delStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -37,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteTrail' smart constructor.
+-- | The request that specifies the name of a trail to delete.
+--
+-- /See:/ 'deleteTrail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -56,7 +60,10 @@ instance AWSRequest DeleteTrail where
         type Sv DeleteTrail = CloudTrail
         type Rs DeleteTrail = DeleteTrailResponse
         request = postJSON
-        response = receiveNull DeleteTrailResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteTrailResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteTrail where
         toHeaders
@@ -77,9 +84,20 @@ instance ToPath DeleteTrail where
 instance ToQuery DeleteTrail where
         toQuery = const mempty
 
--- | /See:/ 'deleteTrailResponse' smart constructor.
-data DeleteTrailResponse = DeleteTrailResponse' deriving (Eq, Read, Show)
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'deleteTrailResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'delStatusCode'
+newtype DeleteTrailResponse = DeleteTrailResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteTrailResponse' smart constructor.
-deleteTrailResponse :: DeleteTrailResponse
-deleteTrailResponse = DeleteTrailResponse';
+deleteTrailResponse :: Int -> DeleteTrailResponse
+deleteTrailResponse pStatusCode = DeleteTrailResponse'{_delStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteTrailResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

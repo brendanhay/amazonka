@@ -42,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyCacheParameterGroup' smart constructor.
+-- | Represents the input of a /ModifyCacheParameterGroup/ action.
+--
+-- /See:/ 'modifyCacheParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

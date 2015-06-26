@@ -36,10 +36,11 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- ** Response lenses
     , dasirNextToken
     , dasirAutoScalingInstances
+    , dasirStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -94,7 +95,8 @@ instance AWSRequest DescribeAutoScalingInstances
                  DescribeAutoScalingInstancesResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "AutoScalingInstances" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
@@ -120,11 +122,13 @@ instance ToQuery DescribeAutoScalingInstances where
 -- * 'dasirNextToken'
 --
 -- * 'dasirAutoScalingInstances'
-data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken :: Maybe Text, _dasirAutoScalingInstances :: Maybe [AutoScalingInstanceDetails]} deriving (Eq, Read, Show)
+--
+-- * 'dasirStatusCode'
+data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken :: Maybe Text, _dasirAutoScalingInstances :: Maybe [AutoScalingInstanceDetails], _dasirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
-describeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken = Nothing, _dasirAutoScalingInstances = Nothing};
+describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse
+describeAutoScalingInstancesResponse pStatusCode = DescribeAutoScalingInstancesResponse'{_dasirNextToken = Nothing, _dasirAutoScalingInstances = Nothing, _dasirStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -134,3 +138,7 @@ dasirNextToken = lens _dasirNextToken (\ s a -> s{_dasirNextToken = a});
 -- | The instances.
 dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirAutoScalingInstances = lens _dasirAutoScalingInstances (\ s a -> s{_dasirAutoScalingInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dasirStatusCode :: Lens' DescribeAutoScalingInstancesResponse Int
+dasirStatusCode = lens _dasirStatusCode (\ s a -> s{_dasirStatusCode = a});

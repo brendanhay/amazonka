@@ -35,15 +35,18 @@ module Network.AWS.Route53Domains.ListDomains
     -- ** Response lenses
     , ldrNextPageMarker
     , ldrDomains
+    , ldrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'listDomains' smart constructor.
+-- | The ListDomains request includes the following elements.
+--
+-- /See:/ 'listDomains' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -102,7 +105,8 @@ instance AWSRequest ListDomains where
               (\ s h x ->
                  ListDomainsResponse' <$>
                    (x .?> "NextPageMarker") <*>
-                     (x .?> "Domains" .!@ mempty))
+                     (x .?> "Domains" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -125,18 +129,22 @@ instance ToPath ListDomains where
 instance ToQuery ListDomains where
         toQuery = const mempty
 
--- | /See:/ 'listDomainsResponse' smart constructor.
+-- | The ListDomains response includes the following elements.
+--
+-- /See:/ 'listDomainsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldrNextPageMarker'
 --
 -- * 'ldrDomains'
-data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageMarker :: Maybe Text, _ldrDomains :: [DomainSummary]} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageMarker :: Maybe Text, _ldrDomains :: [DomainSummary], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse'{_ldrNextPageMarker = Nothing, _ldrDomains = mempty};
+listDomainsResponse :: Int -> ListDomainsResponse
+listDomainsResponse pStatusCode = ListDomainsResponse'{_ldrNextPageMarker = Nothing, _ldrDomains = mempty, _ldrStatusCode = pStatusCode};
 
 -- | If there are more domains than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of
@@ -155,3 +163,7 @@ ldrNextPageMarker = lens _ldrNextPageMarker (\ s a -> s{_ldrNextPageMarker = a})
 -- Children: @AutoRenew@, @DomainName@, @Expiry@, @TransferLock@
 ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrDomains = lens _ldrDomains (\ s a -> s{_ldrDomains = a});
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDomainsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

@@ -42,6 +42,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     , deleteClusterSnapshotResponse
     -- ** Response lenses
     , dcsrSnapshot
+    , dcsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -49,7 +50,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteClusterSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'deleteClusterSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,7 +90,7 @@ instance AWSRequest DeleteClusterSnapshot where
           = receiveXMLWrapper "DeleteClusterSnapshotResult"
               (\ s h x ->
                  DeleteClusterSnapshotResponse' <$>
-                   (x .@? "Snapshot"))
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty
@@ -109,12 +112,18 @@ instance ToQuery DeleteClusterSnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsrSnapshot'
-newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'{_dcsrSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+--
+-- * 'dcsrStatusCode'
+data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'{_dcsrSnapshot :: Maybe Snapshot, _dcsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
-deleteClusterSnapshotResponse :: DeleteClusterSnapshotResponse
-deleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'{_dcsrSnapshot = Nothing};
+deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
+deleteClusterSnapshotResponse pStatusCode = DeleteClusterSnapshotResponse'{_dcsrSnapshot = Nothing, _dcsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\ s a -> s{_dcsrSnapshot = a});
+
+-- | FIXME: Undocumented member.
+dcsrStatusCode :: Lens' DeleteClusterSnapshotResponse Int
+dcsrStatusCode = lens _dcsrStatusCode (\ s a -> s{_dcsrStatusCode = a});

@@ -41,15 +41,18 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- ** Response lenses
     , dodiorOrderableDBInstanceOptions
     , dodiorMarker
+    , dodiorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
+-- |
+--
+-- /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -142,7 +145,8 @@ instance AWSRequest
                  DescribeOrderableDBInstanceOptionsResponse' <$>
                    (x .@? "OrderableDBInstanceOptions" .!@ mempty >>=
                       may (parseXMLList "OrderableDBInstanceOption"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
@@ -168,18 +172,23 @@ instance ToQuery DescribeOrderableDBInstanceOptions
                "Marker" =: _dodioMarker, "Vpc" =: _dodioVPC,
                "Engine" =: _dodioEngine]
 
--- | /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeOrderableDBInstanceOptions action.
+--
+-- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dodiorOrderableDBInstanceOptions'
 --
 -- * 'dodiorMarker'
-data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions :: Maybe [OrderableDBInstanceOption], _dodiorMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dodiorStatusCode'
+data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions :: Maybe [OrderableDBInstanceOption], _dodiorMarker :: Maybe Text, _dodiorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
-describeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions = Nothing, _dodiorMarker = Nothing};
+describeOrderableDBInstanceOptionsResponse :: Int -> DescribeOrderableDBInstanceOptionsResponse
+describeOrderableDBInstanceOptionsResponse pStatusCode = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions = Nothing, _dodiorMarker = Nothing, _dodiorStatusCode = pStatusCode};
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
@@ -192,3 +201,7 @@ dodiorOrderableDBInstanceOptions = lens _dodiorOrderableDBInstanceOptions (\ s a
 -- specified by @MaxRecords@ .
 dodiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorMarker = lens _dodiorMarker (\ s a -> s{_dodiorMarker = a});
+
+-- | FIXME: Undocumented member.
+dodiorStatusCode :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
+dodiorStatusCode = lens _dodiorStatusCode (\ s a -> s{_dodiorStatusCode = a});

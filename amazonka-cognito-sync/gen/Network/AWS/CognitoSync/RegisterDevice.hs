@@ -35,6 +35,7 @@ module Network.AWS.CognitoSync.RegisterDevice
     , registerDeviceResponse
     -- ** Response lenses
     , rdrDeviceId
+    , rdrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'registerDevice' smart constructor.
+-- | A request to RegisterDevice.
+--
+-- /See:/ 'registerDevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,8 @@ instance AWSRequest RegisterDevice where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterDeviceResponse' <$> (x .?> "DeviceId"))
+                 RegisterDeviceResponse' <$>
+                   (x .?> "DeviceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterDevice where
         toHeaders
@@ -107,17 +111,25 @@ instance ToPath RegisterDevice where
 instance ToQuery RegisterDevice where
         toQuery = const mempty
 
--- | /See:/ 'registerDeviceResponse' smart constructor.
+-- | Response to a RegisterDevice request.
+--
+-- /See:/ 'registerDeviceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdrDeviceId'
-newtype RegisterDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rdrStatusCode'
+data RegisterDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId :: Maybe Text, _rdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterDeviceResponse' smart constructor.
-registerDeviceResponse :: RegisterDeviceResponse
-registerDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId = Nothing};
+registerDeviceResponse :: Int -> RegisterDeviceResponse
+registerDeviceResponse pStatusCode = RegisterDeviceResponse'{_rdrDeviceId = Nothing, _rdrStatusCode = pStatusCode};
 
 -- | The unique ID generated for this device by Cognito.
 rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\ s a -> s{_rdrDeviceId = a});
+
+-- | FIXME: Undocumented member.
+rdrStatusCode :: Lens' RegisterDeviceResponse Int
+rdrStatusCode = lens _rdrStatusCode (\ s a -> s{_rdrStatusCode = a});

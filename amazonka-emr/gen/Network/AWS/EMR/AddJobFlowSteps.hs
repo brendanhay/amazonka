@@ -57,6 +57,7 @@ module Network.AWS.EMR.AddJobFlowSteps
     , addJobFlowStepsResponse
     -- ** Response lenses
     , ajfsrStepIds
+    , ajfsrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
@@ -64,7 +65,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addJobFlowSteps' smart constructor.
+-- | The input argument to the AddJobFlowSteps operation.
+--
+-- /See:/ 'addJobFlowSteps' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -94,7 +97,7 @@ instance AWSRequest AddJobFlowSteps where
           = receiveJSON
               (\ s h x ->
                  AddJobFlowStepsResponse' <$>
-                   (x .?> "StepIds" .!@ mempty))
+                   (x .?> "StepIds" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders AddJobFlowSteps where
         toHeaders
@@ -117,17 +120,25 @@ instance ToPath AddJobFlowSteps where
 instance ToQuery AddJobFlowSteps where
         toQuery = const mempty
 
--- | /See:/ 'addJobFlowStepsResponse' smart constructor.
+-- | The output for the AddJobFlowSteps operation.
+--
+-- /See:/ 'addJobFlowStepsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ajfsrStepIds'
-newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ajfsrStatusCode'
+data AddJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds :: Maybe [Text], _ajfsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
-addJobFlowStepsResponse :: AddJobFlowStepsResponse
-addJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds = Nothing};
+addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
+addJobFlowStepsResponse pStatusCode = AddJobFlowStepsResponse'{_ajfsrStepIds = Nothing, _ajfsrStatusCode = pStatusCode};
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ajfsrStatusCode :: Lens' AddJobFlowStepsResponse Int
+ajfsrStatusCode = lens _ajfsrStatusCode (\ s a -> s{_ajfsrStatusCode = a});

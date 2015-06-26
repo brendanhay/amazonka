@@ -33,6 +33,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     -- ** Response lenses
     , gcfoaicrCloudFrontOriginAccessIdentityConfig
     , gcfoaicrETag
+    , gcfoaicrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getCloudFrontOriginAccessIdentityConfig' smart constructor.
+-- | The request to get an origin access identity\'s configuration.
+--
+-- /See:/ 'getCloudFrontOriginAccessIdentityConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,8 @@ instance AWSRequest
               (\ s h x ->
                  GetCloudFrontOriginAccessIdentityConfigResponse' <$>
                    (x .@? "CloudFrontOriginAccessIdentityConfig") <*>
-                     (h .#? "ETag"))
+                     (h .#? "ETag")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          GetCloudFrontOriginAccessIdentityConfig where
@@ -84,18 +88,22 @@ instance ToQuery
          GetCloudFrontOriginAccessIdentityConfig where
         toQuery = const mempty
 
--- | /See:/ 'getCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcfoaicrCloudFrontOriginAccessIdentityConfig'
 --
 -- * 'gcfoaicrETag'
-data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'{_gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig, _gcfoaicrETag :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gcfoaicrStatusCode'
+data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'{_gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig, _gcfoaicrETag :: Maybe Text, _gcfoaicrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
-getCloudFrontOriginAccessIdentityConfigResponse :: GetCloudFrontOriginAccessIdentityConfigResponse
-getCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'{_gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing, _gcfoaicrETag = Nothing};
+getCloudFrontOriginAccessIdentityConfigResponse :: Int -> GetCloudFrontOriginAccessIdentityConfigResponse
+getCloudFrontOriginAccessIdentityConfigResponse pStatusCode = GetCloudFrontOriginAccessIdentityConfigResponse'{_gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing, _gcfoaicrETag = Nothing, _gcfoaicrStatusCode = pStatusCode};
 
 -- | The origin access identity\'s configuration information.
 gcfoaicrCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
@@ -104,3 +112,7 @@ gcfoaicrCloudFrontOriginAccessIdentityConfig = lens _gcfoaicrCloudFrontOriginAcc
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicrETag = lens _gcfoaicrETag (\ s a -> s{_gcfoaicrETag = a});
+
+-- | FIXME: Undocumented member.
+gcfoaicrStatusCode :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse Int
+gcfoaicrStatusCode = lens _gcfoaicrStatusCode (\ s a -> s{_gcfoaicrStatusCode = a});

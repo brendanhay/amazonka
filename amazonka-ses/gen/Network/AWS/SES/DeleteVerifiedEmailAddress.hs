@@ -43,7 +43,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'deleteVerifiedEmailAddress' smart constructor.
+-- | Represents a request instructing the service to delete an address from
+-- the list of verified email addresses.
+--
+-- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

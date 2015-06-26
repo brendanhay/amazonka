@@ -52,6 +52,7 @@ module Network.AWS.MachineLearning.CreateEvaluation
     , createEvaluationResponse
     -- ** Response lenses
     , cerEvaluationId
+    , cerStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -103,7 +104,8 @@ instance AWSRequest CreateEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateEvaluationResponse' <$> (x .?> "EvaluationId"))
+                 CreateEvaluationResponse' <$>
+                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateEvaluation where
         toHeaders
@@ -129,19 +131,32 @@ instance ToPath CreateEvaluation where
 instance ToQuery CreateEvaluation where
         toQuery = const mempty
 
--- | /See:/ 'createEvaluationResponse' smart constructor.
+-- | Represents the output of a CreateEvaluation operation, and is an
+-- acknowledgement that Amazon ML received the request.
+--
+-- CreateEvaluation operation is asynchronous. You can poll for status
+-- updates by using the GetEvaluation operation and checking the @Status@
+-- parameter.
+--
+-- /See:/ 'createEvaluationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cerEvaluationId'
-newtype CreateEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cerStatusCode'
+data CreateEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId :: Maybe Text, _cerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateEvaluationResponse' smart constructor.
-createEvaluationResponse :: CreateEvaluationResponse
-createEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId = Nothing};
+createEvaluationResponse :: Int -> CreateEvaluationResponse
+createEvaluationResponse pStatusCode = CreateEvaluationResponse'{_cerEvaluationId = Nothing, _cerStatusCode = pStatusCode};
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@. This
 -- value should be identical to the value of the @EvaluationId@ in the
 -- request.
 cerEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cerEvaluationId = lens _cerEvaluationId (\ s a -> s{_cerEvaluationId = a});
+
+-- | FIXME: Undocumented member.
+cerStatusCode :: Lens' CreateEvaluationResponse Int
+cerStatusCode = lens _cerStatusCode (\ s a -> s{_cerStatusCode = a});

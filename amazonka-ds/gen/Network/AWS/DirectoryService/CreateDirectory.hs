@@ -37,6 +37,7 @@ module Network.AWS.DirectoryService.CreateDirectory
     , createDirectoryResponse
     -- ** Response lenses
     , creDirectoryId
+    , creStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDirectory' smart constructor.
+-- | Contains the inputs for the CreateDirectory operation.
+--
+-- /See:/ 'createDirectory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +102,8 @@ instance AWSRequest CreateDirectory where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateDirectoryResponse' <$> (x .?> "DirectoryId"))
+                 CreateDirectoryResponse' <$>
+                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDirectory where
         toHeaders
@@ -125,17 +129,25 @@ instance ToPath CreateDirectory where
 instance ToQuery CreateDirectory where
         toQuery = const mempty
 
--- | /See:/ 'createDirectoryResponse' smart constructor.
+-- | Contains the results of the CreateDirectory operation.
+--
+-- /See:/ 'createDirectoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'creDirectoryId'
-newtype CreateDirectoryResponse = CreateDirectoryResponse'{_creDirectoryId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'creStatusCode'
+data CreateDirectoryResponse = CreateDirectoryResponse'{_creDirectoryId :: Maybe Text, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDirectoryResponse' smart constructor.
-createDirectoryResponse :: CreateDirectoryResponse
-createDirectoryResponse = CreateDirectoryResponse'{_creDirectoryId = Nothing};
+createDirectoryResponse :: Int -> CreateDirectoryResponse
+createDirectoryResponse pStatusCode = CreateDirectoryResponse'{_creDirectoryId = Nothing, _creStatusCode = pStatusCode};
 
 -- | The identifier of the directory that was created.
 creDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 creDirectoryId = lens _creDirectoryId (\ s a -> s{_creDirectoryId = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateDirectoryResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

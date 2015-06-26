@@ -45,6 +45,7 @@ module Network.AWS.IAM.CreatePolicy
     , createPolicyResponse
     -- ** Response lenses
     , cprPolicy
+    , cprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -105,7 +106,8 @@ instance AWSRequest CreatePolicy where
         response
           = receiveXMLWrapper "CreatePolicyResult"
               (\ s h x ->
-                 CreatePolicyResponse' <$> (x .@? "Policy"))
+                 CreatePolicyResponse' <$>
+                   (x .@? "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty
@@ -122,17 +124,25 @@ instance ToQuery CreatePolicy where
                "PolicyName" =: _cpPolicyName,
                "PolicyDocument" =: _cpPolicyDocument]
 
--- | /See:/ 'createPolicyResponse' smart constructor.
+-- | Contains the response to a successful CreatePolicy request.
+--
+-- /See:/ 'createPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cprPolicy'
-newtype CreatePolicyResponse = CreatePolicyResponse'{_cprPolicy :: Maybe Policy} deriving (Eq, Read, Show)
+--
+-- * 'cprStatusCode'
+data CreatePolicyResponse = CreatePolicyResponse'{_cprPolicy :: Maybe Policy, _cprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePolicyResponse' smart constructor.
-createPolicyResponse :: CreatePolicyResponse
-createPolicyResponse = CreatePolicyResponse'{_cprPolicy = Nothing};
+createPolicyResponse :: Int -> CreatePolicyResponse
+createPolicyResponse pStatusCode = CreatePolicyResponse'{_cprPolicy = Nothing, _cprStatusCode = pStatusCode};
 
 -- | Information about the policy.
 cprPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprPolicy = lens _cprPolicy (\ s a -> s{_cprPolicy = a});
+
+-- | FIXME: Undocumented member.
+cprStatusCode :: Lens' CreatePolicyResponse Int
+cprStatusCode = lens _cprStatusCode (\ s a -> s{_cprStatusCode = a});

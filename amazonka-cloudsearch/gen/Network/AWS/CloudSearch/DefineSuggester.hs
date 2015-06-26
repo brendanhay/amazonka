@@ -39,6 +39,7 @@ module Network.AWS.CloudSearch.DefineSuggester
     , defineSuggesterResponse
     -- ** Response lenses
     , dsrSuggester
+    , dsrStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -46,7 +47,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'defineSuggester' smart constructor.
+-- | Container for the parameters to the @DefineSuggester@ operation.
+-- Specifies the name of the domain you want to update and the suggester
+-- configuration.
+--
+-- /See:/ 'defineSuggester' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -74,7 +79,8 @@ instance AWSRequest DefineSuggester where
         response
           = receiveXMLWrapper "DefineSuggesterResult"
               (\ s h x ->
-                 DefineSuggesterResponse' <$> (x .@ "Suggester"))
+                 DefineSuggesterResponse' <$>
+                   (x .@ "Suggester") <*> (pure (fromEnum s)))
 
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty
@@ -90,17 +96,26 @@ instance ToQuery DefineSuggester where
                "DomainName" =: _dDomainName,
                "Suggester" =: _dSuggester]
 
--- | /See:/ 'defineSuggesterResponse' smart constructor.
+-- | The result of a @DefineSuggester@ request. Contains the status of the
+-- newly-configured suggester.
+--
+-- /See:/ 'defineSuggesterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSuggester'
-newtype DefineSuggesterResponse = DefineSuggesterResponse'{_dsrSuggester :: SuggesterStatus} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DefineSuggesterResponse = DefineSuggesterResponse'{_dsrSuggester :: SuggesterStatus, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DefineSuggesterResponse' smart constructor.
-defineSuggesterResponse :: SuggesterStatus -> DefineSuggesterResponse
-defineSuggesterResponse pSuggester = DefineSuggesterResponse'{_dsrSuggester = pSuggester};
+defineSuggesterResponse :: SuggesterStatus -> Int -> DefineSuggesterResponse
+defineSuggesterResponse pSuggester pStatusCode = DefineSuggesterResponse'{_dsrSuggester = pSuggester, _dsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrSuggester = lens _dsrSuggester (\ s a -> s{_dsrSuggester = a});
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DefineSuggesterResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

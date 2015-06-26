@@ -32,6 +32,7 @@ module Network.AWS.S3.GetBucketLifecycle
     , getBucketLifecycleResponse
     -- ** Response lenses
     , gblrRules
+    , gblrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -63,7 +64,8 @@ instance AWSRequest GetBucketLifecycle where
           = receiveXML
               (\ s h x ->
                  GetBucketLifecycleResponse' <$>
-                   (may (parseXMLList "Rule") x))
+                   (may (parseXMLList "Rule") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketLifecycle where
         toHeaders = const mempty
@@ -80,12 +82,18 @@ instance ToQuery GetBucketLifecycle where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gblrRules'
-newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules :: Maybe [Rule]} deriving (Eq, Read, Show)
+--
+-- * 'gblrStatusCode'
+data GetBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules :: Maybe [Rule], _gblrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
-getBucketLifecycleResponse :: GetBucketLifecycleResponse
-getBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules = Nothing};
+getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
+getBucketLifecycleResponse pStatusCode = GetBucketLifecycleResponse'{_gblrRules = Nothing, _gblrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+gblrStatusCode :: Lens' GetBucketLifecycleResponse Int
+gblrStatusCode = lens _gblrStatusCode (\ s a -> s{_gblrStatusCode = a});

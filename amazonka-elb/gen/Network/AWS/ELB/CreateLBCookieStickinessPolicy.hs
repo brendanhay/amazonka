@@ -51,6 +51,8 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     , CreateLBCookieStickinessPolicyResponse
     -- ** Response constructor
     , createLBCookieStickinessPolicyResponse
+    -- ** Response lenses
+    , clbcsprStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -95,7 +97,11 @@ instance AWSRequest CreateLBCookieStickinessPolicy
              CreateLBCookieStickinessPolicyResponse
         request = post
         response
-          = receiveNull CreateLBCookieStickinessPolicyResponse'
+          = receiveXMLWrapper
+              "CreateLBCookieStickinessPolicyResult"
+              (\ s h x ->
+                 CreateLBCookieStickinessPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders CreateLBCookieStickinessPolicy
          where
@@ -116,8 +122,16 @@ instance ToQuery CreateLBCookieStickinessPolicy where
                "PolicyName" =: _clbcspPolicyName]
 
 -- | /See:/ 'createLBCookieStickinessPolicyResponse' smart constructor.
-data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'clbcsprStatusCode'
+newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'{_clbcsprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
-createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
-createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse';
+createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
+createLBCookieStickinessPolicyResponse pStatusCode = CreateLBCookieStickinessPolicyResponse'{_clbcsprStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+clbcsprStatusCode :: Lens' CreateLBCookieStickinessPolicyResponse Int
+clbcsprStatusCode = lens _clbcsprStatusCode (\ s a -> s{_clbcsprStatusCode = a});

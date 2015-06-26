@@ -41,6 +41,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
     , dlbprPolicyDescriptions
+    , dlbprStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -81,7 +82,8 @@ instance AWSRequest DescribeLoadBalancerPolicies
               (\ s h x ->
                  DescribeLoadBalancerPoliciesResponse' <$>
                    (x .@? "PolicyDescriptions" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
@@ -104,12 +106,18 @@ instance ToQuery DescribeLoadBalancerPolicies where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbprPolicyDescriptions'
-newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions :: Maybe [PolicyDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dlbprStatusCode'
+data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions :: Maybe [PolicyDescription], _dlbprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
-describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
-describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions = Nothing};
+describeLoadBalancerPoliciesResponse :: Int -> DescribeLoadBalancerPoliciesResponse
+describeLoadBalancerPoliciesResponse pStatusCode = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions = Nothing, _dlbprStatusCode = pStatusCode};
 
 -- | Information about the policies.
 dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlbprStatusCode :: Lens' DescribeLoadBalancerPoliciesResponse Int
+dlbprStatusCode = lens _dlbprStatusCode (\ s a -> s{_dlbprStatusCode = a});

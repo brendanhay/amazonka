@@ -38,6 +38,7 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     , reportTaskRunnerHeartbeatResponse
     -- ** Response lenses
     , rtrhrTerminate
+    , rtrhrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -45,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'reportTaskRunnerHeartbeat' smart constructor.
+-- | Contains the parameters for ReportTaskRunnerHeartbeat.
+--
+-- /See:/ 'reportTaskRunnerHeartbeat' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +93,7 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
           = receiveJSON
               (\ s h x ->
                  ReportTaskRunnerHeartbeatResponse' <$>
-                   (x .:> "terminate"))
+                   (x .:> "terminate") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
@@ -115,17 +118,25 @@ instance ToPath ReportTaskRunnerHeartbeat where
 instance ToQuery ReportTaskRunnerHeartbeat where
         toQuery = const mempty
 
--- | /See:/ 'reportTaskRunnerHeartbeatResponse' smart constructor.
+-- | Contains the output of ReportTaskRunnerHeartbeat.
+--
+-- /See:/ 'reportTaskRunnerHeartbeatResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtrhrTerminate'
-newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'{_rtrhrTerminate :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'rtrhrStatusCode'
+data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'{_rtrhrTerminate :: Bool, _rtrhrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
-reportTaskRunnerHeartbeatResponse :: Bool -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse pTerminate = ReportTaskRunnerHeartbeatResponse'{_rtrhrTerminate = pTerminate};
+reportTaskRunnerHeartbeatResponse :: Bool -> Int -> ReportTaskRunnerHeartbeatResponse
+reportTaskRunnerHeartbeatResponse pTerminate pStatusCode = ReportTaskRunnerHeartbeatResponse'{_rtrhrTerminate = pTerminate, _rtrhrStatusCode = pStatusCode};
 
 -- | Indicates whether the calling task runner should terminate.
 rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrTerminate = lens _rtrhrTerminate (\ s a -> s{_rtrhrTerminate = a});
+
+-- | FIXME: Undocumented member.
+rtrhrStatusCode :: Lens' ReportTaskRunnerHeartbeatResponse Int
+rtrhrStatusCode = lens _rtrhrStatusCode (\ s a -> s{_rtrhrStatusCode = a});

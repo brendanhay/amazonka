@@ -48,6 +48,7 @@ module Network.AWS.DataPipeline.PollForTask
     , pollForTaskResponse
     -- ** Response lenses
     , pftrTaskObject
+    , pftrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -55,7 +56,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'pollForTask' smart constructor.
+-- | Contains the parameters for PollForTask.
+--
+-- /See:/ 'pollForTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,8 @@ instance AWSRequest PollForTask where
         response
           = receiveJSON
               (\ s h x ->
-                 PollForTaskResponse' <$> (x .?> "taskObject"))
+                 PollForTaskResponse' <$>
+                   (x .?> "taskObject") <*> (pure (fromEnum s)))
 
 instance ToHeaders PollForTask where
         toHeaders
@@ -125,16 +129,20 @@ instance ToPath PollForTask where
 instance ToQuery PollForTask where
         toQuery = const mempty
 
--- | /See:/ 'pollForTaskResponse' smart constructor.
+-- | Contains the output of PollForTask.
+--
+-- /See:/ 'pollForTaskResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pftrTaskObject'
-newtype PollForTaskResponse = PollForTaskResponse'{_pftrTaskObject :: Maybe TaskObject} deriving (Eq, Read, Show)
+--
+-- * 'pftrStatusCode'
+data PollForTaskResponse = PollForTaskResponse'{_pftrTaskObject :: Maybe TaskObject, _pftrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PollForTaskResponse' smart constructor.
-pollForTaskResponse :: PollForTaskResponse
-pollForTaskResponse = PollForTaskResponse'{_pftrTaskObject = Nothing};
+pollForTaskResponse :: Int -> PollForTaskResponse
+pollForTaskResponse pStatusCode = PollForTaskResponse'{_pftrTaskObject = Nothing, _pftrStatusCode = pStatusCode};
 
 -- | The information needed to complete the task that is being assigned to
 -- the task runner. One of the fields returned in this object is @taskId@,
@@ -143,3 +151,7 @@ pollForTaskResponse = PollForTaskResponse'{_pftrTaskObject = Nothing};
 -- SetTaskStatus.
 pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\ s a -> s{_pftrTaskObject = a});
+
+-- | FIXME: Undocumented member.
+pftrStatusCode :: Lens' PollForTaskResponse Int
+pftrStatusCode = lens _pftrStatusCode (\ s a -> s{_pftrStatusCode = a});

@@ -21,8 +21,15 @@ module Network.AWS.ElasticTranscoder.Types
     (
     -- * Service
       ElasticTranscoder
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _ValidationException
+    , _IncompatibleVersionException
+    , _AccessDeniedException
+    , _InternalServiceException
+    , _ResourceNotFoundException
+    , _ResourceInUseException
+    , _LimitExceededException
 
     -- * Artwork
     , Artwork
@@ -331,6 +338,7 @@ module Network.AWS.ElasticTranscoder.Types
     , warning
     , warCode
     , warMessage
+
     ) where
 
 import Network.AWS.Prelude
@@ -341,32 +349,77 @@ data ElasticTranscoder
 
 instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
-    type Er ElasticTranscoder = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ElasticTranscoder
-        service' = Service
-            { _svcAbbrev  = "ElasticTranscoder"
-            , _svcPrefix  = "elastictranscoder"
-            , _svcVersion = "2012-09-25"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ElasticTranscoder
+        svc = Service
+            { _svcAbbrev   = "ElasticTranscoder"
+            , _svcPrefix   = "elastictranscoder"
+            , _svcVersion  = "2012-09-25"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ElasticTranscoder
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | One or more required parameter values were not provided in the request.
+_ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ValidationException = _ServiceError . hasCode "ValidationException" . hasStatus 400;
 
--- | /See:/ 'artwork' smart constructor.
+-- | Prism for IncompatibleVersionException' errors.
+_IncompatibleVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_IncompatibleVersionException = _ServiceError . hasCode "IncompatibleVersionException" . hasStatus 400;
+
+-- | General authentication failure. The request was not signed correctly.
+_AccessDeniedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException" . hasStatus 403;
+
+-- | Elastic Transcoder encountered an unexpected exception while trying to
+-- fulfill the request.
+_InternalServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServiceException = _ServiceError . hasCode "InternalServiceException";
+
+-- | The requested resource does not exist or is not available. For example,
+-- the pipeline to which you\'re trying to add a job doesn\'t exist or is
+-- still being created.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+
+-- | The resource you are attempting to change is in use. For example, you
+-- are attempting to delete a pipeline that is currently in use.
+_ResourceInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException" . hasStatus 409;
+
+-- | Too many operations for a given AWS account. For example, the number of
+-- pipelines exceeds the maximum allowed.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 429;
+
+-- | The file to be used as album art. There can be multiple artworks
+-- associated with an audio file, to a maximum of 20.
+--
+-- To remove artwork or leave the artwork empty, you can either set
+-- @Artwork@ to null, or set the @Merge Policy@ to \"Replace\" and use an
+-- empty @Artwork@ array.
+--
+-- To pass through existing artwork unchanged, set the @Merge Policy@ to
+-- \"Prepend\", \"Append\", or \"Fallback\", and use an empty @Artwork@
+-- array.
+--
+-- /See:/ 'artwork' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -481,7 +534,9 @@ instance ToJSON Artwork where
                "Encryption" .= _artEncryption,
                "MaxWidth" .= _artMaxWidth]
 
--- | /See:/ 'audioCodecOptions' smart constructor.
+-- | Options associated with your audio codec.
+--
+-- /See:/ 'audioCodecOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -569,7 +624,9 @@ instance ToJSON AudioCodecOptions where
               ["BitDepth" .= _acoBitDepth, "Signed" .= _acoSigned,
                "Profile" .= _acoProfile, "BitOrder" .= _acoBitOrder]
 
--- | /See:/ 'audioParameters' smart constructor.
+-- | Parameters required for transcoding audio.
+--
+-- /See:/ 'audioParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -759,7 +816,10 @@ instance ToJSON AudioParameters where
                "BitRate" .= _apBitRate,
                "CodecOptions" .= _apCodecOptions]
 
--- | /See:/ 'captionFormat' smart constructor.
+-- | The file format of the output captions. If you leave this value blank,
+-- Elastic Transcoder returns an error.
+--
+-- /See:/ 'captionFormat' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -843,7 +903,10 @@ instance ToJSON CaptionFormat where
               ["Pattern" .= _cfPattern, "Format" .= _cfFormat,
                "Encryption" .= _cfEncryption]
 
--- | /See:/ 'captionSource' smart constructor.
+-- | A source file for the input sidecar captions used during the transcoding
+-- process.
+--
+-- /See:/ 'captionSource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -915,7 +978,9 @@ instance ToJSON CaptionSource where
                "Encryption" .= _csEncryption,
                "Language" .= _csLanguage, "Label" .= _csLabel]
 
--- | /See:/ 'captions' smart constructor.
+-- | The captions to be created, if any.
+--
+-- /See:/ 'captions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -979,7 +1044,10 @@ instance ToJSON Captions where
                "CaptionSources" .= _capCaptionSources,
                "CaptionFormats" .= _capCaptionFormats]
 
--- | /See:/ 'clip' smart constructor.
+-- | Settings for one clip in a composition. All jobs in a playlist must have
+-- the same clip settings.
+--
+-- /See:/ 'clip' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1003,7 +1071,9 @@ instance ToJSON Clip where
         toJSON Clip'{..}
           = object ["TimeSpan" .= _cliTimeSpan]
 
--- | /See:/ 'createJobOutput' smart constructor.
+-- | The @CreateJobOutput@ structure.
+--
+-- /See:/ 'createJobOutput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1216,7 +1286,9 @@ instance ToJSON CreateJobOutput where
                "ThumbnailEncryption" .= _cjoThumbnailEncryption,
                "Rotate" .= _cjoRotate]
 
--- | /See:/ 'createJobPlaylist' smart constructor.
+-- | Information about the master playlist.
+--
+-- /See:/ 'createJobPlaylist' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1314,7 +1386,10 @@ instance ToJSON CreateJobPlaylist where
                "Format" .= _cjpFormat, "Name" .= _cjpName,
                "HlsContentProtection" .= _cjpHlsContentProtection]
 
--- | /See:/ 'detectedProperties' smart constructor.
+-- | The detected properties of the input file. Elastic Transcoder identifies
+-- these values from the input file.
+--
+-- /See:/ 'detectedProperties' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1370,7 +1445,13 @@ instance ToJSON DetectedProperties where
                "FileSize" .= _dpFileSize, "Width" .= _dpWidth,
                "DurationMillis" .= _dpDurationMillis]
 
--- | /See:/ 'encryption' smart constructor.
+-- | The encryption settings, if any, that are used for decrypting your input
+-- files or encrypting your output files. If your input file is encrypted,
+-- you must specify the mode that Elastic Transcoder will use to decrypt
+-- your file, otherwise you must specify the mode you want Elastic
+-- Transcoder to use to encrypt your output files.
+--
+-- /See:/ 'encryption' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1469,7 +1550,10 @@ instance ToJSON Encryption where
                "Key" .= _encKey,
                "InitializationVector" .= _encInitializationVector]
 
--- | /See:/ 'hlsContentProtection' smart constructor.
+-- | The HLS content protection settings, if any, that you want Elastic
+-- Transcoder to apply to your output files.
+--
+-- /See:/ 'hlsContentProtection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1564,7 +1648,10 @@ instance ToJSON HlsContentProtection where
                "LicenseAcquisitionUrl" .= _hcpLicenseAcquisitionURL,
                "InitializationVector" .= _hcpInitializationVector]
 
--- | /See:/ 'job'' smart constructor.
+-- | A section of the response body that provides information about the job
+-- that is created.
+--
+-- /See:/ 'job'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1704,7 +1791,9 @@ instance FromJSON Job' where
                      <*> (x .:? "Timing")
                      <*> (x .:? "OutputKeyPrefix"))
 
--- | /See:/ 'jobAlbumArt' smart constructor.
+-- | The .jpg or .png file associated with an audio file.
+--
+-- /See:/ 'jobAlbumArt' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1753,7 +1842,9 @@ instance ToJSON JobAlbumArt where
               ["MergePolicy" .= _jaaMergePolicy,
                "Artwork" .= _jaaArtwork]
 
--- | /See:/ 'jobInput' smart constructor.
+-- | Information about the file that you\'re transcoding.
+--
+-- /See:/ 'jobInput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1874,7 +1965,13 @@ instance ToJSON JobInput where
                "Container" .= _jiContainer,
                "Interlaced" .= _jiInterlaced]
 
--- | /See:/ 'jobOutput' smart constructor.
+-- | Outputs recommended instead.
+-- If you specified one output for a job, information about that output. If
+-- you specified multiple outputs for a job, the @Output@ object lists
+-- information about the first output. This duplicates the information that
+-- is listed for the first output in the @Outputs@ object.
+--
+-- /See:/ 'jobOutput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2194,7 +2291,11 @@ instance FromJSON JobOutput where
                      <*> (x .:? "Duration")
                      <*> (x .:? "Rotate"))
 
--- | /See:/ 'jobWatermark' smart constructor.
+-- | Watermarks can be in .png or .jpg format. If you want to display a
+-- watermark that is not rectangular, use the .png format, which supports
+-- transparency.
+--
+-- /See:/ 'jobWatermark' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2247,7 +2348,13 @@ instance ToJSON JobWatermark where
                "InputKey" .= _jwInputKey,
                "Encryption" .= _jwEncryption]
 
--- | /See:/ 'notifications' smart constructor.
+-- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
+-- notify in order to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- /See:/ 'notifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2300,7 +2407,9 @@ instance ToJSON Notifications where
                "Completed" .= _notCompleted,
                "Progressing" .= _notProgressing]
 
--- | /See:/ 'permission' smart constructor.
+-- | The @Permission@ structure.
+--
+-- /See:/ 'permission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2364,7 +2473,9 @@ instance ToJSON Permission where
                "GranteeType" .= _perGranteeType,
                "Grantee" .= _perGrantee]
 
--- | /See:/ 'pipeline' smart constructor.
+-- | The pipeline (queue) that is used to manage jobs.
+--
+-- /See:/ 'pipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2561,7 +2672,9 @@ instance FromJSON Pipeline where
                      <*> (x .:? "ThumbnailConfig")
                      <*> (x .:? "Notifications"))
 
--- | /See:/ 'pipelineOutputConfig' smart constructor.
+-- | The @PipelineOutputConfig@ structure.
+--
+-- /See:/ 'pipelineOutputConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2634,7 +2747,15 @@ instance ToJSON PipelineOutputConfig where
                "StorageClass" .= _pocStorageClass,
                "Permissions" .= _pocPermissions]
 
--- | /See:/ 'playReadyDrm' smart constructor.
+-- | The PlayReady DRM settings, if any, that you want Elastic Transcoder to
+-- apply to the output files associated with this playlist.
+--
+-- PlayReady DRM encrypts your media files using @AES-CTR@ encryption.
+--
+-- If you use DRM for an @HLSv3@ playlist, your outputs must have a master
+-- playlist.
+--
+-- /See:/ 'playReadyDrm' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2725,7 +2846,14 @@ instance ToJSON PlayReadyDrm where
                "LicenseAcquisitionUrl" .= _prdLicenseAcquisitionURL,
                "InitializationVector" .= _prdInitializationVector]
 
--- | /See:/ 'playlist' smart constructor.
+-- | Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset
+-- for which the value of Container is @fmp4@ (Fragmented MP4) or @ts@
+-- (MPEG-TS), Playlists contains information about the master playlists
+-- that you want Elastic Transcoder to create. We recommend that you create
+-- only one master playlist per output format. The maximum number of master
+-- playlists in a job is 30.
+--
+-- /See:/ 'playlist' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2839,7 +2967,14 @@ instance FromJSON Playlist where
                      <*> (x .:? "HlsContentProtection")
                      <*> (x .:? "StatusDetail"))
 
--- | /See:/ 'preset' smart constructor.
+-- | Presets are templates that contain most of the settings for transcoding
+-- media files from one format to another. Elastic Transcoder includes some
+-- default presets for common formats, for example, several iPod and iPhone
+-- versions. You can also create your own presets for formats that aren\'t
+-- included among the default presets. You specify which preset you want to
+-- use when you create a job.
+--
+-- /See:/ 'preset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2922,7 +3057,23 @@ instance FromJSON Preset where
                      <*> (x .:? "Audio")
                      <*> (x .:? "Description"))
 
--- | /See:/ 'presetWatermark' smart constructor.
+-- | Settings for the size, location, and opacity of graphics that you want
+-- Elastic Transcoder to overlay over videos that are transcoded using this
+-- preset. You can specify settings for up to four watermarks. Watermarks
+-- appear in the specified size and location, and with the specified
+-- opacity for the duration of the transcoded video.
+--
+-- Watermarks can be in .png or .jpg format. If you want to display a
+-- watermark that is not rectangular, use the .png format, which supports
+-- transparency.
+--
+-- When you create a job that uses this preset, you specify the .png or
+-- .jpg graphics that you want Elastic Transcoder to include in the
+-- transcoded videos. You can specify fewer graphics in the job than you
+-- specify watermark settings in the preset, which allows you to use the
+-- same preset for up to four watermarks that have different dimensions.
+--
+-- /See:/ 'presetWatermark' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3130,7 +3281,9 @@ instance ToJSON PresetWatermark where
                "HorizontalAlign" .= _pwHorizontalAlign,
                "Target" .= _pwTarget]
 
--- | /See:/ 'thumbnails' smart constructor.
+-- | Thumbnails for videos.
+--
+-- /See:/ 'thumbnails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3269,7 +3422,9 @@ instance ToJSON Thumbnails where
                "Interval" .= _thuInterval,
                "MaxWidth" .= _thuMaxWidth]
 
--- | /See:/ 'timeSpan' smart constructor.
+-- | Settings that determine when a clip begins and how long it lasts.
+--
+-- /See:/ 'timeSpan' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3313,7 +3468,9 @@ instance ToJSON TimeSpan where
               ["StartTime" .= _tsStartTime,
                "Duration" .= _tsDuration]
 
--- | /See:/ 'timing' smart constructor.
+-- | Details about the timing of a job.
+--
+-- /See:/ 'timing' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3350,7 +3507,9 @@ instance FromJSON Timing where
                      (x .:? "FinishTimeMillis")
                      <*> (x .:? "StartTimeMillis"))
 
--- | /See:/ 'videoParameters' smart constructor.
+-- | The @VideoParameters@ structure.
+--
+-- /See:/ 'videoParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3821,7 +3980,14 @@ instance ToJSON VideoParameters where
                "FixedGOP" .= _vpFixedGOP,
                "CodecOptions" .= _vpCodecOptions]
 
--- | /See:/ 'warning' smart constructor.
+-- | Elastic Transcoder returns a warning if the resources used by your
+-- pipeline are not in the same region as the pipeline.
+--
+-- Using resources in the same region, such as your Amazon S3 buckets,
+-- Amazon SNS notification topics, and AWS KMS key, reduces processing time
+-- and prevents cross-regional charges.
+--
+-- /See:/ 'warning' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

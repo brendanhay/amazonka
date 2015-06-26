@@ -21,8 +21,10 @@ module Network.AWS.StorageGateway.Types
     (
     -- * Service
       StorageGateway
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidGatewayRequestException
+    , _InternalServerError
 
     -- * CachediSCSIVolume
     , CachediSCSIVolume
@@ -150,6 +152,7 @@ module Network.AWS.StorageGateway.Types
     , vscsiaChapEnabled
     , vscsiaNetworkInterfaceId
     , vscsiaNetworkInterfacePort
+
     ) where
 
 import Network.AWS.Prelude
@@ -160,30 +163,41 @@ data StorageGateway
 
 instance AWSService StorageGateway where
     type Sg StorageGateway = V4
-    type Er StorageGateway = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service StorageGateway
-        service' = Service
-            { _svcAbbrev  = "StorageGateway"
-            , _svcPrefix  = "storagegateway"
-            , _svcVersion = "2013-06-30"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service StorageGateway
+        svc = Service
+            { _svcAbbrev   = "StorageGateway"
+            , _svcPrefix   = "storagegateway"
+            , _svcVersion  = "2013-06-30"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry StorageGateway
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | An exception occurred because an invalid gateway request was issued to
+-- the service. See the error and message fields for more information.
+_InvalidGatewayRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidGatewayRequestException = _ServiceError . hasCode "InvalidGatewayRequestException" . hasStatus 400;
+
+-- | An internal server error has occurred during the request. See the error
+-- and message fields for more information.
+_InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServerError = _ServiceError . hasCode "InternalServerError" . hasStatus 500;
 
 -- | /See:/ 'cachediSCSIVolume' smart constructor.
 --
@@ -256,7 +270,10 @@ instance FromJSON CachediSCSIVolume where
                      <*> (x .:? "VolumeId")
                      <*> (x .:? "VolumeType"))
 
--- | /See:/ 'chapInfo' smart constructor.
+-- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
+-- that supports authentication between your gateway and iSCSI initiators.
+--
+-- /See:/ 'chapInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -304,7 +321,9 @@ instance FromJSON ChapInfo where
                      <*> (x .:? "InitiatorName")
                      <*> (x .:? "SecretToAuthenticateTarget"))
 
--- | /See:/ 'deviceiSCSIAttributes' smart constructor.
+-- | Lists iSCSI information about a VTL device.
+--
+-- /See:/ 'deviceiSCSIAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -447,7 +466,9 @@ instance FromJSON GatewayInfo where
                      (x .:? "GatewayOperationalState")
                      <*> (x .:? "GatewayType"))
 
--- | /See:/ 'networkInterface' smart constructor.
+-- | Describes a gateway\'s network interface.
+--
+-- /See:/ 'networkInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -570,7 +591,9 @@ instance FromJSON StorediSCSIVolume where
                      <*> (x .:? "VolumeType")
                      <*> (x .:? "VolumeDiskId"))
 
--- | /See:/ 'tape' smart constructor.
+-- | Describes a virtual tape object.
+--
+-- /See:/ 'tape' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -630,7 +653,10 @@ instance FromJSON Tape where
                      <*> (x .:? "TapeSizeInBytes")
                      <*> (x .:? "VTLDevice"))
 
--- | /See:/ 'tapeArchive' smart constructor.
+-- | Represents a virtual tape that is archived in the virtual tape shelf
+-- (VTS).
+--
+-- /See:/ 'tapeArchive' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -692,7 +718,9 @@ instance FromJSON TapeArchive where
                      <*> (x .:? "CompletionTime")
                      <*> (x .:? "RetrievedTo"))
 
--- | /See:/ 'tapeRecoveryPointInfo' smart constructor.
+-- | Describes a recovery point.
+--
+-- /See:/ 'tapeRecoveryPointInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -739,7 +767,9 @@ instance FromJSON TapeRecoveryPointInfo where
                      <*> (x .:? "TapeARN")
                      <*> (x .:? "TapeSizeInBytes"))
 
--- | /See:/ 'vTLDevice' smart constructor.
+-- | Represents a device object associated with a gateway-VTL.
+--
+-- /See:/ 'vTLDevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -861,7 +891,9 @@ instance FromJSON VolumeRecoveryPointInfo where
                      <*> (x .:? "VolumeSizeInBytes")
                      <*> (x .:? "VolumeUsageInBytes"))
 
--- | /See:/ 'volumeiSCSIAttributes' smart constructor.
+-- | Lists iSCSI information about a volume.
+--
+-- /See:/ 'volumeiSCSIAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

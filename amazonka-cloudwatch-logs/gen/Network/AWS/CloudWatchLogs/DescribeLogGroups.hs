@@ -43,6 +43,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     -- ** Response lenses
     , dlgrLogGroups
     , dlgrNextToken
+    , dlgrStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -90,7 +91,8 @@ instance AWSRequest DescribeLogGroups where
               (\ s h x ->
                  DescribeLogGroupsResponse' <$>
                    (x .?> "logGroups" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLogGroups where
         toHeaders
@@ -121,11 +123,13 @@ instance ToQuery DescribeLogGroups where
 -- * 'dlgrLogGroups'
 --
 -- * 'dlgrNextToken'
-data DescribeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups :: Maybe [LogGroup], _dlgrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dlgrStatusCode'
+data DescribeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups :: Maybe [LogGroup], _dlgrNextToken :: Maybe Text, _dlgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
-describeLogGroupsResponse :: DescribeLogGroupsResponse
-describeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups = Nothing, _dlgrNextToken = Nothing};
+describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse
+describeLogGroupsResponse pStatusCode = DescribeLogGroupsResponse'{_dlgrLogGroups = Nothing, _dlgrNextToken = Nothing, _dlgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
@@ -134,3 +138,7 @@ dlgrLogGroups = lens _dlgrLogGroups (\ s a -> s{_dlgrLogGroups = a}) . _Default;
 -- | FIXME: Undocumented member.
 dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\ s a -> s{_dlgrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dlgrStatusCode :: Lens' DescribeLogGroupsResponse Int
+dlgrStatusCode = lens _dlgrStatusCode (\ s a -> s{_dlgrStatusCode = a});

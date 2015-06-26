@@ -50,15 +50,18 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     -- ** Response lenses
     , dhccrMarker
     , dhccrHSMClientCertificates
+    , dhccrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeHSMClientCertificates' smart constructor.
+-- |
+--
+-- /See:/ 'describeHSMClientCertificates' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -144,7 +147,8 @@ instance AWSRequest DescribeHSMClientCertificates
                  DescribeHSMClientCertificatesResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "HsmClientCertificates" .!@ mempty >>=
-                        may (parseXMLList "HsmClientCertificate")))
+                        may (parseXMLList "HsmClientCertificate"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeHSMClientCertificates
          where
@@ -168,18 +172,22 @@ instance ToQuery DescribeHSMClientCertificates where
                "MaxRecords" =: _dhccMaxRecords,
                "Marker" =: _dhccMarker]
 
--- | /See:/ 'describeHSMClientCertificatesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeHSMClientCertificatesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dhccrMarker'
 --
 -- * 'dhccrHSMClientCertificates'
-data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker :: Maybe Text, _dhccrHSMClientCertificates :: Maybe [HSMClientCertificate]} deriving (Eq, Read, Show)
+--
+-- * 'dhccrStatusCode'
+data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker :: Maybe Text, _dhccrHSMClientCertificates :: Maybe [HSMClientCertificate], _dhccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
-describeHSMClientCertificatesResponse :: DescribeHSMClientCertificatesResponse
-describeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker = Nothing, _dhccrHSMClientCertificates = Nothing};
+describeHSMClientCertificatesResponse :: Int -> DescribeHSMClientCertificatesResponse
+describeHSMClientCertificatesResponse pStatusCode = DescribeHSMClientCertificatesResponse'{_dhccrMarker = Nothing, _dhccrHSMClientCertificates = Nothing, _dhccrStatusCode = pStatusCode};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -195,3 +203,7 @@ dhccrMarker = lens _dhccrMarker (\ s a -> s{_dhccrMarker = a});
 -- keys in an HSM.
 dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
 dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dhccrStatusCode :: Lens' DescribeHSMClientCertificatesResponse Int
+dhccrStatusCode = lens _dhccrStatusCode (\ s a -> s{_dhccrStatusCode = a});

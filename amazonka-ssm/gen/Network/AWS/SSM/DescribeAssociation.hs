@@ -34,6 +34,7 @@ module Network.AWS.SSM.DescribeAssociation
     , describeAssociationResponse
     -- ** Response lenses
     , darAssociationDescription
+    , darStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -71,7 +72,8 @@ instance AWSRequest DescribeAssociation where
           = receiveJSON
               (\ s h x ->
                  DescribeAssociationResponse' <$>
-                   (x .?> "AssociationDescription"))
+                   (x .?> "AssociationDescription") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAssociation where
         toHeaders
@@ -98,12 +100,18 @@ instance ToQuery DescribeAssociation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darAssociationDescription'
-newtype DescribeAssociationResponse = DescribeAssociationResponse'{_darAssociationDescription :: Maybe AssociationDescription} deriving (Eq, Read, Show)
+--
+-- * 'darStatusCode'
+data DescribeAssociationResponse = DescribeAssociationResponse'{_darAssociationDescription :: Maybe AssociationDescription, _darStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAssociationResponse' smart constructor.
-describeAssociationResponse :: DescribeAssociationResponse
-describeAssociationResponse = DescribeAssociationResponse'{_darAssociationDescription = Nothing};
+describeAssociationResponse :: Int -> DescribeAssociationResponse
+describeAssociationResponse pStatusCode = DescribeAssociationResponse'{_darAssociationDescription = Nothing, _darStatusCode = pStatusCode};
 
 -- | Information about the association.
 darAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
 darAssociationDescription = lens _darAssociationDescription (\ s a -> s{_darAssociationDescription = a});
+
+-- | FIXME: Undocumented member.
+darStatusCode :: Lens' DescribeAssociationResponse Int
+darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});

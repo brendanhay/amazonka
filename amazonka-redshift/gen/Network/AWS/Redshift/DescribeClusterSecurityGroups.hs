@@ -53,15 +53,18 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- ** Response lenses
     , dcsgr1ClusterSecurityGroups
     , dcsgr1Marker
+    , dcsgr1StatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeClusterSecurityGroups' smart constructor.
+-- | ???
+--
+-- /See:/ 'describeClusterSecurityGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -151,7 +154,8 @@ instance AWSRequest DescribeClusterSecurityGroups
                  DescribeClusterSecurityGroupsResponse' <$>
                    (x .@? "ClusterSecurityGroups" .!@ mempty >>=
                       may (parseXMLList "ClusterSecurityGroup"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterSecurityGroups
          where
@@ -175,18 +179,22 @@ instance ToQuery DescribeClusterSecurityGroups where
                "MaxRecords" =: _dcsgMaxRecords,
                "Marker" =: _dcsgMarker]
 
--- | /See:/ 'describeClusterSecurityGroupsResponse' smart constructor.
+-- | Contains the output from the DescribeClusterSecurityGroups action.
+--
+-- /See:/ 'describeClusterSecurityGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsgr1ClusterSecurityGroups'
 --
 -- * 'dcsgr1Marker'
-data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups :: Maybe [ClusterSecurityGroup], _dcsgr1Marker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcsgr1StatusCode'
+data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups :: Maybe [ClusterSecurityGroup], _dcsgr1Marker :: Maybe Text, _dcsgr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
-describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
-describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups = Nothing, _dcsgr1Marker = Nothing};
+describeClusterSecurityGroupsResponse :: Int -> DescribeClusterSecurityGroupsResponse
+describeClusterSecurityGroupsResponse pStatusCode = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups = Nothing, _dcsgr1Marker = Nothing, _dcsgr1StatusCode = pStatusCode};
 
 -- | A list of ClusterSecurityGroup instances.
 dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
@@ -200,3 +208,7 @@ dcsgr1ClusterSecurityGroups = lens _dcsgr1ClusterSecurityGroups (\ s a -> s{_dcs
 -- the request.
 dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\ s a -> s{_dcsgr1Marker = a});
+
+-- | FIXME: Undocumented member.
+dcsgr1StatusCode :: Lens' DescribeClusterSecurityGroupsResponse Int
+dcsgr1StatusCode = lens _dcsgr1StatusCode (\ s a -> s{_dcsgr1StatusCode = a});

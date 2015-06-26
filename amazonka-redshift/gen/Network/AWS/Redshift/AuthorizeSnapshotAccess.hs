@@ -39,6 +39,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     , authorizeSnapshotAccessResponse
     -- ** Response lenses
     , asarSnapshot
+    , asarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +47,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'authorizeSnapshotAccess' smart constructor.
+-- |
+--
+-- /See:/ 'authorizeSnapshotAccess' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +89,7 @@ instance AWSRequest AuthorizeSnapshotAccess where
           = receiveXMLWrapper "AuthorizeSnapshotAccessResult"
               (\ s h x ->
                  AuthorizeSnapshotAccessResponse' <$>
-                   (x .@? "Snapshot"))
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
@@ -111,12 +114,18 @@ instance ToQuery AuthorizeSnapshotAccess where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'asarSnapshot'
-newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'{_asarSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+--
+-- * 'asarStatusCode'
+data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'{_asarSnapshot :: Maybe Snapshot, _asarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AuthorizeSnapshotAccessResponse' smart constructor.
-authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse
-authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'{_asarSnapshot = Nothing};
+authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse
+authorizeSnapshotAccessResponse pStatusCode = AuthorizeSnapshotAccessResponse'{_asarSnapshot = Nothing, _asarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\ s a -> s{_asarSnapshot = a});
+
+-- | FIXME: Undocumented member.
+asarStatusCode :: Lens' AuthorizeSnapshotAccessResponse Int
+asarStatusCode = lens _asarStatusCode (\ s a -> s{_asarStatusCode = a});

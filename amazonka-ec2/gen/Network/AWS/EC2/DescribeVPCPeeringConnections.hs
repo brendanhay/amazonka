@@ -33,7 +33,8 @@ module Network.AWS.EC2.DescribeVPCPeeringConnections
     -- ** Response constructor
     , describeVPCPeeringConnectionsResponse
     -- ** Response lenses
-    , dvpcrVPCPeeringConnections
+    , dvpcpcrVPCPeeringConnections
+    , dvpcpcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -125,7 +126,8 @@ instance AWSRequest DescribeVPCPeeringConnections
           = receiveXML
               (\ s h x ->
                  DescribeVPCPeeringConnectionsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCPeeringConnections
          where
@@ -150,13 +152,19 @@ instance ToQuery DescribeVPCPeeringConnections where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcrVPCPeeringConnections'
-newtype DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections :: Maybe [VPCPeeringConnection]} deriving (Eq, Read, Show)
+-- * 'dvpcpcrVPCPeeringConnections'
+--
+-- * 'dvpcpcrStatusCode'
+data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcpcrVPCPeeringConnections :: Maybe [VPCPeeringConnection], _dvpcpcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
-describeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections = Nothing};
+describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse
+describeVPCPeeringConnectionsResponse pStatusCode = DescribeVPCPeeringConnectionsResponse'{_dvpcpcrVPCPeeringConnections = Nothing, _dvpcpcrStatusCode = pStatusCode};
 
 -- | Information about the VPC peering connections.
-dvpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
-dvpcrVPCPeeringConnections = lens _dvpcrVPCPeeringConnections (\ s a -> s{_dvpcrVPCPeeringConnections = a}) . _Default;
+dvpcpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
+dvpcpcrVPCPeeringConnections = lens _dvpcpcrVPCPeeringConnections (\ s a -> s{_dvpcpcrVPCPeeringConnections = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvpcpcrStatusCode :: Lens' DescribeVPCPeeringConnectionsResponse Int
+dvpcpcrStatusCode = lens _dvpcpcrStatusCode (\ s a -> s{_dvpcpcrStatusCode = a});

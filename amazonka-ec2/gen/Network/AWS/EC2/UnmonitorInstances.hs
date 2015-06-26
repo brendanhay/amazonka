@@ -36,6 +36,7 @@ module Network.AWS.EC2.UnmonitorInstances
     , unmonitorInstancesResponse
     -- ** Response lenses
     , uirInstanceMonitorings
+    , uirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -76,7 +77,8 @@ instance AWSRequest UnmonitorInstances where
           = receiveXML
               (\ s h x ->
                  UnmonitorInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
@@ -97,12 +99,18 @@ instance ToQuery UnmonitorInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uirInstanceMonitorings'
-newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings :: Maybe [InstanceMonitoring]} deriving (Eq, Read, Show)
+--
+-- * 'uirStatusCode'
+data UnmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings :: Maybe [InstanceMonitoring], _uirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
-unmonitorInstancesResponse :: UnmonitorInstancesResponse
-unmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings = Nothing};
+unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
+unmonitorInstancesResponse pStatusCode = UnmonitorInstancesResponse'{_uirInstanceMonitorings = Nothing, _uirStatusCode = pStatusCode};
 
 -- | Monitoring information for one or more instances.
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+uirStatusCode :: Lens' UnmonitorInstancesResponse Int
+uirStatusCode = lens _uirStatusCode (\ s a -> s{_uirStatusCode = a});

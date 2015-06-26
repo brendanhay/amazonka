@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     , getDeploymentGroupResponse
     -- ** Response lenses
     , gdgrDeploymentGroupInfo
+    , gdgrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDeploymentGroup' smart constructor.
+-- | Represents the input of a get deployment group operation.
+--
+-- /See:/ 'getDeploymentGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest GetDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentGroupResponse' <$>
-                   (x .?> "deploymentGroupInfo"))
+                   (x .?> "deploymentGroupInfo") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDeploymentGroup where
         toHeaders
@@ -95,17 +99,25 @@ instance ToPath GetDeploymentGroup where
 instance ToQuery GetDeploymentGroup where
         toQuery = const mempty
 
--- | /See:/ 'getDeploymentGroupResponse' smart constructor.
+-- | Represents the output of a get deployment group operation.
+--
+-- /See:/ 'getDeploymentGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdgrDeploymentGroupInfo'
-newtype GetDeploymentGroupResponse = GetDeploymentGroupResponse'{_gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo} deriving (Eq, Read, Show)
+--
+-- * 'gdgrStatusCode'
+data GetDeploymentGroupResponse = GetDeploymentGroupResponse'{_gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo, _gdgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
-getDeploymentGroupResponse :: GetDeploymentGroupResponse
-getDeploymentGroupResponse = GetDeploymentGroupResponse'{_gdgrDeploymentGroupInfo = Nothing};
+getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
+getDeploymentGroupResponse pStatusCode = GetDeploymentGroupResponse'{_gdgrDeploymentGroupInfo = Nothing, _gdgrStatusCode = pStatusCode};
 
 -- | Information about the deployment group.
 gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
 gdgrDeploymentGroupInfo = lens _gdgrDeploymentGroupInfo (\ s a -> s{_gdgrDeploymentGroupInfo = a});
+
+-- | FIXME: Undocumented member.
+gdgrStatusCode :: Lens' GetDeploymentGroupResponse Int
+gdgrStatusCode = lens _gdgrStatusCode (\ s a -> s{_gdgrStatusCode = a});

@@ -36,6 +36,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , revokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirCacheSecurityGroup
+    , rcsgirStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'revokeCacheSecurityGroupIngress' smart constructor.
+-- | Represents the input of a /RevokeCacheSecurityGroupIngress/ action.
+--
+-- /See:/ 'revokeCacheSecurityGroupIngress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,7 +86,7 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
               "RevokeCacheSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeCacheSecurityGroupIngressResponse' <$>
-                   (x .@? "CacheSecurityGroup"))
+                   (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders RevokeCacheSecurityGroupIngress
          where
@@ -110,12 +113,18 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcsgirCacheSecurityGroup'
-newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'{_rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'rcsgirStatusCode'
+data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'{_rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup, _rcsgirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
-revokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse
-revokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'{_rcsgirCacheSecurityGroup = Nothing};
+revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse
+revokeCacheSecurityGroupIngressResponse pStatusCode = RevokeCacheSecurityGroupIngressResponse'{_rcsgirCacheSecurityGroup = Nothing, _rcsgirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 rcsgirCacheSecurityGroup = lens _rcsgirCacheSecurityGroup (\ s a -> s{_rcsgirCacheSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+rcsgirStatusCode :: Lens' RevokeCacheSecurityGroupIngressResponse Int
+rcsgirStatusCode = lens _rcsgirStatusCode (\ s a -> s{_rcsgirStatusCode = a});

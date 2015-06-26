@@ -33,6 +33,7 @@ module Network.AWS.StorageGateway.DeleteTape
     , deleteTapeResponse
     -- ** Response lenses
     , dtrTapeARN
+    , dtrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +41,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'deleteTape' smart constructor.
+-- | DeleteTapeInput
+--
+-- /See:/ 'deleteTape' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest DeleteTape where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteTapeResponse' <$> (x .?> "TapeARN"))
+                 DeleteTapeResponse' <$>
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteTape where
         toHeaders
@@ -93,17 +97,25 @@ instance ToPath DeleteTape where
 instance ToQuery DeleteTape where
         toQuery = const mempty
 
--- | /See:/ 'deleteTapeResponse' smart constructor.
+-- | DeleteTapeOutput
+--
+-- /See:/ 'deleteTapeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTapeARN'
-newtype DeleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DeleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN :: Maybe Text, _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteTapeResponse' smart constructor.
-deleteTapeResponse :: DeleteTapeResponse
-deleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN = Nothing};
+deleteTapeResponse :: Int -> DeleteTapeResponse
+deleteTapeResponse pStatusCode = DeleteTapeResponse'{_dtrTapeARN = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
 dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\ s a -> s{_dtrTapeARN = a});
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DeleteTapeResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

@@ -59,6 +59,7 @@ module Network.AWS.Redshift.DescribeTags
     -- ** Response lenses
     , dtrMarker
     , dtrTaggedResources
+    , dtrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -66,7 +67,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeTags' smart constructor.
+-- | Contains the output from the @DescribeTags@ action.
+--
+-- /See:/ 'describeTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -157,7 +160,8 @@ instance AWSRequest DescribeTags where
                  DescribeTagsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "TaggedResources" .!@ mempty >>=
-                        may (parseXMLList "TaggedResource")))
+                        may (parseXMLList "TaggedResource"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -178,18 +182,22 @@ instance ToQuery DescribeTags where
                  toQuery (toQueryList "TagKey" <$> _dtTagKeys),
                "MaxRecords" =: _dtMaxRecords, "Marker" =: _dtMarker]
 
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- | Contains the output from the @DescribeTags@ action.
+--
+-- /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrMarker'
 --
 -- * 'dtrTaggedResources'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrTaggedResources :: Maybe [TaggedResource]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrTaggedResources :: Maybe [TaggedResource], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrTaggedResources = Nothing};
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrTaggedResources = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -203,3 +211,7 @@ dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
 -- | A list of tags with their associated resources.
 dtrTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrTaggedResources = lens _dtrTaggedResources (\ s a -> s{_dtrTaggedResources = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTagsResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

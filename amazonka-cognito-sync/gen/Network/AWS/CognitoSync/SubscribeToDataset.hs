@@ -34,6 +34,8 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     , SubscribeToDatasetResponse
     -- ** Response constructor
     , subscribeToDatasetResponse
+    -- ** Response lenses
+    , stdrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'subscribeToDataset' smart constructor.
+-- | A request to SubscribeToDatasetRequest.
+--
+-- /See:/ 'subscribeToDataset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -81,7 +85,10 @@ instance AWSRequest SubscribeToDataset where
         type Rs SubscribeToDataset =
              SubscribeToDatasetResponse
         request = postJSON
-        response = receiveNull SubscribeToDatasetResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 SubscribeToDatasetResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders SubscribeToDataset where
         toHeaders
@@ -104,9 +111,19 @@ instance ToPath SubscribeToDataset where
 instance ToQuery SubscribeToDataset where
         toQuery = const mempty
 
--- | /See:/ 'subscribeToDatasetResponse' smart constructor.
-data SubscribeToDatasetResponse = SubscribeToDatasetResponse' deriving (Eq, Read, Show)
+-- | Response to a SubscribeToDataset request.
+--
+-- /See:/ 'subscribeToDatasetResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'stdrStatusCode'
+newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'{_stdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
-subscribeToDatasetResponse :: SubscribeToDatasetResponse
-subscribeToDatasetResponse = SubscribeToDatasetResponse';
+subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
+subscribeToDatasetResponse pStatusCode = SubscribeToDatasetResponse'{_stdrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+stdrStatusCode :: Lens' SubscribeToDatasetResponse Int
+stdrStatusCode = lens _stdrStatusCode (\ s a -> s{_stdrStatusCode = a});

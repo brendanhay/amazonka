@@ -71,6 +71,7 @@ module Network.AWS.KMS.GenerateDataKey
     , gdkrKeyId
     , gdkrPlaintext
     , gdkrCiphertextBlob
+    , gdkrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -143,7 +144,8 @@ instance AWSRequest GenerateDataKey where
               (\ s h x ->
                  GenerateDataKeyResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
-                     (x .?> "CiphertextBlob"))
+                     (x .?> "CiphertextBlob")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GenerateDataKey where
         toHeaders
@@ -178,11 +180,13 @@ instance ToQuery GenerateDataKey where
 -- * 'gdkrPlaintext'
 --
 -- * 'gdkrCiphertextBlob'
-data GenerateDataKeyResponse = GenerateDataKeyResponse'{_gdkrKeyId :: Maybe Text, _gdkrPlaintext :: Maybe (Sensitive Base64), _gdkrCiphertextBlob :: Maybe Base64} deriving (Eq, Read, Show)
+--
+-- * 'gdkrStatusCode'
+data GenerateDataKeyResponse = GenerateDataKeyResponse'{_gdkrKeyId :: Maybe Text, _gdkrPlaintext :: Maybe (Sensitive Base64), _gdkrCiphertextBlob :: Maybe Base64, _gdkrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
-generateDataKeyResponse :: GenerateDataKeyResponse
-generateDataKeyResponse = GenerateDataKeyResponse'{_gdkrKeyId = Nothing, _gdkrPlaintext = Nothing, _gdkrCiphertextBlob = Nothing};
+generateDataKeyResponse :: Int -> GenerateDataKeyResponse
+generateDataKeyResponse pStatusCode = GenerateDataKeyResponse'{_gdkrKeyId = Nothing, _gdkrPlaintext = Nothing, _gdkrCiphertextBlob = Nothing, _gdkrStatusCode = pStatusCode};
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
@@ -204,3 +208,7 @@ gdkrPlaintext = lens _gdkrPlaintext (\ s a -> s{_gdkrPlaintext = a}) . mapping _
 -- not encoded.
 gdkrCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrCiphertextBlob = lens _gdkrCiphertextBlob (\ s a -> s{_gdkrCiphertextBlob = a});
+
+-- | FIXME: Undocumented member.
+gdkrStatusCode :: Lens' GenerateDataKeyResponse Int
+gdkrStatusCode = lens _gdkrStatusCode (\ s a -> s{_gdkrStatusCode = a});

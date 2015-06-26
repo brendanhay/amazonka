@@ -42,6 +42,7 @@ module Network.AWS.EC2.ImportInstance
     , importInstanceResponse
     -- ** Response lenses
     , iirConversionTask
+    , iirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -98,7 +99,8 @@ instance AWSRequest ImportInstance where
         response
           = receiveXML
               (\ s h x ->
-                 ImportInstanceResponse' <$> (x .@? "conversionTask"))
+                 ImportInstanceResponse' <$>
+                   (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
@@ -122,12 +124,18 @@ instance ToQuery ImportInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'iirConversionTask'
-newtype ImportInstanceResponse = ImportInstanceResponse'{_iirConversionTask :: Maybe ConversionTask} deriving (Eq, Read, Show)
+--
+-- * 'iirStatusCode'
+data ImportInstanceResponse = ImportInstanceResponse'{_iirConversionTask :: Maybe ConversionTask, _iirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ImportInstanceResponse' smart constructor.
-importInstanceResponse :: ImportInstanceResponse
-importInstanceResponse = ImportInstanceResponse'{_iirConversionTask = Nothing};
+importInstanceResponse :: Int -> ImportInstanceResponse
+importInstanceResponse pStatusCode = ImportInstanceResponse'{_iirConversionTask = Nothing, _iirStatusCode = pStatusCode};
 
 -- | Information about the conversion task.
 iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask = lens _iirConversionTask (\ s a -> s{_iirConversionTask = a});
+
+-- | FIXME: Undocumented member.
+iirStatusCode :: Lens' ImportInstanceResponse Int
+iirStatusCode = lens _iirStatusCode (\ s a -> s{_iirStatusCode = a});

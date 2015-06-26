@@ -36,15 +36,18 @@ module Network.AWS.EMR.ListSteps
     -- ** Response lenses
     , lsrSteps
     , lsrMarker
+    , lsrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listSteps' smart constructor.
+-- | This input determines which steps to list.
+--
+-- /See:/ 'listSteps' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,7 +94,8 @@ instance AWSRequest ListSteps where
           = receiveJSON
               (\ s h x ->
                  ListStepsResponse' <$>
-                   (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker"))
+                   (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListSteps where
         toHeaders
@@ -115,18 +119,22 @@ instance ToPath ListSteps where
 instance ToQuery ListSteps where
         toQuery = const mempty
 
--- | /See:/ 'listStepsResponse' smart constructor.
+-- | This output contains the list of steps.
+--
+-- /See:/ 'listStepsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsrSteps'
 --
 -- * 'lsrMarker'
-data ListStepsResponse = ListStepsResponse'{_lsrSteps :: Maybe [StepSummary], _lsrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lsrStatusCode'
+data ListStepsResponse = ListStepsResponse'{_lsrSteps :: Maybe [StepSummary], _lsrMarker :: Maybe Text, _lsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListStepsResponse' smart constructor.
-listStepsResponse :: ListStepsResponse
-listStepsResponse = ListStepsResponse'{_lsrSteps = Nothing, _lsrMarker = Nothing};
+listStepsResponse :: Int -> ListStepsResponse
+listStepsResponse pStatusCode = ListStepsResponse'{_lsrSteps = Nothing, _lsrMarker = Nothing, _lsrStatusCode = pStatusCode};
 
 -- | The filtered list of steps for the cluster.
 lsrSteps :: Lens' ListStepsResponse [StepSummary]
@@ -135,3 +143,7 @@ lsrSteps = lens _lsrSteps (\ s a -> s{_lsrSteps = a}) . _Default;
 -- | The pagination token that indicates the next set of results to retrieve.
 lsrMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrMarker = lens _lsrMarker (\ s a -> s{_lsrMarker = a});
+
+-- | FIXME: Undocumented member.
+lsrStatusCode :: Lens' ListStepsResponse Int
+lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});

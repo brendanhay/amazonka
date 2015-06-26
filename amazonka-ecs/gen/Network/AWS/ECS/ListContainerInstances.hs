@@ -35,10 +35,11 @@ module Network.AWS.ECS.ListContainerInstances
     -- ** Response lenses
     , lcirContainerInstanceARNs
     , lcirNextToken
+    , lcirStatusCode
     ) where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -101,7 +102,8 @@ instance AWSRequest ListContainerInstances where
               (\ s h x ->
                  ListContainerInstancesResponse' <$>
                    (x .?> "containerInstanceArns" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListContainerInstances where
         toHeaders
@@ -133,11 +135,13 @@ instance ToQuery ListContainerInstances where
 -- * 'lcirContainerInstanceARNs'
 --
 -- * 'lcirNextToken'
-data ListContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs :: Maybe [Text], _lcirNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lcirStatusCode'
+data ListContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs :: Maybe [Text], _lcirNextToken :: Maybe Text, _lcirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
-listContainerInstancesResponse :: ListContainerInstancesResponse
-listContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs = Nothing, _lcirNextToken = Nothing};
+listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
+listContainerInstancesResponse pStatusCode = ListContainerInstancesResponse'{_lcirContainerInstanceARNs = Nothing, _lcirNextToken = Nothing, _lcirStatusCode = pStatusCode};
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries
 -- for each container instance associated with the specified cluster.
@@ -150,3 +154,7 @@ lcirContainerInstanceARNs = lens _lcirContainerInstanceARNs (\ s a -> s{_lcirCon
 -- results. This value is @null@ when there are no more results to return.
 lcirNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
 lcirNextToken = lens _lcirNextToken (\ s a -> s{_lcirNextToken = a});
+
+-- | FIXME: Undocumented member.
+lcirStatusCode :: Lens' ListContainerInstancesResponse Int
+lcirStatusCode = lens _lcirStatusCode (\ s a -> s{_lcirStatusCode = a});

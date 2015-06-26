@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DescribeLayers
     , describeLayersResponse
     -- ** Response lenses
     , dlrLayers
+    , dlrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -79,7 +80,7 @@ instance AWSRequest DescribeLayers where
           = receiveJSON
               (\ s h x ->
                  DescribeLayersResponse' <$>
-                   (x .?> "Layers" .!@ mempty))
+                   (x .?> "Layers" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLayers where
         toHeaders
@@ -101,17 +102,25 @@ instance ToPath DescribeLayers where
 instance ToQuery DescribeLayers where
         toQuery = const mempty
 
--- | /See:/ 'describeLayersResponse' smart constructor.
+-- | Contains the response to a @DescribeLayers@ request.
+--
+-- /See:/ 'describeLayersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlrLayers'
-newtype DescribeLayersResponse = DescribeLayersResponse'{_dlrLayers :: Maybe [Layer]} deriving (Eq, Read, Show)
+--
+-- * 'dlrStatusCode'
+data DescribeLayersResponse = DescribeLayersResponse'{_dlrLayers :: Maybe [Layer], _dlrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLayersResponse' smart constructor.
-describeLayersResponse :: DescribeLayersResponse
-describeLayersResponse = DescribeLayersResponse'{_dlrLayers = Nothing};
+describeLayersResponse :: Int -> DescribeLayersResponse
+describeLayersResponse pStatusCode = DescribeLayersResponse'{_dlrLayers = Nothing, _dlrStatusCode = pStatusCode};
 
 -- | An array of @Layer@ objects that describe the layers.
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlrStatusCode :: Lens' DescribeLayersResponse Int
+dlrStatusCode = lens _dlrStatusCode (\ s a -> s{_dlrStatusCode = a});

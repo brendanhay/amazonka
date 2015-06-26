@@ -38,7 +38,8 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Response constructor
     , describeDomainsResponse
     -- ** Response lenses
-    , ddrDomainStatusList
+    , descDomainStatusList
+    , descStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -46,7 +47,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDomains' smart constructor.
+-- | Container for the parameters to the @DescribeDomains@ operation. By
+-- default shows the status of all domains. To restrict the response to
+-- particular domains, specify the names of the domains you want to
+-- describe.
+--
+-- /See:/ 'describeDomains' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +76,8 @@ instance AWSRequest DescribeDomains where
               (\ s h x ->
                  DescribeDomainsResponse' <$>
                    (x .@? "DomainStatusList" .!@ mempty >>=
-                      parseXMLList "member"))
+                      parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDomains where
         toHeaders = const mempty
@@ -86,17 +93,26 @@ instance ToQuery DescribeDomains where
                "DomainNames" =:
                  toQuery (toQueryList "member" <$> _ddDomainNames)]
 
--- | /See:/ 'describeDomainsResponse' smart constructor.
+-- | The result of a @DescribeDomains@ request. Contains the status of the
+-- domains specified in the request or all domains owned by the account.
+--
+-- /See:/ 'describeDomainsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDomainStatusList'
-newtype DescribeDomainsResponse = DescribeDomainsResponse'{_ddrDomainStatusList :: [DomainStatus]} deriving (Eq, Read, Show)
+-- * 'descDomainStatusList'
+--
+-- * 'descStatusCode'
+data DescribeDomainsResponse = DescribeDomainsResponse'{_descDomainStatusList :: [DomainStatus], _descStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
-describeDomainsResponse :: DescribeDomainsResponse
-describeDomainsResponse = DescribeDomainsResponse'{_ddrDomainStatusList = mempty};
+describeDomainsResponse :: Int -> DescribeDomainsResponse
+describeDomainsResponse pStatusCode = DescribeDomainsResponse'{_descDomainStatusList = mempty, _descStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddrDomainStatusList = lens _ddrDomainStatusList (\ s a -> s{_ddrDomainStatusList = a});
+descDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+descDomainStatusList = lens _descDomainStatusList (\ s a -> s{_descDomainStatusList = a});
+
+-- | FIXME: Undocumented member.
+descStatusCode :: Lens' DescribeDomainsResponse Int
+descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});

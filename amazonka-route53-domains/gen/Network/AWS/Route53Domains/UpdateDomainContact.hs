@@ -42,6 +42,7 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     , updateDomainContactResponse
     -- ** Response lenses
     , udcrOperationId
+    , udcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -49,7 +50,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'updateDomainContact' smart constructor.
+-- | The UpdateDomainContact request includes the following elements.
+--
+-- /See:/ 'updateDomainContact' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -125,7 +128,7 @@ instance AWSRequest UpdateDomainContact where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactResponse' <$>
-                   (x .:> "OperationId"))
+                   (x .:> "OperationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateDomainContact where
         toHeaders
@@ -151,16 +154,20 @@ instance ToPath UpdateDomainContact where
 instance ToQuery UpdateDomainContact where
         toQuery = const mempty
 
--- | /See:/ 'updateDomainContactResponse' smart constructor.
+-- | The UpdateDomainContact response includes the following element.
+--
+-- /See:/ 'updateDomainContactResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udcrOperationId'
-newtype UpdateDomainContactResponse = UpdateDomainContactResponse'{_udcrOperationId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'udcrStatusCode'
+data UpdateDomainContactResponse = UpdateDomainContactResponse'{_udcrOperationId :: Text, _udcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
-updateDomainContactResponse :: Text -> UpdateDomainContactResponse
-updateDomainContactResponse pOperationId = UpdateDomainContactResponse'{_udcrOperationId = pOperationId};
+updateDomainContactResponse :: Text -> Int -> UpdateDomainContactResponse
+updateDomainContactResponse pOperationId pStatusCode = UpdateDomainContactResponse'{_udcrOperationId = pOperationId, _udcrStatusCode = pStatusCode};
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -172,3 +179,7 @@ updateDomainContactResponse pOperationId = UpdateDomainContactResponse'{_udcrOpe
 -- Constraints: Maximum 255 characters.
 udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\ s a -> s{_udcrOperationId = a});
+
+-- | FIXME: Undocumented member.
+udcrStatusCode :: Lens' UpdateDomainContactResponse Int
+udcrStatusCode = lens _udcrStatusCode (\ s a -> s{_udcrStatusCode = a});

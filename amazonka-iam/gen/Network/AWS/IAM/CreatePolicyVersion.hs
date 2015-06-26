@@ -47,6 +47,7 @@ module Network.AWS.IAM.CreatePolicyVersion
     , createPolicyVersionResponse
     -- ** Response lenses
     , cpvrPolicyVersion
+    , cpvrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -98,7 +99,7 @@ instance AWSRequest CreatePolicyVersion where
           = receiveXMLWrapper "CreatePolicyVersionResult"
               (\ s h x ->
                  CreatePolicyVersionResponse' <$>
-                   (x .@? "PolicyVersion"))
+                   (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreatePolicyVersion where
         toHeaders = const mempty
@@ -115,17 +116,25 @@ instance ToQuery CreatePolicyVersion where
                "PolicyArn" =: _cpvPolicyARN,
                "PolicyDocument" =: _cpvPolicyDocument]
 
--- | /See:/ 'createPolicyVersionResponse' smart constructor.
+-- | Contains the response to a successful CreatePolicyVersion request.
+--
+-- /See:/ 'createPolicyVersionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cpvrPolicyVersion'
-newtype CreatePolicyVersionResponse = CreatePolicyVersionResponse'{_cpvrPolicyVersion :: Maybe PolicyVersion} deriving (Eq, Read, Show)
+--
+-- * 'cpvrStatusCode'
+data CreatePolicyVersionResponse = CreatePolicyVersionResponse'{_cpvrPolicyVersion :: Maybe PolicyVersion, _cpvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
-createPolicyVersionResponse :: CreatePolicyVersionResponse
-createPolicyVersionResponse = CreatePolicyVersionResponse'{_cpvrPolicyVersion = Nothing};
+createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
+createPolicyVersionResponse pStatusCode = CreatePolicyVersionResponse'{_cpvrPolicyVersion = Nothing, _cpvrStatusCode = pStatusCode};
 
 -- | Information about the policy version.
 cpvrPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrPolicyVersion = lens _cpvrPolicyVersion (\ s a -> s{_cpvrPolicyVersion = a});
+
+-- | FIXME: Undocumented member.
+cpvrStatusCode :: Lens' CreatePolicyVersionResponse Int
+cpvrStatusCode = lens _cpvrStatusCode (\ s a -> s{_cpvrStatusCode = a});

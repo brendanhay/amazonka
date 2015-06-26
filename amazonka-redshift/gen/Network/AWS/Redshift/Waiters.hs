@@ -17,4 +17,4 @@ module Network.AWS.Redshift.Waiters where
 
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Waiters
+import Network.AWS.Waiter

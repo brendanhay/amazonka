@@ -36,7 +36,8 @@ module Network.AWS.CloudHSM.ModifyHSM
     -- ** Response constructor
     , modifyHSMResponse
     -- ** Response lenses
-    , mhrHSMARN
+    , modHSMARN
+    , modStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyHSM' smart constructor.
+-- | Contains the inputs for the ModifyHsm action.
+--
+-- /See:/ 'modifyHSM' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,7 +99,9 @@ instance AWSRequest ModifyHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> ModifyHSMResponse' <$> (x .?> "HsmArn"))
+              (\ s h x ->
+                 ModifyHSMResponse' <$>
+                   (x .?> "HsmArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyHSM where
         toHeaders
@@ -121,17 +126,25 @@ instance ToPath ModifyHSM where
 instance ToQuery ModifyHSM where
         toQuery = const mempty
 
--- | /See:/ 'modifyHSMResponse' smart constructor.
+-- | Contains the output of the ModifyHsm action.
+--
+-- /See:/ 'modifyHSMResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhrHSMARN'
-newtype ModifyHSMResponse = ModifyHSMResponse'{_mhrHSMARN :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'modHSMARN'
+--
+-- * 'modStatusCode'
+data ModifyHSMResponse = ModifyHSMResponse'{_modHSMARN :: Maybe Text, _modStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyHSMResponse' smart constructor.
-modifyHSMResponse :: ModifyHSMResponse
-modifyHSMResponse = ModifyHSMResponse'{_mhrHSMARN = Nothing};
+modifyHSMResponse :: Int -> ModifyHSMResponse
+modifyHSMResponse pStatusCode = ModifyHSMResponse'{_modHSMARN = Nothing, _modStatusCode = pStatusCode};
 
 -- | The ARN of the HSM.
-mhrHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
-mhrHSMARN = lens _mhrHSMARN (\ s a -> s{_mhrHSMARN = a});
+modHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
+modHSMARN = lens _modHSMARN (\ s a -> s{_modHSMARN = a});
+
+-- | FIXME: Undocumented member.
+modStatusCode :: Lens' ModifyHSMResponse Int
+modStatusCode = lens _modStatusCode (\ s a -> s{_modStatusCode = a});

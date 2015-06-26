@@ -43,6 +43,7 @@ module Network.AWS.CognitoSync.UpdateRecords
     , updateRecordsResponse
     -- ** Response lenses
     , urrRecords
+    , urrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -50,7 +51,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateRecords' smart constructor.
+-- | A request to post updates to records or add and delete records for a
+-- dataset and user.
+--
+-- /See:/ 'updateRecords' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -117,7 +121,7 @@ instance AWSRequest UpdateRecords where
           = receiveJSON
               (\ s h x ->
                  UpdateRecordsResponse' <$>
-                   (x .?> "Records" .!@ mempty))
+                   (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
@@ -143,17 +147,25 @@ instance ToPath UpdateRecords where
 instance ToQuery UpdateRecords where
         toQuery = const mempty
 
--- | /See:/ 'updateRecordsResponse' smart constructor.
+-- | Returned for a successful UpdateRecordsRequest.
+--
+-- /See:/ 'updateRecordsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'urrRecords'
-newtype UpdateRecordsResponse = UpdateRecordsResponse'{_urrRecords :: Maybe [Record]} deriving (Eq, Read, Show)
+--
+-- * 'urrStatusCode'
+data UpdateRecordsResponse = UpdateRecordsResponse'{_urrRecords :: Maybe [Record], _urrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateRecordsResponse' smart constructor.
-updateRecordsResponse :: UpdateRecordsResponse
-updateRecordsResponse = UpdateRecordsResponse'{_urrRecords = Nothing};
+updateRecordsResponse :: Int -> UpdateRecordsResponse
+updateRecordsResponse pStatusCode = UpdateRecordsResponse'{_urrRecords = Nothing, _urrStatusCode = pStatusCode};
 
 -- | A list of records that have been updated.
 urrRecords :: Lens' UpdateRecordsResponse [Record]
 urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+urrStatusCode :: Lens' UpdateRecordsResponse Int
+urrStatusCode = lens _urrStatusCode (\ s a -> s{_urrStatusCode = a});

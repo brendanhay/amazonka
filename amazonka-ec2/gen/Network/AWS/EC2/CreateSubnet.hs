@@ -60,7 +60,8 @@ module Network.AWS.EC2.CreateSubnet
     -- ** Response constructor
     , createSubnetResponse
     -- ** Response lenses
-    , csrSubnet
+    , creSubnet
+    , creStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -114,7 +115,8 @@ instance AWSRequest CreateSubnet where
         response
           = receiveXML
               (\ s h x ->
-                 CreateSubnetResponse' <$> (x .@? "subnet"))
+                 CreateSubnetResponse' <$>
+                   (x .@? "subnet") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSubnet where
         toHeaders = const mempty
@@ -135,13 +137,19 @@ instance ToQuery CreateSubnet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrSubnet'
-newtype CreateSubnetResponse = CreateSubnetResponse'{_csrSubnet :: Maybe Subnet} deriving (Eq, Read, Show)
+-- * 'creSubnet'
+--
+-- * 'creStatusCode'
+data CreateSubnetResponse = CreateSubnetResponse'{_creSubnet :: Maybe Subnet, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateSubnetResponse' smart constructor.
-createSubnetResponse :: CreateSubnetResponse
-createSubnetResponse = CreateSubnetResponse'{_csrSubnet = Nothing};
+createSubnetResponse :: Int -> CreateSubnetResponse
+createSubnetResponse pStatusCode = CreateSubnetResponse'{_creSubnet = Nothing, _creStatusCode = pStatusCode};
 
 -- | Information about the subnet.
-csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-csrSubnet = lens _csrSubnet (\ s a -> s{_csrSubnet = a});
+creSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+creSubnet = lens _creSubnet (\ s a -> s{_creSubnet = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateSubnetResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

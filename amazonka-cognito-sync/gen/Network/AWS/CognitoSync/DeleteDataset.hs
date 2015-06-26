@@ -40,6 +40,7 @@ module Network.AWS.CognitoSync.DeleteDataset
     , deleteDatasetResponse
     -- ** Response lenses
     , delDataset
+    , delStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -47,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDataset' smart constructor.
+-- | A request to delete the specific dataset.
+--
+-- /See:/ 'deleteDataset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +89,8 @@ instance AWSRequest DeleteDataset where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDatasetResponse' <$> (x .?> "Dataset"))
+                 DeleteDatasetResponse' <$>
+                   (x .?> "Dataset") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDataset where
         toHeaders
@@ -105,16 +109,20 @@ instance ToPath DeleteDataset where
 instance ToQuery DeleteDataset where
         toQuery = const mempty
 
--- | /See:/ 'deleteDatasetResponse' smart constructor.
+-- | Response to a successful DeleteDataset request.
+--
+-- /See:/ 'deleteDatasetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delDataset'
-newtype DeleteDatasetResponse = DeleteDatasetResponse'{_delDataset :: Maybe Dataset} deriving (Eq, Read, Show)
+--
+-- * 'delStatusCode'
+data DeleteDatasetResponse = DeleteDatasetResponse'{_delDataset :: Maybe Dataset, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDatasetResponse' smart constructor.
-deleteDatasetResponse :: DeleteDatasetResponse
-deleteDatasetResponse = DeleteDatasetResponse'{_delDataset = Nothing};
+deleteDatasetResponse :: Int -> DeleteDatasetResponse
+deleteDatasetResponse pStatusCode = DeleteDatasetResponse'{_delDataset = Nothing, _delStatusCode = pStatusCode};
 
 -- | A collection of data for an identity pool. An identity pool can have
 -- multiple datasets. A dataset is per identity and can be general or
@@ -123,3 +131,7 @@ deleteDatasetResponse = DeleteDatasetResponse'{_delDataset = Nothing};
 -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 delDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 delDataset = lens _delDataset (\ s a -> s{_delDataset = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteDatasetResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

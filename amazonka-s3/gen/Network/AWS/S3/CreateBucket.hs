@@ -39,6 +39,7 @@ module Network.AWS.S3.CreateBucket
     , createBucketResponse
     -- ** Response lenses
     , cbrLocation
+    , cbrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -112,7 +113,8 @@ instance AWSRequest CreateBucket where
         response
           = receiveXML
               (\ s h x ->
-                 CreateBucketResponse' <$> (h .#? "Location"))
+                 CreateBucketResponse' <$>
+                   (h .#? "Location") <*> (pure (fromEnum s)))
 
 instance ToElement CreateBucket where
         toElement
@@ -143,12 +145,18 @@ instance ToQuery CreateBucket where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cbrLocation'
-newtype CreateBucketResponse = CreateBucketResponse'{_cbrLocation :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cbrStatusCode'
+data CreateBucketResponse = CreateBucketResponse'{_cbrLocation :: Maybe Text, _cbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateBucketResponse' smart constructor.
-createBucketResponse :: CreateBucketResponse
-createBucketResponse = CreateBucketResponse'{_cbrLocation = Nothing};
+createBucketResponse :: Int -> CreateBucketResponse
+createBucketResponse pStatusCode = CreateBucketResponse'{_cbrLocation = Nothing, _cbrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrLocation = lens _cbrLocation (\ s a -> s{_cbrLocation = a});
+
+-- | FIXME: Undocumented member.
+cbrStatusCode :: Lens' CreateBucketResponse Int
+cbrStatusCode = lens _cbrStatusCode (\ s a -> s{_cbrStatusCode = a});

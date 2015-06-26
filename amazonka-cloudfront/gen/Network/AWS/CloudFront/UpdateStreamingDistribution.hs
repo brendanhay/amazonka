@@ -35,6 +35,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- ** Response lenses
     , usdrETag
     , usdrStreamingDistribution
+    , usdrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateStreamingDistribution' smart constructor.
+-- | The request to update a streaming distribution.
+--
+-- /See:/ 'updateStreamingDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,8 @@ instance AWSRequest UpdateStreamingDistribution where
           = receiveXML
               (\ s h x ->
                  UpdateStreamingDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "StreamingDistribution"))
+                   (h .#? "ETag") <*> (x .@? "StreamingDistribution")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement UpdateStreamingDistribution where
         toElement
@@ -101,18 +105,22 @@ instance ToPath UpdateStreamingDistribution where
 instance ToQuery UpdateStreamingDistribution where
         toQuery = const mempty
 
--- | /See:/ 'updateStreamingDistributionResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'updateStreamingDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usdrETag'
 --
 -- * 'usdrStreamingDistribution'
-data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'{_usdrETag :: Maybe Text, _usdrStreamingDistribution :: Maybe StreamingDistribution} deriving (Eq, Read, Show)
+--
+-- * 'usdrStatusCode'
+data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'{_usdrETag :: Maybe Text, _usdrStreamingDistribution :: Maybe StreamingDistribution, _usdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
-updateStreamingDistributionResponse :: UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse = UpdateStreamingDistributionResponse'{_usdrETag = Nothing, _usdrStreamingDistribution = Nothing};
+updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
+updateStreamingDistributionResponse pStatusCode = UpdateStreamingDistributionResponse'{_usdrETag = Nothing, _usdrStreamingDistribution = Nothing, _usdrStatusCode = pStatusCode};
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 usdrETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
@@ -121,3 +129,7 @@ usdrETag = lens _usdrETag (\ s a -> s{_usdrETag = a});
 -- | The streaming distribution\'s information.
 usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
 usdrStreamingDistribution = lens _usdrStreamingDistribution (\ s a -> s{_usdrStreamingDistribution = a});
+
+-- | FIXME: Undocumented member.
+usdrStatusCode :: Lens' UpdateStreamingDistributionResponse Int
+usdrStatusCode = lens _usdrStatusCode (\ s a -> s{_usdrStatusCode = a});

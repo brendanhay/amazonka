@@ -34,6 +34,8 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     , UpdateTagsForDomainResponse
     -- ** Response constructor
     , updateTagsForDomainResponse
+    -- ** Response lenses
+    , utfdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'updateTagsForDomain' smart constructor.
+-- | The UpdateTagsForDomainRequest includes the following elements.
+--
+-- /See:/ 'updateTagsForDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,7 +128,10 @@ instance AWSRequest UpdateTagsForDomain where
         type Rs UpdateTagsForDomain =
              UpdateTagsForDomainResponse
         request = postJSON
-        response = receiveNull UpdateTagsForDomainResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders UpdateTagsForDomain where
         toHeaders
@@ -149,8 +156,16 @@ instance ToQuery UpdateTagsForDomain where
         toQuery = const mempty
 
 -- | /See:/ 'updateTagsForDomainResponse' smart constructor.
-data UpdateTagsForDomainResponse = UpdateTagsForDomainResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'utfdrStatusCode'
+newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'{_utfdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
-updateTagsForDomainResponse :: UpdateTagsForDomainResponse
-updateTagsForDomainResponse = UpdateTagsForDomainResponse';
+updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
+updateTagsForDomainResponse pStatusCode = UpdateTagsForDomainResponse'{_utfdrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+utfdrStatusCode :: Lens' UpdateTagsForDomainResponse Int
+utfdrStatusCode = lens _utfdrStatusCode (\ s a -> s{_utfdrStatusCode = a});

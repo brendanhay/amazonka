@@ -51,6 +51,7 @@ module Network.AWS.EC2.CopySnapshot
     , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
+    , csrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -132,7 +133,8 @@ instance AWSRequest CopySnapshot where
         response
           = receiveXML
               (\ s h x ->
-                 CopySnapshotResponse' <$> (x .@? "snapshotId"))
+                 CopySnapshotResponse' <$>
+                   (x .@? "snapshotId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
@@ -157,12 +159,18 @@ instance ToQuery CopySnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSnapshotId'
-newtype CopySnapshotResponse = CopySnapshotResponse'{_csrSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CopySnapshotResponse = CopySnapshotResponse'{_csrSnapshotId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopySnapshotResponse' smart constructor.
-copySnapshotResponse :: CopySnapshotResponse
-copySnapshotResponse = CopySnapshotResponse'{_csrSnapshotId = Nothing};
+copySnapshotResponse :: Int -> CopySnapshotResponse
+copySnapshotResponse pStatusCode = CopySnapshotResponse'{_csrSnapshotId = Nothing, _csrStatusCode = pStatusCode};
 
 -- | The ID of the new snapshot.
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CopySnapshotResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

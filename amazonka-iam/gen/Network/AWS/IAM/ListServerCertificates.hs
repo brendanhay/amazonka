@@ -40,10 +40,11 @@ module Network.AWS.IAM.ListServerCertificates
     , lscrMarker
     , lscrIsTruncated
     , lscrServerCertificateMetadataList
+    , lscrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -105,7 +106,8 @@ instance AWSRequest ListServerCertificates where
                  ListServerCertificatesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
@@ -122,7 +124,9 @@ instance ToQuery ListServerCertificates where
                "PathPrefix" =: _lscPathPrefix,
                "MaxItems" =: _lscMaxItems, "Marker" =: _lscMarker]
 
--- | /See:/ 'listServerCertificatesResponse' smart constructor.
+-- | Contains the response to a successful ListServerCertificates request.
+--
+-- /See:/ 'listServerCertificatesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -131,11 +135,13 @@ instance ToQuery ListServerCertificates where
 -- * 'lscrIsTruncated'
 --
 -- * 'lscrServerCertificateMetadataList'
-data ListServerCertificatesResponse = ListServerCertificatesResponse'{_lscrMarker :: Maybe Text, _lscrIsTruncated :: Maybe Bool, _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]} deriving (Eq, Read, Show)
+--
+-- * 'lscrStatusCode'
+data ListServerCertificatesResponse = ListServerCertificatesResponse'{_lscrMarker :: Maybe Text, _lscrIsTruncated :: Maybe Bool, _lscrServerCertificateMetadataList :: [ServerCertificateMetadata], _lscrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
-listServerCertificatesResponse :: ListServerCertificatesResponse
-listServerCertificatesResponse = ListServerCertificatesResponse'{_lscrMarker = Nothing, _lscrIsTruncated = Nothing, _lscrServerCertificateMetadataList = mempty};
+listServerCertificatesResponse :: Int -> ListServerCertificatesResponse
+listServerCertificatesResponse pStatusCode = ListServerCertificatesResponse'{_lscrMarker = Nothing, _lscrIsTruncated = Nothing, _lscrServerCertificateMetadataList = mempty, _lscrStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -153,3 +159,7 @@ lscrIsTruncated = lens _lscrIsTruncated (\ s a -> s{_lscrIsTruncated = a});
 -- | A list of server certificates.
 lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
 lscrServerCertificateMetadataList = lens _lscrServerCertificateMetadataList (\ s a -> s{_lscrServerCertificateMetadataList = a});
+
+-- | FIXME: Undocumented member.
+lscrStatusCode :: Lens' ListServerCertificatesResponse Int
+lscrStatusCode = lens _lscrStatusCode (\ s a -> s{_lscrStatusCode = a});

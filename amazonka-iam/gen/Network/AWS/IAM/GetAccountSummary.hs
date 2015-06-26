@@ -35,6 +35,7 @@ module Network.AWS.IAM.GetAccountSummary
     , getAccountSummaryResponse
     -- ** Response lenses
     , gasrSummaryMap
+    , gasrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -58,7 +59,8 @@ instance AWSRequest GetAccountSummary where
               (\ s h x ->
                  GetAccountSummaryResponse' <$>
                    (x .@? "SummaryMap" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value")))
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
@@ -73,16 +75,20 @@ instance ToQuery GetAccountSummary where
                  ["Action" =: ("GetAccountSummary" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | /See:/ 'getAccountSummaryResponse' smart constructor.
+-- | Contains the response to a successful GetAccountSummary request.
+--
+-- /See:/ 'getAccountSummaryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gasrSummaryMap'
-newtype GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: Maybe (Map SummaryKeyType Int)} deriving (Eq, Read, Show)
+--
+-- * 'gasrStatusCode'
+data GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: Maybe (Map SummaryKeyType Int), _gasrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
-getAccountSummaryResponse :: GetAccountSummaryResponse
-getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing};
+getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
+getAccountSummaryResponse pStatusCode = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing, _gasrStatusCode = pStatusCode};
 
 -- | A set of key value pairs containing information about IAM entity usage
 -- and IAM quotas.
@@ -239,3 +245,7 @@ getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing
 --
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+gasrStatusCode :: Lens' GetAccountSummaryResponse Int
+gasrStatusCode = lens _gasrStatusCode (\ s a -> s{_gasrStatusCode = a});

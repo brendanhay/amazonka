@@ -32,7 +32,8 @@ module Network.AWS.Route53.ListTagsForResources
     -- ** Response constructor
     , listTagsForResourcesResponse
     -- ** Response lenses
-    , ltfrrResourceTagSets
+    , lisResourceTagSets
+    , lisStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +41,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listTagsForResources' smart constructor.
+-- | A complex type containing information about a request for a list of the
+-- tags that are associated with up to 10 specified resources.
+--
+-- /See:/ 'listTagsForResources' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +80,8 @@ instance AWSRequest ListTagsForResources where
               (\ s h x ->
                  ListTagsForResourcesResponse' <$>
                    (x .@? "ResourceTagSets" .!@ mempty >>=
-                      parseXMLList "ResourceTagSet"))
+                      parseXMLList "ResourceTagSet")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement ListTagsForResources where
         toElement
@@ -100,18 +105,26 @@ instance ToXML ListTagsForResources where
               ["ResourceIds" @=
                  toXMLList "ResourceId" _lisResourceIds]
 
--- | /See:/ 'listTagsForResourcesResponse' smart constructor.
+-- | A complex type containing tags for the specified resources.
+--
+-- /See:/ 'listTagsForResourcesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrrResourceTagSets'
-newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse'{_ltfrrResourceTagSets :: [ResourceTagSet]} deriving (Eq, Read, Show)
+-- * 'lisResourceTagSets'
+--
+-- * 'lisStatusCode'
+data ListTagsForResourcesResponse = ListTagsForResourcesResponse'{_lisResourceTagSets :: [ResourceTagSet], _lisStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
-listTagsForResourcesResponse :: ListTagsForResourcesResponse
-listTagsForResourcesResponse = ListTagsForResourcesResponse'{_ltfrrResourceTagSets = mempty};
+listTagsForResourcesResponse :: Int -> ListTagsForResourcesResponse
+listTagsForResourcesResponse pStatusCode = ListTagsForResourcesResponse'{_lisResourceTagSets = mempty, _lisStatusCode = pStatusCode};
 
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
-ltfrrResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
-ltfrrResourceTagSets = lens _ltfrrResourceTagSets (\ s a -> s{_ltfrrResourceTagSets = a});
+lisResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
+lisResourceTagSets = lens _lisResourceTagSets (\ s a -> s{_lisResourceTagSets = a});
+
+-- | FIXME: Undocumented member.
+lisStatusCode :: Lens' ListTagsForResourcesResponse Int
+lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     , readPresetResponse
     -- ** Response lenses
     , rprPreset
+    , rprStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'readPreset' smart constructor.
+-- | The @ReadPresetRequest@ structure.
+--
+-- /See:/ 'readPreset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -61,7 +64,9 @@ instance AWSRequest ReadPreset where
         request = get
         response
           = receiveJSON
-              (\ s h x -> ReadPresetResponse' <$> (x .?> "Preset"))
+              (\ s h x ->
+                 ReadPresetResponse' <$>
+                   (x .?> "Preset") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReadPreset where
         toHeaders = const mempty
@@ -73,18 +78,26 @@ instance ToPath ReadPreset where
 instance ToQuery ReadPreset where
         toQuery = const mempty
 
--- | /See:/ 'readPresetResponse' smart constructor.
+-- | The @ReadPresetResponse@ structure.
+--
+-- /See:/ 'readPresetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rprPreset'
-newtype ReadPresetResponse = ReadPresetResponse'{_rprPreset :: Maybe Preset} deriving (Eq, Read, Show)
+--
+-- * 'rprStatusCode'
+data ReadPresetResponse = ReadPresetResponse'{_rprPreset :: Maybe Preset, _rprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReadPresetResponse' smart constructor.
-readPresetResponse :: ReadPresetResponse
-readPresetResponse = ReadPresetResponse'{_rprPreset = Nothing};
+readPresetResponse :: Int -> ReadPresetResponse
+readPresetResponse pStatusCode = ReadPresetResponse'{_rprPreset = Nothing, _rprStatusCode = pStatusCode};
 
 -- | A section of the response body that provides information about the
 -- preset.
 rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprPreset = lens _rprPreset (\ s a -> s{_rprPreset = a});
+
+-- | FIXME: Undocumented member.
+rprStatusCode :: Lens' ReadPresetResponse Int
+rprStatusCode = lens _rprStatusCode (\ s a -> s{_rprStatusCode = a});

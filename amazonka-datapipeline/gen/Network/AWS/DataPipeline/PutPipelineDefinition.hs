@@ -51,6 +51,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     , ppdrValidationErrors
     , ppdrValidationWarnings
     , ppdrErrored
+    , ppdrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -58,7 +59,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'putPipelineDefinition' smart constructor.
+-- | Contains the parameters for PutPipelineDefinition.
+--
+-- /See:/ 'putPipelineDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,7 +106,8 @@ instance AWSRequest PutPipelineDefinition where
                  PutPipelineDefinitionResponse' <$>
                    (x .?> "validationErrors" .!@ mempty) <*>
                      (x .?> "validationWarnings" .!@ mempty)
-                     <*> (x .:> "errored"))
+                     <*> (x .:> "errored")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders PutPipelineDefinition where
         toHeaders
@@ -128,7 +132,9 @@ instance ToPath PutPipelineDefinition where
 instance ToQuery PutPipelineDefinition where
         toQuery = const mempty
 
--- | /See:/ 'putPipelineDefinitionResponse' smart constructor.
+-- | Contains the output of PutPipelineDefinition.
+--
+-- /See:/ 'putPipelineDefinitionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -137,11 +143,13 @@ instance ToQuery PutPipelineDefinition where
 -- * 'ppdrValidationWarnings'
 --
 -- * 'ppdrErrored'
-data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'{_ppdrValidationErrors :: Maybe [ValidationError], _ppdrValidationWarnings :: Maybe [ValidationWarning], _ppdrErrored :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'ppdrStatusCode'
+data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'{_ppdrValidationErrors :: Maybe [ValidationError], _ppdrValidationWarnings :: Maybe [ValidationWarning], _ppdrErrored :: Bool, _ppdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
-putPipelineDefinitionResponse :: Bool -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pErrored = PutPipelineDefinitionResponse'{_ppdrValidationErrors = Nothing, _ppdrValidationWarnings = Nothing, _ppdrErrored = pErrored};
+putPipelineDefinitionResponse :: Bool -> Int -> PutPipelineDefinitionResponse
+putPipelineDefinitionResponse pErrored pStatusCode = PutPipelineDefinitionResponse'{_ppdrValidationErrors = Nothing, _ppdrValidationWarnings = Nothing, _ppdrErrored = pErrored, _ppdrStatusCode = pStatusCode};
 
 -- | The validation errors that are associated with the objects defined in
 -- @pipelineObjects@.
@@ -159,3 +167,7 @@ ppdrValidationWarnings = lens _ppdrValidationWarnings (\ s a -> s{_ppdrValidatio
 -- pipeline.
 ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\ s a -> s{_ppdrErrored = a});
+
+-- | FIXME: Undocumented member.
+ppdrStatusCode :: Lens' PutPipelineDefinitionResponse Int
+ppdrStatusCode = lens _ppdrStatusCode (\ s a -> s{_ppdrStatusCode = a});

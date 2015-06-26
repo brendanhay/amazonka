@@ -36,6 +36,7 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     , listTagsForDomainResponse
     -- ** Response lenses
     , ltfdrTagList
+    , ltfdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'listTagsForDomain' smart constructor.
+-- | The ListTagsForDomainRequest includes the following elements.
+--
+-- /See:/ 'listTagsForDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +69,7 @@ instance AWSRequest ListTagsForDomain where
           = receiveJSON
               (\ s h x ->
                  ListTagsForDomainResponse' <$>
-                   (x .?> "TagList" .!@ mempty))
+                   (x .?> "TagList" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTagsForDomain where
         toHeaders
@@ -88,16 +91,20 @@ instance ToPath ListTagsForDomain where
 instance ToQuery ListTagsForDomain where
         toQuery = const mempty
 
--- | /See:/ 'listTagsForDomainResponse' smart constructor.
+-- | The ListTagsForDomain response includes the following elements.
+--
+-- /See:/ 'listTagsForDomainResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfdrTagList'
-newtype ListTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList :: [Tag]} deriving (Eq, Read, Show)
+--
+-- * 'ltfdrStatusCode'
+data ListTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList :: [Tag], _ltfdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
-listTagsForDomainResponse :: ListTagsForDomainResponse
-listTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList = mempty};
+listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
+listTagsForDomainResponse pStatusCode = ListTagsForDomainResponse'{_ltfdrTagList = mempty, _ltfdrStatusCode = pStatusCode};
 
 -- | A list of the tags that are associated with the specified domain.
 --
@@ -119,3 +126,7 @@ listTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList = mempty};
 --
 ltfdrTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrTagList = lens _ltfdrTagList (\ s a -> s{_ltfdrTagList = a});
+
+-- | FIXME: Undocumented member.
+ltfdrStatusCode :: Lens' ListTagsForDomainResponse Int
+ltfdrStatusCode = lens _ltfdrStatusCode (\ s a -> s{_ltfdrStatusCode = a});

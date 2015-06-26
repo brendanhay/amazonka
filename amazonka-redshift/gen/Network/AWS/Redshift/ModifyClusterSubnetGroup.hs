@@ -36,6 +36,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     , modifyClusterSubnetGroupResponse
     -- ** Response lenses
     , mcsgrClusterSubnetGroup
+    , mcsgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyClusterSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'modifyClusterSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -80,7 +83,7 @@ instance AWSRequest ModifyClusterSubnetGroup where
           = receiveXMLWrapper "ModifyClusterSubnetGroupResult"
               (\ s h x ->
                  ModifyClusterSubnetGroupResponse' <$>
-                   (x .@? "ClusterSubnetGroup"))
+                   (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
@@ -105,12 +108,18 @@ instance ToQuery ModifyClusterSubnetGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mcsgrClusterSubnetGroup'
-newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'{_mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup} deriving (Eq, Read, Show)
+--
+-- * 'mcsgrStatusCode'
+data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'{_mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup, _mcsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterSubnetGroupResponse' smart constructor.
-modifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResponse
-modifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'{_mcsgrClusterSubnetGroup = Nothing};
+modifyClusterSubnetGroupResponse :: Int -> ModifyClusterSubnetGroupResponse
+modifyClusterSubnetGroupResponse pStatusCode = ModifyClusterSubnetGroupResponse'{_mcsgrClusterSubnetGroup = Nothing, _mcsgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 mcsgrClusterSubnetGroup = lens _mcsgrClusterSubnetGroup (\ s a -> s{_mcsgrClusterSubnetGroup = a});
+
+-- | FIXME: Undocumented member.
+mcsgrStatusCode :: Lens' ModifyClusterSubnetGroupResponse Int
+mcsgrStatusCode = lens _mcsgrStatusCode (\ s a -> s{_mcsgrStatusCode = a});

@@ -40,10 +40,11 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- ** Response lenses
     , dahrAlarmHistoryItems
     , dahrNextToken
+    , dahrStatusCode
     ) where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -112,7 +113,8 @@ instance AWSRequest DescribeAlarmHistory where
                  DescribeAlarmHistoryResponse' <$>
                    (x .@? "AlarmHistoryItems" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
@@ -132,18 +134,22 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | /See:/ 'describeAlarmHistoryResponse' smart constructor.
+-- | The output for the DescribeAlarmHistory action.
+--
+-- /See:/ 'describeAlarmHistoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dahrAlarmHistoryItems'
 --
 -- * 'dahrNextToken'
-data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems :: Maybe [AlarmHistoryItem], _dahrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dahrStatusCode'
+data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems :: Maybe [AlarmHistoryItem], _dahrNextToken :: Maybe Text, _dahrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
-describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems = Nothing, _dahrNextToken = Nothing};
+describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
+describeAlarmHistoryResponse pStatusCode = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems = Nothing, _dahrNextToken = Nothing, _dahrStatusCode = pStatusCode};
 
 -- | A list of alarm histories in JSON format.
 dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
@@ -152,3 +158,7 @@ dahrAlarmHistoryItems = lens _dahrAlarmHistoryItems (\ s a -> s{_dahrAlarmHistor
 -- | A string that marks the start of the next batch of returned results.
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\ s a -> s{_dahrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dahrStatusCode :: Lens' DescribeAlarmHistoryResponse Int
+dahrStatusCode = lens _dahrStatusCode (\ s a -> s{_dahrStatusCode = a});

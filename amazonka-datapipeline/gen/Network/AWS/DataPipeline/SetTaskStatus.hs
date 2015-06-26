@@ -38,6 +38,8 @@ module Network.AWS.DataPipeline.SetTaskStatus
     , SetTaskStatusResponse
     -- ** Response constructor
     , setTaskStatusResponse
+    -- ** Response lenses
+    , stsrStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -45,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setTaskStatus' smart constructor.
+-- | Contains the parameters for SetTaskStatus.
+--
+-- /See:/ 'setTaskStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,7 +103,10 @@ instance AWSRequest SetTaskStatus where
         type Sv SetTaskStatus = DataPipeline
         type Rs SetTaskStatus = SetTaskStatusResponse
         request = postJSON
-        response = receiveNull SetTaskStatusResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 SetTaskStatusResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders SetTaskStatus where
         toHeaders
@@ -125,9 +132,19 @@ instance ToPath SetTaskStatus where
 instance ToQuery SetTaskStatus where
         toQuery = const mempty
 
--- | /See:/ 'setTaskStatusResponse' smart constructor.
-data SetTaskStatusResponse = SetTaskStatusResponse' deriving (Eq, Read, Show)
+-- | Contains the output of SetTaskStatus.
+--
+-- /See:/ 'setTaskStatusResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'stsrStatusCode'
+newtype SetTaskStatusResponse = SetTaskStatusResponse'{_stsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetTaskStatusResponse' smart constructor.
-setTaskStatusResponse :: SetTaskStatusResponse
-setTaskStatusResponse = SetTaskStatusResponse';
+setTaskStatusResponse :: Int -> SetTaskStatusResponse
+setTaskStatusResponse pStatusCode = SetTaskStatusResponse'{_stsrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+stsrStatusCode :: Lens' SetTaskStatusResponse Int
+stsrStatusCode = lens _stsrStatusCode (\ s a -> s{_stsrStatusCode = a});

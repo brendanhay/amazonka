@@ -49,6 +49,7 @@ module Network.AWS.Config.GetResourceConfigHistory
     -- ** Response lenses
     , grchrNextToken
     , grchrConfigurationItems
+    , grchrStatusCode
     ) where
 
 import Network.AWS.Config.Types
@@ -56,7 +57,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getResourceConfigHistory' smart constructor.
+-- | The input for the GetResourceConfigHistory action.
+--
+-- /See:/ 'getResourceConfigHistory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -122,7 +125,8 @@ instance AWSRequest GetResourceConfigHistory where
               (\ s h x ->
                  GetResourceConfigHistoryResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "configurationItems" .!@ mempty))
+                     (x .?> "configurationItems" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
@@ -150,18 +154,22 @@ instance ToPath GetResourceConfigHistory where
 instance ToQuery GetResourceConfigHistory where
         toQuery = const mempty
 
--- | /See:/ 'getResourceConfigHistoryResponse' smart constructor.
+-- | The output for the GetResourceConfigHistory action.
+--
+-- /See:/ 'getResourceConfigHistoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grchrNextToken'
 --
 -- * 'grchrConfigurationItems'
-data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken :: Maybe Text, _grchrConfigurationItems :: Maybe [ConfigurationItem]} deriving (Eq, Read, Show)
+--
+-- * 'grchrStatusCode'
+data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken :: Maybe Text, _grchrConfigurationItems :: Maybe [ConfigurationItem], _grchrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
-getResourceConfigHistoryResponse :: GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken = Nothing, _grchrConfigurationItems = Nothing};
+getResourceConfigHistoryResponse :: Int -> GetResourceConfigHistoryResponse
+getResourceConfigHistoryResponse pStatusCode = GetResourceConfigHistoryResponse'{_grchrNextToken = Nothing, _grchrConfigurationItems = Nothing, _grchrStatusCode = pStatusCode};
 
 -- | A token used for pagination of results.
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
@@ -170,3 +178,7 @@ grchrNextToken = lens _grchrNextToken (\ s a -> s{_grchrNextToken = a});
 -- | A list that contains the configuration history of one or more resources.
 grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
 grchrConfigurationItems = lens _grchrConfigurationItems (\ s a -> s{_grchrConfigurationItems = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+grchrStatusCode :: Lens' GetResourceConfigHistoryResponse Int
+grchrStatusCode = lens _grchrStatusCode (\ s a -> s{_grchrStatusCode = a});

@@ -40,15 +40,18 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     -- ** Response lenses
     , dtarTapeArchives
     , dtarMarker
+    , dtarStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeTapeArchives' smart constructor.
+-- | DescribeTapeArchivesInput
+--
+-- /See:/ 'describeTapeArchives' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,8 @@ instance AWSRequest DescribeTapeArchives where
               (\ s h x ->
                  DescribeTapeArchivesResponse' <$>
                    (x .?> "TapeArchives" .!@ mempty) <*>
-                     (x .?> "Marker"))
+                     (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTapeArchives where
         toHeaders
@@ -119,18 +123,22 @@ instance ToPath DescribeTapeArchives where
 instance ToQuery DescribeTapeArchives where
         toQuery = const mempty
 
--- | /See:/ 'describeTapeArchivesResponse' smart constructor.
+-- | DescribeTapeArchivesOutput
+--
+-- /See:/ 'describeTapeArchivesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtarTapeArchives'
 --
 -- * 'dtarMarker'
-data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'{_dtarTapeArchives :: Maybe [TapeArchive], _dtarMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dtarStatusCode'
+data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'{_dtarTapeArchives :: Maybe [TapeArchive], _dtarMarker :: Maybe Text, _dtarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTapeArchivesResponse' smart constructor.
-describeTapeArchivesResponse :: DescribeTapeArchivesResponse
-describeTapeArchivesResponse = DescribeTapeArchivesResponse'{_dtarTapeArchives = Nothing, _dtarMarker = Nothing};
+describeTapeArchivesResponse :: Int -> DescribeTapeArchivesResponse
+describeTapeArchivesResponse pStatusCode = DescribeTapeArchivesResponse'{_dtarTapeArchives = Nothing, _dtarMarker = Nothing, _dtarStatusCode = pStatusCode};
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The
 -- description includes of the Amazon Resource Name(ARN) of the virtual
@@ -147,3 +155,7 @@ dtarTapeArchives = lens _dtarTapeArchives (\ s a -> s{_dtarTapeArchives = a}) . 
 -- not appear in the response.
 dtarMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarMarker = lens _dtarMarker (\ s a -> s{_dtarMarker = a});
+
+-- | FIXME: Undocumented member.
+dtarStatusCode :: Lens' DescribeTapeArchivesResponse Int
+dtarStatusCode = lens _dtarStatusCode (\ s a -> s{_dtarStatusCode = a});

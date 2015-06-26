@@ -21,8 +21,32 @@ module Network.AWS.KMS.Types
     (
     -- * Service
       KMS
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidMarkerException
+    , _InvalidKeyUsageException
+    , _UnsupportedOperationException
+    , _MalformedPolicyDocumentException
+    , _DisabledException
+    , _KeyUnavailableException
+    , _KMSInternalException
+    , _NotFoundException
+    , _InvalidAliasNameException
+    , _InvalidARNException
+    , _DependencyTimeoutException
+    , _InvalidGrantTokenException
+    , _InvalidCiphertextException
+    , _LimitExceededException
+    , _AlreadyExistsException
+
+    -- * DataKeySpec
+    , DataKeySpec (..)
+
+    -- * GrantOperation
+    , GrantOperation (..)
+
+    -- * KeyUsageType
+    , KeyUsageType (..)
 
     -- * AliasListEntry
     , AliasListEntry
@@ -30,9 +54,6 @@ module Network.AWS.KMS.Types
     , aleTargetKeyId
     , aleAliasName
     , aleAliasARN
-
-    -- * DataKeySpec
-    , DataKeySpec (..)
 
     -- * GrantConstraints
     , GrantConstraints
@@ -49,9 +70,6 @@ module Network.AWS.KMS.Types
     , gleConstraints
     , gleGranteePrincipal
     , gleOperations
-
-    -- * GrantOperation
-    , GrantOperation (..)
 
     -- * KeyListEntry
     , KeyListEntry
@@ -70,8 +88,6 @@ module Network.AWS.KMS.Types
     , kmDescription
     , kmKeyId
 
-    -- * KeyUsageType
-    , KeyUsageType (..)
     ) where
 
 import Network.AWS.Prelude
@@ -82,32 +98,179 @@ data KMS
 
 instance AWSService KMS where
     type Sg KMS = V4
-    type Er KMS = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service KMS
-        service' = Service
-            { _svcAbbrev  = "KMS"
-            , _svcPrefix  = "kms"
-            , _svcVersion = "2014-11-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service KMS
+        svc = Service
+            { _svcAbbrev   = "KMS"
+            , _svcPrefix   = "kms"
+            , _svcVersion  = "2014-11-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry KMS
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The request was rejected because the marker that specifies where
+-- pagination should next begin is not valid.
+_InvalidMarkerException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidMarkerException = _ServiceError . hasCode "InvalidMarker" . hasStatus 400;
 
--- | /See:/ 'aliasListEntry' smart constructor.
+-- | The request was rejected because the specified KeySpec parameter is not
+-- valid. The currently supported value is ENCRYPT\/DECRYPT.
+_InvalidKeyUsageException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidKeyUsageException = _ServiceError . hasCode "InvalidKeyUsage" . hasStatus 400;
+
+-- | The request was rejected because a specified parameter is not supported.
+_UnsupportedOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnsupportedOperationException = _ServiceError . hasCode "UnsupportedOperation" . hasStatus 400;
+
+-- | The request was rejected because the specified policy is not
+-- syntactically or semantically correct.
+_MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException = _ServiceError . hasCode "MalformedPolicyDocument" . hasStatus 400;
+
+-- | A request was rejected because the specified key was marked as disabled.
+_DisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DisabledException = _ServiceError . hasCode "Disabled" . hasStatus 409;
+
+-- | The request was rejected because the key was disabled, not found, or
+-- otherwise not available.
+_KeyUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_KeyUnavailableException = _ServiceError . hasCode "KeyUnavailable" . hasStatus 500;
+
+-- | The request was rejected because an internal exception occurred. This
+-- error can be retried.
+_KMSInternalException :: AWSError a => Geting (First ServiceError) a ServiceError
+_KMSInternalException = _ServiceError . hasCode "KMSInternal" . hasStatus 500;
+
+-- | The request was rejected because the specified entity or resource could
+-- not be found.
+_NotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasCode "NotFound" . hasStatus 404;
+
+-- | The request was rejected because the specified alias name is not valid.
+_InvalidAliasNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidAliasNameException = _ServiceError . hasCode "InvalidAliasName" . hasStatus 400;
+
+-- | The request was rejected because a specified ARN was not valid.
+_InvalidARNException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidARNException = _ServiceError . hasCode "InvalidArn" . hasStatus 400;
+
+-- | The system timed out while trying to fulfill the request.
+_DependencyTimeoutException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DependencyTimeoutException = _ServiceError . hasCode "DependencyTimeout" . hasStatus 503;
+
+-- | A grant token provided as part of the request is invalid.
+_InvalidGrantTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidGrantTokenException = _ServiceError . hasCode "InvalidGrantToken" . hasStatus 400;
+
+-- | The request was rejected because the specified ciphertext has been
+-- corrupted or is otherwise invalid.
+_InvalidCiphertextException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidCiphertextException = _ServiceError . hasCode "InvalidCiphertext" . hasStatus 400;
+
+-- | The request was rejected because a quota was exceeded.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
+
+-- | The request was rejected because it attempted to create a resource that
+-- already exists.
+_AlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AlreadyExistsException = _ServiceError . hasCode "AlreadyExists" . hasStatus 400;
+
+data DataKeySpec = AES128 | AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DataKeySpec where
+    parser = takeLowerText >>= \case
+        "AES_128" -> pure AES128
+        "AES_256" -> pure AES256
+        e -> fail ("Failure parsing DataKeySpec from " ++ show e)
+
+instance ToText DataKeySpec where
+    toText = \case
+        AES128 -> "AES_128"
+        AES256 -> "AES_256"
+
+instance Hashable DataKeySpec
+instance ToQuery DataKeySpec
+instance ToHeader DataKeySpec
+
+instance ToJSON DataKeySpec where
+    toJSON = toJSONText
+
+data GrantOperation = Encrypt | GenerateDataKeyWithoutPlaintext | CreateGrant | RetireGrant | GenerateDataKey | Decrypt | ReEncryptTo | ReEncryptFrom deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText GrantOperation where
+    parser = takeLowerText >>= \case
+        "CreateGrant" -> pure CreateGrant
+        "Decrypt" -> pure Decrypt
+        "Encrypt" -> pure Encrypt
+        "GenerateDataKey" -> pure GenerateDataKey
+        "GenerateDataKeyWithoutPlaintext" -> pure GenerateDataKeyWithoutPlaintext
+        "ReEncryptFrom" -> pure ReEncryptFrom
+        "ReEncryptTo" -> pure ReEncryptTo
+        "RetireGrant" -> pure RetireGrant
+        e -> fail ("Failure parsing GrantOperation from " ++ show e)
+
+instance ToText GrantOperation where
+    toText = \case
+        CreateGrant -> "CreateGrant"
+        Decrypt -> "Decrypt"
+        Encrypt -> "Encrypt"
+        GenerateDataKey -> "GenerateDataKey"
+        GenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
+        ReEncryptFrom -> "ReEncryptFrom"
+        ReEncryptTo -> "ReEncryptTo"
+        RetireGrant -> "RetireGrant"
+
+instance Hashable GrantOperation
+instance ToQuery GrantOperation
+instance ToHeader GrantOperation
+
+instance ToJSON GrantOperation where
+    toJSON = toJSONText
+
+instance FromJSON GrantOperation where
+    parseJSON = parseJSONText "GrantOperation"
+
+data KeyUsageType = EncryptDecrypt deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText KeyUsageType where
+    parser = takeLowerText >>= \case
+        "ENCRYPT_DECRYPT" -> pure EncryptDecrypt
+        e -> fail ("Failure parsing KeyUsageType from " ++ show e)
+
+instance ToText KeyUsageType where
+    toText = \case
+        EncryptDecrypt -> "ENCRYPT_DECRYPT"
+
+instance Hashable KeyUsageType
+instance ToQuery KeyUsageType
+instance ToHeader KeyUsageType
+
+instance ToJSON KeyUsageType where
+    toJSON = toJSONText
+
+instance FromJSON KeyUsageType where
+    parseJSON = parseJSONText "KeyUsageType"
+
+-- | Contains information about an alias.
+--
+-- /See:/ 'aliasListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -142,27 +305,9 @@ instance FromJSON AliasListEntry where
                    (x .:? "TargetKeyId") <*> (x .:? "AliasName") <*>
                      (x .:? "AliasArn"))
 
-data DataKeySpec = AES128 | AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DataKeySpec where
-    parser = takeLowerText >>= \case
-        "AES_128" -> pure AES128
-        "AES_256" -> pure AES256
-        e -> fail ("Failure parsing DataKeySpec from " ++ show e)
-
-instance ToText DataKeySpec where
-    toText = \case
-        AES128 -> "AES_128"
-        AES256 -> "AES_256"
-
-instance Hashable DataKeySpec
-instance ToQuery DataKeySpec
-instance ToHeader DataKeySpec
-
-instance ToJSON DataKeySpec where
-    toJSON = toJSONText
-
--- | /See:/ 'grantConstraints' smart constructor.
+-- | Contains constraints on the grant.
+--
+-- /See:/ 'grantConstraints' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -200,7 +345,9 @@ instance ToJSON GrantConstraints where
                "EncryptionContextSubset" .=
                  _gcEncryptionContextSubset]
 
--- | /See:/ 'grantListEntry' smart constructor.
+-- | Contains information about each entry in the grant list.
+--
+-- /See:/ 'grantListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -267,42 +414,9 @@ instance FromJSON GrantListEntry where
                      <*> (x .:? "GranteePrincipal")
                      <*> (x .:? "Operations" .!= mempty))
 
-data GrantOperation = Encrypt | GenerateDataKeyWithoutPlaintext | CreateGrant | RetireGrant | GenerateDataKey | Decrypt | ReEncryptTo | ReEncryptFrom deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText GrantOperation where
-    parser = takeLowerText >>= \case
-        "CreateGrant" -> pure CreateGrant
-        "Decrypt" -> pure Decrypt
-        "Encrypt" -> pure Encrypt
-        "GenerateDataKey" -> pure GenerateDataKey
-        "GenerateDataKeyWithoutPlaintext" -> pure GenerateDataKeyWithoutPlaintext
-        "ReEncryptFrom" -> pure ReEncryptFrom
-        "ReEncryptTo" -> pure ReEncryptTo
-        "RetireGrant" -> pure RetireGrant
-        e -> fail ("Failure parsing GrantOperation from " ++ show e)
-
-instance ToText GrantOperation where
-    toText = \case
-        CreateGrant -> "CreateGrant"
-        Decrypt -> "Decrypt"
-        Encrypt -> "Encrypt"
-        GenerateDataKey -> "GenerateDataKey"
-        GenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
-        ReEncryptFrom -> "ReEncryptFrom"
-        ReEncryptTo -> "ReEncryptTo"
-        RetireGrant -> "RetireGrant"
-
-instance Hashable GrantOperation
-instance ToQuery GrantOperation
-instance ToHeader GrantOperation
-
-instance ToJSON GrantOperation where
-    toJSON = toJSONText
-
-instance FromJSON GrantOperation where
-    parseJSON = parseJSONText "GrantOperation"
-
--- | /See:/ 'keyListEntry' smart constructor.
+-- | Contains information about each entry in the key list.
+--
+-- /See:/ 'keyListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -330,7 +444,9 @@ instance FromJSON KeyListEntry where
                  KeyListEntry' <$>
                    (x .:? "KeyArn") <*> (x .:? "KeyId"))
 
--- | /See:/ 'keyMetadata' smart constructor.
+-- | Contains metadata associated with a specific key.
+--
+-- /See:/ 'keyMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -392,24 +508,3 @@ instance FromJSON KeyMetadata where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "Description")
                      <*> (x .: "KeyId"))
-
-data KeyUsageType = EncryptDecrypt deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText KeyUsageType where
-    parser = takeLowerText >>= \case
-        "ENCRYPT_DECRYPT" -> pure EncryptDecrypt
-        e -> fail ("Failure parsing KeyUsageType from " ++ show e)
-
-instance ToText KeyUsageType where
-    toText = \case
-        EncryptDecrypt -> "ENCRYPT_DECRYPT"
-
-instance Hashable KeyUsageType
-instance ToQuery KeyUsageType
-instance ToHeader KeyUsageType
-
-instance ToJSON KeyUsageType where
-    toJSON = toJSONText
-
-instance FromJSON KeyUsageType where
-    parseJSON = parseJSONText "KeyUsageType"

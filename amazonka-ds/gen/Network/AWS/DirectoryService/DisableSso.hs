@@ -32,6 +32,8 @@ module Network.AWS.DirectoryService.DisableSso
     , DisableSsoResponse
     -- ** Response constructor
     , disableSsoResponse
+    -- ** Response lenses
+    , disStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'disableSso' smart constructor.
+-- | Contains the inputs for the DisableSso operation.
+--
+-- /See:/ 'disableSso' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -80,7 +84,10 @@ instance AWSRequest DisableSso where
         type Sv DisableSso = DirectoryService
         type Rs DisableSso = DisableSsoResponse
         request = postJSON
-        response = receiveNull DisableSsoResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DisableSsoResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DisableSso where
         toHeaders
@@ -105,9 +112,19 @@ instance ToPath DisableSso where
 instance ToQuery DisableSso where
         toQuery = const mempty
 
--- | /See:/ 'disableSsoResponse' smart constructor.
-data DisableSsoResponse = DisableSsoResponse' deriving (Eq, Read, Show)
+-- | Contains the results of the DisableSso operation.
+--
+-- /See:/ 'disableSsoResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'disStatusCode'
+newtype DisableSsoResponse = DisableSsoResponse'{_disStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableSsoResponse' smart constructor.
-disableSsoResponse :: DisableSsoResponse
-disableSsoResponse = DisableSsoResponse';
+disableSsoResponse :: Int -> DisableSsoResponse
+disableSsoResponse pStatusCode = DisableSsoResponse'{_disStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+disStatusCode :: Lens' DisableSsoResponse Int
+disStatusCode = lens _disStatusCode (\ s a -> s{_disStatusCode = a});

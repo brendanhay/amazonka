@@ -37,15 +37,18 @@ module Network.AWS.CloudFormation.ListStackResources
     -- ** Response lenses
     , lsrrNextToken
     , lsrrStackResourceSummaries
+    , lsrrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listStackResources' smart constructor.
+-- | The input for the ListStackResource action.
+--
+-- /See:/ 'listStackResources' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -94,7 +97,8 @@ instance AWSRequest ListStackResources where
                  ListStackResourcesResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "StackResourceSummaries" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
@@ -110,18 +114,22 @@ instance ToQuery ListStackResources where
                "NextToken" =: _lsrNextToken,
                "StackName" =: _lsrStackName]
 
--- | /See:/ 'listStackResourcesResponse' smart constructor.
+-- | The output for a ListStackResources action.
+--
+-- /See:/ 'listStackResourcesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsrrNextToken'
 --
 -- * 'lsrrStackResourceSummaries'
-data ListStackResourcesResponse = ListStackResourcesResponse'{_lsrrNextToken :: Maybe Text, _lsrrStackResourceSummaries :: Maybe [StackResourceSummary]} deriving (Eq, Read, Show)
+--
+-- * 'lsrrStatusCode'
+data ListStackResourcesResponse = ListStackResourcesResponse'{_lsrrNextToken :: Maybe Text, _lsrrStackResourceSummaries :: Maybe [StackResourceSummary], _lsrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListStackResourcesResponse' smart constructor.
-listStackResourcesResponse :: ListStackResourcesResponse
-listStackResourcesResponse = ListStackResourcesResponse'{_lsrrNextToken = Nothing, _lsrrStackResourceSummaries = Nothing};
+listStackResourcesResponse :: Int -> ListStackResourcesResponse
+listStackResourcesResponse pStatusCode = ListStackResourcesResponse'{_lsrrNextToken = Nothing, _lsrrStackResourceSummaries = Nothing, _lsrrStatusCode = pStatusCode};
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
@@ -131,3 +139,7 @@ lsrrNextToken = lens _lsrrNextToken (\ s a -> s{_lsrrNextToken = a});
 -- | A list of @StackResourceSummary@ structures.
 lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lsrrStatusCode :: Lens' ListStackResourcesResponse Int
+lsrrStatusCode = lens _lsrrStatusCode (\ s a -> s{_lsrrStatusCode = a});

@@ -39,15 +39,18 @@ module Network.AWS.DataPipeline.DescribeObjects
     , dorHasMoreResults
     , dorMarker
     , dorPipelineObjects
+    , dorStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeObjects' smart constructor.
+-- | Contains the parameters for DescribeObjects.
+--
+-- /See:/ 'describeObjects' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,8 @@ instance AWSRequest DescribeObjects where
               (\ s h x ->
                  DescribeObjectsResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
-                     (x .?> "pipelineObjects" .!@ mempty))
+                     (x .?> "pipelineObjects" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeObjects where
         toHeaders
@@ -125,7 +129,9 @@ instance ToPath DescribeObjects where
 instance ToQuery DescribeObjects where
         toQuery = const mempty
 
--- | /See:/ 'describeObjectsResponse' smart constructor.
+-- | Contains the output of DescribeObjects.
+--
+-- /See:/ 'describeObjectsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -134,11 +140,13 @@ instance ToQuery DescribeObjects where
 -- * 'dorMarker'
 --
 -- * 'dorPipelineObjects'
-data DescribeObjectsResponse = DescribeObjectsResponse'{_dorHasMoreResults :: Maybe Bool, _dorMarker :: Maybe Text, _dorPipelineObjects :: [PipelineObject]} deriving (Eq, Read, Show)
+--
+-- * 'dorStatusCode'
+data DescribeObjectsResponse = DescribeObjectsResponse'{_dorHasMoreResults :: Maybe Bool, _dorMarker :: Maybe Text, _dorPipelineObjects :: [PipelineObject], _dorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeObjectsResponse' smart constructor.
-describeObjectsResponse :: DescribeObjectsResponse
-describeObjectsResponse = DescribeObjectsResponse'{_dorHasMoreResults = Nothing, _dorMarker = Nothing, _dorPipelineObjects = mempty};
+describeObjectsResponse :: Int -> DescribeObjectsResponse
+describeObjectsResponse pStatusCode = DescribeObjectsResponse'{_dorHasMoreResults = Nothing, _dorMarker = Nothing, _dorPipelineObjects = mempty, _dorStatusCode = pStatusCode};
 
 -- | Indicates whether there are more results to return.
 dorHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
@@ -153,3 +161,7 @@ dorMarker = lens _dorMarker (\ s a -> s{_dorMarker = a});
 -- | An array of object definitions.
 dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects = lens _dorPipelineObjects (\ s a -> s{_dorPipelineObjects = a});
+
+-- | FIXME: Undocumented member.
+dorStatusCode :: Lens' DescribeObjectsResponse Int
+dorStatusCode = lens _dorStatusCode (\ s a -> s{_dorStatusCode = a});

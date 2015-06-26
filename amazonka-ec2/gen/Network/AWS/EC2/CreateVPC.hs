@@ -46,6 +46,7 @@ module Network.AWS.EC2.CreateVPC
     , createVPCResponse
     -- ** Response lenses
     , cvrVPC
+    , cvrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -97,7 +98,9 @@ instance AWSRequest CreateVPC where
         request = post
         response
           = receiveXML
-              (\ s h x -> CreateVPCResponse' <$> (x .@? "vpc"))
+              (\ s h x ->
+                 CreateVPCResponse' <$>
+                   (x .@? "vpc") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
@@ -118,12 +121,18 @@ instance ToQuery CreateVPC where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvrVPC'
-newtype CreateVPCResponse = CreateVPCResponse'{_cvrVPC :: Maybe VPC} deriving (Eq, Read, Show)
+--
+-- * 'cvrStatusCode'
+data CreateVPCResponse = CreateVPCResponse'{_cvrVPC :: Maybe VPC, _cvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateVPCResponse' smart constructor.
-createVPCResponse :: CreateVPCResponse
-createVPCResponse = CreateVPCResponse'{_cvrVPC = Nothing};
+createVPCResponse :: Int -> CreateVPCResponse
+createVPCResponse pStatusCode = CreateVPCResponse'{_cvrVPC = Nothing, _cvrStatusCode = pStatusCode};
 
 -- | Information about the VPC.
 cvrVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrVPC = lens _cvrVPC (\ s a -> s{_cvrVPC = a});
+
+-- | FIXME: Undocumented member.
+cvrStatusCode :: Lens' CreateVPCResponse Int
+cvrStatusCode = lens _cvrStatusCode (\ s a -> s{_cvrStatusCode = a});

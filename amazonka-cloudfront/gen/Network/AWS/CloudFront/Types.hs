@@ -21,8 +21,78 @@ module Network.AWS.CloudFront.Types
     (
     -- * Service
       CloudFront
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _InvalidErrorCode
+    , _TooManyCacheBehaviors
+    , _DistributionNotDisabled
+    , _InvalidOriginAccessIdentity
+    , _TooManyCloudFrontOriginAccessIdentities
+    , _TooManyStreamingDistributions
+    , _InvalidArgument
+    , _NoSuchCloudFrontOriginAccessIdentity
+    , _NoSuchStreamingDistribution
+    , _CloudFrontOriginAccessIdentityInUse
+    , _InconsistentQuantities
+    , _TooManyInvalidationsInProgress
+    , _TooManyDistributionCNAMEs
+    , _InvalidForwardCookies
+    , _TooManyCookieNamesInWhiteList
+    , _BatchTooLarge
+    , _InvalidOrigin
+    , _TooManyTrustedSigners
+    , _NoSuchOrigin
+    , _NoSuchInvalidation
+    , _StreamingDistributionNotDisabled
+    , _TooManyStreamingDistributionCNAMEs
+    , _TooManyDistributions
+    , _InvalidRequiredProtocol
+    , _TooManyHeadersInForwardedValues
+    , _TooManyCertificates
+    , _MissingBody
+    , _DistributionAlreadyExists
+    , _IllegalUpdate
+    , _InvalidResponseCode
+    , _InvalidIfMatchVersion
+    , _PreconditionFailed
+    , _InvalidProtocolSettings
+    , _TrustedSignerDoesNotExist
+    , _InvalidHeadersForS3Origin
+    , _CNAMEAlreadyExists
+    , _StreamingDistributionAlreadyExists
+    , _TooManyOrigins
+    , _CloudFrontOriginAccessIdentityAlreadyExists
+    , _InvalidRelativePath
+    , _AccessDenied
+    , _NoSuchDistribution
+    , _InvalidViewerCertificate
+    , _InvalidDefaultRootObject
+    , _InvalidLocationCode
+    , _InvalidGeoRestrictionParameter
+
+    -- * GeoRestrictionType
+    , GeoRestrictionType (..)
+
+    -- * ItemSelection
+    , ItemSelection (..)
+
+    -- * Method
+    , Method (..)
+
+    -- * MinimumProtocolVersion
+    , MinimumProtocolVersion (..)
+
+    -- * OriginProtocolPolicy
+    , OriginProtocolPolicy (..)
+
+    -- * PriceClass
+    , PriceClass (..)
+
+    -- * SSLSupportMethod
+    , SSLSupportMethod (..)
+
+    -- * ViewerProtocolPolicy
+    , ViewerProtocolPolicy (..)
 
     -- * ActiveTrustedSigners
     , ActiveTrustedSigners
@@ -212,9 +282,6 @@ module Network.AWS.CloudFront.Types
     , grRestrictionType
     , grQuantity
 
-    -- * GeoRestrictionType
-    , GeoRestrictionType (..)
-
     -- * Headers
     , Headers
     , headers
@@ -252,9 +319,6 @@ module Network.AWS.CloudFront.Types
     , isCreateTime
     , isStatus
 
-    -- * ItemSelection
-    , ItemSelection (..)
-
     -- * KeyPairIds
     , KeyPairIds
     , keyPairIds
@@ -269,12 +333,6 @@ module Network.AWS.CloudFront.Types
     , lcBucket
     , lcPrefix
 
-    -- * Method
-    , Method (..)
-
-    -- * MinimumProtocolVersion
-    , MinimumProtocolVersion (..)
-
     -- * Origin
     , Origin
     , origin
@@ -283,9 +341,6 @@ module Network.AWS.CloudFront.Types
     , oriOriginPath
     , oriId
     , oriDomainName
-
-    -- * OriginProtocolPolicy
-    , OriginProtocolPolicy (..)
 
     -- * Origins
     , Origins
@@ -298,9 +353,6 @@ module Network.AWS.CloudFront.Types
     , paths
     , patItems
     , patQuantity
-
-    -- * PriceClass
-    , PriceClass (..)
 
     -- * Restrictions
     , Restrictions
@@ -317,9 +369,6 @@ module Network.AWS.CloudFront.Types
     , S3OriginConfig
     , s3OriginConfig
     , socOriginAccessIdentity
-
-    -- * SSLSupportMethod
-    , SSLSupportMethod (..)
 
     -- * Signer
     , Signer
@@ -395,8 +444,6 @@ module Network.AWS.CloudFront.Types
     , vcIAMCertificateId
     , vcCloudFrontDefaultCertificate
 
-    -- * ViewerProtocolPolicy
-    , ViewerProtocolPolicy (..)
     ) where
 
 import Network.AWS.Prelude
@@ -407,32 +454,447 @@ data CloudFront
 
 instance AWSService CloudFront where
     type Sg CloudFront = V4
-    type Er CloudFront = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudFront
-        service' = Service
-            { _svcAbbrev  = "CloudFront"
-            , _svcPrefix  = "cloudfront"
-            , _svcVersion = "2014-11-06"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudFront
+        svc = Service
+            { _svcAbbrev   = "CloudFront"
+            , _svcPrefix   = "cloudfront"
+            , _svcVersion  = "2014-11-06"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudFront
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Prism for InvalidErrorCode' errors.
+_InvalidErrorCode :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidErrorCode = _ServiceError . hasCode "InvalidErrorCode" . hasStatus 400;
 
--- | /See:/ 'activeTrustedSigners' smart constructor.
+-- | You cannot create anymore cache behaviors for the distribution.
+_TooManyCacheBehaviors :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyCacheBehaviors = _ServiceError . hasCode "TooManyCacheBehaviors" . hasStatus 400;
+
+-- | Prism for DistributionNotDisabled' errors.
+_DistributionNotDisabled :: AWSError a => Geting (First ServiceError) a ServiceError
+_DistributionNotDisabled = _ServiceError . hasCode "DistributionNotDisabled" . hasStatus 409;
+
+-- | The origin access identity is not valid or doesn\'t exist.
+_InvalidOriginAccessIdentity :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidOriginAccessIdentity = _ServiceError . hasCode "InvalidOriginAccessIdentity" . hasStatus 400;
+
+-- | Processing your request would cause you to exceed the maximum number of
+-- origin access identities allowed.
+_TooManyCloudFrontOriginAccessIdentities :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyCloudFrontOriginAccessIdentities = _ServiceError . hasCode "TooManyCloudFrontOriginAccessIdentities" . hasStatus 400;
+
+-- | Processing your request would cause you to exceed the maximum number of
+-- streaming distributions allowed.
+_TooManyStreamingDistributions :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyStreamingDistributions = _ServiceError . hasCode "TooManyStreamingDistributions" . hasStatus 400;
+
+-- | The argument is invalid.
+_InvalidArgument :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidArgument = _ServiceError . hasCode "InvalidArgument" . hasStatus 400;
+
+-- | The specified origin access identity does not exist.
+_NoSuchCloudFrontOriginAccessIdentity :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchCloudFrontOriginAccessIdentity = _ServiceError . hasCode "NoSuchCloudFrontOriginAccessIdentity" . hasStatus 404;
+
+-- | The specified streaming distribution does not exist.
+_NoSuchStreamingDistribution :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchStreamingDistribution = _ServiceError . hasCode "NoSuchStreamingDistribution" . hasStatus 404;
+
+-- | Prism for CloudFrontOriginAccessIdentityInUse' errors.
+_CloudFrontOriginAccessIdentityInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_CloudFrontOriginAccessIdentityInUse = _ServiceError . hasCode "CloudFrontOriginAccessIdentityInUse" . hasStatus 409;
+
+-- | The value of Quantity and the size of Items do not match.
+_InconsistentQuantities :: AWSError a => Geting (First ServiceError) a ServiceError
+_InconsistentQuantities = _ServiceError . hasCode "InconsistentQuantities" . hasStatus 400;
+
+-- | You have exceeded the maximum number of allowable InProgress
+-- invalidation batch requests, or invalidation objects.
+_TooManyInvalidationsInProgress :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyInvalidationsInProgress = _ServiceError . hasCode "TooManyInvalidationsInProgress" . hasStatus 400;
+
+-- | Your request contains more CNAMEs than are allowed per distribution.
+_TooManyDistributionCNAMEs :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyDistributionCNAMEs = _ServiceError . hasCode "TooManyDistributionCNAMEs" . hasStatus 400;
+
+-- | Your request contains forward cookies option which doesn\'t match with
+-- the expectation for the whitelisted list of cookie names. Either list of
+-- cookie names has been specified when not allowed or list of cookie names
+-- is missing when expected.
+_InvalidForwardCookies :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidForwardCookies = _ServiceError . hasCode "InvalidForwardCookies" . hasStatus 400;
+
+-- | Your request contains more cookie names in the whitelist than are
+-- allowed per cache behavior.
+_TooManyCookieNamesInWhiteList :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyCookieNamesInWhiteList = _ServiceError . hasCode "TooManyCookieNamesInWhiteList" . hasStatus 400;
+
+-- | Prism for BatchTooLarge' errors.
+_BatchTooLarge :: AWSError a => Geting (First ServiceError) a ServiceError
+_BatchTooLarge = _ServiceError . hasCode "BatchTooLarge" . hasStatus 413;
+
+-- | The Amazon S3 origin server specified does not refer to a valid Amazon
+-- S3 bucket.
+_InvalidOrigin :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidOrigin = _ServiceError . hasCode "InvalidOrigin" . hasStatus 400;
+
+-- | Your request contains more trusted signers than are allowed per
+-- distribution.
+_TooManyTrustedSigners :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyTrustedSigners = _ServiceError . hasCode "TooManyTrustedSigners" . hasStatus 400;
+
+-- | No origin exists with the specified Origin Id.
+_NoSuchOrigin :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchOrigin = _ServiceError . hasCode "NoSuchOrigin" . hasStatus 404;
+
+-- | The specified invalidation does not exist.
+_NoSuchInvalidation :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchInvalidation = _ServiceError . hasCode "NoSuchInvalidation" . hasStatus 404;
+
+-- | Prism for StreamingDistributionNotDisabled' errors.
+_StreamingDistributionNotDisabled :: AWSError a => Geting (First ServiceError) a ServiceError
+_StreamingDistributionNotDisabled = _ServiceError . hasCode "StreamingDistributionNotDisabled" . hasStatus 409;
+
+-- | Prism for TooManyStreamingDistributionCNAMEs' errors.
+_TooManyStreamingDistributionCNAMEs :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyStreamingDistributionCNAMEs = _ServiceError . hasCode "TooManyStreamingDistributionCNAMEs" . hasStatus 400;
+
+-- | Processing your request would cause you to exceed the maximum number of
+-- distributions allowed.
+_TooManyDistributions :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyDistributions = _ServiceError . hasCode "TooManyDistributions" . hasStatus 400;
+
+-- | This operation requires the HTTPS protocol. Ensure that you specify the
+-- HTTPS protocol in your request, or omit the RequiredProtocols element
+-- from your distribution configuration.
+_InvalidRequiredProtocol :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRequiredProtocol = _ServiceError . hasCode "InvalidRequiredProtocol" . hasStatus 400;
+
+-- | Prism for TooManyHeadersInForwardedValues' errors.
+_TooManyHeadersInForwardedValues :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyHeadersInForwardedValues = _ServiceError . hasCode "TooManyHeadersInForwardedValues" . hasStatus 400;
+
+-- | You cannot create anymore custom ssl certificates.
+_TooManyCertificates :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyCertificates = _ServiceError . hasCode "TooManyCertificates" . hasStatus 400;
+
+-- | This operation requires a body. Ensure that the body is present and the
+-- Content-Type header is set.
+_MissingBody :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingBody = _ServiceError . hasCode "MissingBody" . hasStatus 400;
+
+-- | The caller reference you attempted to create the distribution with is
+-- associated with another distribution.
+_DistributionAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_DistributionAlreadyExists = _ServiceError . hasCode "DistributionAlreadyExists" . hasStatus 409;
+
+-- | Origin and CallerReference cannot be updated.
+_IllegalUpdate :: AWSError a => Geting (First ServiceError) a ServiceError
+_IllegalUpdate = _ServiceError . hasCode "IllegalUpdate" . hasStatus 400;
+
+-- | Prism for InvalidResponseCode' errors.
+_InvalidResponseCode :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidResponseCode = _ServiceError . hasCode "InvalidResponseCode" . hasStatus 400;
+
+-- | The If-Match version is missing or not valid for the distribution.
+_InvalidIfMatchVersion :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidIfMatchVersion = _ServiceError . hasCode "InvalidIfMatchVersion" . hasStatus 400;
+
+-- | The precondition given in one or more of the request-header fields
+-- evaluated to false.
+_PreconditionFailed :: AWSError a => Geting (First ServiceError) a ServiceError
+_PreconditionFailed = _ServiceError . hasCode "PreconditionFailed" . hasStatus 412;
+
+-- | You cannot specify SSLv3 as the minimum protocol version if you only
+-- want to support only clients that Support Server Name Indication (SNI).
+_InvalidProtocolSettings :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidProtocolSettings = _ServiceError . hasCode "InvalidProtocolSettings" . hasStatus 400;
+
+-- | One or more of your trusted signers do not exist.
+_TrustedSignerDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
+_TrustedSignerDoesNotExist = _ServiceError . hasCode "TrustedSignerDoesNotExist" . hasStatus 400;
+
+-- | Prism for InvalidHeadersForS3Origin' errors.
+_InvalidHeadersForS3Origin :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidHeadersForS3Origin = _ServiceError . hasCode "InvalidHeadersForS3Origin" . hasStatus 400;
+
+-- | Prism for CNAMEAlreadyExists' errors.
+_CNAMEAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_CNAMEAlreadyExists = _ServiceError . hasCode "CNAMEAlreadyExists" . hasStatus 409;
+
+-- | Prism for StreamingDistributionAlreadyExists' errors.
+_StreamingDistributionAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_StreamingDistributionAlreadyExists = _ServiceError . hasCode "StreamingDistributionAlreadyExists" . hasStatus 409;
+
+-- | You cannot create anymore origins for the distribution.
+_TooManyOrigins :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyOrigins = _ServiceError . hasCode "TooManyOrigins" . hasStatus 400;
+
+-- | If the CallerReference is a value you already sent in a previous request
+-- to create an identity but the content of the
+-- CloudFrontOriginAccessIdentityConfig is different from the original
+-- request, CloudFront returns a
+-- CloudFrontOriginAccessIdentityAlreadyExists error.
+_CloudFrontOriginAccessIdentityAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_CloudFrontOriginAccessIdentityAlreadyExists = _ServiceError . hasCode "CloudFrontOriginAccessIdentityAlreadyExists" . hasStatus 409;
+
+-- | The relative path is too big, is not URL-encoded, or does not begin with
+-- a slash (\/).
+_InvalidRelativePath :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRelativePath = _ServiceError . hasCode "InvalidRelativePath" . hasStatus 400;
+
+-- | Access denied.
+_AccessDenied :: AWSError a => Geting (First ServiceError) a ServiceError
+_AccessDenied = _ServiceError . hasCode "AccessDenied" . hasStatus 403;
+
+-- | The specified distribution does not exist.
+_NoSuchDistribution :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchDistribution = _ServiceError . hasCode "NoSuchDistribution" . hasStatus 404;
+
+-- | Prism for InvalidViewerCertificate' errors.
+_InvalidViewerCertificate :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidViewerCertificate = _ServiceError . hasCode "InvalidViewerCertificate" . hasStatus 400;
+
+-- | The default root object file name is too big or contains an invalid
+-- character.
+_InvalidDefaultRootObject :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDefaultRootObject = _ServiceError . hasCode "InvalidDefaultRootObject" . hasStatus 400;
+
+-- | Prism for InvalidLocationCode' errors.
+_InvalidLocationCode :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidLocationCode = _ServiceError . hasCode "InvalidLocationCode" . hasStatus 400;
+
+-- | Prism for InvalidGeoRestrictionParameter' errors.
+_InvalidGeoRestrictionParameter :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidGeoRestrictionParameter = _ServiceError . hasCode "InvalidGeoRestrictionParameter" . hasStatus 400;
+
+data GeoRestrictionType = None | Whitelist | Blacklist deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText GeoRestrictionType where
+    parser = takeLowerText >>= \case
+        "blacklist" -> pure Blacklist
+        "none" -> pure None
+        "whitelist" -> pure Whitelist
+        e -> fail ("Failure parsing GeoRestrictionType from " ++ show e)
+
+instance ToText GeoRestrictionType where
+    toText = \case
+        Blacklist -> "blacklist"
+        None -> "none"
+        Whitelist -> "whitelist"
+
+instance Hashable GeoRestrictionType
+instance ToQuery GeoRestrictionType
+instance ToHeader GeoRestrictionType
+
+instance FromXML GeoRestrictionType where
+    parseXML = parseXMLText "GeoRestrictionType"
+
+instance ToXML GeoRestrictionType where
+    toXML = toXMLText
+
+data ItemSelection = ISWhitelist | ISNone | ISAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ItemSelection where
+    parser = takeLowerText >>= \case
+        "all" -> pure ISAll
+        "none" -> pure ISNone
+        "whitelist" -> pure ISWhitelist
+        e -> fail ("Failure parsing ItemSelection from " ++ show e)
+
+instance ToText ItemSelection where
+    toText = \case
+        ISAll -> "all"
+        ISNone -> "none"
+        ISWhitelist -> "whitelist"
+
+instance Hashable ItemSelection
+instance ToQuery ItemSelection
+instance ToHeader ItemSelection
+
+instance FromXML ItemSelection where
+    parseXML = parseXMLText "ItemSelection"
+
+instance ToXML ItemSelection where
+    toXML = toXMLText
+
+data Method = Head | Post | Patch | Get | Options | Put | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Method where
+    parser = takeLowerText >>= \case
+        "DELETE" -> pure Delete
+        "GET" -> pure Get
+        "HEAD" -> pure Head
+        "OPTIONS" -> pure Options
+        "PATCH" -> pure Patch
+        "POST" -> pure Post
+        "PUT" -> pure Put
+        e -> fail ("Failure parsing Method from " ++ show e)
+
+instance ToText Method where
+    toText = \case
+        Delete -> "DELETE"
+        Get -> "GET"
+        Head -> "HEAD"
+        Options -> "OPTIONS"
+        Patch -> "PATCH"
+        Post -> "POST"
+        Put -> "PUT"
+
+instance Hashable Method
+instance ToQuery Method
+instance ToHeader Method
+
+instance FromXML Method where
+    parseXML = parseXMLText "Method"
+
+instance ToXML Method where
+    toXML = toXMLText
+
+data MinimumProtocolVersion = TLSV1 | SSLV3 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MinimumProtocolVersion where
+    parser = takeLowerText >>= \case
+        "SSLv3" -> pure SSLV3
+        "TLSv1" -> pure TLSV1
+        e -> fail ("Failure parsing MinimumProtocolVersion from " ++ show e)
+
+instance ToText MinimumProtocolVersion where
+    toText = \case
+        SSLV3 -> "SSLv3"
+        TLSV1 -> "TLSv1"
+
+instance Hashable MinimumProtocolVersion
+instance ToQuery MinimumProtocolVersion
+instance ToHeader MinimumProtocolVersion
+
+instance FromXML MinimumProtocolVersion where
+    parseXML = parseXMLText "MinimumProtocolVersion"
+
+instance ToXML MinimumProtocolVersion where
+    toXML = toXMLText
+
+data OriginProtocolPolicy = HTTPOnly | MatchViewer deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OriginProtocolPolicy where
+    parser = takeLowerText >>= \case
+        "http-only" -> pure HTTPOnly
+        "match-viewer" -> pure MatchViewer
+        e -> fail ("Failure parsing OriginProtocolPolicy from " ++ show e)
+
+instance ToText OriginProtocolPolicy where
+    toText = \case
+        HTTPOnly -> "http-only"
+        MatchViewer -> "match-viewer"
+
+instance Hashable OriginProtocolPolicy
+instance ToQuery OriginProtocolPolicy
+instance ToHeader OriginProtocolPolicy
+
+instance FromXML OriginProtocolPolicy where
+    parseXML = parseXMLText "OriginProtocolPolicy"
+
+instance ToXML OriginProtocolPolicy where
+    toXML = toXMLText
+
+data PriceClass = PriceClass200 | PriceClass100 | PriceClassAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PriceClass where
+    parser = takeLowerText >>= \case
+        "PriceClass_100" -> pure PriceClass100
+        "PriceClass_200" -> pure PriceClass200
+        "PriceClass_All" -> pure PriceClassAll
+        e -> fail ("Failure parsing PriceClass from " ++ show e)
+
+instance ToText PriceClass where
+    toText = \case
+        PriceClass100 -> "PriceClass_100"
+        PriceClass200 -> "PriceClass_200"
+        PriceClassAll -> "PriceClass_All"
+
+instance Hashable PriceClass
+instance ToQuery PriceClass
+instance ToHeader PriceClass
+
+instance FromXML PriceClass where
+    parseXML = parseXMLText "PriceClass"
+
+instance ToXML PriceClass where
+    toXML = toXMLText
+
+data SSLSupportMethod = VIP | SNIOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SSLSupportMethod where
+    parser = takeLowerText >>= \case
+        "sni-only" -> pure SNIOnly
+        "vip" -> pure VIP
+        e -> fail ("Failure parsing SSLSupportMethod from " ++ show e)
+
+instance ToText SSLSupportMethod where
+    toText = \case
+        SNIOnly -> "sni-only"
+        VIP -> "vip"
+
+instance Hashable SSLSupportMethod
+instance ToQuery SSLSupportMethod
+instance ToHeader SSLSupportMethod
+
+instance FromXML SSLSupportMethod where
+    parseXML = parseXMLText "SSLSupportMethod"
+
+instance ToXML SSLSupportMethod where
+    toXML = toXMLText
+
+data ViewerProtocolPolicy = HTTPSOnly | RedirectTOHTTPS | AllowAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ViewerProtocolPolicy where
+    parser = takeLowerText >>= \case
+        "allow-all" -> pure AllowAll
+        "https-only" -> pure HTTPSOnly
+        "redirect-to-https" -> pure RedirectTOHTTPS
+        e -> fail ("Failure parsing ViewerProtocolPolicy from " ++ show e)
+
+instance ToText ViewerProtocolPolicy where
+    toText = \case
+        AllowAll -> "allow-all"
+        HTTPSOnly -> "https-only"
+        RedirectTOHTTPS -> "redirect-to-https"
+
+instance Hashable ViewerProtocolPolicy
+instance ToQuery ViewerProtocolPolicy
+instance ToHeader ViewerProtocolPolicy
+
+instance FromXML ViewerProtocolPolicy where
+    parseXML = parseXMLText "ViewerProtocolPolicy"
+
+instance ToXML ViewerProtocolPolicy where
+    toXML = toXMLText
+
+-- | A complex type that lists the AWS accounts, if any, that you included in
+-- the TrustedSigners complex type for the default cache behavior or for
+-- any of the other cache behaviors for this distribution. These are
+-- accounts that you want to allow to create signed URLs for private
+-- content.
+--
+-- /See:/ 'activeTrustedSigners' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -472,7 +934,10 @@ instance FromXML ActiveTrustedSigners where
                 <*> (x .@ "Enabled")
                 <*> (x .@ "Quantity")
 
--- | /See:/ 'aliases' smart constructor.
+-- | A complex type that contains information about CNAMEs (alternate domain
+-- names), if any, for this distribution.
+--
+-- /See:/ 'aliases' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -507,7 +972,17 @@ instance ToXML Aliases where
               ["Items" @= toXML (toXMLList "CNAME" <$> _aliItems),
                "Quantity" @= _aliQuantity]
 
--- | /See:/ 'allowedMethods' smart constructor.
+-- | A complex type that controls which HTTP methods CloudFront processes and
+-- forwards to your Amazon S3 bucket or your custom origin. There are three
+-- choices: - CloudFront forwards only GET and HEAD requests. - CloudFront
+-- forwards only GET, HEAD and OPTIONS requests. - CloudFront forwards GET,
+-- HEAD, OPTIONS, PUT, PATCH, POST, and DELETE requests. If you pick the
+-- third choice, you may need to restrict access to your Amazon S3 bucket
+-- or to your custom origin so users can\'t perform operations that you
+-- don\'t want them to. For example, you may not want users to have
+-- permission to delete objects from your origin.
+--
+-- /See:/ 'allowedMethods' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -551,7 +1026,24 @@ instance ToXML AllowedMethods where
                "Quantity" @= _amQuantity,
                "Items" @= toXMLList "Method" _amItems]
 
--- | /See:/ 'cacheBehavior' smart constructor.
+-- | A complex type that describes how CloudFront processes requests. You can
+-- create up to 10 cache behaviors.You must create at least as many cache
+-- behaviors (including the default cache behavior) as you have origins if
+-- you want CloudFront to distribute objects from all of the origins. Each
+-- cache behavior specifies the one origin from which you want CloudFront
+-- to get objects. If you have two origins and only the default cache
+-- behavior, the default cache behavior will cause CloudFront to get
+-- objects from one of the origins, but the other origin will never be
+-- used. If you don\'t want to specify any cache behaviors, include only an
+-- empty CacheBehaviors element. Don\'t include an empty CacheBehavior
+-- element, or CloudFront returns a MalformedXML error. To delete all cache
+-- behaviors in an existing distribution, update the distribution
+-- configuration and include only an empty CacheBehaviors element. To add,
+-- change, or remove one or more cache behaviors, update the distribution
+-- configuration and specify all of the cache behaviors that you want to
+-- include in the updated distribution.
+--
+-- /See:/ 'cacheBehavior' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -665,7 +1157,9 @@ instance ToXML CacheBehavior where
                "ViewerProtocolPolicy" @= _cbViewerProtocolPolicy,
                "MinTTL" @= _cbMinTTL]
 
--- | /See:/ 'cacheBehaviors' smart constructor.
+-- | A complex type that contains zero or more CacheBehavior elements.
+--
+-- /See:/ 'cacheBehaviors' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -701,7 +1195,15 @@ instance ToXML CacheBehaviors where
                  toXML (toXMLList "CacheBehavior" <$> _cbItems),
                "Quantity" @= _cbQuantity]
 
--- | /See:/ 'cachedMethods' smart constructor.
+-- | A complex type that controls whether CloudFront caches the response to
+-- requests using the specified HTTP methods. There are two choices: -
+-- CloudFront caches responses to GET and HEAD requests. - CloudFront
+-- caches responses to GET, HEAD, and OPTIONS requests. If you pick the
+-- second choice for your S3 Origin, you may need to forward
+-- Access-Control-Request-Method, Access-Control-Request-Headers and Origin
+-- headers for the responses to be cached correctly.
+--
+-- /See:/ 'cachedMethods' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -738,7 +1240,9 @@ instance ToXML CachedMethods where
               ["Quantity" @= _cmQuantity,
                "Items" @= toXMLList "Method" _cmItems]
 
--- | /See:/ 'cloudFrontOriginAccessIdentity' smart constructor.
+-- | CloudFront origin access identity.
+--
+-- /See:/ 'cloudFrontOriginAccessIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -774,7 +1278,9 @@ instance FromXML CloudFrontOriginAccessIdentity where
                 (x .@ "Id")
                 <*> (x .@ "S3CanonicalUserId")
 
--- | /See:/ 'cloudFrontOriginAccessIdentityConfig' smart constructor.
+-- | Origin access identity configuration.
+--
+-- /See:/ 'cloudFrontOriginAccessIdentityConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -819,7 +1325,9 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
               ["CallerReference" @= _cfoaicCallerReference,
                "Comment" @= _cfoaicComment]
 
--- | /See:/ 'cloudFrontOriginAccessIdentityList' smart constructor.
+-- | The CloudFrontOriginAccessIdentityList type.
+--
+-- /See:/ 'cloudFrontOriginAccessIdentityList' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -886,7 +1394,9 @@ instance FromXML CloudFrontOriginAccessIdentityList
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
--- | /See:/ 'cloudFrontOriginAccessIdentitySummary' smart constructor.
+-- | Summary of the information about a CloudFront origin access identity.
+--
+-- /See:/ 'cloudFrontOriginAccessIdentitySummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -923,7 +1433,11 @@ instance FromXML
               (x .@ "Id") <*> (x .@ "S3CanonicalUserId") <*>
                 (x .@ "Comment")
 
--- | /See:/ 'cookieNames' smart constructor.
+-- | A complex type that specifies the whitelisted cookies, if any, that you
+-- want CloudFront to forward to your origin that is associated with this
+-- cache behavior.
+--
+-- /See:/ 'cookieNames' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -958,7 +1472,10 @@ instance ToXML CookieNames where
               ["Items" @= toXML (toXMLList "Name" <$> _cnItems),
                "Quantity" @= _cnQuantity]
 
--- | /See:/ 'cookiePreference' smart constructor.
+-- | A complex type that specifies the cookie preferences associated with
+-- this cache behavior.
+--
+-- /See:/ 'cookiePreference' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -995,7 +1512,20 @@ instance ToXML CookiePreference where
               ["WhitelistedNames" @= _cpWhitelistedNames,
                "Forward" @= _cpForward]
 
--- | /See:/ 'customErrorResponse' smart constructor.
+-- | A complex type that describes how you\'d prefer CloudFront to respond to
+-- requests that result in either a 4xx or 5xx response. You can control
+-- whether a custom error page should be displayed, what the desired
+-- response code should be for this error page and how long should the
+-- error response be cached by CloudFront. If you don\'t want to specify
+-- any custom error responses, include only an empty CustomErrorResponses
+-- element. To delete all custom error responses in an existing
+-- distribution, update the distribution configuration and include only an
+-- empty CustomErrorResponses element. To add, change, or remove one or
+-- more custom error responses, update the distribution configuration and
+-- specify all of the custom error responses that you want to include in
+-- the updated distribution.
+--
+-- /See:/ 'customErrorResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1055,7 +1585,9 @@ instance ToXML CustomErrorResponse where
                "ErrorCachingMinTTL" @= _cerErrorCachingMinTTL,
                "ErrorCode" @= _cerErrorCode]
 
--- | /See:/ 'customErrorResponses' smart constructor.
+-- | A complex type that contains zero or more CustomErrorResponse elements.
+--
+-- /See:/ 'customErrorResponses' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1092,7 +1624,9 @@ instance ToXML CustomErrorResponses where
                    (toXMLList "CustomErrorResponse" <$> _cerItems),
                "Quantity" @= _cerQuantity]
 
--- | /See:/ 'customOriginConfig' smart constructor.
+-- | A customer origin.
+--
+-- /See:/ 'customOriginConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1132,7 +1666,12 @@ instance ToXML CustomOriginConfig where
                "HTTPSPort" @= _cocHTTPSPort,
                "OriginProtocolPolicy" @= _cocOriginProtocolPolicy]
 
--- | /See:/ 'defaultCacheBehavior' smart constructor.
+-- | A complex type that describes the default cache behavior if you do not
+-- specify a CacheBehavior element or if files don\'t match any of the
+-- values of PathPattern in CacheBehavior elements.You must create exactly
+-- one default cache behavior.
+--
+-- /See:/ 'defaultCacheBehavior' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1231,7 +1770,9 @@ instance ToXML DefaultCacheBehavior where
                "ViewerProtocolPolicy" @= _dcbViewerProtocolPolicy,
                "MinTTL" @= _dcbMinTTL]
 
--- | /See:/ 'distribution' smart constructor.
+-- | A distribution.
+--
+-- /See:/ 'distribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1303,7 +1844,9 @@ instance FromXML Distribution where
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "DistributionConfig")
 
--- | /See:/ 'distributionConfig' smart constructor.
+-- | A distribution Configuration.
+--
+-- /See:/ 'distributionConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1449,7 +1992,9 @@ instance ToXML DistributionConfig where
                "DefaultCacheBehavior" @= _dcDefaultCacheBehavior,
                "Comment" @= _dcComment, "Enabled" @= _dcEnabled]
 
--- | /See:/ 'distributionList' smart constructor.
+-- | A distribution list.
+--
+-- /See:/ 'distributionList' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1512,7 +2057,9 @@ instance FromXML DistributionList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
--- | /See:/ 'distributionSummary' smart constructor.
+-- | A summary of the information for an Amazon CloudFront distribution.
+--
+-- /See:/ 'distributionSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1631,7 +2178,10 @@ instance FromXML DistributionSummary where
                 <*> (x .@ "ViewerCertificate")
                 <*> (x .@ "Restrictions")
 
--- | /See:/ 'forwardedValues' smart constructor.
+-- | A complex type that specifies how CloudFront handles query strings,
+-- cookies and headers.
+--
+-- /See:/ 'forwardedValues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1674,7 +2224,14 @@ instance ToXML ForwardedValues where
                "QueryString" @= _fvQueryString,
                "Cookies" @= _fvCookies]
 
--- | /See:/ 'geoRestriction' smart constructor.
+-- | A complex type that controls the countries in which your content is
+-- distributed. For more information about geo restriction, go to
+-- Customizing Error Responses in the Amazon CloudFront Developer Guide.
+-- CloudFront determines the location of your users using MaxMind GeoIP
+-- databases. For information about the accuracy of these databases, see
+-- How accurate are your GeoIP databases? on the MaxMind website.
+--
+-- /See:/ 'geoRestriction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1734,32 +2291,17 @@ instance ToXML GeoRestriction where
                "RestrictionType" @= _grRestrictionType,
                "Quantity" @= _grQuantity]
 
-data GeoRestrictionType = None | Whitelist | Blacklist deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText GeoRestrictionType where
-    parser = takeLowerText >>= \case
-        "blacklist" -> pure Blacklist
-        "none" -> pure None
-        "whitelist" -> pure Whitelist
-        e -> fail ("Failure parsing GeoRestrictionType from " ++ show e)
-
-instance ToText GeoRestrictionType where
-    toText = \case
-        Blacklist -> "blacklist"
-        None -> "none"
-        Whitelist -> "whitelist"
-
-instance Hashable GeoRestrictionType
-instance ToQuery GeoRestrictionType
-instance ToHeader GeoRestrictionType
-
-instance FromXML GeoRestrictionType where
-    parseXML = parseXMLText "GeoRestrictionType"
-
-instance ToXML GeoRestrictionType where
-    toXML = toXMLText
-
--- | /See:/ 'headers' smart constructor.
+-- | A complex type that specifies the headers that you want CloudFront to
+-- forward to the origin for this cache behavior. For the headers that you
+-- specify, CloudFront also caches separate versions of a given object
+-- based on the header values in viewer requests; this is known as varying
+-- on headers. For example, suppose viewer requests for logo.jpg contain a
+-- custom Product header that has a value of either Acme or Apex, and you
+-- configure CloudFront to vary on the Product header. CloudFront forwards
+-- the Product header to the origin and caches the response from the origin
+-- once for each header value.
+--
+-- /See:/ 'headers' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1801,7 +2343,9 @@ instance ToXML Headers where
               ["Items" @= toXML (toXMLList "Name" <$> _heaItems),
                "Quantity" @= _heaQuantity]
 
--- | /See:/ 'invalidation' smart constructor.
+-- | An invalidation.
+--
+-- /See:/ 'invalidation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1843,7 +2387,9 @@ instance FromXML Invalidation where
                 (x .@ "CreateTime")
                 <*> (x .@ "InvalidationBatch")
 
--- | /See:/ 'invalidationBatch' smart constructor.
+-- | An invalidation batch.
+--
+-- /See:/ 'invalidationBatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1890,7 +2436,9 @@ instance ToXML InvalidationBatch where
               ["Paths" @= _ibPaths,
                "CallerReference" @= _ibCallerReference]
 
--- | /See:/ 'invalidationList' smart constructor.
+-- | An invalidation list.
+--
+-- /See:/ 'invalidationList' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1953,7 +2501,9 @@ instance FromXML InvalidationList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
--- | /See:/ 'invalidationSummary' smart constructor.
+-- | Summary of an invalidation request.
+--
+-- /See:/ 'invalidationSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1986,32 +2536,10 @@ instance FromXML InvalidationSummary where
               (x .@ "Id") <*> (x .@ "CreateTime") <*>
                 (x .@ "Status")
 
-data ItemSelection = ISWhitelist | ISNone | ISAll deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ItemSelection where
-    parser = takeLowerText >>= \case
-        "all" -> pure ISAll
-        "none" -> pure ISNone
-        "whitelist" -> pure ISWhitelist
-        e -> fail ("Failure parsing ItemSelection from " ++ show e)
-
-instance ToText ItemSelection where
-    toText = \case
-        ISAll -> "all"
-        ISNone -> "none"
-        ISWhitelist -> "whitelist"
-
-instance Hashable ItemSelection
-instance ToQuery ItemSelection
-instance ToHeader ItemSelection
-
-instance FromXML ItemSelection where
-    parseXML = parseXMLText "ItemSelection"
-
-instance ToXML ItemSelection where
-    toXML = toXMLText
-
--- | /See:/ 'keyPairIds' smart constructor.
+-- | A complex type that lists the active CloudFront key pairs, if any, that
+-- are associated with AwsAccountNumber.
+--
+-- /See:/ 'keyPairIds' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2040,7 +2568,10 @@ instance FromXML KeyPairIds where
                  may (parseXMLList "KeyPairId"))
                 <*> (x .@ "Quantity")
 
--- | /See:/ 'loggingConfig' smart constructor.
+-- | A complex type that controls whether access logs are written for the
+-- distribution.
+--
+-- /See:/ 'loggingConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2102,63 +2633,11 @@ instance ToXML LoggingConfig where
                "IncludeCookies" @= _lcIncludeCookies,
                "Bucket" @= _lcBucket, "Prefix" @= _lcPrefix]
 
-data Method = Head | Post | Patch | Get | Options | Put | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Method where
-    parser = takeLowerText >>= \case
-        "DELETE" -> pure Delete
-        "GET" -> pure Get
-        "HEAD" -> pure Head
-        "OPTIONS" -> pure Options
-        "PATCH" -> pure Patch
-        "POST" -> pure Post
-        "PUT" -> pure Put
-        e -> fail ("Failure parsing Method from " ++ show e)
-
-instance ToText Method where
-    toText = \case
-        Delete -> "DELETE"
-        Get -> "GET"
-        Head -> "HEAD"
-        Options -> "OPTIONS"
-        Patch -> "PATCH"
-        Post -> "POST"
-        Put -> "PUT"
-
-instance Hashable Method
-instance ToQuery Method
-instance ToHeader Method
-
-instance FromXML Method where
-    parseXML = parseXMLText "Method"
-
-instance ToXML Method where
-    toXML = toXMLText
-
-data MinimumProtocolVersion = TLSV1 | SSLV3 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MinimumProtocolVersion where
-    parser = takeLowerText >>= \case
-        "SSLv3" -> pure SSLV3
-        "TLSv1" -> pure TLSV1
-        e -> fail ("Failure parsing MinimumProtocolVersion from " ++ show e)
-
-instance ToText MinimumProtocolVersion where
-    toText = \case
-        SSLV3 -> "SSLv3"
-        TLSV1 -> "TLSv1"
-
-instance Hashable MinimumProtocolVersion
-instance ToQuery MinimumProtocolVersion
-instance ToHeader MinimumProtocolVersion
-
-instance FromXML MinimumProtocolVersion where
-    parseXML = parseXMLText "MinimumProtocolVersion"
-
-instance ToXML MinimumProtocolVersion where
-    toXML = toXMLText
-
--- | /See:/ 'origin' smart constructor.
+-- | A complex type that describes the Amazon S3 bucket or the HTTP server
+-- (for example, a web server) from which CloudFront gets your files.You
+-- must create at least one origin.
+--
+-- /See:/ 'origin' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2228,30 +2707,10 @@ instance ToXML Origin where
                "OriginPath" @= _oriOriginPath, "Id" @= _oriId,
                "DomainName" @= _oriDomainName]
 
-data OriginProtocolPolicy = HTTPOnly | MatchViewer deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OriginProtocolPolicy where
-    parser = takeLowerText >>= \case
-        "http-only" -> pure HTTPOnly
-        "match-viewer" -> pure MatchViewer
-        e -> fail ("Failure parsing OriginProtocolPolicy from " ++ show e)
-
-instance ToText OriginProtocolPolicy where
-    toText = \case
-        HTTPOnly -> "http-only"
-        MatchViewer -> "match-viewer"
-
-instance Hashable OriginProtocolPolicy
-instance ToQuery OriginProtocolPolicy
-instance ToHeader OriginProtocolPolicy
-
-instance FromXML OriginProtocolPolicy where
-    parseXML = parseXMLText "OriginProtocolPolicy"
-
-instance ToXML OriginProtocolPolicy where
-    toXML = toXMLText
-
--- | /See:/ 'origins' smart constructor.
+-- | A complex type that contains information about origins for this
+-- distribution.
+--
+-- /See:/ 'origins' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2285,7 +2744,10 @@ instance ToXML Origins where
               ["Items" @= toXML (toXMLList "Origin" <$> _oriItems),
                "Quantity" @= _oriQuantity]
 
--- | /See:/ 'paths' smart constructor.
+-- | A complex type that contains information about the objects that you want
+-- to invalidate.
+--
+-- /See:/ 'paths' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2320,32 +2782,10 @@ instance ToXML Paths where
               ["Items" @= toXML (toXMLList "Path" <$> _patItems),
                "Quantity" @= _patQuantity]
 
-data PriceClass = PriceClass200 | PriceClass100 | PriceClassAll deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PriceClass where
-    parser = takeLowerText >>= \case
-        "PriceClass_100" -> pure PriceClass100
-        "PriceClass_200" -> pure PriceClass200
-        "PriceClass_All" -> pure PriceClassAll
-        e -> fail ("Failure parsing PriceClass from " ++ show e)
-
-instance ToText PriceClass where
-    toText = \case
-        PriceClass100 -> "PriceClass_100"
-        PriceClass200 -> "PriceClass_200"
-        PriceClassAll -> "PriceClass_All"
-
-instance Hashable PriceClass
-instance ToQuery PriceClass
-instance ToHeader PriceClass
-
-instance FromXML PriceClass where
-    parseXML = parseXMLText "PriceClass"
-
-instance ToXML PriceClass where
-    toXML = toXMLText
-
--- | /See:/ 'restrictions' smart constructor.
+-- | A complex type that identifies ways in which you want to restrict
+-- distribution of your content.
+--
+-- /See:/ 'restrictions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2368,7 +2808,10 @@ instance ToXML Restrictions where
         toXML Restrictions'{..}
           = mconcat ["GeoRestriction" @= _resGeoRestriction]
 
--- | /See:/ 's3Origin' smart constructor.
+-- | A complex type that contains information about the Amazon S3 bucket from
+-- which you want CloudFront to get your media files for distribution.
+--
+-- /See:/ 's3Origin' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2400,7 +2843,11 @@ instance ToXML S3Origin where
               ["DomainName" @= _soDomainName,
                "OriginAccessIdentity" @= _soOriginAccessIdentity]
 
--- | /See:/ 's3OriginConfig' smart constructor.
+-- | A complex type that contains information about the Amazon S3 origin. If
+-- the origin is a custom origin, use the CustomOriginConfig element
+-- instead.
+--
+-- /See:/ 's3OriginConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2435,30 +2882,11 @@ instance ToXML S3OriginConfig where
           = mconcat
               ["OriginAccessIdentity" @= _socOriginAccessIdentity]
 
-data SSLSupportMethod = VIP | SNIOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SSLSupportMethod where
-    parser = takeLowerText >>= \case
-        "sni-only" -> pure SNIOnly
-        "vip" -> pure VIP
-        e -> fail ("Failure parsing SSLSupportMethod from " ++ show e)
-
-instance ToText SSLSupportMethod where
-    toText = \case
-        SNIOnly -> "sni-only"
-        VIP -> "vip"
-
-instance Hashable SSLSupportMethod
-instance ToQuery SSLSupportMethod
-instance ToHeader SSLSupportMethod
-
-instance FromXML SSLSupportMethod where
-    parseXML = parseXMLText "SSLSupportMethod"
-
-instance ToXML SSLSupportMethod where
-    toXML = toXMLText
-
--- | /See:/ 'signer' smart constructor.
+-- | A complex type that lists the AWS accounts that were included in the
+-- TrustedSigners complex type, as well as their active CloudFront key pair
+-- IDs, if any.
+--
+-- /See:/ 'signer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2488,7 +2916,9 @@ instance FromXML Signer where
           = Signer' <$>
               (x .@? "AwsAccountNumber") <*> (x .@? "KeyPairIds")
 
--- | /See:/ 'streamingDistribution' smart constructor.
+-- | A streaming distribution.
+--
+-- /See:/ 'streamingDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2554,7 +2984,9 @@ instance FromXML StreamingDistribution where
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "StreamingDistributionConfig")
 
--- | /See:/ 'streamingDistributionConfig' smart constructor.
+-- | The configuration for the streaming distribution.
+--
+-- /See:/ 'streamingDistributionConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2659,7 +3091,9 @@ instance ToXML StreamingDistributionConfig where
                "TrustedSigners" @= _sdcTrustedSigners,
                "Enabled" @= _sdcEnabled]
 
--- | /See:/ 'streamingDistributionList' smart constructor.
+-- | A streaming distribution list.
+--
+-- /See:/ 'streamingDistributionList' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2722,7 +3156,10 @@ instance FromXML StreamingDistributionList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
--- | /See:/ 'streamingDistributionSummary' smart constructor.
+-- | A summary of the information for an Amazon CloudFront streaming
+-- distribution.
+--
+-- /See:/ 'streamingDistributionSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2821,7 +3258,10 @@ instance FromXML StreamingDistributionSummary where
                 <*> (x .@ "PriceClass")
                 <*> (x .@ "Enabled")
 
--- | /See:/ 'streamingLoggingConfig' smart constructor.
+-- | A complex type that controls whether access logs are written for this
+-- streaming distribution.
+--
+-- /See:/ 'streamingLoggingConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2870,7 +3310,20 @@ instance ToXML StreamingLoggingConfig where
               ["Enabled" @= _slcEnabled, "Bucket" @= _slcBucket,
                "Prefix" @= _slcPrefix]
 
--- | /See:/ 'trustedSigners' smart constructor.
+-- | A complex type that specifies the AWS accounts, if any, that you want to
+-- allow to create signed URLs for private content. If you want to require
+-- signed URLs in requests for objects in the target origin that match the
+-- PathPattern for this cache behavior, specify true for Enabled, and
+-- specify the applicable values for Quantity and Items. For more
+-- information, go to Using a Signed URL to Serve Private Content in the
+-- Amazon CloudFront Developer Guide. If you don\'t want to require signed
+-- URLs in requests for objects that match PathPattern, specify false for
+-- Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or
+-- more trusted signers, change Enabled to true (if it\'s currently false),
+-- change Quantity as applicable, and specify all of the trusted signers
+-- that you want to include in the updated distribution.
+--
+-- /See:/ 'trustedSigners' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2914,7 +3367,10 @@ instance ToXML TrustedSigners where
                  toXML (toXMLList "AwsAccountNumber" <$> _tsItems),
                "Enabled" @= _tsEnabled, "Quantity" @= _tsQuantity]
 
--- | /See:/ 'viewerCertificate' smart constructor.
+-- | A complex type that contains information about viewer certificates for
+-- this distribution.
+--
+-- /See:/ 'viewerCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2991,28 +3447,3 @@ instance ToXML ViewerCertificate where
                "IAMCertificateId" @= _vcIAMCertificateId,
                "CloudFrontDefaultCertificate" @=
                  _vcCloudFrontDefaultCertificate]
-
-data ViewerProtocolPolicy = HTTPSOnly | RedirectTOHTTPS | AllowAll deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ViewerProtocolPolicy where
-    parser = takeLowerText >>= \case
-        "allow-all" -> pure AllowAll
-        "https-only" -> pure HTTPSOnly
-        "redirect-to-https" -> pure RedirectTOHTTPS
-        e -> fail ("Failure parsing ViewerProtocolPolicy from " ++ show e)
-
-instance ToText ViewerProtocolPolicy where
-    toText = \case
-        AllowAll -> "allow-all"
-        HTTPSOnly -> "https-only"
-        RedirectTOHTTPS -> "redirect-to-https"
-
-instance Hashable ViewerProtocolPolicy
-instance ToQuery ViewerProtocolPolicy
-instance ToHeader ViewerProtocolPolicy
-
-instance FromXML ViewerProtocolPolicy where
-    parseXML = parseXMLText "ViewerProtocolPolicy"
-
-instance ToXML ViewerProtocolPolicy where
-    toXML = toXMLText

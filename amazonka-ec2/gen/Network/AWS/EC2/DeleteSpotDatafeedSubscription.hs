@@ -39,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteSpotDatafeedSubscription' smart constructor.
+-- | Contains the parameters for DeleteSpotDatafeedSubscription.
+--
+-- /See:/ 'deleteSpotDatafeedSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

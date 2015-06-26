@@ -36,6 +36,7 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     , sipcrIdentityPoolId
     , sipcrCognitoStreams
     , sipcrPushSync
+    , sipcrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setIdentityPoolConfiguration' smart constructor.
+-- | The input for the SetIdentityPoolConfiguration operation.
+--
+-- /See:/ 'setIdentityPoolConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,7 +86,8 @@ instance AWSRequest SetIdentityPoolConfiguration
               (\ s h x ->
                  SetIdentityPoolConfigurationResponse' <$>
                    (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
-                     <*> (x .?> "PushSync"))
+                     <*> (x .?> "PushSync")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders SetIdentityPoolConfiguration where
         toHeaders
@@ -107,7 +111,9 @@ instance ToPath SetIdentityPoolConfiguration where
 instance ToQuery SetIdentityPoolConfiguration where
         toQuery = const mempty
 
--- | /See:/ 'setIdentityPoolConfigurationResponse' smart constructor.
+-- | The output for the SetIdentityPoolConfiguration operation
+--
+-- /See:/ 'setIdentityPoolConfigurationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -116,11 +122,13 @@ instance ToQuery SetIdentityPoolConfiguration where
 -- * 'sipcrCognitoStreams'
 --
 -- * 'sipcrPushSync'
-data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'{_sipcrIdentityPoolId :: Maybe Text, _sipcrCognitoStreams :: Maybe CognitoStreams, _sipcrPushSync :: Maybe PushSync} deriving (Eq, Read, Show)
+--
+-- * 'sipcrStatusCode'
+data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'{_sipcrIdentityPoolId :: Maybe Text, _sipcrCognitoStreams :: Maybe CognitoStreams, _sipcrPushSync :: Maybe PushSync, _sipcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
-setIdentityPoolConfigurationResponse :: SetIdentityPoolConfigurationResponse
-setIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'{_sipcrIdentityPoolId = Nothing, _sipcrCognitoStreams = Nothing, _sipcrPushSync = Nothing};
+setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
+setIdentityPoolConfigurationResponse pStatusCode = SetIdentityPoolConfigurationResponse'{_sipcrIdentityPoolId = Nothing, _sipcrCognitoStreams = Nothing, _sipcrPushSync = Nothing, _sipcrStatusCode = pStatusCode};
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -135,3 +143,7 @@ sipcrCognitoStreams = lens _sipcrCognitoStreams (\ s a -> s{_sipcrCognitoStreams
 -- | Options to apply to this identity pool for push synchronization.
 sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrPushSync = lens _sipcrPushSync (\ s a -> s{_sipcrPushSync = a});
+
+-- | FIXME: Undocumented member.
+sipcrStatusCode :: Lens' SetIdentityPoolConfigurationResponse Int
+sipcrStatusCode = lens _sipcrStatusCode (\ s a -> s{_sipcrStatusCode = a});

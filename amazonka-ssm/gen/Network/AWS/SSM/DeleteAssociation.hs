@@ -38,6 +38,8 @@ module Network.AWS.SSM.DeleteAssociation
     , DeleteAssociationResponse
     -- ** Response constructor
     , deleteAssociationResponse
+    -- ** Response lenses
+    , delStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -70,7 +72,10 @@ instance AWSRequest DeleteAssociation where
         type Sv DeleteAssociation = SSM
         type Rs DeleteAssociation = DeleteAssociationResponse
         request = postJSON
-        response = receiveNull DeleteAssociationResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteAssociationResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteAssociation where
         toHeaders
@@ -93,8 +98,16 @@ instance ToQuery DeleteAssociation where
         toQuery = const mempty
 
 -- | /See:/ 'deleteAssociationResponse' smart constructor.
-data DeleteAssociationResponse = DeleteAssociationResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'delStatusCode'
+newtype DeleteAssociationResponse = DeleteAssociationResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteAssociationResponse' smart constructor.
-deleteAssociationResponse :: DeleteAssociationResponse
-deleteAssociationResponse = DeleteAssociationResponse';
+deleteAssociationResponse :: Int -> DeleteAssociationResponse
+deleteAssociationResponse pStatusCode = DeleteAssociationResponse'{_delStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteAssociationResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

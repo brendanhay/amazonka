@@ -40,7 +40,8 @@ module Network.AWS.CloudHSM.CreateHSM
     -- ** Response constructor
     , createHSMResponse
     -- ** Response lenses
-    , chrHSMARN
+    , creHSMARN
+    , creStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -48,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createHSM' smart constructor.
+-- | Contains the inputs for the CreateHsm action.
+--
+-- /See:/ 'createHSM' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -113,7 +116,9 @@ instance AWSRequest CreateHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateHSMResponse' <$> (x .?> "HsmArn"))
+              (\ s h x ->
+                 CreateHSMResponse' <$>
+                   (x .?> "HsmArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateHSM where
         toHeaders
@@ -140,17 +145,25 @@ instance ToPath CreateHSM where
 instance ToQuery CreateHSM where
         toQuery = const mempty
 
--- | /See:/ 'createHSMResponse' smart constructor.
+-- | Contains the output of the CreateHsm action.
+--
+-- /See:/ 'createHSMResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chrHSMARN'
-newtype CreateHSMResponse = CreateHSMResponse'{_chrHSMARN :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'creHSMARN'
+--
+-- * 'creStatusCode'
+data CreateHSMResponse = CreateHSMResponse'{_creHSMARN :: Maybe Text, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateHSMResponse' smart constructor.
-createHSMResponse :: CreateHSMResponse
-createHSMResponse = CreateHSMResponse'{_chrHSMARN = Nothing};
+createHSMResponse :: Int -> CreateHSMResponse
+createHSMResponse pStatusCode = CreateHSMResponse'{_creHSMARN = Nothing, _creStatusCode = pStatusCode};
 
 -- | The ARN of the HSM.
-chrHSMARN :: Lens' CreateHSMResponse (Maybe Text)
-chrHSMARN = lens _chrHSMARN (\ s a -> s{_chrHSMARN = a});
+creHSMARN :: Lens' CreateHSMResponse (Maybe Text)
+creHSMARN = lens _creHSMARN (\ s a -> s{_creHSMARN = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateHSMResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

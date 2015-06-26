@@ -41,6 +41,7 @@ module Network.AWS.CognitoSync.DescribeDataset
     , describeDatasetResponse
     -- ** Response lenses
     , ddrDataset
+    , ddrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -48,7 +49,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDataset' smart constructor.
+-- | A request for meta data about a dataset (creation date, number of
+-- records, size) by owner and dataset name.
+--
+-- /See:/ 'describeDataset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,7 +91,8 @@ instance AWSRequest DescribeDataset where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeDatasetResponse' <$> (x .?> "Dataset"))
+                 DescribeDatasetResponse' <$>
+                   (x .?> "Dataset") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDataset where
         toHeaders
@@ -106,16 +111,20 @@ instance ToPath DescribeDataset where
 instance ToQuery DescribeDataset where
         toQuery = const mempty
 
--- | /See:/ 'describeDatasetResponse' smart constructor.
+-- | Response to a successful DescribeDataset request.
+--
+-- /See:/ 'describeDatasetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddrDataset'
-newtype DescribeDatasetResponse = DescribeDatasetResponse'{_ddrDataset :: Maybe Dataset} deriving (Eq, Read, Show)
+--
+-- * 'ddrStatusCode'
+data DescribeDatasetResponse = DescribeDatasetResponse'{_ddrDataset :: Maybe Dataset, _ddrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDatasetResponse' smart constructor.
-describeDatasetResponse :: DescribeDatasetResponse
-describeDatasetResponse = DescribeDatasetResponse'{_ddrDataset = Nothing};
+describeDatasetResponse :: Int -> DescribeDatasetResponse
+describeDatasetResponse pStatusCode = DescribeDatasetResponse'{_ddrDataset = Nothing, _ddrStatusCode = pStatusCode};
 
 -- | Meta data for a collection of data for an identity. An identity can have
 -- multiple datasets. A dataset can be general or associated with a
@@ -124,3 +133,7 @@ describeDatasetResponse = DescribeDatasetResponse'{_ddrDataset = Nothing};
 -- and a dataset can hold up to 1MB of key-value pairs.
 ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrDataset = lens _ddrDataset (\ s a -> s{_ddrDataset = a});
+
+-- | FIXME: Undocumented member.
+ddrStatusCode :: Lens' DescribeDatasetResponse Int
+ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});

@@ -35,6 +35,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
     , dlbptrPolicyTypeDescriptions
+    , dlbptrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -70,7 +71,8 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
               (\ s h x ->
                  DescribeLoadBalancerPolicyTypesResponse' <$>
                    (x .@? "PolicyTypeDescriptions" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancerPolicyTypes
          where
@@ -95,12 +97,18 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbptrPolicyTypeDescriptions'
-newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions :: Maybe [PolicyTypeDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dlbptrStatusCode'
+data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions :: Maybe [PolicyTypeDescription], _dlbptrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
-describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions = Nothing};
+describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
+describeLoadBalancerPolicyTypesResponse pStatusCode = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions = Nothing, _dlbptrStatusCode = pStatusCode};
 
 -- | Information about the policy types.
 dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrPolicyTypeDescriptions = lens _dlbptrPolicyTypeDescriptions (\ s a -> s{_dlbptrPolicyTypeDescriptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlbptrStatusCode :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
+dlbptrStatusCode = lens _dlbptrStatusCode (\ s a -> s{_dlbptrStatusCode = a});

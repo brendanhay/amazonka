@@ -31,6 +31,8 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     , DeleteLoadBalancerListenersResponse
     -- ** Response constructor
     , deleteLoadBalancerListenersResponse
+    -- ** Response lenses
+    , dlblrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -65,7 +67,11 @@ instance AWSRequest DeleteLoadBalancerListeners where
              DeleteLoadBalancerListenersResponse
         request = post
         response
-          = receiveNull DeleteLoadBalancerListenersResponse'
+          = receiveXMLWrapper
+              "DeleteLoadBalancerListenersResult"
+              (\ s h x ->
+                 DeleteLoadBalancerListenersResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders DeleteLoadBalancerListeners where
         toHeaders = const mempty
@@ -84,8 +90,16 @@ instance ToQuery DeleteLoadBalancerListeners where
                  toQueryList "member" _dlblLoadBalancerPorts]
 
 -- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
-data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dlblrStatusCode'
+newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'{_dlblrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
-deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
-deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse';
+deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
+deleteLoadBalancerListenersResponse pStatusCode = DeleteLoadBalancerListenersResponse'{_dlblrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+dlblrStatusCode :: Lens' DeleteLoadBalancerListenersResponse Int
+dlblrStatusCode = lens _dlblrStatusCode (\ s a -> s{_dlblrStatusCode = a});

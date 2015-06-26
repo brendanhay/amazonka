@@ -40,7 +40,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDBSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteDBSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

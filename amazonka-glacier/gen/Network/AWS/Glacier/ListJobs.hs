@@ -81,6 +81,7 @@ module Network.AWS.Glacier.ListJobs
     -- ** Response lenses
     , ljrMarker
     , ljrJobList
+    , ljrStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -88,7 +89,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listJobs' smart constructor.
+-- | Provides options for retrieving a job list for an Amazon Glacier vault.
+--
+-- /See:/ 'listJobs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -153,7 +156,8 @@ instance AWSRequest ListJobs where
           = receiveJSON
               (\ s h x ->
                  ListJobsResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty))
+                   (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -170,18 +174,22 @@ instance ToQuery ListJobs where
               ["marker" =: _ljMarker, "completed" =: _ljCompleted,
                "limit" =: _ljLimit, "statuscode" =: _ljStatuscode]
 
--- | /See:/ 'listJobsResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'listJobsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ljrMarker'
 --
 -- * 'ljrJobList'
-data ListJobsResponse = ListJobsResponse'{_ljrMarker :: Maybe Text, _ljrJobList :: Maybe [GlacierJobDescription]} deriving (Eq, Read, Show)
+--
+-- * 'ljrStatusCode'
+data ListJobsResponse = ListJobsResponse'{_ljrMarker :: Maybe Text, _ljrJobList :: Maybe [GlacierJobDescription], _ljrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: ListJobsResponse
-listJobsResponse = ListJobsResponse'{_ljrMarker = Nothing, _ljrJobList = Nothing};
+listJobsResponse :: Int -> ListJobsResponse
+listJobsResponse pStatusCode = ListJobsResponse'{_ljrMarker = Nothing, _ljrJobList = Nothing, _ljrStatusCode = pStatusCode};
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use this value in a new List Jobs request to obtain more
@@ -193,3 +201,7 @@ ljrMarker = lens _ljrMarker (\ s a -> s{_ljrMarker = a});
 -- job.
 ljrJobList :: Lens' ListJobsResponse [GlacierJobDescription]
 ljrJobList = lens _ljrJobList (\ s a -> s{_ljrJobList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ljrStatusCode :: Lens' ListJobsResponse Int
+ljrStatusCode = lens _ljrStatusCode (\ s a -> s{_ljrStatusCode = a});

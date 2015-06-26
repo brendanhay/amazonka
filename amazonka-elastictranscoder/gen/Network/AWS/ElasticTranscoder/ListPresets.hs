@@ -36,15 +36,18 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- ** Response lenses
     , lisNextPageToken
     , lisPresets
+    , lisStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listPresets' smart constructor.
+-- | The @ListPresetsRequest@ structure.
+--
+-- /See:/ 'listPresets' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -85,7 +88,8 @@ instance AWSRequest ListPresets where
               (\ s h x ->
                  ListPresetsResponse' <$>
                    (x .?> "NextPageToken") <*>
-                     (x .?> "Presets" .!@ mempty))
+                     (x .?> "Presets" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPresets where
         toHeaders = const mempty
@@ -99,18 +103,22 @@ instance ToQuery ListPresets where
               ["Ascending" =: _lisAscending,
                "PageToken" =: _lisPageToken]
 
--- | /See:/ 'listPresetsResponse' smart constructor.
+-- | The @ListPresetsResponse@ structure.
+--
+-- /See:/ 'listPresetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lisNextPageToken'
 --
 -- * 'lisPresets'
-data ListPresetsResponse = ListPresetsResponse'{_lisNextPageToken :: Maybe Text, _lisPresets :: Maybe [Preset]} deriving (Eq, Read, Show)
+--
+-- * 'lisStatusCode'
+data ListPresetsResponse = ListPresetsResponse'{_lisNextPageToken :: Maybe Text, _lisPresets :: Maybe [Preset], _lisStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPresetsResponse' smart constructor.
-listPresetsResponse :: ListPresetsResponse
-listPresetsResponse = ListPresetsResponse'{_lisNextPageToken = Nothing, _lisPresets = Nothing};
+listPresetsResponse :: Int -> ListPresetsResponse
+listPresetsResponse pStatusCode = ListPresetsResponse'{_lisNextPageToken = Nothing, _lisPresets = Nothing, _lisStatusCode = pStatusCode};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
@@ -122,3 +130,7 @@ lisNextPageToken = lens _lisNextPageToken (\ s a -> s{_lisNextPageToken = a});
 -- | An array of @Preset@ objects.
 lisPresets :: Lens' ListPresetsResponse [Preset]
 lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lisStatusCode :: Lens' ListPresetsResponse Int
+lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});

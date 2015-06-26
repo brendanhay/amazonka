@@ -17,4 +17,4 @@ module Network.AWS.ELB.Waiters where
 
 import Network.AWS.ELB.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

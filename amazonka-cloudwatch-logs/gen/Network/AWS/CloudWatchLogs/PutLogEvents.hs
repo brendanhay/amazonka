@@ -53,6 +53,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- ** Response lenses
     , plerRejectedLogEventsInfo
     , plerNextSequenceToken
+    , plerStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -103,7 +104,8 @@ instance AWSRequest PutLogEvents where
               (\ s h x ->
                  PutLogEventsResponse' <$>
                    (x .?> "rejectedLogEventsInfo") <*>
-                     (x .?> "nextSequenceToken"))
+                     (x .?> "nextSequenceToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders PutLogEvents where
         toHeaders
@@ -135,11 +137,13 @@ instance ToQuery PutLogEvents where
 -- * 'plerRejectedLogEventsInfo'
 --
 -- * 'plerNextSequenceToken'
-data PutLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo, _plerNextSequenceToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'plerStatusCode'
+data PutLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo, _plerNextSequenceToken :: Maybe Text, _plerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutLogEventsResponse' smart constructor.
-putLogEventsResponse :: PutLogEventsResponse
-putLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo = Nothing, _plerNextSequenceToken = Nothing};
+putLogEventsResponse :: Int -> PutLogEventsResponse
+putLogEventsResponse pStatusCode = PutLogEventsResponse'{_plerRejectedLogEventsInfo = Nothing, _plerNextSequenceToken = Nothing, _plerStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 plerRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
@@ -148,3 +152,7 @@ plerRejectedLogEventsInfo = lens _plerRejectedLogEventsInfo (\ s a -> s{_plerRej
 -- | FIXME: Undocumented member.
 plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken = lens _plerNextSequenceToken (\ s a -> s{_plerNextSequenceToken = a});
+
+-- | FIXME: Undocumented member.
+plerStatusCode :: Lens' PutLogEventsResponse Int
+plerStatusCode = lens _plerStatusCode (\ s a -> s{_plerStatusCode = a});

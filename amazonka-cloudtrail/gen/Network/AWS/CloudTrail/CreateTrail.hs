@@ -47,6 +47,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrIncludeGlobalServiceEvents
     , ctrCloudWatchLogsRoleARN
     , ctrS3BucketName
+    , ctrStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -54,7 +55,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createTrail' smart constructor.
+-- | Specifies the settings for each trail.
+--
+-- /See:/ 'createTrail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -125,7 +128,8 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "Name")
                      <*> (x .?> "IncludeGlobalServiceEvents")
                      <*> (x .?> "CloudWatchLogsRoleArn")
-                     <*> (x .?> "S3BucketName"))
+                     <*> (x .?> "S3BucketName")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateTrail where
         toHeaders
@@ -155,7 +159,10 @@ instance ToPath CreateTrail where
 instance ToQuery CreateTrail where
         toQuery = const mempty
 
--- | /See:/ 'createTrailResponse' smart constructor.
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'createTrailResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -172,11 +179,13 @@ instance ToQuery CreateTrail where
 -- * 'ctrCloudWatchLogsRoleARN'
 --
 -- * 'ctrS3BucketName'
-data CreateTrailResponse = CreateTrailResponse'{_ctrS3KeyPrefix :: Maybe Text, _ctrSNSTopicName :: Maybe Text, _ctrCloudWatchLogsLogGroupARN :: Maybe Text, _ctrName :: Maybe Text, _ctrIncludeGlobalServiceEvents :: Maybe Bool, _ctrCloudWatchLogsRoleARN :: Maybe Text, _ctrS3BucketName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ctrStatusCode'
+data CreateTrailResponse = CreateTrailResponse'{_ctrS3KeyPrefix :: Maybe Text, _ctrSNSTopicName :: Maybe Text, _ctrCloudWatchLogsLogGroupARN :: Maybe Text, _ctrName :: Maybe Text, _ctrIncludeGlobalServiceEvents :: Maybe Bool, _ctrCloudWatchLogsRoleARN :: Maybe Text, _ctrS3BucketName :: Maybe Text, _ctrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateTrailResponse' smart constructor.
-createTrailResponse :: CreateTrailResponse
-createTrailResponse = CreateTrailResponse'{_ctrS3KeyPrefix = Nothing, _ctrSNSTopicName = Nothing, _ctrCloudWatchLogsLogGroupARN = Nothing, _ctrName = Nothing, _ctrIncludeGlobalServiceEvents = Nothing, _ctrCloudWatchLogsRoleARN = Nothing, _ctrS3BucketName = Nothing};
+createTrailResponse :: Int -> CreateTrailResponse
+createTrailResponse pStatusCode = CreateTrailResponse'{_ctrS3KeyPrefix = Nothing, _ctrSNSTopicName = Nothing, _ctrCloudWatchLogsLogGroupARN = Nothing, _ctrName = Nothing, _ctrIncludeGlobalServiceEvents = Nothing, _ctrCloudWatchLogsRoleARN = Nothing, _ctrS3BucketName = Nothing, _ctrStatusCode = pStatusCode};
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
@@ -211,3 +220,7 @@ ctrCloudWatchLogsRoleARN = lens _ctrCloudWatchLogsRoleARN (\ s a -> s{_ctrCloudW
 -- files.
 ctrS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3BucketName = lens _ctrS3BucketName (\ s a -> s{_ctrS3BucketName = a});
+
+-- | FIXME: Undocumented member.
+ctrStatusCode :: Lens' CreateTrailResponse Int
+ctrStatusCode = lens _ctrStatusCode (\ s a -> s{_ctrStatusCode = a});

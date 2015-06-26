@@ -37,6 +37,7 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     , updateMaintenanceStartTimeResponse
     -- ** Response lenses
     , umstrGatewayARN
+    , umstrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -44,7 +45,13 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateMaintenanceStartTime' smart constructor.
+-- | A JSON object containing the following fields:
+--
+-- -   UpdateMaintenanceStartTimeInput$DayOfWeek
+-- -   UpdateMaintenanceStartTimeInput$HourOfDay
+-- -   UpdateMaintenanceStartTimeInput$MinuteOfHour
+--
+-- /See:/ 'updateMaintenanceStartTime' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +97,7 @@ instance AWSRequest UpdateMaintenanceStartTime where
           = receiveJSON
               (\ s h x ->
                  UpdateMaintenanceStartTimeResponse' <$>
-                   (x .?> "GatewayARN"))
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
@@ -116,17 +123,26 @@ instance ToPath UpdateMaintenanceStartTime where
 instance ToQuery UpdateMaintenanceStartTime where
         toQuery = const mempty
 
--- | /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
+-- | A JSON object containing the of the gateway whose maintenance start time
+-- is updated.
+--
+-- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'umstrGatewayARN'
-newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'umstrStatusCode'
+data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN :: Maybe Text, _umstrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
-updateMaintenanceStartTimeResponse :: UpdateMaintenanceStartTimeResponse
-updateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN = Nothing};
+updateMaintenanceStartTimeResponse :: Int -> UpdateMaintenanceStartTimeResponse
+updateMaintenanceStartTimeResponse pStatusCode = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN = Nothing, _umstrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrGatewayARN = lens _umstrGatewayARN (\ s a -> s{_umstrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+umstrStatusCode :: Lens' UpdateMaintenanceStartTimeResponse Int
+umstrStatusCode = lens _umstrStatusCode (\ s a -> s{_umstrStatusCode = a});

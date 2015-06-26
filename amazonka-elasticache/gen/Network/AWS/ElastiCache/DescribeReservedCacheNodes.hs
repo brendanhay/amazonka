@@ -42,15 +42,18 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- ** Response lenses
     , drcnrMarker
     , drcnrReservedCacheNodes
+    , drcnrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeReservedCacheNodes' smart constructor.
+-- | Represents the input of a /DescribeReservedCacheNodes/ action.
+--
+-- /See:/ 'describeReservedCacheNodes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -176,7 +179,8 @@ instance AWSRequest DescribeReservedCacheNodes where
                  DescribeReservedCacheNodesResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "ReservedCacheNodes" .!@ mempty >>=
-                        may (parseXMLList "ReservedCacheNode")))
+                        may (parseXMLList "ReservedCacheNode"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedCacheNodes where
         toHeaders = const mempty
@@ -200,18 +204,22 @@ instance ToQuery DescribeReservedCacheNodes where
                "ReservedCacheNodesOfferingId" =:
                  _drcnReservedCacheNodesOfferingId]
 
--- | /See:/ 'describeReservedCacheNodesResponse' smart constructor.
+-- | Represents the output of a /DescribeReservedCacheNodes/ action.
+--
+-- /See:/ 'describeReservedCacheNodesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drcnrMarker'
 --
 -- * 'drcnrReservedCacheNodes'
-data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker :: Maybe Text, _drcnrReservedCacheNodes :: Maybe [ReservedCacheNode]} deriving (Eq, Read, Show)
+--
+-- * 'drcnrStatusCode'
+data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker :: Maybe Text, _drcnrReservedCacheNodes :: Maybe [ReservedCacheNode], _drcnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedCacheNodesResponse' smart constructor.
-describeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
-describeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker = Nothing, _drcnrReservedCacheNodes = Nothing};
+describeReservedCacheNodesResponse :: Int -> DescribeReservedCacheNodesResponse
+describeReservedCacheNodesResponse pStatusCode = DescribeReservedCacheNodesResponse'{_drcnrMarker = Nothing, _drcnrReservedCacheNodes = Nothing, _drcnrStatusCode = pStatusCode};
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnrMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
@@ -221,3 +229,7 @@ drcnrMarker = lens _drcnrMarker (\ s a -> s{_drcnrMarker = a});
 -- detailed information about one node.
 drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
 drcnrReservedCacheNodes = lens _drcnrReservedCacheNodes (\ s a -> s{_drcnrReservedCacheNodes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drcnrStatusCode :: Lens' DescribeReservedCacheNodesResponse Int
+drcnrStatusCode = lens _drcnrStatusCode (\ s a -> s{_drcnrStatusCode = a});

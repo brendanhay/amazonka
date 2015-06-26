@@ -34,6 +34,8 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     , UnsubscribeFromDatasetResponse
     -- ** Response constructor
     , unsubscribeFromDatasetResponse
+    -- ** Response lenses
+    , ufdrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'unsubscribeFromDataset' smart constructor.
+-- | A request to UnsubscribeFromDataset.
+--
+-- /See:/ 'unsubscribeFromDataset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +86,10 @@ instance AWSRequest UnsubscribeFromDataset where
              UnsubscribeFromDatasetResponse
         request = delete
         response
-          = receiveNull UnsubscribeFromDatasetResponse'
+          = receiveJSON
+              (\ s h x ->
+                 UnsubscribeFromDatasetResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders UnsubscribeFromDataset where
         toHeaders
@@ -102,9 +109,19 @@ instance ToPath UnsubscribeFromDataset where
 instance ToQuery UnsubscribeFromDataset where
         toQuery = const mempty
 
--- | /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
-data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse' deriving (Eq, Read, Show)
+-- | Response to an UnsubscribeFromDataset request.
+--
+-- /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ufdrStatusCode'
+newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'{_ufdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
-unsubscribeFromDatasetResponse :: UnsubscribeFromDatasetResponse
-unsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse';
+unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
+unsubscribeFromDatasetResponse pStatusCode = UnsubscribeFromDatasetResponse'{_ufdrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+ufdrStatusCode :: Lens' UnsubscribeFromDatasetResponse Int
+ufdrStatusCode = lens _ufdrStatusCode (\ s a -> s{_ufdrStatusCode = a});

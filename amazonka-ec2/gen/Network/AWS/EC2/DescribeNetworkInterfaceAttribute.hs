@@ -39,6 +39,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniarNetworkInterfaceId
     , dniarAttachment
     , dniarDescription
+    , dniarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -90,7 +91,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
                      (x .@? "sourceDestCheck")
                      <*> (x .@? "networkInterfaceId")
                      <*> (x .@? "attachment")
-                     <*> (x .@? "description"))
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where
@@ -124,11 +126,13 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 -- * 'dniarAttachment'
 --
 -- * 'dniarDescription'
-data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups :: Maybe [GroupIdentifier], _dniarSourceDestCheck :: Maybe AttributeBooleanValue, _dniarNetworkInterfaceId :: Maybe Text, _dniarAttachment :: Maybe NetworkInterfaceAttachment, _dniarDescription :: Maybe AttributeValue} deriving (Eq, Read, Show)
+--
+-- * 'dniarStatusCode'
+data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups :: Maybe [GroupIdentifier], _dniarSourceDestCheck :: Maybe AttributeBooleanValue, _dniarNetworkInterfaceId :: Maybe Text, _dniarAttachment :: Maybe NetworkInterfaceAttachment, _dniarDescription :: Maybe AttributeValue, _dniarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
-describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups = Nothing, _dniarSourceDestCheck = Nothing, _dniarNetworkInterfaceId = Nothing, _dniarAttachment = Nothing, _dniarDescription = Nothing};
+describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse
+describeNetworkInterfaceAttributeResponse pStatusCode = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups = Nothing, _dniarSourceDestCheck = Nothing, _dniarNetworkInterfaceId = Nothing, _dniarAttachment = Nothing, _dniarDescription = Nothing, _dniarStatusCode = pStatusCode};
 
 -- | The security groups associated with the network interface.
 dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
@@ -149,3 +153,7 @@ dniarAttachment = lens _dniarAttachment (\ s a -> s{_dniarAttachment = a});
 -- | The description of the network interface.
 dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniarDescription = lens _dniarDescription (\ s a -> s{_dniarDescription = a});
+
+-- | FIXME: Undocumented member.
+dniarStatusCode :: Lens' DescribeNetworkInterfaceAttributeResponse Int
+dniarStatusCode = lens _dniarStatusCode (\ s a -> s{_dniarStatusCode = a});

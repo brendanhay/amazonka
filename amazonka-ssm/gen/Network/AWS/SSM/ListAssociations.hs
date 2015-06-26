@@ -36,6 +36,7 @@ module Network.AWS.SSM.ListAssociations
     -- ** Response lenses
     , larNextToken
     , larAssociations
+    , larStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -83,7 +84,8 @@ instance AWSRequest ListAssociations where
               (\ s h x ->
                  ListAssociationsResponse' <$>
                    (x .?> "NextToken") <*>
-                     (x .?> "Associations" .!@ mempty))
+                     (x .?> "Associations" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAssociations where
         toHeaders
@@ -114,11 +116,13 @@ instance ToQuery ListAssociations where
 -- * 'larNextToken'
 --
 -- * 'larAssociations'
-data ListAssociationsResponse = ListAssociationsResponse'{_larNextToken :: Maybe Text, _larAssociations :: Maybe [Association]} deriving (Eq, Read, Show)
+--
+-- * 'larStatusCode'
+data ListAssociationsResponse = ListAssociationsResponse'{_larNextToken :: Maybe Text, _larAssociations :: Maybe [Association], _larStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAssociationsResponse' smart constructor.
-listAssociationsResponse :: ListAssociationsResponse
-listAssociationsResponse = ListAssociationsResponse'{_larNextToken = Nothing, _larAssociations = Nothing};
+listAssociationsResponse :: Int -> ListAssociationsResponse
+listAssociationsResponse pStatusCode = ListAssociationsResponse'{_larNextToken = Nothing, _larAssociations = Nothing, _larStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -128,3 +132,7 @@ larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 -- | The associations.
 larAssociations :: Lens' ListAssociationsResponse [Association]
 larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+larStatusCode :: Lens' ListAssociationsResponse Int
+larStatusCode = lens _larStatusCode (\ s a -> s{_larStatusCode = a});

@@ -48,6 +48,7 @@ module Network.AWS.IAM.GetRolePolicy
     , grprRoleName
     , grprPolicyName
     , grprPolicyDocument
+    , grprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -85,7 +86,8 @@ instance AWSRequest GetRolePolicy where
               (\ s h x ->
                  GetRolePolicyResponse' <$>
                    (x .@ "RoleName") <*> (x .@ "PolicyName") <*>
-                     (x .@ "PolicyDocument"))
+                     (x .@ "PolicyDocument")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetRolePolicy where
         toHeaders = const mempty
@@ -101,7 +103,9 @@ instance ToQuery GetRolePolicy where
                "RoleName" =: _grpRoleName,
                "PolicyName" =: _grpPolicyName]
 
--- | /See:/ 'getRolePolicyResponse' smart constructor.
+-- | Contains the response to a successful GetRolePolicy request.
+--
+-- /See:/ 'getRolePolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -110,11 +114,13 @@ instance ToQuery GetRolePolicy where
 -- * 'grprPolicyName'
 --
 -- * 'grprPolicyDocument'
-data GetRolePolicyResponse = GetRolePolicyResponse'{_grprRoleName :: Text, _grprPolicyName :: Text, _grprPolicyDocument :: Text} deriving (Eq, Read, Show)
+--
+-- * 'grprStatusCode'
+data GetRolePolicyResponse = GetRolePolicyResponse'{_grprRoleName :: Text, _grprPolicyName :: Text, _grprPolicyDocument :: Text, _grprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetRolePolicyResponse' smart constructor.
-getRolePolicyResponse :: Text -> Text -> Text -> GetRolePolicyResponse
-getRolePolicyResponse pRoleName pPolicyName pPolicyDocument = GetRolePolicyResponse'{_grprRoleName = pRoleName, _grprPolicyName = pPolicyName, _grprPolicyDocument = pPolicyDocument};
+getRolePolicyResponse :: Text -> Text -> Text -> Int -> GetRolePolicyResponse
+getRolePolicyResponse pRoleName pPolicyName pPolicyDocument pStatusCode = GetRolePolicyResponse'{_grprRoleName = pRoleName, _grprPolicyName = pPolicyName, _grprPolicyDocument = pPolicyDocument, _grprStatusCode = pStatusCode};
 
 -- | The role the policy is associated with.
 grprRoleName :: Lens' GetRolePolicyResponse Text
@@ -127,3 +133,7 @@ grprPolicyName = lens _grprPolicyName (\ s a -> s{_grprPolicyName = a});
 -- | The policy document.
 grprPolicyDocument :: Lens' GetRolePolicyResponse Text
 grprPolicyDocument = lens _grprPolicyDocument (\ s a -> s{_grprPolicyDocument = a});
+
+-- | FIXME: Undocumented member.
+grprStatusCode :: Lens' GetRolePolicyResponse Int
+grprStatusCode = lens _grprStatusCode (\ s a -> s{_grprStatusCode = a});

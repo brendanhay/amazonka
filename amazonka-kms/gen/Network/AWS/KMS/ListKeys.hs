@@ -35,6 +35,7 @@ module Network.AWS.KMS.ListKeys
     , lkrTruncated
     , lkrKeys
     , lkrNextMarker
+    , lkrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -78,7 +79,8 @@ instance AWSRequest ListKeys where
               (\ s h x ->
                  ListKeysResponse' <$>
                    (x .?> "Truncated") <*> (x .?> "Keys" .!@ mempty) <*>
-                     (x .?> "NextMarker"))
+                     (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListKeys where
         toHeaders
@@ -108,11 +110,13 @@ instance ToQuery ListKeys where
 -- * 'lkrKeys'
 --
 -- * 'lkrNextMarker'
-data ListKeysResponse = ListKeysResponse'{_lkrTruncated :: Maybe Bool, _lkrKeys :: Maybe [KeyListEntry], _lkrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lkrStatusCode'
+data ListKeysResponse = ListKeysResponse'{_lkrTruncated :: Maybe Bool, _lkrKeys :: Maybe [KeyListEntry], _lkrNextMarker :: Maybe Text, _lkrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListKeysResponse' smart constructor.
-listKeysResponse :: ListKeysResponse
-listKeysResponse = ListKeysResponse'{_lkrTruncated = Nothing, _lkrKeys = Nothing, _lkrNextMarker = Nothing};
+listKeysResponse :: Int -> ListKeysResponse
+listKeysResponse pStatusCode = ListKeysResponse'{_lkrTruncated = Nothing, _lkrKeys = Nothing, _lkrNextMarker = Nothing, _lkrStatusCode = pStatusCode};
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -129,3 +133,7 @@ lkrKeys = lens _lkrKeys (\ s a -> s{_lkrKeys = a}) . _Default;
 -- request.
 lkrNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrNextMarker = lens _lkrNextMarker (\ s a -> s{_lkrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lkrStatusCode :: Lens' ListKeysResponse Int
+lkrStatusCode = lens _lkrStatusCode (\ s a -> s{_lkrStatusCode = a});

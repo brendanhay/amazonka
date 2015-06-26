@@ -21,8 +21,20 @@ module Network.AWS.Kinesis.Types
     (
     -- * Service
       Kinesis
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _ExpiredIteratorException
+    , _InvalidArgumentException
+    , _ProvisionedThroughputExceededException
+    , _ResourceNotFoundException
+    , _ResourceInUseException
+    , _LimitExceededException
+
+    -- * ShardIteratorType
+    , ShardIteratorType (..)
+
+    -- * StreamStatus
+    , StreamStatus (..)
 
     -- * HashKeyRange
     , HashKeyRange
@@ -67,9 +79,6 @@ module Network.AWS.Kinesis.Types
     , shaHashKeyRange
     , shaSequenceNumberRange
 
-    -- * ShardIteratorType
-    , ShardIteratorType (..)
-
     -- * StreamDescription
     , StreamDescription
     , streamDescription
@@ -79,14 +88,12 @@ module Network.AWS.Kinesis.Types
     , sdShards
     , sdHasMoreShards
 
-    -- * StreamStatus
-    , StreamStatus (..)
-
     -- * Tag
     , Tag
     , tag
     , tagValue
     , tagKey
+
     ) where
 
 import Network.AWS.Prelude
@@ -97,32 +104,116 @@ data Kinesis
 
 instance AWSService Kinesis where
     type Sg Kinesis = V4
-    type Er Kinesis = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Kinesis
-        service' = Service
-            { _svcAbbrev  = "Kinesis"
-            , _svcPrefix  = "kinesis"
-            , _svcVersion = "2013-12-02"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Kinesis
+        svc = Service
+            { _svcAbbrev   = "Kinesis"
+            , _svcPrefix   = "kinesis"
+            , _svcVersion  = "2013-12-02"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Kinesis
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The provided iterator exceeds the maximum age allowed.
+_ExpiredIteratorException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException";
 
--- | /See:/ 'hashKeyRange' smart constructor.
+-- | A specified parameter exceeds its restrictions, is not supported, or
+-- can\'t be used. For more information, see the returned message.
+_InvalidArgumentException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException";
+
+-- | The request rate is too high, or the requested data is too large for the
+-- available throughput. Reduce the frequency or size of your requests. For
+-- more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
+-- in the /AWS General Reference/.
+_ProvisionedThroughputExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ProvisionedThroughputExceededException = _ServiceError . hasCode "ProvisionedThroughputExceededException";
+
+-- | The requested resource could not be found. It might not be specified
+-- correctly, or it might not be in the @ACTIVE@ state.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException";
+
+-- | The resource is not available for this operation. For example, you
+-- attempted to split a shard but the stream is not in the @ACTIVE@ state.
+_ResourceInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException";
+
+-- | The requested resource exceeds the maximum number allowed, or the number
+-- of concurrent stream requests exceeds the maximum number allowed (5).
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException";
+
+data ShardIteratorType = AfterSequenceNumber | ATSequenceNumber | TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ShardIteratorType where
+    parser = takeLowerText >>= \case
+        "AT_SEQUENCE_NUMBER" -> pure ATSequenceNumber
+        "AFTER_SEQUENCE_NUMBER" -> pure AfterSequenceNumber
+        "LATEST" -> pure Latest
+        "TRIM_HORIZON" -> pure TrimHorizon
+        e -> fail ("Failure parsing ShardIteratorType from " ++ show e)
+
+instance ToText ShardIteratorType where
+    toText = \case
+        ATSequenceNumber -> "AT_SEQUENCE_NUMBER"
+        AfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
+        Latest -> "LATEST"
+        TrimHorizon -> "TRIM_HORIZON"
+
+instance Hashable ShardIteratorType
+instance ToQuery ShardIteratorType
+instance ToHeader ShardIteratorType
+
+instance ToJSON ShardIteratorType where
+    toJSON = toJSONText
+
+data StreamStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StreamStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure Active
+        "CREATING" -> pure Creating
+        "DELETING" -> pure Deleting
+        "UPDATING" -> pure Updating
+        e -> fail ("Failure parsing StreamStatus from " ++ show e)
+
+instance ToText StreamStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Creating -> "CREATING"
+        Deleting -> "DELETING"
+        Updating -> "UPDATING"
+
+instance Hashable StreamStatus
+instance ToQuery StreamStatus
+instance ToHeader StreamStatus
+
+instance FromJSON StreamStatus where
+    parseJSON = parseJSONText "StreamStatus"
+
+-- | The range of possible hash key values for the shard, which is a set of
+-- ordered contiguous positive integers.
+--
+-- /See:/ 'hashKeyRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -150,7 +241,9 @@ instance FromJSON HashKeyRange where
                  HashKeyRange' <$>
                    (x .: "StartingHashKey") <*> (x .: "EndingHashKey"))
 
--- | /See:/ 'putRecordsRequestEntry' smart constructor.
+-- | Represents the output for @PutRecords@.
+--
+-- /See:/ 'putRecordsRequestEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -195,7 +288,13 @@ instance ToJSON PutRecordsRequestEntry where
                "Data" .= _prreData,
                "PartitionKey" .= _prrePartitionKey]
 
--- | /See:/ 'putRecordsResultEntry' smart constructor.
+-- | Represents the result of an individual record from a @PutRecords@
+-- request. A record that is successfully added to your Amazon Kinesis
+-- stream includes SequenceNumber and ShardId in the result. A record that
+-- fails to be added to your Amazon Kinesis stream includes ErrorCode and
+-- ErrorMessage in the result.
+--
+-- /See:/ 'putRecordsResultEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -242,7 +341,10 @@ instance FromJSON PutRecordsResultEntry where
                      (x .:? "ErrorMessage")
                      <*> (x .:? "ShardId"))
 
--- | /See:/ 'record' smart constructor.
+-- | The unit of data of the Amazon Kinesis stream, which is composed of a
+-- sequence number, a partition key, and a data blob.
+--
+-- /See:/ 'record' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -280,7 +382,9 @@ instance FromJSON Record where
                    (x .: "SequenceNumber") <*> (x .: "Data") <*>
                      (x .: "PartitionKey"))
 
--- | /See:/ 'sequenceNumberRange' smart constructor.
+-- | The range of possible sequence numbers for the shard.
+--
+-- /See:/ 'sequenceNumberRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -310,7 +414,9 @@ instance FromJSON SequenceNumberRange where
                    (x .:? "EndingSequenceNumber") <*>
                      (x .: "StartingSequenceNumber"))
 
--- | /See:/ 'shard' smart constructor.
+-- | A uniquely identified group of data records in an Amazon Kinesis stream.
+--
+-- /See:/ 'shard' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -361,31 +467,9 @@ instance FromJSON Shard where
                      <*> (x .: "HashKeyRange")
                      <*> (x .: "SequenceNumberRange"))
 
-data ShardIteratorType = AfterSequenceNumber | ATSequenceNumber | TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ShardIteratorType where
-    parser = takeLowerText >>= \case
-        "AT_SEQUENCE_NUMBER" -> pure ATSequenceNumber
-        "AFTER_SEQUENCE_NUMBER" -> pure AfterSequenceNumber
-        "LATEST" -> pure Latest
-        "TRIM_HORIZON" -> pure TrimHorizon
-        e -> fail ("Failure parsing ShardIteratorType from " ++ show e)
-
-instance ToText ShardIteratorType where
-    toText = \case
-        ATSequenceNumber -> "AT_SEQUENCE_NUMBER"
-        AfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
-        Latest -> "LATEST"
-        TrimHorizon -> "TRIM_HORIZON"
-
-instance Hashable ShardIteratorType
-instance ToQuery ShardIteratorType
-instance ToHeader ShardIteratorType
-
-instance ToJSON ShardIteratorType where
-    toJSON = toJSONText
-
--- | /See:/ 'streamDescription' smart constructor.
+-- | Represents the output for @DescribeStream@.
+--
+-- /See:/ 'streamDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -447,31 +531,9 @@ instance FromJSON StreamDescription where
                      <*> (x .:? "Shards" .!= mempty)
                      <*> (x .: "HasMoreShards"))
 
-data StreamStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StreamStatus where
-    parser = takeLowerText >>= \case
-        "ACTIVE" -> pure Active
-        "CREATING" -> pure Creating
-        "DELETING" -> pure Deleting
-        "UPDATING" -> pure Updating
-        e -> fail ("Failure parsing StreamStatus from " ++ show e)
-
-instance ToText StreamStatus where
-    toText = \case
-        Active -> "ACTIVE"
-        Creating -> "CREATING"
-        Deleting -> "DELETING"
-        Updating -> "UPDATING"
-
-instance Hashable StreamStatus
-instance ToQuery StreamStatus
-instance ToHeader StreamStatus
-
-instance FromJSON StreamStatus where
-    parseJSON = parseJSONText "StreamStatus"
-
--- | /See:/ 'tag' smart constructor.
+-- | Metadata assigned to the stream, consisting of a key-value pair.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

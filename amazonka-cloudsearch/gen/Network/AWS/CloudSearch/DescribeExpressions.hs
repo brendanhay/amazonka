@@ -39,7 +39,8 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Response constructor
     , describeExpressionsResponse
     -- ** Response lenses
-    , derExpressions
+    , desExpressions
+    , desStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -47,7 +48,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeExpressions' smart constructor.
+-- | Container for the parameters to the @DescribeDomains@ operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular expressions, specify the names of the expressions
+-- you want to describe. To show the active configuration and exclude any
+-- pending changes, set the @Deployed@ option to @true@.
+--
+-- /See:/ 'describeExpressions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +93,8 @@ instance AWSRequest DescribeExpressions where
               (\ s h x ->
                  DescribeExpressionsResponse' <$>
                    (x .@? "Expressions" .!@ mempty >>=
-                      parseXMLList "member"))
+                      parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
@@ -105,17 +113,26 @@ instance ToQuery DescribeExpressions where
                    (toQueryList "member" <$> _deExpressionNames),
                "DomainName" =: _deDomainName]
 
--- | /See:/ 'describeExpressionsResponse' smart constructor.
+-- | The result of a @DescribeExpressions@ request. Contains the expressions
+-- configured for the domain specified in the request.
+--
+-- /See:/ 'describeExpressionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derExpressions'
-newtype DescribeExpressionsResponse = DescribeExpressionsResponse'{_derExpressions :: [ExpressionStatus]} deriving (Eq, Read, Show)
+-- * 'desExpressions'
+--
+-- * 'desStatusCode'
+data DescribeExpressionsResponse = DescribeExpressionsResponse'{_desExpressions :: [ExpressionStatus], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
-describeExpressionsResponse :: DescribeExpressionsResponse
-describeExpressionsResponse = DescribeExpressionsResponse'{_derExpressions = mempty};
+describeExpressionsResponse :: Int -> DescribeExpressionsResponse
+describeExpressionsResponse pStatusCode = DescribeExpressionsResponse'{_desExpressions = mempty, _desStatusCode = pStatusCode};
 
 -- | The expressions configured for the domain.
-derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-derExpressions = lens _derExpressions (\ s a -> s{_derExpressions = a});
+desExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+desExpressions = lens _desExpressions (\ s a -> s{_desExpressions = a});
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeExpressionsResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

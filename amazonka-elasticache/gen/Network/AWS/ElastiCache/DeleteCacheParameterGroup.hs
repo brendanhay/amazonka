@@ -39,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteCacheParameterGroup' smart constructor.
+-- | Represents the input of a /DeleteCacheParameterGroup/ action.
+--
+-- /See:/ 'deleteCacheParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

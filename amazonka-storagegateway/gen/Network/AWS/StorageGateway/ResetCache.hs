@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.ResetCache
     , resetCacheResponse
     -- ** Response lenses
     , rcrGatewayARN
+    , rcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -73,7 +74,8 @@ instance AWSRequest ResetCache where
         response
           = receiveJSON
               (\ s h x ->
-                 ResetCacheResponse' <$> (x .?> "GatewayARN"))
+                 ResetCacheResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders ResetCache where
         toHeaders
@@ -99,12 +101,18 @@ instance ToQuery ResetCache where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcrGatewayARN'
-newtype ResetCacheResponse = ResetCacheResponse'{_rcrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rcrStatusCode'
+data ResetCacheResponse = ResetCacheResponse'{_rcrGatewayARN :: Maybe Text, _rcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ResetCacheResponse' smart constructor.
-resetCacheResponse :: ResetCacheResponse
-resetCacheResponse = ResetCacheResponse'{_rcrGatewayARN = Nothing};
+resetCacheResponse :: Int -> ResetCacheResponse
+resetCacheResponse pStatusCode = ResetCacheResponse'{_rcrGatewayARN = Nothing, _rcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rcrGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrGatewayARN = lens _rcrGatewayARN (\ s a -> s{_rcrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+rcrStatusCode :: Lens' ResetCacheResponse Int
+rcrStatusCode = lens _rcrStatusCode (\ s a -> s{_rcrStatusCode = a});

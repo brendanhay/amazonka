@@ -54,7 +54,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'allocateConnectionOnInterconnect' smart constructor.
+-- | Container for the parameters to the AllocateConnectionOnInterconnect
+-- operation.
+--
+-- /See:/ 'allocateConnectionOnInterconnect' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

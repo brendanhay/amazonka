@@ -21,8 +21,83 @@ module Network.AWS.S3.Types
     (
     -- * Service
       S3
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _ObjectAlreadyInActiveTierError
+    , _BucketAlreadyExists
+    , _ObjectNotInActiveTierError
+    , _NoSuchUpload
+    , _NoSuchBucket
+    , _NoSuchKey
+
+    -- * BucketCannedACL
+    , BucketCannedACL (..)
+
+    -- * BucketLogsPermission
+    , BucketLogsPermission (..)
+
+    -- * BucketVersioningStatus
+    , BucketVersioningStatus (..)
+
+    -- * EncodingType
+    , EncodingType (..)
+
+    -- * Event
+    , Event (..)
+
+    -- * ExpirationStatus
+    , ExpirationStatus (..)
+
+    -- * MFADelete
+    , MFADelete (..)
+
+    -- * MFADeleteStatus
+    , MFADeleteStatus (..)
+
+    -- * MetadataDirective
+    , MetadataDirective (..)
+
+    -- * ObjectCannedACL
+    , ObjectCannedACL (..)
+
+    -- * ObjectStorageClass
+    , ObjectStorageClass (..)
+
+    -- * ObjectVersionStorageClass
+    , ObjectVersionStorageClass (..)
+
+    -- * Payer
+    , Payer (..)
+
+    -- * Permission
+    , Permission (..)
+
+    -- * Protocol
+    , Protocol (..)
+
+    -- * ReplicationRuleStatus
+    , ReplicationRuleStatus (..)
+
+    -- * ReplicationStatus
+    , ReplicationStatus (..)
+
+    -- * RequestCharged
+    , RequestCharged (..)
+
+    -- * RequestPayer
+    , RequestPayer (..)
+
+    -- * ServerSideEncryption
+    , ServerSideEncryption (..)
+
+    -- * StorageClass
+    , StorageClass (..)
+
+    -- * TransitionStorageClass
+    , TransitionStorageClass (..)
+
+    -- * Type
+    , Type (..)
 
     -- * AccessControlPolicy
     , AccessControlPolicy
@@ -36,19 +111,10 @@ module Network.AWS.S3.Types
     , bucCreationDate
     , bucName
 
-    -- * BucketCannedACL
-    , BucketCannedACL (..)
-
     -- * BucketLoggingStatus
     , BucketLoggingStatus
     , bucketLoggingStatus
     , blsLoggingEnabled
-
-    -- * BucketLogsPermission
-    , BucketLogsPermission (..)
-
-    -- * BucketVersioningStatus
-    , BucketVersioningStatus (..)
 
     -- * CORSConfiguration
     , CORSConfiguration
@@ -131,19 +197,10 @@ module Network.AWS.S3.Types
     , destination
     , desBucket
 
-    -- * EncodingType
-    , EncodingType (..)
-
     -- * ErrorDocument
     , ErrorDocument
     , errorDocument
     , edKey
-
-    -- * Event
-    , Event (..)
-
-    -- * ExpirationStatus
-    , ExpirationStatus (..)
 
     -- * Grant
     , Grant
@@ -196,15 +253,6 @@ module Network.AWS.S3.Types
     , leTargetGrants
     , leTargetPrefix
 
-    -- * MFADelete
-    , MFADelete (..)
-
-    -- * MFADeleteStatus
-    , MFADeleteStatus (..)
-
-    -- * MetadataDirective
-    , MetadataDirective (..)
-
     -- * MultipartUpload
     , MultipartUpload
     , multipartUpload
@@ -243,17 +291,11 @@ module Network.AWS.S3.Types
     , objStorageClass
     , objLastModified
 
-    -- * ObjectCannedACL
-    , ObjectCannedACL (..)
-
     -- * ObjectIdentifier
     , ObjectIdentifier
     , objectIdentifier
     , oiVersionId
     , oiKey
-
-    -- * ObjectStorageClass
-    , ObjectStorageClass (..)
 
     -- * ObjectVersion
     , ObjectVersion
@@ -266,9 +308,6 @@ module Network.AWS.S3.Types
     , ovKey
     , ovStorageClass
     , ovLastModified
-
-    -- * ObjectVersionStorageClass
-    , ObjectVersionStorageClass (..)
 
     -- * Owner
     , Owner
@@ -283,15 +322,6 @@ module Network.AWS.S3.Types
     , parSize
     , parPartNumber
     , parLastModified
-
-    -- * Payer
-    , Payer (..)
-
-    -- * Permission
-    , Permission (..)
-
-    -- * Protocol
-    , Protocol (..)
 
     -- * QueueConfiguration
     , QueueConfiguration
@@ -329,18 +359,6 @@ module Network.AWS.S3.Types
     , rrStatus
     , rrDestination
 
-    -- * ReplicationRuleStatus
-    , ReplicationRuleStatus (..)
-
-    -- * ReplicationStatus
-    , ReplicationStatus (..)
-
-    -- * RequestCharged
-    , RequestCharged (..)
-
-    -- * RequestPayer
-    , RequestPayer (..)
-
     -- * RequestPaymentConfiguration
     , RequestPaymentConfiguration
     , requestPaymentConfiguration
@@ -376,12 +394,6 @@ module Network.AWS.S3.Types
     , sseCode
     , sseMessage
 
-    -- * ServerSideEncryption
-    , ServerSideEncryption (..)
-
-    -- * StorageClass
-    , StorageClass (..)
-
     -- * Tag
     , Tag
     , tag
@@ -413,12 +425,6 @@ module Network.AWS.S3.Types
     , traDate
     , traStorageClass
 
-    -- * TransitionStorageClass
-    , TransitionStorageClass (..)
-
-    -- * Type
-    , Type (..)
-
     -- * VersioningConfiguration
     , VersioningConfiguration
     , versioningConfiguration
@@ -445,30 +451,593 @@ data S3
 
 instance AWSService S3 where
     type Sg S3 = V4
-    type Er S3 = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service S3
-        service' = Service
-            { _svcAbbrev  = "S3"
-            , _svcPrefix  = "s3"
-            , _svcVersion = "2006-03-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service S3
+        svc = Service
+            { _svcAbbrev   = "S3"
+            , _svcPrefix   = "s3"
+            , _svcVersion  = "2006-03-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry S3
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | This operation is not allowed against this storage tier
+_ObjectAlreadyInActiveTierError :: AWSError a => Geting (First ServiceError) a ServiceError
+_ObjectAlreadyInActiveTierError = _ServiceError . hasCode "ObjectAlreadyInActiveTierError";
+
+-- | The requested bucket name is not available. The bucket namespace is
+-- shared by all users of the system. Please select a different name and
+-- try again.
+_BucketAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
+_BucketAlreadyExists = _ServiceError . hasCode "BucketAlreadyExists";
+
+-- | The source object of the COPY operation is not in the active tier and is
+-- only stored in Amazon Glacier.
+_ObjectNotInActiveTierError :: AWSError a => Geting (First ServiceError) a ServiceError
+_ObjectNotInActiveTierError = _ServiceError . hasCode "ObjectNotInActiveTierError";
+
+-- | The specified multipart upload does not exist.
+_NoSuchUpload :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchUpload = _ServiceError . hasCode "NoSuchUpload";
+
+-- | The specified bucket does not exist.
+_NoSuchBucket :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchBucket = _ServiceError . hasCode "NoSuchBucket";
+
+-- | The specified key does not exist.
+_NoSuchKey :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchKey = _ServiceError . hasCode "NoSuchKey";
+
+data BucketCannedACL = BCACannedAuthenticatedRead | BCACannedPrivate | BCACannedPublicReadWrite | BCACannedPublicRead deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText BucketCannedACL where
+    parser = takeLowerText >>= \case
+        "authenticated-read" -> pure BCACannedAuthenticatedRead
+        "private" -> pure BCACannedPrivate
+        "public-read" -> pure BCACannedPublicRead
+        "public-read-write" -> pure BCACannedPublicReadWrite
+        e -> fail ("Failure parsing BucketCannedACL from " ++ show e)
+
+instance ToText BucketCannedACL where
+    toText = \case
+        BCACannedAuthenticatedRead -> "authenticated-read"
+        BCACannedPrivate -> "private"
+        BCACannedPublicRead -> "public-read"
+        BCACannedPublicReadWrite -> "public-read-write"
+
+instance Hashable BucketCannedACL
+instance ToQuery BucketCannedACL
+instance ToHeader BucketCannedACL
+
+instance ToXML BucketCannedACL where
+    toXML = toXMLText
+
+data BucketLogsPermission = FullControl | Read | Write deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText BucketLogsPermission where
+    parser = takeLowerText >>= \case
+        "FULL_CONTROL" -> pure FullControl
+        "READ" -> pure Read
+        "WRITE" -> pure Write
+        e -> fail ("Failure parsing BucketLogsPermission from " ++ show e)
+
+instance ToText BucketLogsPermission where
+    toText = \case
+        FullControl -> "FULL_CONTROL"
+        Read -> "READ"
+        Write -> "WRITE"
+
+instance Hashable BucketLogsPermission
+instance ToQuery BucketLogsPermission
+instance ToHeader BucketLogsPermission
+
+instance FromXML BucketLogsPermission where
+    parseXML = parseXMLText "BucketLogsPermission"
+
+instance ToXML BucketLogsPermission where
+    toXML = toXMLText
+
+data BucketVersioningStatus = BVSSuspended | BVSEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText BucketVersioningStatus where
+    parser = takeLowerText >>= \case
+        "Enabled" -> pure BVSEnabled
+        "Suspended" -> pure BVSSuspended
+        e -> fail ("Failure parsing BucketVersioningStatus from " ++ show e)
+
+instance ToText BucketVersioningStatus where
+    toText = \case
+        BVSEnabled -> "Enabled"
+        BVSSuspended -> "Suspended"
+
+instance Hashable BucketVersioningStatus
+instance ToQuery BucketVersioningStatus
+instance ToHeader BucketVersioningStatus
+
+instance FromXML BucketVersioningStatus where
+    parseXML = parseXMLText "BucketVersioningStatus"
+
+instance ToXML BucketVersioningStatus where
+    toXML = toXMLText
+
+-- | Requests Amazon S3 to encode the object keys in the response and
+-- specifies the encoding method to use. An object key may contain any
+-- Unicode character; however, XML 1.0 parser cannot parse some characters,
+-- such as characters with an ASCII value from 0 to 10. For characters that
+-- are not supported in XML 1.0, you can add this parameter to request that
+-- Amazon S3 encode the keys in the response.
+data EncodingType = URL deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EncodingType where
+    parser = takeLowerText >>= \case
+        "url" -> pure URL
+        e -> fail ("Failure parsing EncodingType from " ++ show e)
+
+instance ToText EncodingType where
+    toText = \case
+        URL -> "url"
+
+instance Hashable EncodingType
+instance ToQuery EncodingType
+instance ToHeader EncodingType
+
+instance FromXML EncodingType where
+    parseXML = parseXMLText "EncodingType"
+
+instance ToXML EncodingType where
+    toXML = toXMLText
+
+-- | Bucket event for which to send notifications.
+data Event = S3ObjectCreatedPut | S3ReducedRedundancyLostObject | S3ObjectCreatedPost | S3ObjectCreatedCopy | S3ObjectCreatedCompleteMultipartUpload deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Event where
+    parser = takeLowerText >>= \case
+        "s3:ObjectCreated:CompleteMultipartUpload" -> pure S3ObjectCreatedCompleteMultipartUpload
+        "s3:ObjectCreated:Copy" -> pure S3ObjectCreatedCopy
+        "s3:ObjectCreated:Post" -> pure S3ObjectCreatedPost
+        "s3:ObjectCreated:Put" -> pure S3ObjectCreatedPut
+        "s3:ReducedRedundancyLostObject" -> pure S3ReducedRedundancyLostObject
+        e -> fail ("Failure parsing Event from " ++ show e)
+
+instance ToText Event where
+    toText = \case
+        S3ObjectCreatedCompleteMultipartUpload -> "s3:ObjectCreated:CompleteMultipartUpload"
+        S3ObjectCreatedCopy -> "s3:ObjectCreated:Copy"
+        S3ObjectCreatedPost -> "s3:ObjectCreated:Post"
+        S3ObjectCreatedPut -> "s3:ObjectCreated:Put"
+        S3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
+
+instance Hashable Event
+instance ToQuery Event
+instance ToHeader Event
+
+instance FromXML Event where
+    parseXML = parseXMLText "Event"
+
+instance ToXML Event where
+    toXML = toXMLText
+
+data ExpirationStatus = ESDisabled | ESEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ExpirationStatus where
+    parser = takeLowerText >>= \case
+        "Disabled" -> pure ESDisabled
+        "Enabled" -> pure ESEnabled
+        e -> fail ("Failure parsing ExpirationStatus from " ++ show e)
+
+instance ToText ExpirationStatus where
+    toText = \case
+        ESDisabled -> "Disabled"
+        ESEnabled -> "Enabled"
+
+instance Hashable ExpirationStatus
+instance ToQuery ExpirationStatus
+instance ToHeader ExpirationStatus
+
+instance FromXML ExpirationStatus where
+    parseXML = parseXMLText "ExpirationStatus"
+
+instance ToXML ExpirationStatus where
+    toXML = toXMLText
+
+data MFADelete = MDDisabled | MDEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MFADelete where
+    parser = takeLowerText >>= \case
+        "Disabled" -> pure MDDisabled
+        "Enabled" -> pure MDEnabled
+        e -> fail ("Failure parsing MFADelete from " ++ show e)
+
+instance ToText MFADelete where
+    toText = \case
+        MDDisabled -> "Disabled"
+        MDEnabled -> "Enabled"
+
+instance Hashable MFADelete
+instance ToQuery MFADelete
+instance ToHeader MFADelete
+
+instance ToXML MFADelete where
+    toXML = toXMLText
+
+data MFADeleteStatus = MDSEnabled | MDSDisabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MFADeleteStatus where
+    parser = takeLowerText >>= \case
+        "Disabled" -> pure MDSDisabled
+        "Enabled" -> pure MDSEnabled
+        e -> fail ("Failure parsing MFADeleteStatus from " ++ show e)
+
+instance ToText MFADeleteStatus where
+    toText = \case
+        MDSDisabled -> "Disabled"
+        MDSEnabled -> "Enabled"
+
+instance Hashable MFADeleteStatus
+instance ToQuery MFADeleteStatus
+instance ToHeader MFADeleteStatus
+
+instance FromXML MFADeleteStatus where
+    parseXML = parseXMLText "MFADeleteStatus"
+
+data MetadataDirective = Replace | Copy deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MetadataDirective where
+    parser = takeLowerText >>= \case
+        "COPY" -> pure Copy
+        "REPLACE" -> pure Replace
+        e -> fail ("Failure parsing MetadataDirective from " ++ show e)
+
+instance ToText MetadataDirective where
+    toText = \case
+        Copy -> "COPY"
+        Replace -> "REPLACE"
+
+instance Hashable MetadataDirective
+instance ToQuery MetadataDirective
+instance ToHeader MetadataDirective
+
+instance ToXML MetadataDirective where
+    toXML = toXMLText
+
+data ObjectCannedACL = Private | BucketOwnerFullControl | BucketOwnerRead | PublicRead | AuthenticatedRead | PublicReadWrite deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ObjectCannedACL where
+    parser = takeLowerText >>= \case
+        "authenticated-read" -> pure AuthenticatedRead
+        "bucket-owner-full-control" -> pure BucketOwnerFullControl
+        "bucket-owner-read" -> pure BucketOwnerRead
+        "private" -> pure Private
+        "public-read" -> pure PublicRead
+        "public-read-write" -> pure PublicReadWrite
+        e -> fail ("Failure parsing ObjectCannedACL from " ++ show e)
+
+instance ToText ObjectCannedACL where
+    toText = \case
+        AuthenticatedRead -> "authenticated-read"
+        BucketOwnerFullControl -> "bucket-owner-full-control"
+        BucketOwnerRead -> "bucket-owner-read"
+        Private -> "private"
+        PublicRead -> "public-read"
+        PublicReadWrite -> "public-read-write"
+
+instance Hashable ObjectCannedACL
+instance ToQuery ObjectCannedACL
+instance ToHeader ObjectCannedACL
+
+instance ToXML ObjectCannedACL where
+    toXML = toXMLText
+
+data ObjectStorageClass = OSCStandard | OSCReducedRedundancy | OSCGlacier deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ObjectStorageClass where
+    parser = takeLowerText >>= \case
+        "GLACIER" -> pure OSCGlacier
+        "REDUCED_REDUNDANCY" -> pure OSCReducedRedundancy
+        "STANDARD" -> pure OSCStandard
+        e -> fail ("Failure parsing ObjectStorageClass from " ++ show e)
+
+instance ToText ObjectStorageClass where
+    toText = \case
+        OSCGlacier -> "GLACIER"
+        OSCReducedRedundancy -> "REDUCED_REDUNDANCY"
+        OSCStandard -> "STANDARD"
+
+instance Hashable ObjectStorageClass
+instance ToQuery ObjectStorageClass
+instance ToHeader ObjectStorageClass
+
+instance FromXML ObjectStorageClass where
+    parseXML = parseXMLText "ObjectStorageClass"
+
+data ObjectVersionStorageClass = OVSCStandard deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ObjectVersionStorageClass where
+    parser = takeLowerText >>= \case
+        "STANDARD" -> pure OVSCStandard
+        e -> fail ("Failure parsing ObjectVersionStorageClass from " ++ show e)
+
+instance ToText ObjectVersionStorageClass where
+    toText = \case
+        OVSCStandard -> "STANDARD"
+
+instance Hashable ObjectVersionStorageClass
+instance ToQuery ObjectVersionStorageClass
+instance ToHeader ObjectVersionStorageClass
+
+instance FromXML ObjectVersionStorageClass where
+    parseXML = parseXMLText "ObjectVersionStorageClass"
+
+data Payer = BucketOwner | Requester deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Payer where
+    parser = takeLowerText >>= \case
+        "BucketOwner" -> pure BucketOwner
+        "Requester" -> pure Requester
+        e -> fail ("Failure parsing Payer from " ++ show e)
+
+instance ToText Payer where
+    toText = \case
+        BucketOwner -> "BucketOwner"
+        Requester -> "Requester"
+
+instance Hashable Payer
+instance ToQuery Payer
+instance ToHeader Payer
+
+instance FromXML Payer where
+    parseXML = parseXMLText "Payer"
+
+instance ToXML Payer where
+    toXML = toXMLText
+
+data Permission = PerReadAcp | PerWrite | PerWriteAcp | PerFullControl | PerRead deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Permission where
+    parser = takeLowerText >>= \case
+        "FULL_CONTROL" -> pure PerFullControl
+        "READ" -> pure PerRead
+        "READ_ACP" -> pure PerReadAcp
+        "WRITE" -> pure PerWrite
+        "WRITE_ACP" -> pure PerWriteAcp
+        e -> fail ("Failure parsing Permission from " ++ show e)
+
+instance ToText Permission where
+    toText = \case
+        PerFullControl -> "FULL_CONTROL"
+        PerRead -> "READ"
+        PerReadAcp -> "READ_ACP"
+        PerWrite -> "WRITE"
+        PerWriteAcp -> "WRITE_ACP"
+
+instance Hashable Permission
+instance ToQuery Permission
+instance ToHeader Permission
+
+instance FromXML Permission where
+    parseXML = parseXMLText "Permission"
+
+instance ToXML Permission where
+    toXML = toXMLText
+
+data Protocol = HTTPS | HTTP deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Protocol where
+    parser = takeLowerText >>= \case
+        "http" -> pure HTTP
+        "https" -> pure HTTPS
+        e -> fail ("Failure parsing Protocol from " ++ show e)
+
+instance ToText Protocol where
+    toText = \case
+        HTTP -> "http"
+        HTTPS -> "https"
+
+instance Hashable Protocol
+instance ToQuery Protocol
+instance ToHeader Protocol
+
+instance FromXML Protocol where
+    parseXML = parseXMLText "Protocol"
+
+instance ToXML Protocol where
+    toXML = toXMLText
+
+data ReplicationRuleStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReplicationRuleStatus where
+    parser = takeLowerText >>= \case
+        "Disabled" -> pure Disabled
+        "Enabled" -> pure Enabled
+        e -> fail ("Failure parsing ReplicationRuleStatus from " ++ show e)
+
+instance ToText ReplicationRuleStatus where
+    toText = \case
+        Disabled -> "Disabled"
+        Enabled -> "Enabled"
+
+instance Hashable ReplicationRuleStatus
+instance ToQuery ReplicationRuleStatus
+instance ToHeader ReplicationRuleStatus
+
+instance FromXML ReplicationRuleStatus where
+    parseXML = parseXMLText "ReplicationRuleStatus"
+
+instance ToXML ReplicationRuleStatus where
+    toXML = toXMLText
+
+data ReplicationStatus = Pending | Replica | Failed | Complete deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReplicationStatus where
+    parser = takeLowerText >>= \case
+        "COMPLETE" -> pure Complete
+        "FAILED" -> pure Failed
+        "PENDING" -> pure Pending
+        "REPLICA" -> pure Replica
+        e -> fail ("Failure parsing ReplicationStatus from " ++ show e)
+
+instance ToText ReplicationStatus where
+    toText = \case
+        Complete -> "COMPLETE"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+        Replica -> "REPLICA"
+
+instance Hashable ReplicationStatus
+instance ToQuery ReplicationStatus
+instance ToHeader ReplicationStatus
+
+instance FromXML ReplicationStatus where
+    parseXML = parseXMLText "ReplicationStatus"
+
+-- | If present, indicates that the requester was successfully charged for
+-- the request.
+data RequestCharged = RCRequester deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RequestCharged where
+    parser = takeLowerText >>= \case
+        "requester" -> pure RCRequester
+        e -> fail ("Failure parsing RequestCharged from " ++ show e)
+
+instance ToText RequestCharged where
+    toText = \case
+        RCRequester -> "requester"
+
+instance Hashable RequestCharged
+instance ToQuery RequestCharged
+instance ToHeader RequestCharged
+
+instance FromXML RequestCharged where
+    parseXML = parseXMLText "RequestCharged"
+
+-- | Confirms that the requester knows that she or he will be charged for the
+-- request. Bucket owners need not specify this parameter in their
+-- requests. Documentation on downloading objects from requester pays
+-- buckets can be found at
+-- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/ObjectsinRequesterPaysBuckets.html
+data RequestPayer = RPRequester deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RequestPayer where
+    parser = takeLowerText >>= \case
+        "requester" -> pure RPRequester
+        e -> fail ("Failure parsing RequestPayer from " ++ show e)
+
+instance ToText RequestPayer where
+    toText = \case
+        RPRequester -> "requester"
+
+instance Hashable RequestPayer
+instance ToQuery RequestPayer
+instance ToHeader RequestPayer
+
+instance ToXML RequestPayer where
+    toXML = toXMLText
+
+data ServerSideEncryption = AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ServerSideEncryption where
+    parser = takeLowerText >>= \case
+        "AES256" -> pure AES256
+        e -> fail ("Failure parsing ServerSideEncryption from " ++ show e)
+
+instance ToText ServerSideEncryption where
+    toText = \case
+        AES256 -> "AES256"
+
+instance Hashable ServerSideEncryption
+instance ToQuery ServerSideEncryption
+instance ToHeader ServerSideEncryption
+
+instance FromXML ServerSideEncryption where
+    parseXML = parseXMLText "ServerSideEncryption"
+
+instance ToXML ServerSideEncryption where
+    toXML = toXMLText
+
+data StorageClass = Standard | ReducedRedundancy deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StorageClass where
+    parser = takeLowerText >>= \case
+        "REDUCED_REDUNDANCY" -> pure ReducedRedundancy
+        "STANDARD" -> pure Standard
+        e -> fail ("Failure parsing StorageClass from " ++ show e)
+
+instance ToText StorageClass where
+    toText = \case
+        ReducedRedundancy -> "REDUCED_REDUNDANCY"
+        Standard -> "STANDARD"
+
+instance Hashable StorageClass
+instance ToQuery StorageClass
+instance ToHeader StorageClass
+
+instance FromXML StorageClass where
+    parseXML = parseXMLText "StorageClass"
+
+instance ToXML StorageClass where
+    toXML = toXMLText
+
+data TransitionStorageClass = Glacier deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TransitionStorageClass where
+    parser = takeLowerText >>= \case
+        "GLACIER" -> pure Glacier
+        e -> fail ("Failure parsing TransitionStorageClass from " ++ show e)
+
+instance ToText TransitionStorageClass where
+    toText = \case
+        Glacier -> "GLACIER"
+
+instance Hashable TransitionStorageClass
+instance ToQuery TransitionStorageClass
+instance ToHeader TransitionStorageClass
+
+instance FromXML TransitionStorageClass where
+    parseXML = parseXMLText "TransitionStorageClass"
+
+instance ToXML TransitionStorageClass where
+    toXML = toXMLText
+
+data Type = Group | CanonicalUser | AmazonCustomerByEmail deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Type where
+    parser = takeLowerText >>= \case
+        "AmazonCustomerByEmail" -> pure AmazonCustomerByEmail
+        "CanonicalUser" -> pure CanonicalUser
+        "Group" -> pure Group
+        e -> fail ("Failure parsing Type from " ++ show e)
+
+instance ToText Type where
+    toText = \case
+        AmazonCustomerByEmail -> "AmazonCustomerByEmail"
+        CanonicalUser -> "CanonicalUser"
+        Group -> "Group"
+
+instance Hashable Type
+instance ToQuery Type
+instance ToHeader Type
+
+instance FromXML Type where
+    parseXML = parseXMLText "Type"
+
+instance ToXML Type where
+    toXML = toXMLText
 
 -- | /See:/ 'accessControlPolicy' smart constructor.
 --
@@ -523,30 +1092,6 @@ instance FromXML Bucket where
         parseXML x
           = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
 
-data BucketCannedACL = BCACannedAuthenticatedRead | BCACannedPrivate | BCACannedPublicReadWrite | BCACannedPublicRead deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText BucketCannedACL where
-    parser = takeLowerText >>= \case
-        "authenticated-read" -> pure BCACannedAuthenticatedRead
-        "private" -> pure BCACannedPrivate
-        "public-read" -> pure BCACannedPublicRead
-        "public-read-write" -> pure BCACannedPublicReadWrite
-        e -> fail ("Failure parsing BucketCannedACL from " ++ show e)
-
-instance ToText BucketCannedACL where
-    toText = \case
-        BCACannedAuthenticatedRead -> "authenticated-read"
-        BCACannedPrivate -> "private"
-        BCACannedPublicRead -> "public-read"
-        BCACannedPublicReadWrite -> "public-read-write"
-
-instance Hashable BucketCannedACL
-instance ToQuery BucketCannedACL
-instance ToHeader BucketCannedACL
-
-instance ToXML BucketCannedACL where
-    toXML = toXMLText
-
 -- | /See:/ 'bucketLoggingStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -565,54 +1110,6 @@ blsLoggingEnabled = lens _blsLoggingEnabled (\ s a -> s{_blsLoggingEnabled = a})
 instance ToXML BucketLoggingStatus where
         toXML BucketLoggingStatus'{..}
           = mconcat ["LoggingEnabled" @= _blsLoggingEnabled]
-
-data BucketLogsPermission = FullControl | Read | Write deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText BucketLogsPermission where
-    parser = takeLowerText >>= \case
-        "FULL_CONTROL" -> pure FullControl
-        "READ" -> pure Read
-        "WRITE" -> pure Write
-        e -> fail ("Failure parsing BucketLogsPermission from " ++ show e)
-
-instance ToText BucketLogsPermission where
-    toText = \case
-        FullControl -> "FULL_CONTROL"
-        Read -> "READ"
-        Write -> "WRITE"
-
-instance Hashable BucketLogsPermission
-instance ToQuery BucketLogsPermission
-instance ToHeader BucketLogsPermission
-
-instance FromXML BucketLogsPermission where
-    parseXML = parseXMLText "BucketLogsPermission"
-
-instance ToXML BucketLogsPermission where
-    toXML = toXMLText
-
-data BucketVersioningStatus = BVSSuspended | BVSEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText BucketVersioningStatus where
-    parser = takeLowerText >>= \case
-        "Enabled" -> pure BVSEnabled
-        "Suspended" -> pure BVSSuspended
-        e -> fail ("Failure parsing BucketVersioningStatus from " ++ show e)
-
-instance ToText BucketVersioningStatus where
-    toText = \case
-        BVSEnabled -> "Enabled"
-        BVSSuspended -> "Suspended"
-
-instance Hashable BucketVersioningStatus
-instance ToQuery BucketVersioningStatus
-instance ToHeader BucketVersioningStatus
-
-instance FromXML BucketVersioningStatus where
-    parseXML = parseXMLText "BucketVersioningStatus"
-
-instance ToXML BucketVersioningStatus where
-    toXML = toXMLText
 
 -- | /See:/ 'corsConfiguration' smart constructor.
 --
@@ -1020,27 +1517,6 @@ instance ToXML Destination where
         toXML Destination'{..}
           = mconcat ["Bucket" @= _desBucket]
 
-data EncodingType = URL deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EncodingType where
-    parser = takeLowerText >>= \case
-        "url" -> pure URL
-        e -> fail ("Failure parsing EncodingType from " ++ show e)
-
-instance ToText EncodingType where
-    toText = \case
-        URL -> "url"
-
-instance Hashable EncodingType
-instance ToQuery EncodingType
-instance ToHeader EncodingType
-
-instance FromXML EncodingType where
-    parseXML = parseXMLText "EncodingType"
-
-instance ToXML EncodingType where
-    toXML = toXMLText
-
 -- | /See:/ 'errorDocument' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -1061,58 +1537,6 @@ instance FromXML ErrorDocument where
 
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
-
-data Event = S3ObjectCreatedPut | S3ReducedRedundancyLostObject | S3ObjectCreatedPost | S3ObjectCreatedCopy | S3ObjectCreatedCompleteMultipartUpload deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Event where
-    parser = takeLowerText >>= \case
-        "s3:ObjectCreated:CompleteMultipartUpload" -> pure S3ObjectCreatedCompleteMultipartUpload
-        "s3:ObjectCreated:Copy" -> pure S3ObjectCreatedCopy
-        "s3:ObjectCreated:Post" -> pure S3ObjectCreatedPost
-        "s3:ObjectCreated:Put" -> pure S3ObjectCreatedPut
-        "s3:ReducedRedundancyLostObject" -> pure S3ReducedRedundancyLostObject
-        e -> fail ("Failure parsing Event from " ++ show e)
-
-instance ToText Event where
-    toText = \case
-        S3ObjectCreatedCompleteMultipartUpload -> "s3:ObjectCreated:CompleteMultipartUpload"
-        S3ObjectCreatedCopy -> "s3:ObjectCreated:Copy"
-        S3ObjectCreatedPost -> "s3:ObjectCreated:Post"
-        S3ObjectCreatedPut -> "s3:ObjectCreated:Put"
-        S3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
-
-instance Hashable Event
-instance ToQuery Event
-instance ToHeader Event
-
-instance FromXML Event where
-    parseXML = parseXMLText "Event"
-
-instance ToXML Event where
-    toXML = toXMLText
-
-data ExpirationStatus = ESDisabled | ESEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ExpirationStatus where
-    parser = takeLowerText >>= \case
-        "Disabled" -> pure ESDisabled
-        "Enabled" -> pure ESEnabled
-        e -> fail ("Failure parsing ExpirationStatus from " ++ show e)
-
-instance ToText ExpirationStatus where
-    toText = \case
-        ESDisabled -> "Disabled"
-        ESEnabled -> "Enabled"
-
-instance Hashable ExpirationStatus
-instance ToQuery ExpirationStatus
-instance ToHeader ExpirationStatus
-
-instance FromXML ExpirationStatus where
-    parseXML = parseXMLText "ExpirationStatus"
-
-instance ToXML ExpirationStatus where
-    toXML = toXMLText
 
 -- | /See:/ 'grant' smart constructor.
 --
@@ -1254,7 +1678,9 @@ instance FromXML Initiator where
           = Initiator' <$>
               (x .@? "ID") <*> (x .@? "DisplayName")
 
--- | /See:/ 'lambdaFunctionConfiguration' smart constructor.
+-- | Container for specifying the AWS Lambda notification configuration.
+--
+-- /See:/ 'lambdaFunctionConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1395,66 +1821,6 @@ instance ToXML LoggingEnabled where
                  toXML (toXMLList "Grant" <$> _leTargetGrants),
                "TargetPrefix" @= _leTargetPrefix]
 
-data MFADelete = MDDisabled | MDEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MFADelete where
-    parser = takeLowerText >>= \case
-        "Disabled" -> pure MDDisabled
-        "Enabled" -> pure MDEnabled
-        e -> fail ("Failure parsing MFADelete from " ++ show e)
-
-instance ToText MFADelete where
-    toText = \case
-        MDDisabled -> "Disabled"
-        MDEnabled -> "Enabled"
-
-instance Hashable MFADelete
-instance ToQuery MFADelete
-instance ToHeader MFADelete
-
-instance ToXML MFADelete where
-    toXML = toXMLText
-
-data MFADeleteStatus = MDSEnabled | MDSDisabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MFADeleteStatus where
-    parser = takeLowerText >>= \case
-        "Disabled" -> pure MDSDisabled
-        "Enabled" -> pure MDSEnabled
-        e -> fail ("Failure parsing MFADeleteStatus from " ++ show e)
-
-instance ToText MFADeleteStatus where
-    toText = \case
-        MDSDisabled -> "Disabled"
-        MDSEnabled -> "Enabled"
-
-instance Hashable MFADeleteStatus
-instance ToQuery MFADeleteStatus
-instance ToHeader MFADeleteStatus
-
-instance FromXML MFADeleteStatus where
-    parseXML = parseXMLText "MFADeleteStatus"
-
-data MetadataDirective = Replace | Copy deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MetadataDirective where
-    parser = takeLowerText >>= \case
-        "COPY" -> pure Copy
-        "REPLACE" -> pure Replace
-        e -> fail ("Failure parsing MetadataDirective from " ++ show e)
-
-instance ToText MetadataDirective where
-    toText = \case
-        Copy -> "COPY"
-        Replace -> "REPLACE"
-
-instance Hashable MetadataDirective
-instance ToQuery MetadataDirective
-instance ToHeader MetadataDirective
-
-instance ToXML MetadataDirective where
-    toXML = toXMLText
-
 -- | /See:/ 'multipartUpload' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -1509,7 +1875,13 @@ instance FromXML MultipartUpload where
                 <*> (x .@? "StorageClass")
                 <*> (x .@? "UploadId")
 
--- | /See:/ 'noncurrentVersionExpiration' smart constructor.
+-- | Specifies when noncurrent object versions expire. Upon expiration,
+-- Amazon S3 permanently deletes the noncurrent object versions. You set
+-- this lifecycle configuration action on a bucket that has versioning
+-- enabled (or suspended) to request that Amazon S3 delete noncurrent
+-- object versions at a specific period in the object\'s lifetime.
+--
+-- /See:/ 'noncurrentVersionExpiration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1537,7 +1909,13 @@ instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
           = mconcat ["NoncurrentDays" @= _nveNoncurrentDays]
 
--- | /See:/ 'noncurrentVersionTransition' smart constructor.
+-- | Container for the transition rule that describes when noncurrent objects
+-- transition to the GLACIER storage class. If your bucket is
+-- versioning-enabled (or versioning is suspended), you can set this action
+-- to request that Amazon S3 transition noncurrent object versions to the
+-- GLACIER storage class at a specific period in the object\'s lifetime.
+--
+-- /See:/ 'noncurrentVersionTransition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1573,7 +1951,10 @@ instance ToXML NoncurrentVersionTransition where
               ["NoncurrentDays" @= _nvtNoncurrentDays,
                "StorageClass" @= _nvtStorageClass]
 
--- | /See:/ 'notificationConfiguration' smart constructor.
+-- | Container for specifying the notification configuration of the bucket.
+-- If this element is empty, notifications are turned off on the bucket.
+--
+-- /See:/ 'notificationConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1674,34 +2055,6 @@ instance FromXML Object where
                 <*> (x .@ "StorageClass")
                 <*> (x .@ "LastModified")
 
-data ObjectCannedACL = Private | BucketOwnerFullControl | BucketOwnerRead | PublicRead | AuthenticatedRead | PublicReadWrite deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ObjectCannedACL where
-    parser = takeLowerText >>= \case
-        "authenticated-read" -> pure AuthenticatedRead
-        "bucket-owner-full-control" -> pure BucketOwnerFullControl
-        "bucket-owner-read" -> pure BucketOwnerRead
-        "private" -> pure Private
-        "public-read" -> pure PublicRead
-        "public-read-write" -> pure PublicReadWrite
-        e -> fail ("Failure parsing ObjectCannedACL from " ++ show e)
-
-instance ToText ObjectCannedACL where
-    toText = \case
-        AuthenticatedRead -> "authenticated-read"
-        BucketOwnerFullControl -> "bucket-owner-full-control"
-        BucketOwnerRead -> "bucket-owner-read"
-        Private -> "private"
-        PublicRead -> "public-read"
-        PublicReadWrite -> "public-read-write"
-
-instance Hashable ObjectCannedACL
-instance ToQuery ObjectCannedACL
-instance ToHeader ObjectCannedACL
-
-instance ToXML ObjectCannedACL where
-    toXML = toXMLText
-
 -- | /See:/ 'objectIdentifier' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -1727,28 +2080,6 @@ instance ToXML ObjectIdentifier where
         toXML ObjectIdentifier'{..}
           = mconcat
               ["VersionId" @= _oiVersionId, "Key" @= _oiKey]
-
-data ObjectStorageClass = OSCStandard | OSCReducedRedundancy | OSCGlacier deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ObjectStorageClass where
-    parser = takeLowerText >>= \case
-        "GLACIER" -> pure OSCGlacier
-        "REDUCED_REDUNDANCY" -> pure OSCReducedRedundancy
-        "STANDARD" -> pure OSCStandard
-        e -> fail ("Failure parsing ObjectStorageClass from " ++ show e)
-
-instance ToText ObjectStorageClass where
-    toText = \case
-        OSCGlacier -> "GLACIER"
-        OSCReducedRedundancy -> "REDUCED_REDUNDANCY"
-        OSCStandard -> "STANDARD"
-
-instance Hashable ObjectStorageClass
-instance ToQuery ObjectStorageClass
-instance ToHeader ObjectStorageClass
-
-instance FromXML ObjectStorageClass where
-    parseXML = parseXMLText "ObjectStorageClass"
 
 -- | /See:/ 'objectVersion' smart constructor.
 --
@@ -1818,24 +2149,6 @@ instance FromXML ObjectVersion where
                 <*> (x .@? "Key")
                 <*> (x .@? "StorageClass")
                 <*> (x .@? "LastModified")
-
-data ObjectVersionStorageClass = OVSCStandard deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ObjectVersionStorageClass where
-    parser = takeLowerText >>= \case
-        "STANDARD" -> pure OVSCStandard
-        e -> fail ("Failure parsing ObjectVersionStorageClass from " ++ show e)
-
-instance ToText ObjectVersionStorageClass where
-    toText = \case
-        OVSCStandard -> "STANDARD"
-
-instance Hashable ObjectVersionStorageClass
-instance ToQuery ObjectVersionStorageClass
-instance ToHeader ObjectVersionStorageClass
-
-instance FromXML ObjectVersionStorageClass where
-    parseXML = parseXMLText "ObjectVersionStorageClass"
 
 -- | /See:/ 'owner' smart constructor.
 --
@@ -1907,82 +2220,10 @@ instance FromXML Part where
                 (x .@? "PartNumber")
                 <*> (x .@? "LastModified")
 
-data Payer = BucketOwner | Requester deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Payer where
-    parser = takeLowerText >>= \case
-        "BucketOwner" -> pure BucketOwner
-        "Requester" -> pure Requester
-        e -> fail ("Failure parsing Payer from " ++ show e)
-
-instance ToText Payer where
-    toText = \case
-        BucketOwner -> "BucketOwner"
-        Requester -> "Requester"
-
-instance Hashable Payer
-instance ToQuery Payer
-instance ToHeader Payer
-
-instance FromXML Payer where
-    parseXML = parseXMLText "Payer"
-
-instance ToXML Payer where
-    toXML = toXMLText
-
-data Permission = PerReadAcp | PerWrite | PerWriteAcp | PerFullControl | PerRead deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Permission where
-    parser = takeLowerText >>= \case
-        "FULL_CONTROL" -> pure PerFullControl
-        "READ" -> pure PerRead
-        "READ_ACP" -> pure PerReadAcp
-        "WRITE" -> pure PerWrite
-        "WRITE_ACP" -> pure PerWriteAcp
-        e -> fail ("Failure parsing Permission from " ++ show e)
-
-instance ToText Permission where
-    toText = \case
-        PerFullControl -> "FULL_CONTROL"
-        PerRead -> "READ"
-        PerReadAcp -> "READ_ACP"
-        PerWrite -> "WRITE"
-        PerWriteAcp -> "WRITE_ACP"
-
-instance Hashable Permission
-instance ToQuery Permission
-instance ToHeader Permission
-
-instance FromXML Permission where
-    parseXML = parseXMLText "Permission"
-
-instance ToXML Permission where
-    toXML = toXMLText
-
-data Protocol = HTTPS | HTTP deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Protocol where
-    parser = takeLowerText >>= \case
-        "http" -> pure HTTP
-        "https" -> pure HTTPS
-        e -> fail ("Failure parsing Protocol from " ++ show e)
-
-instance ToText Protocol where
-    toText = \case
-        HTTP -> "http"
-        HTTPS -> "https"
-
-instance Hashable Protocol
-instance ToQuery Protocol
-instance ToHeader Protocol
-
-instance FromXML Protocol where
-    parseXML = parseXMLText "Protocol"
-
-instance ToXML Protocol where
-    toXML = toXMLText
-
--- | /See:/ 'queueConfiguration' smart constructor.
+-- | Container for specifying an configuration when you want Amazon S3 to
+-- publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
+--
+-- /See:/ 'queueConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2120,7 +2361,10 @@ instance ToXML RedirectAllRequestsTo where
               ["Protocol" @= _rartProtocol,
                "HostName" @= _rartHostName]
 
--- | /See:/ 'replicationConfiguration' smart constructor.
+-- | Container for replication rules. You can add as many as 1,000 rules.
+-- Total replication configuration size can be up to 2 MB.
+--
+-- /See:/ 'replicationConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2202,89 +2446,6 @@ instance ToXML ReplicationRule where
               ["ID" @= _rrID, "Prefix" @= _rrPrefix,
                "Status" @= _rrStatus,
                "Destination" @= _rrDestination]
-
-data ReplicationRuleStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReplicationRuleStatus where
-    parser = takeLowerText >>= \case
-        "Disabled" -> pure Disabled
-        "Enabled" -> pure Enabled
-        e -> fail ("Failure parsing ReplicationRuleStatus from " ++ show e)
-
-instance ToText ReplicationRuleStatus where
-    toText = \case
-        Disabled -> "Disabled"
-        Enabled -> "Enabled"
-
-instance Hashable ReplicationRuleStatus
-instance ToQuery ReplicationRuleStatus
-instance ToHeader ReplicationRuleStatus
-
-instance FromXML ReplicationRuleStatus where
-    parseXML = parseXMLText "ReplicationRuleStatus"
-
-instance ToXML ReplicationRuleStatus where
-    toXML = toXMLText
-
-data ReplicationStatus = Pending | Replica | Failed | Complete deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReplicationStatus where
-    parser = takeLowerText >>= \case
-        "COMPLETE" -> pure Complete
-        "FAILED" -> pure Failed
-        "PENDING" -> pure Pending
-        "REPLICA" -> pure Replica
-        e -> fail ("Failure parsing ReplicationStatus from " ++ show e)
-
-instance ToText ReplicationStatus where
-    toText = \case
-        Complete -> "COMPLETE"
-        Failed -> "FAILED"
-        Pending -> "PENDING"
-        Replica -> "REPLICA"
-
-instance Hashable ReplicationStatus
-instance ToQuery ReplicationStatus
-instance ToHeader ReplicationStatus
-
-instance FromXML ReplicationStatus where
-    parseXML = parseXMLText "ReplicationStatus"
-
-data RequestCharged = RCRequester deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RequestCharged where
-    parser = takeLowerText >>= \case
-        "requester" -> pure RCRequester
-        e -> fail ("Failure parsing RequestCharged from " ++ show e)
-
-instance ToText RequestCharged where
-    toText = \case
-        RCRequester -> "requester"
-
-instance Hashable RequestCharged
-instance ToQuery RequestCharged
-instance ToHeader RequestCharged
-
-instance FromXML RequestCharged where
-    parseXML = parseXMLText "RequestCharged"
-
-data RequestPayer = RPRequester deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RequestPayer where
-    parser = takeLowerText >>= \case
-        "requester" -> pure RPRequester
-        e -> fail ("Failure parsing RequestPayer from " ++ show e)
-
-instance ToText RequestPayer where
-    toText = \case
-        RPRequester -> "requester"
-
-instance Hashable RequestPayer
-instance ToQuery RequestPayer
-instance ToHeader RequestPayer
-
-instance ToXML RequestPayer where
-    toXML = toXMLText
 
 -- | /See:/ 'requestPaymentConfiguration' smart constructor.
 --
@@ -2478,50 +2639,6 @@ instance FromXML S3ServiceError where
                 (x .@? "Code")
                 <*> (x .@? "Message")
 
-data ServerSideEncryption = AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ServerSideEncryption where
-    parser = takeLowerText >>= \case
-        "AES256" -> pure AES256
-        e -> fail ("Failure parsing ServerSideEncryption from " ++ show e)
-
-instance ToText ServerSideEncryption where
-    toText = \case
-        AES256 -> "AES256"
-
-instance Hashable ServerSideEncryption
-instance ToQuery ServerSideEncryption
-instance ToHeader ServerSideEncryption
-
-instance FromXML ServerSideEncryption where
-    parseXML = parseXMLText "ServerSideEncryption"
-
-instance ToXML ServerSideEncryption where
-    toXML = toXMLText
-
-data StorageClass = Standard | ReducedRedundancy deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StorageClass where
-    parser = takeLowerText >>= \case
-        "REDUCED_REDUNDANCY" -> pure ReducedRedundancy
-        "STANDARD" -> pure Standard
-        e -> fail ("Failure parsing StorageClass from " ++ show e)
-
-instance ToText StorageClass where
-    toText = \case
-        ReducedRedundancy -> "REDUCED_REDUNDANCY"
-        Standard -> "STANDARD"
-
-instance Hashable StorageClass
-instance ToQuery StorageClass
-instance ToHeader StorageClass
-
-instance FromXML StorageClass where
-    parseXML = parseXMLText "StorageClass"
-
-instance ToXML StorageClass where
-    toXML = toXMLText
-
 -- | /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -2601,7 +2718,11 @@ instance ToXML TargetGrant where
               ["Permission" @= _tgPermission,
                "Grantee" @= _tgGrantee]
 
--- | /See:/ 'topicConfiguration' smart constructor.
+-- | Container for specifying the configuration when you want Amazon S3 to
+-- publish events to an Amazon Simple Notification Service (Amazon SNS)
+-- topic.
+--
+-- /See:/ 'topicConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2681,52 +2802,6 @@ instance ToXML Transition where
           = mconcat
               ["Days" @= _traDays, "Date" @= _traDate,
                "StorageClass" @= _traStorageClass]
-
-data TransitionStorageClass = Glacier deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TransitionStorageClass where
-    parser = takeLowerText >>= \case
-        "GLACIER" -> pure Glacier
-        e -> fail ("Failure parsing TransitionStorageClass from " ++ show e)
-
-instance ToText TransitionStorageClass where
-    toText = \case
-        Glacier -> "GLACIER"
-
-instance Hashable TransitionStorageClass
-instance ToQuery TransitionStorageClass
-instance ToHeader TransitionStorageClass
-
-instance FromXML TransitionStorageClass where
-    parseXML = parseXMLText "TransitionStorageClass"
-
-instance ToXML TransitionStorageClass where
-    toXML = toXMLText
-
-data Type = Group | CanonicalUser | AmazonCustomerByEmail deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Type where
-    parser = takeLowerText >>= \case
-        "AmazonCustomerByEmail" -> pure AmazonCustomerByEmail
-        "CanonicalUser" -> pure CanonicalUser
-        "Group" -> pure Group
-        e -> fail ("Failure parsing Type from " ++ show e)
-
-instance ToText Type where
-    toText = \case
-        AmazonCustomerByEmail -> "AmazonCustomerByEmail"
-        CanonicalUser -> "CanonicalUser"
-        Group -> "Group"
-
-instance Hashable Type
-instance ToQuery Type
-instance ToHeader Type
-
-instance FromXML Type where
-    parseXML = parseXMLText "Type"
-
-instance ToXML Type where
-    toXML = toXMLText
 
 -- | /See:/ 'versioningConfiguration' smart constructor.
 --

@@ -39,6 +39,8 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     , AttachLoadBalancersResponse
     -- ** Response constructor
     , attachLoadBalancersResponse
+    -- ** Response lenses
+    , albrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -72,7 +74,10 @@ instance AWSRequest AttachLoadBalancers where
         type Rs AttachLoadBalancers =
              AttachLoadBalancersResponse
         request = post
-        response = receiveNull AttachLoadBalancersResponse'
+        response
+          = receiveXMLWrapper "AttachLoadBalancersResult"
+              (\ s h x ->
+                 AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
@@ -91,8 +96,16 @@ instance ToQuery AttachLoadBalancers where
                    (toQueryList "member" <$> _albLoadBalancerNames)]
 
 -- | /See:/ 'attachLoadBalancersResponse' smart constructor.
-data AttachLoadBalancersResponse = AttachLoadBalancersResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'albrStatusCode'
+newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'{_albrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
-attachLoadBalancersResponse :: AttachLoadBalancersResponse
-attachLoadBalancersResponse = AttachLoadBalancersResponse';
+attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
+attachLoadBalancersResponse pStatusCode = AttachLoadBalancersResponse'{_albrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+albrStatusCode :: Lens' AttachLoadBalancersResponse Int
+albrStatusCode = lens _albrStatusCode (\ s a -> s{_albrStatusCode = a});

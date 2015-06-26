@@ -33,6 +33,7 @@ module Network.AWS.Route53.ListTagsForResource
     , listTagsForResourceResponse
     -- ** Response lenses
     , ltfrrResourceTagSet
+    , ltfrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +41,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- | A complex type containing information about a request for a list of the
+-- tags that are associated with an individual resource.
+--
+-- /See:/ 'listTagsForResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -74,7 +78,7 @@ instance AWSRequest ListTagsForResource where
           = receiveXML
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
-                   (x .@ "ResourceTagSet"))
+                   (x .@ "ResourceTagSet") <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -88,18 +92,26 @@ instance ToPath ListTagsForResource where
 instance ToQuery ListTagsForResource where
         toQuery = const mempty
 
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- | A complex type containing tags for the specified resource.
+--
+-- /See:/ 'listTagsForResourceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfrrResourceTagSet'
-newtype ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrResourceTagSet :: ResourceTagSet} deriving (Eq, Read, Show)
+--
+-- * 'ltfrrStatusCode'
+data ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrResourceTagSet :: ResourceTagSet, _ltfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: ResourceTagSet -> ListTagsForResourceResponse
-listTagsForResourceResponse pResourceTagSet = ListTagsForResourceResponse'{_ltfrrResourceTagSet = pResourceTagSet};
+listTagsForResourceResponse :: ResourceTagSet -> Int -> ListTagsForResourceResponse
+listTagsForResourceResponse pResourceTagSet pStatusCode = ListTagsForResourceResponse'{_ltfrrResourceTagSet = pResourceTagSet, _ltfrrStatusCode = pStatusCode};
 
 -- | A @ResourceTagSet@ containing tags associated with the specified
 -- resource.
 ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrResourceTagSet = lens _ltfrrResourceTagSet (\ s a -> s{_ltfrrResourceTagSet = a});
+
+-- | FIXME: Undocumented member.
+ltfrrStatusCode :: Lens' ListTagsForResourceResponse Int
+ltfrrStatusCode = lens _ltfrrStatusCode (\ s a -> s{_ltfrrStatusCode = a});

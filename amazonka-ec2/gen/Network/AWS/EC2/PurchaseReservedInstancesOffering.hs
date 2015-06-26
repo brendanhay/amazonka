@@ -49,6 +49,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
     , priorReservedInstancesId
+    , priorStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -104,7 +105,8 @@ instance AWSRequest PurchaseReservedInstancesOffering
           = receiveXML
               (\ s h x ->
                  PurchaseReservedInstancesOfferingResponse' <$>
-                   (x .@? "reservedInstancesId"))
+                   (x .@? "reservedInstancesId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders PurchaseReservedInstancesOffering
          where
@@ -132,12 +134,18 @@ instance ToQuery PurchaseReservedInstancesOffering
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'priorReservedInstancesId'
-newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'{_priorReservedInstancesId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'priorStatusCode'
+data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'{_priorReservedInstancesId :: Maybe Text, _priorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
-purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
-purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'{_priorReservedInstancesId = Nothing};
+purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse
+purchaseReservedInstancesOfferingResponse pStatusCode = PurchaseReservedInstancesOfferingResponse'{_priorReservedInstancesId = Nothing, _priorStatusCode = pStatusCode};
 
 -- | The IDs of the purchased Reserved Instances.
 priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorReservedInstancesId = lens _priorReservedInstancesId (\ s a -> s{_priorReservedInstancesId = a});
+
+-- | FIXME: Undocumented member.
+priorStatusCode :: Lens' PurchaseReservedInstancesOfferingResponse Int
+priorStatusCode = lens _priorStatusCode (\ s a -> s{_priorStatusCode = a});

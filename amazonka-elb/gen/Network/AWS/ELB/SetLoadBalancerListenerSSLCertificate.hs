@@ -38,6 +38,8 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     , SetLoadBalancerListenerSSLCertificateResponse
     -- ** Response constructor
     , setLoadBalancerListenerSSLCertificateResponse
+    -- ** Response lenses
+    , slblscrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -79,8 +81,11 @@ instance AWSRequest
              SetLoadBalancerListenerSSLCertificateResponse
         request = post
         response
-          = receiveNull
-              SetLoadBalancerListenerSSLCertificateResponse'
+          = receiveXMLWrapper
+              "SetLoadBalancerListenerSSLCertificateResult"
+              (\ s h x ->
+                 SetLoadBalancerListenerSSLCertificateResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders
          SetLoadBalancerListenerSSLCertificate where
@@ -103,8 +108,16 @@ instance ToQuery
                "SSLCertificateId" =: _slblscSSLCertificateId]
 
 -- | /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
-data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slblscrStatusCode'
+newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'{_slblscrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
-setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse';
+setLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListenerSSLCertificateResponse
+setLoadBalancerListenerSSLCertificateResponse pStatusCode = SetLoadBalancerListenerSSLCertificateResponse'{_slblscrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+slblscrStatusCode :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
+slblscrStatusCode = lens _slblscrStatusCode (\ s a -> s{_slblscrStatusCode = a});

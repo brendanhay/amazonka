@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.DescribeElasticIPs
     , describeElasticIPsResponse
     -- ** Response lenses
     , deirElasticIPs
+    , deirStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -93,7 +94,8 @@ instance AWSRequest DescribeElasticIPs where
           = receiveJSON
               (\ s h x ->
                  DescribeElasticIPsResponse' <$>
-                   (x .?> "ElasticIps" .!@ mempty))
+                   (x .?> "ElasticIps" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeElasticIPs where
         toHeaders
@@ -117,18 +119,26 @@ instance ToPath DescribeElasticIPs where
 instance ToQuery DescribeElasticIPs where
         toQuery = const mempty
 
--- | /See:/ 'describeElasticIPsResponse' smart constructor.
+-- | Contains the response to a @DescribeElasticIps@ request.
+--
+-- /See:/ 'describeElasticIPsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'deirElasticIPs'
-newtype DescribeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs :: Maybe [ElasticIP]} deriving (Eq, Read, Show)
+--
+-- * 'deirStatusCode'
+data DescribeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs :: Maybe [ElasticIP], _deirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
-describeElasticIPsResponse :: DescribeElasticIPsResponse
-describeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs = Nothing};
+describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse
+describeElasticIPsResponse pStatusCode = DescribeElasticIPsResponse'{_deirElasticIPs = Nothing, _deirStatusCode = pStatusCode};
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
 deirElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
 deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+deirStatusCode :: Lens' DescribeElasticIPsResponse Int
+deirStatusCode = lens _deirStatusCode (\ s a -> s{_deirStatusCode = a});

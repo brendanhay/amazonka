@@ -32,6 +32,7 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     , getSnapshotLimitsResponse
     -- ** Response lenses
     , gslrSnapshotLimits
+    , gslrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getSnapshotLimits' smart constructor.
+-- | Contains the inputs for the GetSnapshotLimits operation.
+--
+-- /See:/ 'getSnapshotLimits' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -62,7 +65,7 @@ instance AWSRequest GetSnapshotLimits where
           = receiveJSON
               (\ s h x ->
                  GetSnapshotLimitsResponse' <$>
-                   (x .?> "SnapshotLimits"))
+                   (x .?> "SnapshotLimits") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSnapshotLimits where
         toHeaders
@@ -84,18 +87,26 @@ instance ToPath GetSnapshotLimits where
 instance ToQuery GetSnapshotLimits where
         toQuery = const mempty
 
--- | /See:/ 'getSnapshotLimitsResponse' smart constructor.
+-- | Contains the results of the GetSnapshotLimits operation.
+--
+-- /See:/ 'getSnapshotLimitsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gslrSnapshotLimits'
-newtype GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'{_gslrSnapshotLimits :: Maybe SnapshotLimits} deriving (Eq, Read, Show)
+--
+-- * 'gslrStatusCode'
+data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'{_gslrSnapshotLimits :: Maybe SnapshotLimits, _gslrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
-getSnapshotLimitsResponse :: GetSnapshotLimitsResponse
-getSnapshotLimitsResponse = GetSnapshotLimitsResponse'{_gslrSnapshotLimits = Nothing};
+getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
+getSnapshotLimitsResponse pStatusCode = GetSnapshotLimitsResponse'{_gslrSnapshotLimits = Nothing, _gslrStatusCode = pStatusCode};
 
 -- | A SnapshotLimits object that contains the manual snapshot limits for the
 -- specified directory.
 gslrSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrSnapshotLimits = lens _gslrSnapshotLimits (\ s a -> s{_gslrSnapshotLimits = a});
+
+-- | FIXME: Undocumented member.
+gslrStatusCode :: Lens' GetSnapshotLimitsResponse Int
+gslrStatusCode = lens _gslrStatusCode (\ s a -> s{_gslrStatusCode = a});

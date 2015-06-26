@@ -40,15 +40,18 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- ** Response lenses
     , dserNextToken
     , dserStackEvents
+    , dserStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeStackEvents' smart constructor.
+-- | The input for DescribeStackEvents action.
+--
+-- /See:/ 'describeStackEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,7 +100,8 @@ instance AWSRequest DescribeStackEvents where
                  DescribeStackEventsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "StackEvents" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
@@ -113,18 +117,22 @@ instance ToQuery DescribeStackEvents where
                "NextToken" =: _dseNextToken,
                "StackName" =: _dseStackName]
 
--- | /See:/ 'describeStackEventsResponse' smart constructor.
+-- | The output for a DescribeStackEvents action.
+--
+-- /See:/ 'describeStackEventsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dserNextToken'
 --
 -- * 'dserStackEvents'
-data DescribeStackEventsResponse = DescribeStackEventsResponse'{_dserNextToken :: Maybe Text, _dserStackEvents :: Maybe [StackEvent]} deriving (Eq, Read, Show)
+--
+-- * 'dserStatusCode'
+data DescribeStackEventsResponse = DescribeStackEventsResponse'{_dserNextToken :: Maybe Text, _dserStackEvents :: Maybe [StackEvent], _dserStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
-describeStackEventsResponse :: DescribeStackEventsResponse
-describeStackEventsResponse = DescribeStackEventsResponse'{_dserNextToken = Nothing, _dserStackEvents = Nothing};
+describeStackEventsResponse :: Int -> DescribeStackEventsResponse
+describeStackEventsResponse pStatusCode = DescribeStackEventsResponse'{_dserNextToken = Nothing, _dserStackEvents = Nothing, _dserStatusCode = pStatusCode};
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
@@ -134,3 +142,7 @@ dserNextToken = lens _dserNextToken (\ s a -> s{_dserNextToken = a});
 -- | A list of @StackEvents@ structures.
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\ s a -> s{_dserStackEvents = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dserStatusCode :: Lens' DescribeStackEventsResponse Int
+dserStatusCode = lens _dserStatusCode (\ s a -> s{_dserStatusCode = a});

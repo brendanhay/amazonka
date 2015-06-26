@@ -36,6 +36,7 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , updateDataSourceResponse
     -- ** Response lenses
     , udsrDataSourceId
+    , udsrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -72,7 +73,8 @@ instance AWSRequest UpdateDataSource where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateDataSourceResponse' <$> (x .?> "DataSourceId"))
+                 UpdateDataSourceResponse' <$>
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateDataSource where
         toHeaders
@@ -95,18 +97,29 @@ instance ToPath UpdateDataSource where
 instance ToQuery UpdateDataSource where
         toQuery = const mempty
 
--- | /See:/ 'updateDataSourceResponse' smart constructor.
+-- | Represents the output of an UpdateDataSource operation.
+--
+-- You can see the updated content by using the GetBatchPrediction
+-- operation.
+--
+-- /See:/ 'updateDataSourceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udsrDataSourceId'
-newtype UpdateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'udsrStatusCode'
+data UpdateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId :: Maybe Text, _udsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
-updateDataSourceResponse :: UpdateDataSourceResponse
-updateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId = Nothing};
+updateDataSourceResponse :: Int -> UpdateDataSourceResponse
+updateDataSourceResponse pStatusCode = UpdateDataSourceResponse'{_udsrDataSourceId = Nothing, _udsrStatusCode = pStatusCode};
 
 -- | The ID assigned to the @DataSource@ during creation. This value should
 -- be identical to the value of the @DataSourceID@ in the request.
 udsrDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrDataSourceId = lens _udsrDataSourceId (\ s a -> s{_udsrDataSourceId = a});
+
+-- | FIXME: Undocumented member.
+udsrStatusCode :: Lens' UpdateDataSourceResponse Int
+udsrStatusCode = lens _udsrStatusCode (\ s a -> s{_udsrStatusCode = a});

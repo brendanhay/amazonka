@@ -44,7 +44,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'verifyEmailAddress' smart constructor.
+-- | Represents a request instructing the service to begin email address
+-- verification.
+--
+-- /See:/ 'verifyEmailAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

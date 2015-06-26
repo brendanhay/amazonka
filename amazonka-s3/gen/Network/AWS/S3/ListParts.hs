@@ -48,9 +48,10 @@ module Network.AWS.S3.ListParts
     , lprIsTruncated
     , lprPartNumberMarker
     , lprUploadId
+    , lprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -129,7 +130,8 @@ instance AWSRequest ListParts where
                      <*> (x .@? "StorageClass")
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "PartNumberMarker")
-                     <*> (x .@? "UploadId"))
+                     <*> (x .@? "UploadId")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
@@ -173,11 +175,13 @@ instance ToQuery ListParts where
 -- * 'lprPartNumberMarker'
 --
 -- * 'lprUploadId'
-data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [Part], _lprRequestCharged :: Maybe RequestCharged, _lprMaxParts :: Maybe Int, _lprInitiator :: Maybe Initiator, _lprBucket :: Maybe BucketName, _lprNextPartNumberMarker :: Maybe Int, _lprOwner :: Maybe Owner, _lprKey :: Maybe ObjectKey, _lprStorageClass :: Maybe StorageClass, _lprIsTruncated :: Maybe Bool, _lprPartNumberMarker :: Maybe Int, _lprUploadId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lprStatusCode'
+data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [Part], _lprRequestCharged :: Maybe RequestCharged, _lprMaxParts :: Maybe Int, _lprInitiator :: Maybe Initiator, _lprBucket :: Maybe BucketName, _lprNextPartNumberMarker :: Maybe Int, _lprOwner :: Maybe Owner, _lprKey :: Maybe ObjectKey, _lprStorageClass :: Maybe StorageClass, _lprIsTruncated :: Maybe Bool, _lprPartNumberMarker :: Maybe Int, _lprUploadId :: Maybe Text, _lprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPartsResponse' smart constructor.
-listPartsResponse :: ListPartsResponse
-listPartsResponse = ListPartsResponse'{_lprParts = Nothing, _lprRequestCharged = Nothing, _lprMaxParts = Nothing, _lprInitiator = Nothing, _lprBucket = Nothing, _lprNextPartNumberMarker = Nothing, _lprOwner = Nothing, _lprKey = Nothing, _lprStorageClass = Nothing, _lprIsTruncated = Nothing, _lprPartNumberMarker = Nothing, _lprUploadId = Nothing};
+listPartsResponse :: Int -> ListPartsResponse
+listPartsResponse pStatusCode = ListPartsResponse'{_lprParts = Nothing, _lprRequestCharged = Nothing, _lprMaxParts = Nothing, _lprInitiator = Nothing, _lprBucket = Nothing, _lprNextPartNumberMarker = Nothing, _lprOwner = Nothing, _lprKey = Nothing, _lprStorageClass = Nothing, _lprIsTruncated = Nothing, _lprPartNumberMarker = Nothing, _lprUploadId = Nothing, _lprStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 lprParts :: Lens' ListPartsResponse [Part]
@@ -228,3 +232,7 @@ lprPartNumberMarker = lens _lprPartNumberMarker (\ s a -> s{_lprPartNumberMarker
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lprUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprUploadId = lens _lprUploadId (\ s a -> s{_lprUploadId = a});
+
+-- | FIXME: Undocumented member.
+lprStatusCode :: Lens' ListPartsResponse Int
+lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});

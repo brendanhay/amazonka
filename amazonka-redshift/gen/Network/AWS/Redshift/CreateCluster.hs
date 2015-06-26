@@ -62,6 +62,7 @@ module Network.AWS.Redshift.CreateCluster
     , createClusterResponse
     -- ** Response lenses
     , ccrCluster
+    , ccrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createCluster' smart constructor.
+-- |
+--
+-- /See:/ 'createCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -388,7 +391,8 @@ instance AWSRequest CreateCluster where
         response
           = receiveXMLWrapper "CreateClusterResult"
               (\ s h x ->
-                 CreateClusterResponse' <$> (x .@? "Cluster"))
+                 CreateClusterResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
@@ -443,12 +447,18 @@ instance ToQuery CreateCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccrCluster'
-newtype CreateClusterResponse = CreateClusterResponse'{_ccrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'ccrStatusCode'
+data CreateClusterResponse = CreateClusterResponse'{_ccrCluster :: Maybe Cluster, _ccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterResponse' smart constructor.
-createClusterResponse :: CreateClusterResponse
-createClusterResponse = CreateClusterResponse'{_ccrCluster = Nothing};
+createClusterResponse :: Int -> CreateClusterResponse
+createClusterResponse pStatusCode = CreateClusterResponse'{_ccrCluster = Nothing, _ccrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
+
+-- | FIXME: Undocumented member.
+ccrStatusCode :: Lens' CreateClusterResponse Int
+ccrStatusCode = lens _ccrStatusCode (\ s a -> s{_ccrStatusCode = a});

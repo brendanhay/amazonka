@@ -32,7 +32,8 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Response constructor
     , getBucketLoggingResponse
     -- ** Response lenses
-    , gblrLoggingEnabled
+    , getLoggingEnabled
+    , getStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -63,7 +64,7 @@ instance AWSRequest GetBucketLogging where
           = receiveXML
               (\ s h x ->
                  GetBucketLoggingResponse' <$>
-                   (x .@? "LoggingEnabled"))
+                   (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty
@@ -79,13 +80,19 @@ instance ToQuery GetBucketLogging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrLoggingEnabled'
-newtype GetBucketLoggingResponse = GetBucketLoggingResponse'{_gblrLoggingEnabled :: Maybe LoggingEnabled} deriving (Eq, Read, Show)
+-- * 'getLoggingEnabled'
+--
+-- * 'getStatusCode'
+data GetBucketLoggingResponse = GetBucketLoggingResponse'{_getLoggingEnabled :: Maybe LoggingEnabled, _getStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
-getBucketLoggingResponse :: GetBucketLoggingResponse
-getBucketLoggingResponse = GetBucketLoggingResponse'{_gblrLoggingEnabled = Nothing};
+getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
+getBucketLoggingResponse pStatusCode = GetBucketLoggingResponse'{_getLoggingEnabled = Nothing, _getStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-gblrLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblrLoggingEnabled = lens _gblrLoggingEnabled (\ s a -> s{_gblrLoggingEnabled = a});
+getLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+getLoggingEnabled = lens _getLoggingEnabled (\ s a -> s{_getLoggingEnabled = a});
+
+-- | FIXME: Undocumented member.
+getStatusCode :: Lens' GetBucketLoggingResponse Int
+getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});

@@ -35,6 +35,7 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     , applyPendingMaintenanceActionResponse
     -- ** Response lenses
     , apmarResourcePendingMaintenanceActions
+    , apmarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'applyPendingMaintenanceAction' smart constructor.
+-- |
+--
+-- /See:/ 'applyPendingMaintenanceAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -89,7 +92,8 @@ instance AWSRequest ApplyPendingMaintenanceAction
               "ApplyPendingMaintenanceActionResult"
               (\ s h x ->
                  ApplyPendingMaintenanceActionResponse' <$>
-                   (x .@? "ResourcePendingMaintenanceActions"))
+                   (x .@? "ResourcePendingMaintenanceActions") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ApplyPendingMaintenanceAction
          where
@@ -113,12 +117,18 @@ instance ToQuery ApplyPendingMaintenanceAction where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'apmarResourcePendingMaintenanceActions'
-newtype ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'{_apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions} deriving (Eq, Read, Show)
+--
+-- * 'apmarStatusCode'
+data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'{_apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions, _apmarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
-applyPendingMaintenanceActionResponse :: ApplyPendingMaintenanceActionResponse
-applyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'{_apmarResourcePendingMaintenanceActions = Nothing};
+applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse
+applyPendingMaintenanceActionResponse pStatusCode = ApplyPendingMaintenanceActionResponse'{_apmarResourcePendingMaintenanceActions = Nothing, _apmarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 apmarResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
 apmarResourcePendingMaintenanceActions = lens _apmarResourcePendingMaintenanceActions (\ s a -> s{_apmarResourcePendingMaintenanceActions = a});
+
+-- | FIXME: Undocumented member.
+apmarStatusCode :: Lens' ApplyPendingMaintenanceActionResponse Int
+apmarStatusCode = lens _apmarStatusCode (\ s a -> s{_apmarStatusCode = a});

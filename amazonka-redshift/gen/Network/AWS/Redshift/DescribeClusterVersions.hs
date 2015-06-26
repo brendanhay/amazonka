@@ -41,9 +41,10 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- ** Response lenses
     , dcvrClusterVersions
     , dcvrMarker
+    , dcvrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
@@ -122,7 +123,8 @@ instance AWSRequest DescribeClusterVersions where
                  DescribeClusterVersionsResponse' <$>
                    (x .@? "ClusterVersions" .!@ mempty >>=
                       may (parseXMLList "ClusterVersion"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
@@ -142,18 +144,22 @@ instance ToQuery DescribeClusterVersions where
                  _dcvClusterParameterGroupFamily,
                "ClusterVersion" =: _dcvClusterVersion]
 
--- | /See:/ 'describeClusterVersionsResponse' smart constructor.
+-- | Contains the output from the DescribeClusterVersions action.
+--
+-- /See:/ 'describeClusterVersionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcvrClusterVersions'
 --
 -- * 'dcvrMarker'
-data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions :: Maybe [ClusterVersion], _dcvrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcvrStatusCode'
+data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions :: Maybe [ClusterVersion], _dcvrMarker :: Maybe Text, _dcvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
-describeClusterVersionsResponse :: DescribeClusterVersionsResponse
-describeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions = Nothing, _dcvrMarker = Nothing};
+describeClusterVersionsResponse :: Int -> DescribeClusterVersionsResponse
+describeClusterVersionsResponse pStatusCode = DescribeClusterVersionsResponse'{_dcvrClusterVersions = Nothing, _dcvrMarker = Nothing, _dcvrStatusCode = pStatusCode};
 
 -- | A list of @Version@ elements.
 dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
@@ -167,3 +173,7 @@ dcvrClusterVersions = lens _dcvrClusterVersions (\ s a -> s{_dcvrClusterVersions
 -- the request.
 dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\ s a -> s{_dcvrMarker = a});
+
+-- | FIXME: Undocumented member.
+dcvrStatusCode :: Lens' DescribeClusterVersionsResponse Int
+dcvrStatusCode = lens _dcvrStatusCode (\ s a -> s{_dcvrStatusCode = a});

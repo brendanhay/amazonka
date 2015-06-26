@@ -36,7 +36,8 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- ** Response constructor
     , defineAnalysisSchemeResponse
     -- ** Response lenses
-    , defAnalysisScheme
+    , dasr1AnalysisScheme
+    , dasr1StatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -44,7 +45,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'defineAnalysisScheme' smart constructor.
+-- | Container for the parameters to the @DefineAnalysisScheme@ operation.
+-- Specifies the name of the domain you want to update and the analysis
+-- scheme configuration.
+--
+-- /See:/ 'defineAnalysisScheme' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -74,7 +79,7 @@ instance AWSRequest DefineAnalysisScheme where
           = receiveXMLWrapper "DefineAnalysisSchemeResult"
               (\ s h x ->
                  DefineAnalysisSchemeResponse' <$>
-                   (x .@ "AnalysisScheme"))
+                   (x .@ "AnalysisScheme") <*> (pure (fromEnum s)))
 
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
@@ -90,17 +95,26 @@ instance ToQuery DefineAnalysisScheme where
                "DomainName" =: _defiDomainName,
                "AnalysisScheme" =: _defiAnalysisScheme]
 
--- | /See:/ 'defineAnalysisSchemeResponse' smart constructor.
+-- | The result of a @DefineAnalysisScheme@ request. Contains the status of
+-- the newly-configured analysis scheme.
+--
+-- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defAnalysisScheme'
-newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'{_defAnalysisScheme :: AnalysisSchemeStatus} deriving (Eq, Read, Show)
+-- * 'dasr1AnalysisScheme'
+--
+-- * 'dasr1StatusCode'
+data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'{_dasr1AnalysisScheme :: AnalysisSchemeStatus, _dasr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
-defineAnalysisSchemeResponse :: AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse pAnalysisScheme = DefineAnalysisSchemeResponse'{_defAnalysisScheme = pAnalysisScheme};
+defineAnalysisSchemeResponse :: AnalysisSchemeStatus -> Int -> DefineAnalysisSchemeResponse
+defineAnalysisSchemeResponse pAnalysisScheme pStatusCode = DefineAnalysisSchemeResponse'{_dasr1AnalysisScheme = pAnalysisScheme, _dasr1StatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-defAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-defAnalysisScheme = lens _defAnalysisScheme (\ s a -> s{_defAnalysisScheme = a});
+dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+dasr1AnalysisScheme = lens _dasr1AnalysisScheme (\ s a -> s{_dasr1AnalysisScheme = a});
+
+-- | FIXME: Undocumented member.
+dasr1StatusCode :: Lens' DefineAnalysisSchemeResponse Int
+dasr1StatusCode = lens _dasr1StatusCode (\ s a -> s{_dasr1StatusCode = a});

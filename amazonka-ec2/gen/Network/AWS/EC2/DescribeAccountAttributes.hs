@@ -53,6 +53,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , describeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountAttributes
+    , daarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -93,7 +94,8 @@ instance AWSRequest DescribeAccountAttributes where
           = receiveXML
               (\ s h x ->
                  DescribeAccountAttributesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
@@ -116,12 +118,18 @@ instance ToQuery DescribeAccountAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daarAccountAttributes'
-newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes :: Maybe [AccountAttribute]} deriving (Eq, Read, Show)
+--
+-- * 'daarStatusCode'
+data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes :: Maybe [AccountAttribute], _daarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
-describeAccountAttributesResponse :: DescribeAccountAttributesResponse
-describeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes = Nothing};
+describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
+describeAccountAttributesResponse pStatusCode = DescribeAccountAttributesResponse'{_daarAccountAttributes = Nothing, _daarStatusCode = pStatusCode};
 
 -- | Information about one or more account attributes.
 daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarAccountAttributes = lens _daarAccountAttributes (\ s a -> s{_daarAccountAttributes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+daarStatusCode :: Lens' DescribeAccountAttributesResponse Int
+daarStatusCode = lens _daarStatusCode (\ s a -> s{_daarStatusCode = a});

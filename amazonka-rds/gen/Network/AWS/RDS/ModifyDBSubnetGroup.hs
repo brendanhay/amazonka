@@ -35,6 +35,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     , modifyDBSubnetGroupResponse
     -- ** Response lenses
     , mdsgrDBSubnetGroup
+    , mdsgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyDBSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'modifyDBSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,7 @@ instance AWSRequest ModifyDBSubnetGroup where
           = receiveXMLWrapper "ModifyDBSubnetGroupResult"
               (\ s h x ->
                  ModifyDBSubnetGroupResponse' <$>
-                   (x .@? "DBSubnetGroup"))
+                   (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty
@@ -108,12 +111,18 @@ instance ToQuery ModifyDBSubnetGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mdsgrDBSubnetGroup'
-newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'{_mdsgrDBSubnetGroup :: Maybe DBSubnetGroup} deriving (Eq, Read, Show)
+--
+-- * 'mdsgrStatusCode'
+data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'{_mdsgrDBSubnetGroup :: Maybe DBSubnetGroup, _mdsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
-modifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse
-modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'{_mdsgrDBSubnetGroup = Nothing};
+modifyDBSubnetGroupResponse :: Int -> ModifyDBSubnetGroupResponse
+modifyDBSubnetGroupResponse pStatusCode = ModifyDBSubnetGroupResponse'{_mdsgrDBSubnetGroup = Nothing, _mdsgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mdsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdsgrDBSubnetGroup = lens _mdsgrDBSubnetGroup (\ s a -> s{_mdsgrDBSubnetGroup = a});
+
+-- | FIXME: Undocumented member.
+mdsgrStatusCode :: Lens' ModifyDBSubnetGroupResponse Int
+mdsgrStatusCode = lens _mdsgrStatusCode (\ s a -> s{_mdsgrStatusCode = a});

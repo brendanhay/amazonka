@@ -62,6 +62,7 @@ module Network.AWS.SES.SendRawEmail
     , sendRawEmailResponse
     -- ** Response lenses
     , srerMessageId
+    , srerStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,14 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'sendRawEmail' smart constructor.
+-- | Represents a request instructing the service to send a raw email
+-- message.
+--
+-- This datatype can be used in application code to compose a message
+-- consisting of source, destination, and raw message text. This object can
+-- then be sent using the @SendRawEmail@ action.
+--
+-- /See:/ 'sendRawEmail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -126,7 +134,8 @@ instance AWSRequest SendRawEmail where
         response
           = receiveXMLWrapper "SendRawEmailResult"
               (\ s h x ->
-                 SendRawEmailResponse' <$> (x .@ "MessageId"))
+                 SendRawEmailResponse' <$>
+                   (x .@ "MessageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
@@ -144,17 +153,26 @@ instance ToQuery SendRawEmail where
                "Source" =: _sreSource,
                "RawMessage" =: _sreRawMessage]
 
--- | /See:/ 'sendRawEmailResponse' smart constructor.
+-- | Represents a unique message ID returned from a successful @SendRawEmail@
+-- request.
+--
+-- /See:/ 'sendRawEmailResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'srerMessageId'
-newtype SendRawEmailResponse = SendRawEmailResponse'{_srerMessageId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'srerStatusCode'
+data SendRawEmailResponse = SendRawEmailResponse'{_srerMessageId :: Text, _srerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SendRawEmailResponse' smart constructor.
-sendRawEmailResponse :: Text -> SendRawEmailResponse
-sendRawEmailResponse pMessageId = SendRawEmailResponse'{_srerMessageId = pMessageId};
+sendRawEmailResponse :: Text -> Int -> SendRawEmailResponse
+sendRawEmailResponse pMessageId pStatusCode = SendRawEmailResponse'{_srerMessageId = pMessageId, _srerStatusCode = pStatusCode};
 
 -- | The unique message identifier returned from the @SendRawEmail@ action.
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\ s a -> s{_srerMessageId = a});
+
+-- | FIXME: Undocumented member.
+srerStatusCode :: Lens' SendRawEmailResponse Int
+srerStatusCode = lens _srerStatusCode (\ s a -> s{_srerStatusCode = a});

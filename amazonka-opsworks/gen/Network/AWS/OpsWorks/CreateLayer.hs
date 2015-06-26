@@ -61,6 +61,7 @@ module Network.AWS.OpsWorks.CreateLayer
     , createLayerResponse
     -- ** Response lenses
     , clrLayerId
+    , clrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -208,7 +209,8 @@ instance AWSRequest CreateLayer where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateLayerResponse' <$> (x .?> "LayerId"))
+                 CreateLayerResponse' <$>
+                   (x .?> "LayerId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateLayer where
         toHeaders
@@ -247,17 +249,25 @@ instance ToPath CreateLayer where
 instance ToQuery CreateLayer where
         toQuery = const mempty
 
--- | /See:/ 'createLayerResponse' smart constructor.
+-- | Contains the response to a @CreateLayer@ request.
+--
+-- /See:/ 'createLayerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'clrLayerId'
-newtype CreateLayerResponse = CreateLayerResponse'{_clrLayerId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'clrStatusCode'
+data CreateLayerResponse = CreateLayerResponse'{_clrLayerId :: Maybe Text, _clrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLayerResponse' smart constructor.
-createLayerResponse :: CreateLayerResponse
-createLayerResponse = CreateLayerResponse'{_clrLayerId = Nothing};
+createLayerResponse :: Int -> CreateLayerResponse
+createLayerResponse pStatusCode = CreateLayerResponse'{_clrLayerId = Nothing, _clrStatusCode = pStatusCode};
 
 -- | The layer ID.
 clrLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrLayerId = lens _clrLayerId (\ s a -> s{_clrLayerId = a});
+
+-- | FIXME: Undocumented member.
+clrStatusCode :: Lens' CreateLayerResponse Int
+clrStatusCode = lens _clrStatusCode (\ s a -> s{_clrStatusCode = a});

@@ -30,6 +30,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , describeAutoScalingNotificationTypesResponse
     -- ** Response lenses
     , dasntrAutoScalingNotificationTypes
+    , dasntrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -57,7 +58,8 @@ instance AWSRequest
               (\ s h x ->
                  DescribeAutoScalingNotificationTypesResponse' <$>
                    (x .@? "AutoScalingNotificationTypes" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeAutoScalingNotificationTypes where
@@ -82,11 +84,13 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dasntrAutoScalingNotificationTypes'
-newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'dasntrStatusCode'
+data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes :: Maybe [Text], _dasntrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
-describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes = Nothing};
+describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse
+describeAutoScalingNotificationTypesResponse pStatusCode = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes = Nothing, _dasntrStatusCode = pStatusCode};
 
 -- | One or more of the following notification types:
 --
@@ -102,3 +106,7 @@ describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTy
 --
 dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrAutoScalingNotificationTypes = lens _dasntrAutoScalingNotificationTypes (\ s a -> s{_dasntrAutoScalingNotificationTypes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dasntrStatusCode :: Lens' DescribeAutoScalingNotificationTypesResponse Int
+dasntrStatusCode = lens _dasntrStatusCode (\ s a -> s{_dasntrStatusCode = a});

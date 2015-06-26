@@ -55,9 +55,10 @@ module Network.AWS.Support.DescribeCases
     -- ** Response lenses
     , desCases
     , desNextToken
+    , desStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -150,7 +151,8 @@ instance AWSRequest DescribeCases where
           = receiveJSON
               (\ s h x ->
                  DescribeCasesResponse' <$>
-                   (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken"))
+                   (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCases where
         toHeaders
@@ -180,18 +182,23 @@ instance ToPath DescribeCases where
 instance ToQuery DescribeCases where
         toQuery = const mempty
 
--- | /See:/ 'describeCasesResponse' smart constructor.
+-- | Returns an array of CaseDetails objects and a @NextToken@ that defines a
+-- point for pagination in the result set.
+--
+-- /See:/ 'describeCasesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desCases'
 --
 -- * 'desNextToken'
-data DescribeCasesResponse = DescribeCasesResponse'{_desCases :: Maybe [CaseDetails], _desNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'desStatusCode'
+data DescribeCasesResponse = DescribeCasesResponse'{_desCases :: Maybe [CaseDetails], _desNextToken :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCasesResponse' smart constructor.
-describeCasesResponse :: DescribeCasesResponse
-describeCasesResponse = DescribeCasesResponse'{_desCases = Nothing, _desNextToken = Nothing};
+describeCasesResponse :: Int -> DescribeCasesResponse
+describeCasesResponse pStatusCode = DescribeCasesResponse'{_desCases = Nothing, _desNextToken = Nothing, _desStatusCode = pStatusCode};
 
 -- | The details for the cases that match the request.
 desCases :: Lens' DescribeCasesResponse [CaseDetails]
@@ -200,3 +207,7 @@ desCases = lens _desCases (\ s a -> s{_desCases = a}) . _Default;
 -- | A resumption point for pagination.
 desNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeCasesResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

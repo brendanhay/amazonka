@@ -35,17 +35,20 @@ module Network.AWS.RDS.DescribeDBInstances
     -- ** Response constructor
     , describeDBInstancesResponse
     -- ** Response lenses
-    , ddirDBInstances
-    , ddirMarker
+    , desDBInstances
+    , desMarker
+    , desStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDBInstances' smart constructor.
+-- |
+--
+-- /See:/ 'describeDBInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,10 +100,10 @@ ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 
 instance AWSPager DescribeDBInstances where
         page rq rs
-          | stop (rs ^. ddirMarker) = Nothing
-          | stop (rs ^. ddirDBInstances) = Nothing
+          | stop (rs ^. desMarker) = Nothing
+          | stop (rs ^. desDBInstances) = Nothing
           | otherwise =
-            Just $ rq & ddbiMarker .~ rs ^. ddirMarker
+            Just $ rq & ddbiMarker .~ rs ^. desMarker
 
 instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS
@@ -113,7 +116,8 @@ instance AWSRequest DescribeDBInstances where
                  DescribeDBInstancesResponse' <$>
                    (x .@? "DBInstances" .!@ mempty >>=
                       may (parseXMLList "DBInstance"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBInstances where
         toHeaders = const mempty
@@ -132,25 +136,34 @@ instance ToQuery DescribeDBInstances where
                "MaxRecords" =: _ddbiMaxRecords,
                "Marker" =: _ddbiMarker]
 
--- | /See:/ 'describeDBInstancesResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBInstances action.
+--
+-- /See:/ 'describeDBInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddirDBInstances'
+-- * 'desDBInstances'
 --
--- * 'ddirMarker'
-data DescribeDBInstancesResponse = DescribeDBInstancesResponse'{_ddirDBInstances :: Maybe [DBInstance], _ddirMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'desMarker'
+--
+-- * 'desStatusCode'
+data DescribeDBInstancesResponse = DescribeDBInstancesResponse'{_desDBInstances :: Maybe [DBInstance], _desMarker :: Maybe Text, _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
-describeDBInstancesResponse :: DescribeDBInstancesResponse
-describeDBInstancesResponse = DescribeDBInstancesResponse'{_ddirDBInstances = Nothing, _ddirMarker = Nothing};
+describeDBInstancesResponse :: Int -> DescribeDBInstancesResponse
+describeDBInstancesResponse pStatusCode = DescribeDBInstancesResponse'{_desDBInstances = Nothing, _desMarker = Nothing, _desStatusCode = pStatusCode};
 
 -- | A list of DBInstance instances.
-ddirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
-ddirDBInstances = lens _ddirDBInstances (\ s a -> s{_ddirDBInstances = a}) . _Default;
+desDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+desDBInstances = lens _desDBInstances (\ s a -> s{_desDBInstances = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@ .
-ddirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
-ddirMarker = lens _ddirMarker (\ s a -> s{_ddirMarker = a});
+desMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
+desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeDBInstancesResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

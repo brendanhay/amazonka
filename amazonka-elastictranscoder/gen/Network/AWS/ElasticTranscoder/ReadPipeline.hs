@@ -31,8 +31,9 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- ** Response constructor
     , readPipelineResponse
     -- ** Response lenses
-    , rprWarnings
-    , rprPipeline
+    , reaWarnings
+    , reaPipeline
+    , reaStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'readPipeline' smart constructor.
+-- | The @ReadPipelineRequest@ structure.
+--
+-- /See:/ 'readPipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest ReadPipeline where
           = receiveJSON
               (\ s h x ->
                  ReadPipelineResponse' <$>
-                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline"))
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ReadPipeline where
         toHeaders = const mempty
@@ -75,18 +79,22 @@ instance ToPath ReadPipeline where
 instance ToQuery ReadPipeline where
         toQuery = const mempty
 
--- | /See:/ 'readPipelineResponse' smart constructor.
+-- | The @ReadPipelineResponse@ structure.
+--
+-- /See:/ 'readPipelineResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rprWarnings'
+-- * 'reaWarnings'
 --
--- * 'rprPipeline'
-data ReadPipelineResponse = ReadPipelineResponse'{_rprWarnings :: Maybe [Warning], _rprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+-- * 'reaPipeline'
+--
+-- * 'reaStatusCode'
+data ReadPipelineResponse = ReadPipelineResponse'{_reaWarnings :: Maybe [Warning], _reaPipeline :: Maybe Pipeline, _reaStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReadPipelineResponse' smart constructor.
-readPipelineResponse :: ReadPipelineResponse
-readPipelineResponse = ReadPipelineResponse'{_rprWarnings = Nothing, _rprPipeline = Nothing};
+readPipelineResponse :: Int -> ReadPipelineResponse
+readPipelineResponse pStatusCode = ReadPipelineResponse'{_reaWarnings = Nothing, _reaPipeline = Nothing, _reaStatusCode = pStatusCode};
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -94,10 +102,14 @@ readPipelineResponse = ReadPipelineResponse'{_rprWarnings = Nothing, _rprPipelin
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-rprWarnings :: Lens' ReadPipelineResponse [Warning]
-rprWarnings = lens _rprWarnings (\ s a -> s{_rprWarnings = a}) . _Default;
+reaWarnings :: Lens' ReadPipelineResponse [Warning]
+reaWarnings = lens _reaWarnings (\ s a -> s{_reaWarnings = a}) . _Default;
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-rprPipeline = lens _rprPipeline (\ s a -> s{_rprPipeline = a});
+reaPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
+reaPipeline = lens _reaPipeline (\ s a -> s{_reaPipeline = a});
+
+-- | FIXME: Undocumented member.
+reaStatusCode :: Lens' ReadPipelineResponse Int
+reaStatusCode = lens _reaStatusCode (\ s a -> s{_reaStatusCode = a});

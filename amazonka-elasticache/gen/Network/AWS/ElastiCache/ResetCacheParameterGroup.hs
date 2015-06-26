@@ -45,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'resetCacheParameterGroup' smart constructor.
+-- | Represents the input of a /ResetCacheParameterGroup/ action.
+--
+-- /See:/ 'resetCacheParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

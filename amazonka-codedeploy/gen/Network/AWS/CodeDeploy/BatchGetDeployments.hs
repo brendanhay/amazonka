@@ -32,6 +32,7 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     , batchGetDeploymentsResponse
     -- ** Response lenses
     , bgdrDeploymentsInfo
+    , bgdrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'batchGetDeployments' smart constructor.
+-- | Represents the input of a batch get deployments operation.
+--
+-- /See:/ 'batchGetDeployments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -64,7 +67,8 @@ instance AWSRequest BatchGetDeployments where
           = receiveJSON
               (\ s h x ->
                  BatchGetDeploymentsResponse' <$>
-                   (x .?> "deploymentsInfo" .!@ mempty))
+                   (x .?> "deploymentsInfo" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders BatchGetDeployments where
         toHeaders
@@ -86,17 +90,25 @@ instance ToPath BatchGetDeployments where
 instance ToQuery BatchGetDeployments where
         toQuery = const mempty
 
--- | /See:/ 'batchGetDeploymentsResponse' smart constructor.
+-- | Represents the output of a batch get deployments operation.
+--
+-- /See:/ 'batchGetDeploymentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgdrDeploymentsInfo'
-newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo :: Maybe [DeploymentInfo]} deriving (Eq, Read, Show)
+--
+-- * 'bgdrStatusCode'
+data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo :: Maybe [DeploymentInfo], _bgdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
-batchGetDeploymentsResponse :: BatchGetDeploymentsResponse
-batchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo = Nothing};
+batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
+batchGetDeploymentsResponse pStatusCode = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo = Nothing, _bgdrStatusCode = pStatusCode};
 
 -- | Information about the deployments.
 bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+bgdrStatusCode :: Lens' BatchGetDeploymentsResponse Int
+bgdrStatusCode = lens _bgdrStatusCode (\ s a -> s{_bgdrStatusCode = a});

@@ -38,6 +38,8 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     , CreateLoadBalancerPolicyResponse
     -- ** Response constructor
     , createLoadBalancerPolicyResponse
+    -- ** Response lenses
+    , clbprStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -86,7 +88,10 @@ instance AWSRequest CreateLoadBalancerPolicy where
              CreateLoadBalancerPolicyResponse
         request = post
         response
-          = receiveNull CreateLoadBalancerPolicyResponse'
+          = receiveXMLWrapper "CreateLoadBalancerPolicyResult"
+              (\ s h x ->
+                 CreateLoadBalancerPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
@@ -108,8 +113,16 @@ instance ToQuery CreateLoadBalancerPolicy where
                "PolicyTypeName" =: _clbpPolicyTypeName]
 
 -- | /See:/ 'createLoadBalancerPolicyResponse' smart constructor.
-data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'clbprStatusCode'
+newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'{_clbprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
-createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
-createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse';
+createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
+createLoadBalancerPolicyResponse pStatusCode = CreateLoadBalancerPolicyResponse'{_clbprStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+clbprStatusCode :: Lens' CreateLoadBalancerPolicyResponse Int
+clbprStatusCode = lens _clbprStatusCode (\ s a -> s{_clbprStatusCode = a});

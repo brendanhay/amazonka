@@ -34,10 +34,11 @@ module Network.AWS.ECS.ListClusters
     -- ** Response lenses
     , lcrClusterARNs
     , lcrNextToken
+    , lcrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,7 +91,8 @@ instance AWSRequest ListClusters where
               (\ s h x ->
                  ListClustersResponse' <$>
                    (x .?> "clusterArns" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListClusters where
         toHeaders
@@ -121,11 +123,13 @@ instance ToQuery ListClusters where
 -- * 'lcrClusterARNs'
 --
 -- * 'lcrNextToken'
-data ListClustersResponse = ListClustersResponse'{_lcrClusterARNs :: Maybe [Text], _lcrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lcrStatusCode'
+data ListClustersResponse = ListClustersResponse'{_lcrClusterARNs :: Maybe [Text], _lcrNextToken :: Maybe Text, _lcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListClustersResponse' smart constructor.
-listClustersResponse :: ListClustersResponse
-listClustersResponse = ListClustersResponse'{_lcrClusterARNs = Nothing, _lcrNextToken = Nothing};
+listClustersResponse :: Int -> ListClustersResponse
+listClustersResponse pStatusCode = ListClustersResponse'{_lcrClusterARNs = Nothing, _lcrNextToken = Nothing, _lcrStatusCode = pStatusCode};
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
@@ -138,3 +142,7 @@ lcrClusterARNs = lens _lcrClusterARNs (\ s a -> s{_lcrClusterARNs = a}) . _Defau
 -- @null@ when there are no more results to return.
 lcrNextToken :: Lens' ListClustersResponse (Maybe Text)
 lcrNextToken = lens _lcrNextToken (\ s a -> s{_lcrNextToken = a});
+
+-- | FIXME: Undocumented member.
+lcrStatusCode :: Lens' ListClustersResponse Int
+lcrStatusCode = lens _lcrStatusCode (\ s a -> s{_lcrStatusCode = a});

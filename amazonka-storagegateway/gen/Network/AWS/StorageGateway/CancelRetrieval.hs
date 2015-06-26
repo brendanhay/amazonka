@@ -35,6 +35,7 @@ module Network.AWS.StorageGateway.CancelRetrieval
     , cancelRetrievalResponse
     -- ** Response lenses
     , crrTapeARN
+    , crrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'cancelRetrieval' smart constructor.
+-- | CancelRetrievalInput
+--
+-- /See:/ 'cancelRetrieval' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest CancelRetrieval where
         response
           = receiveJSON
               (\ s h x ->
-                 CancelRetrievalResponse' <$> (x .?> "TapeARN"))
+                 CancelRetrievalResponse' <$>
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelRetrieval where
         toHeaders
@@ -95,18 +99,26 @@ instance ToPath CancelRetrieval where
 instance ToQuery CancelRetrieval where
         toQuery = const mempty
 
--- | /See:/ 'cancelRetrievalResponse' smart constructor.
+-- | CancelRetrievalOutput
+--
+-- /See:/ 'cancelRetrievalResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crrTapeARN'
-newtype CancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'crrStatusCode'
+data CancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN :: Maybe Text, _crrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelRetrievalResponse' smart constructor.
-cancelRetrievalResponse :: CancelRetrievalResponse
-cancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN = Nothing};
+cancelRetrievalResponse :: Int -> CancelRetrievalResponse
+cancelRetrievalResponse pStatusCode = CancelRetrievalResponse'{_crrTapeARN = Nothing, _crrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
 -- was canceled.
 crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\ s a -> s{_crrTapeARN = a});
+
+-- | FIXME: Undocumented member.
+crrStatusCode :: Lens' CancelRetrievalResponse Int
+crrStatusCode = lens _crrStatusCode (\ s a -> s{_crrStatusCode = a});

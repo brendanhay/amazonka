@@ -66,7 +66,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeVault' smart constructor.
+-- | Provides options for retrieving metadata for a specific vault in Amazon
+-- Glacier.
+--
+-- /See:/ 'describeVault' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

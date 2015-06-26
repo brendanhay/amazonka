@@ -38,6 +38,7 @@ module Network.AWS.ECS.SubmitTaskStateChange
     , submitTaskStateChangeResponse
     -- ** Response lenses
     , stscrAcknowledgment
+    , stscrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -89,7 +90,7 @@ instance AWSRequest SubmitTaskStateChange where
           = receiveJSON
               (\ s h x ->
                  SubmitTaskStateChangeResponse' <$>
-                   (x .?> "acknowledgment"))
+                   (x .?> "acknowledgment") <*> (pure (fromEnum s)))
 
 instance ToHeaders SubmitTaskStateChange where
         toHeaders
@@ -118,12 +119,18 @@ instance ToQuery SubmitTaskStateChange where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'stscrAcknowledgment'
-newtype SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'{_stscrAcknowledgment :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'stscrStatusCode'
+data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'{_stscrAcknowledgment :: Maybe Text, _stscrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
-submitTaskStateChangeResponse :: SubmitTaskStateChangeResponse
-submitTaskStateChangeResponse = SubmitTaskStateChangeResponse'{_stscrAcknowledgment = Nothing};
+submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
+submitTaskStateChangeResponse pStatusCode = SubmitTaskStateChangeResponse'{_stscrAcknowledgment = Nothing, _stscrStatusCode = pStatusCode};
 
 -- | Acknowledgement of the state change.
 stscrAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrAcknowledgment = lens _stscrAcknowledgment (\ s a -> s{_stscrAcknowledgment = a});
+
+-- | FIXME: Undocumented member.
+stscrStatusCode :: Lens' SubmitTaskStateChangeResponse Int
+stscrStatusCode = lens _stscrStatusCode (\ s a -> s{_stscrStatusCode = a});

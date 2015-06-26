@@ -40,6 +40,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     , revokeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , rdsgirDBSecurityGroup
+    , rdsgirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +48,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'revokeDBSecurityGroupIngress' smart constructor.
+-- |
+--
+-- /See:/ 'revokeDBSecurityGroupIngress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,7 +112,7 @@ instance AWSRequest RevokeDBSecurityGroupIngress
               "RevokeDBSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeDBSecurityGroupIngressResponse' <$>
-                   (x .@? "DBSecurityGroup"))
+                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
@@ -135,12 +138,18 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdsgirDBSecurityGroup'
-newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'{_rdsgirDBSecurityGroup :: Maybe DBSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'rdsgirStatusCode'
+data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'{_rdsgirDBSecurityGroup :: Maybe DBSecurityGroup, _rdsgirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
-revokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResponse
-revokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'{_rdsgirDBSecurityGroup = Nothing};
+revokeDBSecurityGroupIngressResponse :: Int -> RevokeDBSecurityGroupIngressResponse
+revokeDBSecurityGroupIngressResponse pStatusCode = RevokeDBSecurityGroupIngressResponse'{_rdsgirDBSecurityGroup = Nothing, _rdsgirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rdsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 rdsgirDBSecurityGroup = lens _rdsgirDBSecurityGroup (\ s a -> s{_rdsgirDBSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+rdsgirStatusCode :: Lens' RevokeDBSecurityGroupIngressResponse Int
+rdsgirStatusCode = lens _rdsgirStatusCode (\ s a -> s{_rdsgirStatusCode = a});

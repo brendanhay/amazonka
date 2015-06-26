@@ -35,10 +35,11 @@ module Network.AWS.ECS.ListServices
     -- ** Response lenses
     , lsrServiceARNs
     , lsrNextToken
+    , lsrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -99,7 +100,8 @@ instance AWSRequest ListServices where
               (\ s h x ->
                  ListServicesResponse' <$>
                    (x .?> "serviceArns" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListServices where
         toHeaders
@@ -131,11 +133,13 @@ instance ToQuery ListServices where
 -- * 'lsrServiceARNs'
 --
 -- * 'lsrNextToken'
-data ListServicesResponse = ListServicesResponse'{_lsrServiceARNs :: Maybe [Text], _lsrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lsrStatusCode'
+data ListServicesResponse = ListServicesResponse'{_lsrServiceARNs :: Maybe [Text], _lsrNextToken :: Maybe Text, _lsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListServicesResponse' smart constructor.
-listServicesResponse :: ListServicesResponse
-listServicesResponse = ListServicesResponse'{_lsrServiceARNs = Nothing, _lsrNextToken = Nothing};
+listServicesResponse :: Int -> ListServicesResponse
+listServicesResponse pStatusCode = ListServicesResponse'{_lsrServiceARNs = Nothing, _lsrNextToken = Nothing, _lsrStatusCode = pStatusCode};
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service
 -- associated with the specified cluster.
@@ -148,3 +152,7 @@ lsrServiceARNs = lens _lsrServiceARNs (\ s a -> s{_lsrServiceARNs = a}) . _Defau
 -- @null@ when there are no more results to return.
 lsrNextToken :: Lens' ListServicesResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
+
+-- | FIXME: Undocumented member.
+lsrStatusCode :: Lens' ListServicesResponse Int
+lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});

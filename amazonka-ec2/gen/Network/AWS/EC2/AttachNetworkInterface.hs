@@ -35,6 +35,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     , attachNetworkInterfaceResponse
     -- ** Response lenses
     , anirAttachmentId
+    , anirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -87,7 +88,7 @@ instance AWSRequest AttachNetworkInterface where
           = receiveXML
               (\ s h x ->
                  AttachNetworkInterfaceResponse' <$>
-                   (x .@? "attachmentId"))
+                   (x .@? "attachmentId") <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
@@ -111,12 +112,18 @@ instance ToQuery AttachNetworkInterface where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'anirAttachmentId'
-newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'{_anirAttachmentId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'anirStatusCode'
+data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'{_anirAttachmentId :: Maybe Text, _anirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
-attachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
-attachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'{_anirAttachmentId = Nothing};
+attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
+attachNetworkInterfaceResponse pStatusCode = AttachNetworkInterfaceResponse'{_anirAttachmentId = Nothing, _anirStatusCode = pStatusCode};
 
 -- | The ID of the network interface attachment.
 anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\ s a -> s{_anirAttachmentId = a});
+
+-- | FIXME: Undocumented member.
+anirStatusCode :: Lens' AttachNetworkInterfaceResponse Int
+anirStatusCode = lens _anirStatusCode (\ s a -> s{_anirStatusCode = a});

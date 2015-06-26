@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeVPNGateways
     , describeVPNGatewaysResponse
     -- ** Response lenses
     , dvgrVPNGateways
+    , dvgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -118,7 +119,8 @@ instance AWSRequest DescribeVPNGateways where
           = receiveXML
               (\ s h x ->
                  DescribeVPNGatewaysResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
@@ -141,12 +143,18 @@ instance ToQuery DescribeVPNGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvgrVPNGateways'
-newtype DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways :: Maybe [VPNGateway]} deriving (Eq, Read, Show)
+--
+-- * 'dvgrStatusCode'
+data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways :: Maybe [VPNGateway], _dvgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
-describeVPNGatewaysResponse :: DescribeVPNGatewaysResponse
-describeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways = Nothing};
+describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse
+describeVPNGatewaysResponse pStatusCode = DescribeVPNGatewaysResponse'{_dvgrVPNGateways = Nothing, _dvgrStatusCode = pStatusCode};
 
 -- | Information about one or more virtual private gateways.
 dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
 dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvgrStatusCode :: Lens' DescribeVPNGatewaysResponse Int
+dvgrStatusCode = lens _dvgrStatusCode (\ s a -> s{_dvgrStatusCode = a});

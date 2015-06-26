@@ -47,6 +47,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Response lenses
     , dlsrNextToken
     , dlsrLogStreams
+    , dlsrStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -119,7 +120,8 @@ instance AWSRequest DescribeLogStreams where
               (\ s h x ->
                  DescribeLogStreamsResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "logStreams" .!@ mempty))
+                     (x .?> "logStreams" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLogStreams where
         toHeaders
@@ -153,11 +155,13 @@ instance ToQuery DescribeLogStreams where
 -- * 'dlsrNextToken'
 --
 -- * 'dlsrLogStreams'
-data DescribeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrNextToken :: Maybe Text, _dlsrLogStreams :: Maybe [LogStream]} deriving (Eq, Read, Show)
+--
+-- * 'dlsrStatusCode'
+data DescribeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrNextToken :: Maybe Text, _dlsrLogStreams :: Maybe [LogStream], _dlsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
-describeLogStreamsResponse :: DescribeLogStreamsResponse
-describeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrNextToken = Nothing, _dlsrLogStreams = Nothing};
+describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
+describeLogStreamsResponse pStatusCode = DescribeLogStreamsResponse'{_dlsrNextToken = Nothing, _dlsrLogStreams = Nothing, _dlsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
@@ -166,3 +170,7 @@ dlsrNextToken = lens _dlsrNextToken (\ s a -> s{_dlsrNextToken = a});
 -- | FIXME: Undocumented member.
 dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlsrStatusCode :: Lens' DescribeLogStreamsResponse Int
+dlsrStatusCode = lens _dlsrStatusCode (\ s a -> s{_dlsrStatusCode = a});

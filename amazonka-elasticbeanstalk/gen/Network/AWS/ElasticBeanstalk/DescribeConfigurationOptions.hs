@@ -41,6 +41,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- ** Response lenses
     , dcorOptions
     , dcorSolutionStackName
+    , dcorStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -48,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeConfigurationOptions' smart constructor.
+-- | Result message containig a list of application version descriptions.
+--
+-- /See:/ 'describeConfigurationOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,7 +110,8 @@ instance AWSRequest DescribeConfigurationOptions
                  DescribeConfigurationOptionsResponse' <$>
                    (x .@? "Options" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "SolutionStackName"))
+                     <*> (x .@? "SolutionStackName")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
@@ -128,18 +132,22 @@ instance ToQuery DescribeConfigurationOptions where
                  toQuery (toQueryList "member" <$> _dcoOptions),
                "SolutionStackName" =: _dcoSolutionStackName]
 
--- | /See:/ 'describeConfigurationOptionsResponse' smart constructor.
+-- | Describes the settings for a specified configuration set.
+--
+-- /See:/ 'describeConfigurationOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcorOptions'
 --
 -- * 'dcorSolutionStackName'
-data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'{_dcorOptions :: Maybe [ConfigurationOptionDescription], _dcorSolutionStackName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcorStatusCode'
+data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'{_dcorOptions :: Maybe [ConfigurationOptionDescription], _dcorSolutionStackName :: Maybe Text, _dcorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
-describeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
-describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'{_dcorOptions = Nothing, _dcorSolutionStackName = Nothing};
+describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse
+describeConfigurationOptionsResponse pStatusCode = DescribeConfigurationOptionsResponse'{_dcorOptions = Nothing, _dcorSolutionStackName = Nothing, _dcorStatusCode = pStatusCode};
 
 -- | A list of ConfigurationOptionDescription.
 dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
@@ -148,3 +156,7 @@ dcorOptions = lens _dcorOptions (\ s a -> s{_dcorOptions = a}) . _Default;
 -- | The name of the solution stack these configuration options belong to.
 dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorSolutionStackName = lens _dcorSolutionStackName (\ s a -> s{_dcorSolutionStackName = a});
+
+-- | FIXME: Undocumented member.
+dcorStatusCode :: Lens' DescribeConfigurationOptionsResponse Int
+dcorStatusCode = lens _dcorStatusCode (\ s a -> s{_dcorStatusCode = a});

@@ -44,6 +44,7 @@ module Network.AWS.EC2.CopyImage
     , copyImageResponse
     -- ** Response lenses
     , copImageId
+    , copStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -108,7 +109,9 @@ instance AWSRequest CopyImage where
         request = post
         response
           = receiveXML
-              (\ s h x -> CopyImageResponse' <$> (x .@? "imageId"))
+              (\ s h x ->
+                 CopyImageResponse' <$>
+                   (x .@? "imageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyImage where
         toHeaders = const mempty
@@ -133,12 +136,18 @@ instance ToQuery CopyImage where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'copImageId'
-newtype CopyImageResponse = CopyImageResponse'{_copImageId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'copStatusCode'
+data CopyImageResponse = CopyImageResponse'{_copImageId :: Maybe Text, _copStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopyImageResponse' smart constructor.
-copyImageResponse :: CopyImageResponse
-copyImageResponse = CopyImageResponse'{_copImageId = Nothing};
+copyImageResponse :: Int -> CopyImageResponse
+copyImageResponse pStatusCode = CopyImageResponse'{_copImageId = Nothing, _copStatusCode = pStatusCode};
 
 -- | The ID of the new AMI.
 copImageId :: Lens' CopyImageResponse (Maybe Text)
 copImageId = lens _copImageId (\ s a -> s{_copImageId = a});
+
+-- | FIXME: Undocumented member.
+copStatusCode :: Lens' CopyImageResponse Int
+copStatusCode = lens _copStatusCode (\ s a -> s{_copStatusCode = a});

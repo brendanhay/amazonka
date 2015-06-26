@@ -60,7 +60,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyDBParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'modifyDBParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

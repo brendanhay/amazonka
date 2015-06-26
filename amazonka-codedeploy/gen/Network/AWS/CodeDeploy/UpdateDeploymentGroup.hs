@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , updateDeploymentGroupResponse
     -- ** Response lenses
     , udgrHooksNotCleanedUp
+    , udgrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateDeploymentGroup' smart constructor.
+-- | Represents the input of an update deployment group operation.
+--
+-- /See:/ 'updateDeploymentGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -116,7 +119,8 @@ instance AWSRequest UpdateDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  UpdateDeploymentGroupResponse' <$>
-                   (x .?> "hooksNotCleanedUp" .!@ mempty))
+                   (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
@@ -149,16 +153,20 @@ instance ToPath UpdateDeploymentGroup where
 instance ToQuery UpdateDeploymentGroup where
         toQuery = const mempty
 
--- | /See:/ 'updateDeploymentGroupResponse' smart constructor.
+-- | Represents the output of an update deployment group operation.
+--
+-- /See:/ 'updateDeploymentGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udgrHooksNotCleanedUp'
-newtype UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'{_udgrHooksNotCleanedUp :: Maybe [AutoScalingGroup]} deriving (Eq, Read, Show)
+--
+-- * 'udgrStatusCode'
+data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'{_udgrHooksNotCleanedUp :: Maybe [AutoScalingGroup], _udgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
-updateDeploymentGroupResponse :: UpdateDeploymentGroupResponse
-updateDeploymentGroupResponse = UpdateDeploymentGroupResponse'{_udgrHooksNotCleanedUp = Nothing};
+updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
+updateDeploymentGroupResponse pStatusCode = UpdateDeploymentGroupResponse'{_udgrHooksNotCleanedUp = Nothing, _udgrStatusCode = pStatusCode};
 
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
@@ -167,3 +175,7 @@ updateDeploymentGroupResponse = UpdateDeploymentGroupResponse'{_udgrHooksNotClea
 -- remove some Auto Scaling lifecycle event hooks from the AWS account.
 udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp = lens _udgrHooksNotCleanedUp (\ s a -> s{_udgrHooksNotCleanedUp = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+udgrStatusCode :: Lens' UpdateDeploymentGroupResponse Int
+udgrStatusCode = lens _udgrStatusCode (\ s a -> s{_udgrStatusCode = a});

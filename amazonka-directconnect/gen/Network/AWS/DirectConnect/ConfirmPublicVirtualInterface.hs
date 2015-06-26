@@ -37,6 +37,7 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     , confirmPublicVirtualInterfaceResponse
     -- ** Response lenses
     , conVirtualInterfaceState
+    , conStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -44,7 +45,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'confirmPublicVirtualInterface' smart constructor.
+-- | Container for the parameters to the ConfirmPublicVirtualInterface
+-- operation.
+--
+-- /See:/ 'confirmPublicVirtualInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -69,7 +73,8 @@ instance AWSRequest ConfirmPublicVirtualInterface
           = receiveJSON
               (\ s h x ->
                  ConfirmPublicVirtualInterfaceResponse' <$>
-                   (x .?> "virtualInterfaceState"))
+                   (x .?> "virtualInterfaceState") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ConfirmPublicVirtualInterface
          where
@@ -93,17 +98,25 @@ instance ToPath ConfirmPublicVirtualInterface where
 instance ToQuery ConfirmPublicVirtualInterface where
         toQuery = const mempty
 
--- | /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
+-- | The response received when ConfirmPublicVirtualInterface is called.
+--
+-- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'conVirtualInterfaceState'
-newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'{_conVirtualInterfaceState :: Maybe VirtualInterfaceState} deriving (Eq, Read, Show)
+--
+-- * 'conStatusCode'
+data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'{_conVirtualInterfaceState :: Maybe VirtualInterfaceState, _conStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
-confirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
-confirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'{_conVirtualInterfaceState = Nothing};
+confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
+confirmPublicVirtualInterfaceResponse pStatusCode = ConfirmPublicVirtualInterfaceResponse'{_conVirtualInterfaceState = Nothing, _conStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 conVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 conVirtualInterfaceState = lens _conVirtualInterfaceState (\ s a -> s{_conVirtualInterfaceState = a});
+
+-- | FIXME: Undocumented member.
+conStatusCode :: Lens' ConfirmPublicVirtualInterfaceResponse Int
+conStatusCode = lens _conStatusCode (\ s a -> s{_conStatusCode = a});

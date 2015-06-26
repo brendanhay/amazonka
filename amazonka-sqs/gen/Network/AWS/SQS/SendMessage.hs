@@ -49,6 +49,7 @@ module Network.AWS.SQS.SendMessage
     , smrMessageId
     , smrMD5OfMessageBody
     , smrMD5OfMessageAttributes
+    , smrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -104,7 +105,8 @@ instance AWSRequest SendMessage where
               (\ s h x ->
                  SendMessageResponse' <$>
                    (x .@? "MessageId") <*> (x .@? "MD5OfMessageBody")
-                     <*> (x .@? "MD5OfMessageAttributes"))
+                     <*> (x .@? "MD5OfMessageAttributes")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders SendMessage where
         toHeaders = const mempty
@@ -124,7 +126,9 @@ instance ToQuery SendMessage where
                "QueueUrl" =: _smQueueURL,
                "MessageBody" =: _smMessageBody]
 
--- | /See:/ 'sendMessageResponse' smart constructor.
+-- | The MD5OfMessageBody and MessageId elements.
+--
+-- /See:/ 'sendMessageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -133,11 +137,13 @@ instance ToQuery SendMessage where
 -- * 'smrMD5OfMessageBody'
 --
 -- * 'smrMD5OfMessageAttributes'
-data SendMessageResponse = SendMessageResponse'{_smrMessageId :: Maybe Text, _smrMD5OfMessageBody :: Maybe Text, _smrMD5OfMessageAttributes :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'smrStatusCode'
+data SendMessageResponse = SendMessageResponse'{_smrMessageId :: Maybe Text, _smrMD5OfMessageBody :: Maybe Text, _smrMD5OfMessageAttributes :: Maybe Text, _smrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SendMessageResponse' smart constructor.
-sendMessageResponse :: SendMessageResponse
-sendMessageResponse = SendMessageResponse'{_smrMessageId = Nothing, _smrMD5OfMessageBody = Nothing, _smrMD5OfMessageAttributes = Nothing};
+sendMessageResponse :: Int -> SendMessageResponse
+sendMessageResponse pStatusCode = SendMessageResponse'{_smrMessageId = Nothing, _smrMD5OfMessageBody = Nothing, _smrMD5OfMessageAttributes = Nothing, _smrStatusCode = pStatusCode};
 
 -- | An element containing the message ID of the message sent to the queue.
 -- For more information, see
@@ -159,3 +165,7 @@ smrMD5OfMessageBody = lens _smrMD5OfMessageBody (\ s a -> s{_smrMD5OfMessageBody
 -- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html>.
 smrMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageAttributes = lens _smrMD5OfMessageAttributes (\ s a -> s{_smrMD5OfMessageAttributes = a});
+
+-- | FIXME: Undocumented member.
+smrStatusCode :: Lens' SendMessageResponse Int
+smrStatusCode = lens _smrStatusCode (\ s a -> s{_smrStatusCode = a});

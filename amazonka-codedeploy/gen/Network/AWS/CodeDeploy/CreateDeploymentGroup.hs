@@ -39,6 +39,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , createDeploymentGroupResponse
     -- ** Response lenses
     , cdgrDeploymentGroupId
+    , cdgrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDeploymentGroup' smart constructor.
+-- | Represents the input of a create deployment group operation.
+--
+-- /See:/ 'createDeploymentGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -142,7 +145,7 @@ instance AWSRequest CreateDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  CreateDeploymentGroupResponse' <$>
-                   (x .?> "deploymentGroupId"))
+                   (x .?> "deploymentGroupId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDeploymentGroup where
         toHeaders
@@ -172,17 +175,25 @@ instance ToPath CreateDeploymentGroup where
 instance ToQuery CreateDeploymentGroup where
         toQuery = const mempty
 
--- | /See:/ 'createDeploymentGroupResponse' smart constructor.
+-- | Represents the output of a create deployment group operation.
+--
+-- /See:/ 'createDeploymentGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdgrDeploymentGroupId'
-newtype CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'{_cdgrDeploymentGroupId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdgrStatusCode'
+data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'{_cdgrDeploymentGroupId :: Maybe Text, _cdgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
-createDeploymentGroupResponse :: CreateDeploymentGroupResponse
-createDeploymentGroupResponse = CreateDeploymentGroupResponse'{_cdgrDeploymentGroupId = Nothing};
+createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
+createDeploymentGroupResponse pStatusCode = CreateDeploymentGroupResponse'{_cdgrDeploymentGroupId = Nothing, _cdgrStatusCode = pStatusCode};
 
 -- | A unique deployment group ID.
 cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrDeploymentGroupId = lens _cdgrDeploymentGroupId (\ s a -> s{_cdgrDeploymentGroupId = a});
+
+-- | FIXME: Undocumented member.
+cdgrStatusCode :: Lens' CreateDeploymentGroupResponse Int
+cdgrStatusCode = lens _cdgrStatusCode (\ s a -> s{_cdgrStatusCode = a});

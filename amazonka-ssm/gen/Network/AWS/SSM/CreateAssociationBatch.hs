@@ -42,6 +42,7 @@ module Network.AWS.SSM.CreateAssociationBatch
     -- ** Response lenses
     , cabrSuccessful
     , cabrFailed
+    , cabrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -74,7 +75,8 @@ instance AWSRequest CreateAssociationBatch where
               (\ s h x ->
                  CreateAssociationBatchResponse' <$>
                    (x .?> "Successful" .!@ mempty) <*>
-                     (x .?> "Failed" .!@ mempty))
+                     (x .?> "Failed" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateAssociationBatch where
         toHeaders
@@ -102,11 +104,13 @@ instance ToQuery CreateAssociationBatch where
 -- * 'cabrSuccessful'
 --
 -- * 'cabrFailed'
-data CreateAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful :: Maybe [AssociationDescription], _cabrFailed :: Maybe [FailedCreateAssociation]} deriving (Eq, Read, Show)
+--
+-- * 'cabrStatusCode'
+data CreateAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful :: Maybe [AssociationDescription], _cabrFailed :: Maybe [FailedCreateAssociation], _cabrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
-createAssociationBatchResponse :: CreateAssociationBatchResponse
-createAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful = Nothing, _cabrFailed = Nothing};
+createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse
+createAssociationBatchResponse pStatusCode = CreateAssociationBatchResponse'{_cabrSuccessful = Nothing, _cabrFailed = Nothing, _cabrStatusCode = pStatusCode};
 
 -- | Information about the associations that succeeded.
 cabrSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
@@ -115,3 +119,7 @@ cabrSuccessful = lens _cabrSuccessful (\ s a -> s{_cabrSuccessful = a}) . _Defau
 -- | Information about the associations that failed.
 cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+cabrStatusCode :: Lens' CreateAssociationBatchResponse Int
+cabrStatusCode = lens _cabrStatusCode (\ s a -> s{_cabrStatusCode = a});

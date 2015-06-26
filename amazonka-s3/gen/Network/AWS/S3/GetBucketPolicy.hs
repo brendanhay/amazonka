@@ -32,6 +32,7 @@ module Network.AWS.S3.GetBucketPolicy
     , getBucketPolicyResponse
     -- ** Response lenses
     , gbprPolicy
+    , gbprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -61,7 +62,8 @@ instance AWSRequest GetBucketPolicy where
         response
           = receiveXML
               (\ s h x ->
-                 GetBucketPolicyResponse' <$> (x .@? "Policy"))
+                 GetBucketPolicyResponse' <$>
+                   (x .@? "Policy") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
@@ -78,12 +80,18 @@ instance ToQuery GetBucketPolicy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbprPolicy'
-newtype GetBucketPolicyResponse = GetBucketPolicyResponse'{_gbprPolicy :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gbprStatusCode'
+data GetBucketPolicyResponse = GetBucketPolicyResponse'{_gbprPolicy :: Maybe Text, _gbprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketPolicyResponse' smart constructor.
-getBucketPolicyResponse :: GetBucketPolicyResponse
-getBucketPolicyResponse = GetBucketPolicyResponse'{_gbprPolicy = Nothing};
+getBucketPolicyResponse :: Int -> GetBucketPolicyResponse
+getBucketPolicyResponse pStatusCode = GetBucketPolicyResponse'{_gbprPolicy = Nothing, _gbprStatusCode = pStatusCode};
 
 -- | The bucket policy as a JSON document.
 gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprPolicy = lens _gbprPolicy (\ s a -> s{_gbprPolicy = a});
+
+-- | FIXME: Undocumented member.
+gbprStatusCode :: Lens' GetBucketPolicyResponse Int
+gbprStatusCode = lens _gbprStatusCode (\ s a -> s{_gbprStatusCode = a});

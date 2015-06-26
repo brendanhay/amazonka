@@ -52,6 +52,7 @@ module Network.AWS.SWF.DescribeDomain
     -- ** Response lenses
     , ddrDomainInfo
     , ddrConfiguration
+    , ddrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -82,7 +83,8 @@ instance AWSRequest DescribeDomain where
           = receiveJSON
               (\ s h x ->
                  DescribeDomainResponse' <$>
-                   (x .:> "domainInfo") <*> (x .:> "configuration"))
+                   (x .:> "domainInfo") <*> (x .:> "configuration") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeDomain where
         toHeaders
@@ -104,18 +106,22 @@ instance ToPath DescribeDomain where
 instance ToQuery DescribeDomain where
         toQuery = const mempty
 
--- | /See:/ 'describeDomainResponse' smart constructor.
+-- | Contains details of a domain.
+--
+-- /See:/ 'describeDomainResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddrDomainInfo'
 --
 -- * 'ddrConfiguration'
-data DescribeDomainResponse = DescribeDomainResponse'{_ddrDomainInfo :: DomainInfo, _ddrConfiguration :: DomainConfiguration} deriving (Eq, Read, Show)
+--
+-- * 'ddrStatusCode'
+data DescribeDomainResponse = DescribeDomainResponse'{_ddrDomainInfo :: DomainInfo, _ddrConfiguration :: DomainConfiguration, _ddrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDomainResponse' smart constructor.
-describeDomainResponse :: DomainInfo -> DomainConfiguration -> DescribeDomainResponse
-describeDomainResponse pDomainInfo pConfiguration = DescribeDomainResponse'{_ddrDomainInfo = pDomainInfo, _ddrConfiguration = pConfiguration};
+describeDomainResponse :: DomainInfo -> DomainConfiguration -> Int -> DescribeDomainResponse
+describeDomainResponse pDomainInfo pConfiguration pStatusCode = DescribeDomainResponse'{_ddrDomainInfo = pDomainInfo, _ddrConfiguration = pConfiguration, _ddrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ddrDomainInfo :: Lens' DescribeDomainResponse DomainInfo
@@ -124,3 +130,7 @@ ddrDomainInfo = lens _ddrDomainInfo (\ s a -> s{_ddrDomainInfo = a});
 -- | FIXME: Undocumented member.
 ddrConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrConfiguration = lens _ddrConfiguration (\ s a -> s{_ddrConfiguration = a});
+
+-- | FIXME: Undocumented member.
+ddrStatusCode :: Lens' DescribeDomainResponse Int
+ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});

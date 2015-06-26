@@ -61,6 +61,7 @@ module Network.AWS.SQS.CreateQueue
     , createQueueResponse
     -- ** Response lenses
     , cqrQueueURL
+    , cqrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -123,7 +124,8 @@ instance AWSRequest CreateQueue where
         response
           = receiveXMLWrapper "CreateQueueResult"
               (\ s h x ->
-                 CreateQueueResponse' <$> (x .@? "QueueUrl"))
+                 CreateQueueResponse' <$>
+                   (x .@? "QueueUrl") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateQueue where
         toHeaders = const mempty
@@ -141,17 +143,25 @@ instance ToQuery CreateQueue where
                     _cqAttributes),
                "QueueName" =: _cqQueueName]
 
--- | /See:/ 'createQueueResponse' smart constructor.
+-- | Returns the QueueUrl element of the created queue.
+--
+-- /See:/ 'createQueueResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cqrQueueURL'
-newtype CreateQueueResponse = CreateQueueResponse'{_cqrQueueURL :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cqrStatusCode'
+data CreateQueueResponse = CreateQueueResponse'{_cqrQueueURL :: Maybe Text, _cqrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateQueueResponse' smart constructor.
-createQueueResponse :: CreateQueueResponse
-createQueueResponse = CreateQueueResponse'{_cqrQueueURL = Nothing};
+createQueueResponse :: Int -> CreateQueueResponse
+createQueueResponse pStatusCode = CreateQueueResponse'{_cqrQueueURL = Nothing, _cqrStatusCode = pStatusCode};
 
 -- | The URL for the created Amazon SQS queue.
 cqrQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueURL = lens _cqrQueueURL (\ s a -> s{_cqrQueueURL = a});
+
+-- | FIXME: Undocumented member.
+cqrStatusCode :: Lens' CreateQueueResponse Int
+cqrStatusCode = lens _cqrStatusCode (\ s a -> s{_cqrStatusCode = a});

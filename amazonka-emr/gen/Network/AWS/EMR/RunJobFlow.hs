@@ -69,6 +69,7 @@ module Network.AWS.EMR.RunJobFlow
     , runJobFlowResponse
     -- ** Response lenses
     , rjfrJobFlowId
+    , rjfrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
@@ -76,7 +77,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'runJobFlow' smart constructor.
+-- | Input to the RunJobFlow operation.
+--
+-- /See:/ 'runJobFlow' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -212,7 +215,8 @@ instance AWSRequest RunJobFlow where
         response
           = receiveJSON
               (\ s h x ->
-                 RunJobFlowResponse' <$> (x .?> "JobFlowId"))
+                 RunJobFlowResponse' <$>
+                   (x .?> "JobFlowId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RunJobFlow where
         toHeaders
@@ -244,17 +248,25 @@ instance ToPath RunJobFlow where
 instance ToQuery RunJobFlow where
         toQuery = const mempty
 
--- | /See:/ 'runJobFlowResponse' smart constructor.
+-- | The result of the RunJobFlow operation.
+--
+-- /See:/ 'runJobFlowResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rjfrJobFlowId'
-newtype RunJobFlowResponse = RunJobFlowResponse'{_rjfrJobFlowId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rjfrStatusCode'
+data RunJobFlowResponse = RunJobFlowResponse'{_rjfrJobFlowId :: Maybe Text, _rjfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RunJobFlowResponse' smart constructor.
-runJobFlowResponse :: RunJobFlowResponse
-runJobFlowResponse = RunJobFlowResponse'{_rjfrJobFlowId = Nothing};
+runJobFlowResponse :: Int -> RunJobFlowResponse
+runJobFlowResponse pStatusCode = RunJobFlowResponse'{_rjfrJobFlowId = Nothing, _rjfrStatusCode = pStatusCode};
 
 -- | An unique identifier for the job flow.
 rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrJobFlowId = lens _rjfrJobFlowId (\ s a -> s{_rjfrJobFlowId = a});
+
+-- | FIXME: Undocumented member.
+rjfrStatusCode :: Lens' RunJobFlowResponse Int
+rjfrStatusCode = lens _rjfrStatusCode (\ s a -> s{_rjfrStatusCode = a});

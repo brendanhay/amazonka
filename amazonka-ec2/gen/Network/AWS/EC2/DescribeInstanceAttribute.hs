@@ -52,6 +52,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     , desInstanceInitiatedShutdownBehavior
     , desProductCodes
     , desBlockDeviceMappings
+    , desStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -111,7 +112,8 @@ instance AWSRequest DescribeInstanceAttribute where
                      <*> (x .@? "sriovNetSupport")
                      <*> (x .@? "instanceInitiatedShutdownBehavior")
                      <*> (may (parseXMLList "item") x)
-                     <*> (may (parseXMLList "item") x))
+                     <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
@@ -129,7 +131,9 @@ instance ToQuery DescribeInstanceAttribute where
                "InstanceId" =: _diaInstanceId,
                "Attribute" =: _diaAttribute]
 
--- | /See:/ 'describeInstanceAttributeResponse' smart constructor.
+-- | Describes an instance attribute.
+--
+-- /See:/ 'describeInstanceAttributeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -160,11 +164,13 @@ instance ToQuery DescribeInstanceAttribute where
 -- * 'desProductCodes'
 --
 -- * 'desBlockDeviceMappings'
-data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'{_desInstanceId :: Maybe Text, _desGroups :: Maybe [GroupIdentifier], _desSourceDestCheck :: Maybe AttributeBooleanValue, _desDisableAPITermination :: Maybe AttributeBooleanValue, _desRAMDiskId :: Maybe AttributeValue, _desKernelId :: Maybe AttributeValue, _desInstanceType :: Maybe AttributeValue, _desRootDeviceName :: Maybe AttributeValue, _desEBSOptimized :: Maybe AttributeBooleanValue, _desUserData :: Maybe AttributeValue, _desSRIOVNetSupport :: Maybe AttributeValue, _desInstanceInitiatedShutdownBehavior :: Maybe AttributeValue, _desProductCodes :: Maybe [ProductCode], _desBlockDeviceMappings :: Maybe [InstanceBlockDeviceMapping]} deriving (Eq, Read, Show)
+--
+-- * 'desStatusCode'
+data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'{_desInstanceId :: Maybe Text, _desGroups :: Maybe [GroupIdentifier], _desSourceDestCheck :: Maybe AttributeBooleanValue, _desDisableAPITermination :: Maybe AttributeBooleanValue, _desRAMDiskId :: Maybe AttributeValue, _desKernelId :: Maybe AttributeValue, _desInstanceType :: Maybe AttributeValue, _desRootDeviceName :: Maybe AttributeValue, _desEBSOptimized :: Maybe AttributeBooleanValue, _desUserData :: Maybe AttributeValue, _desSRIOVNetSupport :: Maybe AttributeValue, _desInstanceInitiatedShutdownBehavior :: Maybe AttributeValue, _desProductCodes :: Maybe [ProductCode], _desBlockDeviceMappings :: Maybe [InstanceBlockDeviceMapping], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
-describeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse = DescribeInstanceAttributeResponse'{_desInstanceId = Nothing, _desGroups = Nothing, _desSourceDestCheck = Nothing, _desDisableAPITermination = Nothing, _desRAMDiskId = Nothing, _desKernelId = Nothing, _desInstanceType = Nothing, _desRootDeviceName = Nothing, _desEBSOptimized = Nothing, _desUserData = Nothing, _desSRIOVNetSupport = Nothing, _desInstanceInitiatedShutdownBehavior = Nothing, _desProductCodes = Nothing, _desBlockDeviceMappings = Nothing};
+describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
+describeInstanceAttributeResponse pStatusCode = DescribeInstanceAttributeResponse'{_desInstanceId = Nothing, _desGroups = Nothing, _desSourceDestCheck = Nothing, _desDisableAPITermination = Nothing, _desRAMDiskId = Nothing, _desKernelId = Nothing, _desInstanceType = Nothing, _desRootDeviceName = Nothing, _desEBSOptimized = Nothing, _desUserData = Nothing, _desSRIOVNetSupport = Nothing, _desInstanceInitiatedShutdownBehavior = Nothing, _desProductCodes = Nothing, _desBlockDeviceMappings = Nothing, _desStatusCode = pStatusCode};
 
 -- | The ID of the instance.
 desInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
@@ -227,3 +233,7 @@ desProductCodes = lens _desProductCodes (\ s a -> s{_desProductCodes = a}) . _De
 -- | The block device mapping of the instance.
 desBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 desBlockDeviceMappings = lens _desBlockDeviceMappings (\ s a -> s{_desBlockDeviceMappings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeInstanceAttributeResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

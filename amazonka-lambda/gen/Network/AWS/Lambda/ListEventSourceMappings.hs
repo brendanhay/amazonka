@@ -45,10 +45,11 @@ module Network.AWS.Lambda.ListEventSourceMappings
     -- ** Response lenses
     , lesmrEventSourceMappings
     , lesmrNextMarker
+    , lesmrStatusCode
     ) where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -115,7 +116,8 @@ instance AWSRequest ListEventSourceMappings where
               (\ s h x ->
                  ListEventSourceMappingsResponse' <$>
                    (x .?> "EventSourceMappings" .!@ mempty) <*>
-                     (x .?> "NextMarker"))
+                     (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
@@ -130,18 +132,23 @@ instance ToQuery ListEventSourceMappings where
                "MaxItems" =: _lesmMaxItems, "Marker" =: _lesmMarker,
                "FunctionName" =: _lesmFunctionName]
 
--- | /See:/ 'listEventSourceMappingsResponse' smart constructor.
+-- | Contains a list of event sources (see
+-- API_EventSourceMappingConfiguration)
+--
+-- /See:/ 'listEventSourceMappingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lesmrEventSourceMappings'
 --
 -- * 'lesmrNextMarker'
-data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings :: Maybe [EventSourceMappingConfiguration], _lesmrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lesmrStatusCode'
+data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings :: Maybe [EventSourceMappingConfiguration], _lesmrNextMarker :: Maybe Text, _lesmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
-listEventSourceMappingsResponse :: ListEventSourceMappingsResponse
-listEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings = Nothing, _lesmrNextMarker = Nothing};
+listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse
+listEventSourceMappingsResponse pStatusCode = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings = Nothing, _lesmrNextMarker = Nothing, _lesmrStatusCode = pStatusCode};
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
 lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
@@ -150,3 +157,7 @@ lesmrEventSourceMappings = lens _lesmrEventSourceMappings (\ s a -> s{_lesmrEven
 -- | A string, present if there are more event source mappings.
 lesmrNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
 lesmrNextMarker = lens _lesmrNextMarker (\ s a -> s{_lesmrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+lesmrStatusCode :: Lens' ListEventSourceMappingsResponse Int
+lesmrStatusCode = lens _lesmrStatusCode (\ s a -> s{_lesmrStatusCode = a});

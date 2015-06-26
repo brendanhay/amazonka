@@ -39,6 +39,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     , describeReservedInstancesResponse
     -- ** Response lenses
     , drirReservedInstances
+    , drirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -149,7 +150,8 @@ instance AWSRequest DescribeReservedInstances where
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
@@ -175,12 +177,18 @@ instance ToQuery DescribeReservedInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drirReservedInstances'
-newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances :: Maybe [ReservedInstances]} deriving (Eq, Read, Show)
+--
+-- * 'drirStatusCode'
+data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances :: Maybe [ReservedInstances], _drirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesResponse' smart constructor.
-describeReservedInstancesResponse :: DescribeReservedInstancesResponse
-describeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances = Nothing};
+describeReservedInstancesResponse :: Int -> DescribeReservedInstancesResponse
+describeReservedInstancesResponse pStatusCode = DescribeReservedInstancesResponse'{_drirReservedInstances = Nothing, _drirStatusCode = pStatusCode};
 
 -- | A list of Reserved Instances.
 drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirReservedInstances = lens _drirReservedInstances (\ s a -> s{_drirReservedInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drirStatusCode :: Lens' DescribeReservedInstancesResponse Int
+drirStatusCode = lens _drirStatusCode (\ s a -> s{_drirStatusCode = a});

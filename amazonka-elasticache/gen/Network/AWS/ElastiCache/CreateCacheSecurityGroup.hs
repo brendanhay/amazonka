@@ -41,6 +41,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     , createCacheSecurityGroupResponse
     -- ** Response lenses
     , ccsgrCacheSecurityGroup
+    , ccsgrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -48,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createCacheSecurityGroup' smart constructor.
+-- | Represents the input of a /CreateCacheSecurityGroup/ action.
+--
+-- /See:/ 'createCacheSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,7 @@ instance AWSRequest CreateCacheSecurityGroup where
           = receiveXMLWrapper "CreateCacheSecurityGroupResult"
               (\ s h x ->
                  CreateCacheSecurityGroupResponse' <$>
-                   (x .@? "CacheSecurityGroup"))
+                   (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty
@@ -107,12 +110,18 @@ instance ToQuery CreateCacheSecurityGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccsgrCacheSecurityGroup'
-newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'{_ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'ccsgrStatusCode'
+data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'{_ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup, _ccsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
-createCacheSecurityGroupResponse :: CreateCacheSecurityGroupResponse
-createCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'{_ccsgrCacheSecurityGroup = Nothing};
+createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
+createCacheSecurityGroupResponse pStatusCode = CreateCacheSecurityGroupResponse'{_ccsgrCacheSecurityGroup = Nothing, _ccsgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrCacheSecurityGroup = lens _ccsgrCacheSecurityGroup (\ s a -> s{_ccsgrCacheSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+ccsgrStatusCode :: Lens' CreateCacheSecurityGroupResponse Int
+ccsgrStatusCode = lens _ccsgrStatusCode (\ s a -> s{_ccsgrStatusCode = a});

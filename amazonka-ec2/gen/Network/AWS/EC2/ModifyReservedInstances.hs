@@ -41,6 +41,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     , modifyReservedInstancesResponse
     -- ** Response lenses
     , mrirReservedInstancesModificationId
+    , mrirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -86,7 +87,8 @@ instance AWSRequest ModifyReservedInstances where
           = receiveXML
               (\ s h x ->
                  ModifyReservedInstancesResponse' <$>
-                   (x .@? "reservedInstancesModificationId"))
+                   (x .@? "reservedInstancesModificationId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
@@ -110,12 +112,18 @@ instance ToQuery ModifyReservedInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mrirReservedInstancesModificationId'
-newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'{_mrirReservedInstancesModificationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'mrirStatusCode'
+data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'{_mrirReservedInstancesModificationId :: Maybe Text, _mrirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
-modifyReservedInstancesResponse :: ModifyReservedInstancesResponse
-modifyReservedInstancesResponse = ModifyReservedInstancesResponse'{_mrirReservedInstancesModificationId = Nothing};
+modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
+modifyReservedInstancesResponse pStatusCode = ModifyReservedInstancesResponse'{_mrirReservedInstancesModificationId = Nothing, _mrirStatusCode = pStatusCode};
 
 -- | The ID for the modification.
 mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirReservedInstancesModificationId = lens _mrirReservedInstancesModificationId (\ s a -> s{_mrirReservedInstancesModificationId = a});
+
+-- | FIXME: Undocumented member.
+mrirStatusCode :: Lens' ModifyReservedInstancesResponse Int
+mrirStatusCode = lens _mrirStatusCode (\ s a -> s{_mrirStatusCode = a});

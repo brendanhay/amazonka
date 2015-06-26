@@ -118,6 +118,7 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwirCredentials
     , arwwirAssumedRoleUser
     , arwwirProvider
+    , arwwirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -214,7 +215,8 @@ instance AWSRequest AssumeRoleWithWebIdentity where
                      <*> (x .@? "PackedPolicySize")
                      <*> (x .@? "Credentials")
                      <*> (x .@? "AssumedRoleUser")
-                     <*> (x .@? "Provider"))
+                     <*> (x .@? "Provider")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
@@ -234,7 +236,11 @@ instance ToQuery AssumeRoleWithWebIdentity where
                "RoleSessionName" =: _arwwiRoleSessionName,
                "WebIdentityToken" =: _arwwiWebIdentityToken]
 
--- | /See:/ 'assumeRoleWithWebIdentityResponse' smart constructor.
+-- | Contains the response to a successful AssumeRoleWithWebIdentity request,
+-- including temporary AWS credentials that can be used to make AWS
+-- requests.
+--
+-- /See:/ 'assumeRoleWithWebIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -249,11 +255,13 @@ instance ToQuery AssumeRoleWithWebIdentity where
 -- * 'arwwirAssumedRoleUser'
 --
 -- * 'arwwirProvider'
-data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'{_arwwirAudience :: Maybe Text, _arwwirSubjectFromWebIdentityToken :: Maybe Text, _arwwirPackedPolicySize :: Maybe Nat, _arwwirCredentials :: Maybe Credentials, _arwwirAssumedRoleUser :: Maybe AssumedRoleUser, _arwwirProvider :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'arwwirStatusCode'
+data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'{_arwwirAudience :: Maybe Text, _arwwirSubjectFromWebIdentityToken :: Maybe Text, _arwwirPackedPolicySize :: Maybe Nat, _arwwirCredentials :: Maybe Credentials, _arwwirAssumedRoleUser :: Maybe AssumedRoleUser, _arwwirProvider :: Maybe Text, _arwwirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
-assumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse
-assumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'{_arwwirAudience = Nothing, _arwwirSubjectFromWebIdentityToken = Nothing, _arwwirPackedPolicySize = Nothing, _arwwirCredentials = Nothing, _arwwirAssumedRoleUser = Nothing, _arwwirProvider = Nothing};
+assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse
+assumeRoleWithWebIdentityResponse pStatusCode = AssumeRoleWithWebIdentityResponse'{_arwwirAudience = Nothing, _arwwirSubjectFromWebIdentityToken = Nothing, _arwwirPackedPolicySize = Nothing, _arwwirCredentials = Nothing, _arwwirAssumedRoleUser = Nothing, _arwwirProvider = Nothing, _arwwirStatusCode = pStatusCode};
 
 -- | The intended audience (also known as client ID) of the web identity
 -- token. This is traditionally the client identifier issued to the
@@ -297,3 +305,7 @@ arwwirAssumedRoleUser = lens _arwwirAssumedRoleUser (\ s a -> s{_arwwirAssumedRo
 -- that was passed in the @AssumeRoleWithWebIdentity@ request.
 arwwirProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirProvider = lens _arwwirProvider (\ s a -> s{_arwwirProvider = a});
+
+-- | FIXME: Undocumented member.
+arwwirStatusCode :: Lens' AssumeRoleWithWebIdentityResponse Int
+arwwirStatusCode = lens _arwwirStatusCode (\ s a -> s{_arwwirStatusCode = a});

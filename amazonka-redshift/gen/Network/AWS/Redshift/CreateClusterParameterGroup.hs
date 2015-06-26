@@ -46,6 +46,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     , createClusterParameterGroupResponse
     -- ** Response lenses
     , ccpgrClusterParameterGroup
+    , ccpgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -53,7 +54,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createClusterParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createClusterParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -114,7 +117,8 @@ instance AWSRequest CreateClusterParameterGroup where
               "CreateClusterParameterGroupResult"
               (\ s h x ->
                  CreateClusterParameterGroupResponse' <$>
-                   (x .@? "ClusterParameterGroup"))
+                   (x .@? "ClusterParameterGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
@@ -138,12 +142,18 @@ instance ToQuery CreateClusterParameterGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccpgrClusterParameterGroup'
-newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'{_ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup} deriving (Eq, Read, Show)
+--
+-- * 'ccpgrStatusCode'
+data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'{_ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup, _ccpgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterParameterGroupResponse' smart constructor.
-createClusterParameterGroupResponse :: CreateClusterParameterGroupResponse
-createClusterParameterGroupResponse = CreateClusterParameterGroupResponse'{_ccpgrClusterParameterGroup = Nothing};
+createClusterParameterGroupResponse :: Int -> CreateClusterParameterGroupResponse
+createClusterParameterGroupResponse pStatusCode = CreateClusterParameterGroupResponse'{_ccpgrClusterParameterGroup = Nothing, _ccpgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccpgrClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
 ccpgrClusterParameterGroup = lens _ccpgrClusterParameterGroup (\ s a -> s{_ccpgrClusterParameterGroup = a});
+
+-- | FIXME: Undocumented member.
+ccpgrStatusCode :: Lens' CreateClusterParameterGroupResponse Int
+ccpgrStatusCode = lens _ccpgrStatusCode (\ s a -> s{_ccpgrStatusCode = a});

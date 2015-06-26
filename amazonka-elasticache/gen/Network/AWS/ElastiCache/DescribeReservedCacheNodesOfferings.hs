@@ -40,15 +40,18 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     -- ** Response lenses
     , drcnorMarker
     , drcnorReservedCacheNodesOfferings
+    , drcnorStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeReservedCacheNodesOfferings' smart constructor.
+-- | Represents the input of a /DescribeReservedCacheNodesOfferings/ action.
+--
+-- /See:/ 'describeReservedCacheNodesOfferings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -174,7 +177,8 @@ instance AWSRequest
                  DescribeReservedCacheNodesOfferingsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "ReservedCacheNodesOfferings" .!@ mempty >>=
-                        may (parseXMLList "ReservedCacheNodesOffering")))
+                        may (parseXMLList "ReservedCacheNodesOffering"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeReservedCacheNodesOfferings where
@@ -201,18 +205,22 @@ instance ToQuery DescribeReservedCacheNodesOfferings
                "ReservedCacheNodesOfferingId" =:
                  _drcnoReservedCacheNodesOfferingId]
 
--- | /See:/ 'describeReservedCacheNodesOfferingsResponse' smart constructor.
+-- | Represents the output of a /DescribeReservedCacheNodesOfferings/ action.
+--
+-- /See:/ 'describeReservedCacheNodesOfferingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drcnorMarker'
 --
 -- * 'drcnorReservedCacheNodesOfferings'
-data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'{_drcnorMarker :: Maybe Text, _drcnorReservedCacheNodesOfferings :: Maybe [ReservedCacheNodesOffering]} deriving (Eq, Read, Show)
+--
+-- * 'drcnorStatusCode'
+data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'{_drcnorMarker :: Maybe Text, _drcnorReservedCacheNodesOfferings :: Maybe [ReservedCacheNodesOffering], _drcnorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
-describeReservedCacheNodesOfferingsResponse :: DescribeReservedCacheNodesOfferingsResponse
-describeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'{_drcnorMarker = Nothing, _drcnorReservedCacheNodesOfferings = Nothing};
+describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
+describeReservedCacheNodesOfferingsResponse pStatusCode = DescribeReservedCacheNodesOfferingsResponse'{_drcnorMarker = Nothing, _drcnorReservedCacheNodesOfferings = Nothing, _drcnorStatusCode = pStatusCode};
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnorMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
@@ -222,3 +230,7 @@ drcnorMarker = lens _drcnorMarker (\ s a -> s{_drcnorMarker = a});
 -- contains detailed information about one offering.
 drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
 drcnorReservedCacheNodesOfferings = lens _drcnorReservedCacheNodesOfferings (\ s a -> s{_drcnorReservedCacheNodesOfferings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drcnorStatusCode :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
+drcnorStatusCode = lens _drcnorStatusCode (\ s a -> s{_drcnorStatusCode = a});

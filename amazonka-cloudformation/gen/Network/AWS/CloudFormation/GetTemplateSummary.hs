@@ -49,6 +49,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrMetadata
     , gtsrCapabilities
     , gtsrDescription
+    , gtsrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -56,7 +57,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getTemplateSummary' smart constructor.
+-- | The input for the GetTemplateSummary action.
+--
+-- /See:/ 'getTemplateSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -120,7 +123,8 @@ instance AWSRequest GetTemplateSummary where
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (x .@? "Description"))
+                     <*> (x .@? "Description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
@@ -137,7 +141,9 @@ instance ToQuery GetTemplateSummary where
                "TemplateURL" =: _gtsTemplateURL,
                "StackName" =: _gtsStackName]
 
--- | /See:/ 'getTemplateSummaryResponse' smart constructor.
+-- | The output for the GetTemplateSummary action.
+--
+-- /See:/ 'getTemplateSummaryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -152,11 +158,13 @@ instance ToQuery GetTemplateSummary where
 -- * 'gtsrCapabilities'
 --
 -- * 'gtsrDescription'
-data GetTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion :: Maybe Text, _gtsrParameters :: Maybe [ParameterDeclaration], _gtsrCapabilitiesReason :: Maybe Text, _gtsrMetadata :: Maybe Text, _gtsrCapabilities :: Maybe [Capability], _gtsrDescription :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gtsrStatusCode'
+data GetTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion :: Maybe Text, _gtsrParameters :: Maybe [ParameterDeclaration], _gtsrCapabilitiesReason :: Maybe Text, _gtsrMetadata :: Maybe Text, _gtsrCapabilities :: Maybe [Capability], _gtsrDescription :: Maybe Text, _gtsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
-getTemplateSummaryResponse :: GetTemplateSummaryResponse
-getTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion = Nothing, _gtsrParameters = Nothing, _gtsrCapabilitiesReason = Nothing, _gtsrMetadata = Nothing, _gtsrCapabilities = Nothing, _gtsrDescription = Nothing};
+getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
+getTemplateSummaryResponse pStatusCode = GetTemplateSummaryResponse'{_gtsrVersion = Nothing, _gtsrParameters = Nothing, _gtsrCapabilitiesReason = Nothing, _gtsrMetadata = Nothing, _gtsrCapabilities = Nothing, _gtsrDescription = Nothing, _gtsrStatusCode = pStatusCode};
 
 -- | The AWS template format version, which identifies the capabilities of
 -- the template.
@@ -189,3 +197,7 @@ gtsrCapabilities = lens _gtsrCapabilities (\ s a -> s{_gtsrCapabilities = a}) . 
 -- | The value that is defined in the @Description@ property of the template.
 gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrDescription = lens _gtsrDescription (\ s a -> s{_gtsrDescription = a});
+
+-- | FIXME: Undocumented member.
+gtsrStatusCode :: Lens' GetTemplateSummaryResponse Int
+gtsrStatusCode = lens _gtsrStatusCode (\ s a -> s{_gtsrStatusCode = a});

@@ -40,6 +40,7 @@ module Network.AWS.EC2.DescribeMovingAddresses
     -- ** Response lenses
     , dmarMovingAddressStatuses
     , dmarNextToken
+    , dmarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -108,8 +109,8 @@ instance AWSRequest DescribeMovingAddresses where
           = receiveXML
               (\ s h x ->
                  DescribeMovingAddressesResponse' <$>
-                   (may (parseXMLList "item") x) <*>
-                     (x .@? "nextToken"))
+                   (may (parseXMLList "item") x) <*> (x .@? "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
@@ -135,11 +136,13 @@ instance ToQuery DescribeMovingAddresses where
 -- * 'dmarMovingAddressStatuses'
 --
 -- * 'dmarNextToken'
-data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses :: Maybe [MovingAddressStatus], _dmarNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dmarStatusCode'
+data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses :: Maybe [MovingAddressStatus], _dmarNextToken :: Maybe Text, _dmarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
-describeMovingAddressesResponse :: DescribeMovingAddressesResponse
-describeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses = Nothing, _dmarNextToken = Nothing};
+describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse
+describeMovingAddressesResponse pStatusCode = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses = Nothing, _dmarNextToken = Nothing, _dmarStatusCode = pStatusCode};
 
 -- | The status for each Elastic IP address.
 dmarMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
@@ -149,3 +152,7 @@ dmarMovingAddressStatuses = lens _dmarMovingAddressStatuses (\ s a -> s{_dmarMov
 -- @null@ when there are no more results to return.
 dmarNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarNextToken = lens _dmarNextToken (\ s a -> s{_dmarNextToken = a});
+
+-- | FIXME: Undocumented member.
+dmarStatusCode :: Lens' DescribeMovingAddressesResponse Int
+dmarStatusCode = lens _dmarStatusCode (\ s a -> s{_dmarStatusCode = a});

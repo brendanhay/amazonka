@@ -33,7 +33,8 @@ module Network.AWS.EC2.DisableVPCClassicLink
     -- ** Response constructor
     , disableVPCClassicLinkResponse
     -- ** Response lenses
-    , dvclrReturn
+    , disReturn
+    , disStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -73,7 +74,8 @@ instance AWSRequest DisableVPCClassicLink where
         response
           = receiveXML
               (\ s h x ->
-                 DisableVPCClassicLinkResponse' <$> (x .@? "return"))
+                 DisableVPCClassicLinkResponse' <$>
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty
@@ -92,13 +94,19 @@ instance ToQuery DisableVPCClassicLink where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvclrReturn'
-newtype DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'{_dvclrReturn :: Maybe Bool} deriving (Eq, Read, Show)
+-- * 'disReturn'
+--
+-- * 'disStatusCode'
+data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'{_disReturn :: Maybe Bool, _disStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
-disableVPCClassicLinkResponse :: DisableVPCClassicLinkResponse
-disableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'{_dvclrReturn = Nothing};
+disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
+disableVPCClassicLinkResponse pStatusCode = DisableVPCClassicLinkResponse'{_disReturn = Nothing, _disStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-dvclrReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
-dvclrReturn = lens _dvclrReturn (\ s a -> s{_dvclrReturn = a});
+disReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
+disReturn = lens _disReturn (\ s a -> s{_disReturn = a});
+
+-- | FIXME: Undocumented member.
+disStatusCode :: Lens' DisableVPCClassicLinkResponse Int
+disStatusCode = lens _disStatusCode (\ s a -> s{_disStatusCode = a});

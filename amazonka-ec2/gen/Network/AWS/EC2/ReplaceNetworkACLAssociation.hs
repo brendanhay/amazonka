@@ -38,6 +38,7 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     , replaceNetworkACLAssociationResponse
     -- ** Response lenses
     , rnaarNewAssociationId
+    , rnaarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -86,7 +87,7 @@ instance AWSRequest ReplaceNetworkACLAssociation
           = receiveXML
               (\ s h x ->
                  ReplaceNetworkACLAssociationResponse' <$>
-                   (x .@? "newAssociationId"))
+                   (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
@@ -109,12 +110,18 @@ instance ToQuery ReplaceNetworkACLAssociation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rnaarNewAssociationId'
-newtype ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'{_rnaarNewAssociationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rnaarStatusCode'
+data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'{_rnaarNewAssociationId :: Maybe Text, _rnaarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
-replaceNetworkACLAssociationResponse :: ReplaceNetworkACLAssociationResponse
-replaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'{_rnaarNewAssociationId = Nothing};
+replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
+replaceNetworkACLAssociationResponse pStatusCode = ReplaceNetworkACLAssociationResponse'{_rnaarNewAssociationId = Nothing, _rnaarStatusCode = pStatusCode};
 
 -- | The ID of the new association.
 rnaarNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
 rnaarNewAssociationId = lens _rnaarNewAssociationId (\ s a -> s{_rnaarNewAssociationId = a});
+
+-- | FIXME: Undocumented member.
+rnaarStatusCode :: Lens' ReplaceNetworkACLAssociationResponse Int
+rnaarStatusCode = lens _rnaarStatusCode (\ s a -> s{_rnaarStatusCode = a});

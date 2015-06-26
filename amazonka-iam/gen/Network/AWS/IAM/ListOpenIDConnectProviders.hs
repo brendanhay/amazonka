@@ -30,6 +30,7 @@ module Network.AWS.IAM.ListOpenIDConnectProviders
     , listOpenIDConnectProvidersResponse
     -- ** Response lenses
     , loidcprOpenIDConnectProviderList
+    , loidcprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -55,7 +56,8 @@ instance AWSRequest ListOpenIDConnectProviders where
               (\ s h x ->
                  ListOpenIDConnectProvidersResponse' <$>
                    (x .@? "OpenIDConnectProviderList" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListOpenIDConnectProviders where
         toHeaders = const mempty
@@ -71,17 +73,26 @@ instance ToQuery ListOpenIDConnectProviders where
                     ("ListOpenIDConnectProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | /See:/ 'listOpenIDConnectProvidersResponse' smart constructor.
+-- | Contains the response to a successful ListOpenIDConnectProviders
+-- request.
+--
+-- /See:/ 'listOpenIDConnectProvidersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'loidcprOpenIDConnectProviderList'
-newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList :: Maybe [OpenIDConnectProviderListEntry]} deriving (Eq, Read, Show)
+--
+-- * 'loidcprStatusCode'
+data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList :: Maybe [OpenIDConnectProviderListEntry], _loidcprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListOpenIDConnectProvidersResponse' smart constructor.
-listOpenIDConnectProvidersResponse :: ListOpenIDConnectProvidersResponse
-listOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList = Nothing};
+listOpenIDConnectProvidersResponse :: Int -> ListOpenIDConnectProvidersResponse
+listOpenIDConnectProvidersResponse pStatusCode = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList = Nothing, _loidcprStatusCode = pStatusCode};
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
 loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [OpenIDConnectProviderListEntry]
 loidcprOpenIDConnectProviderList = lens _loidcprOpenIDConnectProviderList (\ s a -> s{_loidcprOpenIDConnectProviderList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+loidcprStatusCode :: Lens' ListOpenIDConnectProvidersResponse Int
+loidcprStatusCode = lens _loidcprStatusCode (\ s a -> s{_loidcprStatusCode = a});

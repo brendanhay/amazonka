@@ -44,10 +44,11 @@ module Network.AWS.AutoScaling.DescribeTags
     -- ** Response lenses
     , dtrNextToken
     , dtrTags
+    , dtrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -97,7 +98,8 @@ instance AWSRequest DescribeTags where
                  DescribeTagsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Tags" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -122,11 +124,13 @@ instance ToQuery DescribeTags where
 -- * 'dtrNextToken'
 --
 -- * 'dtrTags'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing};
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -136,3 +140,7 @@ dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
 -- | The tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTagsResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

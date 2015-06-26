@@ -47,6 +47,8 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     , SetIdentityDkimEnabledResponse
     -- ** Response constructor
     , setIdentityDkimEnabledResponse
+    -- ** Response lenses
+    , siderStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -54,7 +56,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'setIdentityDkimEnabled' smart constructor.
+-- | Represents a request instructing the service to enable or disable DKIM
+-- signing for an identity.
+--
+-- /See:/ 'setIdentityDkimEnabled' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +87,10 @@ instance AWSRequest SetIdentityDkimEnabled where
              SetIdentityDkimEnabledResponse
         request = post
         response
-          = receiveNull SetIdentityDkimEnabledResponse'
+          = receiveXMLWrapper "SetIdentityDkimEnabledResult"
+              (\ s h x ->
+                 SetIdentityDkimEnabledResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
@@ -99,9 +107,20 @@ instance ToQuery SetIdentityDkimEnabled where
                "Identity" =: _sideIdentity,
                "DkimEnabled" =: _sideDkimEnabled]
 
--- | /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
-data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse' deriving (Eq, Read, Show)
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'siderStatusCode'
+newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'{_siderStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetIdentityDkimEnabledResponse' smart constructor.
-setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
-setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse';
+setIdentityDkimEnabledResponse :: Int -> SetIdentityDkimEnabledResponse
+setIdentityDkimEnabledResponse pStatusCode = SetIdentityDkimEnabledResponse'{_siderStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+siderStatusCode :: Lens' SetIdentityDkimEnabledResponse Int
+siderStatusCode = lens _siderStatusCode (\ s a -> s{_siderStatusCode = a});

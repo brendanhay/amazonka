@@ -67,6 +67,7 @@ module Network.AWS.EC2.StopInstances
     , stopInstancesResponse
     -- ** Response lenses
     , sirStoppingInstances
+    , sirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -117,7 +118,8 @@ instance AWSRequest StopInstances where
           = receiveXML
               (\ s h x ->
                  StopInstancesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders StopInstances where
         toHeaders = const mempty
@@ -138,12 +140,18 @@ instance ToQuery StopInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sirStoppingInstances'
-newtype StopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances :: Maybe [InstanceStateChange]} deriving (Eq, Read, Show)
+--
+-- * 'sirStatusCode'
+data StopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances :: Maybe [InstanceStateChange], _sirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StopInstancesResponse' smart constructor.
-stopInstancesResponse :: StopInstancesResponse
-stopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances = Nothing};
+stopInstancesResponse :: Int -> StopInstancesResponse
+stopInstancesResponse pStatusCode = StopInstancesResponse'{_sirStoppingInstances = Nothing, _sirStatusCode = pStatusCode};
 
 -- | Information about one or more stopped instances.
 sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirStoppingInstances = lens _sirStoppingInstances (\ s a -> s{_sirStoppingInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+sirStatusCode :: Lens' StopInstancesResponse Int
+sirStatusCode = lens _sirStatusCode (\ s a -> s{_sirStatusCode = a});

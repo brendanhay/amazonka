@@ -50,6 +50,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , authorizeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , adsgirDBSecurityGroup
+    , adsgirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -57,7 +58,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
+-- |
+--
+-- /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -117,7 +120,7 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
               "AuthorizeDBSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeDBSecurityGroupIngressResponse' <$>
-                   (x .@? "DBSecurityGroup"))
+                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where
@@ -145,12 +148,18 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'adsgirDBSecurityGroup'
-newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'{_adsgirDBSecurityGroup :: Maybe DBSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'adsgirStatusCode'
+data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'{_adsgirDBSecurityGroup :: Maybe DBSecurityGroup, _adsgirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
-authorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResponse
-authorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'{_adsgirDBSecurityGroup = Nothing};
+authorizeDBSecurityGroupIngressResponse :: Int -> AuthorizeDBSecurityGroupIngressResponse
+authorizeDBSecurityGroupIngressResponse pStatusCode = AuthorizeDBSecurityGroupIngressResponse'{_adsgirDBSecurityGroup = Nothing, _adsgirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 adsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 adsgirDBSecurityGroup = lens _adsgirDBSecurityGroup (\ s a -> s{_adsgirDBSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+adsgirStatusCode :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
+adsgirStatusCode = lens _adsgirStatusCode (\ s a -> s{_adsgirStatusCode = a});

@@ -38,6 +38,7 @@ module Network.AWS.S3.DeleteObjects
     , delRequestCharged
     , delDeleted
     , delErrors
+    , delStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -89,7 +90,8 @@ instance AWSRequest DeleteObjects where
                  DeleteObjectsResponse' <$>
                    (h .#? "x-amz-request-charged") <*>
                      (may (parseXMLList "Deleted") x)
-                     <*> (may (parseXMLList "Error") x))
+                     <*> (may (parseXMLList "Error") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToElement DeleteObjects where
         toElement
@@ -120,11 +122,13 @@ instance ToQuery DeleteObjects where
 -- * 'delDeleted'
 --
 -- * 'delErrors'
-data DeleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged :: Maybe RequestCharged, _delDeleted :: Maybe [DeletedObject], _delErrors :: Maybe [S3ServiceError]} deriving (Eq, Read, Show)
+--
+-- * 'delStatusCode'
+data DeleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged :: Maybe RequestCharged, _delDeleted :: Maybe [DeletedObject], _delErrors :: Maybe [S3ServiceError], _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteObjectsResponse' smart constructor.
-deleteObjectsResponse :: DeleteObjectsResponse
-deleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged = Nothing, _delDeleted = Nothing, _delErrors = Nothing};
+deleteObjectsResponse :: Int -> DeleteObjectsResponse
+deleteObjectsResponse pStatusCode = DeleteObjectsResponse'{_delRequestCharged = Nothing, _delDeleted = Nothing, _delErrors = Nothing, _delStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 delRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
@@ -137,3 +141,7 @@ delDeleted = lens _delDeleted (\ s a -> s{_delDeleted = a}) . _Default;
 -- | FIXME: Undocumented member.
 delErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 delErrors = lens _delErrors (\ s a -> s{_delErrors = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteObjectsResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

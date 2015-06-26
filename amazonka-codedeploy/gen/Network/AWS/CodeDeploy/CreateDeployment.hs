@@ -37,6 +37,7 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , createDeploymentResponse
     -- ** Response lenses
     , cdrDeploymentId
+    , cdrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDeployment' smart constructor.
+-- | Represents the input of a create deployment operation.
+--
+-- /See:/ 'createDeployment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -113,7 +116,8 @@ instance AWSRequest CreateDeployment where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateDeploymentResponse' <$> (x .?> "deploymentId"))
+                 CreateDeploymentResponse' <$>
+                   (x .?> "deploymentId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -142,17 +146,25 @@ instance ToPath CreateDeployment where
 instance ToQuery CreateDeployment where
         toQuery = const mempty
 
--- | /See:/ 'createDeploymentResponse' smart constructor.
+-- | Represents the output of a create deployment operation.
+--
+-- /See:/ 'createDeploymentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdrDeploymentId'
-newtype CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdrStatusCode'
+data CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDeploymentResponse' smart constructor.
-createDeploymentResponse :: CreateDeploymentResponse
-createDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId = Nothing};
+createDeploymentResponse :: Int -> CreateDeploymentResponse
+createDeploymentResponse pStatusCode = CreateDeploymentResponse'{_cdrDeploymentId = Nothing, _cdrStatusCode = pStatusCode};
 
 -- | A unique deployment ID.
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});
+
+-- | FIXME: Undocumented member.
+cdrStatusCode :: Lens' CreateDeploymentResponse Int
+cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});

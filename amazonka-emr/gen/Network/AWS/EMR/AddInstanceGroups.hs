@@ -34,6 +34,7 @@ module Network.AWS.EMR.AddInstanceGroups
     -- ** Response lenses
     , aigrJobFlowId
     , aigrInstanceGroupIds
+    , aigrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addInstanceGroups' smart constructor.
+-- | Input to an AddInstanceGroups call.
+--
+-- /See:/ 'addInstanceGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest AddInstanceGroups where
               (\ s h x ->
                  AddInstanceGroupsResponse' <$>
                    (x .?> "JobFlowId") <*>
-                     (x .?> "InstanceGroupIds" .!@ mempty))
+                     (x .?> "InstanceGroupIds" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AddInstanceGroups where
         toHeaders
@@ -94,18 +98,22 @@ instance ToPath AddInstanceGroups where
 instance ToQuery AddInstanceGroups where
         toQuery = const mempty
 
--- | /See:/ 'addInstanceGroupsResponse' smart constructor.
+-- | Output from an AddInstanceGroups call.
+--
+-- /See:/ 'addInstanceGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aigrJobFlowId'
 --
 -- * 'aigrInstanceGroupIds'
-data AddInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId :: Maybe Text, _aigrInstanceGroupIds :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'aigrStatusCode'
+data AddInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId :: Maybe Text, _aigrInstanceGroupIds :: Maybe [Text], _aigrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
-addInstanceGroupsResponse :: AddInstanceGroupsResponse
-addInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId = Nothing, _aigrInstanceGroupIds = Nothing};
+addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse
+addInstanceGroupsResponse pStatusCode = AddInstanceGroupsResponse'{_aigrJobFlowId = Nothing, _aigrInstanceGroupIds = Nothing, _aigrStatusCode = pStatusCode};
 
 -- | The job flow ID in which the instance groups are added.
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
@@ -114,3 +122,7 @@ aigrJobFlowId = lens _aigrJobFlowId (\ s a -> s{_aigrJobFlowId = a});
 -- | Instance group IDs of the newly created instance groups.
 aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrInstanceGroupIds = lens _aigrInstanceGroupIds (\ s a -> s{_aigrInstanceGroupIds = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+aigrStatusCode :: Lens' AddInstanceGroupsResponse Int
+aigrStatusCode = lens _aigrStatusCode (\ s a -> s{_aigrStatusCode = a});

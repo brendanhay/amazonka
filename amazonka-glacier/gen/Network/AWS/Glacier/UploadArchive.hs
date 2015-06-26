@@ -85,7 +85,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'uploadArchive' smart constructor.
+-- | Provides options to add an archive to a vault.
+--
+-- /See:/ 'uploadArchive' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

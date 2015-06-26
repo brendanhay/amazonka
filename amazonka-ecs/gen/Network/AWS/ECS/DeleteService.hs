@@ -33,6 +33,7 @@ module Network.AWS.ECS.DeleteService
     , deleteServiceResponse
     -- ** Response lenses
     , dsrService
+    , dsrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -68,7 +69,8 @@ instance AWSRequest DeleteService where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteServiceResponse' <$> (x .?> "service"))
+                 DeleteServiceResponse' <$>
+                   (x .?> "service") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteService where
         toHeaders
@@ -96,12 +98,18 @@ instance ToQuery DeleteService where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrService'
-newtype DeleteServiceResponse = DeleteServiceResponse'{_dsrService :: Maybe ContainerService} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DeleteServiceResponse = DeleteServiceResponse'{_dsrService :: Maybe ContainerService, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteServiceResponse' smart constructor.
-deleteServiceResponse :: DeleteServiceResponse
-deleteServiceResponse = DeleteServiceResponse'{_dsrService = Nothing};
+deleteServiceResponse :: Int -> DeleteServiceResponse
+deleteServiceResponse pStatusCode = DeleteServiceResponse'{_dsrService = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dsrService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrService = lens _dsrService (\ s a -> s{_dsrService = a});
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DeleteServiceResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

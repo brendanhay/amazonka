@@ -68,6 +68,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     , createDataSourceFromSResponse
     -- ** Response lenses
     , cdsfsrDataSourceId
+    , cdsfsrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -136,7 +137,7 @@ instance AWSRequest CreateDataSourceFromS where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromSResponse' <$>
-                   (x .?> "DataSourceId"))
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDataSourceFromS where
         toHeaders
@@ -162,18 +163,31 @@ instance ToPath CreateDataSourceFromS where
 instance ToQuery CreateDataSourceFromS where
         toQuery = const mempty
 
--- | /See:/ 'createDataSourceFromSResponse' smart constructor.
+-- | Represents the output of a CreateDataSourceFromS3 operation, and is an
+-- acknowledgement that Amazon ML received the request.
+--
+-- The CreateDataSourceFromS3 operation is asynchronous. You can poll for
+-- updates by using the GetBatchPrediction operation and checking the
+-- @Status@ parameter.
+--
+-- /See:/ 'createDataSourceFromSResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdsfsrDataSourceId'
-newtype CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'{_cdsfsrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdsfsrStatusCode'
+data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'{_cdsfsrDataSourceId :: Maybe Text, _cdsfsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
-createDataSourceFromSResponse :: CreateDataSourceFromSResponse
-createDataSourceFromSResponse = CreateDataSourceFromSResponse'{_cdsfsrDataSourceId = Nothing};
+createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
+createDataSourceFromSResponse pStatusCode = CreateDataSourceFromSResponse'{_cdsfsrDataSourceId = Nothing, _cdsfsrStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
 cdsfsrDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
 cdsfsrDataSourceId = lens _cdsfsrDataSourceId (\ s a -> s{_cdsfsrDataSourceId = a});
+
+-- | FIXME: Undocumented member.
+cdsfsrStatusCode :: Lens' CreateDataSourceFromSResponse Int
+cdsfsrStatusCode = lens _cdsfsrStatusCode (\ s a -> s{_cdsfsrStatusCode = a});

@@ -59,6 +59,7 @@ module Network.AWS.Redshift.ModifyCluster
     , modifyClusterResponse
     -- ** Response lenses
     , mcrCluster
+    , mcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -66,7 +67,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyCluster' smart constructor.
+-- |
+--
+-- /See:/ 'modifyCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -295,7 +298,8 @@ instance AWSRequest ModifyCluster where
         response
           = receiveXMLWrapper "ModifyClusterResult"
               (\ s h x ->
-                 ModifyClusterResponse' <$> (x .@? "Cluster"))
+                 ModifyClusterResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyCluster where
         toHeaders = const mempty
@@ -340,12 +344,18 @@ instance ToQuery ModifyCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mcrCluster'
-newtype ModifyClusterResponse = ModifyClusterResponse'{_mcrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'mcrStatusCode'
+data ModifyClusterResponse = ModifyClusterResponse'{_mcrCluster :: Maybe Cluster, _mcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterResponse' smart constructor.
-modifyClusterResponse :: ModifyClusterResponse
-modifyClusterResponse = ModifyClusterResponse'{_mcrCluster = Nothing};
+modifyClusterResponse :: Int -> ModifyClusterResponse
+modifyClusterResponse pStatusCode = ModifyClusterResponse'{_mcrCluster = Nothing, _mcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\ s a -> s{_mcrCluster = a});
+
+-- | FIXME: Undocumented member.
+mcrStatusCode :: Lens' ModifyClusterResponse Int
+mcrStatusCode = lens _mcrStatusCode (\ s a -> s{_mcrStatusCode = a});

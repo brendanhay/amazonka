@@ -33,6 +33,8 @@ module Network.AWS.CloudTrail.StopLogging
     , StopLoggingResponse
     -- ** Response constructor
     , stopLoggingResponse
+    -- ** Response lenses
+    , slrStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -40,7 +42,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'stopLogging' smart constructor.
+-- | Passes the request to CloudTrail to stop logging AWS API calls for the
+-- specified account.
+--
+-- /See:/ 'stopLogging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -60,7 +65,10 @@ instance AWSRequest StopLogging where
         type Sv StopLogging = CloudTrail
         type Rs StopLogging = StopLoggingResponse
         request = postJSON
-        response = receiveNull StopLoggingResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 StopLoggingResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders StopLogging where
         toHeaders
@@ -81,9 +89,20 @@ instance ToPath StopLogging where
 instance ToQuery StopLogging where
         toQuery = const mempty
 
--- | /See:/ 'stopLoggingResponse' smart constructor.
-data StopLoggingResponse = StopLoggingResponse' deriving (Eq, Read, Show)
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'stopLoggingResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slrStatusCode'
+newtype StopLoggingResponse = StopLoggingResponse'{_slrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StopLoggingResponse' smart constructor.
-stopLoggingResponse :: StopLoggingResponse
-stopLoggingResponse = StopLoggingResponse';
+stopLoggingResponse :: Int -> StopLoggingResponse
+stopLoggingResponse pStatusCode = StopLoggingResponse'{_slrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+slrStatusCode :: Lens' StopLoggingResponse Int
+slrStatusCode = lens _slrStatusCode (\ s a -> s{_slrStatusCode = a});

@@ -43,6 +43,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , rebootCacheClusterResponse
     -- ** Response lenses
     , rccrCacheCluster
+    , rccrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -50,7 +51,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'rebootCacheCluster' smart constructor.
+-- | Represents the input of a /RebootCacheCluster/ action.
+--
+-- /See:/ 'rebootCacheCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,7 +86,7 @@ instance AWSRequest RebootCacheCluster where
           = receiveXMLWrapper "RebootCacheClusterResult"
               (\ s h x ->
                  RebootCacheClusterResponse' <$>
-                   (x .@? "CacheCluster"))
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty
@@ -105,12 +108,18 @@ instance ToQuery RebootCacheCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rccrCacheCluster'
-newtype RebootCacheClusterResponse = RebootCacheClusterResponse'{_rccrCacheCluster :: Maybe CacheCluster} deriving (Eq, Read, Show)
+--
+-- * 'rccrStatusCode'
+data RebootCacheClusterResponse = RebootCacheClusterResponse'{_rccrCacheCluster :: Maybe CacheCluster, _rccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RebootCacheClusterResponse' smart constructor.
-rebootCacheClusterResponse :: RebootCacheClusterResponse
-rebootCacheClusterResponse = RebootCacheClusterResponse'{_rccrCacheCluster = Nothing};
+rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse
+rebootCacheClusterResponse pStatusCode = RebootCacheClusterResponse'{_rccrCacheCluster = Nothing, _rccrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\ s a -> s{_rccrCacheCluster = a});
+
+-- | FIXME: Undocumented member.
+rccrStatusCode :: Lens' RebootCacheClusterResponse Int
+rccrStatusCode = lens _rccrStatusCode (\ s a -> s{_rccrStatusCode = a});

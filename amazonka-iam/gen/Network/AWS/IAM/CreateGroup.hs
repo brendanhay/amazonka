@@ -37,6 +37,7 @@ module Network.AWS.IAM.CreateGroup
     , createGroupResponse
     -- ** Response lenses
     , cgrGroup
+    , cgrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -76,7 +77,9 @@ instance AWSRequest CreateGroup where
         request = post
         response
           = receiveXMLWrapper "CreateGroupResult"
-              (\ s h x -> CreateGroupResponse' <$> (x .@ "Group"))
+              (\ s h x ->
+                 CreateGroupResponse' <$>
+                   (x .@ "Group") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
@@ -91,17 +94,25 @@ instance ToQuery CreateGroup where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cgPath, "GroupName" =: _cgGroupName]
 
--- | /See:/ 'createGroupResponse' smart constructor.
+-- | Contains the response to a successful CreateGroup request.
+--
+-- /See:/ 'createGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cgrGroup'
-newtype CreateGroupResponse = CreateGroupResponse'{_cgrGroup :: Group} deriving (Eq, Read, Show)
+--
+-- * 'cgrStatusCode'
+data CreateGroupResponse = CreateGroupResponse'{_cgrGroup :: Group, _cgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateGroupResponse' smart constructor.
-createGroupResponse :: Group -> CreateGroupResponse
-createGroupResponse pGroup = CreateGroupResponse'{_cgrGroup = pGroup};
+createGroupResponse :: Group -> Int -> CreateGroupResponse
+createGroupResponse pGroup pStatusCode = CreateGroupResponse'{_cgrGroup = pGroup, _cgrStatusCode = pStatusCode};
 
 -- | Information about the group.
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\ s a -> s{_cgrGroup = a});
+
+-- | FIXME: Undocumented member.
+cgrStatusCode :: Lens' CreateGroupResponse Int
+cgrStatusCode = lens _cgrStatusCode (\ s a -> s{_cgrStatusCode = a});

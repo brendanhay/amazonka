@@ -41,15 +41,18 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     -- ** Response lenses
     , desrEventSubscriptionsList
     , desrMarker
+    , desrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEventSubscriptions' smart constructor.
+-- |
+--
+-- /See:/ 'describeEventSubscriptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -111,7 +114,8 @@ instance AWSRequest DescribeEventSubscriptions where
                  DescribeEventSubscriptionsResponse' <$>
                    (x .@? "EventSubscriptionsList" .!@ mempty >>=
                       may (parseXMLList "EventSubscription"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
@@ -130,18 +134,22 @@ instance ToQuery DescribeEventSubscriptions where
                  toQuery (toQueryList "Filter" <$> _dFilters),
                "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
 
--- | /See:/ 'describeEventSubscriptionsResponse' smart constructor.
+-- | Data returned by the __DescribeEventSubscriptions__ action.
+--
+-- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desrEventSubscriptionsList'
 --
 -- * 'desrMarker'
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'desrStatusCode'
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text, _desrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
-describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing};
+describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse pStatusCode = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing, _desrStatusCode = pStatusCode};
 
 -- | A list of EventSubscriptions data types.
 desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
@@ -153,3 +161,7 @@ desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrE
 -- the value specified by @MaxRecords@.
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\ s a -> s{_desrMarker = a});
+
+-- | FIXME: Undocumented member.
+desrStatusCode :: Lens' DescribeEventSubscriptionsResponse Int
+desrStatusCode = lens _desrStatusCode (\ s a -> s{_desrStatusCode = a});

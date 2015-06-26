@@ -50,15 +50,18 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- ** Response lenses
     , dcsgrClusterSubnetGroups
     , dcsgrMarker
+    , dcsgrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeClusterSubnetGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeClusterSubnetGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -140,7 +143,8 @@ instance AWSRequest DescribeClusterSubnetGroups where
                  DescribeClusterSubnetGroupsResponse' <$>
                    (x .@? "ClusterSubnetGroups" .!@ mempty >>=
                       may (parseXMLList "ClusterSubnetGroup"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
@@ -161,18 +165,22 @@ instance ToQuery DescribeClusterSubnetGroups where
                "ClusterSubnetGroupName" =: _dClusterSubnetGroupName,
                "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
 
--- | /See:/ 'describeClusterSubnetGroupsResponse' smart constructor.
+-- | Contains the output from the DescribeClusterSubnetGroups action.
+--
+-- /See:/ 'describeClusterSubnetGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsgrClusterSubnetGroups'
 --
 -- * 'dcsgrMarker'
-data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups :: Maybe [ClusterSubnetGroup], _dcsgrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcsgrStatusCode'
+data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups :: Maybe [ClusterSubnetGroup], _dcsgrMarker :: Maybe Text, _dcsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
-describeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
-describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups = Nothing, _dcsgrMarker = Nothing};
+describeClusterSubnetGroupsResponse :: Int -> DescribeClusterSubnetGroupsResponse
+describeClusterSubnetGroupsResponse pStatusCode = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups = Nothing, _dcsgrMarker = Nothing, _dcsgrStatusCode = pStatusCode};
 
 -- | A list of ClusterSubnetGroup instances.
 dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
@@ -186,3 +194,7 @@ dcsgrClusterSubnetGroups = lens _dcsgrClusterSubnetGroups (\ s a -> s{_dcsgrClus
 -- the request.
 dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\ s a -> s{_dcsgrMarker = a});
+
+-- | FIXME: Undocumented member.
+dcsgrStatusCode :: Lens' DescribeClusterSubnetGroupsResponse Int
+dcsgrStatusCode = lens _dcsgrStatusCode (\ s a -> s{_dcsgrStatusCode = a});

@@ -40,6 +40,7 @@ module Network.AWS.EC2.DescribeAddresses
     , describeAddressesResponse
     -- ** Response lenses
     , darAddresses
+    , darStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -116,7 +117,8 @@ instance AWSRequest DescribeAddresses where
           = receiveXML
               (\ s h x ->
                  DescribeAddressesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
@@ -140,12 +142,18 @@ instance ToQuery DescribeAddresses where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darAddresses'
-newtype DescribeAddressesResponse = DescribeAddressesResponse'{_darAddresses :: Maybe [Address]} deriving (Eq, Read, Show)
+--
+-- * 'darStatusCode'
+data DescribeAddressesResponse = DescribeAddressesResponse'{_darAddresses :: Maybe [Address], _darStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAddressesResponse' smart constructor.
-describeAddressesResponse :: DescribeAddressesResponse
-describeAddressesResponse = DescribeAddressesResponse'{_darAddresses = Nothing};
+describeAddressesResponse :: Int -> DescribeAddressesResponse
+describeAddressesResponse pStatusCode = DescribeAddressesResponse'{_darAddresses = Nothing, _darStatusCode = pStatusCode};
 
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\ s a -> s{_darAddresses = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+darStatusCode :: Lens' DescribeAddressesResponse Int
+darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});

@@ -33,15 +33,18 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     , listCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
+    , lcfoairStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listCloudFrontOriginAccessIdentities' smart constructor.
+-- | The request to list origin access identities.
+--
+-- /See:/ 'listCloudFrontOriginAccessIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +101,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  ListCloudFrontOriginAccessIdentitiesResponse' <$>
-                   (x .@ "CloudFrontOriginAccessIdentityList"))
+                   (x .@ "CloudFrontOriginAccessIdentityList") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where
@@ -117,17 +121,25 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
               ["MaxItems" =: _lcfoaiMaxItems,
                "Marker" =: _lcfoaiMarker]
 
--- | /See:/ 'listCloudFrontOriginAccessIdentitiesResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'listCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lcfoairCloudFrontOriginAccessIdentityList'
-newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'{_lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList} deriving (Eq, Read, Show)
+--
+-- * 'lcfoairStatusCode'
+data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'{_lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList, _lcfoairStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
-listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse pCloudFrontOriginAccessIdentityList = ListCloudFrontOriginAccessIdentitiesResponse'{_lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList};
+listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -> Int -> ListCloudFrontOriginAccessIdentitiesResponse
+listCloudFrontOriginAccessIdentitiesResponse pCloudFrontOriginAccessIdentityList pStatusCode = ListCloudFrontOriginAccessIdentitiesResponse'{_lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList, _lcfoairStatusCode = pStatusCode};
 
 -- | The CloudFrontOriginAccessIdentityList type.
 lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
 lcfoairCloudFrontOriginAccessIdentityList = lens _lcfoairCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairCloudFrontOriginAccessIdentityList = a});
+
+-- | FIXME: Undocumented member.
+lcfoairStatusCode :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
+lcfoairStatusCode = lens _lcfoairStatusCode (\ s a -> s{_lcfoairStatusCode = a});

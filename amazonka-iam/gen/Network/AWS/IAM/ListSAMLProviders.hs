@@ -33,6 +33,7 @@ module Network.AWS.IAM.ListSAMLProviders
     , listSAMLProvidersResponse
     -- ** Response lenses
     , lsamlprSAMLProviderList
+    , lsamlprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -56,7 +57,8 @@ instance AWSRequest ListSAMLProviders where
               (\ s h x ->
                  ListSAMLProvidersResponse' <$>
                    (x .@? "SAMLProviderList" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
@@ -71,17 +73,25 @@ instance ToQuery ListSAMLProviders where
                  ["Action" =: ("ListSAMLProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | /See:/ 'listSAMLProvidersResponse' smart constructor.
+-- | Contains the response to a successful ListSAMLProviders request.
+--
+-- /See:/ 'listSAMLProvidersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsamlprSAMLProviderList'
-newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList :: Maybe [SAMLProviderListEntry]} deriving (Eq, Read, Show)
+--
+-- * 'lsamlprStatusCode'
+data ListSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList :: Maybe [SAMLProviderListEntry], _lsamlprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
-listSAMLProvidersResponse :: ListSAMLProvidersResponse
-listSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList = Nothing};
+listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
+listSAMLProvidersResponse pStatusCode = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList = Nothing, _lsamlprStatusCode = pStatusCode};
 
 -- | The list of SAML providers for this account.
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lsamlprStatusCode :: Lens' ListSAMLProvidersResponse Int
+lsamlprStatusCode = lens _lsamlprStatusCode (\ s a -> s{_lsamlprStatusCode = a});

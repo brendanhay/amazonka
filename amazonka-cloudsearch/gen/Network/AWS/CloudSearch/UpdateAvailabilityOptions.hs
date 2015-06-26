@@ -39,6 +39,7 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     , updateAvailabilityOptionsResponse
     -- ** Response lenses
     , uaorAvailabilityOptions
+    , uaorStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -46,7 +47,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateAvailabilityOptions' smart constructor.
+-- | Container for the parameters to the @UpdateAvailabilityOptions@
+-- operation. Specifies the name of the domain you want to update and the
+-- Multi-AZ availability option.
+--
+-- /See:/ 'updateAvailabilityOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +84,8 @@ instance AWSRequest UpdateAvailabilityOptions where
           = receiveXMLWrapper "UpdateAvailabilityOptionsResult"
               (\ s h x ->
                  UpdateAvailabilityOptionsResponse' <$>
-                   (x .@? "AvailabilityOptions"))
+                   (x .@? "AvailabilityOptions") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
@@ -96,18 +102,27 @@ instance ToQuery UpdateAvailabilityOptions where
                "DomainName" =: _uaoDomainName,
                "MultiAZ" =: _uaoMultiAZ]
 
--- | /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
+-- | The result of a @UpdateAvailabilityOptions@ request. Contains the status
+-- of the domain\'s availability options.
+--
+-- /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uaorAvailabilityOptions'
-newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'{_uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus} deriving (Eq, Read, Show)
+--
+-- * 'uaorStatusCode'
+data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'{_uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus, _uaorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
-updateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse
-updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'{_uaorAvailabilityOptions = Nothing};
+updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
+updateAvailabilityOptionsResponse pStatusCode = UpdateAvailabilityOptionsResponse'{_uaorAvailabilityOptions = Nothing, _uaorStatusCode = pStatusCode};
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
 uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorAvailabilityOptions = lens _uaorAvailabilityOptions (\ s a -> s{_uaorAvailabilityOptions = a});
+
+-- | FIXME: Undocumented member.
+uaorStatusCode :: Lens' UpdateAvailabilityOptionsResponse Int
+uaorStatusCode = lens _uaorStatusCode (\ s a -> s{_uaorStatusCode = a});

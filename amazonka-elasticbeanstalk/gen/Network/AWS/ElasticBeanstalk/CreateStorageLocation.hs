@@ -32,6 +32,7 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , createStorageLocationResponse
     -- ** Response lenses
     , cslrS3Bucket
+    , cslrStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -55,7 +56,7 @@ instance AWSRequest CreateStorageLocation where
           = receiveXMLWrapper "CreateStorageLocationResult"
               (\ s h x ->
                  CreateStorageLocationResponse' <$>
-                   (x .@? "S3Bucket"))
+                   (x .@? "S3Bucket") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
@@ -70,17 +71,25 @@ instance ToQuery CreateStorageLocation where
                  ["Action" =: ("CreateStorageLocation" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'createStorageLocationResponse' smart constructor.
+-- | Results of a CreateStorageLocationResult call.
+--
+-- /See:/ 'createStorageLocationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cslrS3Bucket'
-newtype CreateStorageLocationResponse = CreateStorageLocationResponse'{_cslrS3Bucket :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cslrStatusCode'
+data CreateStorageLocationResponse = CreateStorageLocationResponse'{_cslrS3Bucket :: Maybe Text, _cslrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
-createStorageLocationResponse :: CreateStorageLocationResponse
-createStorageLocationResponse = CreateStorageLocationResponse'{_cslrS3Bucket = Nothing};
+createStorageLocationResponse :: Int -> CreateStorageLocationResponse
+createStorageLocationResponse pStatusCode = CreateStorageLocationResponse'{_cslrS3Bucket = Nothing, _cslrStatusCode = pStatusCode};
 
 -- | The name of the Amazon S3 bucket created.
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\ s a -> s{_cslrS3Bucket = a});
+
+-- | FIXME: Undocumented member.
+cslrStatusCode :: Lens' CreateStorageLocationResponse Int
+cslrStatusCode = lens _cslrStatusCode (\ s a -> s{_cslrStatusCode = a});

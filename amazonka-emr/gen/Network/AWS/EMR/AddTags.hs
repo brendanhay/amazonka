@@ -34,6 +34,8 @@ module Network.AWS.EMR.AddTags
     , AddTagsResponse
     -- ** Response constructor
     , addTagsResponse
+    -- ** Response lenses
+    , atrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addTags' smart constructor.
+-- | This input identifies a cluster and a list of tags to attach.
+--
+-- /See:/ 'addTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +74,9 @@ instance AWSRequest AddTags where
         type Sv AddTags = EMR
         type Rs AddTags = AddTagsResponse
         request = postJSON
-        response = receiveNull AddTagsResponse'
+        response
+          = receiveJSON
+              (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders AddTags where
         toHeaders
@@ -92,9 +98,19 @@ instance ToPath AddTags where
 instance ToQuery AddTags where
         toQuery = const mempty
 
--- | /See:/ 'addTagsResponse' smart constructor.
-data AddTagsResponse = AddTagsResponse' deriving (Eq, Read, Show)
+-- | This output indicates the result of adding tags to a resource.
+--
+-- /See:/ 'addTagsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'atrStatusCode'
+newtype AddTagsResponse = AddTagsResponse'{_atrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddTagsResponse' smart constructor.
-addTagsResponse :: AddTagsResponse
-addTagsResponse = AddTagsResponse';
+addTagsResponse :: Int -> AddTagsResponse
+addTagsResponse pStatusCode = AddTagsResponse'{_atrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+atrStatusCode :: Lens' AddTagsResponse Int
+atrStatusCode = lens _atrStatusCode (\ s a -> s{_atrStatusCode = a});

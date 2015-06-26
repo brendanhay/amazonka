@@ -21,8 +21,19 @@ module Network.AWS.DataPipeline.Types
     (
     -- * Service
       DataPipeline
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidRequestException
+    , _InternalServiceError
+    , _PipelineDeletedException
+    , _PipelineNotFoundException
+    , _TaskNotFoundException
+
+    -- * OperatorType
+    , OperatorType (..)
+
+    -- * TaskStatus
+    , TaskStatus (..)
 
     -- * Field
     , Field
@@ -42,9 +53,6 @@ module Network.AWS.DataPipeline.Types
     , operator
     , opeValues
     , opeType
-
-    -- * OperatorType
-    , OperatorType (..)
 
     -- * ParameterAttribute
     , ParameterAttribute
@@ -111,9 +119,6 @@ module Network.AWS.DataPipeline.Types
     , toAttemptId
     , toObjects
 
-    -- * TaskStatus
-    , TaskStatus (..)
-
     -- * ValidationError
     , ValidationError
     , validationError
@@ -125,6 +130,7 @@ module Network.AWS.DataPipeline.Types
     , validationWarning
     , vwWarnings
     , vwId
+
     ) where
 
 import Network.AWS.Prelude
@@ -135,32 +141,109 @@ data DataPipeline
 
 instance AWSService DataPipeline where
     type Sg DataPipeline = V4
-    type Er DataPipeline = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service DataPipeline
-        service' = Service
-            { _svcAbbrev  = "DataPipeline"
-            , _svcPrefix  = "datapipeline"
-            , _svcVersion = "2012-10-29"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service DataPipeline
+        svc = Service
+            { _svcAbbrev   = "DataPipeline"
+            , _svcPrefix   = "datapipeline"
+            , _svcVersion  = "2012-10-29"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry DataPipeline
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The request was not valid. Verify that your request was properly
+-- formatted, that the signature was generated with the correct
+-- credentials, and that you haven\'t exceeded any of the service limits
+-- for your account.
+_InvalidRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException";
 
--- | /See:/ 'field' smart constructor.
+-- | An internal service error occurred.
+_InternalServiceError :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalServiceError = _ServiceError . hasCode "InternalServiceError";
+
+-- | The specified pipeline has been deleted.
+_PipelineDeletedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException";
+
+-- | The specified pipeline was not found. Verify that you used the correct
+-- user and account identifiers.
+_PipelineNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PipelineNotFoundException = _ServiceError . hasCode "PipelineNotFoundException";
+
+-- | The specified task was not found.
+_TaskNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TaskNotFoundException = _ServiceError . hasCode "TaskNotFoundException";
+
+data OperatorType = OperatorGE | OperatorEQ' | OperatorBetween | OperatorRefEQ | OperatorLE deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OperatorType where
+    parser = takeLowerText >>= \case
+        "BETWEEN" -> pure OperatorBetween
+        "EQ" -> pure OperatorEQ'
+        "GE" -> pure OperatorGE
+        "LE" -> pure OperatorLE
+        "REF_EQ" -> pure OperatorRefEQ
+        e -> fail ("Failure parsing OperatorType from " ++ show e)
+
+instance ToText OperatorType where
+    toText = \case
+        OperatorBetween -> "BETWEEN"
+        OperatorEQ' -> "EQ"
+        OperatorGE -> "GE"
+        OperatorLE -> "LE"
+        OperatorRefEQ -> "REF_EQ"
+
+instance Hashable OperatorType
+instance ToQuery OperatorType
+instance ToHeader OperatorType
+
+instance ToJSON OperatorType where
+    toJSON = toJSONText
+
+data TaskStatus = Finished | False' | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TaskStatus where
+    parser = takeLowerText >>= \case
+        "FAILED" -> pure Failed
+        "FALSE" -> pure False'
+        "FINISHED" -> pure Finished
+        e -> fail ("Failure parsing TaskStatus from " ++ show e)
+
+instance ToText TaskStatus where
+    toText = \case
+        Failed -> "FAILED"
+        False' -> "FALSE"
+        Finished -> "FINISHED"
+
+instance Hashable TaskStatus
+instance ToQuery TaskStatus
+instance ToHeader TaskStatus
+
+instance ToJSON TaskStatus where
+    toJSON = toJSONText
+
+-- | A key-value pair that describes a property of a pipeline object. The
+-- value is specified as either a string value (@StringValue@) or a
+-- reference to another object (@RefValue@) but not as both.
+--
+-- /See:/ 'field' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -201,7 +284,16 @@ instance ToJSON Field where
               ["refValue" .= _fieRefValue,
                "stringValue" .= _fieStringValue, "key" .= _fieKey]
 
--- | /See:/ 'instanceIdentity' smart constructor.
+-- | Identity information for the EC2 instance that is hosting the task
+-- runner. You can get this value by calling a metadata URI from the EC2
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata>
+-- in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value
+-- proves that your task runner is running on an EC2 instance, and ensures
+-- the proper AWS Data Pipeline service charges are applied to your
+-- pipeline.
+--
+-- /See:/ 'instanceIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -231,7 +323,10 @@ instance ToJSON InstanceIdentity where
               ["signature" .= _iiSignature,
                "document" .= _iiDocument]
 
--- | /See:/ 'operator' smart constructor.
+-- | Contains a logical operation for comparing the value of a field with a
+-- specified value.
+--
+-- /See:/ 'operator' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -288,33 +383,9 @@ instance ToJSON Operator where
         toJSON Operator'{..}
           = object ["values" .= _opeValues, "type" .= _opeType]
 
-data OperatorType = OperatorGE | OperatorEQ' | OperatorBetween | OperatorRefEQ | OperatorLE deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OperatorType where
-    parser = takeLowerText >>= \case
-        "BETWEEN" -> pure OperatorBetween
-        "EQ" -> pure OperatorEQ'
-        "GE" -> pure OperatorGE
-        "LE" -> pure OperatorLE
-        "REF_EQ" -> pure OperatorRefEQ
-        e -> fail ("Failure parsing OperatorType from " ++ show e)
-
-instance ToText OperatorType where
-    toText = \case
-        OperatorBetween -> "BETWEEN"
-        OperatorEQ' -> "EQ"
-        OperatorGE -> "GE"
-        OperatorLE -> "LE"
-        OperatorRefEQ -> "REF_EQ"
-
-instance Hashable OperatorType
-instance ToQuery OperatorType
-instance ToHeader OperatorType
-
-instance ToJSON OperatorType where
-    toJSON = toJSONText
-
--- | /See:/ 'parameterAttribute' smart constructor.
+-- | The attributes allowed or specified with a parameter object.
+--
+-- /See:/ 'parameterAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -347,7 +418,9 @@ instance ToJSON ParameterAttribute where
           = object
               ["key" .= _paKey, "stringValue" .= _paStringValue]
 
--- | /See:/ 'parameterObject' smart constructor.
+-- | Contains information about a parameter object.
+--
+-- /See:/ 'parameterObject' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -380,7 +453,9 @@ instance ToJSON ParameterObject where
           = object
               ["id" .= _poId, "attributes" .= _poAttributes]
 
--- | /See:/ 'parameterValue' smart constructor.
+-- | A value or list of parameter values.
+--
+-- /See:/ 'parameterValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -413,7 +488,9 @@ instance ToJSON ParameterValue where
           = object
               ["id" .= _pvId, "stringValue" .= _pvStringValue]
 
--- | /See:/ 'pipelineDescription' smart constructor.
+-- | Contains pipeline metadata.
+--
+-- /See:/ 'pipelineDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -467,7 +544,9 @@ instance FromJSON PipelineDescription where
                      <*> (x .: "name")
                      <*> (x .:? "fields" .!= mempty))
 
--- | /See:/ 'pipelineIdName' smart constructor.
+-- | Contains the name and identifier of a pipeline.
+--
+-- /See:/ 'pipelineIdName' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -495,7 +574,11 @@ instance FromJSON PipelineIdName where
               (\ x ->
                  PipelineIdName' <$> (x .:? "name") <*> (x .:? "id"))
 
--- | /See:/ 'pipelineObject' smart constructor.
+-- | Contains information about a pipeline object. This can be a logical,
+-- physical, or physical attempt pipeline object. The complete set of
+-- components of a pipeline defines the pipeline.
+--
+-- /See:/ 'pipelineObject' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -536,7 +619,9 @@ instance ToJSON PipelineObject where
               ["id" .= _pipId, "name" .= _pipName,
                "fields" .= _pipFields]
 
--- | /See:/ 'query' smart constructor.
+-- | Defines the query to run against an object.
+--
+-- /See:/ 'query' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -556,7 +641,10 @@ instance ToJSON Query where
         toJSON Query'{..}
           = object ["selectors" .= _queSelectors]
 
--- | /See:/ 'selector' smart constructor.
+-- | A comparision that is used to determine whether a query should return
+-- this object.
+--
+-- /See:/ 'selector' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -586,7 +674,13 @@ instance ToJSON Selector where
               ["operator" .= _selOperator,
                "fieldName" .= _selFieldName]
 
--- | /See:/ 'tag' smart constructor.
+-- | Tags are key\/value pairs defined by a user and associated with a
+-- pipeline to control access. AWS Data Pipeline allows you to associate
+-- ten tags per pipeline. For more information, see
+-- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
+-- in the /AWS Data Pipeline Developer Guide/.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -621,7 +715,10 @@ instance ToJSON Tag where
         toJSON Tag'{..}
           = object ["key" .= _tagKey, "value" .= _tagValue]
 
--- | /See:/ 'taskObject' smart constructor.
+-- | Contains information about a pipeline task that is assigned to a task
+-- runner.
+--
+-- /See:/ 'taskObject' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -666,29 +763,11 @@ instance FromJSON TaskObject where
                      (x .:? "attemptId")
                      <*> (x .:? "objects" .!= mempty))
 
-data TaskStatus = Finished | False' | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TaskStatus where
-    parser = takeLowerText >>= \case
-        "FAILED" -> pure Failed
-        "FALSE" -> pure False'
-        "FINISHED" -> pure Finished
-        e -> fail ("Failure parsing TaskStatus from " ++ show e)
-
-instance ToText TaskStatus where
-    toText = \case
-        Failed -> "FAILED"
-        False' -> "FALSE"
-        Finished -> "FINISHED"
-
-instance Hashable TaskStatus
-instance ToQuery TaskStatus
-instance ToHeader TaskStatus
-
-instance ToJSON TaskStatus where
-    toJSON = toJSONText
-
--- | /See:/ 'validationError' smart constructor.
+-- | Defines a validation error. Validation errors prevent pipeline
+-- activation. The set of validation errors that can be returned are
+-- defined by AWS Data Pipeline.
+--
+-- /See:/ 'validationError' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -716,7 +795,11 @@ instance FromJSON ValidationError where
                  ValidationError' <$>
                    (x .:? "id") <*> (x .:? "errors" .!= mempty))
 
--- | /See:/ 'validationWarning' smart constructor.
+-- | Defines a validation warning. Validation warnings do not prevent
+-- pipeline activation. The set of validation warnings that can be returned
+-- are defined by AWS Data Pipeline.
+--
+-- /See:/ 'validationWarning' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

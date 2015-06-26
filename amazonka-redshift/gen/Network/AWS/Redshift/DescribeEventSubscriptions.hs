@@ -26,9 +26,9 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- ** Request constructor
     , describeEventSubscriptions
     -- ** Request lenses
-    , descSubscriptionName
-    , descMaxRecords
-    , descMarker
+    , des1SubscriptionName
+    , des1MaxRecords
+    , des1Marker
 
     -- * Response
     , DescribeEventSubscriptionsResponse
@@ -37,33 +37,36 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- ** Response lenses
     , desrEventSubscriptionsList
     , desrMarker
+    , desrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEventSubscriptions' smart constructor.
+-- |
+--
+-- /See:/ 'describeEventSubscriptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descSubscriptionName'
+-- * 'des1SubscriptionName'
 --
--- * 'descMaxRecords'
+-- * 'des1MaxRecords'
 --
--- * 'descMarker'
-data DescribeEventSubscriptions = DescribeEventSubscriptions'{_descSubscriptionName :: Maybe Text, _descMaxRecords :: Maybe Int, _descMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'des1Marker'
+data DescribeEventSubscriptions = DescribeEventSubscriptions'{_des1SubscriptionName :: Maybe Text, _des1MaxRecords :: Maybe Int, _des1Marker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
-describeEventSubscriptions = DescribeEventSubscriptions'{_descSubscriptionName = Nothing, _descMaxRecords = Nothing, _descMarker = Nothing};
+describeEventSubscriptions = DescribeEventSubscriptions'{_des1SubscriptionName = Nothing, _des1MaxRecords = Nothing, _des1Marker = Nothing};
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
-descSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-descSubscriptionName = lens _descSubscriptionName (\ s a -> s{_descSubscriptionName = a});
+des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+des1SubscriptionName = lens _des1SubscriptionName (\ s a -> s{_des1SubscriptionName = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -74,8 +77,8 @@ descSubscriptionName = lens _descSubscriptionName (\ s a -> s{_descSubscriptionN
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-descMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
+des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+des1MaxRecords = lens _des1MaxRecords (\ s a -> s{_des1MaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeEventSubscriptions
@@ -83,15 +86,15 @@ descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-descMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
+des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
+des1Marker = lens _des1Marker (\ s a -> s{_des1Marker = a});
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
           | stop (rs ^. desrMarker) = Nothing
           | stop (rs ^. desrEventSubscriptionsList) = Nothing
           | otherwise =
-            Just $ rq & descMarker .~ rs ^. desrMarker
+            Just $ rq & des1Marker .~ rs ^. desrMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift
@@ -105,7 +108,8 @@ instance AWSRequest DescribeEventSubscriptions where
                  DescribeEventSubscriptionsResponse' <$>
                    (x .@? "EventSubscriptionsList" .!@ mempty >>=
                       may (parseXMLList "EventSubscription"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
@@ -119,22 +123,26 @@ instance ToQuery DescribeEventSubscriptions where
               ["Action" =:
                  ("DescribeEventSubscriptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SubscriptionName" =: _descSubscriptionName,
-               "MaxRecords" =: _descMaxRecords,
-               "Marker" =: _descMarker]
+               "SubscriptionName" =: _des1SubscriptionName,
+               "MaxRecords" =: _des1MaxRecords,
+               "Marker" =: _des1Marker]
 
--- | /See:/ 'describeEventSubscriptionsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desrEventSubscriptionsList'
 --
 -- * 'desrMarker'
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'desrStatusCode'
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text, _desrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
-describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing};
+describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse pStatusCode = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing, _desrStatusCode = pStatusCode};
 
 -- | A list of event subscriptions.
 desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
@@ -148,3 +156,7 @@ desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrE
 -- the request.
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\ s a -> s{_desrMarker = a});
+
+-- | FIXME: Undocumented member.
+desrStatusCode :: Lens' DescribeEventSubscriptionsResponse Int
+desrStatusCode = lens _desrStatusCode (\ s a -> s{_desrStatusCode = a});

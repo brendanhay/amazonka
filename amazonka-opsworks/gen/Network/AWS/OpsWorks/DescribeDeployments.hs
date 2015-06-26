@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DescribeDeployments
     , describeDeploymentsResponse
     -- ** Response lenses
     , ddrDeployments
+    , ddrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -90,7 +91,8 @@ instance AWSRequest DescribeDeployments where
           = receiveJSON
               (\ s h x ->
                  DescribeDeploymentsResponse' <$>
-                   (x .?> "Deployments" .!@ mempty))
+                   (x .?> "Deployments" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeDeployments where
         toHeaders
@@ -115,17 +117,25 @@ instance ToPath DescribeDeployments where
 instance ToQuery DescribeDeployments where
         toQuery = const mempty
 
--- | /See:/ 'describeDeploymentsResponse' smart constructor.
+-- | Contains the response to a @DescribeDeployments@ request.
+--
+-- /See:/ 'describeDeploymentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddrDeployments'
-newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments :: Maybe [Deployment]} deriving (Eq, Read, Show)
+--
+-- * 'ddrStatusCode'
+data DescribeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments :: Maybe [Deployment], _ddrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
-describeDeploymentsResponse :: DescribeDeploymentsResponse
-describeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments = Nothing};
+describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse
+describeDeploymentsResponse pStatusCode = DescribeDeploymentsResponse'{_ddrDeployments = Nothing, _ddrStatusCode = pStatusCode};
 
 -- | An array of @Deployment@ objects that describe the deployments.
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrDeployments = lens _ddrDeployments (\ s a -> s{_ddrDeployments = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddrStatusCode :: Lens' DescribeDeploymentsResponse Int
+ddrStatusCode = lens _ddrStatusCode (\ s a -> s{_ddrStatusCode = a});

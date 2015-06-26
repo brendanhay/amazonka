@@ -41,7 +41,8 @@ module Network.AWS.EC2.DescribeImages
     -- ** Response constructor
     , describeImagesResponse
     -- ** Response lenses
-    , dirImages
+    , descImages
+    , descStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -186,7 +187,8 @@ instance AWSRequest DescribeImages where
           = receiveXML
               (\ s h x ->
                  DescribeImagesResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeImages where
         toHeaders = const mempty
@@ -210,13 +212,19 @@ instance ToQuery DescribeImages where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirImages'
-newtype DescribeImagesResponse = DescribeImagesResponse'{_dirImages :: Maybe [Image]} deriving (Eq, Read, Show)
+-- * 'descImages'
+--
+-- * 'descStatusCode'
+data DescribeImagesResponse = DescribeImagesResponse'{_descImages :: Maybe [Image], _descStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeImagesResponse' smart constructor.
-describeImagesResponse :: DescribeImagesResponse
-describeImagesResponse = DescribeImagesResponse'{_dirImages = Nothing};
+describeImagesResponse :: Int -> DescribeImagesResponse
+describeImagesResponse pStatusCode = DescribeImagesResponse'{_descImages = Nothing, _descStatusCode = pStatusCode};
 
 -- | Information about one or more images.
-dirImages :: Lens' DescribeImagesResponse [Image]
-dirImages = lens _dirImages (\ s a -> s{_dirImages = a}) . _Default;
+descImages :: Lens' DescribeImagesResponse [Image]
+descImages = lens _descImages (\ s a -> s{_descImages = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+descStatusCode :: Lens' DescribeImagesResponse Int
+descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});

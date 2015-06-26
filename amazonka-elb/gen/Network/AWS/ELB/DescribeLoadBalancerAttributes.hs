@@ -32,6 +32,7 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     , describeLoadBalancerAttributesResponse
     -- ** Response lenses
     , dlbarLoadBalancerAttributes
+    , dlbarStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -65,7 +66,8 @@ instance AWSRequest DescribeLoadBalancerAttributes
               "DescribeLoadBalancerAttributesResult"
               (\ s h x ->
                  DescribeLoadBalancerAttributesResponse' <$>
-                   (x .@? "LoadBalancerAttributes"))
+                   (x .@? "LoadBalancerAttributes") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeLoadBalancerAttributes
          where
@@ -87,12 +89,18 @@ instance ToQuery DescribeLoadBalancerAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbarLoadBalancerAttributes'
-newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'{_dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes} deriving (Eq, Read, Show)
+--
+-- * 'dlbarStatusCode'
+data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'{_dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes, _dlbarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
-describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
-describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'{_dlbarLoadBalancerAttributes = Nothing};
+describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
+describeLoadBalancerAttributesResponse pStatusCode = DescribeLoadBalancerAttributesResponse'{_dlbarLoadBalancerAttributes = Nothing, _dlbarStatusCode = pStatusCode};
 
 -- | Information about the load balancer attributes.
 dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarLoadBalancerAttributes = lens _dlbarLoadBalancerAttributes (\ s a -> s{_dlbarLoadBalancerAttributes = a});
+
+-- | FIXME: Undocumented member.
+dlbarStatusCode :: Lens' DescribeLoadBalancerAttributesResponse Int
+dlbarStatusCode = lens _dlbarStatusCode (\ s a -> s{_dlbarStatusCode = a});

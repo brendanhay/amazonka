@@ -44,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'putConfigurationRecorder' smart constructor.
+-- | The input for the PutConfigurationRecorder action.
+--
+-- /See:/ 'putConfigurationRecorder' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

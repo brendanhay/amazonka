@@ -40,6 +40,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     , authorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirCacheSecurityGroup
+    , acsgirStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -47,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'authorizeCacheSecurityGroupIngress' smart constructor.
+-- | Represents the input of an /AuthorizeCacheSecurityGroupIngress/ action.
+--
+-- /See:/ 'authorizeCacheSecurityGroupIngress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -89,7 +92,7 @@ instance AWSRequest
               "AuthorizeCacheSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeCacheSecurityGroupIngressResponse' <$>
-                   (x .@? "CacheSecurityGroup"))
+                   (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
          where
@@ -117,12 +120,18 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'acsgirCacheSecurityGroup'
-newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'{_acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup} deriving (Eq, Read, Show)
+--
+-- * 'acsgirStatusCode'
+data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'{_acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup, _acsgirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
-authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
-authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'{_acsgirCacheSecurityGroup = Nothing};
+authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
+authorizeCacheSecurityGroupIngressResponse pStatusCode = AuthorizeCacheSecurityGroupIngressResponse'{_acsgirCacheSecurityGroup = Nothing, _acsgirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirCacheSecurityGroup = lens _acsgirCacheSecurityGroup (\ s a -> s{_acsgirCacheSecurityGroup = a});
+
+-- | FIXME: Undocumented member.
+acsgirStatusCode :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
+acsgirStatusCode = lens _acsgirStatusCode (\ s a -> s{_acsgirStatusCode = a});

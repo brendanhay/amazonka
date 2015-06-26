@@ -37,6 +37,7 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     , describeIdentityUsageResponse
     -- ** Response lenses
     , diurIdentityUsage
+    , diurStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeIdentityUsage' smart constructor.
+-- | A request for information about the usage of an identity pool.
+--
+-- /See:/ 'describeIdentityUsage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -78,7 +81,7 @@ instance AWSRequest DescribeIdentityUsage where
           = receiveJSON
               (\ s h x ->
                  DescribeIdentityUsageResponse' <$>
-                   (x .?> "IdentityUsage"))
+                   (x .?> "IdentityUsage") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeIdentityUsage where
         toHeaders
@@ -96,17 +99,25 @@ instance ToPath DescribeIdentityUsage where
 instance ToQuery DescribeIdentityUsage where
         toQuery = const mempty
 
--- | /See:/ 'describeIdentityUsageResponse' smart constructor.
+-- | The response to a successful DescribeIdentityUsage request.
+--
+-- /See:/ 'describeIdentityUsageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diurIdentityUsage'
-newtype DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'{_diurIdentityUsage :: Maybe IdentityUsage} deriving (Eq, Read, Show)
+--
+-- * 'diurStatusCode'
+data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'{_diurIdentityUsage :: Maybe IdentityUsage, _diurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
-describeIdentityUsageResponse :: DescribeIdentityUsageResponse
-describeIdentityUsageResponse = DescribeIdentityUsageResponse'{_diurIdentityUsage = Nothing};
+describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
+describeIdentityUsageResponse pStatusCode = DescribeIdentityUsageResponse'{_diurIdentityUsage = Nothing, _diurStatusCode = pStatusCode};
 
 -- | Usage information for the identity.
 diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diurIdentityUsage = lens _diurIdentityUsage (\ s a -> s{_diurIdentityUsage = a});
+
+-- | FIXME: Undocumented member.
+diurStatusCode :: Lens' DescribeIdentityUsageResponse Int
+diurStatusCode = lens _diurStatusCode (\ s a -> s{_diurStatusCode = a});

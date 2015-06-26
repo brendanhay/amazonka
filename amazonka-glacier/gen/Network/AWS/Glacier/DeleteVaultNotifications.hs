@@ -54,7 +54,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteVaultNotifications' smart constructor.
+-- | Provides options for deleting a vault notification configuration from an
+-- Amazon Glacier vault.
+--
+-- /See:/ 'deleteVaultNotifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

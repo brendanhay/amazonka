@@ -38,6 +38,7 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     , describeAvailabilityOptionsResponse
     -- ** Response lenses
     , daorAvailabilityOptions
+    , daorStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -45,7 +46,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeAvailabilityOptions' smart constructor.
+-- | Container for the parameters to the @DescribeAvailabilityOptions@
+-- operation. Specifies the name of the domain you want to describe. To
+-- show the active configuration and exclude any pending changes, set the
+-- Deployed option to @true@.
+--
+-- /See:/ 'describeAvailabilityOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -77,7 +83,8 @@ instance AWSRequest DescribeAvailabilityOptions where
               "DescribeAvailabilityOptionsResult"
               (\ s h x ->
                  DescribeAvailabilityOptionsResponse' <$>
-                   (x .@? "AvailabilityOptions"))
+                   (x .@? "AvailabilityOptions") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty
@@ -94,18 +101,28 @@ instance ToQuery DescribeAvailabilityOptions where
                "Deployed" =: _daoDeployed,
                "DomainName" =: _daoDomainName]
 
--- | /See:/ 'describeAvailabilityOptionsResponse' smart constructor.
+-- | The result of a @DescribeAvailabilityOptions@ request. Indicates whether
+-- or not the Multi-AZ option is enabled for the domain specified in the
+-- request.
+--
+-- /See:/ 'describeAvailabilityOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daorAvailabilityOptions'
-newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'{_daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus} deriving (Eq, Read, Show)
+--
+-- * 'daorStatusCode'
+data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'{_daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus, _daorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
-describeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
-describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'{_daorAvailabilityOptions = Nothing};
+describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
+describeAvailabilityOptionsResponse pStatusCode = DescribeAvailabilityOptionsResponse'{_daorAvailabilityOptions = Nothing, _daorStatusCode = pStatusCode};
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
 daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorAvailabilityOptions = lens _daorAvailabilityOptions (\ s a -> s{_daorAvailabilityOptions = a});
+
+-- | FIXME: Undocumented member.
+daorStatusCode :: Lens' DescribeAvailabilityOptionsResponse Int
+daorStatusCode = lens _daorStatusCode (\ s a -> s{_daorStatusCode = a});

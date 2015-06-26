@@ -52,6 +52,7 @@ module Network.AWS.Glacier.GetVaultNotifications
     , getVaultNotificationsResponse
     -- ** Response lenses
     , gvnrVaultNotificationConfig
+    , gvnrStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -59,7 +60,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getVaultNotifications' smart constructor.
+-- | Provides options for retrieving the notification configuration set on an
+-- Amazon Glacier vault.
+--
+-- /See:/ 'getVaultNotifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +97,8 @@ instance AWSRequest GetVaultNotifications where
           = receiveJSON
               (\ s h x ->
                  GetVaultNotificationsResponse' <$>
-                   (x .?> "vaultNotificationConfig"))
+                   (x .?> "vaultNotificationConfig") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty
@@ -107,17 +112,25 @@ instance ToPath GetVaultNotifications where
 instance ToQuery GetVaultNotifications where
         toQuery = const mempty
 
--- | /See:/ 'getVaultNotificationsResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'getVaultNotificationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gvnrVaultNotificationConfig'
-newtype GetVaultNotificationsResponse = GetVaultNotificationsResponse'{_gvnrVaultNotificationConfig :: Maybe VaultNotificationConfig} deriving (Eq, Read, Show)
+--
+-- * 'gvnrStatusCode'
+data GetVaultNotificationsResponse = GetVaultNotificationsResponse'{_gvnrVaultNotificationConfig :: Maybe VaultNotificationConfig, _gvnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
-getVaultNotificationsResponse :: GetVaultNotificationsResponse
-getVaultNotificationsResponse = GetVaultNotificationsResponse'{_gvnrVaultNotificationConfig = Nothing};
+getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
+getVaultNotificationsResponse pStatusCode = GetVaultNotificationsResponse'{_gvnrVaultNotificationConfig = Nothing, _gvnrStatusCode = pStatusCode};
 
 -- | Returns the notification configuration set on the vault.
 gvnrVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
 gvnrVaultNotificationConfig = lens _gvnrVaultNotificationConfig (\ s a -> s{_gvnrVaultNotificationConfig = a});
+
+-- | FIXME: Undocumented member.
+gvnrStatusCode :: Lens' GetVaultNotificationsResponse Int
+gvnrStatusCode = lens _gvnrStatusCode (\ s a -> s{_gvnrStatusCode = a});

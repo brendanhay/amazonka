@@ -75,6 +75,7 @@ module Network.AWS.Kinesis.GetShardIterator
     , getShardIteratorResponse
     -- ** Response lenses
     , gsirShardIterator
+    , gsirStatusCode
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -82,7 +83,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getShardIterator' smart constructor.
+-- | Represents the input for @GetShardIterator@.
+--
+-- /See:/ 'getShardIterator' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -136,7 +139,7 @@ instance AWSRequest GetShardIterator where
           = receiveJSON
               (\ s h x ->
                  GetShardIteratorResponse' <$>
-                   (x .?> "ShardIterator"))
+                   (x .?> "ShardIterator") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetShardIterator where
         toHeaders
@@ -162,19 +165,27 @@ instance ToPath GetShardIterator where
 instance ToQuery GetShardIterator where
         toQuery = const mempty
 
--- | /See:/ 'getShardIteratorResponse' smart constructor.
+-- | Represents the output for @GetShardIterator@.
+--
+-- /See:/ 'getShardIteratorResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsirShardIterator'
-newtype GetShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gsirStatusCode'
+data GetShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator :: Maybe Text, _gsirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetShardIteratorResponse' smart constructor.
-getShardIteratorResponse :: GetShardIteratorResponse
-getShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator = Nothing};
+getShardIteratorResponse :: Int -> GetShardIteratorResponse
+getShardIteratorResponse pStatusCode = GetShardIteratorResponse'{_gsirShardIterator = Nothing, _gsirStatusCode = pStatusCode};
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the
 -- sequence number of a data record in a shard.
 gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator = lens _gsirShardIterator (\ s a -> s{_gsirShardIterator = a});
+
+-- | FIXME: Undocumented member.
+gsirStatusCode :: Lens' GetShardIteratorResponse Int
+gsirStatusCode = lens _gsirStatusCode (\ s a -> s{_gsirStatusCode = a});

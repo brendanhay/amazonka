@@ -34,15 +34,18 @@ module Network.AWS.CloudFront.ListInvalidations
     , listInvalidationsResponse
     -- ** Response lenses
     , lirInvalidationList
+    , lirStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listInvalidations' smart constructor.
+-- | The request to list invalidations.
+--
+-- /See:/ 'listInvalidations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,7 +99,7 @@ instance AWSRequest ListInvalidations where
           = receiveXML
               (\ s h x ->
                  ListInvalidationsResponse' <$>
-                   (x .@ "InvalidationList"))
+                   (x .@ "InvalidationList") <*> (pure (fromEnum s)))
 
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty
@@ -112,17 +115,25 @@ instance ToQuery ListInvalidations where
           = mconcat
               ["MaxItems" =: _liMaxItems, "Marker" =: _liMarker]
 
--- | /See:/ 'listInvalidationsResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'listInvalidationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lirInvalidationList'
-newtype ListInvalidationsResponse = ListInvalidationsResponse'{_lirInvalidationList :: InvalidationList} deriving (Eq, Read, Show)
+--
+-- * 'lirStatusCode'
+data ListInvalidationsResponse = ListInvalidationsResponse'{_lirInvalidationList :: InvalidationList, _lirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListInvalidationsResponse' smart constructor.
-listInvalidationsResponse :: InvalidationList -> ListInvalidationsResponse
-listInvalidationsResponse pInvalidationList = ListInvalidationsResponse'{_lirInvalidationList = pInvalidationList};
+listInvalidationsResponse :: InvalidationList -> Int -> ListInvalidationsResponse
+listInvalidationsResponse pInvalidationList pStatusCode = ListInvalidationsResponse'{_lirInvalidationList = pInvalidationList, _lirStatusCode = pStatusCode};
 
 -- | Information about invalidation batches.
 lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});
+
+-- | FIXME: Undocumented member.
+lirStatusCode :: Lens' ListInvalidationsResponse Int
+lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});

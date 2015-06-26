@@ -38,6 +38,7 @@ module Network.AWS.Route53Domains.GetOperationDetail
     , godrOperationId
     , godrType
     , godrMessage
+    , godrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -45,7 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'getOperationDetail' smart constructor.
+-- | The GetOperationDetail request includes the following element.
+--
+-- /See:/ 'getOperationDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -81,7 +84,8 @@ instance AWSRequest GetOperationDetail where
                      (x .?> "DomainName")
                      <*> (x .?> "OperationId")
                      <*> (x .?> "Type")
-                     <*> (x .?> "Message"))
+                     <*> (x .?> "Message")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetOperationDetail where
         toHeaders
@@ -103,7 +107,9 @@ instance ToPath GetOperationDetail where
 instance ToQuery GetOperationDetail where
         toQuery = const mempty
 
--- | /See:/ 'getOperationDetailResponse' smart constructor.
+-- | The GetOperationDetail response includes the following elements.
+--
+-- /See:/ 'getOperationDetailResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -118,11 +124,13 @@ instance ToQuery GetOperationDetail where
 -- * 'godrType'
 --
 -- * 'godrMessage'
-data GetOperationDetailResponse = GetOperationDetailResponse'{_godrStatus :: Maybe OperationStatus, _godrSubmittedDate :: Maybe POSIX, _godrDomainName :: Maybe Text, _godrOperationId :: Maybe Text, _godrType :: Maybe OperationType, _godrMessage :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'godrStatusCode'
+data GetOperationDetailResponse = GetOperationDetailResponse'{_godrStatus :: Maybe OperationStatus, _godrSubmittedDate :: Maybe POSIX, _godrDomainName :: Maybe Text, _godrOperationId :: Maybe Text, _godrType :: Maybe OperationType, _godrMessage :: Maybe Text, _godrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetOperationDetailResponse' smart constructor.
-getOperationDetailResponse :: GetOperationDetailResponse
-getOperationDetailResponse = GetOperationDetailResponse'{_godrStatus = Nothing, _godrSubmittedDate = Nothing, _godrDomainName = Nothing, _godrOperationId = Nothing, _godrType = Nothing, _godrMessage = Nothing};
+getOperationDetailResponse :: Int -> GetOperationDetailResponse
+getOperationDetailResponse pStatusCode = GetOperationDetailResponse'{_godrStatus = Nothing, _godrSubmittedDate = Nothing, _godrDomainName = Nothing, _godrOperationId = Nothing, _godrType = Nothing, _godrMessage = Nothing, _godrStatusCode = pStatusCode};
 
 -- | The current status of the requested operation in the system.
 --
@@ -157,3 +165,7 @@ godrType = lens _godrType (\ s a -> s{_godrType = a});
 -- Type: String
 godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrMessage = lens _godrMessage (\ s a -> s{_godrMessage = a});
+
+-- | FIXME: Undocumented member.
+godrStatusCode :: Lens' GetOperationDetailResponse Int
+godrStatusCode = lens _godrStatusCode (\ s a -> s{_godrStatusCode = a});

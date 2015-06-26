@@ -54,6 +54,7 @@ module Network.AWS.OpsWorks.CreateInstance
     , createInstanceResponse
     -- ** Response lenses
     , cirInstanceId
+    , cirStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -218,7 +219,8 @@ instance AWSRequest CreateInstance where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateInstanceResponse' <$> (x .?> "InstanceId"))
+                 CreateInstanceResponse' <$>
+                   (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateInstance where
         toHeaders
@@ -253,17 +255,25 @@ instance ToPath CreateInstance where
 instance ToQuery CreateInstance where
         toQuery = const mempty
 
--- | /See:/ 'createInstanceResponse' smart constructor.
+-- | Contains the response to a @CreateInstance@ request.
+--
+-- /See:/ 'createInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cirInstanceId'
-newtype CreateInstanceResponse = CreateInstanceResponse'{_cirInstanceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cirStatusCode'
+data CreateInstanceResponse = CreateInstanceResponse'{_cirInstanceId :: Maybe Text, _cirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceResponse' smart constructor.
-createInstanceResponse :: CreateInstanceResponse
-createInstanceResponse = CreateInstanceResponse'{_cirInstanceId = Nothing};
+createInstanceResponse :: Int -> CreateInstanceResponse
+createInstanceResponse pStatusCode = CreateInstanceResponse'{_cirInstanceId = Nothing, _cirStatusCode = pStatusCode};
 
 -- | The instance ID.
 cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirInstanceId = lens _cirInstanceId (\ s a -> s{_cirInstanceId = a});
+
+-- | FIXME: Undocumented member.
+cirStatusCode :: Lens' CreateInstanceResponse Int
+cirStatusCode = lens _cirStatusCode (\ s a -> s{_cirStatusCode = a});

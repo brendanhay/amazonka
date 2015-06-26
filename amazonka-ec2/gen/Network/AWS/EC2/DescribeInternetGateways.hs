@@ -34,6 +34,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     , describeInternetGatewaysResponse
     -- ** Response lenses
     , digrInternetGateways
+    , digrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -105,7 +106,8 @@ instance AWSRequest DescribeInternetGateways where
           = receiveXML
               (\ s h x ->
                  DescribeInternetGatewaysResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty
@@ -129,12 +131,18 @@ instance ToQuery DescribeInternetGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'digrInternetGateways'
-newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways :: Maybe [InternetGateway]} deriving (Eq, Read, Show)
+--
+-- * 'digrStatusCode'
+data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways :: Maybe [InternetGateway], _digrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
-describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways = Nothing};
+describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
+describeInternetGatewaysResponse pStatusCode = DescribeInternetGatewaysResponse'{_digrInternetGateways = Nothing, _digrStatusCode = pStatusCode};
 
 -- | Information about one or more Internet gateways.
 digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+digrStatusCode :: Lens' DescribeInternetGatewaysResponse Int
+digrStatusCode = lens _digrStatusCode (\ s a -> s{_digrStatusCode = a});

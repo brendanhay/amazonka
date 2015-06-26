@@ -39,6 +39,7 @@ module Network.AWS.OpsWorks.DescribePermissions
     , describePermissionsResponse
     -- ** Response lenses
     , dprPermissions
+    , dprStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -77,7 +78,8 @@ instance AWSRequest DescribePermissions where
           = receiveJSON
               (\ s h x ->
                  DescribePermissionsResponse' <$>
-                   (x .?> "Permissions" .!@ mempty))
+                   (x .?> "Permissions" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribePermissions where
         toHeaders
@@ -101,16 +103,20 @@ instance ToPath DescribePermissions where
 instance ToQuery DescribePermissions where
         toQuery = const mempty
 
--- | /See:/ 'describePermissionsResponse' smart constructor.
+-- | Contains the response to a @DescribePermissions@ request.
+--
+-- /See:/ 'describePermissionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dprPermissions'
-newtype DescribePermissionsResponse = DescribePermissionsResponse'{_dprPermissions :: Maybe [Permission]} deriving (Eq, Read, Show)
+--
+-- * 'dprStatusCode'
+data DescribePermissionsResponse = DescribePermissionsResponse'{_dprPermissions :: Maybe [Permission], _dprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePermissionsResponse' smart constructor.
-describePermissionsResponse :: DescribePermissionsResponse
-describePermissionsResponse = DescribePermissionsResponse'{_dprPermissions = Nothing};
+describePermissionsResponse :: Int -> DescribePermissionsResponse
+describePermissionsResponse pStatusCode = DescribePermissionsResponse'{_dprPermissions = Nothing, _dprStatusCode = pStatusCode};
 
 -- | An array of @Permission@ objects that describe the stack permissions.
 --
@@ -124,3 +130,7 @@ describePermissionsResponse = DescribePermissionsResponse'{_dprPermissions = Not
 --     specified stack and IAM ARN.
 dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dprStatusCode :: Lens' DescribePermissionsResponse Int
+dprStatusCode = lens _dprStatusCode (\ s a -> s{_dprStatusCode = a});

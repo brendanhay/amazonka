@@ -41,7 +41,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'removeTagsFromResource' smart constructor.
+-- |
+--
+-- /See:/ 'removeTagsFromResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -21,14 +21,62 @@ module Network.AWS.ElastiCache.Types
     (
     -- * Service
       ElastiCache
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _CacheSubnetGroupAlreadyExistsFault
+    , _CacheSubnetGroupInUse
+    , _CacheSecurityGroupNotFoundFault
+    , _ReservedCacheNodeAlreadyExistsFault
+    , _AuthorizationAlreadyExistsFault
+    , _ReservedCacheNodeQuotaExceededFault
+    , _CacheSubnetGroupQuotaExceededFault
+    , _ReplicationGroupNotFoundFault
+    , _ReservedCacheNodesOfferingNotFoundFault
+    , _TagQuotaPerResourceExceeded
+    , _InvalidSubnet
+    , _SnapshotNotFoundFault
+    , _InsufficientCacheClusterCapacityFault
+    , _InvalidSnapshotStateFault
+    , _SnapshotAlreadyExistsFault
+    , _TagNotFoundFault
+    , _SnapshotQuotaExceededFault
+    , _CacheParameterGroupAlreadyExistsFault
+    , _NodeQuotaForClusterExceededFault
+    , _SnapshotFeatureNotSupportedFault
+    , _CacheSubnetGroupNotFoundFault
+    , _ReservedCacheNodeNotFoundFault
+    , _InvalidParameterValueException
+    , _InvalidVPCNetworkStateFault
+    , _CacheClusterNotFoundFault
+    , _InvalidReplicationGroupStateFault
+    , _ReplicationGroupAlreadyExistsFault
+    , _SubnetInUse
+    , _CacheClusterAlreadyExistsFault
+    , _ClusterQuotaForCustomerExceededFault
+    , _AuthorizationNotFoundFault
+    , _CacheSecurityGroupQuotaExceededFault
+    , _InvalidCacheClusterStateFault
+    , _CacheParameterGroupQuotaExceededFault
+    , _NodeQuotaForCustomerExceededFault
+    , _CacheSubnetQuotaExceededFault
+    , _CacheParameterGroupNotFoundFault
+    , _InvalidParameterCombinationException
+    , _InvalidARNFault
+    , _InvalidCacheParameterGroupStateFault
+    , _CacheSecurityGroupAlreadyExistsFault
+    , _InvalidCacheSecurityGroupStateFault
 
     -- * AZMode
     , AZMode (..)
 
     -- * AutomaticFailoverStatus
     , AutomaticFailoverStatus (..)
+
+    -- * PendingAutomaticFailoverStatus
+    , PendingAutomaticFailoverStatus (..)
+
+    -- * SourceType
+    , SourceType (..)
 
     -- * AvailabilityZone
     , AvailabilityZone
@@ -218,9 +266,6 @@ module Network.AWS.ElastiCache.Types
     , pnvParameterValue
     , pnvParameterName
 
-    -- * PendingAutomaticFailoverStatus
-    , PendingAutomaticFailoverStatus (..)
-
     -- * PendingModifiedValues
     , PendingModifiedValues
     , pendingModifiedValues
@@ -310,9 +355,6 @@ module Network.AWS.ElastiCache.Types
     , snaNumCacheNodes
     , snaPort
 
-    -- * SourceType
-    , SourceType (..)
-
     -- * Subnet
     , Subnet
     , subnet
@@ -329,6 +371,7 @@ module Network.AWS.ElastiCache.Types
     , TagListMessage
     , tagListMessage
     , tlmTagList
+
     ) where
 
 import Network.AWS.Prelude
@@ -339,30 +382,229 @@ data ElastiCache
 
 instance AWSService ElastiCache where
     type Sg ElastiCache = V4
-    type Er ElastiCache = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ElastiCache
-        service' = Service
-            { _svcAbbrev  = "ElastiCache"
-            , _svcPrefix  = "elasticache"
-            , _svcVersion = "2015-02-02"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ElastiCache
+        svc = Service
+            { _svcAbbrev   = "ElastiCache"
+            , _svcPrefix   = "elasticache"
+            , _svcVersion  = "2015-02-02"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ElastiCache
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The requested cache subnet group name is already in use by an existing
+-- cache subnet group.
+_CacheSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSubnetGroupAlreadyExistsFault = _ServiceError . hasCode "CacheSubnetGroupAlreadyExists" . hasStatus 400;
+
+-- | The requested cache subnet group is currently in use.
+_CacheSubnetGroupInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSubnetGroupInUse = _ServiceError . hasCode "CacheSubnetGroupInUse" . hasStatus 400;
+
+-- | The requested cache security group name does not refer to an existing
+-- cache security group.
+_CacheSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSecurityGroupNotFoundFault = _ServiceError . hasCode "CacheSecurityGroupNotFound" . hasStatus 404;
+
+-- | You already have a reservation with the given identifier.
+_ReservedCacheNodeAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedCacheNodeAlreadyExistsFault = _ServiceError . hasCode "ReservedCacheNodeAlreadyExists" . hasStatus 404;
+
+-- | The specified Amazon EC2 security group is already authorized for the
+-- specified cache security group.
+_AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault = _ServiceError . hasCode "AuthorizationAlreadyExists" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the user\'s
+-- cache node quota.
+_ReservedCacheNodeQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedCacheNodeQuotaExceededFault = _ServiceError . hasCode "ReservedCacheNodeQuotaExceeded" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache subnet groups.
+_CacheSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSubnetGroupQuotaExceededFault = _ServiceError . hasCode "CacheSubnetGroupQuotaExceeded" . hasStatus 400;
+
+-- | The specified replication group does not exist.
+_ReplicationGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReplicationGroupNotFoundFault = _ServiceError . hasCode "ReplicationGroupNotFoundFault" . hasStatus 404;
+
+-- | The requested cache node offering does not exist.
+_ReservedCacheNodesOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedCacheNodesOfferingNotFoundFault = _ServiceError . hasCode "ReservedCacheNodesOfferingNotFound" . hasStatus 404;
+
+-- | The request cannot be processed because it would cause the resource to
+-- have more than the allowed number of tags. The maximum number of tags
+-- permitted on a resource is 10.
+_TagQuotaPerResourceExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_TagQuotaPerResourceExceeded = _ServiceError . hasCode "TagQuotaPerResourceExceeded" . hasStatus 400;
+
+-- | An invalid subnet identifier was specified.
+_InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSubnet = _ServiceError . hasCode "InvalidSubnet" . hasStatus 400;
+
+-- | The requested snapshot name does not refer to an existing snapshot.
+_SnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotNotFoundFault = _ServiceError . hasCode "SnapshotNotFoundFault" . hasStatus 404;
+
+-- | The requested cache node type is not available in the specified
+-- Availability Zone.
+_InsufficientCacheClusterCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientCacheClusterCapacityFault = _ServiceError . hasCode "InsufficientCacheClusterCapacity" . hasStatus 400;
+
+-- | The current state of the snapshot does not allow the requested action to
+-- occur.
+_InvalidSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSnapshotStateFault = _ServiceError . hasCode "InvalidSnapshotState" . hasStatus 400;
+
+-- | You already have a snapshot with the given name.
+_SnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotAlreadyExistsFault = _ServiceError . hasCode "SnapshotAlreadyExistsFault" . hasStatus 400;
+
+-- | The requested tag was not found on this resource.
+_TagNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_TagNotFoundFault = _ServiceError . hasCode "TagNotFound" . hasStatus 404;
+
+-- | The request cannot be processed because it would exceed the maximum
+-- number of snapshots.
+_SnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotQuotaExceededFault = _ServiceError . hasCode "SnapshotQuotaExceededFault" . hasStatus 400;
+
+-- | A cache parameter group with the requested name already exists.
+_CacheParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheParameterGroupAlreadyExistsFault = _ServiceError . hasCode "CacheParameterGroupAlreadyExists" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache nodes in a single cache cluster.
+_NodeQuotaForClusterExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_NodeQuotaForClusterExceededFault = _ServiceError . hasCode "NodeQuotaForClusterExceeded" . hasStatus 400;
+
+-- | You attempted one of the following actions:
+--
+-- -   Creating a snapshot of a Redis cache cluster running on a /t1.micro/
+--     cache node.
+--
+-- -   Creating a snapshot of a cache cluster that is running Memcached
+--     rather than Redis.
+--
+-- Neither of these are supported by ElastiCache.
+_SnapshotFeatureNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotFeatureNotSupportedFault = _ServiceError . hasCode "SnapshotFeatureNotSupportedFault" . hasStatus 400;
+
+-- | The requested cache subnet group name does not refer to an existing
+-- cache subnet group.
+_CacheSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSubnetGroupNotFoundFault = _ServiceError . hasCode "CacheSubnetGroupNotFoundFault" . hasStatus 400;
+
+-- | The requested reserved cache node was not found.
+_ReservedCacheNodeNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedCacheNodeNotFoundFault = _ServiceError . hasCode "ReservedCacheNodeNotFound" . hasStatus 404;
+
+-- | The value for a parameter is invalid.
+_InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValue" . hasStatus 400;
+
+-- | The VPC network is in an invalid state.
+_InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault = _ServiceError . hasCode "InvalidVPCNetworkStateFault" . hasStatus 400;
+
+-- | The requested cache cluster ID does not refer to an existing cache
+-- cluster.
+_CacheClusterNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheClusterNotFoundFault = _ServiceError . hasCode "CacheClusterNotFound" . hasStatus 404;
+
+-- | The requested replication group is not in the /available/ state.
+_InvalidReplicationGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidReplicationGroupStateFault = _ServiceError . hasCode "InvalidReplicationGroupState" . hasStatus 400;
+
+-- | The specified replication group already exists.
+_ReplicationGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReplicationGroupAlreadyExistsFault = _ServiceError . hasCode "ReplicationGroupAlreadyExists" . hasStatus 400;
+
+-- | The requested subnet is being used by another cache subnet group.
+_SubnetInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubnetInUse = _ServiceError . hasCode "SubnetInUse" . hasStatus 400;
+
+-- | You already have a cache cluster with the given identifier.
+_CacheClusterAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheClusterAlreadyExistsFault = _ServiceError . hasCode "CacheClusterAlreadyExists" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache clusters per customer.
+_ClusterQuotaForCustomerExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterQuotaForCustomerExceededFault = _ServiceError . hasCode "ClusterQuotaForCustomerExceeded" . hasStatus 400;
+
+-- | The specified Amazon EC2 security group is not authorized for the
+-- specified cache security group.
+_AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault = _ServiceError . hasCode "AuthorizationNotFound" . hasStatus 404;
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache security groups.
+_CacheSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSecurityGroupQuotaExceededFault = _ServiceError . hasCode "QuotaExceeded.CacheSecurityGroup" . hasStatus 400;
+
+-- | The requested cache cluster is not in the /available/ state.
+_InvalidCacheClusterStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidCacheClusterStateFault = _ServiceError . hasCode "InvalidCacheClusterState" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the maximum
+-- number of cache security groups.
+_CacheParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheParameterGroupQuotaExceededFault = _ServiceError . hasCode "CacheParameterGroupQuotaExceeded" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache nodes per customer.
+_NodeQuotaForCustomerExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_NodeQuotaForCustomerExceededFault = _ServiceError . hasCode "NodeQuotaForCustomerExceeded" . hasStatus 400;
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of subnets in a cache subnet group.
+_CacheSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSubnetQuotaExceededFault = _ServiceError . hasCode "CacheSubnetQuotaExceededFault" . hasStatus 400;
+
+-- | The requested cache parameter group name does not refer to an existing
+-- cache parameter group.
+_CacheParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheParameterGroupNotFoundFault = _ServiceError . hasCode "CacheParameterGroupNotFound" . hasStatus 404;
+
+-- | Two or more incompatible parameters were specified.
+_InvalidParameterCombinationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException = _ServiceError . hasCode "InvalidParameterCombination" . hasStatus 400;
+
+-- | The requested Amazon Resource Name (ARN) does not refer to an existing
+-- resource.
+_InvalidARNFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidARNFault = _ServiceError . hasCode "InvalidARN" . hasStatus 400;
+
+-- | The current state of the cache parameter group does not allow the
+-- requested action to occur.
+_InvalidCacheParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidCacheParameterGroupStateFault = _ServiceError . hasCode "InvalidCacheParameterGroupState" . hasStatus 400;
+
+-- | A cache security group with the specified name already exists.
+_CacheSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CacheSecurityGroupAlreadyExistsFault = _ServiceError . hasCode "CacheSecurityGroupAlreadyExists" . hasStatus 400;
+
+-- | The current state of the cache security group does not allow deletion.
+_InvalidCacheSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidCacheSecurityGroupStateFault = _ServiceError . hasCode "InvalidCacheSecurityGroupState" . hasStatus 400;
 
 data AZMode = SingleAZ | CrossAZ deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -405,7 +647,53 @@ instance ToHeader AutomaticFailoverStatus
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
--- | /See:/ 'availabilityZone' smart constructor.
+data PendingAutomaticFailoverStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PendingAutomaticFailoverStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fail ("Failure parsing PendingAutomaticFailoverStatus from " ++ show e)
+
+instance ToText PendingAutomaticFailoverStatus where
+    toText = \case
+        Disabled -> "disabled"
+        Enabled -> "enabled"
+
+instance Hashable PendingAutomaticFailoverStatus
+instance ToQuery PendingAutomaticFailoverStatus
+instance ToHeader PendingAutomaticFailoverStatus
+
+instance FromXML PendingAutomaticFailoverStatus where
+    parseXML = parseXMLText "PendingAutomaticFailoverStatus"
+
+data SourceType = CacheSubnetGroup | CacheCluster | CacheParameterGroup | CacheSecurityGroup deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "cache-cluster" -> pure CacheCluster
+        "cache-parameter-group" -> pure CacheParameterGroup
+        "cache-security-group" -> pure CacheSecurityGroup
+        "cache-subnet-group" -> pure CacheSubnetGroup
+        e -> fail ("Failure parsing SourceType from " ++ show e)
+
+instance ToText SourceType where
+    toText = \case
+        CacheCluster -> "cache-cluster"
+        CacheParameterGroup -> "cache-parameter-group"
+        CacheSecurityGroup -> "cache-security-group"
+        CacheSubnetGroup -> "cache-subnet-group"
+
+instance Hashable SourceType
+instance ToQuery SourceType
+instance ToHeader SourceType
+
+instance FromXML SourceType where
+    parseXML = parseXMLText "SourceType"
+
+-- | Describes an Availability Zone in which the cache cluster is launched.
+--
+-- /See:/ 'availabilityZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -423,7 +711,9 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
--- | /See:/ 'cacheCluster' smart constructor.
+-- | Contains all of the attributes of a specific cache cluster.
+--
+-- /See:/ 'cacheCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -664,7 +954,9 @@ instance FromXML CacheCluster where
                 <*> (x .@? "PendingModifiedValues")
                 <*> (x .@? "NumCacheNodes")
 
--- | /See:/ 'cacheEngineVersion' smart constructor.
+-- | Provides all of the details about a particular cache engine version.
+--
+-- /See:/ 'cacheEngineVersion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -713,7 +1005,41 @@ instance FromXML CacheEngineVersion where
                 <*> (x .@? "CacheEngineVersionDescription")
                 <*> (x .@? "Engine")
 
--- | /See:/ 'cacheNode' smart constructor.
+-- | Represents an individual cache node within a cache cluster. Each cache
+-- node runs its own instance of the cluster\'s protocol-compliant caching
+-- software - either Memcached or Redis.
+--
+-- Valid node types are as follows:
+--
+-- -   General purpose:
+--     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
+--         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
+--         @cache.m3.xlarge@, @cache.m3.2xlarge@
+--     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
+--         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
+-- -   Compute optimized: @cache.c1.xlarge@
+-- -   Memory optimized
+--     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
+--         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
+--     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
+--         @cache.m2.4xlarge@
+--
+-- __Notes:__
+--
+-- -   All t2 instances are created in an Amazon Virtual Private Cloud
+--     (VPC).
+-- -   Redis backup\/restore is not supported for t2 instances.
+-- -   Redis Append-only files (AOF) functionality is not supported for t1
+--     or t2 instances.
+--
+-- For a complete listing of cache node types and specifications, see
+-- <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details>
+-- and
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached>
+-- or
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
+--
+-- /See:/ 'cacheNode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -779,7 +1105,12 @@ instance FromXML CacheNode where
                 <*> (x .@? "CacheNodeStatus")
                 <*> (x .@? "Endpoint")
 
--- | /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
+-- | A parameter that has a different value for each cache node type it is
+-- applied to. For example, in a Redis cache cluster, a /cache.m1.large/
+-- cache node type would have a larger /maxmemory/ value than a
+-- /cache.m1.small/ type.
+--
+-- /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -852,7 +1183,9 @@ instance FromXML CacheNodeTypeSpecificParameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
+-- | A value that applies only to a certain cache node type.
+--
+-- /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -878,7 +1211,9 @@ instance FromXML CacheNodeTypeSpecificValue where
           = CacheNodeTypeSpecificValue' <$>
               (x .@? "CacheNodeType") <*> (x .@? "Value")
 
--- | /See:/ 'cacheParameterGroup' smart constructor.
+-- | Represents the output of a /CreateCacheParameterGroup/ action.
+--
+-- /See:/ 'cacheParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -913,7 +1248,12 @@ instance FromXML CacheParameterGroup where
                 (x .@? "CacheParameterGroupName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'cacheParameterGroupNameMessage' smart constructor.
+-- | Represents the output of one of the following actions:
+--
+-- -   /ModifyCacheParameterGroup/
+-- -   /ResetCacheParameterGroup/
+--
+-- /See:/ 'cacheParameterGroupNameMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -933,7 +1273,9 @@ instance FromXML CacheParameterGroupNameMessage where
           = CacheParameterGroupNameMessage' <$>
               (x .@? "CacheParameterGroupName")
 
--- | /See:/ 'cacheParameterGroupStatus' smart constructor.
+-- | The status of the cache parameter group.
+--
+-- /See:/ 'cacheParameterGroupStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -970,7 +1312,13 @@ instance FromXML CacheParameterGroupStatus where
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "ParameterApplyStatus")
 
--- | /See:/ 'cacheSecurityGroup' smart constructor.
+-- | Represents the output of one of the following actions:
+--
+-- -   /AuthorizeCacheSecurityGroupIngress/
+-- -   /CreateCacheSecurityGroup/
+-- -   /RevokeCacheSecurityGroupIngress/
+--
+-- /See:/ 'cacheSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1014,7 +1362,10 @@ instance FromXML CacheSecurityGroup where
                    may (parseXMLList "EC2SecurityGroup"))
                 <*> (x .@? "Description")
 
--- | /See:/ 'cacheSecurityGroupMembership' smart constructor.
+-- | Represents a cache cluster\'s status within a particular cache security
+-- group.
+--
+-- /See:/ 'cacheSecurityGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1042,7 +1393,12 @@ instance FromXML CacheSecurityGroupMembership where
           = CacheSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "CacheSecurityGroupName")
 
--- | /See:/ 'cacheSubnetGroup' smart constructor.
+-- | Represents the output of one of the following actions:
+--
+-- -   /CreateCacheSubnetGroup/
+-- -   /ModifyCacheSubnetGroup/
+--
+-- /See:/ 'cacheSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1085,7 +1441,10 @@ instance FromXML CacheSubnetGroup where
                 <*> (x .@? "CacheSubnetGroupName")
                 <*> (x .@? "CacheSubnetGroupDescription")
 
--- | /See:/ 'ec2SecurityGroup' smart constructor.
+-- | Provides ownership and status information for an Amazon EC2 security
+-- group.
+--
+-- /See:/ 'ec2SecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1119,7 +1478,10 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "EC2SecurityGroupOwnerId")
                 <*> (x .@? "EC2SecurityGroupName")
 
--- | /See:/ 'endpoint' smart constructor.
+-- | Represents the information required for client programs to connect to a
+-- cache node.
+--
+-- /See:/ 'endpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1144,7 +1506,9 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
--- | /See:/ 'engineDefaults' smart constructor.
+-- | Represents the output of a /DescribeEngineDefaultParameters/ action.
+--
+-- /See:/ 'engineDefaults' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1191,7 +1555,11 @@ instance FromXML EngineDefaults where
                    may (parseXMLList "Parameter"))
                 <*> (x .@? "Marker")
 
--- | /See:/ 'event' smart constructor.
+-- | Represents a single occurrence of something interesting within the
+-- system. Some examples of events are creating a cache cluster, adding or
+-- removing a cache node, or rebooting a node.
+--
+-- /See:/ 'event' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1234,7 +1602,9 @@ instance FromXML Event where
                 <*> (x .@? "Date")
                 <*> (x .@? "Message")
 
--- | /See:/ 'nodeGroup' smart constructor.
+-- | Represents a collection of cache nodes in a replication group.
+--
+-- /See:/ 'nodeGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1278,7 +1648,9 @@ instance FromXML NodeGroup where
                    may (parseXMLList "NodeGroupMember"))
                 <*> (x .@? "NodeGroupId")
 
--- | /See:/ 'nodeGroupMember' smart constructor.
+-- | Represents a single node within a node group.
+--
+-- /See:/ 'nodeGroupMember' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1327,7 +1699,9 @@ instance FromXML NodeGroupMember where
                 <*> (x .@? "CurrentRole")
                 <*> (x .@? "ReadEndpoint")
 
--- | /See:/ 'nodeSnapshot' smart constructor.
+-- | Represents an individual cache node in a snapshot of a cache cluster.
+--
+-- /See:/ 'nodeSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1370,7 +1744,11 @@ instance FromXML NodeSnapshot where
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "CacheSize")
 
--- | /See:/ 'notificationConfiguration' smart constructor.
+-- | Describes a notification topic and its status. Notification topics are
+-- used for publishing ElastiCache events to subscribers using Amazon
+-- Simple Notification Service (SNS).
+--
+-- /See:/ 'notificationConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1396,7 +1774,10 @@ instance FromXML NotificationConfiguration where
           = NotificationConfiguration' <$>
               (x .@? "TopicStatus") <*> (x .@? "TopicArn")
 
--- | /See:/ 'parameter' smart constructor.
+-- | Describes an individual setting that controls some aspect of ElastiCache
+-- behavior.
+--
+-- /See:/ 'parameter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1467,7 +1848,10 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'parameterNameValue' smart constructor.
+-- | Describes a name-value pair that is used to update the value of a
+-- parameter.
+--
+-- /See:/ 'parameterNameValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1494,27 +1878,10 @@ instance ToQuery ParameterNameValue where
               ["ParameterValue" =: _pnvParameterValue,
                "ParameterName" =: _pnvParameterName]
 
-data PendingAutomaticFailoverStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PendingAutomaticFailoverStatus where
-    parser = takeLowerText >>= \case
-        "disabled" -> pure Disabled
-        "enabled" -> pure Enabled
-        e -> fail ("Failure parsing PendingAutomaticFailoverStatus from " ++ show e)
-
-instance ToText PendingAutomaticFailoverStatus where
-    toText = \case
-        Disabled -> "disabled"
-        Enabled -> "enabled"
-
-instance Hashable PendingAutomaticFailoverStatus
-instance ToQuery PendingAutomaticFailoverStatus
-instance ToHeader PendingAutomaticFailoverStatus
-
-instance FromXML PendingAutomaticFailoverStatus where
-    parseXML = parseXMLText "PendingAutomaticFailoverStatus"
-
--- | /See:/ 'pendingModifiedValues' smart constructor.
+-- | A group of settings that will be applied to the cache cluster in the
+-- future, or that are currently being applied.
+--
+-- /See:/ 'pendingModifiedValues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1554,7 +1921,10 @@ instance FromXML PendingModifiedValues where
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "NumCacheNodes")
 
--- | /See:/ 'recurringCharge' smart constructor.
+-- | Contains the specific price and frequency of a recurring charges for a
+-- reserved cache node, or for a reserved cache node offering.
+--
+-- /See:/ 'recurringCharge' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1581,7 +1951,9 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
--- | /See:/ 'replicationGroup' smart constructor.
+-- | Contains all of the attributes of a specific replication group.
+--
+-- /See:/ 'replicationGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1663,7 +2035,10 @@ instance FromXML ReplicationGroup where
                 <*> (x .@? "Description")
                 <*> (x .@? "AutomaticFailover")
 
--- | /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
+-- | The settings to be applied to the replication group, either immediately
+-- or during the next maintenance window.
+--
+-- /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1698,7 +2073,9 @@ instance FromXML
               (x .@? "PrimaryClusterId") <*>
                 (x .@? "AutomaticFailoverStatus")
 
--- | /See:/ 'reservedCacheNode' smart constructor.
+-- | Represents the output of a /PurchaseReservedCacheNodesOffering/ action.
+--
+-- /See:/ 'reservedCacheNode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1826,7 +2203,9 @@ instance FromXML ReservedCacheNode where
                 <*> (x .@? "Duration")
                 <*> (x .@? "ReservedCacheNodesOfferingId")
 
--- | /See:/ 'reservedCacheNodesOffering' smart constructor.
+-- | Describes all of the attributes of a reserved cache node offering.
+--
+-- /See:/ 'reservedCacheNodesOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1927,7 +2306,9 @@ instance FromXML ReservedCacheNodesOffering where
                 <*> (x .@? "Duration")
                 <*> (x .@? "ReservedCacheNodesOfferingId")
 
--- | /See:/ 'securityGroupMembership' smart constructor.
+-- | Represents a single cache security group and its status.
+--
+-- /See:/ 'securityGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1955,7 +2336,10 @@ instance FromXML SecurityGroupMembership where
           = SecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "SecurityGroupId")
 
--- | /See:/ 'snapshot' smart constructor.
+-- | Represents a copy of an entire cache cluster as of the time when the
+-- snapshot was taken.
+--
+-- /See:/ 'snapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2177,31 +2561,11 @@ instance FromXML Snapshot where
                 <*> (x .@? "NumCacheNodes")
                 <*> (x .@? "Port")
 
-data SourceType = CacheSubnetGroup | CacheCluster | CacheParameterGroup | CacheSecurityGroup deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SourceType where
-    parser = takeLowerText >>= \case
-        "cache-cluster" -> pure CacheCluster
-        "cache-parameter-group" -> pure CacheParameterGroup
-        "cache-security-group" -> pure CacheSecurityGroup
-        "cache-subnet-group" -> pure CacheSubnetGroup
-        e -> fail ("Failure parsing SourceType from " ++ show e)
-
-instance ToText SourceType where
-    toText = \case
-        CacheCluster -> "cache-cluster"
-        CacheParameterGroup -> "cache-parameter-group"
-        CacheSecurityGroup -> "cache-security-group"
-        CacheSubnetGroup -> "cache-subnet-group"
-
-instance Hashable SourceType
-instance ToQuery SourceType
-instance ToHeader SourceType
-
-instance FromXML SourceType where
-    parseXML = parseXMLText "SourceType"
-
--- | /See:/ 'subnet' smart constructor.
+-- | Represents the subnet associated with a cache cluster. This parameter
+-- refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC)
+-- and used with ElastiCache.
+--
+-- /See:/ 'subnet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2228,7 +2592,11 @@ instance FromXML Subnet where
               (x .@? "SubnetIdentifier") <*>
                 (x .@? "SubnetAvailabilityZone")
 
--- | /See:/ 'tag' smart constructor.
+-- | A cost allocation Tag that can be added to an ElastiCache cluster or
+-- replication group. Tags are composed of a Key\/Value pair. A tag with a
+-- null Value is permitted.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2257,7 +2625,10 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | /See:/ 'tagListMessage' smart constructor.
+-- | Represents the output from the /AddTagsToResource/,
+-- /ListTagsOnResource/, and /RemoveTagsFromResource/ actions.
+--
+-- /See:/ 'tagListMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

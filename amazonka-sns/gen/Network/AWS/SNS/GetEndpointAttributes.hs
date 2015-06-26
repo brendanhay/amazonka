@@ -35,6 +35,7 @@ module Network.AWS.SNS.GetEndpointAttributes
     , getEndpointAttributesResponse
     -- ** Response lenses
     , gearAttributes
+    , gearStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'getEndpointAttributes' smart constructor.
+-- | Input for GetEndpointAttributes action.
+--
+-- /See:/ 'getEndpointAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,8 @@ instance AWSRequest GetEndpointAttributes where
               (\ s h x ->
                  GetEndpointAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value")))
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
@@ -82,16 +86,20 @@ instance ToQuery GetEndpointAttributes where
                "Version" =: ("2010-03-31" :: ByteString),
                "EndpointArn" =: _geaEndpointARN]
 
--- | /See:/ 'getEndpointAttributesResponse' smart constructor.
+-- | Response from GetEndpointAttributes of the EndpointArn.
+--
+-- /See:/ 'getEndpointAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gearAttributes'
-newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+--
+-- * 'gearStatusCode'
+data GetEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes :: Maybe (Map Text Text), _gearStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
-getEndpointAttributesResponse :: GetEndpointAttributesResponse
-getEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes = Nothing};
+getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse
+getEndpointAttributesResponse pStatusCode = GetEndpointAttributesResponse'{_gearAttributes = Nothing, _gearStatusCode = pStatusCode};
 
 -- | Attributes include the following:
 --
@@ -108,3 +116,7 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes =
 --     notification service.
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+gearStatusCode :: Lens' GetEndpointAttributesResponse Int
+gearStatusCode = lens _gearStatusCode (\ s a -> s{_gearStatusCode = a});

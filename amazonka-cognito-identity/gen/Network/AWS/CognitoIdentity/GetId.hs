@@ -39,6 +39,7 @@ module Network.AWS.CognitoIdentity.GetId
     , getIdResponse
     -- ** Response lenses
     , girIdentityId
+    , girStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getId' smart constructor.
+-- | Input to the GetId action.
+--
+-- /See:/ 'getId' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -88,7 +91,9 @@ instance AWSRequest GetId where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> GetIdResponse' <$> (x .?> "IdentityId"))
+              (\ s h x ->
+                 GetIdResponse' <$>
+                   (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetId where
         toHeaders
@@ -111,17 +116,25 @@ instance ToPath GetId where
 instance ToQuery GetId where
         toQuery = const mempty
 
--- | /See:/ 'getIdResponse' smart constructor.
+-- | Returned in response to a GetId request.
+--
+-- /See:/ 'getIdResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'girIdentityId'
-newtype GetIdResponse = GetIdResponse'{_girIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'girStatusCode'
+data GetIdResponse = GetIdResponse'{_girIdentityId :: Maybe Text, _girStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetIdResponse' smart constructor.
-getIdResponse :: GetIdResponse
-getIdResponse = GetIdResponse'{_girIdentityId = Nothing};
+getIdResponse :: Int -> GetIdResponse
+getIdResponse pStatusCode = GetIdResponse'{_girIdentityId = Nothing, _girStatusCode = pStatusCode};
 
 -- | A unique identifier in the format REGION:GUID.
 girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\ s a -> s{_girIdentityId = a});
+
+-- | FIXME: Undocumented member.
+girStatusCode :: Lens' GetIdResponse Int
+girStatusCode = lens _girStatusCode (\ s a -> s{_girStatusCode = a});

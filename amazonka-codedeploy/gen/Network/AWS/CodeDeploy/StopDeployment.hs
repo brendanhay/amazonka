@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.StopDeployment
     -- ** Response lenses
     , sdrStatus
     , sdrStatusMessage
+    , sdrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'stopDeployment' smart constructor.
+-- | Represents the input of a stop deployment operation.
+--
+-- /See:/ 'stopDeployment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest StopDeployment where
           = receiveJSON
               (\ s h x ->
                  StopDeploymentResponse' <$>
-                   (x .?> "status") <*> (x .?> "statusMessage"))
+                   (x .?> "status") <*> (x .?> "statusMessage") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders StopDeployment where
         toHeaders
@@ -84,18 +88,22 @@ instance ToPath StopDeployment where
 instance ToQuery StopDeployment where
         toQuery = const mempty
 
--- | /See:/ 'stopDeploymentResponse' smart constructor.
+-- | Represents the output of a stop deployment operation.
+--
+-- /See:/ 'stopDeploymentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sdrStatus'
 --
 -- * 'sdrStatusMessage'
-data StopDeploymentResponse = StopDeploymentResponse'{_sdrStatus :: Maybe StopStatus, _sdrStatusMessage :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'sdrStatusCode'
+data StopDeploymentResponse = StopDeploymentResponse'{_sdrStatus :: Maybe StopStatus, _sdrStatusMessage :: Maybe Text, _sdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StopDeploymentResponse' smart constructor.
-stopDeploymentResponse :: StopDeploymentResponse
-stopDeploymentResponse = StopDeploymentResponse'{_sdrStatus = Nothing, _sdrStatusMessage = Nothing};
+stopDeploymentResponse :: Int -> StopDeploymentResponse
+stopDeploymentResponse pStatusCode = StopDeploymentResponse'{_sdrStatus = Nothing, _sdrStatusMessage = Nothing, _sdrStatusCode = pStatusCode};
 
 -- | The status of the stop deployment operation:
 --
@@ -107,3 +115,7 @@ sdrStatus = lens _sdrStatus (\ s a -> s{_sdrStatus = a});
 -- | An accompanying status message.
 sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrStatusMessage = lens _sdrStatusMessage (\ s a -> s{_sdrStatusMessage = a});
+
+-- | FIXME: Undocumented member.
+sdrStatusCode :: Lens' StopDeploymentResponse Int
+sdrStatusCode = lens _sdrStatusCode (\ s a -> s{_sdrStatusCode = a});

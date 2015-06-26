@@ -39,6 +39,7 @@ module Network.AWS.EC2.CreateNetworkACL
     , createNetworkACLResponse
     -- ** Response lenses
     , cnarNetworkACL
+    , cnarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -77,7 +78,8 @@ instance AWSRequest CreateNetworkACL where
         response
           = receiveXML
               (\ s h x ->
-                 CreateNetworkACLResponse' <$> (x .@? "networkAcl"))
+                 CreateNetworkACLResponse' <$>
+                   (x .@? "networkAcl") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
@@ -97,12 +99,18 @@ instance ToQuery CreateNetworkACL where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cnarNetworkACL'
-newtype CreateNetworkACLResponse = CreateNetworkACLResponse'{_cnarNetworkACL :: Maybe NetworkACL} deriving (Eq, Read, Show)
+--
+-- * 'cnarStatusCode'
+data CreateNetworkACLResponse = CreateNetworkACLResponse'{_cnarNetworkACL :: Maybe NetworkACL, _cnarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkACLResponse' smart constructor.
-createNetworkACLResponse :: CreateNetworkACLResponse
-createNetworkACLResponse = CreateNetworkACLResponse'{_cnarNetworkACL = Nothing};
+createNetworkACLResponse :: Int -> CreateNetworkACLResponse
+createNetworkACLResponse pStatusCode = CreateNetworkACLResponse'{_cnarNetworkACL = Nothing, _cnarStatusCode = pStatusCode};
 
 -- | Information about the network ACL.
 cnarNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarNetworkACL = lens _cnarNetworkACL (\ s a -> s{_cnarNetworkACL = a});
+
+-- | FIXME: Undocumented member.
+cnarStatusCode :: Lens' CreateNetworkACLResponse Int
+cnarStatusCode = lens _cnarStatusCode (\ s a -> s{_cnarStatusCode = a});

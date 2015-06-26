@@ -41,15 +41,18 @@ module Network.AWS.SNS.ListPlatformApplications
     -- ** Response lenses
     , lparPlatformApplications
     , lparNextToken
+    , lparStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'listPlatformApplications' smart constructor.
+-- | Input for ListPlatformApplications action.
+--
+-- /See:/ 'listPlatformApplications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,8 @@ instance AWSRequest ListPlatformApplications where
                  ListPlatformApplicationsResponse' <$>
                    (x .@? "PlatformApplications" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty
@@ -100,18 +104,22 @@ instance ToQuery ListPlatformApplications where
                "Version" =: ("2010-03-31" :: ByteString),
                "NextToken" =: _lpaNextToken]
 
--- | /See:/ 'listPlatformApplicationsResponse' smart constructor.
+-- | Response for ListPlatformApplications action.
+--
+-- /See:/ 'listPlatformApplicationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lparPlatformApplications'
 --
 -- * 'lparNextToken'
-data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications :: Maybe [PlatformApplication], _lparNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lparStatusCode'
+data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications :: Maybe [PlatformApplication], _lparNextToken :: Maybe Text, _lparStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
-listPlatformApplicationsResponse :: ListPlatformApplicationsResponse
-listPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications = Nothing, _lparNextToken = Nothing};
+listPlatformApplicationsResponse :: Int -> ListPlatformApplicationsResponse
+listPlatformApplicationsResponse pStatusCode = ListPlatformApplicationsResponse'{_lparPlatformApplications = Nothing, _lparNextToken = Nothing, _lparStatusCode = pStatusCode};
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
@@ -122,3 +130,7 @@ lparPlatformApplications = lens _lparPlatformApplications (\ s a -> s{_lparPlatf
 -- action if additional records are available after the first page results.
 lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparNextToken = lens _lparNextToken (\ s a -> s{_lparNextToken = a});
+
+-- | FIXME: Undocumented member.
+lparStatusCode :: Lens' ListPlatformApplicationsResponse Int
+lparStatusCode = lens _lparStatusCode (\ s a -> s{_lparStatusCode = a});

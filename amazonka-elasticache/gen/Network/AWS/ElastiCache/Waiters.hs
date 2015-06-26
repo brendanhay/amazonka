@@ -17,4 +17,4 @@ module Network.AWS.ElastiCache.Waiters where
 
 import Network.AWS.ElastiCache.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

@@ -32,8 +32,9 @@ module Network.AWS.ECS.DescribeServices
     -- ** Response constructor
     , describeServicesResponse
     -- ** Response lenses
-    , dsrFailures
-    , dsrServices
+    , dFailures
+    , dServices
+    , dStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -71,7 +72,8 @@ instance AWSRequest DescribeServices where
               (\ s h x ->
                  DescribeServicesResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "services" .!@ mempty))
+                     (x .?> "services" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -99,19 +101,25 @@ instance ToQuery DescribeServices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrFailures'
+-- * 'dFailures'
 --
--- * 'dsrServices'
-data DescribeServicesResponse = DescribeServicesResponse'{_dsrFailures :: Maybe [Failure], _dsrServices :: Maybe [ContainerService]} deriving (Eq, Read, Show)
+-- * 'dServices'
+--
+-- * 'dStatusCode'
+data DescribeServicesResponse = DescribeServicesResponse'{_dFailures :: Maybe [Failure], _dServices :: Maybe [ContainerService], _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
-describeServicesResponse :: DescribeServicesResponse
-describeServicesResponse = DescribeServicesResponse'{_dsrFailures = Nothing, _dsrServices = Nothing};
+describeServicesResponse :: Int -> DescribeServicesResponse
+describeServicesResponse pStatusCode = DescribeServicesResponse'{_dFailures = Nothing, _dServices = Nothing, _dStatusCode = pStatusCode};
 
 -- | Any failures associated with the call.
-dsrFailures :: Lens' DescribeServicesResponse [Failure]
-dsrFailures = lens _dsrFailures (\ s a -> s{_dsrFailures = a}) . _Default;
+dFailures :: Lens' DescribeServicesResponse [Failure]
+dFailures = lens _dFailures (\ s a -> s{_dFailures = a}) . _Default;
 
 -- | The list of services described.
-dsrServices :: Lens' DescribeServicesResponse [ContainerService]
-dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;
+dServices :: Lens' DescribeServicesResponse [ContainerService]
+dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DescribeServicesResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

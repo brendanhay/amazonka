@@ -50,6 +50,7 @@ module Network.AWS.Route53.ListHostedZonesByName
     , lhzbnrHostedZones
     , lhzbnrIsTruncated
     , lhzbnrMaxItems
+    , lhzbnrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -57,7 +58,20 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listHostedZonesByName' smart constructor.
+-- | To retrieve a list of your hosted zones in lexicographic order, send a
+-- @GET@ request to the @2013-04-01\/hostedzonesbyname@ resource. The
+-- response to this request includes a @HostedZones@ element with zero or
+-- more @HostedZone@ child elements lexicographically ordered by DNS name.
+-- By default, the list of hosted zones is displayed on a single page. You
+-- can control the length of the page that is displayed by using the
+-- @MaxItems@ parameter. You can use the @DNSName@ and @HostedZoneId@
+-- parameters to control the hosted zone that the list begins with.
+--
+-- For more information about listing hosted zones, see
+-- <http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account>
+-- in the /Amazon Route 53 Developer Guide/.
+--
+-- /See:/ 'listHostedZonesByName' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -110,7 +124,8 @@ instance AWSRequest ListHostedZonesByName where
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems"))
+                     <*> (x .@ "MaxItems")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty
@@ -125,7 +140,9 @@ instance ToQuery ListHostedZonesByName where
                "maxitems" =: _lhzbnMaxItems,
                "dnsname" =: _lhzbnDNSName]
 
--- | /See:/ 'listHostedZonesByNameResponse' smart constructor.
+-- | A complex type that contains the response for the request.
+--
+-- /See:/ 'listHostedZonesByNameResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -142,11 +159,13 @@ instance ToQuery ListHostedZonesByName where
 -- * 'lhzbnrIsTruncated'
 --
 -- * 'lhzbnrMaxItems'
-data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId :: Maybe Text, _lhzbnrNextHostedZoneId :: Maybe Text, _lhzbnrDNSName :: Maybe Text, _lhzbnrNextDNSName :: Maybe Text, _lhzbnrHostedZones :: [HostedZone], _lhzbnrIsTruncated :: Bool, _lhzbnrMaxItems :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lhzbnrStatusCode'
+data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId :: Maybe Text, _lhzbnrNextHostedZoneId :: Maybe Text, _lhzbnrDNSName :: Maybe Text, _lhzbnrNextDNSName :: Maybe Text, _lhzbnrHostedZones :: [HostedZone], _lhzbnrIsTruncated :: Bool, _lhzbnrMaxItems :: Text, _lhzbnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
-listHostedZonesByNameResponse :: Bool -> Text -> ListHostedZonesByNameResponse
-listHostedZonesByNameResponse pIsTruncated pMaxItems = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId = Nothing, _lhzbnrNextHostedZoneId = Nothing, _lhzbnrDNSName = Nothing, _lhzbnrNextDNSName = Nothing, _lhzbnrHostedZones = mempty, _lhzbnrIsTruncated = pIsTruncated, _lhzbnrMaxItems = pMaxItems};
+listHostedZonesByNameResponse :: Bool -> Text -> Int -> ListHostedZonesByNameResponse
+listHostedZonesByNameResponse pIsTruncated pMaxItems pStatusCode = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId = Nothing, _lhzbnrNextHostedZoneId = Nothing, _lhzbnrDNSName = Nothing, _lhzbnrNextDNSName = Nothing, _lhzbnrHostedZones = mempty, _lhzbnrIsTruncated = pIsTruncated, _lhzbnrMaxItems = pMaxItems, _lhzbnrStatusCode = pStatusCode};
 
 -- | The @HostedZoneId@ value sent in the request.
 lhzbnrHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
@@ -199,3 +218,7 @@ lhzbnrIsTruncated = lens _lhzbnrIsTruncated (\ s a -> s{_lhzbnrIsTruncated = a})
 -- get the next page of results.
 lhzbnrMaxItems :: Lens' ListHostedZonesByNameResponse Text
 lhzbnrMaxItems = lens _lhzbnrMaxItems (\ s a -> s{_lhzbnrMaxItems = a});
+
+-- | FIXME: Undocumented member.
+lhzbnrStatusCode :: Lens' ListHostedZonesByNameResponse Int
+lhzbnrStatusCode = lens _lhzbnrStatusCode (\ s a -> s{_lhzbnrStatusCode = a});

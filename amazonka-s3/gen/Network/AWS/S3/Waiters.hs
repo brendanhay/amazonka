@@ -17,4 +17,4 @@ module Network.AWS.S3.Waiters where
 
 import Network.AWS.Prelude
 import Network.AWS.S3.Types
-import Network.AWS.Waiters
+import Network.AWS.Waiter

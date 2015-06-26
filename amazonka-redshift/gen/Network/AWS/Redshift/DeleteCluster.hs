@@ -51,7 +51,8 @@ module Network.AWS.Redshift.DeleteCluster
     -- ** Response constructor
     , deleteClusterResponse
     -- ** Response lenses
-    , dcrCluster
+    , delCluster
+    , delStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -59,7 +60,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteCluster' smart constructor.
+-- |
+--
+-- /See:/ 'deleteCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -116,7 +119,8 @@ instance AWSRequest DeleteCluster where
         response
           = receiveXMLWrapper "DeleteClusterResult"
               (\ s h x ->
-                 DeleteClusterResponse' <$> (x .@? "Cluster"))
+                 DeleteClusterResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteCluster where
         toHeaders = const mempty
@@ -139,13 +143,19 @@ instance ToQuery DeleteCluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCluster'
-newtype DeleteClusterResponse = DeleteClusterResponse'{_dcrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+-- * 'delCluster'
+--
+-- * 'delStatusCode'
+data DeleteClusterResponse = DeleteClusterResponse'{_delCluster :: Maybe Cluster, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteClusterResponse' smart constructor.
-deleteClusterResponse :: DeleteClusterResponse
-deleteClusterResponse = DeleteClusterResponse'{_dcrCluster = Nothing};
+deleteClusterResponse :: Int -> DeleteClusterResponse
+deleteClusterResponse pStatusCode = DeleteClusterResponse'{_delCluster = Nothing, _delStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});
+delCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+delCluster = lens _delCluster (\ s a -> s{_delCluster = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteClusterResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

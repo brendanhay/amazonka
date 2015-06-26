@@ -41,7 +41,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setCognitoEvents' smart constructor.
+-- | A request to configure Cognito Events\"
+--
+-- \"
+--
+-- /See:/ 'setCognitoEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

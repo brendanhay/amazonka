@@ -35,6 +35,7 @@ module Network.AWS.SSM.ListDocuments
     -- ** Response lenses
     , ldrDocumentIdentifiers
     , ldrNextToken
+    , ldrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -82,7 +83,8 @@ instance AWSRequest ListDocuments where
               (\ s h x ->
                  ListDocumentsResponse' <$>
                    (x .?> "DocumentIdentifiers" .!@ mempty) <*>
-                     (x .?> "NextToken"))
+                     (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDocuments where
         toHeaders
@@ -113,11 +115,13 @@ instance ToQuery ListDocuments where
 -- * 'ldrDocumentIdentifiers'
 --
 -- * 'ldrNextToken'
-data ListDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers :: Maybe [DocumentIdentifier], _ldrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers :: Maybe [DocumentIdentifier], _ldrNextToken :: Maybe Text, _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDocumentsResponse' smart constructor.
-listDocumentsResponse :: ListDocumentsResponse
-listDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers = Nothing, _ldrNextToken = Nothing};
+listDocumentsResponse :: Int -> ListDocumentsResponse
+listDocumentsResponse pStatusCode = ListDocumentsResponse'{_ldrDocumentIdentifiers = Nothing, _ldrNextToken = Nothing, _ldrStatusCode = pStatusCode};
 
 -- | The names of the configuration documents.
 ldrDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
@@ -127,3 +131,7 @@ ldrDocumentIdentifiers = lens _ldrDocumentIdentifiers (\ s a -> s{_ldrDocumentId
 -- additional items to return, the string is empty.
 ldrNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDocumentsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

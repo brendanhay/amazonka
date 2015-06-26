@@ -55,6 +55,7 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , flerSearchedLogStreams
     , flerNextToken
     , flerEvents
+    , flerStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -141,7 +142,8 @@ instance AWSRequest FilterLogEvents where
                  FilterLogEventsResponse' <$>
                    (x .?> "searchedLogStreams" .!@ mempty) <*>
                      (x .?> "nextToken")
-                     <*> (x .?> "events" .!@ mempty))
+                     <*> (x .?> "events" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders FilterLogEvents where
         toHeaders
@@ -178,11 +180,13 @@ instance ToQuery FilterLogEvents where
 -- * 'flerNextToken'
 --
 -- * 'flerEvents'
-data FilterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams :: Maybe [SearchedLogStream], _flerNextToken :: Maybe Text, _flerEvents :: Maybe [FilteredLogEvent]} deriving (Eq, Read, Show)
+--
+-- * 'flerStatusCode'
+data FilterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams :: Maybe [SearchedLogStream], _flerNextToken :: Maybe Text, _flerEvents :: Maybe [FilteredLogEvent], _flerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'FilterLogEventsResponse' smart constructor.
-filterLogEventsResponse :: FilterLogEventsResponse
-filterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams = Nothing, _flerNextToken = Nothing, _flerEvents = Nothing};
+filterLogEventsResponse :: Int -> FilterLogEventsResponse
+filterLogEventsResponse pStatusCode = FilterLogEventsResponse'{_flerSearchedLogStreams = Nothing, _flerNextToken = Nothing, _flerEvents = Nothing, _flerStatusCode = pStatusCode};
 
 -- | A list of @SearchedLogStream@ objects indicating which log streams have
 -- been searched in this request and whether each has been searched
@@ -199,3 +203,7 @@ flerNextToken = lens _flerNextToken (\ s a -> s{_flerNextToken = a});
 -- from the request.
 flerEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
 flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+flerStatusCode :: Lens' FilterLogEventsResponse Int
+flerStatusCode = lens _flerStatusCode (\ s a -> s{_flerStatusCode = a});

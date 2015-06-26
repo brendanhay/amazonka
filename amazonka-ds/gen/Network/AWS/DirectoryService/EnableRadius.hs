@@ -32,6 +32,8 @@ module Network.AWS.DirectoryService.EnableRadius
     , EnableRadiusResponse
     -- ** Response constructor
     , enableRadiusResponse
+    -- ** Response lenses
+    , errStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'enableRadius' smart constructor.
+-- | Contains the inputs for the EnableRadius operation.
+--
+-- /See:/ 'enableRadius' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -65,7 +69,10 @@ instance AWSRequest EnableRadius where
         type Sv EnableRadius = DirectoryService
         type Rs EnableRadius = EnableRadiusResponse
         request = postJSON
-        response = receiveNull EnableRadiusResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 EnableRadiusResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders EnableRadius where
         toHeaders
@@ -89,9 +96,19 @@ instance ToPath EnableRadius where
 instance ToQuery EnableRadius where
         toQuery = const mempty
 
--- | /See:/ 'enableRadiusResponse' smart constructor.
-data EnableRadiusResponse = EnableRadiusResponse' deriving (Eq, Read, Show)
+-- | Contains the results of the EnableRadius operation.
+--
+-- /See:/ 'enableRadiusResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'errStatusCode'
+newtype EnableRadiusResponse = EnableRadiusResponse'{_errStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnableRadiusResponse' smart constructor.
-enableRadiusResponse :: EnableRadiusResponse
-enableRadiusResponse = EnableRadiusResponse';
+enableRadiusResponse :: Int -> EnableRadiusResponse
+enableRadiusResponse pStatusCode = EnableRadiusResponse'{_errStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+errStatusCode :: Lens' EnableRadiusResponse Int
+errStatusCode = lens _errStatusCode (\ s a -> s{_errStatusCode = a});

@@ -36,17 +36,20 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- ** Response constructor
     , describeDBSecurityGroupsResponse
     -- ** Response lenses
-    , desDBSecurityGroups
-    , desMarker
+    , ddbsgrDBSecurityGroups
+    , ddbsgrMarker
+    , ddbsgrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDBSecurityGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeDBSecurityGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,10 +94,10 @@ ddbsgDBSecurityGroupName = lens _ddbsgDBSecurityGroupName (\ s a -> s{_ddbsgDBSe
 
 instance AWSPager DescribeDBSecurityGroups where
         page rq rs
-          | stop (rs ^. desMarker) = Nothing
-          | stop (rs ^. desDBSecurityGroups) = Nothing
+          | stop (rs ^. ddbsgrMarker) = Nothing
+          | stop (rs ^. ddbsgrDBSecurityGroups) = Nothing
           | otherwise =
-            Just $ rq & ddbsgMarker .~ rs ^. desMarker
+            Just $ rq & ddbsgMarker .~ rs ^. ddbsgrMarker
 
 instance AWSRequest DescribeDBSecurityGroups where
         type Sv DescribeDBSecurityGroups = RDS
@@ -107,7 +110,8 @@ instance AWSRequest DescribeDBSecurityGroups where
                  DescribeDBSecurityGroupsResponse' <$>
                    (x .@? "DBSecurityGroups" .!@ mempty >>=
                       may (parseXMLList "DBSecurityGroup"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
@@ -127,25 +131,34 @@ instance ToQuery DescribeDBSecurityGroups where
                "Marker" =: _ddbsgMarker,
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
--- | /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBSecurityGroups action.
+--
+-- /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desDBSecurityGroups'
+-- * 'ddbsgrDBSecurityGroups'
 --
--- * 'desMarker'
-data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups :: Maybe [DBSecurityGroup], _desMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'ddbsgrMarker'
+--
+-- * 'ddbsgrStatusCode'
+data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_ddbsgrDBSecurityGroups :: Maybe [DBSecurityGroup], _ddbsgrMarker :: Maybe Text, _ddbsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
-describeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
-describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups = Nothing, _desMarker = Nothing};
+describeDBSecurityGroupsResponse :: Int -> DescribeDBSecurityGroupsResponse
+describeDBSecurityGroupsResponse pStatusCode = DescribeDBSecurityGroupsResponse'{_ddbsgrDBSecurityGroups = Nothing, _ddbsgrMarker = Nothing, _ddbsgrStatusCode = pStatusCode};
 
 -- | A list of DBSecurityGroup instances.
-desDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
-desDBSecurityGroups = lens _desDBSecurityGroups (\ s a -> s{_desDBSecurityGroups = a}) . _Default;
+ddbsgrDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
+ddbsgrDBSecurityGroups = lens _ddbsgrDBSecurityGroups (\ s a -> s{_ddbsgrDBSecurityGroups = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-desMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
-desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
+ddbsgrMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
+ddbsgrMarker = lens _ddbsgrMarker (\ s a -> s{_ddbsgrMarker = a});
+
+-- | FIXME: Undocumented member.
+ddbsgrStatusCode :: Lens' DescribeDBSecurityGroupsResponse Int
+ddbsgrStatusCode = lens _ddbsgrStatusCode (\ s a -> s{_ddbsgrStatusCode = a});

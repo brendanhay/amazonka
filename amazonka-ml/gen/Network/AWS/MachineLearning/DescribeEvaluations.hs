@@ -42,12 +42,13 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     -- ** Response constructor
     , describeEvaluationsResponse
     -- ** Response lenses
-    , derResults
-    , derNextToken
+    , der1Results
+    , der1NextToken
+    , der1StatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -175,10 +176,10 @@ deLE = lens _deLE (\ s a -> s{_deLE = a});
 
 instance AWSPager DescribeEvaluations where
         page rq rs
-          | stop (rs ^. derNextToken) = Nothing
-          | stop (rs ^. derResults) = Nothing
+          | stop (rs ^. der1NextToken) = Nothing
+          | stop (rs ^. der1Results) = Nothing
           | otherwise =
-            Just $ rq & deNextToken .~ rs ^. derNextToken
+            Just $ rq & deNextToken .~ rs ^. der1NextToken
 
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning
@@ -189,7 +190,8 @@ instance AWSRequest DescribeEvaluations where
           = receiveJSON
               (\ s h x ->
                  DescribeEvaluationsResponse' <$>
-                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEvaluations where
         toHeaders
@@ -217,24 +219,33 @@ instance ToPath DescribeEvaluations where
 instance ToQuery DescribeEvaluations where
         toQuery = const mempty
 
--- | /See:/ 'describeEvaluationsResponse' smart constructor.
+-- | Represents the query results from a DescribeEvaluations operation. The
+-- content is essentially a list of @Evaluation@.
+--
+-- /See:/ 'describeEvaluationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derResults'
+-- * 'der1Results'
 --
--- * 'derNextToken'
-data DescribeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults :: Maybe [Evaluation], _derNextToken :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'der1NextToken'
+--
+-- * 'der1StatusCode'
+data DescribeEvaluationsResponse = DescribeEvaluationsResponse'{_der1Results :: Maybe [Evaluation], _der1NextToken :: Maybe Text, _der1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
-describeEvaluationsResponse :: DescribeEvaluationsResponse
-describeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults = Nothing, _derNextToken = Nothing};
+describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
+describeEvaluationsResponse pStatusCode = DescribeEvaluationsResponse'{_der1Results = Nothing, _der1NextToken = Nothing, _der1StatusCode = pStatusCode};
 
 -- | A list of Evaluation that meet the search criteria.
-derResults :: Lens' DescribeEvaluationsResponse [Evaluation]
-derResults = lens _derResults (\ s a -> s{_derResults = a}) . _Default;
+der1Results :: Lens' DescribeEvaluationsResponse [Evaluation]
+der1Results = lens _der1Results (\ s a -> s{_der1Results = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-derNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
-derNextToken = lens _derNextToken (\ s a -> s{_derNextToken = a});
+der1NextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
+der1NextToken = lens _der1NextToken (\ s a -> s{_der1NextToken = a});
+
+-- | FIXME: Undocumented member.
+der1StatusCode :: Lens' DescribeEvaluationsResponse Int
+der1StatusCode = lens _der1StatusCode (\ s a -> s{_der1StatusCode = a});

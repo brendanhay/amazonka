@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeSubnets
     , describeSubnetsResponse
     -- ** Response lenses
     , dsrSubnets
+    , dsrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -121,7 +122,8 @@ instance AWSRequest DescribeSubnets where
           = receiveXML
               (\ s h x ->
                  DescribeSubnetsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
@@ -143,12 +145,18 @@ instance ToQuery DescribeSubnets where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSubnets'
-newtype DescribeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets :: Maybe [Subnet]} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DescribeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets :: Maybe [Subnet], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
-describeSubnetsResponse :: DescribeSubnetsResponse
-describeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets = Nothing};
+describeSubnetsResponse :: Int -> DescribeSubnetsResponse
+describeSubnetsResponse pStatusCode = DescribeSubnetsResponse'{_dsrSubnets = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DescribeSubnetsResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

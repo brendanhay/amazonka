@@ -31,6 +31,7 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , describeScalingProcessTypesResponse
     -- ** Response lenses
     , dsptrProcesses
+    , dsptrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -56,7 +57,8 @@ instance AWSRequest DescribeScalingProcessTypes where
               (\ s h x ->
                  DescribeScalingProcessTypesResponse' <$>
                    (x .@? "Processes" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
@@ -77,12 +79,18 @@ instance ToQuery DescribeScalingProcessTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsptrProcesses'
-newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses :: Maybe [ProcessType]} deriving (Eq, Read, Show)
+--
+-- * 'dsptrStatusCode'
+data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses :: Maybe [ProcessType], _dsptrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
-describeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses = Nothing};
+describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
+describeScalingProcessTypesResponse pStatusCode = DescribeScalingProcessTypesResponse'{_dsptrProcesses = Nothing, _dsptrStatusCode = pStatusCode};
 
 -- | The names of the process types.
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsptrStatusCode :: Lens' DescribeScalingProcessTypesResponse Int
+dsptrStatusCode = lens _dsptrStatusCode (\ s a -> s{_dsptrStatusCode = a});

@@ -50,6 +50,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     , createPlatformEndpointResponse
     -- ** Response lenses
     , cperEndpointARN
+    , cperStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -57,7 +58,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'createPlatformEndpoint' smart constructor.
+-- | Input for CreatePlatformEndpoint action.
+--
+-- /See:/ 'createPlatformEndpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,7 +110,7 @@ instance AWSRequest CreatePlatformEndpoint where
           = receiveXMLWrapper "CreatePlatformEndpointResult"
               (\ s h x ->
                  CreatePlatformEndpointResponse' <$>
-                   (x .@? "EndpointArn"))
+                   (x .@? "EndpointArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
@@ -130,17 +133,25 @@ instance ToQuery CreatePlatformEndpoint where
                  _cpePlatformApplicationARN,
                "Token" =: _cpeToken]
 
--- | /See:/ 'createPlatformEndpointResponse' smart constructor.
+-- | Response from CreateEndpoint action.
+--
+-- /See:/ 'createPlatformEndpointResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cperEndpointARN'
-newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'{_cperEndpointARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cperStatusCode'
+data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'{_cperEndpointARN :: Maybe Text, _cperStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformEndpointResponse' smart constructor.
-createPlatformEndpointResponse :: CreatePlatformEndpointResponse
-createPlatformEndpointResponse = CreatePlatformEndpointResponse'{_cperEndpointARN = Nothing};
+createPlatformEndpointResponse :: Int -> CreatePlatformEndpointResponse
+createPlatformEndpointResponse pStatusCode = CreatePlatformEndpointResponse'{_cperEndpointARN = Nothing, _cperStatusCode = pStatusCode};
 
 -- | EndpointArn returned from CreateEndpoint action.
 cperEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cperEndpointARN = lens _cperEndpointARN (\ s a -> s{_cperEndpointARN = a});
+
+-- | FIXME: Undocumented member.
+cperStatusCode :: Lens' CreatePlatformEndpointResponse Int
+cperStatusCode = lens _cperStatusCode (\ s a -> s{_cperStatusCode = a});

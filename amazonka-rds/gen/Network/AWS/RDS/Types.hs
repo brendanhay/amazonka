@@ -21,8 +21,73 @@ module Network.AWS.RDS.Types
     (
     -- * Service
       RDS
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _CertificateNotFoundFault
+    , _ReservedDBInstanceQuotaExceededFault
+    , _AuthorizationQuotaExceededFault
+    , _SourceNotFoundFault
+    , _InvalidDBParameterGroupStateFault
+    , _DBParameterGroupAlreadyExistsFault
+    , _PointInTimeRestoreNotEnabledFault
+    , _DBParameterGroupQuotaExceededFault
+    , _ProvisionedIOPSNotAvailableInAZFault
+    , _AuthorizationAlreadyExistsFault
+    , _ReservedDBInstanceAlreadyExistsFault
+    , _SubscriptionCategoryNotFoundFault
+    , _DBSubnetQuotaExceededFault
+    , _SubscriptionNotFoundFault
+    , _InvalidSubnet
+    , _OptionGroupNotFoundFault
+    , _OptionGroupAlreadyExistsFault
+    , _StorageTypeNotSupportedFault
+    , _DBSecurityGroupQuotaExceededFault
+    , _DBSnapshotNotFoundFault
+    , _InvalidEventSubscriptionStateFault
+    , _KMSKeyNotAccessibleFault
+    , _OptionGroupQuotaExceededFault
+    , _DBSecurityGroupAlreadyExistsFault
+    , _SnapshotQuotaExceededFault
+    , _SNSTopicARNNotFoundFault
+    , _DBSubnetGroupAlreadyExistsFault
+    , _InstanceQuotaExceededFault
+    , _SNSNoAuthorizationFault
+    , _DBSecurityGroupNotFoundFault
+    , _DBSecurityGroupNotSupportedFault
+    , _ReservedDBInstancesOfferingNotFoundFault
+    , _InvalidDBSubnetGroupFault
+    , _InvalidDBSubnetStateFault
+    , _DBParameterGroupNotFoundFault
+    , _SNSInvalidTopicFault
+    , _SubscriptionAlreadyExistFault
+    , _InsufficientDBInstanceCapacityFault
+    , _InvalidVPCNetworkStateFault
+    , _AuthorizationNotFoundFault
+    , _ReservedDBInstanceNotFoundFault
+    , _DBSubnetGroupQuotaExceededFault
+    , _DBSubnetGroupNotAllowedFault
+    , _EventSubscriptionQuotaExceededFault
+    , _InvalidOptionGroupStateFault
+    , _DBInstanceAlreadyExistsFault
+    , _ResourceNotFoundFault
+    , _DBUpgradeDependencyFailureFault
+    , _InvalidDBSecurityGroupStateFault
+    , _DBSubnetGroupNotFoundFault
+    , _InvalidRestoreFault
+    , _InvalidDBInstanceStateFault
+    , _InvalidDBSnapshotStateFault
+    , _InvalidDBSubnetGroupStateFault
+    , _StorageQuotaExceededFault
+    , _DBSnapshotAlreadyExistsFault
+    , _DBInstanceNotFoundFault
+    , _SubnetAlreadyInUse
+    , _DBSubnetGroupDoesNotCoverEnoughAZs
+
+    -- * ApplyMethod
+    , ApplyMethod (..)
+
+    -- * SourceType
+    , SourceType (..)
 
     -- * AccountQuota
     , AccountQuota
@@ -30,9 +95,6 @@ module Network.AWS.RDS.Types
     , aqMax
     , aqUsed
     , aqAccountQuotaName
-
-    -- * ApplyMethod
-    , ApplyMethod (..)
 
     -- * AvailabilityZone
     , AvailabilityZone
@@ -425,9 +487,6 @@ module Network.AWS.RDS.Types
     , rpmaPendingMaintenanceActionDetails
     , rpmaResourceIdentifier
 
-    -- * SourceType
-    , SourceType (..)
-
     -- * Subnet
     , Subnet
     , subnet
@@ -446,6 +505,7 @@ module Network.AWS.RDS.Types
     , vpcSecurityGroupMembership
     , vsgmStatus
     , vsgmVPCSecurityGroupId
+
     ) where
 
 import Network.AWS.Prelude
@@ -456,32 +516,338 @@ data RDS
 
 instance AWSService RDS where
     type Sg RDS = V4
-    type Er RDS = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service RDS
-        service' = Service
-            { _svcAbbrev  = "RDS"
-            , _svcPrefix  = "rds"
-            , _svcVersion = "2014-10-31"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service RDS
+        svc = Service
+            { _svcAbbrev   = "RDS"
+            , _svcPrefix   = "rds"
+            , _svcVersion  = "2014-10-31"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry RDS
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | /CertificateIdentifier/ does not refer to an existing certificate.
+_CertificateNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_CertificateNotFoundFault = _ServiceError . hasCode "CertificateNotFound" . hasStatus 400;
 
--- | /See:/ 'accountQuota' smart constructor.
+-- | Request would exceed the user\'s DB Instance quota.
+_ReservedDBInstanceQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedDBInstanceQuotaExceededFault = _ServiceError . hasCode "ReservedDBInstanceQuotaExceeded" . hasStatus 400;
+
+-- | DB security group authorization quota has been reached.
+_AuthorizationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationQuotaExceededFault = _ServiceError . hasCode "AuthorizationQuotaExceeded" . hasStatus 400;
+
+-- | The requested source could not be found.
+_SourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SourceNotFoundFault = _ServiceError . hasCode "SourceNotFound" . hasStatus 404;
+
+-- | The DB parameter group cannot be deleted because it is in use.
+_InvalidDBParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBParameterGroupStateFault = _ServiceError . hasCode "InvalidDBParameterGroupState" . hasStatus 400;
+
+-- | A DB parameter group with the same name exists.
+_DBParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBParameterGroupAlreadyExistsFault = _ServiceError . hasCode "DBParameterGroupAlreadyExists" . hasStatus 400;
+
+-- | /SourceDBInstanceIdentifier/ refers to a DB instance with
+-- /BackupRetentionPeriod/ equal to 0.
+_PointInTimeRestoreNotEnabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_PointInTimeRestoreNotEnabledFault = _ServiceError . hasCode "PointInTimeRestoreNotEnabled" . hasStatus 400;
+
+-- | Request would result in user exceeding the allowed number of DB
+-- parameter groups.
+_DBParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBParameterGroupQuotaExceededFault = _ServiceError . hasCode "DBParameterGroupQuotaExceeded" . hasStatus 400;
+
+-- | Provisioned IOPS not available in the specified Availability Zone.
+_ProvisionedIOPSNotAvailableInAZFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ProvisionedIOPSNotAvailableInAZFault = _ServiceError . hasCode "ProvisionedIopsNotAvailableInAZFault" . hasStatus 400;
+
+-- | The specified CIDRIP or EC2 security group is already authorized for the
+-- specified DB security group.
+_AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault = _ServiceError . hasCode "AuthorizationAlreadyExists" . hasStatus 400;
+
+-- | User already has a reservation with the given identifier.
+_ReservedDBInstanceAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedDBInstanceAlreadyExistsFault = _ServiceError . hasCode "ReservedDBInstanceAlreadyExists" . hasStatus 404;
+
+-- | The supplied category does not exist.
+_SubscriptionCategoryNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionCategoryNotFoundFault = _ServiceError . hasCode "SubscriptionCategoryNotFound" . hasStatus 404;
+
+-- | Request would result in user exceeding the allowed number of subnets in
+-- a DB subnet groups.
+_DBSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSubnetQuotaExceededFault = _ServiceError . hasCode "DBSubnetQuotaExceededFault" . hasStatus 400;
+
+-- | The subscription name does not exist.
+_SubscriptionNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionNotFoundFault = _ServiceError . hasCode "SubscriptionNotFound" . hasStatus 404;
+
+-- | The requested subnet is invalid, or multiple subnets were requested that
+-- are not all in a common VPC.
+_InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSubnet = _ServiceError . hasCode "InvalidSubnet" . hasStatus 400;
+
+-- | The specified option group could not be found.
+_OptionGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_OptionGroupNotFoundFault = _ServiceError . hasCode "OptionGroupNotFoundFault" . hasStatus 404;
+
+-- | The option group you are trying to create already exists.
+_OptionGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_OptionGroupAlreadyExistsFault = _ServiceError . hasCode "OptionGroupAlreadyExistsFault" . hasStatus 400;
+
+-- | /StorageType/ specified cannot be associated with the DB Instance.
+_StorageTypeNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_StorageTypeNotSupportedFault = _ServiceError . hasCode "StorageTypeNotSupported" . hasStatus 400;
+
+-- | Request would result in user exceeding the allowed number of DB security
+-- groups.
+_DBSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSecurityGroupQuotaExceededFault = _ServiceError . hasCode "QuotaExceeded.DBSecurityGroup" . hasStatus 400;
+
+-- | /DBSnapshotIdentifier/ does not refer to an existing DB snapshot.
+_DBSnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSnapshotNotFoundFault = _ServiceError . hasCode "DBSnapshotNotFound" . hasStatus 404;
+
+-- | This error can occur if someone else is modifying a subscription. You
+-- should retry the action.
+_InvalidEventSubscriptionStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidEventSubscriptionStateFault = _ServiceError . hasCode "InvalidEventSubscriptionState" . hasStatus 400;
+
+-- | Error accessing KMS key.
+_KMSKeyNotAccessibleFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_KMSKeyNotAccessibleFault = _ServiceError . hasCode "KMSKeyNotAccessibleFault" . hasStatus 400;
+
+-- | The quota of 20 option groups was exceeded for this AWS account.
+_OptionGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_OptionGroupQuotaExceededFault = _ServiceError . hasCode "OptionGroupQuotaExceededFault" . hasStatus 400;
+
+-- | A DB security group with the name specified in /DBSecurityGroupName/
+-- already exists.
+_DBSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSecurityGroupAlreadyExistsFault = _ServiceError . hasCode "DBSecurityGroupAlreadyExists" . hasStatus 400;
+
+-- | Request would result in user exceeding the allowed number of DB
+-- snapshots.
+_SnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SnapshotQuotaExceededFault = _ServiceError . hasCode "SnapshotQuotaExceeded" . hasStatus 400;
+
+-- | The SNS topic ARN does not exist.
+_SNSTopicARNNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SNSTopicARNNotFoundFault = _ServiceError . hasCode "SNSTopicArnNotFound" . hasStatus 404;
+
+-- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
+_DBSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSubnetGroupAlreadyExistsFault = _ServiceError . hasCode "DBSubnetGroupAlreadyExists" . hasStatus 400;
+
+-- | Request would result in user exceeding the allowed number of DB
+-- instances.
+_InstanceQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceQuotaExceededFault = _ServiceError . hasCode "InstanceQuotaExceeded" . hasStatus 400;
+
+-- | You do not have permission to publish to the SNS topic ARN.
+_SNSNoAuthorizationFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault = _ServiceError . hasCode "SNSNoAuthorization" . hasStatus 400;
+
+-- | /DBSecurityGroupName/ does not refer to an existing DB security group.
+_DBSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSecurityGroupNotFoundFault = _ServiceError . hasCode "DBSecurityGroupNotFound" . hasStatus 404;
+
+-- | A DB security group is not allowed for this action.
+_DBSecurityGroupNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSecurityGroupNotSupportedFault = _ServiceError . hasCode "DBSecurityGroupNotSupported" . hasStatus 400;
+
+-- | Specified offering does not exist.
+_ReservedDBInstancesOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedDBInstancesOfferingNotFoundFault = _ServiceError . hasCode "ReservedDBInstancesOfferingNotFound" . hasStatus 404;
+
+-- | Indicates the DBSubnetGroup does not belong to the same VPC as that of
+-- an existing cross region read replica of the same source instance.
+_InvalidDBSubnetGroupFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBSubnetGroupFault = _ServiceError . hasCode "InvalidDBSubnetGroupFault" . hasStatus 400;
+
+-- | The DB subnet is not in the /available/ state.
+_InvalidDBSubnetStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBSubnetStateFault = _ServiceError . hasCode "InvalidDBSubnetStateFault" . hasStatus 400;
+
+-- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
+_DBParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBParameterGroupNotFoundFault = _ServiceError . hasCode "DBParameterGroupNotFound" . hasStatus 404;
+
+-- | SNS has responded that there is a problem with the SND topic specified.
+_SNSInvalidTopicFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault = _ServiceError . hasCode "SNSInvalidTopic" . hasStatus 400;
+
+-- | The supplied subscription name already exists.
+_SubscriptionAlreadyExistFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubscriptionAlreadyExistFault = _ServiceError . hasCode "SubscriptionAlreadyExist" . hasStatus 400;
+
+-- | Specified DB instance class is not available in the specified
+-- Availability Zone.
+_InsufficientDBInstanceCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientDBInstanceCapacityFault = _ServiceError . hasCode "InsufficientDBInstanceCapacity" . hasStatus 400;
+
+-- | DB subnet group does not cover all Availability Zones after it is
+-- created because users\' change.
+_InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault = _ServiceError . hasCode "InvalidVPCNetworkStateFault" . hasStatus 400;
+
+-- | Specified CIDRIP or EC2 security group is not authorized for the
+-- specified DB security group.
+--
+-- RDS may not also be authorized via IAM to perform necessary actions on
+-- your behalf.
+_AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault = _ServiceError . hasCode "AuthorizationNotFound" . hasStatus 404;
+
+-- | The specified reserved DB Instance not found.
+_ReservedDBInstanceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ReservedDBInstanceNotFoundFault = _ServiceError . hasCode "ReservedDBInstanceNotFound" . hasStatus 404;
+
+-- | Request would result in user exceeding the allowed number of DB subnet
+-- groups.
+_DBSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSubnetGroupQuotaExceededFault = _ServiceError . hasCode "DBSubnetGroupQuotaExceeded" . hasStatus 400;
+
+-- | Indicates that the DBSubnetGroup should not be specified while creating
+-- read replicas that lie in the same region as the source instance.
+_DBSubnetGroupNotAllowedFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSubnetGroupNotAllowedFault = _ServiceError . hasCode "DBSubnetGroupNotAllowedFault" . hasStatus 400;
+
+-- | You have reached the maximum number of event subscriptions.
+_EventSubscriptionQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_EventSubscriptionQuotaExceededFault = _ServiceError . hasCode "EventSubscriptionQuotaExceeded" . hasStatus 400;
+
+-- | The option group is not in the /available/ state.
+_InvalidOptionGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidOptionGroupStateFault = _ServiceError . hasCode "InvalidOptionGroupStateFault" . hasStatus 400;
+
+-- | User already has a DB instance with the given identifier.
+_DBInstanceAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBInstanceAlreadyExistsFault = _ServiceError . hasCode "DBInstanceAlreadyExists" . hasStatus 400;
+
+-- | The specified resource ID was not found.
+_ResourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundFault = _ServiceError . hasCode "ResourceNotFoundFault" . hasStatus 404;
+
+-- | The DB upgrade failed because a resource the DB depends on could not be
+-- modified.
+_DBUpgradeDependencyFailureFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBUpgradeDependencyFailureFault = _ServiceError . hasCode "DBUpgradeDependencyFailure" . hasStatus 400;
+
+-- | The state of the DB security group does not allow deletion.
+_InvalidDBSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBSecurityGroupStateFault = _ServiceError . hasCode "InvalidDBSecurityGroupState" . hasStatus 400;
+
+-- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
+_DBSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSubnetGroupNotFoundFault = _ServiceError . hasCode "DBSubnetGroupNotFoundFault" . hasStatus 404;
+
+-- | Cannot restore from vpc backup to non-vpc DB instance.
+_InvalidRestoreFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRestoreFault = _ServiceError . hasCode "InvalidRestoreFault" . hasStatus 400;
+
+-- | The specified DB instance is not in the /available/ state.
+_InvalidDBInstanceStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBInstanceStateFault = _ServiceError . hasCode "InvalidDBInstanceState" . hasStatus 400;
+
+-- | The state of the DB snapshot does not allow deletion.
+_InvalidDBSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBSnapshotStateFault = _ServiceError . hasCode "InvalidDBSnapshotState" . hasStatus 400;
+
+-- | The DB subnet group cannot be deleted because it is in use.
+_InvalidDBSubnetGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDBSubnetGroupStateFault = _ServiceError . hasCode "InvalidDBSubnetGroupStateFault" . hasStatus 400;
+
+-- | Request would result in user exceeding the allowed amount of storage
+-- available across all DB instances.
+_StorageQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_StorageQuotaExceededFault = _ServiceError . hasCode "StorageQuotaExceeded" . hasStatus 400;
+
+-- | /DBSnapshotIdentifier/ is already used by an existing snapshot.
+_DBSnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSnapshotAlreadyExistsFault = _ServiceError . hasCode "DBSnapshotAlreadyExists" . hasStatus 400;
+
+-- | /DBInstanceIdentifier/ does not refer to an existing DB instance.
+_DBInstanceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBInstanceNotFoundFault = _ServiceError . hasCode "DBInstanceNotFound" . hasStatus 404;
+
+-- | The DB subnet is already in use in the Availability Zone.
+_SubnetAlreadyInUse :: AWSError a => Geting (First ServiceError) a ServiceError
+_SubnetAlreadyInUse = _ServiceError . hasCode "SubnetAlreadyInUse" . hasStatus 400;
+
+-- | Subnets in the DB subnet group should cover at least two Availability
+-- Zones unless there is only one Availability Zone.
+_DBSubnetGroupDoesNotCoverEnoughAZs :: AWSError a => Geting (First ServiceError) a ServiceError
+_DBSubnetGroupDoesNotCoverEnoughAZs = _ServiceError . hasCode "DBSubnetGroupDoesNotCoverEnoughAZs" . hasStatus 400;
+
+data ApplyMethod = PendingReboot | Immediate deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ApplyMethod where
+    parser = takeLowerText >>= \case
+        "immediate" -> pure Immediate
+        "pending-reboot" -> pure PendingReboot
+        e -> fail ("Failure parsing ApplyMethod from " ++ show e)
+
+instance ToText ApplyMethod where
+    toText = \case
+        Immediate -> "immediate"
+        PendingReboot -> "pending-reboot"
+
+instance Hashable ApplyMethod
+instance ToQuery ApplyMethod
+instance ToHeader ApplyMethod
+
+instance FromXML ApplyMethod where
+    parseXML = parseXMLText "ApplyMethod"
+
+data SourceType = DBSecurityGroup | DBSnapshot | DBParameterGroup | DBInstance deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "db-instance" -> pure DBInstance
+        "db-parameter-group" -> pure DBParameterGroup
+        "db-security-group" -> pure DBSecurityGroup
+        "db-snapshot" -> pure DBSnapshot
+        e -> fail ("Failure parsing SourceType from " ++ show e)
+
+instance ToText SourceType where
+    toText = \case
+        DBInstance -> "db-instance"
+        DBParameterGroup -> "db-parameter-group"
+        DBSecurityGroup -> "db-security-group"
+        DBSnapshot -> "db-snapshot"
+
+instance Hashable SourceType
+instance ToQuery SourceType
+instance ToHeader SourceType
+
+instance FromXML SourceType where
+    parseXML = parseXMLText "SourceType"
+
+-- | Describes a quota for an AWS account, for example, the number of DB
+-- instances allowed.
+--
+-- /See:/ 'accountQuota' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -514,27 +880,13 @@ instance FromXML AccountQuota where
               (x .@? "Max") <*> (x .@? "Used") <*>
                 (x .@? "AccountQuotaName")
 
-data ApplyMethod = PendingReboot | Immediate deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ApplyMethod where
-    parser = takeLowerText >>= \case
-        "immediate" -> pure Immediate
-        "pending-reboot" -> pure PendingReboot
-        e -> fail ("Failure parsing ApplyMethod from " ++ show e)
-
-instance ToText ApplyMethod where
-    toText = \case
-        Immediate -> "immediate"
-        PendingReboot -> "pending-reboot"
-
-instance Hashable ApplyMethod
-instance ToQuery ApplyMethod
-instance ToHeader ApplyMethod
-
-instance FromXML ApplyMethod where
-    parseXML = parseXMLText "ApplyMethod"
-
--- | /See:/ 'availabilityZone' smart constructor.
+-- | Contains Availability Zone information.
+--
+-- This data type is used as an element in the following data type:
+--
+-- -   OrderableDBInstanceOption
+--
+-- /See:/ 'availabilityZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -552,7 +904,9 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
--- | /See:/ 'certificate' smart constructor.
+-- | A CA certificate for an AWS account.
+--
+-- /See:/ 'certificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -599,7 +953,10 @@ instance FromXML Certificate where
                 <*> (x .@? "Thumbprint")
                 <*> (x .@? "ValidFrom")
 
--- | /See:/ 'characterSet' smart constructor.
+-- | This data type is used as a response element in the action
+-- DescribeDBEngineVersions.
+--
+-- /See:/ 'characterSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -626,7 +983,10 @@ instance FromXML CharacterSet where
               (x .@? "CharacterSetName") <*>
                 (x .@? "CharacterSetDescription")
 
--- | /See:/ 'dbEngineVersion' smart constructor.
+-- | This data type is used as a response element in the action
+-- DescribeDBEngineVersions.
+--
+-- /See:/ 'dbEngineVersion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -693,7 +1053,16 @@ instance FromXML DBEngineVersion where
                 <*> (x .@? "DBParameterGroupFamily")
                 <*> (x .@? "DBEngineDescription")
 
--- | /See:/ 'dbInstance' smart constructor.
+-- | Contains the result of a successful invocation of the following actions:
+--
+-- -   CreateDBInstance
+-- -   DeleteDBInstance
+-- -   ModifyDBInstance
+--
+-- This data type is used as a response element in the DescribeDBInstances
+-- action.
+--
+-- /See:/ 'dbInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1036,7 +1405,9 @@ instance FromXML DBInstance where
                 <*> (x .@? "DBName")
                 <*> (x .@? "StorageType")
 
--- | /See:/ 'dbInstanceStatusInfo' smart constructor.
+-- | Provides a list of status information for a DB instance.
+--
+-- /See:/ 'dbInstanceStatusInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1079,7 +1450,14 @@ instance FromXML DBInstanceStatusInfo where
                 (x .@? "StatusType")
                 <*> (x .@? "Message")
 
--- | /See:/ 'dbParameterGroup' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- CreateDBParameterGroup action.
+--
+-- This data type is used as a request parameter in the
+-- DeleteDBParameterGroup action, and as a response element in the
+-- DescribeDBParameterGroups action.
+--
+-- /See:/ 'dbParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1114,7 +1492,10 @@ instance FromXML DBParameterGroup where
                 (x .@? "DBParameterGroupName")
                 <*> (x .@? "Description")
 
--- | /See:/ 'dbParameterGroupNameMessage' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- ModifyDBParameterGroup or ResetDBParameterGroup action.
+--
+-- /See:/ 'dbParameterGroupNameMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1134,7 +1515,18 @@ instance FromXML DBParameterGroupNameMessage where
           = DBParameterGroupNameMessage' <$>
               (x .@? "DBParameterGroupName")
 
--- | /See:/ 'dbParameterGroupStatus' smart constructor.
+-- | The status of the DB parameter group.
+--
+-- This data type is used as a response element in the following actions:
+--
+-- -   CreateDBInstance
+-- -   CreateDBInstanceReadReplica
+-- -   DeleteDBInstance
+-- -   ModifyDBInstance
+-- -   RebootDBInstance
+-- -   RestoreDBInstanceFromDBSnapshot
+--
+-- /See:/ 'dbParameterGroupStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1161,7 +1553,17 @@ instance FromXML DBParameterGroupStatus where
               (x .@? "DBParameterGroupName") <*>
                 (x .@? "ParameterApplyStatus")
 
--- | /See:/ 'dbSecurityGroup' smart constructor.
+-- | Contains the result of a successful invocation of the following actions:
+--
+-- -   DescribeDBSecurityGroups
+-- -   AuthorizeDBSecurityGroupIngress
+-- -   CreateDBSecurityGroup
+-- -   RevokeDBSecurityGroupIngress
+--
+-- This data type is used as a response element in the
+-- DescribeDBSecurityGroups action.
+--
+-- /See:/ 'dbSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1218,7 +1620,14 @@ instance FromXML DBSecurityGroup where
                    may (parseXMLList "EC2SecurityGroup"))
                 <*> (x .@? "DBSecurityGroupDescription")
 
--- | /See:/ 'dbSecurityGroupMembership' smart constructor.
+-- | This data type is used as a response element in the following actions:
+--
+-- -   ModifyDBInstance
+-- -   RebootDBInstance
+-- -   RestoreDBInstanceFromDBSnapshot
+-- -   RestoreDBInstanceToPointInTime
+--
+-- /See:/ 'dbSecurityGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1244,7 +1653,15 @@ instance FromXML DBSecurityGroupMembership where
           = DBSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "DBSecurityGroupName")
 
--- | /See:/ 'dbSnapshot' smart constructor.
+-- | Contains the result of a successful invocation of the following actions:
+--
+-- -   CreateDBSnapshot
+-- -   DeleteDBSnapshot
+--
+-- This data type is used as a response element in the DescribeDBSnapshots
+-- action.
+--
+-- /See:/ 'dbSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1416,7 +1833,17 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
--- | /See:/ 'dbSubnetGroup' smart constructor.
+-- | Contains the result of a successful invocation of the following actions:
+--
+-- -   CreateDBSubnetGroup
+-- -   ModifyDBSubnetGroup
+-- -   DescribeDBSubnetGroups
+-- -   DeleteDBSubnetGroup
+--
+-- This data type is used as a response element in the
+-- DescribeDBSubnetGroups action.
+--
+-- /See:/ 'dbSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1464,7 +1891,9 @@ instance FromXML DBSubnetGroup where
                 <*> (x .@? "DBSubnetGroupDescription")
                 <*> (x .@? "SubnetGroupStatus")
 
--- | /See:/ 'describeDBLogFilesDetails' smart constructor.
+-- | This data type is used as a response element to DescribeDBLogFiles.
+--
+-- /See:/ 'describeDBLogFilesDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1497,7 +1926,13 @@ instance FromXML DescribeDBLogFilesDetails where
               (x .@? "LastWritten") <*> (x .@? "Size") <*>
                 (x .@? "LogFileName")
 
--- | /See:/ 'ec2SecurityGroup' smart constructor.
+-- | This data type is used as a response element in the following actions:
+--
+-- -   AuthorizeDBSecurityGroupIngress
+-- -   DescribeDBSecurityGroups
+-- -   RevokeDBSecurityGroupIngress
+--
+-- /See:/ 'ec2SecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1540,7 +1975,13 @@ instance FromXML EC2SecurityGroup where
                 <*> (x .@? "EC2SecurityGroupName")
                 <*> (x .@? "EC2SecurityGroupId")
 
--- | /See:/ 'endpoint' smart constructor.
+-- | This data type is used as a response element in the following actions:
+--
+-- -   CreateDBInstance
+-- -   DescribeDBInstances
+-- -   DeleteDBInstance
+--
+-- /See:/ 'endpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1565,7 +2006,10 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
--- | /See:/ 'engineDefaults' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeEngineDefaultParameters action.
+--
+-- /See:/ 'engineDefaults' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1603,7 +2047,10 @@ instance FromXML EngineDefaults where
                    may (parseXMLList "Parameter"))
                 <*> (x .@? "Marker")
 
--- | /See:/ 'event' smart constructor.
+-- | This data type is used as a response element in the DescribeEvents
+-- action.
+--
+-- /See:/ 'event' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1652,7 +2099,10 @@ instance FromXML Event where
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "Message")
 
--- | /See:/ 'eventCategoriesMap' smart constructor.
+-- | Contains the results of a successful invocation of the
+-- DescribeEventCategories action.
+--
+-- /See:/ 'eventCategoriesMap' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1680,7 +2130,10 @@ instance FromXML EventCategoriesMap where
                 (x .@? "EventCategories" .!@ mempty >>=
                    may (parseXMLList "EventCategory"))
 
--- | /See:/ 'eventSubscription' smart constructor.
+-- | Contains the results of a successful invocation of the
+-- DescribeEventSubscriptions action.
+--
+-- /See:/ 'eventSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1797,7 +2250,10 @@ instance ToQuery Filter where
               ["Name" =: _filName,
                "Values" =: toQueryList "Value" _filValues]
 
--- | /See:/ 'ipRange' smart constructor.
+-- | This data type is used as a response element in the
+-- DescribeDBSecurityGroups action.
+--
+-- /See:/ 'ipRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1823,7 +2279,9 @@ instance FromXML IPRange where
         parseXML x
           = IPRange' <$> (x .@? "Status") <*> (x .@? "CIDRIP")
 
--- | /See:/ 'option' smart constructor.
+-- | Option details.
+--
+-- /See:/ 'option' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1899,7 +2357,9 @@ instance FromXML Option where
                    may (parseXMLList "DBSecurityGroup"))
                 <*> (x .@? "Port")
 
--- | /See:/ 'optionConfiguration' smart constructor.
+-- | A list of all available options
+--
+-- /See:/ 'optionConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1954,7 +2414,9 @@ instance ToQuery OptionConfiguration where
                       _ocDBSecurityGroupMemberships),
                "Port" =: _ocPort, "OptionName" =: _ocOptionName]
 
--- | /See:/ 'optionGroup' smart constructor.
+-- |
+--
+-- /See:/ 'optionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2024,7 +2486,10 @@ instance FromXML OptionGroup where
                    may (parseXMLList "Option"))
                 <*> (x .@? "OptionGroupName")
 
--- | /See:/ 'optionGroupMembership' smart constructor.
+-- | Provides information on the option groups the DB instance is a member
+-- of.
+--
+-- /See:/ 'optionGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2051,7 +2516,9 @@ instance FromXML OptionGroupMembership where
           = OptionGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "OptionGroupName")
 
--- | /See:/ 'optionGroupOption' smart constructor.
+-- | Available option.
+--
+-- /See:/ 'optionGroupOption' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2152,7 +2619,11 @@ instance FromXML OptionGroupOption where
                    may (parseXMLList "OptionName"))
                 <*> (x .@? "Description")
 
--- | /See:/ 'optionGroupOptionSetting' smart constructor.
+-- | Option group option settings are used to display settings available for
+-- each option with their default values and other information. These
+-- values are used with the DescribeOptionGroupOptions action.
+--
+-- /See:/ 'optionGroupOptionSetting' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2207,7 +2678,13 @@ instance FromXML OptionGroupOptionSetting where
                 <*> (x .@? "AllowedValues")
                 <*> (x .@? "SettingDescription")
 
--- | /See:/ 'optionSetting' smart constructor.
+-- | Option settings are the actual settings being applied or configured for
+-- that option. It is used when you modify an option group or describe
+-- option groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a
+-- setting called SQLNET.ENCRYPTION_SERVER that can have several different
+-- values.
+--
+-- /See:/ 'optionSetting' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2294,7 +2771,12 @@ instance ToQuery OptionSetting where
                "DataType" =: _osDataType,
                "Description" =: _osDescription]
 
--- | /See:/ 'orderableDBInstanceOption' smart constructor.
+-- | Contains a list of available options for a DB instance
+--
+-- This data type is used as a response element in the
+-- DescribeOrderableDBInstanceOptions action.
+--
+-- /See:/ 'orderableDBInstanceOption' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2385,7 +2867,13 @@ instance FromXML OrderableDBInstanceOption where
                 <*> (x .@? "Vpc")
                 <*> (x .@? "StorageType")
 
--- | /See:/ 'parameter' smart constructor.
+-- | This data type is used as a request parameter in the
+-- ModifyDBParameterGroup and ResetDBParameterGroup actions.
+--
+-- This data type is used as a response element in the
+-- DescribeEngineDefaultParameters and DescribeDBParameters actions.
+--
+-- /See:/ 'parameter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2483,7 +2971,9 @@ instance ToQuery Parameter where
                "ParameterName" =: _parParameterName,
                "Description" =: _parDescription]
 
--- | /See:/ 'pendingMaintenanceAction' smart constructor.
+-- | Provides information about a pending maintenance action for a resource.
+--
+-- /See:/ 'pendingMaintenanceAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2550,7 +3040,10 @@ instance FromXML PendingMaintenanceAction where
                 <*> (x .@? "CurrentApplyDate")
                 <*> (x .@? "ForcedApplyDate")
 
--- | /See:/ 'pendingModifiedValues' smart constructor.
+-- | This data type is used as a response element in the ModifyDBInstance
+-- action.
+--
+-- /See:/ 'pendingModifiedValues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2647,7 +3140,11 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
--- | /See:/ 'recurringCharge' smart constructor.
+-- | This data type is used as a response element in the
+-- DescribeReservedDBInstances and DescribeReservedDBInstancesOfferings
+-- actions.
+--
+-- /See:/ 'recurringCharge' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2674,7 +3171,11 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
--- | /See:/ 'reservedDBInstance' smart constructor.
+-- | This data type is used as a response element in the
+-- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
+-- actions.
+--
+-- /See:/ 'reservedDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2786,7 +3287,10 @@ instance FromXML ReservedDBInstance where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
--- | /See:/ 'reservedDBInstancesOffering' smart constructor.
+-- | This data type is used as a response element in the
+-- DescribeReservedDBInstancesOfferings action.
+--
+-- /See:/ 'reservedDBInstancesOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2871,7 +3375,9 @@ instance FromXML ReservedDBInstancesOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
--- | /See:/ 'resourcePendingMaintenanceActions' smart constructor.
+-- | Describes the pending maintenance actions for a resource.
+--
+-- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2901,31 +3407,10 @@ instance FromXML ResourcePendingMaintenanceActions
                  >>= may (parseXMLList "PendingMaintenanceAction"))
                 <*> (x .@? "ResourceIdentifier")
 
-data SourceType = DBSecurityGroup | DBSnapshot | DBParameterGroup | DBInstance deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SourceType where
-    parser = takeLowerText >>= \case
-        "db-instance" -> pure DBInstance
-        "db-parameter-group" -> pure DBParameterGroup
-        "db-security-group" -> pure DBSecurityGroup
-        "db-snapshot" -> pure DBSnapshot
-        e -> fail ("Failure parsing SourceType from " ++ show e)
-
-instance ToText SourceType where
-    toText = \case
-        DBInstance -> "db-instance"
-        DBParameterGroup -> "db-parameter-group"
-        DBSecurityGroup -> "db-security-group"
-        DBSnapshot -> "db-snapshot"
-
-instance Hashable SourceType
-instance ToQuery SourceType
-instance ToHeader SourceType
-
-instance FromXML SourceType where
-    parseXML = parseXMLText "SourceType"
-
--- | /See:/ 'subnet' smart constructor.
+-- | This data type is used as a response element in the
+-- DescribeDBSubnetGroups action.
+--
+-- /See:/ 'subnet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2958,7 +3443,10 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
--- | /See:/ 'tag' smart constructor.
+-- | Metadata assigned to an Amazon RDS resource consisting of a key-value
+-- pair.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2995,7 +3483,10 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | /See:/ 'vpcSecurityGroupMembership' smart constructor.
+-- | This data type is used as a response element for queries on VPC security
+-- group membership.
+--
+-- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

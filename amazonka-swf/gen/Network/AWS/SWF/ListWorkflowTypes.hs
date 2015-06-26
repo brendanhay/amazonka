@@ -58,9 +58,10 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- ** Response lenses
     , lwtrNextPageToken
     , lwtrTypeInfos
+    , lwtrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -130,8 +131,8 @@ instance AWSPager ListWorkflowTypes where
           | stop (rs ^. lwtrNextPageToken) = Nothing
           | stop (rs ^. lwtrTypeInfos) = Nothing
           | otherwise =
-            Just $
-              rq & lwtNextPageToken .~ rs ^. lwtrNextPageToken
+            Just $ rq &
+              lwtNextPageToken .~ rs ^. lwtrNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF
@@ -142,7 +143,8 @@ instance AWSRequest ListWorkflowTypes where
               (\ s h x ->
                  ListWorkflowTypesResponse' <$>
                    (x .?> "nextPageToken") <*>
-                     (x .?> "typeInfos" .!@ mempty))
+                     (x .?> "typeInfos" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListWorkflowTypes where
         toHeaders
@@ -170,18 +172,23 @@ instance ToPath ListWorkflowTypes where
 instance ToQuery ListWorkflowTypes where
         toQuery = const mempty
 
--- | /See:/ 'listWorkflowTypesResponse' smart constructor.
+-- | Contains a paginated list of information structures about workflow
+-- types.
+--
+-- /See:/ 'listWorkflowTypesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lwtrNextPageToken'
 --
 -- * 'lwtrTypeInfos'
-data ListWorkflowTypesResponse = ListWorkflowTypesResponse'{_lwtrNextPageToken :: Maybe Text, _lwtrTypeInfos :: [WorkflowTypeInfo]} deriving (Eq, Read, Show)
+--
+-- * 'lwtrStatusCode'
+data ListWorkflowTypesResponse = ListWorkflowTypesResponse'{_lwtrNextPageToken :: Maybe Text, _lwtrTypeInfos :: [WorkflowTypeInfo], _lwtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
-listWorkflowTypesResponse :: ListWorkflowTypesResponse
-listWorkflowTypesResponse = ListWorkflowTypesResponse'{_lwtrNextPageToken = Nothing, _lwtrTypeInfos = mempty};
+listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse
+listWorkflowTypesResponse pStatusCode = ListWorkflowTypesResponse'{_lwtrNextPageToken = Nothing, _lwtrTypeInfos = mempty, _lwtrStatusCode = pStatusCode};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -196,3 +203,7 @@ lwtrNextPageToken = lens _lwtrNextPageToken (\ s a -> s{_lwtrNextPageToken = a})
 -- | The list of workflow type information.
 lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrTypeInfos = lens _lwtrTypeInfos (\ s a -> s{_lwtrTypeInfos = a});
+
+-- | FIXME: Undocumented member.
+lwtrStatusCode :: Lens' ListWorkflowTypesResponse Int
+lwtrStatusCode = lens _lwtrStatusCode (\ s a -> s{_lwtrStatusCode = a});

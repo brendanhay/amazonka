@@ -31,7 +31,8 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- ** Response constructor
     , deleteEventSubscriptionResponse
     -- ** Response lenses
-    , desrEventSubscription
+    , delEventSubscription
+    , delStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -39,7 +40,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteEventSubscription' smart constructor.
+-- |
+--
+-- /See:/ 'deleteEventSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,7 @@ instance AWSRequest DeleteEventSubscription where
           = receiveXMLWrapper "DeleteEventSubscriptionResult"
               (\ s h x ->
                  DeleteEventSubscriptionResponse' <$>
-                   (x .@? "EventSubscription"))
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
@@ -83,13 +86,19 @@ instance ToQuery DeleteEventSubscription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrEventSubscription'
-newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'{_desrEventSubscription :: Maybe EventSubscription} deriving (Eq, Read, Show)
+-- * 'delEventSubscription'
+--
+-- * 'delStatusCode'
+data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'{_delEventSubscription :: Maybe EventSubscription, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
-deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'{_desrEventSubscription = Nothing};
+deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse pStatusCode = DeleteEventSubscriptionResponse'{_delEventSubscription = Nothing, _delStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-desrEventSubscription = lens _desrEventSubscription (\ s a -> s{_desrEventSubscription = a});
+delEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
+delEventSubscription = lens _delEventSubscription (\ s a -> s{_delEventSubscription = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteEventSubscriptionResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

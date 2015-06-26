@@ -32,6 +32,7 @@ module Network.AWS.CodeDeploy.CreateApplication
     , createApplicationResponse
     -- ** Response lenses
     , carApplicationId
+    , carStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createApplication' smart constructor.
+-- | Represents the input of a create application operation.
+--
+-- /See:/ 'createApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,7 @@ instance AWSRequest CreateApplication where
           = receiveJSON
               (\ s h x ->
                  CreateApplicationResponse' <$>
-                   (x .?> "applicationId"))
+                   (x .?> "applicationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateApplication where
         toHeaders
@@ -85,17 +88,25 @@ instance ToPath CreateApplication where
 instance ToQuery CreateApplication where
         toQuery = const mempty
 
--- | /See:/ 'createApplicationResponse' smart constructor.
+-- | Represents the output of a create application operation.
+--
+-- /See:/ 'createApplicationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'carApplicationId'
-newtype CreateApplicationResponse = CreateApplicationResponse'{_carApplicationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'carStatusCode'
+data CreateApplicationResponse = CreateApplicationResponse'{_carApplicationId :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateApplicationResponse' smart constructor.
-createApplicationResponse :: CreateApplicationResponse
-createApplicationResponse = CreateApplicationResponse'{_carApplicationId = Nothing};
+createApplicationResponse :: Int -> CreateApplicationResponse
+createApplicationResponse pStatusCode = CreateApplicationResponse'{_carApplicationId = Nothing, _carStatusCode = pStatusCode};
 
 -- | A unique application ID.
 carApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carApplicationId = lens _carApplicationId (\ s a -> s{_carApplicationId = a});
+
+-- | FIXME: Undocumented member.
+carStatusCode :: Lens' CreateApplicationResponse Int
+carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});

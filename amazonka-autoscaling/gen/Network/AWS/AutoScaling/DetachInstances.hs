@@ -40,6 +40,7 @@ module Network.AWS.AutoScaling.DetachInstances
     , detachInstancesResponse
     -- ** Response lenses
     , dirActivities
+    , dirStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -84,7 +85,8 @@ instance AWSRequest DetachInstances where
               (\ s h x ->
                  DetachInstancesResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
@@ -108,13 +110,19 @@ instance ToQuery DetachInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirActivities'
-newtype DetachInstancesResponse = DetachInstancesResponse'{_dirActivities :: Maybe [Activity]} deriving (Eq, Read, Show)
+--
+-- * 'dirStatusCode'
+data DetachInstancesResponse = DetachInstancesResponse'{_dirActivities :: Maybe [Activity], _dirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DetachInstancesResponse' smart constructor.
-detachInstancesResponse :: DetachInstancesResponse
-detachInstancesResponse = DetachInstancesResponse'{_dirActivities = Nothing};
+detachInstancesResponse :: Int -> DetachInstancesResponse
+detachInstancesResponse pStatusCode = DetachInstancesResponse'{_dirActivities = Nothing, _dirStatusCode = pStatusCode};
 
 -- | The activities related to detaching the instances from the Auto Scaling
 -- group.
 dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\ s a -> s{_dirActivities = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dirStatusCode :: Lens' DetachInstancesResponse Int
+dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     , deleteSnapshotResponse
     -- ** Response lenses
     , dsrSnapshotId
+    , dsrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteSnapshot' smart constructor.
+-- | Contains the inputs for the DeleteSnapshot operation.
+--
+-- /See:/ 'deleteSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -61,7 +64,8 @@ instance AWSRequest DeleteSnapshot where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteSnapshotResponse' <$> (x .?> "SnapshotId"))
+                 DeleteSnapshotResponse' <$>
+                   (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteSnapshot where
         toHeaders
@@ -83,17 +87,25 @@ instance ToPath DeleteSnapshot where
 instance ToQuery DeleteSnapshot where
         toQuery = const mempty
 
--- | /See:/ 'deleteSnapshotResponse' smart constructor.
+-- | Contains the results of the DeleteSnapshot operation.
+--
+-- /See:/ 'deleteSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSnapshotId'
-newtype DeleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DeleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshotId :: Maybe Text, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
-deleteSnapshotResponse :: DeleteSnapshotResponse
-deleteSnapshotResponse = DeleteSnapshotResponse'{_dsrSnapshotId = Nothing};
+deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
+deleteSnapshotResponse pStatusCode = DeleteSnapshotResponse'{_dsrSnapshotId = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | The identifier of the directory snapshot that was deleted.
 dsrSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
 dsrSnapshotId = lens _dsrSnapshotId (\ s a -> s{_dsrSnapshotId = a});
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DeleteSnapshotResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

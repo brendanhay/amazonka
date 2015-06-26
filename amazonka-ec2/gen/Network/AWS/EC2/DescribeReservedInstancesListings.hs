@@ -57,6 +57,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , describeReservedInstancesListingsResponse
     -- ** Response lenses
     , drilrReservedInstancesListings
+    , drilrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -112,7 +113,8 @@ instance AWSRequest DescribeReservedInstancesListings
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesListingsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedInstancesListings
          where
@@ -139,12 +141,18 @@ instance ToQuery DescribeReservedInstancesListings
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drilrReservedInstancesListings'
-newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings :: Maybe [ReservedInstancesListing]} deriving (Eq, Read, Show)
+--
+-- * 'drilrStatusCode'
+data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings :: Maybe [ReservedInstancesListing], _drilrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
-describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings = Nothing};
+describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
+describeReservedInstancesListingsResponse pStatusCode = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings = Nothing, _drilrStatusCode = pStatusCode};
 
 -- | Information about the Reserved Instance listing.
 drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drilrStatusCode :: Lens' DescribeReservedInstancesListingsResponse Int
+drilrStatusCode = lens _drilrStatusCode (\ s a -> s{_drilrStatusCode = a});

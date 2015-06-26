@@ -57,7 +57,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createPublicVirtualInterface' smart constructor.
+-- | Container for the parameters to the CreatePublicVirtualInterface
+-- operation.
+--
+-- /See:/ 'createPublicVirtualInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

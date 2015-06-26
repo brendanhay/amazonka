@@ -45,15 +45,18 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- ** Response lenses
     , drnorReservedNodeOfferings
     , drnorMarker
+    , drnorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeReservedNodeOfferings' smart constructor.
+-- | to be provided.
+--
+-- /See:/ 'describeReservedNodeOfferings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -113,7 +116,8 @@ instance AWSRequest DescribeReservedNodeOfferings
                  DescribeReservedNodeOfferingsResponse' <$>
                    (x .@? "ReservedNodeOfferings" .!@ mempty >>=
                       may (parseXMLList "ReservedNodeOffering"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedNodeOfferings
          where
@@ -133,18 +137,22 @@ instance ToQuery DescribeReservedNodeOfferings where
                "MaxRecords" =: _drnoMaxRecords,
                "Marker" =: _drnoMarker]
 
--- | /See:/ 'describeReservedNodeOfferingsResponse' smart constructor.
+-- | Contains the output from the DescribeReservedNodeOfferings action.
+--
+-- /See:/ 'describeReservedNodeOfferingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drnorReservedNodeOfferings'
 --
 -- * 'drnorMarker'
-data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings :: Maybe [ReservedNodeOffering], _drnorMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'drnorStatusCode'
+data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings :: Maybe [ReservedNodeOffering], _drnorMarker :: Maybe Text, _drnorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
-describeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
-describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings = Nothing, _drnorMarker = Nothing};
+describeReservedNodeOfferingsResponse :: Int -> DescribeReservedNodeOfferingsResponse
+describeReservedNodeOfferingsResponse pStatusCode = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings = Nothing, _drnorMarker = Nothing, _drnorStatusCode = pStatusCode};
 
 -- | A list of reserved node offerings.
 drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
@@ -158,3 +166,7 @@ drnorReservedNodeOfferings = lens _drnorReservedNodeOfferings (\ s a -> s{_drnor
 -- the request.
 drnorMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorMarker = lens _drnorMarker (\ s a -> s{_drnorMarker = a});
+
+-- | FIXME: Undocumented member.
+drnorStatusCode :: Lens' DescribeReservedNodeOfferingsResponse Int
+drnorStatusCode = lens _drnorStatusCode (\ s a -> s{_drnorStatusCode = a});

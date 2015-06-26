@@ -49,6 +49,7 @@ module Network.AWS.EC2.GetPasswordData
     , gpdrInstanceId
     , gpdrPasswordData
     , gpdrTimestamp
+    , gpdrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -89,7 +90,8 @@ instance AWSRequest GetPasswordData where
               (\ s h x ->
                  GetPasswordDataResponse' <$>
                    (x .@ "instanceId") <*> (x .@ "passwordData") <*>
-                     (x .@ "timestamp"))
+                     (x .@ "timestamp")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty
@@ -114,11 +116,13 @@ instance ToQuery GetPasswordData where
 -- * 'gpdrPasswordData'
 --
 -- * 'gpdrTimestamp'
-data GetPasswordDataResponse = GetPasswordDataResponse'{_gpdrInstanceId :: Text, _gpdrPasswordData :: Text, _gpdrTimestamp :: ISO8601} deriving (Eq, Read, Show)
+--
+-- * 'gpdrStatusCode'
+data GetPasswordDataResponse = GetPasswordDataResponse'{_gpdrInstanceId :: Text, _gpdrPasswordData :: Text, _gpdrTimestamp :: ISO8601, _gpdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetPasswordDataResponse' smart constructor.
-getPasswordDataResponse :: Text -> Text -> UTCTime -> GetPasswordDataResponse
-getPasswordDataResponse pInstanceId pPasswordData pTimestamp = GetPasswordDataResponse'{_gpdrInstanceId = pInstanceId, _gpdrPasswordData = pPasswordData, _gpdrTimestamp = _Time # pTimestamp};
+getPasswordDataResponse :: Text -> Text -> UTCTime -> Int -> GetPasswordDataResponse
+getPasswordDataResponse pInstanceId pPasswordData pTimestamp pStatusCode = GetPasswordDataResponse'{_gpdrInstanceId = pInstanceId, _gpdrPasswordData = pPasswordData, _gpdrTimestamp = _Time # pTimestamp, _gpdrStatusCode = pStatusCode};
 
 -- | The ID of the Windows instance.
 gpdrInstanceId :: Lens' GetPasswordDataResponse Text
@@ -131,3 +135,7 @@ gpdrPasswordData = lens _gpdrPasswordData (\ s a -> s{_gpdrPasswordData = a});
 -- | The time the data was last updated.
 gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
 gpdrTimestamp = lens _gpdrTimestamp (\ s a -> s{_gpdrTimestamp = a}) . _Time;
+
+-- | FIXME: Undocumented member.
+gpdrStatusCode :: Lens' GetPasswordDataResponse Int
+gpdrStatusCode = lens _gpdrStatusCode (\ s a -> s{_gpdrStatusCode = a});

@@ -37,6 +37,7 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     , acceptVPCPeeringConnectionResponse
     -- ** Response lenses
     , avpcrVPCPeeringConnection
+    , avpcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -77,7 +78,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  AcceptVPCPeeringConnectionResponse' <$>
-                   (x .@? "vpcPeeringConnection"))
+                   (x .@? "vpcPeeringConnection") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
@@ -100,12 +102,18 @@ instance ToQuery AcceptVPCPeeringConnection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avpcrVPCPeeringConnection'
-newtype AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'{_avpcrVPCPeeringConnection :: Maybe VPCPeeringConnection} deriving (Eq, Read, Show)
+--
+-- * 'avpcrStatusCode'
+data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'{_avpcrVPCPeeringConnection :: Maybe VPCPeeringConnection, _avpcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
-acceptVPCPeeringConnectionResponse :: AcceptVPCPeeringConnectionResponse
-acceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'{_avpcrVPCPeeringConnection = Nothing};
+acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse
+acceptVPCPeeringConnectionResponse pStatusCode = AcceptVPCPeeringConnectionResponse'{_avpcrVPCPeeringConnection = Nothing, _avpcrStatusCode = pStatusCode};
 
 -- | Information about the VPC peering connection.
 avpcrVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 avpcrVPCPeeringConnection = lens _avpcrVPCPeeringConnection (\ s a -> s{_avpcrVPCPeeringConnection = a});
+
+-- | FIXME: Undocumented member.
+avpcrStatusCode :: Lens' AcceptVPCPeeringConnectionResponse Int
+avpcrStatusCode = lens _avpcrStatusCode (\ s a -> s{_avpcrStatusCode = a});

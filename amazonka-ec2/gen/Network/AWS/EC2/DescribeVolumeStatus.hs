@@ -75,10 +75,11 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Response lenses
     , dvsrNextToken
     , dvsrVolumeStatuses
+    , dvsrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -187,8 +188,8 @@ instance AWSRequest DescribeVolumeStatus where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeStatusResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
@@ -213,11 +214,13 @@ instance ToQuery DescribeVolumeStatus where
 -- * 'dvsrNextToken'
 --
 -- * 'dvsrVolumeStatuses'
-data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken :: Maybe Text, _dvsrVolumeStatuses :: Maybe [VolumeStatusItem]} deriving (Eq, Read, Show)
+--
+-- * 'dvsrStatusCode'
+data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken :: Maybe Text, _dvsrVolumeStatuses :: Maybe [VolumeStatusItem], _dvsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
-describeVolumeStatusResponse :: DescribeVolumeStatusResponse
-describeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken = Nothing, _dvsrVolumeStatuses = Nothing};
+describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse
+describeVolumeStatusResponse pStatusCode = DescribeVolumeStatusResponse'{_dvsrNextToken = Nothing, _dvsrVolumeStatuses = Nothing, _dvsrStatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -227,3 +230,7 @@ dvsrNextToken = lens _dvsrNextToken (\ s a -> s{_dvsrNextToken = a});
 -- | A list of volumes.
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses = lens _dvsrVolumeStatuses (\ s a -> s{_dvsrVolumeStatuses = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvsrStatusCode :: Lens' DescribeVolumeStatusResponse Int
+dvsrStatusCode = lens _dvsrStatusCode (\ s a -> s{_dvsrStatusCode = a});

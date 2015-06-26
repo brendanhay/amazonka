@@ -36,6 +36,7 @@ module Network.AWS.CloudSearch.DeleteExpression
     , deleteExpressionResponse
     -- ** Response lenses
     , delExpression
+    , delStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -43,7 +44,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteExpression' smart constructor.
+-- | Container for the parameters to the @DeleteExpression@ operation.
+-- Specifies the name of the domain you want to update and the name of the
+-- expression you want to delete.
+--
+-- /See:/ 'deleteExpression' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +76,8 @@ instance AWSRequest DeleteExpression where
         response
           = receiveXMLWrapper "DeleteExpressionResult"
               (\ s h x ->
-                 DeleteExpressionResponse' <$> (x .@ "Expression"))
+                 DeleteExpressionResponse' <$>
+                   (x .@ "Expression") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
@@ -87,17 +93,26 @@ instance ToQuery DeleteExpression where
                "DomainName" =: _delDomainName,
                "ExpressionName" =: _delExpressionName]
 
--- | /See:/ 'deleteExpressionResponse' smart constructor.
+-- | The result of a @DeleteExpression@ request. Specifies the expression
+-- being deleted.
+--
+-- /See:/ 'deleteExpressionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delExpression'
-newtype DeleteExpressionResponse = DeleteExpressionResponse'{_delExpression :: ExpressionStatus} deriving (Eq, Read, Show)
+--
+-- * 'delStatusCode'
+data DeleteExpressionResponse = DeleteExpressionResponse'{_delExpression :: ExpressionStatus, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteExpressionResponse' smart constructor.
-deleteExpressionResponse :: ExpressionStatus -> DeleteExpressionResponse
-deleteExpressionResponse pExpression = DeleteExpressionResponse'{_delExpression = pExpression};
+deleteExpressionResponse :: ExpressionStatus -> Int -> DeleteExpressionResponse
+deleteExpressionResponse pExpression pStatusCode = DeleteExpressionResponse'{_delExpression = pExpression, _delStatusCode = pStatusCode};
 
 -- | The status of the expression being deleted.
 delExpression :: Lens' DeleteExpressionResponse ExpressionStatus
 delExpression = lens _delExpression (\ s a -> s{_delExpression = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteExpressionResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

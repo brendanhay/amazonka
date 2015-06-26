@@ -55,15 +55,18 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- ** Response lenses
     , dcpgrMarker
     , dcpgrParameterGroups
+    , dcpgrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeClusterParameterGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeClusterParameterGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -151,7 +154,8 @@ instance AWSRequest DescribeClusterParameterGroups
                  DescribeClusterParameterGroupsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "ParameterGroups" .!@ mempty >>=
-                        may (parseXMLList "ClusterParameterGroup")))
+                        may (parseXMLList "ClusterParameterGroup"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterParameterGroups
          where
@@ -174,18 +178,22 @@ instance ToQuery DescribeClusterParameterGroups where
                "Marker" =: _dcpgMarker,
                "ParameterGroupName" =: _dcpgParameterGroupName]
 
--- | /See:/ 'describeClusterParameterGroupsResponse' smart constructor.
+-- | Contains the output from the DescribeClusterParameterGroups action.
+--
+-- /See:/ 'describeClusterParameterGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcpgrMarker'
 --
 -- * 'dcpgrParameterGroups'
-data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker :: Maybe Text, _dcpgrParameterGroups :: Maybe [ClusterParameterGroup]} deriving (Eq, Read, Show)
+--
+-- * 'dcpgrStatusCode'
+data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker :: Maybe Text, _dcpgrParameterGroups :: Maybe [ClusterParameterGroup], _dcpgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
-describeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
-describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker = Nothing, _dcpgrParameterGroups = Nothing};
+describeClusterParameterGroupsResponse :: Int -> DescribeClusterParameterGroupsResponse
+describeClusterParameterGroupsResponse pStatusCode = DescribeClusterParameterGroupsResponse'{_dcpgrMarker = Nothing, _dcpgrParameterGroups = Nothing, _dcpgrStatusCode = pStatusCode};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -200,3 +208,7 @@ dcpgrMarker = lens _dcpgrMarker (\ s a -> s{_dcpgrMarker = a});
 -- cluster parameter group.
 dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrParameterGroups = lens _dcpgrParameterGroups (\ s a -> s{_dcpgrParameterGroups = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcpgrStatusCode :: Lens' DescribeClusterParameterGroupsResponse Int
+dcpgrStatusCode = lens _dcpgrStatusCode (\ s a -> s{_dcpgrStatusCode = a});

@@ -108,6 +108,7 @@ module Network.AWS.STS.GetFederationToken
     , gftrPackedPolicySize
     , gftrCredentials
     , gftrFederatedUser
+    , gftrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -180,7 +181,8 @@ instance AWSRequest GetFederationToken where
               (\ s h x ->
                  GetFederationTokenResponse' <$>
                    (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
-                     <*> (x .@? "FederatedUser"))
+                     <*> (x .@? "FederatedUser")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
@@ -196,7 +198,11 @@ instance ToQuery GetFederationToken where
                "DurationSeconds" =: _gftDurationSeconds,
                "Policy" =: _gftPolicy, "Name" =: _gftName]
 
--- | /See:/ 'getFederationTokenResponse' smart constructor.
+-- | Contains the response to a successful GetFederationToken request,
+-- including temporary AWS credentials that can be used to make AWS
+-- requests.
+--
+-- /See:/ 'getFederationTokenResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -205,11 +211,13 @@ instance ToQuery GetFederationToken where
 -- * 'gftrCredentials'
 --
 -- * 'gftrFederatedUser'
-data GetFederationTokenResponse = GetFederationTokenResponse'{_gftrPackedPolicySize :: Maybe Nat, _gftrCredentials :: Maybe Credentials, _gftrFederatedUser :: Maybe FederatedUser} deriving (Eq, Read, Show)
+--
+-- * 'gftrStatusCode'
+data GetFederationTokenResponse = GetFederationTokenResponse'{_gftrPackedPolicySize :: Maybe Nat, _gftrCredentials :: Maybe Credentials, _gftrFederatedUser :: Maybe FederatedUser, _gftrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetFederationTokenResponse' smart constructor.
-getFederationTokenResponse :: GetFederationTokenResponse
-getFederationTokenResponse = GetFederationTokenResponse'{_gftrPackedPolicySize = Nothing, _gftrCredentials = Nothing, _gftrFederatedUser = Nothing};
+getFederationTokenResponse :: Int -> GetFederationTokenResponse
+getFederationTokenResponse pStatusCode = GetFederationTokenResponse'{_gftrPackedPolicySize = Nothing, _gftrCredentials = Nothing, _gftrFederatedUser = Nothing, _gftrStatusCode = pStatusCode};
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
@@ -227,3 +235,7 @@ gftrCredentials = lens _gftrCredentials (\ s a -> s{_gftrCredentials = a});
 -- resource-based policies, such as an Amazon S3 bucket policy.
 gftrFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrFederatedUser = lens _gftrFederatedUser (\ s a -> s{_gftrFederatedUser = a});
+
+-- | FIXME: Undocumented member.
+gftrStatusCode :: Lens' GetFederationTokenResponse Int
+gftrStatusCode = lens _gftrStatusCode (\ s a -> s{_gftrStatusCode = a});

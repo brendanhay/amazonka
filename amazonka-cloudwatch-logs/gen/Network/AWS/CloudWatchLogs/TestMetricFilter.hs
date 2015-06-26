@@ -35,6 +35,7 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     , testMetricFilterResponse
     -- ** Response lenses
     , tmfrMatches
+    , tmfrStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -71,7 +72,7 @@ instance AWSRequest TestMetricFilter where
           = receiveJSON
               (\ s h x ->
                  TestMetricFilterResponse' <$>
-                   (x .?> "matches" .!@ mempty))
+                   (x .?> "matches" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders TestMetricFilter where
         toHeaders
@@ -99,12 +100,18 @@ instance ToQuery TestMetricFilter where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tmfrMatches'
-newtype TestMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches :: Maybe [MetricFilterMatchRecord]} deriving (Eq, Read, Show)
+--
+-- * 'tmfrStatusCode'
+data TestMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches :: Maybe [MetricFilterMatchRecord], _tmfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'TestMetricFilterResponse' smart constructor.
-testMetricFilterResponse :: TestMetricFilterResponse
-testMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches = Nothing};
+testMetricFilterResponse :: Int -> TestMetricFilterResponse
+testMetricFilterResponse pStatusCode = TestMetricFilterResponse'{_tmfrMatches = Nothing, _tmfrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+tmfrStatusCode :: Lens' TestMetricFilterResponse Int
+tmfrStatusCode = lens _tmfrStatusCode (\ s a -> s{_tmfrStatusCode = a});

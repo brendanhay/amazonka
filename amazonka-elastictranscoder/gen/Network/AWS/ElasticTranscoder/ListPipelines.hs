@@ -35,15 +35,18 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- ** Response lenses
     , lprNextPageToken
     , lprPipelines
+    , lprStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listPipelines' smart constructor.
+-- | The @ListPipelineRequest@ structure.
+--
+-- /See:/ 'listPipelines' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,8 @@ instance AWSRequest ListPipelines where
               (\ s h x ->
                  ListPipelinesResponse' <$>
                    (x .?> "NextPageToken") <*>
-                     (x .?> "Pipelines" .!@ mempty))
+                     (x .?> "Pipelines" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPipelines where
         toHeaders = const mempty
@@ -98,18 +102,22 @@ instance ToQuery ListPipelines where
               ["Ascending" =: _lpAscending,
                "PageToken" =: _lpPageToken]
 
--- | /See:/ 'listPipelinesResponse' smart constructor.
+-- | A list of the pipelines associated with the current AWS account.
+--
+-- /See:/ 'listPipelinesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lprNextPageToken'
 --
 -- * 'lprPipelines'
-data ListPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken :: Maybe Text, _lprPipelines :: Maybe [Pipeline]} deriving (Eq, Read, Show)
+--
+-- * 'lprStatusCode'
+data ListPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken :: Maybe Text, _lprPipelines :: Maybe [Pipeline], _lprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: ListPipelinesResponse
-listPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken = Nothing, _lprPipelines = Nothing};
+listPipelinesResponse :: Int -> ListPipelinesResponse
+listPipelinesResponse pStatusCode = ListPipelinesResponse'{_lprNextPageToken = Nothing, _lprPipelines = Nothing, _lprStatusCode = pStatusCode};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the pipelines fit on one page or when you\'ve
@@ -121,3 +129,7 @@ lprNextPageToken = lens _lprNextPageToken (\ s a -> s{_lprNextPageToken = a});
 -- | An array of @Pipeline@ objects.
 lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lprStatusCode :: Lens' ListPipelinesResponse Int
+lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});

@@ -21,17 +21,242 @@ module Network.AWS.EC2.Types
     (
     -- * Service
       EC2
-    -- ** Errors
-    , EC2Error
+
+    -- * Errors
+
+    -- * AccountAttributeName
+    , AccountAttributeName (..)
+
+    -- * AddressStatus
+    , AddressStatus (..)
+
+    -- * ArchitectureValues
+    , ArchitectureValues (..)
+
+    -- * AttachmentStatus
+    , AttachmentStatus (..)
+
+    -- * AvailabilityZoneState
+    , AvailabilityZoneState (..)
+
+    -- * BatchState
+    , BatchState (..)
+
+    -- * BundleTaskState
+    , BundleTaskState (..)
+
+    -- * CancelBatchErrorCode
+    , CancelBatchErrorCode (..)
+
+    -- * CancelSpotInstanceRequestState
+    , CancelSpotInstanceRequestState (..)
+
+    -- * ContainerFormat
+    , ContainerFormat (..)
+
+    -- * ConversionTaskState
+    , ConversionTaskState (..)
+
+    -- * CurrencyCodeValues
+    , CurrencyCodeValues (..)
+
+    -- * DatafeedSubscriptionState
+    , DatafeedSubscriptionState (..)
+
+    -- * DeviceType
+    , DeviceType (..)
+
+    -- * DiskImageFormat
+    , DiskImageFormat (..)
+
+    -- * DomainType
+    , DomainType (..)
+
+    -- * EventCode
+    , EventCode (..)
+
+    -- * EventType
+    , EventType (..)
+
+    -- * ExportEnvironment
+    , ExportEnvironment (..)
+
+    -- * ExportTaskState
+    , ExportTaskState (..)
+
+    -- * FlowLogsResourceType
+    , FlowLogsResourceType (..)
+
+    -- * GatewayType
+    , GatewayType (..)
+
+    -- * HypervisorType
+    , HypervisorType (..)
+
+    -- * ImageAttributeName
+    , ImageAttributeName (..)
+
+    -- * ImageState
+    , ImageState (..)
+
+    -- * ImageTypeValues
+    , ImageTypeValues (..)
+
+    -- * InstanceAttributeName
+    , InstanceAttributeName (..)
+
+    -- * InstanceLifecycleType
+    , InstanceLifecycleType (..)
+
+    -- * InstanceStateName
+    , InstanceStateName (..)
+
+    -- * InstanceType
+    , InstanceType (..)
+
+    -- * ListingState
+    , ListingState (..)
+
+    -- * ListingStatus
+    , ListingStatus (..)
+
+    -- * MonitoringState
+    , MonitoringState (..)
+
+    -- * MoveStatus
+    , MoveStatus (..)
+
+    -- * NetworkInterfaceAttribute
+    , NetworkInterfaceAttribute (..)
+
+    -- * NetworkInterfaceStatus
+    , NetworkInterfaceStatus (..)
+
+    -- * OfferingTypeValues
+    , OfferingTypeValues (..)
+
+    -- * PermissionGroup
+    , PermissionGroup (..)
+
+    -- * PlacementGroupState
+    , PlacementGroupState (..)
+
+    -- * PlacementStrategy
+    , PlacementStrategy (..)
+
+    -- * PlatformValues
+    , PlatformValues (..)
+
+    -- * ProductCodeValues
+    , ProductCodeValues (..)
+
+    -- * RIProductDescription
+    , RIProductDescription (..)
+
+    -- * RecurringChargeFrequency
+    , RecurringChargeFrequency (..)
+
+    -- * ReportInstanceReasonCodes
+    , ReportInstanceReasonCodes (..)
+
+    -- * ReportStatusType
+    , ReportStatusType (..)
+
+    -- * ReservedInstanceState
+    , ReservedInstanceState (..)
+
+    -- * ResetImageAttributeName
+    , ResetImageAttributeName (..)
+
+    -- * ResourceType
+    , ResourceType (..)
+
+    -- * RouteOrigin
+    , RouteOrigin (..)
+
+    -- * RouteState
+    , RouteState (..)
+
+    -- * RuleAction
+    , RuleAction (..)
+
+    -- * ShutdownBehavior
+    , ShutdownBehavior (..)
+
+    -- * SnapshotAttributeName
+    , SnapshotAttributeName (..)
+
+    -- * SnapshotState
+    , SnapshotState (..)
+
+    -- * SpotInstanceState
+    , SpotInstanceState (..)
+
+    -- * SpotInstanceType
+    , SpotInstanceType (..)
+
+    -- * State
+    , State (..)
+
+    -- * StatusName
+    , StatusName (..)
+
+    -- * StatusType
+    , StatusType (..)
+
+    -- * SubnetState
+    , SubnetState (..)
+
+    -- * SummaryStatus
+    , SummaryStatus (..)
+
+    -- * TelemetryStatus
+    , TelemetryStatus (..)
+
+    -- * Tenancy
+    , Tenancy (..)
+
+    -- * TrafficType
+    , TrafficType (..)
+
+    -- * VPCAttributeName
+    , VPCAttributeName (..)
+
+    -- * VPCState
+    , VPCState (..)
+
+    -- * VPNState
+    , VPNState (..)
+
+    -- * VPNStaticRouteSource
+    , VPNStaticRouteSource (..)
+
+    -- * VirtualizationType
+    , VirtualizationType (..)
+
+    -- * VolumeAttachmentState
+    , VolumeAttachmentState (..)
+
+    -- * VolumeAttributeName
+    , VolumeAttributeName (..)
+
+    -- * VolumeState
+    , VolumeState (..)
+
+    -- * VolumeStatusInfoStatus
+    , VolumeStatusInfoStatus (..)
+
+    -- * VolumeStatusName
+    , VolumeStatusName (..)
+
+    -- * VolumeType
+    , VolumeType (..)
 
     -- * AccountAttribute
     , AccountAttribute
     , accountAttribute
     , aaAttributeValues
     , aaAttributeName
-
-    -- * AccountAttributeName
-    , AccountAttributeName (..)
 
     -- * AccountAttributeValue
     , AccountAttributeValue
@@ -57,15 +282,6 @@ module Network.AWS.EC2.Types
     , addPrivateIPAddress
     , addPublicIP
 
-    -- * AddressStatus
-    , AddressStatus (..)
-
-    -- * ArchitectureValues
-    , ArchitectureValues (..)
-
-    -- * AttachmentStatus
-    , AttachmentStatus (..)
-
     -- * AttributeBooleanValue
     , AttributeBooleanValue
     , attributeBooleanValue
@@ -88,12 +304,6 @@ module Network.AWS.EC2.Types
     , AvailabilityZoneMessage
     , availabilityZoneMessage
     , azmMessage
-
-    -- * AvailabilityZoneState
-    , AvailabilityZoneState (..)
-
-    -- * BatchState
-    , BatchState (..)
 
     -- * BlobAttributeValue
     , BlobAttributeValue
@@ -126,12 +336,6 @@ module Network.AWS.EC2.Types
     , bteCode
     , bteMessage
 
-    -- * BundleTaskState
-    , BundleTaskState (..)
-
-    -- * CancelBatchErrorCode
-    , CancelBatchErrorCode (..)
-
     -- * CancelSpotFleetRequestsError
     , CancelSpotFleetRequestsError
     , cancelSpotFleetRequestsError
@@ -150,9 +354,6 @@ module Network.AWS.EC2.Types
     , csfrsiSpotFleetRequestId
     , csfrsiCurrentSpotFleetRequestState
     , csfrsiPreviousSpotFleetRequestState
-
-    -- * CancelSpotInstanceRequestState
-    , CancelSpotInstanceRequestState (..)
 
     -- * CancelledSpotInstanceRequest
     , CancelledSpotInstanceRequest
@@ -176,9 +377,6 @@ module Network.AWS.EC2.Types
     , cdUploadEnd
     , cdComment
 
-    -- * ContainerFormat
-    , ContainerFormat (..)
-
     -- * ConversionTask
     , ConversionTask
     , conversionTask
@@ -189,9 +387,6 @@ module Network.AWS.EC2.Types
     , ctTags
     , ctConversionTaskId
     , ctState
-
-    -- * ConversionTaskState
-    , ConversionTaskState (..)
 
     -- * CreateVolumePermission
     , CreateVolumePermission
@@ -204,9 +399,6 @@ module Network.AWS.EC2.Types
     , createVolumePermissionModifications
     , cvpmRemove
     , cvpmAdd
-
-    -- * CurrencyCodeValues
-    , CurrencyCodeValues (..)
 
     -- * CustomerGateway
     , CustomerGateway
@@ -231,12 +423,6 @@ module Network.AWS.EC2.Types
     , doDHCPOptionsId
     , doTags
 
-    -- * DatafeedSubscriptionState
-    , DatafeedSubscriptionState (..)
-
-    -- * DeviceType
-    , DeviceType (..)
-
     -- * DiskImage
     , DiskImage
     , diskImage
@@ -259,17 +445,11 @@ module Network.AWS.EC2.Types
     , didBytes
     , didImportManifestURL
 
-    -- * DiskImageFormat
-    , DiskImageFormat (..)
-
     -- * DiskImageVolumeDescription
     , DiskImageVolumeDescription
     , diskImageVolumeDescription
     , divdSize
     , divdId
-
-    -- * DomainType
-    , DomainType (..)
 
     -- * EBSBlockDevice
     , EBSBlockDevice
@@ -295,21 +475,12 @@ module Network.AWS.EC2.Types
     , eibdsDeleteOnTermination
     , eibdsVolumeId
 
-    -- * EventCode
-    , EventCode (..)
-
     -- * EventInformation
     , EventInformation
     , eventInformation
     , eiInstanceId
     , eiEventDescription
     , eiEventSubType
-
-    -- * EventType
-    , EventType (..)
-
-    -- * ExportEnvironment
-    , ExportEnvironment (..)
 
     -- * ExportTask
     , ExportTask
@@ -320,9 +491,6 @@ module Network.AWS.EC2.Types
     , etInstanceExportDetails
     , etState
     , etStatusMessage
-
-    -- * ExportTaskState
-    , ExportTaskState (..)
 
     -- * ExportToS3Task
     , ExportToS3Task
@@ -359,12 +527,6 @@ module Network.AWS.EC2.Types
     , flLogGroupName
     , flFlowLogId
 
-    -- * FlowLogsResourceType
-    , FlowLogsResourceType (..)
-
-    -- * GatewayType
-    , GatewayType (..)
-
     -- * GroupIdentifier
     , GroupIdentifier
     , groupIdentifier
@@ -377,9 +539,6 @@ module Network.AWS.EC2.Types
     , hrTimestamp
     , hrEventType
     , hrEventInformation
-
-    -- * HypervisorType
-    , HypervisorType (..)
 
     -- * IAMInstanceProfile
     , IAMInstanceProfile
@@ -441,9 +600,6 @@ module Network.AWS.EC2.Types
     , imaVirtualizationType
     , imaHypervisor
 
-    -- * ImageAttributeName
-    , ImageAttributeName (..)
-
     -- * ImageDiskContainer
     , ImageDiskContainer
     , imageDiskContainer
@@ -453,12 +609,6 @@ module Network.AWS.EC2.Types
     , idcUserBucket
     , idcDescription
     , idcSnapshotId
-
-    -- * ImageState
-    , ImageState (..)
-
-    -- * ImageTypeValues
-    , ImageTypeValues (..)
 
     -- * ImportImageTask
     , ImportImageTask
@@ -566,9 +716,6 @@ module Network.AWS.EC2.Types
     , insEBSOptimized
     , insState
 
-    -- * InstanceAttributeName
-    , InstanceAttributeName (..)
-
     -- * InstanceBlockDeviceMapping
     , InstanceBlockDeviceMapping
     , instanceBlockDeviceMapping
@@ -594,9 +741,6 @@ module Network.AWS.EC2.Types
     , instanceExportDetails
     , iedInstanceId
     , iedTargetEnvironment
-
-    -- * InstanceLifecycleType
-    , InstanceLifecycleType (..)
 
     -- * InstanceMonitoring
     , InstanceMonitoring
@@ -673,9 +817,6 @@ module Network.AWS.EC2.Types
     , iscCurrentState
     , iscPreviousState
 
-    -- * InstanceStateName
-    , InstanceStateName (..)
-
     -- * InstanceStatus
     , InstanceStatus
     , instanceStatus
@@ -706,9 +847,6 @@ module Network.AWS.EC2.Types
     , instanceStatusSummary
     , issDetails
     , issStatus
-
-    -- * InstanceType
-    , InstanceType (..)
 
     -- * InternetGateway
     , InternetGateway
@@ -760,22 +898,10 @@ module Network.AWS.EC2.Types
     , lsAddressingType
     , lsPlacement
 
-    -- * ListingState
-    , ListingState (..)
-
-    -- * ListingStatus
-    , ListingStatus (..)
-
     -- * Monitoring
     , Monitoring
     , monitoring
     , monState
-
-    -- * MonitoringState
-    , MonitoringState (..)
-
-    -- * MoveStatus
-    , MoveStatus (..)
 
     -- * MovingAddressStatus
     , MovingAddressStatus
@@ -859,9 +985,6 @@ module Network.AWS.EC2.Types
     , niacDeleteOnTermination
     , niacAttachmentId
 
-    -- * NetworkInterfaceAttribute
-    , NetworkInterfaceAttribute (..)
-
     -- * NetworkInterfacePrivateIPAddress
     , NetworkInterfacePrivateIPAddress
     , networkInterfacePrivateIPAddress
@@ -870,20 +993,11 @@ module Network.AWS.EC2.Types
     , nipiaPrivateDNSName
     , nipiaAssociation
 
-    -- * NetworkInterfaceStatus
-    , NetworkInterfaceStatus (..)
-
     -- * NewDHCPConfiguration
     , NewDHCPConfiguration
     , newDHCPConfiguration
     , ndcValues
     , ndcKey
-
-    -- * OfferingTypeValues
-    , OfferingTypeValues (..)
-
-    -- * PermissionGroup
-    , PermissionGroup (..)
 
     -- * Placement
     , Placement
@@ -898,15 +1012,6 @@ module Network.AWS.EC2.Types
     , pgState
     , pgStrategy
     , pgGroupName
-
-    -- * PlacementGroupState
-    , PlacementGroupState (..)
-
-    -- * PlacementStrategy
-    , PlacementStrategy (..)
-
-    -- * PlatformValues
-    , PlatformValues (..)
 
     -- * PortRange
     , PortRange
@@ -959,16 +1064,10 @@ module Network.AWS.EC2.Types
     , pcProductCodeType
     , pcProductCodeId
 
-    -- * ProductCodeValues
-    , ProductCodeValues (..)
-
     -- * PropagatingVGW
     , PropagatingVGW
     , propagatingVGW
     , pvGatewayId
-
-    -- * RIProductDescription
-    , RIProductDescription (..)
 
     -- * RecurringCharge
     , RecurringCharge
@@ -976,20 +1075,11 @@ module Network.AWS.EC2.Types
     , rcFrequency
     , rcAmount
 
-    -- * RecurringChargeFrequency
-    , RecurringChargeFrequency (..)
-
     -- * RegionInfo
     , RegionInfo
     , regionInfo
     , riRegionName
     , riEndpoint
-
-    -- * ReportInstanceReasonCodes
-    , ReportInstanceReasonCodes (..)
-
-    -- * ReportStatusType
-    , ReportStatusType (..)
 
     -- * RequestSpotLaunchSpecification
     , RequestSpotLaunchSpecification
@@ -1025,9 +1115,6 @@ module Network.AWS.EC2.Types
     , reservedInstanceLimitPrice
     , rilpAmount
     , rilpCurrencyCode
-
-    -- * ReservedInstanceState
-    , ReservedInstanceState (..)
 
     -- * ReservedInstances
     , ReservedInstances
@@ -1112,12 +1199,6 @@ module Network.AWS.EC2.Types
     , rioFixedPrice
     , rioDuration
 
-    -- * ResetImageAttributeName
-    , ResetImageAttributeName (..)
-
-    -- * ResourceType
-    , ResourceType (..)
-
     -- * Route
     , Route
     , route
@@ -1130,12 +1211,6 @@ module Network.AWS.EC2.Types
     , rouInstanceOwnerId
     , rouDestinationPrefixListId
     , rouDestinationCIDRBlock
-
-    -- * RouteOrigin
-    , RouteOrigin (..)
-
-    -- * RouteState
-    , RouteState (..)
 
     -- * RouteTable
     , RouteTable
@@ -1154,9 +1229,6 @@ module Network.AWS.EC2.Types
     , rtaRouteTableAssociationId
     , rtaMain
     , rtaSubnetId
-
-    -- * RuleAction
-    , RuleAction (..)
 
     -- * RunInstancesMonitoringEnabled
     , RunInstancesMonitoringEnabled
@@ -1184,9 +1256,6 @@ module Network.AWS.EC2.Types
     , sgGroupName
     , sgDescription
 
-    -- * ShutdownBehavior
-    , ShutdownBehavior (..)
-
     -- * Snapshot
     , Snapshot
     , snapshot
@@ -1202,9 +1271,6 @@ module Network.AWS.EC2.Types
     , snaProgress
     , snaState
     , snaEncrypted
-
-    -- * SnapshotAttributeName
-    , SnapshotAttributeName (..)
 
     -- * SnapshotDetail
     , SnapshotDetail
@@ -1227,9 +1293,6 @@ module Network.AWS.EC2.Types
     , sdcFormat
     , sdcUserBucket
     , sdcDescription
-
-    -- * SnapshotState
-    , SnapshotState (..)
 
     -- * SnapshotTaskDetail
     , SnapshotTaskDetail
@@ -1292,9 +1355,6 @@ module Network.AWS.EC2.Types
     , sirTags
     , sirCreateTime
 
-    -- * SpotInstanceState
-    , SpotInstanceState (..)
-
     -- * SpotInstanceStateFault
     , SpotInstanceStateFault
     , spotInstanceStateFault
@@ -1307,9 +1367,6 @@ module Network.AWS.EC2.Types
     , sisUpdateTime
     , sisCode
     , sisMessage
-
-    -- * SpotInstanceType
-    , SpotInstanceType (..)
 
     -- * SpotPlacement
     , SpotPlacement
@@ -1326,20 +1383,11 @@ module Network.AWS.EC2.Types
     , spoAvailabilityZone
     , spoTimestamp
 
-    -- * State
-    , State (..)
-
     -- * StateReason
     , StateReason
     , stateReason
     , srCode
     , srMessage
-
-    -- * StatusName
-    , StatusName (..)
-
-    -- * StatusType
-    , StatusType (..)
 
     -- * Storage
     , Storage
@@ -1359,12 +1407,6 @@ module Network.AWS.EC2.Types
     , subSubnetId
     , subVPCId
 
-    -- * SubnetState
-    , SubnetState (..)
-
-    -- * SummaryStatus
-    , SummaryStatus (..)
-
     -- * Tag
     , Tag
     , tag
@@ -1378,15 +1420,6 @@ module Network.AWS.EC2.Types
     , tdResourceType
     , tdKey
     , tdValue
-
-    -- * TelemetryStatus
-    , TelemetryStatus (..)
-
-    -- * Tenancy
-    , Tenancy (..)
-
-    -- * TrafficType
-    , TrafficType (..)
 
     -- * UnsuccessfulItem
     , UnsuccessfulItem
@@ -1450,9 +1483,6 @@ module Network.AWS.EC2.Types
     , vaState
     , vaVPCId
 
-    -- * VPCAttributeName
-    , VPCAttributeName (..)
-
     -- * VPCClassicLink
     , VPCClassicLink
     , vpcClassicLink
@@ -1494,9 +1524,6 @@ module Network.AWS.EC2.Types
     , vpcviOwnerId
     , vpcviCIDRBlock
 
-    -- * VPCState
-    , VPCState (..)
-
     -- * VPNConnection
     , VPNConnection
     , vpnConnection
@@ -1531,21 +1558,12 @@ module Network.AWS.EC2.Types
     , vgType
     , vgTags
 
-    -- * VPNState
-    , VPNState (..)
-
     -- * VPNStaticRoute
     , VPNStaticRoute
     , vpnStaticRoute
     , vsrState
     , vsrSource
     , vsrDestinationCIDRBlock
-
-    -- * VPNStaticRouteSource
-    , VPNStaticRouteSource (..)
-
-    -- * VirtualizationType
-    , VirtualizationType (..)
 
     -- * Volume
     , Volume
@@ -1573,19 +1591,10 @@ module Network.AWS.EC2.Types
     , vVolumeId
     , vAttachTime
 
-    -- * VolumeAttachmentState
-    , VolumeAttachmentState (..)
-
-    -- * VolumeAttributeName
-    , VolumeAttributeName (..)
-
     -- * VolumeDetail
     , VolumeDetail
     , volumeDetail
     , vdSize
-
-    -- * VolumeState
-    , VolumeState (..)
 
     -- * VolumeStatusAction
     , VolumeStatusAction
@@ -1616,9 +1625,6 @@ module Network.AWS.EC2.Types
     , vsiStatus
     , vsiDetails
 
-    -- * VolumeStatusInfoStatus
-    , VolumeStatusInfoStatus (..)
-
     -- * VolumeStatusItem
     , VolumeStatusItem
     , volumeStatusItem
@@ -1627,12 +1633,6 @@ module Network.AWS.EC2.Types
     , vsiAvailabilityZone
     , vsiEvents
     , vsiVolumeId
-
-    -- * VolumeStatusName
-    , VolumeStatusName (..)
-
-    -- * VolumeType
-    , VolumeType (..)
 
     , module Network.AWS.EC2.Internal
     ) where
@@ -1646,32 +1646,1833 @@ data EC2
 
 instance AWSService EC2 where
     type Sg EC2 = V4
-    type Er EC2 = EC2Error
 
-    service = service'
+    service = const svc
       where
-        service' :: Service EC2
-        service' = Service
-            { _svcAbbrev  = "EC2"
-            , _svcPrefix  = "ec2"
-            , _svcVersion = "2015-04-15"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service EC2
+        svc = Service
+            { _svcAbbrev   = "EC2"
+            , _svcPrefix   = "ec2"
+            , _svcVersion  = "2015-04-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError EC2Error)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry EC2
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> EC2Error
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+data AccountAttributeName = SupportedPlatforms | DefaultVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
 
--- | /See:/ 'accountAttribute' smart constructor.
+instance FromText AccountAttributeName where
+    parser = takeLowerText >>= \case
+        "default-vpc" -> pure DefaultVPC
+        "supported-platforms" -> pure SupportedPlatforms
+        e -> fail ("Failure parsing AccountAttributeName from " ++ show e)
+
+instance ToText AccountAttributeName where
+    toText = \case
+        DefaultVPC -> "default-vpc"
+        SupportedPlatforms -> "supported-platforms"
+
+instance Hashable AccountAttributeName
+instance ToQuery AccountAttributeName
+instance ToHeader AccountAttributeName
+
+data AddressStatus = MoveInProgress | InVPC | InClassic deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AddressStatus where
+    parser = takeLowerText >>= \case
+        "InClassic" -> pure InClassic
+        "InVpc" -> pure InVPC
+        "MoveInProgress" -> pure MoveInProgress
+        e -> fail ("Failure parsing AddressStatus from " ++ show e)
+
+instance ToText AddressStatus where
+    toText = \case
+        InClassic -> "InClassic"
+        InVPC -> "InVpc"
+        MoveInProgress -> "MoveInProgress"
+
+instance Hashable AddressStatus
+instance ToQuery AddressStatus
+instance ToHeader AddressStatus
+
+instance FromXML AddressStatus where
+    parseXML = parseXMLText "AddressStatus"
+
+data ArchitectureValues = I386 | X8664 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ArchitectureValues where
+    parser = takeLowerText >>= \case
+        "i386" -> pure I386
+        "x86_64" -> pure X8664
+        e -> fail ("Failure parsing ArchitectureValues from " ++ show e)
+
+instance ToText ArchitectureValues where
+    toText = \case
+        I386 -> "i386"
+        X8664 -> "x86_64"
+
+instance Hashable ArchitectureValues
+instance ToQuery ArchitectureValues
+instance ToHeader ArchitectureValues
+
+instance FromXML ArchitectureValues where
+    parseXML = parseXMLText "ArchitectureValues"
+
+data AttachmentStatus = Detached | Detaching | Attached | Attaching deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AttachmentStatus where
+    parser = takeLowerText >>= \case
+        "attached" -> pure Attached
+        "attaching" -> pure Attaching
+        "detached" -> pure Detached
+        "detaching" -> pure Detaching
+        e -> fail ("Failure parsing AttachmentStatus from " ++ show e)
+
+instance ToText AttachmentStatus where
+    toText = \case
+        Attached -> "attached"
+        Attaching -> "attaching"
+        Detached -> "detached"
+        Detaching -> "detaching"
+
+instance Hashable AttachmentStatus
+instance ToQuery AttachmentStatus
+instance ToHeader AttachmentStatus
+
+instance FromXML AttachmentStatus where
+    parseXML = parseXMLText "AttachmentStatus"
+
+data AvailabilityZoneState = AZSAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AvailabilityZoneState where
+    parser = takeLowerText >>= \case
+        "available" -> pure AZSAvailable
+        e -> fail ("Failure parsing AvailabilityZoneState from " ++ show e)
+
+instance ToText AvailabilityZoneState where
+    toText = \case
+        AZSAvailable -> "available"
+
+instance Hashable AvailabilityZoneState
+instance ToQuery AvailabilityZoneState
+instance ToHeader AvailabilityZoneState
+
+instance FromXML AvailabilityZoneState where
+    parseXML = parseXMLText "AvailabilityZoneState"
+
+data BatchState = BSCancelled | BSSubmitted | BSFailed | BSActive | BSCancelledRunning | BSCancelledTerminating deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText BatchState where
+    parser = takeLowerText >>= \case
+        "active" -> pure BSActive
+        "cancelled" -> pure BSCancelled
+        "cancelled_running" -> pure BSCancelledRunning
+        "cancelled_terminating" -> pure BSCancelledTerminating
+        "failed" -> pure BSFailed
+        "submitted" -> pure BSSubmitted
+        e -> fail ("Failure parsing BatchState from " ++ show e)
+
+instance ToText BatchState where
+    toText = \case
+        BSActive -> "active"
+        BSCancelled -> "cancelled"
+        BSCancelledRunning -> "cancelled_running"
+        BSCancelledTerminating -> "cancelled_terminating"
+        BSFailed -> "failed"
+        BSSubmitted -> "submitted"
+
+instance Hashable BatchState
+instance ToQuery BatchState
+instance ToHeader BatchState
+
+instance FromXML BatchState where
+    parseXML = parseXMLText "BatchState"
+
+data BundleTaskState = BTSComplete | BTSStoring | BTSPending | BTSWaitingForShutdown | BTSBundling | BTSCancelling | BTSFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText BundleTaskState where
+    parser = takeLowerText >>= \case
+        "bundling" -> pure BTSBundling
+        "cancelling" -> pure BTSCancelling
+        "complete" -> pure BTSComplete
+        "failed" -> pure BTSFailed
+        "pending" -> pure BTSPending
+        "storing" -> pure BTSStoring
+        "waiting-for-shutdown" -> pure BTSWaitingForShutdown
+        e -> fail ("Failure parsing BundleTaskState from " ++ show e)
+
+instance ToText BundleTaskState where
+    toText = \case
+        BTSBundling -> "bundling"
+        BTSCancelling -> "cancelling"
+        BTSComplete -> "complete"
+        BTSFailed -> "failed"
+        BTSPending -> "pending"
+        BTSStoring -> "storing"
+        BTSWaitingForShutdown -> "waiting-for-shutdown"
+
+instance Hashable BundleTaskState
+instance ToQuery BundleTaskState
+instance ToHeader BundleTaskState
+
+instance FromXML BundleTaskState where
+    parseXML = parseXMLText "BundleTaskState"
+
+data CancelBatchErrorCode = FleetRequestNotInCancellableState | FleetRequestIdMalformed | UnexpectedError | FleetRequestIdDoesNotExist deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText CancelBatchErrorCode where
+    parser = takeLowerText >>= \case
+        "fleetRequestIdDoesNotExist" -> pure FleetRequestIdDoesNotExist
+        "fleetRequestIdMalformed" -> pure FleetRequestIdMalformed
+        "fleetRequestNotInCancellableState" -> pure FleetRequestNotInCancellableState
+        "unexpectedError" -> pure UnexpectedError
+        e -> fail ("Failure parsing CancelBatchErrorCode from " ++ show e)
+
+instance ToText CancelBatchErrorCode where
+    toText = \case
+        FleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
+        FleetRequestIdMalformed -> "fleetRequestIdMalformed"
+        FleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
+        UnexpectedError -> "unexpectedError"
+
+instance Hashable CancelBatchErrorCode
+instance ToQuery CancelBatchErrorCode
+instance ToHeader CancelBatchErrorCode
+
+instance FromXML CancelBatchErrorCode where
+    parseXML = parseXMLText "CancelBatchErrorCode"
+
+data CancelSpotInstanceRequestState = CSIRSClosed | CSIRSActive | CSIRSOpen | CSIRSCompleted | CSIRSCancelled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText CancelSpotInstanceRequestState where
+    parser = takeLowerText >>= \case
+        "active" -> pure CSIRSActive
+        "cancelled" -> pure CSIRSCancelled
+        "closed" -> pure CSIRSClosed
+        "completed" -> pure CSIRSCompleted
+        "open" -> pure CSIRSOpen
+        e -> fail ("Failure parsing CancelSpotInstanceRequestState from " ++ show e)
+
+instance ToText CancelSpotInstanceRequestState where
+    toText = \case
+        CSIRSActive -> "active"
+        CSIRSCancelled -> "cancelled"
+        CSIRSClosed -> "closed"
+        CSIRSCompleted -> "completed"
+        CSIRSOpen -> "open"
+
+instance Hashable CancelSpotInstanceRequestState
+instance ToQuery CancelSpotInstanceRequestState
+instance ToHeader CancelSpotInstanceRequestState
+
+instance FromXML CancelSpotInstanceRequestState where
+    parseXML = parseXMLText "CancelSpotInstanceRequestState"
+
+data ContainerFormat = Ova deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ContainerFormat where
+    parser = takeLowerText >>= \case
+        "ova" -> pure Ova
+        e -> fail ("Failure parsing ContainerFormat from " ++ show e)
+
+instance ToText ContainerFormat where
+    toText = \case
+        Ova -> "ova"
+
+instance Hashable ContainerFormat
+instance ToQuery ContainerFormat
+instance ToHeader ContainerFormat
+
+instance FromXML ContainerFormat where
+    parseXML = parseXMLText "ContainerFormat"
+
+data ConversionTaskState = CTSCancelled | CTSActive | CTSCancelling | CTSCompleted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ConversionTaskState where
+    parser = takeLowerText >>= \case
+        "active" -> pure CTSActive
+        "cancelled" -> pure CTSCancelled
+        "cancelling" -> pure CTSCancelling
+        "completed" -> pure CTSCompleted
+        e -> fail ("Failure parsing ConversionTaskState from " ++ show e)
+
+instance ToText ConversionTaskState where
+    toText = \case
+        CTSActive -> "active"
+        CTSCancelled -> "cancelled"
+        CTSCancelling -> "cancelling"
+        CTSCompleted -> "completed"
+
+instance Hashable ConversionTaskState
+instance ToQuery ConversionTaskState
+instance ToHeader ConversionTaskState
+
+instance FromXML ConversionTaskState where
+    parseXML = parseXMLText "ConversionTaskState"
+
+data CurrencyCodeValues = Usd deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText CurrencyCodeValues where
+    parser = takeLowerText >>= \case
+        "USD" -> pure Usd
+        e -> fail ("Failure parsing CurrencyCodeValues from " ++ show e)
+
+instance ToText CurrencyCodeValues where
+    toText = \case
+        Usd -> "USD"
+
+instance Hashable CurrencyCodeValues
+instance ToQuery CurrencyCodeValues
+instance ToHeader CurrencyCodeValues
+
+instance FromXML CurrencyCodeValues where
+    parseXML = parseXMLText "CurrencyCodeValues"
+
+data DatafeedSubscriptionState = DSSInactive | DSSActive deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DatafeedSubscriptionState where
+    parser = takeLowerText >>= \case
+        "Active" -> pure DSSActive
+        "Inactive" -> pure DSSInactive
+        e -> fail ("Failure parsing DatafeedSubscriptionState from " ++ show e)
+
+instance ToText DatafeedSubscriptionState where
+    toText = \case
+        DSSActive -> "Active"
+        DSSInactive -> "Inactive"
+
+instance Hashable DatafeedSubscriptionState
+instance ToQuery DatafeedSubscriptionState
+instance ToHeader DatafeedSubscriptionState
+
+instance FromXML DatafeedSubscriptionState where
+    parseXML = parseXMLText "DatafeedSubscriptionState"
+
+data DeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DeviceType where
+    parser = takeLowerText >>= \case
+        "ebs" -> pure EBS
+        "instance-store" -> pure InstanceStore
+        e -> fail ("Failure parsing DeviceType from " ++ show e)
+
+instance ToText DeviceType where
+    toText = \case
+        EBS -> "ebs"
+        InstanceStore -> "instance-store"
+
+instance Hashable DeviceType
+instance ToQuery DeviceType
+instance ToHeader DeviceType
+
+instance FromXML DeviceType where
+    parseXML = parseXMLText "DeviceType"
+
+data DiskImageFormat = Raw | VHD | VMDK deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DiskImageFormat where
+    parser = takeLowerText >>= \case
+        "RAW" -> pure Raw
+        "VHD" -> pure VHD
+        "VMDK" -> pure VMDK
+        e -> fail ("Failure parsing DiskImageFormat from " ++ show e)
+
+instance ToText DiskImageFormat where
+    toText = \case
+        Raw -> "RAW"
+        VHD -> "VHD"
+        VMDK -> "VMDK"
+
+instance Hashable DiskImageFormat
+instance ToQuery DiskImageFormat
+instance ToHeader DiskImageFormat
+
+instance FromXML DiskImageFormat where
+    parseXML = parseXMLText "DiskImageFormat"
+
+data DomainType = DTStandard | DTVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DomainType where
+    parser = takeLowerText >>= \case
+        "standard" -> pure DTStandard
+        "vpc" -> pure DTVPC
+        e -> fail ("Failure parsing DomainType from " ++ show e)
+
+instance ToText DomainType where
+    toText = \case
+        DTStandard -> "standard"
+        DTVPC -> "vpc"
+
+instance Hashable DomainType
+instance ToQuery DomainType
+instance ToHeader DomainType
+
+instance FromXML DomainType where
+    parseXML = parseXMLText "DomainType"
+
+data EventCode = InstanceReboot | InstanceRetirement | InstanceStop | SystemReboot | SystemMaintenance deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EventCode where
+    parser = takeLowerText >>= \case
+        "instance-reboot" -> pure InstanceReboot
+        "instance-retirement" -> pure InstanceRetirement
+        "instance-stop" -> pure InstanceStop
+        "system-maintenance" -> pure SystemMaintenance
+        "system-reboot" -> pure SystemReboot
+        e -> fail ("Failure parsing EventCode from " ++ show e)
+
+instance ToText EventCode where
+    toText = \case
+        InstanceReboot -> "instance-reboot"
+        InstanceRetirement -> "instance-retirement"
+        InstanceStop -> "instance-stop"
+        SystemMaintenance -> "system-maintenance"
+        SystemReboot -> "system-reboot"
+
+instance Hashable EventCode
+instance ToQuery EventCode
+instance ToHeader EventCode
+
+instance FromXML EventCode where
+    parseXML = parseXMLText "EventCode"
+
+data EventType = InstanceChange | Error | FleetRequestChange deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EventType where
+    parser = takeLowerText >>= \case
+        "error" -> pure Error
+        "fleetRequestChange" -> pure FleetRequestChange
+        "instanceChange" -> pure InstanceChange
+        e -> fail ("Failure parsing EventType from " ++ show e)
+
+instance ToText EventType where
+    toText = \case
+        Error -> "error"
+        FleetRequestChange -> "fleetRequestChange"
+        InstanceChange -> "instanceChange"
+
+instance Hashable EventType
+instance ToQuery EventType
+instance ToHeader EventType
+
+instance FromXML EventType where
+    parseXML = parseXMLText "EventType"
+
+data ExportEnvironment = Citrix | Microsoft | VMware deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ExportEnvironment where
+    parser = takeLowerText >>= \case
+        "citrix" -> pure Citrix
+        "microsoft" -> pure Microsoft
+        "vmware" -> pure VMware
+        e -> fail ("Failure parsing ExportEnvironment from " ++ show e)
+
+instance ToText ExportEnvironment where
+    toText = \case
+        Citrix -> "citrix"
+        Microsoft -> "microsoft"
+        VMware -> "vmware"
+
+instance Hashable ExportEnvironment
+instance ToQuery ExportEnvironment
+instance ToHeader ExportEnvironment
+
+instance FromXML ExportEnvironment where
+    parseXML = parseXMLText "ExportEnvironment"
+
+data ExportTaskState = ETSCompleted | ETSCancelled | ETSCancelling | ETSActive deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ExportTaskState where
+    parser = takeLowerText >>= \case
+        "active" -> pure ETSActive
+        "cancelled" -> pure ETSCancelled
+        "cancelling" -> pure ETSCancelling
+        "completed" -> pure ETSCompleted
+        e -> fail ("Failure parsing ExportTaskState from " ++ show e)
+
+instance ToText ExportTaskState where
+    toText = \case
+        ETSActive -> "active"
+        ETSCancelled -> "cancelled"
+        ETSCancelling -> "cancelling"
+        ETSCompleted -> "completed"
+
+instance Hashable ExportTaskState
+instance ToQuery ExportTaskState
+instance ToHeader ExportTaskState
+
+instance FromXML ExportTaskState where
+    parseXML = parseXMLText "ExportTaskState"
+
+data FlowLogsResourceType = FLRTSubnet | FLRTNetworkInterface | FLRTVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText FlowLogsResourceType where
+    parser = takeLowerText >>= \case
+        "NetworkInterface" -> pure FLRTNetworkInterface
+        "Subnet" -> pure FLRTSubnet
+        "VPC" -> pure FLRTVPC
+        e -> fail ("Failure parsing FlowLogsResourceType from " ++ show e)
+
+instance ToText FlowLogsResourceType where
+    toText = \case
+        FLRTNetworkInterface -> "NetworkInterface"
+        FLRTSubnet -> "Subnet"
+        FLRTVPC -> "VPC"
+
+instance Hashable FlowLogsResourceType
+instance ToQuery FlowLogsResourceType
+instance ToHeader FlowLogsResourceType
+
+data GatewayType = IPsec1 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText GatewayType where
+    parser = takeLowerText >>= \case
+        "ipsec.1" -> pure IPsec1
+        e -> fail ("Failure parsing GatewayType from " ++ show e)
+
+instance ToText GatewayType where
+    toText = \case
+        IPsec1 -> "ipsec.1"
+
+instance Hashable GatewayType
+instance ToQuery GatewayType
+instance ToHeader GatewayType
+
+instance FromXML GatewayType where
+    parseXML = parseXMLText "GatewayType"
+
+data HypervisorType = Xen | Ovm deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText HypervisorType where
+    parser = takeLowerText >>= \case
+        "ovm" -> pure Ovm
+        "xen" -> pure Xen
+        e -> fail ("Failure parsing HypervisorType from " ++ show e)
+
+instance ToText HypervisorType where
+    toText = \case
+        Ovm -> "ovm"
+        Xen -> "xen"
+
+instance Hashable HypervisorType
+instance ToQuery HypervisorType
+instance ToHeader HypervisorType
+
+instance FromXML HypervisorType where
+    parseXML = parseXMLText "HypervisorType"
+
+data ImageAttributeName = BlockDeviceMapping | RAMDisk | Kernel | LaunchPermission | SRIOVNetSupport | ProductCodes | Description deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ImageAttributeName where
+    parser = takeLowerText >>= \case
+        "blockDeviceMapping" -> pure BlockDeviceMapping
+        "description" -> pure Description
+        "kernel" -> pure Kernel
+        "launchPermission" -> pure LaunchPermission
+        "productCodes" -> pure ProductCodes
+        "ramdisk" -> pure RAMDisk
+        "sriovNetSupport" -> pure SRIOVNetSupport
+        e -> fail ("Failure parsing ImageAttributeName from " ++ show e)
+
+instance ToText ImageAttributeName where
+    toText = \case
+        BlockDeviceMapping -> "blockDeviceMapping"
+        Description -> "description"
+        Kernel -> "kernel"
+        LaunchPermission -> "launchPermission"
+        ProductCodes -> "productCodes"
+        RAMDisk -> "ramdisk"
+        SRIOVNetSupport -> "sriovNetSupport"
+
+instance Hashable ImageAttributeName
+instance ToQuery ImageAttributeName
+instance ToHeader ImageAttributeName
+
+data ImageState = ISAvailable | ISDeregistered | ISFailed | ISError | ISPending | ISInvalid | ISTransient deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ImageState where
+    parser = takeLowerText >>= \case
+        "available" -> pure ISAvailable
+        "deregistered" -> pure ISDeregistered
+        "error" -> pure ISError
+        "failed" -> pure ISFailed
+        "invalid" -> pure ISInvalid
+        "pending" -> pure ISPending
+        "transient" -> pure ISTransient
+        e -> fail ("Failure parsing ImageState from " ++ show e)
+
+instance ToText ImageState where
+    toText = \case
+        ISAvailable -> "available"
+        ISDeregistered -> "deregistered"
+        ISError -> "error"
+        ISFailed -> "failed"
+        ISInvalid -> "invalid"
+        ISPending -> "pending"
+        ISTransient -> "transient"
+
+instance Hashable ImageState
+instance ToQuery ImageState
+instance ToHeader ImageState
+
+instance FromXML ImageState where
+    parseXML = parseXMLText "ImageState"
+
+data ImageTypeValues = ITVKernel | ITVMachine | ITVRAMDisk deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ImageTypeValues where
+    parser = takeLowerText >>= \case
+        "kernel" -> pure ITVKernel
+        "machine" -> pure ITVMachine
+        "ramdisk" -> pure ITVRAMDisk
+        e -> fail ("Failure parsing ImageTypeValues from " ++ show e)
+
+instance ToText ImageTypeValues where
+    toText = \case
+        ITVKernel -> "kernel"
+        ITVMachine -> "machine"
+        ITVRAMDisk -> "ramdisk"
+
+instance Hashable ImageTypeValues
+instance ToQuery ImageTypeValues
+instance ToHeader ImageTypeValues
+
+instance FromXML ImageTypeValues where
+    parseXML = parseXMLText "ImageTypeValues"
+
+data InstanceAttributeName = IANInstanceInitiatedShutdownBehavior | IANProductCodes | IANGroupSet | IANDisableAPITermination | IANSRIOVNetSupport | IANRootDeviceName | IANUserData | IANEBSOptimized | IANInstanceType | IANRAMDisk | IANKernel | IANBlockDeviceMapping | IANSourceDestCheck deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceAttributeName where
+    parser = takeLowerText >>= \case
+        "blockDeviceMapping" -> pure IANBlockDeviceMapping
+        "disableApiTermination" -> pure IANDisableAPITermination
+        "ebsOptimized" -> pure IANEBSOptimized
+        "groupSet" -> pure IANGroupSet
+        "instanceInitiatedShutdownBehavior" -> pure IANInstanceInitiatedShutdownBehavior
+        "instanceType" -> pure IANInstanceType
+        "kernel" -> pure IANKernel
+        "productCodes" -> pure IANProductCodes
+        "ramdisk" -> pure IANRAMDisk
+        "rootDeviceName" -> pure IANRootDeviceName
+        "sriovNetSupport" -> pure IANSRIOVNetSupport
+        "sourceDestCheck" -> pure IANSourceDestCheck
+        "userData" -> pure IANUserData
+        e -> fail ("Failure parsing InstanceAttributeName from " ++ show e)
+
+instance ToText InstanceAttributeName where
+    toText = \case
+        IANBlockDeviceMapping -> "blockDeviceMapping"
+        IANDisableAPITermination -> "disableApiTermination"
+        IANEBSOptimized -> "ebsOptimized"
+        IANGroupSet -> "groupSet"
+        IANInstanceInitiatedShutdownBehavior -> "instanceInitiatedShutdownBehavior"
+        IANInstanceType -> "instanceType"
+        IANKernel -> "kernel"
+        IANProductCodes -> "productCodes"
+        IANRAMDisk -> "ramdisk"
+        IANRootDeviceName -> "rootDeviceName"
+        IANSRIOVNetSupport -> "sriovNetSupport"
+        IANSourceDestCheck -> "sourceDestCheck"
+        IANUserData -> "userData"
+
+instance Hashable InstanceAttributeName
+instance ToQuery InstanceAttributeName
+instance ToHeader InstanceAttributeName
+
+data InstanceLifecycleType = Spot deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceLifecycleType where
+    parser = takeLowerText >>= \case
+        "spot" -> pure Spot
+        e -> fail ("Failure parsing InstanceLifecycleType from " ++ show e)
+
+instance ToText InstanceLifecycleType where
+    toText = \case
+        Spot -> "spot"
+
+instance Hashable InstanceLifecycleType
+instance ToQuery InstanceLifecycleType
+instance ToHeader InstanceLifecycleType
+
+instance FromXML InstanceLifecycleType where
+    parseXML = parseXMLText "InstanceLifecycleType"
+
+data InstanceStateName = ISNStopped | ISNPending | ISNStopping | ISNShuttingDown | ISNRunning | ISNTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceStateName where
+    parser = takeLowerText >>= \case
+        "pending" -> pure ISNPending
+        "running" -> pure ISNRunning
+        "shutting-down" -> pure ISNShuttingDown
+        "stopped" -> pure ISNStopped
+        "stopping" -> pure ISNStopping
+        "terminated" -> pure ISNTerminated
+        e -> fail ("Failure parsing InstanceStateName from " ++ show e)
+
+instance ToText InstanceStateName where
+    toText = \case
+        ISNPending -> "pending"
+        ISNRunning -> "running"
+        ISNShuttingDown -> "shutting-down"
+        ISNStopped -> "stopped"
+        ISNStopping -> "stopping"
+        ISNTerminated -> "terminated"
+
+instance Hashable InstanceStateName
+instance ToQuery InstanceStateName
+instance ToHeader InstanceStateName
+
+instance FromXML InstanceStateName where
+    parseXML = parseXMLText "InstanceStateName"
+
+data InstanceType = I22XLarge | D24XLarge | CC28XLarge | C1Medium | C48XLarge | C4XLarge | I24XLarge | C4Large | C3XLarge | CR18XLarge | M410XLarge | C42XLarge | CC14XLarge | D28XLarge | M3Large | M3Medium | T2Medium | M24XLarge | R32XLarge | M42XLarge | M1XLarge | M32XLarge | D22XLarge | T2Small | CG14XLarge | R3Large | M4XLarge | M4Large | T2Micro | R3XLarge | R38XLarge | HS18XLarge | C1XLarge | T1Micro | C32XLarge | G22XLarge | M2XLarge | C3Large | C38XLarge | R34XLarge | M44XLarge | M22XLarge | D2XLarge | M1Small | M3XLarge | I2XLarge | C44XLarge | I28XLarge | HI14XLarge | C34XLarge | M1Large | M1Medium deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceType where
+    parser = takeLowerText >>= \case
+        "c1.medium" -> pure C1Medium
+        "c1.xlarge" -> pure C1XLarge
+        "c3.2xlarge" -> pure C32XLarge
+        "c3.4xlarge" -> pure C34XLarge
+        "c3.8xlarge" -> pure C38XLarge
+        "c3.large" -> pure C3Large
+        "c3.xlarge" -> pure C3XLarge
+        "c4.2xlarge" -> pure C42XLarge
+        "c4.4xlarge" -> pure C44XLarge
+        "c4.8xlarge" -> pure C48XLarge
+        "c4.large" -> pure C4Large
+        "c4.xlarge" -> pure C4XLarge
+        "cc1.4xlarge" -> pure CC14XLarge
+        "cc2.8xlarge" -> pure CC28XLarge
+        "cg1.4xlarge" -> pure CG14XLarge
+        "cr1.8xlarge" -> pure CR18XLarge
+        "d2.2xlarge" -> pure D22XLarge
+        "d2.4xlarge" -> pure D24XLarge
+        "d2.8xlarge" -> pure D28XLarge
+        "d2.xlarge" -> pure D2XLarge
+        "g2.2xlarge" -> pure G22XLarge
+        "hi1.4xlarge" -> pure HI14XLarge
+        "hs1.8xlarge" -> pure HS18XLarge
+        "i2.2xlarge" -> pure I22XLarge
+        "i2.4xlarge" -> pure I24XLarge
+        "i2.8xlarge" -> pure I28XLarge
+        "i2.xlarge" -> pure I2XLarge
+        "m1.large" -> pure M1Large
+        "m1.medium" -> pure M1Medium
+        "m1.small" -> pure M1Small
+        "m1.xlarge" -> pure M1XLarge
+        "m2.2xlarge" -> pure M22XLarge
+        "m2.4xlarge" -> pure M24XLarge
+        "m2.xlarge" -> pure M2XLarge
+        "m3.2xlarge" -> pure M32XLarge
+        "m3.large" -> pure M3Large
+        "m3.medium" -> pure M3Medium
+        "m3.xlarge" -> pure M3XLarge
+        "m4.10xlarge" -> pure M410XLarge
+        "m4.2xlarge" -> pure M42XLarge
+        "m4.4xlarge" -> pure M44XLarge
+        "m4.large" -> pure M4Large
+        "m4.xlarge" -> pure M4XLarge
+        "r3.2xlarge" -> pure R32XLarge
+        "r3.4xlarge" -> pure R34XLarge
+        "r3.8xlarge" -> pure R38XLarge
+        "r3.large" -> pure R3Large
+        "r3.xlarge" -> pure R3XLarge
+        "t1.micro" -> pure T1Micro
+        "t2.medium" -> pure T2Medium
+        "t2.micro" -> pure T2Micro
+        "t2.small" -> pure T2Small
+        e -> fail ("Failure parsing InstanceType from " ++ show e)
+
+instance ToText InstanceType where
+    toText = \case
+        C1Medium -> "c1.medium"
+        C1XLarge -> "c1.xlarge"
+        C32XLarge -> "c3.2xlarge"
+        C34XLarge -> "c3.4xlarge"
+        C38XLarge -> "c3.8xlarge"
+        C3Large -> "c3.large"
+        C3XLarge -> "c3.xlarge"
+        C42XLarge -> "c4.2xlarge"
+        C44XLarge -> "c4.4xlarge"
+        C48XLarge -> "c4.8xlarge"
+        C4Large -> "c4.large"
+        C4XLarge -> "c4.xlarge"
+        CC14XLarge -> "cc1.4xlarge"
+        CC28XLarge -> "cc2.8xlarge"
+        CG14XLarge -> "cg1.4xlarge"
+        CR18XLarge -> "cr1.8xlarge"
+        D22XLarge -> "d2.2xlarge"
+        D24XLarge -> "d2.4xlarge"
+        D28XLarge -> "d2.8xlarge"
+        D2XLarge -> "d2.xlarge"
+        G22XLarge -> "g2.2xlarge"
+        HI14XLarge -> "hi1.4xlarge"
+        HS18XLarge -> "hs1.8xlarge"
+        I22XLarge -> "i2.2xlarge"
+        I24XLarge -> "i2.4xlarge"
+        I28XLarge -> "i2.8xlarge"
+        I2XLarge -> "i2.xlarge"
+        M1Large -> "m1.large"
+        M1Medium -> "m1.medium"
+        M1Small -> "m1.small"
+        M1XLarge -> "m1.xlarge"
+        M22XLarge -> "m2.2xlarge"
+        M24XLarge -> "m2.4xlarge"
+        M2XLarge -> "m2.xlarge"
+        M32XLarge -> "m3.2xlarge"
+        M3Large -> "m3.large"
+        M3Medium -> "m3.medium"
+        M3XLarge -> "m3.xlarge"
+        M410XLarge -> "m4.10xlarge"
+        M42XLarge -> "m4.2xlarge"
+        M44XLarge -> "m4.4xlarge"
+        M4Large -> "m4.large"
+        M4XLarge -> "m4.xlarge"
+        R32XLarge -> "r3.2xlarge"
+        R34XLarge -> "r3.4xlarge"
+        R38XLarge -> "r3.8xlarge"
+        R3Large -> "r3.large"
+        R3XLarge -> "r3.xlarge"
+        T1Micro -> "t1.micro"
+        T2Medium -> "t2.medium"
+        T2Micro -> "t2.micro"
+        T2Small -> "t2.small"
+
+instance Hashable InstanceType
+instance ToQuery InstanceType
+instance ToHeader InstanceType
+
+instance FromXML InstanceType where
+    parseXML = parseXMLText "InstanceType"
+
+data ListingState = LisAvailable | LisCancelled | LisSold | LisPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ListingState where
+    parser = takeLowerText >>= \case
+        "available" -> pure LisAvailable
+        "cancelled" -> pure LisCancelled
+        "pending" -> pure LisPending
+        "sold" -> pure LisSold
+        e -> fail ("Failure parsing ListingState from " ++ show e)
+
+instance ToText ListingState where
+    toText = \case
+        LisAvailable -> "available"
+        LisCancelled -> "cancelled"
+        LisPending -> "pending"
+        LisSold -> "sold"
+
+instance Hashable ListingState
+instance ToQuery ListingState
+instance ToHeader ListingState
+
+instance FromXML ListingState where
+    parseXML = parseXMLText "ListingState"
+
+data ListingStatus = LSPending | LSActive | LSCancelled | LSClosed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ListingStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure LSActive
+        "cancelled" -> pure LSCancelled
+        "closed" -> pure LSClosed
+        "pending" -> pure LSPending
+        e -> fail ("Failure parsing ListingStatus from " ++ show e)
+
+instance ToText ListingStatus where
+    toText = \case
+        LSActive -> "active"
+        LSCancelled -> "cancelled"
+        LSClosed -> "closed"
+        LSPending -> "pending"
+
+instance Hashable ListingStatus
+instance ToQuery ListingStatus
+instance ToHeader ListingStatus
+
+instance FromXML ListingStatus where
+    parseXML = parseXMLText "ListingStatus"
+
+data MonitoringState = MSDisabling | MSEnabled | MSPending | MSDisabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MonitoringState where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure MSDisabled
+        "disabling" -> pure MSDisabling
+        "enabled" -> pure MSEnabled
+        "pending" -> pure MSPending
+        e -> fail ("Failure parsing MonitoringState from " ++ show e)
+
+instance ToText MonitoringState where
+    toText = \case
+        MSDisabled -> "disabled"
+        MSDisabling -> "disabling"
+        MSEnabled -> "enabled"
+        MSPending -> "pending"
+
+instance Hashable MonitoringState
+instance ToQuery MonitoringState
+instance ToHeader MonitoringState
+
+instance FromXML MonitoringState where
+    parseXML = parseXMLText "MonitoringState"
+
+data MoveStatus = RestoringToClassic | MovingToVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MoveStatus where
+    parser = takeLowerText >>= \case
+        "movingToVpc" -> pure MovingToVPC
+        "restoringToClassic" -> pure RestoringToClassic
+        e -> fail ("Failure parsing MoveStatus from " ++ show e)
+
+instance ToText MoveStatus where
+    toText = \case
+        MovingToVPC -> "movingToVpc"
+        RestoringToClassic -> "restoringToClassic"
+
+instance Hashable MoveStatus
+instance ToQuery MoveStatus
+instance ToHeader MoveStatus
+
+instance FromXML MoveStatus where
+    parseXML = parseXMLText "MoveStatus"
+
+data NetworkInterfaceAttribute = NIAGroupSet | NIAAttachment | NIADescription | NIASourceDestCheck deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText NetworkInterfaceAttribute where
+    parser = takeLowerText >>= \case
+        "attachment" -> pure NIAAttachment
+        "description" -> pure NIADescription
+        "groupSet" -> pure NIAGroupSet
+        "sourceDestCheck" -> pure NIASourceDestCheck
+        e -> fail ("Failure parsing NetworkInterfaceAttribute from " ++ show e)
+
+instance ToText NetworkInterfaceAttribute where
+    toText = \case
+        NIAAttachment -> "attachment"
+        NIADescription -> "description"
+        NIAGroupSet -> "groupSet"
+        NIASourceDestCheck -> "sourceDestCheck"
+
+instance Hashable NetworkInterfaceAttribute
+instance ToQuery NetworkInterfaceAttribute
+instance ToHeader NetworkInterfaceAttribute
+
+data NetworkInterfaceStatus = NISINUse | NISAttaching | NISAvailable | NISDetaching deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText NetworkInterfaceStatus where
+    parser = takeLowerText >>= \case
+        "attaching" -> pure NISAttaching
+        "available" -> pure NISAvailable
+        "detaching" -> pure NISDetaching
+        "in-use" -> pure NISINUse
+        e -> fail ("Failure parsing NetworkInterfaceStatus from " ++ show e)
+
+instance ToText NetworkInterfaceStatus where
+    toText = \case
+        NISAttaching -> "attaching"
+        NISAvailable -> "available"
+        NISDetaching -> "detaching"
+        NISINUse -> "in-use"
+
+instance Hashable NetworkInterfaceStatus
+instance ToQuery NetworkInterfaceStatus
+instance ToHeader NetworkInterfaceStatus
+
+instance FromXML NetworkInterfaceStatus where
+    parseXML = parseXMLText "NetworkInterfaceStatus"
+
+data OfferingTypeValues = MediumUtilization | NOUpfront | AllUpfront | HeavyUtilization | LightUtilization | PartialUpfront deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText OfferingTypeValues where
+    parser = takeLowerText >>= \case
+        "All Upfront" -> pure AllUpfront
+        "Heavy Utilization" -> pure HeavyUtilization
+        "Light Utilization" -> pure LightUtilization
+        "Medium Utilization" -> pure MediumUtilization
+        "No Upfront" -> pure NOUpfront
+        "Partial Upfront" -> pure PartialUpfront
+        e -> fail ("Failure parsing OfferingTypeValues from " ++ show e)
+
+instance ToText OfferingTypeValues where
+    toText = \case
+        AllUpfront -> "All Upfront"
+        HeavyUtilization -> "Heavy Utilization"
+        LightUtilization -> "Light Utilization"
+        MediumUtilization -> "Medium Utilization"
+        NOUpfront -> "No Upfront"
+        PartialUpfront -> "Partial Upfront"
+
+instance Hashable OfferingTypeValues
+instance ToQuery OfferingTypeValues
+instance ToHeader OfferingTypeValues
+
+instance FromXML OfferingTypeValues where
+    parseXML = parseXMLText "OfferingTypeValues"
+
+data PermissionGroup = PGAll deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PermissionGroup where
+    parser = takeLowerText >>= \case
+        "all" -> pure PGAll
+        e -> fail ("Failure parsing PermissionGroup from " ++ show e)
+
+instance ToText PermissionGroup where
+    toText = \case
+        PGAll -> "all"
+
+instance Hashable PermissionGroup
+instance ToQuery PermissionGroup
+instance ToHeader PermissionGroup
+
+instance FromXML PermissionGroup where
+    parseXML = parseXMLText "PermissionGroup"
+
+data PlacementGroupState = PGSDeleting | PGSPending | PGSAvailable | PGSDeleted deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PlacementGroupState where
+    parser = takeLowerText >>= \case
+        "available" -> pure PGSAvailable
+        "deleted" -> pure PGSDeleted
+        "deleting" -> pure PGSDeleting
+        "pending" -> pure PGSPending
+        e -> fail ("Failure parsing PlacementGroupState from " ++ show e)
+
+instance ToText PlacementGroupState where
+    toText = \case
+        PGSAvailable -> "available"
+        PGSDeleted -> "deleted"
+        PGSDeleting -> "deleting"
+        PGSPending -> "pending"
+
+instance Hashable PlacementGroupState
+instance ToQuery PlacementGroupState
+instance ToHeader PlacementGroupState
+
+instance FromXML PlacementGroupState where
+    parseXML = parseXMLText "PlacementGroupState"
+
+data PlacementStrategy = Cluster deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PlacementStrategy where
+    parser = takeLowerText >>= \case
+        "cluster" -> pure Cluster
+        e -> fail ("Failure parsing PlacementStrategy from " ++ show e)
+
+instance ToText PlacementStrategy where
+    toText = \case
+        Cluster -> "cluster"
+
+instance Hashable PlacementStrategy
+instance ToQuery PlacementStrategy
+instance ToHeader PlacementStrategy
+
+instance FromXML PlacementStrategy where
+    parseXML = parseXMLText "PlacementStrategy"
+
+data PlatformValues = PVWindows deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PlatformValues where
+    parser = takeLowerText >>= \case
+        "Windows" -> pure PVWindows
+        e -> fail ("Failure parsing PlatformValues from " ++ show e)
+
+instance ToText PlatformValues where
+    toText = \case
+        PVWindows -> "Windows"
+
+instance Hashable PlatformValues
+instance ToQuery PlatformValues
+instance ToHeader PlatformValues
+
+instance FromXML PlatformValues where
+    parseXML = parseXMLText "PlatformValues"
+
+data ProductCodeValues = Marketplace | Devpay deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ProductCodeValues where
+    parser = takeLowerText >>= \case
+        "devpay" -> pure Devpay
+        "marketplace" -> pure Marketplace
+        e -> fail ("Failure parsing ProductCodeValues from " ++ show e)
+
+instance ToText ProductCodeValues where
+    toText = \case
+        Devpay -> "devpay"
+        Marketplace -> "marketplace"
+
+instance Hashable ProductCodeValues
+instance ToQuery ProductCodeValues
+instance ToHeader ProductCodeValues
+
+instance FromXML ProductCodeValues where
+    parseXML = parseXMLText "ProductCodeValues"
+
+data RIProductDescription = WindowsAmazonVPC | LinuxUnix | LinuxUnixAmazonVPC | Windows deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RIProductDescription where
+    parser = takeLowerText >>= \case
+        "Linux/UNIX" -> pure LinuxUnix
+        "Linux/UNIX (Amazon VPC)" -> pure LinuxUnixAmazonVPC
+        "Windows" -> pure Windows
+        "Windows (Amazon VPC)" -> pure WindowsAmazonVPC
+        e -> fail ("Failure parsing RIProductDescription from " ++ show e)
+
+instance ToText RIProductDescription where
+    toText = \case
+        LinuxUnix -> "Linux/UNIX"
+        LinuxUnixAmazonVPC -> "Linux/UNIX (Amazon VPC)"
+        Windows -> "Windows"
+        WindowsAmazonVPC -> "Windows (Amazon VPC)"
+
+instance Hashable RIProductDescription
+instance ToQuery RIProductDescription
+instance ToHeader RIProductDescription
+
+instance FromXML RIProductDescription where
+    parseXML = parseXMLText "RIProductDescription"
+
+data RecurringChargeFrequency = Hourly deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RecurringChargeFrequency where
+    parser = takeLowerText >>= \case
+        "Hourly" -> pure Hourly
+        e -> fail ("Failure parsing RecurringChargeFrequency from " ++ show e)
+
+instance ToText RecurringChargeFrequency where
+    toText = \case
+        Hourly -> "Hourly"
+
+instance Hashable RecurringChargeFrequency
+instance ToQuery RecurringChargeFrequency
+instance ToHeader RecurringChargeFrequency
+
+instance FromXML RecurringChargeFrequency where
+    parseXML = parseXMLText "RecurringChargeFrequency"
+
+data ReportInstanceReasonCodes = PerformanceOther | Other | Unresponsive | NotAcceptingCredentials | InstanceStuckINState | PerformanceNetwork | PerformanceInstanceStore | PerformanceEBSVolume | PasswordNotAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReportInstanceReasonCodes where
+    parser = takeLowerText >>= \case
+        "instance-stuck-in-state" -> pure InstanceStuckINState
+        "not-accepting-credentials" -> pure NotAcceptingCredentials
+        "other" -> pure Other
+        "password-not-available" -> pure PasswordNotAvailable
+        "performance-ebs-volume" -> pure PerformanceEBSVolume
+        "performance-instance-store" -> pure PerformanceInstanceStore
+        "performance-network" -> pure PerformanceNetwork
+        "performance-other" -> pure PerformanceOther
+        "unresponsive" -> pure Unresponsive
+        e -> fail ("Failure parsing ReportInstanceReasonCodes from " ++ show e)
+
+instance ToText ReportInstanceReasonCodes where
+    toText = \case
+        InstanceStuckINState -> "instance-stuck-in-state"
+        NotAcceptingCredentials -> "not-accepting-credentials"
+        Other -> "other"
+        PasswordNotAvailable -> "password-not-available"
+        PerformanceEBSVolume -> "performance-ebs-volume"
+        PerformanceInstanceStore -> "performance-instance-store"
+        PerformanceNetwork -> "performance-network"
+        PerformanceOther -> "performance-other"
+        Unresponsive -> "unresponsive"
+
+instance Hashable ReportInstanceReasonCodes
+instance ToQuery ReportInstanceReasonCodes
+instance ToHeader ReportInstanceReasonCodes
+
+data ReportStatusType = OK | Impaired deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReportStatusType where
+    parser = takeLowerText >>= \case
+        "impaired" -> pure Impaired
+        "ok" -> pure OK
+        e -> fail ("Failure parsing ReportStatusType from " ++ show e)
+
+instance ToText ReportStatusType where
+    toText = \case
+        Impaired -> "impaired"
+        OK -> "ok"
+
+instance Hashable ReportStatusType
+instance ToQuery ReportStatusType
+instance ToHeader ReportStatusType
+
+data ReservedInstanceState = PaymentPending | Retired | Active | PaymentFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReservedInstanceState where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "payment-failed" -> pure PaymentFailed
+        "payment-pending" -> pure PaymentPending
+        "retired" -> pure Retired
+        e -> fail ("Failure parsing ReservedInstanceState from " ++ show e)
+
+instance ToText ReservedInstanceState where
+    toText = \case
+        Active -> "active"
+        PaymentFailed -> "payment-failed"
+        PaymentPending -> "payment-pending"
+        Retired -> "retired"
+
+instance Hashable ReservedInstanceState
+instance ToQuery ReservedInstanceState
+instance ToHeader ReservedInstanceState
+
+instance FromXML ReservedInstanceState where
+    parseXML = parseXMLText "ReservedInstanceState"
+
+data ResetImageAttributeName = RIANLaunchPermission deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ResetImageAttributeName where
+    parser = takeLowerText >>= \case
+        "launchPermission" -> pure RIANLaunchPermission
+        e -> fail ("Failure parsing ResetImageAttributeName from " ++ show e)
+
+instance ToText ResetImageAttributeName where
+    toText = \case
+        RIANLaunchPermission -> "launchPermission"
+
+instance Hashable ResetImageAttributeName
+instance ToQuery ResetImageAttributeName
+instance ToHeader ResetImageAttributeName
+
+data ResourceType = Snapshot | DHCPOptions | Image | Volume | NetworkInterface | Subnet | SecurityGroup | CustomerGateway | RouteTable | VPC | NetworkACL | VPNGateway | InternetGateway | SpotInstancesRequest | VPNConnection | ReservedInstances | Instance deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ResourceType where
+    parser = takeLowerText >>= \case
+        "customer-gateway" -> pure CustomerGateway
+        "dhcp-options" -> pure DHCPOptions
+        "image" -> pure Image
+        "instance" -> pure Instance
+        "internet-gateway" -> pure InternetGateway
+        "network-acl" -> pure NetworkACL
+        "network-interface" -> pure NetworkInterface
+        "reserved-instances" -> pure ReservedInstances
+        "route-table" -> pure RouteTable
+        "security-group" -> pure SecurityGroup
+        "snapshot" -> pure Snapshot
+        "spot-instances-request" -> pure SpotInstancesRequest
+        "subnet" -> pure Subnet
+        "vpc" -> pure VPC
+        "vpn-connection" -> pure VPNConnection
+        "vpn-gateway" -> pure VPNGateway
+        "volume" -> pure Volume
+        e -> fail ("Failure parsing ResourceType from " ++ show e)
+
+instance ToText ResourceType where
+    toText = \case
+        CustomerGateway -> "customer-gateway"
+        DHCPOptions -> "dhcp-options"
+        Image -> "image"
+        Instance -> "instance"
+        InternetGateway -> "internet-gateway"
+        NetworkACL -> "network-acl"
+        NetworkInterface -> "network-interface"
+        ReservedInstances -> "reserved-instances"
+        RouteTable -> "route-table"
+        SecurityGroup -> "security-group"
+        Snapshot -> "snapshot"
+        SpotInstancesRequest -> "spot-instances-request"
+        Subnet -> "subnet"
+        VPC -> "vpc"
+        VPNConnection -> "vpn-connection"
+        VPNGateway -> "vpn-gateway"
+        Volume -> "volume"
+
+instance Hashable ResourceType
+instance ToQuery ResourceType
+instance ToHeader ResourceType
+
+instance FromXML ResourceType where
+    parseXML = parseXMLText "ResourceType"
+
+data RouteOrigin = CreateRouteTable | CreateRoute | EnableVGWRoutePropagation deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RouteOrigin where
+    parser = takeLowerText >>= \case
+        "CreateRoute" -> pure CreateRoute
+        "CreateRouteTable" -> pure CreateRouteTable
+        "EnableVgwRoutePropagation" -> pure EnableVGWRoutePropagation
+        e -> fail ("Failure parsing RouteOrigin from " ++ show e)
+
+instance ToText RouteOrigin where
+    toText = \case
+        CreateRoute -> "CreateRoute"
+        CreateRouteTable -> "CreateRouteTable"
+        EnableVGWRoutePropagation -> "EnableVgwRoutePropagation"
+
+instance Hashable RouteOrigin
+instance ToQuery RouteOrigin
+instance ToHeader RouteOrigin
+
+instance FromXML RouteOrigin where
+    parseXML = parseXMLText "RouteOrigin"
+
+data RouteState = RSActive | RSBlackhole deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RouteState where
+    parser = takeLowerText >>= \case
+        "active" -> pure RSActive
+        "blackhole" -> pure RSBlackhole
+        e -> fail ("Failure parsing RouteState from " ++ show e)
+
+instance ToText RouteState where
+    toText = \case
+        RSActive -> "active"
+        RSBlackhole -> "blackhole"
+
+instance Hashable RouteState
+instance ToQuery RouteState
+instance ToHeader RouteState
+
+instance FromXML RouteState where
+    parseXML = parseXMLText "RouteState"
+
+data RuleAction = Allow | Deny deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RuleAction where
+    parser = takeLowerText >>= \case
+        "allow" -> pure Allow
+        "deny" -> pure Deny
+        e -> fail ("Failure parsing RuleAction from " ++ show e)
+
+instance ToText RuleAction where
+    toText = \case
+        Allow -> "allow"
+        Deny -> "deny"
+
+instance Hashable RuleAction
+instance ToQuery RuleAction
+instance ToHeader RuleAction
+
+instance FromXML RuleAction where
+    parseXML = parseXMLText "RuleAction"
+
+data ShutdownBehavior = Stop | Terminate deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ShutdownBehavior where
+    parser = takeLowerText >>= \case
+        "stop" -> pure Stop
+        "terminate" -> pure Terminate
+        e -> fail ("Failure parsing ShutdownBehavior from " ++ show e)
+
+instance ToText ShutdownBehavior where
+    toText = \case
+        Stop -> "stop"
+        Terminate -> "terminate"
+
+instance Hashable ShutdownBehavior
+instance ToQuery ShutdownBehavior
+instance ToHeader ShutdownBehavior
+
+data SnapshotAttributeName = SANProductCodes | SANCreateVolumePermission deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SnapshotAttributeName where
+    parser = takeLowerText >>= \case
+        "createVolumePermission" -> pure SANCreateVolumePermission
+        "productCodes" -> pure SANProductCodes
+        e -> fail ("Failure parsing SnapshotAttributeName from " ++ show e)
+
+instance ToText SnapshotAttributeName where
+    toText = \case
+        SANCreateVolumePermission -> "createVolumePermission"
+        SANProductCodes -> "productCodes"
+
+instance Hashable SnapshotAttributeName
+instance ToQuery SnapshotAttributeName
+instance ToHeader SnapshotAttributeName
+
+data SnapshotState = SSCompleted | SSPending | SSError deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SnapshotState where
+    parser = takeLowerText >>= \case
+        "completed" -> pure SSCompleted
+        "error" -> pure SSError
+        "pending" -> pure SSPending
+        e -> fail ("Failure parsing SnapshotState from " ++ show e)
+
+instance ToText SnapshotState where
+    toText = \case
+        SSCompleted -> "completed"
+        SSError -> "error"
+        SSPending -> "pending"
+
+instance Hashable SnapshotState
+instance ToQuery SnapshotState
+instance ToHeader SnapshotState
+
+instance FromXML SnapshotState where
+    parseXML = parseXMLText "SnapshotState"
+
+data SpotInstanceState = SISCancelled | SISClosed | SISFailed | SISActive | SISOpen deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SpotInstanceState where
+    parser = takeLowerText >>= \case
+        "active" -> pure SISActive
+        "cancelled" -> pure SISCancelled
+        "closed" -> pure SISClosed
+        "failed" -> pure SISFailed
+        "open" -> pure SISOpen
+        e -> fail ("Failure parsing SpotInstanceState from " ++ show e)
+
+instance ToText SpotInstanceState where
+    toText = \case
+        SISActive -> "active"
+        SISCancelled -> "cancelled"
+        SISClosed -> "closed"
+        SISFailed -> "failed"
+        SISOpen -> "open"
+
+instance Hashable SpotInstanceState
+instance ToQuery SpotInstanceState
+instance ToHeader SpotInstanceState
+
+instance FromXML SpotInstanceState where
+    parseXML = parseXMLText "SpotInstanceState"
+
+data SpotInstanceType = Persistent | OneTime deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SpotInstanceType where
+    parser = takeLowerText >>= \case
+        "one-time" -> pure OneTime
+        "persistent" -> pure Persistent
+        e -> fail ("Failure parsing SpotInstanceType from " ++ show e)
+
+instance ToText SpotInstanceType where
+    toText = \case
+        OneTime -> "one-time"
+        Persistent -> "persistent"
+
+instance Hashable SpotInstanceType
+instance ToQuery SpotInstanceType
+instance ToHeader SpotInstanceType
+
+instance FromXML SpotInstanceType where
+    parseXML = parseXMLText "SpotInstanceType"
+
+data State = Deleting | Pending | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText State where
+    parser = takeLowerText >>= \case
+        "Available" -> pure Available
+        "Deleted" -> pure Deleted
+        "Deleting" -> pure Deleting
+        "Pending" -> pure Pending
+        e -> fail ("Failure parsing State from " ++ show e)
+
+instance ToText State where
+    toText = \case
+        Available -> "Available"
+        Deleted -> "Deleted"
+        Deleting -> "Deleting"
+        Pending -> "Pending"
+
+instance Hashable State
+instance ToQuery State
+instance ToHeader State
+
+instance FromXML State where
+    parseXML = parseXMLText "State"
+
+data StatusName = Reachability deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StatusName where
+    parser = takeLowerText >>= \case
+        "reachability" -> pure Reachability
+        e -> fail ("Failure parsing StatusName from " ++ show e)
+
+instance ToText StatusName where
+    toText = \case
+        Reachability -> "reachability"
+
+instance Hashable StatusName
+instance ToQuery StatusName
+instance ToHeader StatusName
+
+instance FromXML StatusName where
+    parseXML = parseXMLText "StatusName"
+
+data StatusType = InsufficientData | Passed | Initializing | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StatusType where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "initializing" -> pure Initializing
+        "insufficient-data" -> pure InsufficientData
+        "passed" -> pure Passed
+        e -> fail ("Failure parsing StatusType from " ++ show e)
+
+instance ToText StatusType where
+    toText = \case
+        Failed -> "failed"
+        Initializing -> "initializing"
+        InsufficientData -> "insufficient-data"
+        Passed -> "passed"
+
+instance Hashable StatusType
+instance ToQuery StatusType
+instance ToHeader StatusType
+
+instance FromXML StatusType where
+    parseXML = parseXMLText "StatusType"
+
+data SubnetState = SubPending | SubAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SubnetState where
+    parser = takeLowerText >>= \case
+        "available" -> pure SubAvailable
+        "pending" -> pure SubPending
+        e -> fail ("Failure parsing SubnetState from " ++ show e)
+
+instance ToText SubnetState where
+    toText = \case
+        SubAvailable -> "available"
+        SubPending -> "pending"
+
+instance Hashable SubnetState
+instance ToQuery SubnetState
+instance ToHeader SubnetState
+
+instance FromXML SubnetState where
+    parseXML = parseXMLText "SubnetState"
+
+data SummaryStatus = SSInitializing | SSNotApplicable | SSOK | SSImpaired | SSInsufficientData deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SummaryStatus where
+    parser = takeLowerText >>= \case
+        "impaired" -> pure SSImpaired
+        "initializing" -> pure SSInitializing
+        "insufficient-data" -> pure SSInsufficientData
+        "not-applicable" -> pure SSNotApplicable
+        "ok" -> pure SSOK
+        e -> fail ("Failure parsing SummaryStatus from " ++ show e)
+
+instance ToText SummaryStatus where
+    toText = \case
+        SSImpaired -> "impaired"
+        SSInitializing -> "initializing"
+        SSInsufficientData -> "insufficient-data"
+        SSNotApplicable -> "not-applicable"
+        SSOK -> "ok"
+
+instance Hashable SummaryStatus
+instance ToQuery SummaryStatus
+instance ToHeader SummaryStatus
+
+instance FromXML SummaryStatus where
+    parseXML = parseXMLText "SummaryStatus"
+
+data TelemetryStatus = Down | UP deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TelemetryStatus where
+    parser = takeLowerText >>= \case
+        "DOWN" -> pure Down
+        "UP" -> pure UP
+        e -> fail ("Failure parsing TelemetryStatus from " ++ show e)
+
+instance ToText TelemetryStatus where
+    toText = \case
+        Down -> "DOWN"
+        UP -> "UP"
+
+instance Hashable TelemetryStatus
+instance ToQuery TelemetryStatus
+instance ToHeader TelemetryStatus
+
+instance FromXML TelemetryStatus where
+    parseXML = parseXMLText "TelemetryStatus"
+
+data Tenancy = Default | Dedicated deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Tenancy where
+    parser = takeLowerText >>= \case
+        "dedicated" -> pure Dedicated
+        "default" -> pure Default
+        e -> fail ("Failure parsing Tenancy from " ++ show e)
+
+instance ToText Tenancy where
+    toText = \case
+        Dedicated -> "dedicated"
+        Default -> "default"
+
+instance Hashable Tenancy
+instance ToQuery Tenancy
+instance ToHeader Tenancy
+
+instance FromXML Tenancy where
+    parseXML = parseXMLText "Tenancy"
+
+data TrafficType = Reject | Accept | All deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TrafficType where
+    parser = takeLowerText >>= \case
+        "ACCEPT" -> pure Accept
+        "ALL" -> pure All
+        "REJECT" -> pure Reject
+        e -> fail ("Failure parsing TrafficType from " ++ show e)
+
+instance ToText TrafficType where
+    toText = \case
+        Accept -> "ACCEPT"
+        All -> "ALL"
+        Reject -> "REJECT"
+
+instance Hashable TrafficType
+instance ToQuery TrafficType
+instance ToHeader TrafficType
+
+instance FromXML TrafficType where
+    parseXML = parseXMLText "TrafficType"
+
+data VPCAttributeName = EnableDNSHostnames | EnableDNSSupport deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VPCAttributeName where
+    parser = takeLowerText >>= \case
+        "enableDnsHostnames" -> pure EnableDNSHostnames
+        "enableDnsSupport" -> pure EnableDNSSupport
+        e -> fail ("Failure parsing VPCAttributeName from " ++ show e)
+
+instance ToText VPCAttributeName where
+    toText = \case
+        EnableDNSHostnames -> "enableDnsHostnames"
+        EnableDNSSupport -> "enableDnsSupport"
+
+instance Hashable VPCAttributeName
+instance ToQuery VPCAttributeName
+instance ToHeader VPCAttributeName
+
+data VPCState = VpcPending | VpcAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VPCState where
+    parser = takeLowerText >>= \case
+        "available" -> pure VpcAvailable
+        "pending" -> pure VpcPending
+        e -> fail ("Failure parsing VPCState from " ++ show e)
+
+instance ToText VPCState where
+    toText = \case
+        VpcAvailable -> "available"
+        VpcPending -> "pending"
+
+instance Hashable VPCState
+instance ToQuery VPCState
+instance ToHeader VPCState
+
+instance FromXML VPCState where
+    parseXML = parseXMLText "VPCState"
+
+data VPNState = VSPending | VSAvailable | VSDeleted | VSDeleting deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VPNState where
+    parser = takeLowerText >>= \case
+        "available" -> pure VSAvailable
+        "deleted" -> pure VSDeleted
+        "deleting" -> pure VSDeleting
+        "pending" -> pure VSPending
+        e -> fail ("Failure parsing VPNState from " ++ show e)
+
+instance ToText VPNState where
+    toText = \case
+        VSAvailable -> "available"
+        VSDeleted -> "deleted"
+        VSDeleting -> "deleting"
+        VSPending -> "pending"
+
+instance Hashable VPNState
+instance ToQuery VPNState
+instance ToHeader VPNState
+
+instance FromXML VPNState where
+    parseXML = parseXMLText "VPNState"
+
+data VPNStaticRouteSource = Static deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VPNStaticRouteSource where
+    parser = takeLowerText >>= \case
+        "Static" -> pure Static
+        e -> fail ("Failure parsing VPNStaticRouteSource from " ++ show e)
+
+instance ToText VPNStaticRouteSource where
+    toText = \case
+        Static -> "Static"
+
+instance Hashable VPNStaticRouteSource
+instance ToQuery VPNStaticRouteSource
+instance ToHeader VPNStaticRouteSource
+
+instance FromXML VPNStaticRouteSource where
+    parseXML = parseXMLText "VPNStaticRouteSource"
+
+data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VirtualizationType where
+    parser = takeLowerText >>= \case
+        "hvm" -> pure HVM
+        "paravirtual" -> pure Paravirtual
+        e -> fail ("Failure parsing VirtualizationType from " ++ show e)
+
+instance ToText VirtualizationType where
+    toText = \case
+        HVM -> "hvm"
+        Paravirtual -> "paravirtual"
+
+instance Hashable VirtualizationType
+instance ToQuery VirtualizationType
+instance ToHeader VirtualizationType
+
+instance FromXML VirtualizationType where
+    parseXML = parseXMLText "VirtualizationType"
+
+data VolumeAttachmentState = VASAttached | VASAttaching | VASDetached | VASDetaching deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeAttachmentState where
+    parser = takeLowerText >>= \case
+        "attached" -> pure VASAttached
+        "attaching" -> pure VASAttaching
+        "detached" -> pure VASDetached
+        "detaching" -> pure VASDetaching
+        e -> fail ("Failure parsing VolumeAttachmentState from " ++ show e)
+
+instance ToText VolumeAttachmentState where
+    toText = \case
+        VASAttached -> "attached"
+        VASAttaching -> "attaching"
+        VASDetached -> "detached"
+        VASDetaching -> "detaching"
+
+instance Hashable VolumeAttachmentState
+instance ToQuery VolumeAttachmentState
+instance ToHeader VolumeAttachmentState
+
+instance FromXML VolumeAttachmentState where
+    parseXML = parseXMLText "VolumeAttachmentState"
+
+data VolumeAttributeName = VANProductCodes | VANAutoEnableIO deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeAttributeName where
+    parser = takeLowerText >>= \case
+        "autoEnableIO" -> pure VANAutoEnableIO
+        "productCodes" -> pure VANProductCodes
+        e -> fail ("Failure parsing VolumeAttributeName from " ++ show e)
+
+instance ToText VolumeAttributeName where
+    toText = \case
+        VANAutoEnableIO -> "autoEnableIO"
+        VANProductCodes -> "productCodes"
+
+instance Hashable VolumeAttributeName
+instance ToQuery VolumeAttributeName
+instance ToHeader VolumeAttributeName
+
+data VolumeState = VolCreating | VolAvailable | VolDeleted | VolDeleting | VolError | VolINUse deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeState where
+    parser = takeLowerText >>= \case
+        "available" -> pure VolAvailable
+        "creating" -> pure VolCreating
+        "deleted" -> pure VolDeleted
+        "deleting" -> pure VolDeleting
+        "error" -> pure VolError
+        "in-use" -> pure VolINUse
+        e -> fail ("Failure parsing VolumeState from " ++ show e)
+
+instance ToText VolumeState where
+    toText = \case
+        VolAvailable -> "available"
+        VolCreating -> "creating"
+        VolDeleted -> "deleted"
+        VolDeleting -> "deleting"
+        VolError -> "error"
+        VolINUse -> "in-use"
+
+instance Hashable VolumeState
+instance ToQuery VolumeState
+instance ToHeader VolumeState
+
+instance FromXML VolumeState where
+    parseXML = parseXMLText "VolumeState"
+
+data VolumeStatusInfoStatus = VSISInsufficientData | VSISImpaired | VSISOK deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeStatusInfoStatus where
+    parser = takeLowerText >>= \case
+        "impaired" -> pure VSISImpaired
+        "insufficient-data" -> pure VSISInsufficientData
+        "ok" -> pure VSISOK
+        e -> fail ("Failure parsing VolumeStatusInfoStatus from " ++ show e)
+
+instance ToText VolumeStatusInfoStatus where
+    toText = \case
+        VSISImpaired -> "impaired"
+        VSISInsufficientData -> "insufficient-data"
+        VSISOK -> "ok"
+
+instance Hashable VolumeStatusInfoStatus
+instance ToQuery VolumeStatusInfoStatus
+instance ToHeader VolumeStatusInfoStatus
+
+instance FromXML VolumeStatusInfoStatus where
+    parseXML = parseXMLText "VolumeStatusInfoStatus"
+
+data VolumeStatusName = IOPerformance | IOEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeStatusName where
+    parser = takeLowerText >>= \case
+        "io-enabled" -> pure IOEnabled
+        "io-performance" -> pure IOPerformance
+        e -> fail ("Failure parsing VolumeStatusName from " ++ show e)
+
+instance ToText VolumeStatusName where
+    toText = \case
+        IOEnabled -> "io-enabled"
+        IOPerformance -> "io-performance"
+
+instance Hashable VolumeStatusName
+instance ToQuery VolumeStatusName
+instance ToHeader VolumeStatusName
+
+instance FromXML VolumeStatusName where
+    parseXML = parseXMLText "VolumeStatusName"
+
+data VolumeType = Standard | IO1 | GP2 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VolumeType where
+    parser = takeLowerText >>= \case
+        "gp2" -> pure GP2
+        "io1" -> pure IO1
+        "standard" -> pure Standard
+        e -> fail ("Failure parsing VolumeType from " ++ show e)
+
+instance ToText VolumeType where
+    toText = \case
+        GP2 -> "gp2"
+        IO1 -> "io1"
+        Standard -> "standard"
+
+instance Hashable VolumeType
+instance ToQuery VolumeType
+instance ToHeader VolumeType
+
+instance FromXML VolumeType where
+    parseXML = parseXMLText "VolumeType"
+
+-- | Describes an account attribute.
+--
+-- /See:/ 'accountAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1698,24 +3499,9 @@ instance FromXML AccountAttribute where
               (may (parseXMLList "item") x) <*>
                 (x .@? "attributeName")
 
-data AccountAttributeName = SupportedPlatforms | DefaultVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AccountAttributeName where
-    parser = takeLowerText >>= \case
-        "default-vpc" -> pure DefaultVPC
-        "supported-platforms" -> pure SupportedPlatforms
-        e -> fail ("Failure parsing AccountAttributeName from " ++ show e)
-
-instance ToText AccountAttributeName where
-    toText = \case
-        DefaultVPC -> "default-vpc"
-        SupportedPlatforms -> "supported-platforms"
-
-instance Hashable AccountAttributeName
-instance ToQuery AccountAttributeName
-instance ToHeader AccountAttributeName
-
--- | /See:/ 'accountAttributeValue' smart constructor.
+-- | Describes a value of an account attribute.
+--
+-- /See:/ 'accountAttributeValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1734,7 +3520,9 @@ instance FromXML AccountAttributeValue where
         parseXML x
           = AccountAttributeValue' <$> (x .@? "attributeValue")
 
--- | /See:/ 'activeInstance' smart constructor.
+-- | Describes a running instance in a Spot fleet.
+--
+-- /See:/ 'activeInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1767,7 +3555,9 @@ instance FromXML ActiveInstance where
               (x .@? "instanceId") <*> (x .@? "instanceType") <*>
                 (x .@? "spotInstanceRequestId")
 
--- | /See:/ 'address' smart constructor.
+-- | Describes an Elastic IP address.
+--
+-- /See:/ 'address' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1837,73 +3627,9 @@ instance FromXML Address where
                 <*> (x .@? "privateIpAddress")
                 <*> (x .@? "publicIp")
 
-data AddressStatus = MoveInProgress | InVPC | InClassic deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AddressStatus where
-    parser = takeLowerText >>= \case
-        "InClassic" -> pure InClassic
-        "InVpc" -> pure InVPC
-        "MoveInProgress" -> pure MoveInProgress
-        e -> fail ("Failure parsing AddressStatus from " ++ show e)
-
-instance ToText AddressStatus where
-    toText = \case
-        InClassic -> "InClassic"
-        InVPC -> "InVpc"
-        MoveInProgress -> "MoveInProgress"
-
-instance Hashable AddressStatus
-instance ToQuery AddressStatus
-instance ToHeader AddressStatus
-
-instance FromXML AddressStatus where
-    parseXML = parseXMLText "AddressStatus"
-
-data ArchitectureValues = I386 | X8664 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ArchitectureValues where
-    parser = takeLowerText >>= \case
-        "i386" -> pure I386
-        "x86_64" -> pure X8664
-        e -> fail ("Failure parsing ArchitectureValues from " ++ show e)
-
-instance ToText ArchitectureValues where
-    toText = \case
-        I386 -> "i386"
-        X8664 -> "x86_64"
-
-instance Hashable ArchitectureValues
-instance ToQuery ArchitectureValues
-instance ToHeader ArchitectureValues
-
-instance FromXML ArchitectureValues where
-    parseXML = parseXMLText "ArchitectureValues"
-
-data AttachmentStatus = Detached | Detaching | Attached | Attaching deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AttachmentStatus where
-    parser = takeLowerText >>= \case
-        "attached" -> pure Attached
-        "attaching" -> pure Attaching
-        "detached" -> pure Detached
-        "detaching" -> pure Detaching
-        e -> fail ("Failure parsing AttachmentStatus from " ++ show e)
-
-instance ToText AttachmentStatus where
-    toText = \case
-        Attached -> "attached"
-        Attaching -> "attaching"
-        Detached -> "detached"
-        Detaching -> "detaching"
-
-instance Hashable AttachmentStatus
-instance ToQuery AttachmentStatus
-instance ToHeader AttachmentStatus
-
-instance FromXML AttachmentStatus where
-    parseXML = parseXMLText "AttachmentStatus"
-
--- | /See:/ 'attributeBooleanValue' smart constructor.
+-- | The value to use when a resource attribute accepts a Boolean value.
+--
+-- /See:/ 'attributeBooleanValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1926,7 +3652,9 @@ instance ToQuery AttributeBooleanValue where
         toQuery AttributeBooleanValue'{..}
           = mconcat ["Value" =: _abvValue]
 
--- | /See:/ 'attributeValue' smart constructor.
+-- | The value to use for a resource attribute.
+--
+-- /See:/ 'attributeValue' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1948,7 +3676,9 @@ instance ToQuery AttributeValue where
         toQuery AttributeValue'{..}
           = mconcat ["Value" =: _avValue]
 
--- | /See:/ 'availabilityZone' smart constructor.
+-- | Describes an Availability Zone.
+--
+-- /See:/ 'availabilityZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1989,7 +3719,9 @@ instance FromXML AvailabilityZone where
                 (x .@? "zoneName")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'availabilityZoneMessage' smart constructor.
+-- | Describes a message about an Availability Zone.
+--
+-- /See:/ 'availabilityZoneMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2007,52 +3739,6 @@ azmMessage = lens _azmMessage (\ s a -> s{_azmMessage = a});
 instance FromXML AvailabilityZoneMessage where
         parseXML x
           = AvailabilityZoneMessage' <$> (x .@? "message")
-
-data AvailabilityZoneState = AZSAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AvailabilityZoneState where
-    parser = takeLowerText >>= \case
-        "available" -> pure AZSAvailable
-        e -> fail ("Failure parsing AvailabilityZoneState from " ++ show e)
-
-instance ToText AvailabilityZoneState where
-    toText = \case
-        AZSAvailable -> "available"
-
-instance Hashable AvailabilityZoneState
-instance ToQuery AvailabilityZoneState
-instance ToHeader AvailabilityZoneState
-
-instance FromXML AvailabilityZoneState where
-    parseXML = parseXMLText "AvailabilityZoneState"
-
-data BatchState = BSCancelled | BSSubmitted | BSFailed | BSActive | BSCancelledRunning | BSCancelledTerminating deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText BatchState where
-    parser = takeLowerText >>= \case
-        "active" -> pure BSActive
-        "cancelled" -> pure BSCancelled
-        "cancelled_running" -> pure BSCancelledRunning
-        "cancelled_terminating" -> pure BSCancelledTerminating
-        "failed" -> pure BSFailed
-        "submitted" -> pure BSSubmitted
-        e -> fail ("Failure parsing BatchState from " ++ show e)
-
-instance ToText BatchState where
-    toText = \case
-        BSActive -> "active"
-        BSCancelled -> "cancelled"
-        BSCancelledRunning -> "cancelled_running"
-        BSCancelledTerminating -> "cancelled_terminating"
-        BSFailed -> "failed"
-        BSSubmitted -> "submitted"
-
-instance Hashable BatchState
-instance ToQuery BatchState
-instance ToHeader BatchState
-
-instance FromXML BatchState where
-    parseXML = parseXMLText "BatchState"
 
 -- | /See:/ 'blobAttributeValue' smart constructor.
 --
@@ -2073,7 +3759,9 @@ instance ToQuery BlobAttributeValue where
         toQuery BlobAttributeValue'{..}
           = mconcat ["Value" =: _bavValue]
 
--- | /See:/ 'blockDeviceMapping' smart constructor.
+-- | Describes a block device mapping.
+--
+-- /See:/ 'blockDeviceMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2132,7 +3820,9 @@ instance ToQuery BlockDeviceMapping where
                "NoDevice" =: _bdmNoDevice, "Ebs" =: _bdmEBS,
                "DeviceName" =: _bdmDeviceName]
 
--- | /See:/ 'bundleTask' smart constructor.
+-- | Describes a bundle task.
+--
+-- /See:/ 'bundleTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2200,7 +3890,9 @@ instance FromXML BundleTask where
                 <*> (x .@ "storage")
                 <*> (x .@ "updateTime")
 
--- | /See:/ 'bundleTaskError' smart constructor.
+-- | Describes an error for BundleInstance.
+--
+-- /See:/ 'bundleTaskError' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2226,61 +3918,9 @@ instance FromXML BundleTaskError where
           = BundleTaskError' <$>
               (x .@? "code") <*> (x .@? "message")
 
-data BundleTaskState = BTSComplete | BTSStoring | BTSPending | BTSWaitingForShutdown | BTSBundling | BTSCancelling | BTSFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText BundleTaskState where
-    parser = takeLowerText >>= \case
-        "bundling" -> pure BTSBundling
-        "cancelling" -> pure BTSCancelling
-        "complete" -> pure BTSComplete
-        "failed" -> pure BTSFailed
-        "pending" -> pure BTSPending
-        "storing" -> pure BTSStoring
-        "waiting-for-shutdown" -> pure BTSWaitingForShutdown
-        e -> fail ("Failure parsing BundleTaskState from " ++ show e)
-
-instance ToText BundleTaskState where
-    toText = \case
-        BTSBundling -> "bundling"
-        BTSCancelling -> "cancelling"
-        BTSComplete -> "complete"
-        BTSFailed -> "failed"
-        BTSPending -> "pending"
-        BTSStoring -> "storing"
-        BTSWaitingForShutdown -> "waiting-for-shutdown"
-
-instance Hashable BundleTaskState
-instance ToQuery BundleTaskState
-instance ToHeader BundleTaskState
-
-instance FromXML BundleTaskState where
-    parseXML = parseXMLText "BundleTaskState"
-
-data CancelBatchErrorCode = FleetRequestNotInCancellableState | FleetRequestIdMalformed | UnexpectedError | FleetRequestIdDoesNotExist deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText CancelBatchErrorCode where
-    parser = takeLowerText >>= \case
-        "fleetRequestIdDoesNotExist" -> pure FleetRequestIdDoesNotExist
-        "fleetRequestIdMalformed" -> pure FleetRequestIdMalformed
-        "fleetRequestNotInCancellableState" -> pure FleetRequestNotInCancellableState
-        "unexpectedError" -> pure UnexpectedError
-        e -> fail ("Failure parsing CancelBatchErrorCode from " ++ show e)
-
-instance ToText CancelBatchErrorCode where
-    toText = \case
-        FleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
-        FleetRequestIdMalformed -> "fleetRequestIdMalformed"
-        FleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
-        UnexpectedError -> "unexpectedError"
-
-instance Hashable CancelBatchErrorCode
-instance ToQuery CancelBatchErrorCode
-instance ToHeader CancelBatchErrorCode
-
-instance FromXML CancelBatchErrorCode where
-    parseXML = parseXMLText "CancelBatchErrorCode"
-
--- | /See:/ 'cancelSpotFleetRequestsError' smart constructor.
+-- | Describes a Spot fleet error.
+--
+-- /See:/ 'cancelSpotFleetRequestsError' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2306,7 +3946,9 @@ instance FromXML CancelSpotFleetRequestsError where
           = CancelSpotFleetRequestsError' <$>
               (x .@ "code") <*> (x .@ "message")
 
--- | /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
+-- | Describes a Spot fleet request that was not successfully canceled.
+--
+-- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2333,7 +3975,9 @@ instance FromXML CancelSpotFleetRequestsErrorItem
           = CancelSpotFleetRequestsErrorItem' <$>
               (x .@ "spotFleetRequestId") <*> (x .@ "error")
 
--- | /See:/ 'cancelSpotFleetRequestsSuccessItem' smart constructor.
+-- | Describes a Spot fleet request that was successfully canceled.
+--
+-- /See:/ 'cancelSpotFleetRequestsSuccessItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2368,33 +4012,9 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
                 (x .@ "currentSpotFleetRequestState")
                 <*> (x .@ "previousSpotFleetRequestState")
 
-data CancelSpotInstanceRequestState = CSIRSClosed | CSIRSActive | CSIRSOpen | CSIRSCompleted | CSIRSCancelled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText CancelSpotInstanceRequestState where
-    parser = takeLowerText >>= \case
-        "active" -> pure CSIRSActive
-        "cancelled" -> pure CSIRSCancelled
-        "closed" -> pure CSIRSClosed
-        "completed" -> pure CSIRSCompleted
-        "open" -> pure CSIRSOpen
-        e -> fail ("Failure parsing CancelSpotInstanceRequestState from " ++ show e)
-
-instance ToText CancelSpotInstanceRequestState where
-    toText = \case
-        CSIRSActive -> "active"
-        CSIRSCancelled -> "cancelled"
-        CSIRSClosed -> "closed"
-        CSIRSCompleted -> "completed"
-        CSIRSOpen -> "open"
-
-instance Hashable CancelSpotInstanceRequestState
-instance ToQuery CancelSpotInstanceRequestState
-instance ToHeader CancelSpotInstanceRequestState
-
-instance FromXML CancelSpotInstanceRequestState where
-    parseXML = parseXMLText "CancelSpotInstanceRequestState"
-
--- | /See:/ 'cancelledSpotInstanceRequest' smart constructor.
+-- | Describes a request to cancel a Spot Instance.
+--
+-- /See:/ 'cancelledSpotInstanceRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2420,7 +4040,9 @@ instance FromXML CancelledSpotInstanceRequest where
           = CancelledSpotInstanceRequest' <$>
               (x .@? "state") <*> (x .@? "spotInstanceRequestId")
 
--- | /See:/ 'classicLinkInstance' smart constructor.
+-- | Describes a linked EC2-Classic instance.
+--
+-- /See:/ 'classicLinkInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2461,7 +4083,9 @@ instance FromXML ClassicLinkInstance where
                 <*> (x .@? "vpcId")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'clientData' smart constructor.
+-- | Describes the client-specific data.
+--
+-- /See:/ 'clientData' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2501,25 +4125,9 @@ instance ToQuery ClientData where
                "UploadSize" =: _cdUploadSize,
                "UploadEnd" =: _cdUploadEnd, "Comment" =: _cdComment]
 
-data ContainerFormat = Ova deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ContainerFormat where
-    parser = takeLowerText >>= \case
-        "ova" -> pure Ova
-        e -> fail ("Failure parsing ContainerFormat from " ++ show e)
-
-instance ToText ContainerFormat where
-    toText = \case
-        Ova -> "ova"
-
-instance Hashable ContainerFormat
-instance ToQuery ContainerFormat
-instance ToHeader ContainerFormat
-
-instance FromXML ContainerFormat where
-    parseXML = parseXMLText "ContainerFormat"
-
--- | /See:/ 'conversionTask' smart constructor.
+-- | Describes a conversion task.
+--
+-- /See:/ 'conversionTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2583,31 +4191,10 @@ instance FromXML ConversionTask where
                 <*> (x .@ "conversionTaskId")
                 <*> (x .@ "state")
 
-data ConversionTaskState = CTSCancelled | CTSActive | CTSCancelling | CTSCompleted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ConversionTaskState where
-    parser = takeLowerText >>= \case
-        "active" -> pure CTSActive
-        "cancelled" -> pure CTSCancelled
-        "cancelling" -> pure CTSCancelling
-        "completed" -> pure CTSCompleted
-        e -> fail ("Failure parsing ConversionTaskState from " ++ show e)
-
-instance ToText ConversionTaskState where
-    toText = \case
-        CTSActive -> "active"
-        CTSCancelled -> "cancelled"
-        CTSCancelling -> "cancelling"
-        CTSCompleted -> "completed"
-
-instance Hashable ConversionTaskState
-instance ToQuery ConversionTaskState
-instance ToHeader ConversionTaskState
-
-instance FromXML ConversionTaskState where
-    parseXML = parseXMLText "ConversionTaskState"
-
--- | /See:/ 'createVolumePermission' smart constructor.
+-- | Describes the user or group to be added or removed from the permissions
+-- for a volume.
+--
+-- /See:/ 'createVolumePermission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2640,7 +4227,9 @@ instance ToQuery CreateVolumePermission where
           = mconcat
               ["Group" =: _cvpGroup, "UserId" =: _cvpUserId]
 
--- | /See:/ 'createVolumePermissionModifications' smart constructor.
+-- | Describes modifications to the permissions for a volume.
+--
+-- /See:/ 'createVolumePermissionModifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2670,25 +4259,9 @@ instance ToQuery CreateVolumePermissionModifications
               [toQuery (toQueryList "item" <$> _cvpmRemove),
                toQuery (toQueryList "item" <$> _cvpmAdd)]
 
-data CurrencyCodeValues = Usd deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText CurrencyCodeValues where
-    parser = takeLowerText >>= \case
-        "USD" -> pure Usd
-        e -> fail ("Failure parsing CurrencyCodeValues from " ++ show e)
-
-instance ToText CurrencyCodeValues where
-    toText = \case
-        Usd -> "USD"
-
-instance Hashable CurrencyCodeValues
-instance ToQuery CurrencyCodeValues
-instance ToHeader CurrencyCodeValues
-
-instance FromXML CurrencyCodeValues where
-    parseXML = parseXMLText "CurrencyCodeValues"
-
--- | /See:/ 'customerGateway' smart constructor.
+-- | Describes a customer gateway.
+--
+-- /See:/ 'customerGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2745,7 +4318,9 @@ instance FromXML CustomerGateway where
                 <*> (x .@ "state")
                 <*> (x .@ "type")
 
--- | /See:/ 'dhcpConfiguration' smart constructor.
+-- | Describes a DHCP configuration option.
+--
+-- /See:/ 'dhcpConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2771,7 +4346,9 @@ instance FromXML DHCPConfiguration where
           = DHCPConfiguration' <$>
               (may (parseXMLList "item") x) <*> (x .@? "key")
 
--- | /See:/ 'dhcpOptions' smart constructor.
+-- | Describes a set of DHCP options.
+--
+-- /See:/ 'dhcpOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2805,47 +4382,9 @@ instance FromXML DHCPOptions where
                 (x .@? "dhcpOptionsId")
                 <*> (may (parseXMLList "item") x)
 
-data DatafeedSubscriptionState = DSSInactive | DSSActive deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DatafeedSubscriptionState where
-    parser = takeLowerText >>= \case
-        "Active" -> pure DSSActive
-        "Inactive" -> pure DSSInactive
-        e -> fail ("Failure parsing DatafeedSubscriptionState from " ++ show e)
-
-instance ToText DatafeedSubscriptionState where
-    toText = \case
-        DSSActive -> "Active"
-        DSSInactive -> "Inactive"
-
-instance Hashable DatafeedSubscriptionState
-instance ToQuery DatafeedSubscriptionState
-instance ToHeader DatafeedSubscriptionState
-
-instance FromXML DatafeedSubscriptionState where
-    parseXML = parseXMLText "DatafeedSubscriptionState"
-
-data DeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DeviceType where
-    parser = takeLowerText >>= \case
-        "ebs" -> pure EBS
-        "instance-store" -> pure InstanceStore
-        e -> fail ("Failure parsing DeviceType from " ++ show e)
-
-instance ToText DeviceType where
-    toText = \case
-        EBS -> "ebs"
-        InstanceStore -> "instance-store"
-
-instance Hashable DeviceType
-instance ToQuery DeviceType
-instance ToHeader DeviceType
-
-instance FromXML DeviceType where
-    parseXML = parseXMLText "DeviceType"
-
--- | /See:/ 'diskImage' smart constructor.
+-- | Describes a disk image.
+--
+-- /See:/ 'diskImage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2878,7 +4417,9 @@ instance ToQuery DiskImage where
               ["Image" =: _diImage, "Volume" =: _diVolume,
                "Description" =: _diDescription]
 
--- | /See:/ 'diskImageDescription' smart constructor.
+-- | Describes a disk image.
+--
+-- /See:/ 'diskImageDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2922,7 +4463,9 @@ instance FromXML DiskImageDescription where
                 (x .@ "size")
                 <*> (x .@ "importManifestUrl")
 
--- | /See:/ 'diskImageDetail' smart constructor.
+-- | Describes a disk image.
+--
+-- /See:/ 'diskImageDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2960,29 +4503,9 @@ instance ToQuery DiskImageDetail where
               ["Format" =: _didFormat, "Bytes" =: _didBytes,
                "ImportManifestUrl" =: _didImportManifestURL]
 
-data DiskImageFormat = Raw | VHD | VMDK deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DiskImageFormat where
-    parser = takeLowerText >>= \case
-        "RAW" -> pure Raw
-        "VHD" -> pure VHD
-        "VMDK" -> pure VMDK
-        e -> fail ("Failure parsing DiskImageFormat from " ++ show e)
-
-instance ToText DiskImageFormat where
-    toText = \case
-        Raw -> "RAW"
-        VHD -> "VHD"
-        VMDK -> "VMDK"
-
-instance Hashable DiskImageFormat
-instance ToQuery DiskImageFormat
-instance ToHeader DiskImageFormat
-
-instance FromXML DiskImageFormat where
-    parseXML = parseXMLText "DiskImageFormat"
-
--- | /See:/ 'diskImageVolumeDescription' smart constructor.
+-- | Describes a disk image volume.
+--
+-- /See:/ 'diskImageVolumeDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3008,27 +4531,9 @@ instance FromXML DiskImageVolumeDescription where
           = DiskImageVolumeDescription' <$>
               (x .@? "size") <*> (x .@ "id")
 
-data DomainType = DTStandard | DTVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DomainType where
-    parser = takeLowerText >>= \case
-        "standard" -> pure DTStandard
-        "vpc" -> pure DTVPC
-        e -> fail ("Failure parsing DomainType from " ++ show e)
-
-instance ToText DomainType where
-    toText = \case
-        DTStandard -> "standard"
-        DTVPC -> "vpc"
-
-instance Hashable DomainType
-instance ToQuery DomainType
-instance ToHeader DomainType
-
-instance FromXML DomainType where
-    parseXML = parseXMLText "DomainType"
-
--- | /See:/ 'ebsBlockDevice' smart constructor.
+-- | Describes a block device for an EBS volume.
+--
+-- /See:/ 'ebsBlockDevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3119,7 +4624,10 @@ instance ToQuery EBSBlockDevice where
                "VolumeType" =: _ebdVolumeType,
                "SnapshotId" =: _ebdSnapshotId]
 
--- | /See:/ 'ebsInstanceBlockDevice' smart constructor.
+-- | Describes a parameter used to set up an EBS volume in a block device
+-- mapping.
+--
+-- /See:/ 'ebsInstanceBlockDevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3187,33 +4695,9 @@ instance ToQuery EBSInstanceBlockDeviceSpecification
               ["DeleteOnTermination" =: _eibdsDeleteOnTermination,
                "VolumeId" =: _eibdsVolumeId]
 
-data EventCode = InstanceReboot | InstanceRetirement | InstanceStop | SystemReboot | SystemMaintenance deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EventCode where
-    parser = takeLowerText >>= \case
-        "instance-reboot" -> pure InstanceReboot
-        "instance-retirement" -> pure InstanceRetirement
-        "instance-stop" -> pure InstanceStop
-        "system-maintenance" -> pure SystemMaintenance
-        "system-reboot" -> pure SystemReboot
-        e -> fail ("Failure parsing EventCode from " ++ show e)
-
-instance ToText EventCode where
-    toText = \case
-        InstanceReboot -> "instance-reboot"
-        InstanceRetirement -> "instance-retirement"
-        InstanceStop -> "instance-stop"
-        SystemMaintenance -> "system-maintenance"
-        SystemReboot -> "system-reboot"
-
-instance Hashable EventCode
-instance ToQuery EventCode
-instance ToHeader EventCode
-
-instance FromXML EventCode where
-    parseXML = parseXMLText "EventCode"
-
--- | /See:/ 'eventInformation' smart constructor.
+-- | Describes a Spot fleet event.
+--
+-- /See:/ 'eventInformation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3290,51 +4774,9 @@ instance FromXML EventInformation where
               (x .@? "instanceId") <*> (x .@? "eventDescription")
                 <*> (x .@? "eventSubType")
 
-data EventType = InstanceChange | Error | FleetRequestChange deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EventType where
-    parser = takeLowerText >>= \case
-        "error" -> pure Error
-        "fleetRequestChange" -> pure FleetRequestChange
-        "instanceChange" -> pure InstanceChange
-        e -> fail ("Failure parsing EventType from " ++ show e)
-
-instance ToText EventType where
-    toText = \case
-        Error -> "error"
-        FleetRequestChange -> "fleetRequestChange"
-        InstanceChange -> "instanceChange"
-
-instance Hashable EventType
-instance ToQuery EventType
-instance ToHeader EventType
-
-instance FromXML EventType where
-    parseXML = parseXMLText "EventType"
-
-data ExportEnvironment = Citrix | Microsoft | VMware deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ExportEnvironment where
-    parser = takeLowerText >>= \case
-        "citrix" -> pure Citrix
-        "microsoft" -> pure Microsoft
-        "vmware" -> pure VMware
-        e -> fail ("Failure parsing ExportEnvironment from " ++ show e)
-
-instance ToText ExportEnvironment where
-    toText = \case
-        Citrix -> "citrix"
-        Microsoft -> "microsoft"
-        VMware -> "vmware"
-
-instance Hashable ExportEnvironment
-instance ToQuery ExportEnvironment
-instance ToHeader ExportEnvironment
-
-instance FromXML ExportEnvironment where
-    parseXML = parseXMLText "ExportEnvironment"
-
--- | /See:/ 'exportTask' smart constructor.
+-- | Describes an instance export task.
+--
+-- /See:/ 'exportTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3388,31 +4830,9 @@ instance FromXML ExportTask where
                 <*> (x .@ "state")
                 <*> (x .@ "statusMessage")
 
-data ExportTaskState = ETSCompleted | ETSCancelled | ETSCancelling | ETSActive deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ExportTaskState where
-    parser = takeLowerText >>= \case
-        "active" -> pure ETSActive
-        "cancelled" -> pure ETSCancelled
-        "cancelling" -> pure ETSCancelling
-        "completed" -> pure ETSCompleted
-        e -> fail ("Failure parsing ExportTaskState from " ++ show e)
-
-instance ToText ExportTaskState where
-    toText = \case
-        ETSActive -> "active"
-        ETSCancelled -> "cancelled"
-        ETSCancelling -> "cancelling"
-        ETSCompleted -> "completed"
-
-instance Hashable ExportTaskState
-instance ToQuery ExportTaskState
-instance ToHeader ExportTaskState
-
-instance FromXML ExportTaskState where
-    parseXML = parseXMLText "ExportTaskState"
-
--- | /See:/ 'exportToS3Task' smart constructor.
+-- | Describes the format and location for an instance export task.
+--
+-- /See:/ 'exportToS3Task' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3455,7 +4875,9 @@ instance FromXML ExportToS3Task where
                 (x .@? "s3Bucket")
                 <*> (x .@? "diskImageFormat")
 
--- | /See:/ 'exportToS3TaskSpecification' smart constructor.
+-- | Describes an instance export task.
+--
+-- /See:/ 'exportToS3TaskSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3500,7 +4922,11 @@ instance ToQuery ExportToS3TaskSpecification where
                "S3Bucket" =: _etstsS3Bucket,
                "DiskImageFormat" =: _etstsDiskImageFormat]
 
--- | /See:/ 'filter'' smart constructor.
+-- | A filter name and value pair that is used to return a more specific list
+-- of results. Filters can be used to match a set of resources by various
+-- criteria, such as tags, attributes, or IDs.
+--
+-- /See:/ 'filter'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3527,7 +4953,9 @@ instance ToQuery Filter where
               [toQuery (toQueryList "item" <$> _filValues),
                "Name" =: _filName]
 
--- | /See:/ 'flowLog' smart constructor.
+-- | Describes a flow log.
+--
+-- /See:/ 'flowLog' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3606,44 +5034,9 @@ instance FromXML FlowLog where
                 <*> (x .@? "logGroupName")
                 <*> (x .@? "flowLogId")
 
-data FlowLogsResourceType = FLRTSubnet | FLRTNetworkInterface | FLRTVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText FlowLogsResourceType where
-    parser = takeLowerText >>= \case
-        "NetworkInterface" -> pure FLRTNetworkInterface
-        "Subnet" -> pure FLRTSubnet
-        "VPC" -> pure FLRTVPC
-        e -> fail ("Failure parsing FlowLogsResourceType from " ++ show e)
-
-instance ToText FlowLogsResourceType where
-    toText = \case
-        FLRTNetworkInterface -> "NetworkInterface"
-        FLRTSubnet -> "Subnet"
-        FLRTVPC -> "VPC"
-
-instance Hashable FlowLogsResourceType
-instance ToQuery FlowLogsResourceType
-instance ToHeader FlowLogsResourceType
-
-data GatewayType = IPsec1 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText GatewayType where
-    parser = takeLowerText >>= \case
-        "ipsec.1" -> pure IPsec1
-        e -> fail ("Failure parsing GatewayType from " ++ show e)
-
-instance ToText GatewayType where
-    toText = \case
-        IPsec1 -> "ipsec.1"
-
-instance Hashable GatewayType
-instance ToQuery GatewayType
-instance ToHeader GatewayType
-
-instance FromXML GatewayType where
-    parseXML = parseXMLText "GatewayType"
-
--- | /See:/ 'groupIdentifier' smart constructor.
+-- | Describes a security group.
+--
+-- /See:/ 'groupIdentifier' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3675,7 +5068,9 @@ instance ToQuery GroupIdentifier where
               ["GroupId" =: _giGroupId,
                "GroupName" =: _giGroupName]
 
--- | /See:/ 'historyRecord' smart constructor.
+-- | Describes an event in the history of the Spot fleet request.
+--
+-- /See:/ 'historyRecord' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3718,27 +5113,9 @@ instance FromXML HistoryRecord where
               (x .@ "timestamp") <*> (x .@ "eventType") <*>
                 (x .@ "eventInformation")
 
-data HypervisorType = Xen | Ovm deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText HypervisorType where
-    parser = takeLowerText >>= \case
-        "ovm" -> pure Ovm
-        "xen" -> pure Xen
-        e -> fail ("Failure parsing HypervisorType from " ++ show e)
-
-instance ToText HypervisorType where
-    toText = \case
-        Ovm -> "ovm"
-        Xen -> "xen"
-
-instance Hashable HypervisorType
-instance ToQuery HypervisorType
-instance ToHeader HypervisorType
-
-instance FromXML HypervisorType where
-    parseXML = parseXMLText "HypervisorType"
-
--- | /See:/ 'iamInstanceProfile' smart constructor.
+-- | Describes an IAM instance profile.
+--
+-- /See:/ 'iamInstanceProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3764,7 +5141,9 @@ instance FromXML IAMInstanceProfile where
           = IAMInstanceProfile' <$>
               (x .@? "arn") <*> (x .@? "id")
 
--- | /See:/ 'iamInstanceProfileSpecification' smart constructor.
+-- | Describes an IAM instance profile.
+--
+-- /See:/ 'iamInstanceProfileSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3796,7 +5175,9 @@ instance ToQuery IAMInstanceProfileSpecification
         toQuery IAMInstanceProfileSpecification'{..}
           = mconcat ["Arn" =: _iapsARN, "Name" =: _iapsName]
 
--- | /See:/ 'icmpTypeCode' smart constructor.
+-- | Describes the ICMP type and code.
+--
+-- /See:/ 'icmpTypeCode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3826,7 +5207,9 @@ instance ToQuery ICMPTypeCode where
         toQuery ICMPTypeCode'{..}
           = mconcat ["Code" =: _itcCode, "Type" =: _itcType]
 
--- | /See:/ 'ipPermission' smart constructor.
+-- | Describes a security group rule.
+--
+-- /See:/ 'ipPermission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3904,7 +5287,9 @@ instance ToQuery IPPermission where
                toQuery (toQueryList "item" <$> _ipIPRanges),
                "IpProtocol" =: _ipIPProtocol]
 
--- | /See:/ 'ipRange' smart constructor.
+-- | Describes an IP range.
+--
+-- /See:/ 'ipRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -3927,7 +5312,9 @@ instance ToQuery IPRange where
         toQuery IPRange'{..}
           = mconcat ["CidrIp" =: _irCIDRIP]
 
--- | /See:/ 'image' smart constructor.
+-- | Describes an image.
+--
+-- /See:/ 'image' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4108,34 +5495,9 @@ instance FromXML Image where
                 <*> (x .@ "virtualizationType")
                 <*> (x .@ "hypervisor")
 
-data ImageAttributeName = BlockDeviceMapping | RAMDisk | Kernel | LaunchPermission | SRIOVNetSupport | ProductCodes | Description deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ImageAttributeName where
-    parser = takeLowerText >>= \case
-        "blockDeviceMapping" -> pure BlockDeviceMapping
-        "description" -> pure Description
-        "kernel" -> pure Kernel
-        "launchPermission" -> pure LaunchPermission
-        "productCodes" -> pure ProductCodes
-        "ramdisk" -> pure RAMDisk
-        "sriovNetSupport" -> pure SRIOVNetSupport
-        e -> fail ("Failure parsing ImageAttributeName from " ++ show e)
-
-instance ToText ImageAttributeName where
-    toText = \case
-        BlockDeviceMapping -> "blockDeviceMapping"
-        Description -> "description"
-        Kernel -> "kernel"
-        LaunchPermission -> "launchPermission"
-        ProductCodes -> "productCodes"
-        RAMDisk -> "ramdisk"
-        SRIOVNetSupport -> "sriovNetSupport"
-
-instance Hashable ImageAttributeName
-instance ToQuery ImageAttributeName
-instance ToHeader ImageAttributeName
-
--- | /See:/ 'imageDiskContainer' smart constructor.
+-- | Describes the disk container object for an import image task.
+--
+-- /See:/ 'imageDiskContainer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4192,59 +5554,9 @@ instance ToQuery ImageDiskContainer where
                "Description" =: _idcDescription,
                "SnapshotId" =: _idcSnapshotId]
 
-data ImageState = ISAvailable | ISDeregistered | ISFailed | ISError | ISPending | ISInvalid | ISTransient deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ImageState where
-    parser = takeLowerText >>= \case
-        "available" -> pure ISAvailable
-        "deregistered" -> pure ISDeregistered
-        "error" -> pure ISError
-        "failed" -> pure ISFailed
-        "invalid" -> pure ISInvalid
-        "pending" -> pure ISPending
-        "transient" -> pure ISTransient
-        e -> fail ("Failure parsing ImageState from " ++ show e)
-
-instance ToText ImageState where
-    toText = \case
-        ISAvailable -> "available"
-        ISDeregistered -> "deregistered"
-        ISError -> "error"
-        ISFailed -> "failed"
-        ISInvalid -> "invalid"
-        ISPending -> "pending"
-        ISTransient -> "transient"
-
-instance Hashable ImageState
-instance ToQuery ImageState
-instance ToHeader ImageState
-
-instance FromXML ImageState where
-    parseXML = parseXMLText "ImageState"
-
-data ImageTypeValues = ITVKernel | ITVMachine | ITVRAMDisk deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ImageTypeValues where
-    parser = takeLowerText >>= \case
-        "kernel" -> pure ITVKernel
-        "machine" -> pure ITVMachine
-        "ramdisk" -> pure ITVRAMDisk
-        e -> fail ("Failure parsing ImageTypeValues from " ++ show e)
-
-instance ToText ImageTypeValues where
-    toText = \case
-        ITVKernel -> "kernel"
-        ITVMachine -> "machine"
-        ITVRAMDisk -> "ramdisk"
-
-instance Hashable ImageTypeValues
-instance ToQuery ImageTypeValues
-instance ToHeader ImageTypeValues
-
-instance FromXML ImageTypeValues where
-    parseXML = parseXMLText "ImageTypeValues"
-
--- | /See:/ 'importImageTask' smart constructor.
+-- | Describes an import image task.
+--
+-- /See:/ 'importImageTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4338,7 +5650,9 @@ instance FromXML ImportImageTask where
                 <*> (x .@? "architecture")
                 <*> (x .@? "description")
 
--- | /See:/ 'importInstanceLaunchSpecification' smart constructor.
+-- | Describes the launch specification for VM import.
+--
+-- /See:/ 'importInstanceLaunchSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4438,7 +5752,9 @@ instance ToQuery ImportInstanceLaunchSpecification
                "Architecture" =: _iilsArchitecture,
                "Placement" =: _iilsPlacement]
 
--- | /See:/ 'importInstanceTaskDetails' smart constructor.
+-- | Describes an import instance task.
+--
+-- /See:/ 'importInstanceTaskDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4478,7 +5794,9 @@ instance FromXML ImportInstanceTaskDetails where
                 (x .@? "description")
                 <*> (parseXMLList "item" x)
 
--- | /See:/ 'importInstanceVolumeDetailItem' smart constructor.
+-- | Describes an import volume task.
+--
+-- /See:/ 'importInstanceVolumeDetailItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4539,7 +5857,9 @@ instance FromXML ImportInstanceVolumeDetailItem where
                 <*> (x .@ "volume")
                 <*> (x .@ "status")
 
--- | /See:/ 'importSnapshotTask' smart constructor.
+-- | Describes an import snapshot task.
+--
+-- /See:/ 'importSnapshotTask' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4573,7 +5893,9 @@ instance FromXML ImportSnapshotTask where
                 (x .@? "importTaskId")
                 <*> (x .@? "description")
 
--- | /See:/ 'importVolumeTaskDetails' smart constructor.
+-- | Describes an import volume task.
+--
+-- /See:/ 'importVolumeTaskDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4620,7 +5942,9 @@ instance FromXML ImportVolumeTaskDetails where
                 <*> (x .@ "image")
                 <*> (x .@ "volume")
 
--- | /See:/ 'instance'' smart constructor.
+-- | Describes an instance.
+--
+-- /See:/ 'instance'' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4908,46 +6232,9 @@ instance FromXML Instance where
                 <*> (x .@ "ebsOptimized")
                 <*> (x .@ "instanceState")
 
-data InstanceAttributeName = IANInstanceInitiatedShutdownBehavior | IANProductCodes | IANGroupSet | IANDisableAPITermination | IANSRIOVNetSupport | IANRootDeviceName | IANUserData | IANEBSOptimized | IANInstanceType | IANRAMDisk | IANKernel | IANBlockDeviceMapping | IANSourceDestCheck deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceAttributeName where
-    parser = takeLowerText >>= \case
-        "blockDeviceMapping" -> pure IANBlockDeviceMapping
-        "disableApiTermination" -> pure IANDisableAPITermination
-        "ebsOptimized" -> pure IANEBSOptimized
-        "groupSet" -> pure IANGroupSet
-        "instanceInitiatedShutdownBehavior" -> pure IANInstanceInitiatedShutdownBehavior
-        "instanceType" -> pure IANInstanceType
-        "kernel" -> pure IANKernel
-        "productCodes" -> pure IANProductCodes
-        "ramdisk" -> pure IANRAMDisk
-        "rootDeviceName" -> pure IANRootDeviceName
-        "sriovNetSupport" -> pure IANSRIOVNetSupport
-        "sourceDestCheck" -> pure IANSourceDestCheck
-        "userData" -> pure IANUserData
-        e -> fail ("Failure parsing InstanceAttributeName from " ++ show e)
-
-instance ToText InstanceAttributeName where
-    toText = \case
-        IANBlockDeviceMapping -> "blockDeviceMapping"
-        IANDisableAPITermination -> "disableApiTermination"
-        IANEBSOptimized -> "ebsOptimized"
-        IANGroupSet -> "groupSet"
-        IANInstanceInitiatedShutdownBehavior -> "instanceInitiatedShutdownBehavior"
-        IANInstanceType -> "instanceType"
-        IANKernel -> "kernel"
-        IANProductCodes -> "productCodes"
-        IANRAMDisk -> "ramdisk"
-        IANRootDeviceName -> "rootDeviceName"
-        IANSRIOVNetSupport -> "sriovNetSupport"
-        IANSourceDestCheck -> "sourceDestCheck"
-        IANUserData -> "userData"
-
-instance Hashable InstanceAttributeName
-instance ToQuery InstanceAttributeName
-instance ToHeader InstanceAttributeName
-
--- | /See:/ 'instanceBlockDeviceMapping' smart constructor.
+-- | Describes a block device mapping.
+--
+-- /See:/ 'instanceBlockDeviceMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -4975,7 +6262,9 @@ instance FromXML InstanceBlockDeviceMapping where
           = InstanceBlockDeviceMapping' <$>
               (x .@? "ebs") <*> (x .@? "deviceName")
 
--- | /See:/ 'instanceBlockDeviceMappingSpecification' smart constructor.
+-- | Describes a block device mapping entry.
+--
+-- /See:/ 'instanceBlockDeviceMappingSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5018,7 +6307,9 @@ instance ToQuery
                "NoDevice" =: _ibdmsNoDevice, "Ebs" =: _ibdmsEBS,
                "DeviceName" =: _ibdmsDeviceName]
 
--- | /See:/ 'instanceCount' smart constructor.
+-- | Describes a Reserved Instance listing state.
+--
+-- /See:/ 'instanceCount' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5045,7 +6336,9 @@ instance FromXML InstanceCount where
           = InstanceCount' <$>
               (x .@? "state") <*> (x .@? "instanceCount")
 
--- | /See:/ 'instanceExportDetails' smart constructor.
+-- | Describes an instance to export.
+--
+-- /See:/ 'instanceExportDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5071,25 +6364,9 @@ instance FromXML InstanceExportDetails where
           = InstanceExportDetails' <$>
               (x .@? "instanceId") <*> (x .@? "targetEnvironment")
 
-data InstanceLifecycleType = Spot deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceLifecycleType where
-    parser = takeLowerText >>= \case
-        "spot" -> pure Spot
-        e -> fail ("Failure parsing InstanceLifecycleType from " ++ show e)
-
-instance ToText InstanceLifecycleType where
-    toText = \case
-        Spot -> "spot"
-
-instance Hashable InstanceLifecycleType
-instance ToQuery InstanceLifecycleType
-instance ToHeader InstanceLifecycleType
-
-instance FromXML InstanceLifecycleType where
-    parseXML = parseXMLText "InstanceLifecycleType"
-
--- | /See:/ 'instanceMonitoring' smart constructor.
+-- | Describes the monitoring information of the instance.
+--
+-- /See:/ 'instanceMonitoring' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5115,7 +6392,9 @@ instance FromXML InstanceMonitoring where
           = InstanceMonitoring' <$>
               (x .@? "instanceId") <*> (x .@? "monitoring")
 
--- | /See:/ 'instanceNetworkInterface' smart constructor.
+-- | Describes a network interface.
+--
+-- /See:/ 'instanceNetworkInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5227,7 +6506,9 @@ instance FromXML InstanceNetworkInterface where
                 <*> (x .@? "description")
                 <*> (x .@? "association")
 
--- | /See:/ 'instanceNetworkInterfaceAssociation' smart constructor.
+-- | Describes association information for an Elastic IP address.
+--
+-- /See:/ 'instanceNetworkInterfaceAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5262,7 +6543,9 @@ instance FromXML InstanceNetworkInterfaceAssociation
               (x .@? "publicDnsName") <*> (x .@? "ipOwnerId") <*>
                 (x .@? "publicIp")
 
--- | /See:/ 'instanceNetworkInterfaceAttachment' smart constructor.
+-- | Describes a network interface attachment.
+--
+-- /See:/ 'instanceNetworkInterfaceAttachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5312,7 +6595,9 @@ instance FromXML InstanceNetworkInterfaceAttachment
                 <*> (x .@? "attachTime")
                 <*> (x .@? "deviceIndex")
 
--- | /See:/ 'instanceNetworkInterfaceSpecification' smart constructor.
+-- | Describes a network interface.
+--
+-- /See:/ 'instanceNetworkInterfaceSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5431,7 +6716,9 @@ instance ToQuery
                "DeviceIndex" =: _inisDeviceIndex,
                "Description" =: _inisDescription]
 
--- | /See:/ 'instancePrivateIPAddress' smart constructor.
+-- | Describes a private IP address.
+--
+-- /See:/ 'instancePrivateIPAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5473,7 +6760,9 @@ instance FromXML InstancePrivateIPAddress where
                 (x .@? "privateDnsName")
                 <*> (x .@? "association")
 
--- | /See:/ 'instanceState' smart constructor.
+-- | Describes the current state of the instance.
+--
+-- /See:/ 'instanceState' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5512,7 +6801,9 @@ instance FromXML InstanceState where
         parseXML x
           = InstanceState' <$> (x .@ "name") <*> (x .@ "code")
 
--- | /See:/ 'instanceStateChange' smart constructor.
+-- | Describes an instance state change.
+--
+-- /See:/ 'instanceStateChange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5545,35 +6836,9 @@ instance FromXML InstanceStateChange where
               (x .@? "instanceId") <*> (x .@? "currentState") <*>
                 (x .@? "previousState")
 
-data InstanceStateName = ISNStopped | ISNPending | ISNStopping | ISNShuttingDown | ISNRunning | ISNTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceStateName where
-    parser = takeLowerText >>= \case
-        "pending" -> pure ISNPending
-        "running" -> pure ISNRunning
-        "shutting-down" -> pure ISNShuttingDown
-        "stopped" -> pure ISNStopped
-        "stopping" -> pure ISNStopping
-        "terminated" -> pure ISNTerminated
-        e -> fail ("Failure parsing InstanceStateName from " ++ show e)
-
-instance ToText InstanceStateName where
-    toText = \case
-        ISNPending -> "pending"
-        ISNRunning -> "running"
-        ISNShuttingDown -> "shutting-down"
-        ISNStopped -> "stopped"
-        ISNStopping -> "stopping"
-        ISNTerminated -> "terminated"
-
-instance Hashable InstanceStateName
-instance ToQuery InstanceStateName
-instance ToHeader InstanceStateName
-
-instance FromXML InstanceStateName where
-    parseXML = parseXMLText "InstanceStateName"
-
--- | /See:/ 'instanceStatus' smart constructor.
+-- | Describes the status of an instance.
+--
+-- /See:/ 'instanceStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5631,7 +6896,9 @@ instance FromXML InstanceStatus where
                 <*> (x .@? "instanceStatus")
                 <*> (x .@? "instanceState")
 
--- | /See:/ 'instanceStatusDetails' smart constructor.
+-- | Describes the instance status.
+--
+-- /See:/ 'instanceStatusDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5665,7 +6932,9 @@ instance FromXML InstanceStatusDetails where
               (x .@? "status") <*> (x .@? "impairedSince") <*>
                 (x .@? "name")
 
--- | /See:/ 'instanceStatusEvent' smart constructor.
+-- | Describes a scheduled event for an instance.
+--
+-- /See:/ 'instanceStatusEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5709,7 +6978,9 @@ instance FromXML InstanceStatusEvent where
                 (x .@? "description")
                 <*> (x .@? "notAfter")
 
--- | /See:/ 'instanceStatusSummary' smart constructor.
+-- | Describes the status of an instance.
+--
+-- /See:/ 'instanceStatusSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5735,127 +7006,9 @@ instance FromXML InstanceStatusSummary where
           = InstanceStatusSummary' <$>
               (may (parseXMLList "item") x) <*> (x .@ "status")
 
-data InstanceType = I22XLarge | D24XLarge | CC28XLarge | C1Medium | C48XLarge | C4XLarge | I24XLarge | C4Large | C3XLarge | CR18XLarge | M410XLarge | C42XLarge | CC14XLarge | D28XLarge | M3Large | M3Medium | T2Medium | M24XLarge | R32XLarge | M42XLarge | M1XLarge | M32XLarge | D22XLarge | T2Small | CG14XLarge | R3Large | M4XLarge | M4Large | T2Micro | R3XLarge | R38XLarge | HS18XLarge | C1XLarge | T1Micro | C32XLarge | G22XLarge | M2XLarge | C3Large | C38XLarge | R34XLarge | M44XLarge | M22XLarge | D2XLarge | M1Small | M3XLarge | I2XLarge | C44XLarge | I28XLarge | HI14XLarge | C34XLarge | M1Large | M1Medium deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceType where
-    parser = takeLowerText >>= \case
-        "c1.medium" -> pure C1Medium
-        "c1.xlarge" -> pure C1XLarge
-        "c3.2xlarge" -> pure C32XLarge
-        "c3.4xlarge" -> pure C34XLarge
-        "c3.8xlarge" -> pure C38XLarge
-        "c3.large" -> pure C3Large
-        "c3.xlarge" -> pure C3XLarge
-        "c4.2xlarge" -> pure C42XLarge
-        "c4.4xlarge" -> pure C44XLarge
-        "c4.8xlarge" -> pure C48XLarge
-        "c4.large" -> pure C4Large
-        "c4.xlarge" -> pure C4XLarge
-        "cc1.4xlarge" -> pure CC14XLarge
-        "cc2.8xlarge" -> pure CC28XLarge
-        "cg1.4xlarge" -> pure CG14XLarge
-        "cr1.8xlarge" -> pure CR18XLarge
-        "d2.2xlarge" -> pure D22XLarge
-        "d2.4xlarge" -> pure D24XLarge
-        "d2.8xlarge" -> pure D28XLarge
-        "d2.xlarge" -> pure D2XLarge
-        "g2.2xlarge" -> pure G22XLarge
-        "hi1.4xlarge" -> pure HI14XLarge
-        "hs1.8xlarge" -> pure HS18XLarge
-        "i2.2xlarge" -> pure I22XLarge
-        "i2.4xlarge" -> pure I24XLarge
-        "i2.8xlarge" -> pure I28XLarge
-        "i2.xlarge" -> pure I2XLarge
-        "m1.large" -> pure M1Large
-        "m1.medium" -> pure M1Medium
-        "m1.small" -> pure M1Small
-        "m1.xlarge" -> pure M1XLarge
-        "m2.2xlarge" -> pure M22XLarge
-        "m2.4xlarge" -> pure M24XLarge
-        "m2.xlarge" -> pure M2XLarge
-        "m3.2xlarge" -> pure M32XLarge
-        "m3.large" -> pure M3Large
-        "m3.medium" -> pure M3Medium
-        "m3.xlarge" -> pure M3XLarge
-        "m4.10xlarge" -> pure M410XLarge
-        "m4.2xlarge" -> pure M42XLarge
-        "m4.4xlarge" -> pure M44XLarge
-        "m4.large" -> pure M4Large
-        "m4.xlarge" -> pure M4XLarge
-        "r3.2xlarge" -> pure R32XLarge
-        "r3.4xlarge" -> pure R34XLarge
-        "r3.8xlarge" -> pure R38XLarge
-        "r3.large" -> pure R3Large
-        "r3.xlarge" -> pure R3XLarge
-        "t1.micro" -> pure T1Micro
-        "t2.medium" -> pure T2Medium
-        "t2.micro" -> pure T2Micro
-        "t2.small" -> pure T2Small
-        e -> fail ("Failure parsing InstanceType from " ++ show e)
-
-instance ToText InstanceType where
-    toText = \case
-        C1Medium -> "c1.medium"
-        C1XLarge -> "c1.xlarge"
-        C32XLarge -> "c3.2xlarge"
-        C34XLarge -> "c3.4xlarge"
-        C38XLarge -> "c3.8xlarge"
-        C3Large -> "c3.large"
-        C3XLarge -> "c3.xlarge"
-        C42XLarge -> "c4.2xlarge"
-        C44XLarge -> "c4.4xlarge"
-        C48XLarge -> "c4.8xlarge"
-        C4Large -> "c4.large"
-        C4XLarge -> "c4.xlarge"
-        CC14XLarge -> "cc1.4xlarge"
-        CC28XLarge -> "cc2.8xlarge"
-        CG14XLarge -> "cg1.4xlarge"
-        CR18XLarge -> "cr1.8xlarge"
-        D22XLarge -> "d2.2xlarge"
-        D24XLarge -> "d2.4xlarge"
-        D28XLarge -> "d2.8xlarge"
-        D2XLarge -> "d2.xlarge"
-        G22XLarge -> "g2.2xlarge"
-        HI14XLarge -> "hi1.4xlarge"
-        HS18XLarge -> "hs1.8xlarge"
-        I22XLarge -> "i2.2xlarge"
-        I24XLarge -> "i2.4xlarge"
-        I28XLarge -> "i2.8xlarge"
-        I2XLarge -> "i2.xlarge"
-        M1Large -> "m1.large"
-        M1Medium -> "m1.medium"
-        M1Small -> "m1.small"
-        M1XLarge -> "m1.xlarge"
-        M22XLarge -> "m2.2xlarge"
-        M24XLarge -> "m2.4xlarge"
-        M2XLarge -> "m2.xlarge"
-        M32XLarge -> "m3.2xlarge"
-        M3Large -> "m3.large"
-        M3Medium -> "m3.medium"
-        M3XLarge -> "m3.xlarge"
-        M410XLarge -> "m4.10xlarge"
-        M42XLarge -> "m4.2xlarge"
-        M44XLarge -> "m4.4xlarge"
-        M4Large -> "m4.large"
-        M4XLarge -> "m4.xlarge"
-        R32XLarge -> "r3.2xlarge"
-        R34XLarge -> "r3.4xlarge"
-        R38XLarge -> "r3.8xlarge"
-        R3Large -> "r3.large"
-        R3XLarge -> "r3.xlarge"
-        T1Micro -> "t1.micro"
-        T2Medium -> "t2.medium"
-        T2Micro -> "t2.micro"
-        T2Small -> "t2.small"
-
-instance Hashable InstanceType
-instance ToQuery InstanceType
-instance ToHeader InstanceType
-
-instance FromXML InstanceType where
-    parseXML = parseXMLText "InstanceType"
-
--- | /See:/ 'internetGateway' smart constructor.
+-- | Describes an Internet gateway.
+--
+-- /See:/ 'internetGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5889,7 +7042,9 @@ instance FromXML InternetGateway where
                 (may (parseXMLList "item") x)
                 <*> (x .@ "internetGatewayId")
 
--- | /See:/ 'internetGatewayAttachment' smart constructor.
+-- | Describes the attachment of a VPC to an Internet gateway.
+--
+-- /See:/ 'internetGatewayAttachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5915,7 +7070,9 @@ instance FromXML InternetGatewayAttachment where
           = InternetGatewayAttachment' <$>
               (x .@ "state") <*> (x .@ "vpcId")
 
--- | /See:/ 'keyPairInfo' smart constructor.
+-- | Describes a key pair.
+--
+-- /See:/ 'keyPairInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5944,7 +7101,9 @@ instance FromXML KeyPairInfo where
           = KeyPairInfo' <$>
               (x .@? "keyFingerprint") <*> (x .@? "keyName")
 
--- | /See:/ 'launchPermission' smart constructor.
+-- | Describes a launch permission.
+--
+-- /See:/ 'launchPermission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -5975,7 +7134,9 @@ instance ToQuery LaunchPermission where
           = mconcat
               ["Group" =: _lpGroup, "UserId" =: _lpUserId]
 
--- | /See:/ 'launchPermissionModifications' smart constructor.
+-- | Describes a launch permission modification.
+--
+-- /See:/ 'launchPermissionModifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6003,7 +7164,9 @@ instance ToQuery LaunchPermissionModifications where
               [toQuery (toQueryList "item" <$> _lpmRemove),
                toQuery (toQueryList "item" <$> _lpmAdd)]
 
--- | /See:/ 'launchSpecification' smart constructor.
+-- | Describes the launch specification for an instance.
+--
+-- /See:/ 'launchSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6149,55 +7312,9 @@ instance ToQuery LaunchSpecification where
                "AddressingType" =: _lsAddressingType,
                "Placement" =: _lsPlacement]
 
-data ListingState = LisAvailable | LisCancelled | LisSold | LisPending deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ListingState where
-    parser = takeLowerText >>= \case
-        "available" -> pure LisAvailable
-        "cancelled" -> pure LisCancelled
-        "pending" -> pure LisPending
-        "sold" -> pure LisSold
-        e -> fail ("Failure parsing ListingState from " ++ show e)
-
-instance ToText ListingState where
-    toText = \case
-        LisAvailable -> "available"
-        LisCancelled -> "cancelled"
-        LisPending -> "pending"
-        LisSold -> "sold"
-
-instance Hashable ListingState
-instance ToQuery ListingState
-instance ToHeader ListingState
-
-instance FromXML ListingState where
-    parseXML = parseXMLText "ListingState"
-
-data ListingStatus = LSPending | LSActive | LSCancelled | LSClosed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ListingStatus where
-    parser = takeLowerText >>= \case
-        "active" -> pure LSActive
-        "cancelled" -> pure LSCancelled
-        "closed" -> pure LSClosed
-        "pending" -> pure LSPending
-        e -> fail ("Failure parsing ListingStatus from " ++ show e)
-
-instance ToText ListingStatus where
-    toText = \case
-        LSActive -> "active"
-        LSCancelled -> "cancelled"
-        LSClosed -> "closed"
-        LSPending -> "pending"
-
-instance Hashable ListingStatus
-instance ToQuery ListingStatus
-instance ToHeader ListingStatus
-
-instance FromXML ListingStatus where
-    parseXML = parseXMLText "ListingStatus"
-
--- | /See:/ 'monitoring' smart constructor.
+-- | Describes the monitoring for the instance.
+--
+-- /See:/ 'monitoring' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6215,51 +7332,9 @@ monState = lens _monState (\ s a -> s{_monState = a});
 instance FromXML Monitoring where
         parseXML x = Monitoring' <$> (x .@? "state")
 
-data MonitoringState = MSDisabling | MSEnabled | MSPending | MSDisabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MonitoringState where
-    parser = takeLowerText >>= \case
-        "disabled" -> pure MSDisabled
-        "disabling" -> pure MSDisabling
-        "enabled" -> pure MSEnabled
-        "pending" -> pure MSPending
-        e -> fail ("Failure parsing MonitoringState from " ++ show e)
-
-instance ToText MonitoringState where
-    toText = \case
-        MSDisabled -> "disabled"
-        MSDisabling -> "disabling"
-        MSEnabled -> "enabled"
-        MSPending -> "pending"
-
-instance Hashable MonitoringState
-instance ToQuery MonitoringState
-instance ToHeader MonitoringState
-
-instance FromXML MonitoringState where
-    parseXML = parseXMLText "MonitoringState"
-
-data MoveStatus = RestoringToClassic | MovingToVPC deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MoveStatus where
-    parser = takeLowerText >>= \case
-        "movingToVpc" -> pure MovingToVPC
-        "restoringToClassic" -> pure RestoringToClassic
-        e -> fail ("Failure parsing MoveStatus from " ++ show e)
-
-instance ToText MoveStatus where
-    toText = \case
-        MovingToVPC -> "movingToVpc"
-        RestoringToClassic -> "restoringToClassic"
-
-instance Hashable MoveStatus
-instance ToQuery MoveStatus
-instance ToHeader MoveStatus
-
-instance FromXML MoveStatus where
-    parseXML = parseXMLText "MoveStatus"
-
--- | /See:/ 'movingAddressStatus' smart constructor.
+-- | Describes the status of a moving Elastic IP address.
+--
+-- /See:/ 'movingAddressStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6286,7 +7361,9 @@ instance FromXML MovingAddressStatus where
           = MovingAddressStatus' <$>
               (x .@? "moveStatus") <*> (x .@? "publicIp")
 
--- | /See:/ 'networkACL' smart constructor.
+-- | Describes a network ACL.
+--
+-- /See:/ 'networkACL' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6341,7 +7418,9 @@ instance FromXML NetworkACL where
                 <*> (x .@? "default")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'networkACLAssociation' smart constructor.
+-- | Describes an association between a network ACL and a subnet.
+--
+-- /See:/ 'networkACLAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6374,7 +7453,9 @@ instance FromXML NetworkACLAssociation where
               (x .@? "networkAclId") <*> (x .@? "subnetId") <*>
                 (x .@? "networkAclAssociationId")
 
--- | /See:/ 'networkACLEntry' smart constructor.
+-- | Describes an entry in a network ACL.
+--
+-- /See:/ 'networkACLEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6437,7 +7518,9 @@ instance FromXML NetworkACLEntry where
                 <*> (x .@? "cidrBlock")
                 <*> (x .@? "egress")
 
--- | /See:/ 'networkInterface' smart constructor.
+-- | Describes a network interface.
+--
+-- /See:/ 'networkInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6577,7 +7660,9 @@ instance FromXML NetworkInterface where
                 <*> (x .@? "description")
                 <*> (x .@? "association")
 
--- | /See:/ 'networkInterfaceAssociation' smart constructor.
+-- | Describes association information for an Elastic IP address.
+--
+-- /See:/ 'networkInterfaceAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6624,7 +7709,9 @@ instance FromXML NetworkInterfaceAssociation where
                 <*> (x .@? "ipOwnerId")
                 <*> (x .@? "publicIp")
 
--- | /See:/ 'networkInterfaceAttachment' smart constructor.
+-- | Describes a network interface attachment.
+--
+-- /See:/ 'networkInterfaceAttachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6687,7 +7774,9 @@ instance FromXML NetworkInterfaceAttachment where
                 <*> (x .@? "attachTime")
                 <*> (x .@? "deviceIndex")
 
--- | /See:/ 'networkInterfaceAttachmentChanges' smart constructor.
+-- | Describes an attachment change.
+--
+-- /See:/ 'networkInterfaceAttachmentChanges' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6716,28 +7805,9 @@ instance ToQuery NetworkInterfaceAttachmentChanges
               ["DeleteOnTermination" =: _niacDeleteOnTermination,
                "AttachmentId" =: _niacAttachmentId]
 
-data NetworkInterfaceAttribute = NIAGroupSet | NIAAttachment | NIADescription | NIASourceDestCheck deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText NetworkInterfaceAttribute where
-    parser = takeLowerText >>= \case
-        "attachment" -> pure NIAAttachment
-        "description" -> pure NIADescription
-        "groupSet" -> pure NIAGroupSet
-        "sourceDestCheck" -> pure NIASourceDestCheck
-        e -> fail ("Failure parsing NetworkInterfaceAttribute from " ++ show e)
-
-instance ToText NetworkInterfaceAttribute where
-    toText = \case
-        NIAAttachment -> "attachment"
-        NIADescription -> "description"
-        NIAGroupSet -> "groupSet"
-        NIASourceDestCheck -> "sourceDestCheck"
-
-instance Hashable NetworkInterfaceAttribute
-instance ToQuery NetworkInterfaceAttribute
-instance ToHeader NetworkInterfaceAttribute
-
--- | /See:/ 'networkInterfacePrivateIPAddress' smart constructor.
+-- | Describes the private IP address of a network interface.
+--
+-- /See:/ 'networkInterfacePrivateIPAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6780,30 +7850,6 @@ instance FromXML NetworkInterfacePrivateIPAddress
                 (x .@? "privateDnsName")
                 <*> (x .@? "association")
 
-data NetworkInterfaceStatus = NISINUse | NISAttaching | NISAvailable | NISDetaching deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText NetworkInterfaceStatus where
-    parser = takeLowerText >>= \case
-        "attaching" -> pure NISAttaching
-        "available" -> pure NISAvailable
-        "detaching" -> pure NISDetaching
-        "in-use" -> pure NISINUse
-        e -> fail ("Failure parsing NetworkInterfaceStatus from " ++ show e)
-
-instance ToText NetworkInterfaceStatus where
-    toText = \case
-        NISAttaching -> "attaching"
-        NISAvailable -> "available"
-        NISDetaching -> "detaching"
-        NISINUse -> "in-use"
-
-instance Hashable NetworkInterfaceStatus
-instance ToQuery NetworkInterfaceStatus
-instance ToHeader NetworkInterfaceStatus
-
-instance FromXML NetworkInterfaceStatus where
-    parseXML = parseXMLText "NetworkInterfaceStatus"
-
 -- | /See:/ 'newDHCPConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -6831,53 +7877,9 @@ instance ToQuery NewDHCPConfiguration where
               [toQuery (toQueryList "item" <$> _ndcValues),
                "Key" =: _ndcKey]
 
-data OfferingTypeValues = MediumUtilization | NOUpfront | AllUpfront | HeavyUtilization | LightUtilization | PartialUpfront deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText OfferingTypeValues where
-    parser = takeLowerText >>= \case
-        "All Upfront" -> pure AllUpfront
-        "Heavy Utilization" -> pure HeavyUtilization
-        "Light Utilization" -> pure LightUtilization
-        "Medium Utilization" -> pure MediumUtilization
-        "No Upfront" -> pure NOUpfront
-        "Partial Upfront" -> pure PartialUpfront
-        e -> fail ("Failure parsing OfferingTypeValues from " ++ show e)
-
-instance ToText OfferingTypeValues where
-    toText = \case
-        AllUpfront -> "All Upfront"
-        HeavyUtilization -> "Heavy Utilization"
-        LightUtilization -> "Light Utilization"
-        MediumUtilization -> "Medium Utilization"
-        NOUpfront -> "No Upfront"
-        PartialUpfront -> "Partial Upfront"
-
-instance Hashable OfferingTypeValues
-instance ToQuery OfferingTypeValues
-instance ToHeader OfferingTypeValues
-
-instance FromXML OfferingTypeValues where
-    parseXML = parseXMLText "OfferingTypeValues"
-
-data PermissionGroup = PGAll deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PermissionGroup where
-    parser = takeLowerText >>= \case
-        "all" -> pure PGAll
-        e -> fail ("Failure parsing PermissionGroup from " ++ show e)
-
-instance ToText PermissionGroup where
-    toText = \case
-        PGAll -> "all"
-
-instance Hashable PermissionGroup
-instance ToQuery PermissionGroup
-instance ToHeader PermissionGroup
-
-instance FromXML PermissionGroup where
-    parseXML = parseXMLText "PermissionGroup"
-
--- | /See:/ 'placement' smart constructor.
+-- | Describes the placement for the instance.
+--
+-- /See:/ 'placement' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6919,7 +7921,9 @@ instance ToQuery Placement where
                "Tenancy" =: _plaTenancy,
                "GroupName" =: _plaGroupName]
 
--- | /See:/ 'placementGroup' smart constructor.
+-- | Describes a placement group.
+--
+-- /See:/ 'placementGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -6952,67 +7956,9 @@ instance FromXML PlacementGroup where
               (x .@? "state") <*> (x .@? "strategy") <*>
                 (x .@? "groupName")
 
-data PlacementGroupState = PGSDeleting | PGSPending | PGSAvailable | PGSDeleted deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PlacementGroupState where
-    parser = takeLowerText >>= \case
-        "available" -> pure PGSAvailable
-        "deleted" -> pure PGSDeleted
-        "deleting" -> pure PGSDeleting
-        "pending" -> pure PGSPending
-        e -> fail ("Failure parsing PlacementGroupState from " ++ show e)
-
-instance ToText PlacementGroupState where
-    toText = \case
-        PGSAvailable -> "available"
-        PGSDeleted -> "deleted"
-        PGSDeleting -> "deleting"
-        PGSPending -> "pending"
-
-instance Hashable PlacementGroupState
-instance ToQuery PlacementGroupState
-instance ToHeader PlacementGroupState
-
-instance FromXML PlacementGroupState where
-    parseXML = parseXMLText "PlacementGroupState"
-
-data PlacementStrategy = Cluster deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PlacementStrategy where
-    parser = takeLowerText >>= \case
-        "cluster" -> pure Cluster
-        e -> fail ("Failure parsing PlacementStrategy from " ++ show e)
-
-instance ToText PlacementStrategy where
-    toText = \case
-        Cluster -> "cluster"
-
-instance Hashable PlacementStrategy
-instance ToQuery PlacementStrategy
-instance ToHeader PlacementStrategy
-
-instance FromXML PlacementStrategy where
-    parseXML = parseXMLText "PlacementStrategy"
-
-data PlatformValues = PVWindows deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PlatformValues where
-    parser = takeLowerText >>= \case
-        "Windows" -> pure PVWindows
-        e -> fail ("Failure parsing PlatformValues from " ++ show e)
-
-instance ToText PlatformValues where
-    toText = \case
-        PVWindows -> "Windows"
-
-instance Hashable PlatformValues
-instance ToQuery PlatformValues
-instance ToHeader PlatformValues
-
-instance FromXML PlatformValues where
-    parseXML = parseXMLText "PlatformValues"
-
--- | /See:/ 'portRange' smart constructor.
+-- | Describes a range of ports.
+--
+-- /See:/ 'portRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7041,7 +7987,9 @@ instance ToQuery PortRange where
         toQuery PortRange'{..}
           = mconcat ["To" =: _prTo, "From" =: _prFrom]
 
--- | /See:/ 'prefixList' smart constructor.
+-- | Describes prefixes for AWS services.
+--
+-- /See:/ 'prefixList' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7075,7 +8023,9 @@ instance FromXML PrefixList where
                 (x .@? "prefixListId")
                 <*> (x .@? "prefixListName")
 
--- | /See:/ 'prefixListId' smart constructor.
+-- | The ID of the prefix.
+--
+-- /See:/ 'prefixListId' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7097,7 +8047,9 @@ instance ToQuery PrefixListId where
         toQuery PrefixListId'{..}
           = mconcat ["PrefixListId" =: _pliPrefixListId]
 
--- | /See:/ 'priceSchedule' smart constructor.
+-- | Describes the price for a Reserved Instance.
+--
+-- /See:/ 'priceSchedule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7148,7 +8100,9 @@ instance FromXML PriceSchedule where
                 (x .@? "active")
                 <*> (x .@? "price")
 
--- | /See:/ 'priceScheduleSpecification' smart constructor.
+-- | Describes the price for a Reserved Instance.
+--
+-- /See:/ 'priceScheduleSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7183,7 +8137,9 @@ instance ToQuery PriceScheduleSpecification where
               ["CurrencyCode" =: _pssCurrencyCode,
                "Term" =: _pssTerm, "Price" =: _pssPrice]
 
--- | /See:/ 'pricingDetail' smart constructor.
+-- | Describes a Reserved Instance offering.
+--
+-- /See:/ 'pricingDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7209,7 +8165,9 @@ instance FromXML PricingDetail where
           = PricingDetail' <$>
               (x .@? "count") <*> (x .@? "price")
 
--- | /See:/ 'privateIPAddressSpecification' smart constructor.
+-- | Describes a secondary private IP address for a network interface.
+--
+-- /See:/ 'privateIPAddressSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7242,7 +8200,9 @@ instance ToQuery PrivateIPAddressSpecification where
               ["Primary" =: _piasPrimary,
                "PrivateIpAddress" =: _piasPrivateIPAddress]
 
--- | /See:/ 'productCode' smart constructor.
+-- | Describes a product code.
+--
+-- /See:/ 'productCode' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7268,27 +8228,9 @@ instance FromXML ProductCode where
           = ProductCode' <$>
               (x .@? "type") <*> (x .@? "productCode")
 
-data ProductCodeValues = Marketplace | Devpay deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ProductCodeValues where
-    parser = takeLowerText >>= \case
-        "devpay" -> pure Devpay
-        "marketplace" -> pure Marketplace
-        e -> fail ("Failure parsing ProductCodeValues from " ++ show e)
-
-instance ToText ProductCodeValues where
-    toText = \case
-        Devpay -> "devpay"
-        Marketplace -> "marketplace"
-
-instance Hashable ProductCodeValues
-instance ToQuery ProductCodeValues
-instance ToHeader ProductCodeValues
-
-instance FromXML ProductCodeValues where
-    parseXML = parseXMLText "ProductCodeValues"
-
--- | /See:/ 'propagatingVGW' smart constructor.
+-- | Describes a virtual private gateway propagating route.
+--
+-- /See:/ 'propagatingVGW' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7306,31 +8248,9 @@ pvGatewayId = lens _pvGatewayId (\ s a -> s{_pvGatewayId = a});
 instance FromXML PropagatingVGW where
         parseXML x = PropagatingVGW' <$> (x .@? "gatewayId")
 
-data RIProductDescription = WindowsAmazonVPC | LinuxUnix | LinuxUnixAmazonVPC | Windows deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RIProductDescription where
-    parser = takeLowerText >>= \case
-        "Linux/UNIX" -> pure LinuxUnix
-        "Linux/UNIX (Amazon VPC)" -> pure LinuxUnixAmazonVPC
-        "Windows" -> pure Windows
-        "Windows (Amazon VPC)" -> pure WindowsAmazonVPC
-        e -> fail ("Failure parsing RIProductDescription from " ++ show e)
-
-instance ToText RIProductDescription where
-    toText = \case
-        LinuxUnix -> "Linux/UNIX"
-        LinuxUnixAmazonVPC -> "Linux/UNIX (Amazon VPC)"
-        Windows -> "Windows"
-        WindowsAmazonVPC -> "Windows (Amazon VPC)"
-
-instance Hashable RIProductDescription
-instance ToQuery RIProductDescription
-instance ToHeader RIProductDescription
-
-instance FromXML RIProductDescription where
-    parseXML = parseXMLText "RIProductDescription"
-
--- | /See:/ 'recurringCharge' smart constructor.
+-- | Describes a recurring charge.
+--
+-- /See:/ 'recurringCharge' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7356,25 +8276,9 @@ instance FromXML RecurringCharge where
           = RecurringCharge' <$>
               (x .@? "frequency") <*> (x .@? "amount")
 
-data RecurringChargeFrequency = Hourly deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RecurringChargeFrequency where
-    parser = takeLowerText >>= \case
-        "Hourly" -> pure Hourly
-        e -> fail ("Failure parsing RecurringChargeFrequency from " ++ show e)
-
-instance ToText RecurringChargeFrequency where
-    toText = \case
-        Hourly -> "Hourly"
-
-instance Hashable RecurringChargeFrequency
-instance ToQuery RecurringChargeFrequency
-instance ToHeader RecurringChargeFrequency
-
-instance FromXML RecurringChargeFrequency where
-    parseXML = parseXMLText "RecurringChargeFrequency"
-
--- | /See:/ 'regionInfo' smart constructor.
+-- | Describes a region.
+--
+-- /See:/ 'regionInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7400,55 +8304,9 @@ instance FromXML RegionInfo where
           = RegionInfo' <$>
               (x .@? "regionName") <*> (x .@? "regionEndpoint")
 
-data ReportInstanceReasonCodes = PerformanceOther | Other | Unresponsive | NotAcceptingCredentials | InstanceStuckINState | PerformanceNetwork | PerformanceInstanceStore | PerformanceEBSVolume | PasswordNotAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReportInstanceReasonCodes where
-    parser = takeLowerText >>= \case
-        "instance-stuck-in-state" -> pure InstanceStuckINState
-        "not-accepting-credentials" -> pure NotAcceptingCredentials
-        "other" -> pure Other
-        "password-not-available" -> pure PasswordNotAvailable
-        "performance-ebs-volume" -> pure PerformanceEBSVolume
-        "performance-instance-store" -> pure PerformanceInstanceStore
-        "performance-network" -> pure PerformanceNetwork
-        "performance-other" -> pure PerformanceOther
-        "unresponsive" -> pure Unresponsive
-        e -> fail ("Failure parsing ReportInstanceReasonCodes from " ++ show e)
-
-instance ToText ReportInstanceReasonCodes where
-    toText = \case
-        InstanceStuckINState -> "instance-stuck-in-state"
-        NotAcceptingCredentials -> "not-accepting-credentials"
-        Other -> "other"
-        PasswordNotAvailable -> "password-not-available"
-        PerformanceEBSVolume -> "performance-ebs-volume"
-        PerformanceInstanceStore -> "performance-instance-store"
-        PerformanceNetwork -> "performance-network"
-        PerformanceOther -> "performance-other"
-        Unresponsive -> "unresponsive"
-
-instance Hashable ReportInstanceReasonCodes
-instance ToQuery ReportInstanceReasonCodes
-instance ToHeader ReportInstanceReasonCodes
-
-data ReportStatusType = OK | Impaired deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReportStatusType where
-    parser = takeLowerText >>= \case
-        "impaired" -> pure Impaired
-        "ok" -> pure OK
-        e -> fail ("Failure parsing ReportStatusType from " ++ show e)
-
-instance ToText ReportStatusType where
-    toText = \case
-        Impaired -> "impaired"
-        OK -> "ok"
-
-instance Hashable ReportStatusType
-instance ToQuery ReportStatusType
-instance ToHeader ReportStatusType
-
--- | /See:/ 'requestSpotLaunchSpecification' smart constructor.
+-- | Describes the launch specification for an instance.
+--
+-- /See:/ 'requestSpotLaunchSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7582,7 +8440,9 @@ instance ToQuery RequestSpotLaunchSpecification where
                "AddressingType" =: _rslsAddressingType,
                "Placement" =: _rslsPlacement]
 
--- | /See:/ 'reservation' smart constructor.
+-- | Describes a reservation.
+--
+-- /See:/ 'reservation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7631,7 +8491,9 @@ instance FromXML Reservation where
                 <*> (x .@ "reservationId")
                 <*> (x .@ "ownerId")
 
--- | /See:/ 'reservedInstanceLimitPrice' smart constructor.
+-- | Describes the limit price of a Reserved Instance offering.
+--
+-- /See:/ 'reservedInstanceLimitPrice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7660,31 +8522,9 @@ instance ToQuery ReservedInstanceLimitPrice where
               ["Amount" =: _rilpAmount,
                "CurrencyCode" =: _rilpCurrencyCode]
 
-data ReservedInstanceState = PaymentPending | Retired | Active | PaymentFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReservedInstanceState where
-    parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "payment-failed" -> pure PaymentFailed
-        "payment-pending" -> pure PaymentPending
-        "retired" -> pure Retired
-        e -> fail ("Failure parsing ReservedInstanceState from " ++ show e)
-
-instance ToText ReservedInstanceState where
-    toText = \case
-        Active -> "active"
-        PaymentFailed -> "payment-failed"
-        PaymentPending -> "payment-pending"
-        Retired -> "retired"
-
-instance Hashable ReservedInstanceState
-instance ToQuery ReservedInstanceState
-instance ToHeader ReservedInstanceState
-
-instance FromXML ReservedInstanceState where
-    parseXML = parseXMLText "ReservedInstanceState"
-
--- | /See:/ 'reservedInstances' smart constructor.
+-- | Describes a Reserved Instance.
+--
+-- /See:/ 'reservedInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7810,7 +8650,10 @@ instance FromXML ReservedInstances where
                 <*> (x .@? "duration")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'reservedInstancesConfiguration' smart constructor.
+-- | Describes the configuration settings for the modified Reserved
+-- Instances.
+--
+-- /See:/ 'reservedInstancesConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7859,7 +8702,9 @@ instance ToQuery ReservedInstancesConfiguration where
                "InstanceType" =: _ricInstanceType,
                "AvailabilityZone" =: _ricAvailabilityZone]
 
--- | /See:/ 'reservedInstancesId' smart constructor.
+-- | Describes the ID of a Reserved Instance.
+--
+-- /See:/ 'reservedInstancesId' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7879,7 +8724,9 @@ instance FromXML ReservedInstancesId where
           = ReservedInstancesId' <$>
               (x .@? "reservedInstancesId")
 
--- | /See:/ 'reservedInstancesListing' smart constructor.
+-- | Describes a Reserved Instance listing.
+--
+-- /See:/ 'reservedInstancesListing' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -7964,7 +8811,9 @@ instance FromXML ReservedInstancesListing where
                 <*> (x .@? "reservedInstancesListingId")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'reservedInstancesModification' smart constructor.
+-- | Describes a Reserved Instance modification.
+--
+-- /See:/ 'reservedInstancesModification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8073,7 +8922,9 @@ instance FromXML ReservedInstancesModificationResult
               (x .@? "reservedInstancesId") <*>
                 (x .@? "targetConfiguration")
 
--- | /See:/ 'reservedInstancesOffering' smart constructor.
+-- | Describes a Reserved Instance offering.
+--
+-- /See:/ 'reservedInstancesOffering' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8180,72 +9031,9 @@ instance FromXML ReservedInstancesOffering where
                 <*> (x .@? "fixedPrice")
                 <*> (x .@? "duration")
 
-data ResetImageAttributeName = RIANLaunchPermission deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ResetImageAttributeName where
-    parser = takeLowerText >>= \case
-        "launchPermission" -> pure RIANLaunchPermission
-        e -> fail ("Failure parsing ResetImageAttributeName from " ++ show e)
-
-instance ToText ResetImageAttributeName where
-    toText = \case
-        RIANLaunchPermission -> "launchPermission"
-
-instance Hashable ResetImageAttributeName
-instance ToQuery ResetImageAttributeName
-instance ToHeader ResetImageAttributeName
-
-data ResourceType = Snapshot | DHCPOptions | Image | Volume | NetworkInterface | Subnet | SecurityGroup | CustomerGateway | RouteTable | VPC | NetworkACL | VPNGateway | InternetGateway | SpotInstancesRequest | VPNConnection | ReservedInstances | Instance deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ResourceType where
-    parser = takeLowerText >>= \case
-        "customer-gateway" -> pure CustomerGateway
-        "dhcp-options" -> pure DHCPOptions
-        "image" -> pure Image
-        "instance" -> pure Instance
-        "internet-gateway" -> pure InternetGateway
-        "network-acl" -> pure NetworkACL
-        "network-interface" -> pure NetworkInterface
-        "reserved-instances" -> pure ReservedInstances
-        "route-table" -> pure RouteTable
-        "security-group" -> pure SecurityGroup
-        "snapshot" -> pure Snapshot
-        "spot-instances-request" -> pure SpotInstancesRequest
-        "subnet" -> pure Subnet
-        "vpc" -> pure VPC
-        "vpn-connection" -> pure VPNConnection
-        "vpn-gateway" -> pure VPNGateway
-        "volume" -> pure Volume
-        e -> fail ("Failure parsing ResourceType from " ++ show e)
-
-instance ToText ResourceType where
-    toText = \case
-        CustomerGateway -> "customer-gateway"
-        DHCPOptions -> "dhcp-options"
-        Image -> "image"
-        Instance -> "instance"
-        InternetGateway -> "internet-gateway"
-        NetworkACL -> "network-acl"
-        NetworkInterface -> "network-interface"
-        ReservedInstances -> "reserved-instances"
-        RouteTable -> "route-table"
-        SecurityGroup -> "security-group"
-        Snapshot -> "snapshot"
-        SpotInstancesRequest -> "spot-instances-request"
-        Subnet -> "subnet"
-        VPC -> "vpc"
-        VPNConnection -> "vpn-connection"
-        VPNGateway -> "vpn-gateway"
-        Volume -> "volume"
-
-instance Hashable ResourceType
-instance ToQuery ResourceType
-instance ToHeader ResourceType
-
-instance FromXML ResourceType where
-    parseXML = parseXMLText "ResourceType"
-
--- | /See:/ 'route' smart constructor.
+-- | Describes a route in a route table.
+--
+-- /See:/ 'route' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8330,49 +9118,9 @@ instance FromXML Route where
                 <*> (x .@? "destinationPrefixListId")
                 <*> (x .@? "destinationCidrBlock")
 
-data RouteOrigin = CreateRouteTable | CreateRoute | EnableVGWRoutePropagation deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RouteOrigin where
-    parser = takeLowerText >>= \case
-        "CreateRoute" -> pure CreateRoute
-        "CreateRouteTable" -> pure CreateRouteTable
-        "EnableVgwRoutePropagation" -> pure EnableVGWRoutePropagation
-        e -> fail ("Failure parsing RouteOrigin from " ++ show e)
-
-instance ToText RouteOrigin where
-    toText = \case
-        CreateRoute -> "CreateRoute"
-        CreateRouteTable -> "CreateRouteTable"
-        EnableVGWRoutePropagation -> "EnableVgwRoutePropagation"
-
-instance Hashable RouteOrigin
-instance ToQuery RouteOrigin
-instance ToHeader RouteOrigin
-
-instance FromXML RouteOrigin where
-    parseXML = parseXMLText "RouteOrigin"
-
-data RouteState = RSActive | RSBlackhole deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RouteState where
-    parser = takeLowerText >>= \case
-        "active" -> pure RSActive
-        "blackhole" -> pure RSBlackhole
-        e -> fail ("Failure parsing RouteState from " ++ show e)
-
-instance ToText RouteState where
-    toText = \case
-        RSActive -> "active"
-        RSBlackhole -> "blackhole"
-
-instance Hashable RouteState
-instance ToQuery RouteState
-instance ToHeader RouteState
-
-instance FromXML RouteState where
-    parseXML = parseXMLText "RouteState"
-
--- | /See:/ 'routeTable' smart constructor.
+-- | Describes a route table.
+--
+-- /See:/ 'routeTable' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8427,7 +9175,9 @@ instance FromXML RouteTable where
                 <*> (may (parseXMLList "item") x)
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'routeTableAssociation' smart constructor.
+-- | Describes an association between a route table and a subnet.
+--
+-- /See:/ 'routeTableAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8468,27 +9218,9 @@ instance FromXML RouteTableAssociation where
                 <*> (x .@? "main")
                 <*> (x .@? "subnetId")
 
-data RuleAction = Allow | Deny deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RuleAction where
-    parser = takeLowerText >>= \case
-        "allow" -> pure Allow
-        "deny" -> pure Deny
-        e -> fail ("Failure parsing RuleAction from " ++ show e)
-
-instance ToText RuleAction where
-    toText = \case
-        Allow -> "allow"
-        Deny -> "deny"
-
-instance Hashable RuleAction
-instance ToQuery RuleAction
-instance ToHeader RuleAction
-
-instance FromXML RuleAction where
-    parseXML = parseXMLText "RuleAction"
-
--- | /See:/ 'runInstancesMonitoringEnabled' smart constructor.
+-- | Describes the monitoring for the instance.
+--
+-- /See:/ 'runInstancesMonitoringEnabled' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8511,7 +9243,10 @@ instance ToQuery RunInstancesMonitoringEnabled where
         toQuery RunInstancesMonitoringEnabled'{..}
           = mconcat ["Enabled" =: _rimeEnabled]
 
--- | /See:/ 's3Storage' smart constructor.
+-- | Describes the storage parameters for S3 and S3 buckets for an instance
+-- store-backed AMI.
+--
+-- /See:/ 's3Storage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8573,7 +9308,9 @@ instance ToQuery S3Storage where
                "UploadPolicySignature" =: _ssUploadPolicySignature,
                "AWSAccessKeyId" =: _ssAWSAccessKeyId]
 
--- | /See:/ 'securityGroup' smart constructor.
+-- | Describes a security group
+--
+-- /See:/ 'securityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8641,24 +9378,9 @@ instance FromXML SecurityGroup where
                 <*> (x .@ "groupName")
                 <*> (x .@ "groupDescription")
 
-data ShutdownBehavior = Stop | Terminate deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ShutdownBehavior where
-    parser = takeLowerText >>= \case
-        "stop" -> pure Stop
-        "terminate" -> pure Terminate
-        e -> fail ("Failure parsing ShutdownBehavior from " ++ show e)
-
-instance ToText ShutdownBehavior where
-    toText = \case
-        Stop -> "stop"
-        Terminate -> "terminate"
-
-instance Hashable ShutdownBehavior
-instance ToQuery ShutdownBehavior
-instance ToHeader ShutdownBehavior
-
--- | /See:/ 'snapshot' smart constructor.
+-- | Describes a snapshot.
+--
+-- /See:/ 'snapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8756,24 +9478,9 @@ instance FromXML Snapshot where
                 <*> (x .@ "status")
                 <*> (x .@ "encrypted")
 
-data SnapshotAttributeName = SANProductCodes | SANCreateVolumePermission deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SnapshotAttributeName where
-    parser = takeLowerText >>= \case
-        "createVolumePermission" -> pure SANCreateVolumePermission
-        "productCodes" -> pure SANProductCodes
-        e -> fail ("Failure parsing SnapshotAttributeName from " ++ show e)
-
-instance ToText SnapshotAttributeName where
-    toText = \case
-        SANCreateVolumePermission -> "createVolumePermission"
-        SANProductCodes -> "productCodes"
-
-instance Hashable SnapshotAttributeName
-instance ToQuery SnapshotAttributeName
-instance ToHeader SnapshotAttributeName
-
--- | /See:/ 'snapshotDetail' smart constructor.
+-- | Describes the snapshot created from the imported disk.
+--
+-- /See:/ 'snapshotDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8855,7 +9562,9 @@ instance FromXML SnapshotDetail where
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
--- | /See:/ 'snapshotDiskContainer' smart constructor.
+-- | The disk container object for the import snapshot request.
+--
+-- /See:/ 'snapshotDiskContainer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8898,29 +9607,9 @@ instance ToQuery SnapshotDiskContainer where
                "UserBucket" =: _sdcUserBucket,
                "Description" =: _sdcDescription]
 
-data SnapshotState = SSCompleted | SSPending | SSError deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SnapshotState where
-    parser = takeLowerText >>= \case
-        "completed" -> pure SSCompleted
-        "error" -> pure SSError
-        "pending" -> pure SSPending
-        e -> fail ("Failure parsing SnapshotState from " ++ show e)
-
-instance ToText SnapshotState where
-    toText = \case
-        SSCompleted -> "completed"
-        SSError -> "error"
-        SSPending -> "pending"
-
-instance Hashable SnapshotState
-instance ToQuery SnapshotState
-instance ToHeader SnapshotState
-
-instance FromXML SnapshotState where
-    parseXML = parseXMLText "SnapshotState"
-
--- | /See:/ 'snapshotTaskDetail' smart constructor.
+-- | Details about the import snapshot task.
+--
+-- /See:/ 'snapshotTaskDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -8995,7 +9684,9 @@ instance FromXML SnapshotTaskDetail where
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
--- | /See:/ 'spotDatafeedSubscription' smart constructor.
+-- | Describes the data feed for a Spot Instance.
+--
+-- /See:/ 'spotDatafeedSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9042,7 +9733,9 @@ instance FromXML SpotDatafeedSubscription where
                 <*> (x .@? "ownerId")
                 <*> (x .@? "fault")
 
--- | /See:/ 'spotFleetRequestConfig' smart constructor.
+-- | Describes a Spot fleet request.
+--
+-- /See:/ 'spotFleetRequestConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9076,7 +9769,9 @@ instance FromXML SpotFleetRequestConfig where
                 (x .@ "spotFleetRequestState")
                 <*> (x .@ "spotFleetRequestConfig")
 
--- | /See:/ 'spotFleetRequestConfigData' smart constructor.
+-- | Describes the configuration of a Spot fleet request.
+--
+-- /See:/ 'spotFleetRequestConfigData' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9169,7 +9864,9 @@ instance ToQuery SpotFleetRequestConfigData where
                "IamFleetRole" =: _sfrcdIAMFleetRole,
                toQueryList "item" _sfrcdLaunchSpecifications]
 
--- | /See:/ 'spotInstanceRequest' smart constructor.
+-- | Describe a Spot Instance request.
+--
+-- /See:/ 'spotInstanceRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9311,33 +10008,9 @@ instance FromXML SpotInstanceRequest where
                 <*> (may (parseXMLList "item") x)
                 <*> (x .@? "createTime")
 
-data SpotInstanceState = SISCancelled | SISClosed | SISFailed | SISActive | SISOpen deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SpotInstanceState where
-    parser = takeLowerText >>= \case
-        "active" -> pure SISActive
-        "cancelled" -> pure SISCancelled
-        "closed" -> pure SISClosed
-        "failed" -> pure SISFailed
-        "open" -> pure SISOpen
-        e -> fail ("Failure parsing SpotInstanceState from " ++ show e)
-
-instance ToText SpotInstanceState where
-    toText = \case
-        SISActive -> "active"
-        SISCancelled -> "cancelled"
-        SISClosed -> "closed"
-        SISFailed -> "failed"
-        SISOpen -> "open"
-
-instance Hashable SpotInstanceState
-instance ToQuery SpotInstanceState
-instance ToHeader SpotInstanceState
-
-instance FromXML SpotInstanceState where
-    parseXML = parseXMLText "SpotInstanceState"
-
--- | /See:/ 'spotInstanceStateFault' smart constructor.
+-- | Describes a Spot Instance state change.
+--
+-- /See:/ 'spotInstanceStateFault' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9363,7 +10036,9 @@ instance FromXML SpotInstanceStateFault where
           = SpotInstanceStateFault' <$>
               (x .@? "code") <*> (x .@? "message")
 
--- | /See:/ 'spotInstanceStatus' smart constructor.
+-- | Describes the status of a Spot Instance request.
+--
+-- /See:/ 'spotInstanceStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9397,27 +10072,9 @@ instance FromXML SpotInstanceStatus where
               (x .@? "updateTime") <*> (x .@? "code") <*>
                 (x .@? "message")
 
-data SpotInstanceType = Persistent | OneTime deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SpotInstanceType where
-    parser = takeLowerText >>= \case
-        "one-time" -> pure OneTime
-        "persistent" -> pure Persistent
-        e -> fail ("Failure parsing SpotInstanceType from " ++ show e)
-
-instance ToText SpotInstanceType where
-    toText = \case
-        OneTime -> "one-time"
-        Persistent -> "persistent"
-
-instance Hashable SpotInstanceType
-instance ToQuery SpotInstanceType
-instance ToHeader SpotInstanceType
-
-instance FromXML SpotInstanceType where
-    parseXML = parseXMLText "SpotInstanceType"
-
--- | /See:/ 'spotPlacement' smart constructor.
+-- | Describes Spot Instance placement.
+--
+-- /See:/ 'spotPlacement' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9449,7 +10106,10 @@ instance ToQuery SpotPlacement where
               ["AvailabilityZone" =: _spAvailabilityZone,
                "GroupName" =: _spGroupName]
 
--- | /See:/ 'spotPrice' smart constructor.
+-- | Describes the maximum hourly price (bid) for any Spot Instance launched
+-- to fulfill the request.
+--
+-- /See:/ 'spotPrice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9497,31 +10157,9 @@ instance FromXML SpotPrice where
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "timestamp")
 
-data State = Deleting | Pending | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText State where
-    parser = takeLowerText >>= \case
-        "Available" -> pure Available
-        "Deleted" -> pure Deleted
-        "Deleting" -> pure Deleting
-        "Pending" -> pure Pending
-        e -> fail ("Failure parsing State from " ++ show e)
-
-instance ToText State where
-    toText = \case
-        Available -> "Available"
-        Deleted -> "Deleted"
-        Deleting -> "Deleting"
-        Pending -> "Pending"
-
-instance Hashable State
-instance ToQuery State
-instance ToHeader State
-
-instance FromXML State where
-    parseXML = parseXMLText "State"
-
--- | /See:/ 'stateReason' smart constructor.
+-- | Describes a state change.
+--
+-- /See:/ 'stateReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9571,49 +10209,9 @@ instance FromXML StateReason where
           = StateReason' <$>
               (x .@? "code") <*> (x .@? "message")
 
-data StatusName = Reachability deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StatusName where
-    parser = takeLowerText >>= \case
-        "reachability" -> pure Reachability
-        e -> fail ("Failure parsing StatusName from " ++ show e)
-
-instance ToText StatusName where
-    toText = \case
-        Reachability -> "reachability"
-
-instance Hashable StatusName
-instance ToQuery StatusName
-instance ToHeader StatusName
-
-instance FromXML StatusName where
-    parseXML = parseXMLText "StatusName"
-
-data StatusType = InsufficientData | Passed | Initializing | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StatusType where
-    parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "initializing" -> pure Initializing
-        "insufficient-data" -> pure InsufficientData
-        "passed" -> pure Passed
-        e -> fail ("Failure parsing StatusType from " ++ show e)
-
-instance ToText StatusType where
-    toText = \case
-        Failed -> "failed"
-        Initializing -> "initializing"
-        InsufficientData -> "insufficient-data"
-        Passed -> "passed"
-
-instance Hashable StatusType
-instance ToQuery StatusType
-instance ToHeader StatusType
-
-instance FromXML StatusType where
-    parseXML = parseXMLText "StatusType"
-
--- | /See:/ 'storage' smart constructor.
+-- | Describes the storage location for an instance store-backed AMI.
+--
+-- /See:/ 'storage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9634,7 +10232,9 @@ instance FromXML Storage where
 instance ToQuery Storage where
         toQuery Storage'{..} = mconcat ["S3" =: _stoS3]
 
--- | /See:/ 'subnet' smart constructor.
+-- | Describes a subnet.
+--
+-- /See:/ 'subnet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9712,53 +10312,9 @@ instance FromXML Subnet where
                 <*> (x .@ "subnetId")
                 <*> (x .@ "vpcId")
 
-data SubnetState = SubPending | SubAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SubnetState where
-    parser = takeLowerText >>= \case
-        "available" -> pure SubAvailable
-        "pending" -> pure SubPending
-        e -> fail ("Failure parsing SubnetState from " ++ show e)
-
-instance ToText SubnetState where
-    toText = \case
-        SubAvailable -> "available"
-        SubPending -> "pending"
-
-instance Hashable SubnetState
-instance ToQuery SubnetState
-instance ToHeader SubnetState
-
-instance FromXML SubnetState where
-    parseXML = parseXMLText "SubnetState"
-
-data SummaryStatus = SSInitializing | SSNotApplicable | SSOK | SSImpaired | SSInsufficientData deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SummaryStatus where
-    parser = takeLowerText >>= \case
-        "impaired" -> pure SSImpaired
-        "initializing" -> pure SSInitializing
-        "insufficient-data" -> pure SSInsufficientData
-        "not-applicable" -> pure SSNotApplicable
-        "ok" -> pure SSOK
-        e -> fail ("Failure parsing SummaryStatus from " ++ show e)
-
-instance ToText SummaryStatus where
-    toText = \case
-        SSImpaired -> "impaired"
-        SSInitializing -> "initializing"
-        SSInsufficientData -> "insufficient-data"
-        SSNotApplicable -> "not-applicable"
-        SSOK -> "ok"
-
-instance Hashable SummaryStatus
-instance ToQuery SummaryStatus
-instance ToHeader SummaryStatus
-
-instance FromXML SummaryStatus where
-    parseXML = parseXMLText "SummaryStatus"
-
--- | /See:/ 'tag' smart constructor.
+-- | Describes a tag.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9792,7 +10348,9 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Key" =: _tagKey, "Value" =: _tagValue]
 
--- | /See:/ 'tagDescription' smart constructor.
+-- | Describes a tag.
+--
+-- /See:/ 'tagDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9832,69 +10390,10 @@ instance FromXML TagDescription where
                 (x .@ "key")
                 <*> (x .@ "value")
 
-data TelemetryStatus = Down | UP deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TelemetryStatus where
-    parser = takeLowerText >>= \case
-        "DOWN" -> pure Down
-        "UP" -> pure UP
-        e -> fail ("Failure parsing TelemetryStatus from " ++ show e)
-
-instance ToText TelemetryStatus where
-    toText = \case
-        Down -> "DOWN"
-        UP -> "UP"
-
-instance Hashable TelemetryStatus
-instance ToQuery TelemetryStatus
-instance ToHeader TelemetryStatus
-
-instance FromXML TelemetryStatus where
-    parseXML = parseXMLText "TelemetryStatus"
-
-data Tenancy = Default | Dedicated deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Tenancy where
-    parser = takeLowerText >>= \case
-        "dedicated" -> pure Dedicated
-        "default" -> pure Default
-        e -> fail ("Failure parsing Tenancy from " ++ show e)
-
-instance ToText Tenancy where
-    toText = \case
-        Dedicated -> "dedicated"
-        Default -> "default"
-
-instance Hashable Tenancy
-instance ToQuery Tenancy
-instance ToHeader Tenancy
-
-instance FromXML Tenancy where
-    parseXML = parseXMLText "Tenancy"
-
-data TrafficType = Reject | Accept | All deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TrafficType where
-    parser = takeLowerText >>= \case
-        "ACCEPT" -> pure Accept
-        "ALL" -> pure All
-        "REJECT" -> pure Reject
-        e -> fail ("Failure parsing TrafficType from " ++ show e)
-
-instance ToText TrafficType where
-    toText = \case
-        Accept -> "ACCEPT"
-        All -> "ALL"
-        Reject -> "REJECT"
-
-instance Hashable TrafficType
-instance ToQuery TrafficType
-instance ToHeader TrafficType
-
-instance FromXML TrafficType where
-    parseXML = parseXMLText "TrafficType"
-
--- | /See:/ 'unsuccessfulItem' smart constructor.
+-- | Information about items that were not successfully processed in a batch
+-- call.
+--
+-- /See:/ 'unsuccessfulItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9920,7 +10419,11 @@ instance FromXML UnsuccessfulItem where
           = UnsuccessfulItem' <$>
               (x .@? "resourceId") <*> (x .@ "error")
 
--- | /See:/ 'unsuccessfulItemError' smart constructor.
+-- | Information about the error that occured. For more information about
+-- errors, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
+--
+-- /See:/ 'unsuccessfulItemError' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9946,7 +10449,9 @@ instance FromXML UnsuccessfulItemError where
           = UnsuccessfulItemError' <$>
               (x .@ "code") <*> (x .@ "message")
 
--- | /See:/ 'userBucket' smart constructor.
+-- | Describes the S3 bucket for the disk image.
+--
+-- /See:/ 'userBucket' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9972,7 +10477,9 @@ instance ToQuery UserBucket where
           = mconcat
               ["S3Key" =: _ubS3Key, "S3Bucket" =: _ubS3Bucket]
 
--- | /See:/ 'userBucketDetails' smart constructor.
+-- | Describes the S3 bucket for the disk image.
+--
+-- /See:/ 'userBucketDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -9998,7 +10505,9 @@ instance FromXML UserBucketDetails where
           = UserBucketDetails' <$>
               (x .@? "s3Key") <*> (x .@? "s3Bucket")
 
--- | /See:/ 'userData' smart constructor.
+-- | Describes the user data to be made available to an instance.
+--
+-- /See:/ 'userData' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10016,7 +10525,9 @@ udData = lens _udData (\ s a -> s{_udData = a});
 instance ToQuery UserData where
         toQuery UserData'{..} = mconcat ["Data" =: _udData]
 
--- | /See:/ 'userIdGroupPair' smart constructor.
+-- | Describes a security group and AWS account ID pair.
+--
+-- /See:/ 'userIdGroupPair' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10057,7 +10568,9 @@ instance ToQuery UserIdGroupPair where
               ["UserId" =: _uigpUserId, "GroupId" =: _uigpGroupId,
                "GroupName" =: _uigpGroupName]
 
--- | /See:/ 'vgwTelemetry' smart constructor.
+-- | Describes telemetry for a VPN tunnel.
+--
+-- /See:/ 'vgwTelemetry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10105,7 +10618,9 @@ instance FromXML VGWTelemetry where
                 <*> (x .@? "acceptedRouteCount")
                 <*> (x .@? "statusMessage")
 
--- | /See:/ 'vpc' smart constructor.
+-- | Describes a VPC.
+--
+-- /See:/ 'vpc' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10167,7 +10682,9 @@ instance FromXML VPC where
                 <*> (x .@ "state")
                 <*> (x .@ "vpcId")
 
--- | /See:/ 'vpcAttachment' smart constructor.
+-- | Describes an attachment between a virtual private gateway and a VPC.
+--
+-- /See:/ 'vpcAttachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10193,24 +10710,9 @@ instance FromXML VPCAttachment where
           = VPCAttachment' <$>
               (x .@? "state") <*> (x .@? "vpcId")
 
-data VPCAttributeName = EnableDNSHostnames | EnableDNSSupport deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VPCAttributeName where
-    parser = takeLowerText >>= \case
-        "enableDnsHostnames" -> pure EnableDNSHostnames
-        "enableDnsSupport" -> pure EnableDNSSupport
-        e -> fail ("Failure parsing VPCAttributeName from " ++ show e)
-
-instance ToText VPCAttributeName where
-    toText = \case
-        EnableDNSHostnames -> "enableDnsHostnames"
-        EnableDNSSupport -> "enableDnsSupport"
-
-instance Hashable VPCAttributeName
-instance ToQuery VPCAttributeName
-instance ToHeader VPCAttributeName
-
--- | /See:/ 'vpcClassicLink' smart constructor.
+-- | Describes whether a VPC is enabled for ClassicLink.
+--
+-- /See:/ 'vpcClassicLink' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10243,7 +10745,9 @@ instance FromXML VPCClassicLink where
               (x .@? "vpcId") <*> (may (parseXMLList "item") x) <*>
                 (x .@? "classicLinkEnabled")
 
--- | /See:/ 'vpcEndpoint' smart constructor.
+-- | Describes a VPC endpoint.
+--
+-- /See:/ 'vpcEndpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10304,7 +10808,9 @@ instance FromXML VPCEndpoint where
                 <*> (x .@? "vpcEndpointId")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'vpcPeeringConnection' smart constructor.
+-- | Describes a VPC peering connection.
+--
+-- /See:/ 'vpcPeeringConnection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10358,7 +10864,9 @@ instance FromXML VPCPeeringConnection where
                 <*> (x .@? "expirationTime")
                 <*> (may (parseXMLList "item") x)
 
--- | /See:/ 'vpcPeeringConnectionStateReason' smart constructor.
+-- | Describes the status of a VPC peering connection.
+--
+-- /See:/ 'vpcPeeringConnectionStateReason' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10386,7 +10894,9 @@ instance FromXML VPCPeeringConnectionStateReason
           = VPCPeeringConnectionStateReason' <$>
               (x .@? "code") <*> (x .@? "message")
 
--- | /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
+-- | Describes a VPC in a VPC peering connection.
+--
+-- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10419,27 +10929,9 @@ instance FromXML VPCPeeringConnectionVPCInfo where
               (x .@? "vpcId") <*> (x .@? "ownerId") <*>
                 (x .@? "cidrBlock")
 
-data VPCState = VpcPending | VpcAvailable deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VPCState where
-    parser = takeLowerText >>= \case
-        "available" -> pure VpcAvailable
-        "pending" -> pure VpcPending
-        e -> fail ("Failure parsing VPCState from " ++ show e)
-
-instance ToText VPCState where
-    toText = \case
-        VpcAvailable -> "available"
-        VpcPending -> "pending"
-
-instance Hashable VPCState
-instance ToQuery VPCState
-instance ToHeader VPCState
-
-instance FromXML VPCState where
-    parseXML = parseXMLText "VPCState"
-
--- | /See:/ 'vpnConnection' smart constructor.
+-- | Describes a VPN connection.
+--
+-- /See:/ 'vpnConnection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10527,7 +11019,9 @@ instance FromXML VPNConnection where
                 <*> (x .@ "state")
                 <*> (x .@ "type")
 
--- | /See:/ 'vpnConnectionOptions' smart constructor.
+-- | Describes VPN connection options.
+--
+-- /See:/ 'vpnConnectionOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10548,7 +11042,9 @@ instance FromXML VPNConnectionOptions where
           = VPNConnectionOptions' <$>
               (x .@? "staticRoutesOnly")
 
--- | /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
+-- | Describes VPN connection options.
+--
+-- /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10570,7 +11066,9 @@ instance ToQuery VPNConnectionOptionsSpecification
           = mconcat
               ["StaticRoutesOnly" =: _vcosStaticRoutesOnly]
 
--- | /See:/ 'vpnGateway' smart constructor.
+-- | Describes a virtual private gateway.
+--
+-- /See:/ 'vpnGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10624,31 +11122,9 @@ instance FromXML VPNGateway where
                 <*> (x .@? "type")
                 <*> (may (parseXMLList "item") x)
 
-data VPNState = VSPending | VSAvailable | VSDeleted | VSDeleting deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VPNState where
-    parser = takeLowerText >>= \case
-        "available" -> pure VSAvailable
-        "deleted" -> pure VSDeleted
-        "deleting" -> pure VSDeleting
-        "pending" -> pure VSPending
-        e -> fail ("Failure parsing VPNState from " ++ show e)
-
-instance ToText VPNState where
-    toText = \case
-        VSAvailable -> "available"
-        VSDeleted -> "deleted"
-        VSDeleting -> "deleting"
-        VSPending -> "pending"
-
-instance Hashable VPNState
-instance ToQuery VPNState
-instance ToHeader VPNState
-
-instance FromXML VPNState where
-    parseXML = parseXMLText "VPNState"
-
--- | /See:/ 'vpnStaticRoute' smart constructor.
+-- | Describes a static route for a VPN connection.
+--
+-- /See:/ 'vpnStaticRoute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10682,45 +11158,9 @@ instance FromXML VPNStaticRoute where
               (x .@? "state") <*> (x .@? "source") <*>
                 (x .@? "destinationCidrBlock")
 
-data VPNStaticRouteSource = Static deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VPNStaticRouteSource where
-    parser = takeLowerText >>= \case
-        "Static" -> pure Static
-        e -> fail ("Failure parsing VPNStaticRouteSource from " ++ show e)
-
-instance ToText VPNStaticRouteSource where
-    toText = \case
-        Static -> "Static"
-
-instance Hashable VPNStaticRouteSource
-instance ToQuery VPNStaticRouteSource
-instance ToHeader VPNStaticRouteSource
-
-instance FromXML VPNStaticRouteSource where
-    parseXML = parseXMLText "VPNStaticRouteSource"
-
-data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VirtualizationType where
-    parser = takeLowerText >>= \case
-        "hvm" -> pure HVM
-        "paravirtual" -> pure Paravirtual
-        e -> fail ("Failure parsing VirtualizationType from " ++ show e)
-
-instance ToText VirtualizationType where
-    toText = \case
-        HVM -> "hvm"
-        Paravirtual -> "paravirtual"
-
-instance Hashable VirtualizationType
-instance ToQuery VirtualizationType
-instance ToHeader VirtualizationType
-
-instance FromXML VirtualizationType where
-    parseXML = parseXMLText "VirtualizationType"
-
--- | /See:/ 'volume' smart constructor.
+-- | Describes a volume.
+--
+-- /See:/ 'volume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10834,7 +11274,9 @@ instance FromXML Volume where
                 <*> (x .@ "volumeId")
                 <*> (x .@ "volumeType")
 
--- | /See:/ 'volumeAttachment' smart constructor.
+-- | Describes volume attachment details.
+--
+-- /See:/ 'volumeAttachment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10889,48 +11331,9 @@ instance FromXML VolumeAttachment where
                 <*> (x .@? "volumeId")
                 <*> (x .@? "attachTime")
 
-data VolumeAttachmentState = VASAttached | VASAttaching | VASDetached | VASDetaching deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeAttachmentState where
-    parser = takeLowerText >>= \case
-        "attached" -> pure VASAttached
-        "attaching" -> pure VASAttaching
-        "detached" -> pure VASDetached
-        "detaching" -> pure VASDetaching
-        e -> fail ("Failure parsing VolumeAttachmentState from " ++ show e)
-
-instance ToText VolumeAttachmentState where
-    toText = \case
-        VASAttached -> "attached"
-        VASAttaching -> "attaching"
-        VASDetached -> "detached"
-        VASDetaching -> "detaching"
-
-instance Hashable VolumeAttachmentState
-instance ToQuery VolumeAttachmentState
-instance ToHeader VolumeAttachmentState
-
-instance FromXML VolumeAttachmentState where
-    parseXML = parseXMLText "VolumeAttachmentState"
-
-data VolumeAttributeName = VANProductCodes | VANAutoEnableIO deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeAttributeName where
-    parser = takeLowerText >>= \case
-        "autoEnableIO" -> pure VANAutoEnableIO
-        "productCodes" -> pure VANProductCodes
-        e -> fail ("Failure parsing VolumeAttributeName from " ++ show e)
-
-instance ToText VolumeAttributeName where
-    toText = \case
-        VANAutoEnableIO -> "autoEnableIO"
-        VANProductCodes -> "productCodes"
-
-instance Hashable VolumeAttributeName
-instance ToQuery VolumeAttributeName
-instance ToHeader VolumeAttributeName
-
--- | /See:/ 'volumeDetail' smart constructor.
+-- | Describes an EBS volume.
+--
+-- /See:/ 'volumeDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -10949,35 +11352,9 @@ instance ToQuery VolumeDetail where
         toQuery VolumeDetail'{..}
           = mconcat ["Size" =: _vdSize]
 
-data VolumeState = VolCreating | VolAvailable | VolDeleted | VolDeleting | VolError | VolINUse deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeState where
-    parser = takeLowerText >>= \case
-        "available" -> pure VolAvailable
-        "creating" -> pure VolCreating
-        "deleted" -> pure VolDeleted
-        "deleting" -> pure VolDeleting
-        "error" -> pure VolError
-        "in-use" -> pure VolINUse
-        e -> fail ("Failure parsing VolumeState from " ++ show e)
-
-instance ToText VolumeState where
-    toText = \case
-        VolAvailable -> "available"
-        VolCreating -> "creating"
-        VolDeleted -> "deleted"
-        VolDeleting -> "deleting"
-        VolError -> "error"
-        VolINUse -> "in-use"
-
-instance Hashable VolumeState
-instance ToQuery VolumeState
-instance ToHeader VolumeState
-
-instance FromXML VolumeState where
-    parseXML = parseXMLText "VolumeState"
-
--- | /See:/ 'volumeStatusAction' smart constructor.
+-- | Describes a volume status operation code.
+--
+-- /See:/ 'volumeStatusAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -11017,7 +11394,9 @@ instance FromXML VolumeStatusAction where
                 (x .@? "description")
                 <*> (x .@? "eventId")
 
--- | /See:/ 'volumeStatusDetails' smart constructor.
+-- | Describes a volume status.
+--
+-- /See:/ 'volumeStatusDetails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -11043,7 +11422,9 @@ instance FromXML VolumeStatusDetails where
           = VolumeStatusDetails' <$>
               (x .@? "status") <*> (x .@? "name")
 
--- | /See:/ 'volumeStatusEvent' smart constructor.
+-- | Describes a volume status event.
+--
+-- /See:/ 'volumeStatusEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -11090,7 +11471,9 @@ instance FromXML VolumeStatusEvent where
                 <*> (x .@? "notAfter")
                 <*> (x .@? "eventId")
 
--- | /See:/ 'volumeStatusInfo' smart constructor.
+-- | Describes the status of a volume.
+--
+-- /See:/ 'volumeStatusInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -11116,29 +11499,9 @@ instance FromXML VolumeStatusInfo where
           = VolumeStatusInfo' <$>
               (x .@? "status") <*> (may (parseXMLList "item") x)
 
-data VolumeStatusInfoStatus = VSISInsufficientData | VSISImpaired | VSISOK deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeStatusInfoStatus where
-    parser = takeLowerText >>= \case
-        "impaired" -> pure VSISImpaired
-        "insufficient-data" -> pure VSISInsufficientData
-        "ok" -> pure VSISOK
-        e -> fail ("Failure parsing VolumeStatusInfoStatus from " ++ show e)
-
-instance ToText VolumeStatusInfoStatus where
-    toText = \case
-        VSISImpaired -> "impaired"
-        VSISInsufficientData -> "insufficient-data"
-        VSISOK -> "ok"
-
-instance Hashable VolumeStatusInfoStatus
-instance ToQuery VolumeStatusInfoStatus
-instance ToHeader VolumeStatusInfoStatus
-
-instance FromXML VolumeStatusInfoStatus where
-    parseXML = parseXMLText "VolumeStatusInfoStatus"
-
--- | /See:/ 'volumeStatusItem' smart constructor.
+-- | Describes the volume status.
+--
+-- /See:/ 'volumeStatusItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -11185,45 +11548,3 @@ instance FromXML VolumeStatusItem where
                 <*> (x .@? "availabilityZone")
                 <*> (may (parseXMLList "item") x)
                 <*> (x .@? "volumeId")
-
-data VolumeStatusName = IOPerformance | IOEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeStatusName where
-    parser = takeLowerText >>= \case
-        "io-enabled" -> pure IOEnabled
-        "io-performance" -> pure IOPerformance
-        e -> fail ("Failure parsing VolumeStatusName from " ++ show e)
-
-instance ToText VolumeStatusName where
-    toText = \case
-        IOEnabled -> "io-enabled"
-        IOPerformance -> "io-performance"
-
-instance Hashable VolumeStatusName
-instance ToQuery VolumeStatusName
-instance ToHeader VolumeStatusName
-
-instance FromXML VolumeStatusName where
-    parseXML = parseXMLText "VolumeStatusName"
-
-data VolumeType = Standard | IO1 | GP2 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VolumeType where
-    parser = takeLowerText >>= \case
-        "gp2" -> pure GP2
-        "io1" -> pure IO1
-        "standard" -> pure Standard
-        e -> fail ("Failure parsing VolumeType from " ++ show e)
-
-instance ToText VolumeType where
-    toText = \case
-        GP2 -> "gp2"
-        IO1 -> "io1"
-        Standard -> "standard"
-
-instance Hashable VolumeType
-instance ToQuery VolumeType
-instance ToHeader VolumeType
-
-instance FromXML VolumeType where
-    parseXML = parseXMLText "VolumeType"

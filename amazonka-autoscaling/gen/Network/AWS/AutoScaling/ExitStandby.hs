@@ -37,6 +37,7 @@ module Network.AWS.AutoScaling.ExitStandby
     , exitStandbyResponse
     -- ** Response lenses
     , exiActivities
+    , exiStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -74,7 +75,8 @@ instance AWSRequest ExitStandby where
               (\ s h x ->
                  ExitStandbyResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
@@ -96,12 +98,18 @@ instance ToQuery ExitStandby where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'exiActivities'
-newtype ExitStandbyResponse = ExitStandbyResponse'{_exiActivities :: Maybe [Activity]} deriving (Eq, Read, Show)
+--
+-- * 'exiStatusCode'
+data ExitStandbyResponse = ExitStandbyResponse'{_exiActivities :: Maybe [Activity], _exiStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ExitStandbyResponse' smart constructor.
-exitStandbyResponse :: ExitStandbyResponse
-exitStandbyResponse = ExitStandbyResponse'{_exiActivities = Nothing};
+exitStandbyResponse :: Int -> ExitStandbyResponse
+exitStandbyResponse pStatusCode = ExitStandbyResponse'{_exiActivities = Nothing, _exiStatusCode = pStatusCode};
 
 -- | The activities related to moving instances out of @Standby@ mode.
 exiActivities :: Lens' ExitStandbyResponse [Activity]
 exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+exiStatusCode :: Lens' ExitStandbyResponse Int
+exiStatusCode = lens _exiStatusCode (\ s a -> s{_exiStatusCode = a});

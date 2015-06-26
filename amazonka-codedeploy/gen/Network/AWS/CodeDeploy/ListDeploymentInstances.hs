@@ -36,6 +36,7 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     -- ** Response lenses
     , ldirNextToken
     , ldirInstancesList
+    , ldirStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listDeploymentInstances' smart constructor.
+-- | Represents the input of a list deployment instances operation.
+--
+-- /See:/ 'listDeploymentInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +98,8 @@ instance AWSRequest ListDeploymentInstances where
               (\ s h x ->
                  ListDeploymentInstancesResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "instancesList" .!@ mempty))
+                     (x .?> "instancesList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDeploymentInstances where
         toHeaders
@@ -120,18 +124,22 @@ instance ToPath ListDeploymentInstances where
 instance ToQuery ListDeploymentInstances where
         toQuery = const mempty
 
--- | /See:/ 'listDeploymentInstancesResponse' smart constructor.
+-- | Represents the output of a list deployment instances operation.
+--
+-- /See:/ 'listDeploymentInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldirNextToken'
 --
 -- * 'ldirInstancesList'
-data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken :: Maybe Text, _ldirInstancesList :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ldirStatusCode'
+data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken :: Maybe Text, _ldirInstancesList :: Maybe [Text], _ldirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
-listDeploymentInstancesResponse :: ListDeploymentInstancesResponse
-listDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken = Nothing, _ldirInstancesList = Nothing};
+listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
+listDeploymentInstancesResponse pStatusCode = ListDeploymentInstancesResponse'{_ldirNextToken = Nothing, _ldirInstancesList = Nothing, _ldirStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -143,3 +151,7 @@ ldirNextToken = lens _ldirNextToken (\ s a -> s{_ldirNextToken = a});
 -- | A list of instances IDs.
 ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ldirStatusCode :: Lens' ListDeploymentInstancesResponse Int
+ldirStatusCode = lens _ldirStatusCode (\ s a -> s{_ldirStatusCode = a});

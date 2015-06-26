@@ -39,6 +39,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , validateConfigurationSettingsResponse
     -- ** Response lenses
     , vcsrMessages
+    , vcsrStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'validateConfigurationSettings' smart constructor.
+-- | A list of validation messages for a specified configuration template.
+--
+-- /See:/ 'validateConfigurationSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +101,8 @@ instance AWSRequest ValidateConfigurationSettings
               (\ s h x ->
                  ValidateConfigurationSettingsResponse' <$>
                    (x .@? "Messages" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ValidateConfigurationSettings
          where
@@ -119,17 +123,25 @@ instance ToQuery ValidateConfigurationSettings where
                "OptionSettings" =:
                  toQueryList "member" _vcsOptionSettings]
 
--- | /See:/ 'validateConfigurationSettingsResponse' smart constructor.
+-- | Provides a list of validation messages.
+--
+-- /See:/ 'validateConfigurationSettingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vcsrMessages'
-newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'{_vcsrMessages :: Maybe [ValidationMessage]} deriving (Eq, Read, Show)
+--
+-- * 'vcsrStatusCode'
+data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'{_vcsrMessages :: Maybe [ValidationMessage], _vcsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
-validateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
-validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'{_vcsrMessages = Nothing};
+validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
+validateConfigurationSettingsResponse pStatusCode = ValidateConfigurationSettingsResponse'{_vcsrMessages = Nothing, _vcsrStatusCode = pStatusCode};
 
 -- | A list of ValidationMessage.
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\ s a -> s{_vcsrMessages = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+vcsrStatusCode :: Lens' ValidateConfigurationSettingsResponse Int
+vcsrStatusCode = lens _vcsrStatusCode (\ s a -> s{_vcsrStatusCode = a});

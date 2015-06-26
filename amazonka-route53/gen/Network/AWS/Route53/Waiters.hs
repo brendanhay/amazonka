@@ -17,4 +17,4 @@ module Network.AWS.Route53.Waiters where
 
 import Network.AWS.Prelude
 import Network.AWS.Route53.Types
-import Network.AWS.Waiters
+import Network.AWS.Waiter

@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.StartGateway
     , startGatewayResponse
     -- ** Response lenses
     , staGatewayARN
+    , staStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -51,7 +52,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'startGateway' smart constructor.
+-- | A JSON object containing the of the gateway to start.
+--
+-- /See:/ 'startGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +76,8 @@ instance AWSRequest StartGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 StartGatewayResponse' <$> (x .?> "GatewayARN"))
+                 StartGatewayResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders StartGateway where
         toHeaders
@@ -95,17 +99,25 @@ instance ToPath StartGateway where
 instance ToQuery StartGateway where
         toQuery = const mempty
 
--- | /See:/ 'startGatewayResponse' smart constructor.
+-- | A JSON object containing the of the gateway that was restarted.
+--
+-- /See:/ 'startGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'staGatewayARN'
-newtype StartGatewayResponse = StartGatewayResponse'{_staGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'staStatusCode'
+data StartGatewayResponse = StartGatewayResponse'{_staGatewayARN :: Maybe Text, _staStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StartGatewayResponse' smart constructor.
-startGatewayResponse :: StartGatewayResponse
-startGatewayResponse = StartGatewayResponse'{_staGatewayARN = Nothing};
+startGatewayResponse :: Int -> StartGatewayResponse
+startGatewayResponse pStatusCode = StartGatewayResponse'{_staGatewayARN = Nothing, _staStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 staGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 staGatewayARN = lens _staGatewayARN (\ s a -> s{_staGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+staStatusCode :: Lens' StartGatewayResponse Int
+staStatusCode = lens _staStatusCode (\ s a -> s{_staStatusCode = a});

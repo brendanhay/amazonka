@@ -59,6 +59,7 @@ module Network.AWS.SWF.DescribeWorkflowType
     -- ** Response lenses
     , dwtrTypeInfo
     , dwtrConfiguration
+    , dwtrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -96,7 +97,8 @@ instance AWSRequest DescribeWorkflowType where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkflowTypeResponse' <$>
-                   (x .:> "typeInfo") <*> (x .:> "configuration"))
+                   (x .:> "typeInfo") <*> (x .:> "configuration") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkflowType where
         toHeaders
@@ -120,18 +122,22 @@ instance ToPath DescribeWorkflowType where
 instance ToQuery DescribeWorkflowType where
         toQuery = const mempty
 
--- | /See:/ 'describeWorkflowTypeResponse' smart constructor.
+-- | Contains details about a workflow type.
+--
+-- /See:/ 'describeWorkflowTypeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dwtrTypeInfo'
 --
 -- * 'dwtrConfiguration'
-data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'{_dwtrTypeInfo :: WorkflowTypeInfo, _dwtrConfiguration :: WorkflowTypeConfiguration} deriving (Eq, Read, Show)
+--
+-- * 'dwtrStatusCode'
+data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'{_dwtrTypeInfo :: WorkflowTypeInfo, _dwtrConfiguration :: WorkflowTypeConfiguration, _dwtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
-describeWorkflowTypeResponse :: WorkflowTypeInfo -> WorkflowTypeConfiguration -> DescribeWorkflowTypeResponse
-describeWorkflowTypeResponse pTypeInfo pConfiguration = DescribeWorkflowTypeResponse'{_dwtrTypeInfo = pTypeInfo, _dwtrConfiguration = pConfiguration};
+describeWorkflowTypeResponse :: WorkflowTypeInfo -> WorkflowTypeConfiguration -> Int -> DescribeWorkflowTypeResponse
+describeWorkflowTypeResponse pTypeInfo pConfiguration pStatusCode = DescribeWorkflowTypeResponse'{_dwtrTypeInfo = pTypeInfo, _dwtrConfiguration = pConfiguration, _dwtrStatusCode = pStatusCode};
 
 -- | General information about the workflow type.
 --
@@ -150,3 +156,7 @@ dwtrTypeInfo = lens _dwtrTypeInfo (\ s a -> s{_dwtrTypeInfo = a});
 -- RegisterWorkflowType
 dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrConfiguration = lens _dwtrConfiguration (\ s a -> s{_dwtrConfiguration = a});
+
+-- | FIXME: Undocumented member.
+dwtrStatusCode :: Lens' DescribeWorkflowTypeResponse Int
+dwtrStatusCode = lens _dwtrStatusCode (\ s a -> s{_dwtrStatusCode = a});

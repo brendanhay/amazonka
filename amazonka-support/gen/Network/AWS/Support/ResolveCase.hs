@@ -34,6 +34,7 @@ module Network.AWS.Support.ResolveCase
     -- ** Response lenses
     , rcrInitialCaseStatus
     , rcrFinalCaseStatus
+    , rcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -67,7 +68,8 @@ instance AWSRequest ResolveCase where
               (\ s h x ->
                  ResolveCaseResponse' <$>
                    (x .?> "initialCaseStatus") <*>
-                     (x .?> "finalCaseStatus"))
+                     (x .?> "finalCaseStatus")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ResolveCase where
         toHeaders
@@ -88,18 +90,22 @@ instance ToPath ResolveCase where
 instance ToQuery ResolveCase where
         toQuery = const mempty
 
--- | /See:/ 'resolveCaseResponse' smart constructor.
+-- | The status of the case returned by the ResolveCase operation.
+--
+-- /See:/ 'resolveCaseResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcrInitialCaseStatus'
 --
 -- * 'rcrFinalCaseStatus'
-data ResolveCaseResponse = ResolveCaseResponse'{_rcrInitialCaseStatus :: Maybe Text, _rcrFinalCaseStatus :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rcrStatusCode'
+data ResolveCaseResponse = ResolveCaseResponse'{_rcrInitialCaseStatus :: Maybe Text, _rcrFinalCaseStatus :: Maybe Text, _rcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ResolveCaseResponse' smart constructor.
-resolveCaseResponse :: ResolveCaseResponse
-resolveCaseResponse = ResolveCaseResponse'{_rcrInitialCaseStatus = Nothing, _rcrFinalCaseStatus = Nothing};
+resolveCaseResponse :: Int -> ResolveCaseResponse
+resolveCaseResponse pStatusCode = ResolveCaseResponse'{_rcrInitialCaseStatus = Nothing, _rcrFinalCaseStatus = Nothing, _rcrStatusCode = pStatusCode};
 
 -- | The status of the case when the ResolveCase request was sent.
 rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
@@ -108,3 +114,7 @@ rcrInitialCaseStatus = lens _rcrInitialCaseStatus (\ s a -> s{_rcrInitialCaseSta
 -- | The status of the case after the ResolveCase request was processed.
 rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrFinalCaseStatus = lens _rcrFinalCaseStatus (\ s a -> s{_rcrFinalCaseStatus = a});
+
+-- | FIXME: Undocumented member.
+rcrStatusCode :: Lens' ResolveCaseResponse Int
+rcrStatusCode = lens _rcrStatusCode (\ s a -> s{_rcrStatusCode = a});

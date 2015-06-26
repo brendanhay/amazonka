@@ -68,6 +68,7 @@ module Network.AWS.Glacier.ListParts
     , lprVaultARN
     , lprMarker
     , lprCreationDate
+    , lprStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -75,7 +76,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listParts' smart constructor.
+-- | Provides options for retrieving a list of parts of an archive that have
+-- been uploaded in a specific multipart upload.
+--
+-- /See:/ 'listParts' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -138,7 +142,8 @@ instance AWSRequest ListParts where
                      <*> (x .?> "PartSizeInBytes")
                      <*> (x .?> "VaultARN")
                      <*> (x .?> "Marker")
-                     <*> (x .?> "CreationDate"))
+                     <*> (x .?> "CreationDate")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListParts where
         toHeaders = const mempty
@@ -155,7 +160,9 @@ instance ToQuery ListParts where
           = mconcat
               ["marker" =: _lpMarker, "limit" =: _lpLimit]
 
--- | /See:/ 'listPartsResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'listPartsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -172,11 +179,13 @@ instance ToQuery ListParts where
 -- * 'lprMarker'
 --
 -- * 'lprCreationDate'
-data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [PartListElement], _lprMultipartUploadId :: Maybe Text, _lprArchiveDescription :: Maybe Text, _lprPartSizeInBytes :: Maybe Integer, _lprVaultARN :: Maybe Text, _lprMarker :: Maybe Text, _lprCreationDate :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lprStatusCode'
+data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [PartListElement], _lprMultipartUploadId :: Maybe Text, _lprArchiveDescription :: Maybe Text, _lprPartSizeInBytes :: Maybe Integer, _lprVaultARN :: Maybe Text, _lprMarker :: Maybe Text, _lprCreationDate :: Maybe Text, _lprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPartsResponse' smart constructor.
-listPartsResponse :: ListPartsResponse
-listPartsResponse = ListPartsResponse'{_lprParts = Nothing, _lprMultipartUploadId = Nothing, _lprArchiveDescription = Nothing, _lprPartSizeInBytes = Nothing, _lprVaultARN = Nothing, _lprMarker = Nothing, _lprCreationDate = Nothing};
+listPartsResponse :: Int -> ListPartsResponse
+listPartsResponse pStatusCode = ListPartsResponse'{_lprParts = Nothing, _lprMultipartUploadId = Nothing, _lprArchiveDescription = Nothing, _lprPartSizeInBytes = Nothing, _lprVaultARN = Nothing, _lprMarker = Nothing, _lprCreationDate = Nothing, _lprStatusCode = pStatusCode};
 
 -- | A list of the part sizes of the multipart upload.
 lprParts :: Lens' ListPartsResponse [PartListElement]
@@ -209,3 +218,7 @@ lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
 -- | The UTC time at which the multipart upload was initiated.
 lprCreationDate :: Lens' ListPartsResponse (Maybe Text)
 lprCreationDate = lens _lprCreationDate (\ s a -> s{_lprCreationDate = a});
+
+-- | FIXME: Undocumented member.
+lprStatusCode :: Lens' ListPartsResponse Int
+lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});

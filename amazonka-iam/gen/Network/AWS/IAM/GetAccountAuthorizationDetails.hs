@@ -45,6 +45,7 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrMarker
     , gaadrIsTruncated
     , gaadrPolicies
+    , gaadrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -109,7 +110,8 @@ instance AWSRequest GetAccountAuthorizationDetails
                      <*> (x .@? "IsTruncated")
                      <*>
                      (x .@? "Policies" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetAccountAuthorizationDetails
          where
@@ -128,7 +130,10 @@ instance ToQuery GetAccountAuthorizationDetails where
                "Filter" =:
                  toQuery (toQueryList "member" <$> _gaadFilter)]
 
--- | /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
+-- | Contains the response to a successful GetAccountAuthorizationDetails
+-- request.
+--
+-- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -143,11 +148,13 @@ instance ToQuery GetAccountAuthorizationDetails where
 -- * 'gaadrIsTruncated'
 --
 -- * 'gaadrPolicies'
-data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList :: Maybe [RoleDetail], _gaadrGroupDetailList :: Maybe [GroupDetail], _gaadrUserDetailList :: Maybe [UserDetail], _gaadrMarker :: Maybe Text, _gaadrIsTruncated :: Maybe Bool, _gaadrPolicies :: Maybe [ManagedPolicyDetail]} deriving (Eq, Read, Show)
+--
+-- * 'gaadrStatusCode'
+data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList :: Maybe [RoleDetail], _gaadrGroupDetailList :: Maybe [GroupDetail], _gaadrUserDetailList :: Maybe [UserDetail], _gaadrMarker :: Maybe Text, _gaadrIsTruncated :: Maybe Bool, _gaadrPolicies :: Maybe [ManagedPolicyDetail], _gaadrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
-getAccountAuthorizationDetailsResponse :: GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList = Nothing, _gaadrGroupDetailList = Nothing, _gaadrUserDetailList = Nothing, _gaadrMarker = Nothing, _gaadrIsTruncated = Nothing, _gaadrPolicies = Nothing};
+getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse
+getAccountAuthorizationDetailsResponse pStatusCode = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList = Nothing, _gaadrGroupDetailList = Nothing, _gaadrUserDetailList = Nothing, _gaadrMarker = Nothing, _gaadrIsTruncated = Nothing, _gaadrPolicies = Nothing, _gaadrStatusCode = pStatusCode};
 
 -- | A list containing information about IAM roles.
 gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
@@ -176,3 +183,7 @@ gaadrIsTruncated = lens _gaadrIsTruncated (\ s a -> s{_gaadrIsTruncated = a});
 -- | A list containing information about managed policies.
 gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
 gaadrPolicies = lens _gaadrPolicies (\ s a -> s{_gaadrPolicies = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+gaadrStatusCode :: Lens' GetAccountAuthorizationDetailsResponse Int
+gaadrStatusCode = lens _gaadrStatusCode (\ s a -> s{_gaadrStatusCode = a});

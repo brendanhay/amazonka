@@ -36,6 +36,7 @@ module Network.AWS.EC2.CancelImportTask
     , citrState
     , citrImportTaskId
     , citrPreviousState
+    , citrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -82,7 +83,8 @@ instance AWSRequest CancelImportTask where
               (\ s h x ->
                  CancelImportTaskResponse' <$>
                    (x .@? "state") <*> (x .@? "importTaskId") <*>
-                     (x .@? "previousState"))
+                     (x .@? "previousState")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty
@@ -108,11 +110,13 @@ instance ToQuery CancelImportTask where
 -- * 'citrImportTaskId'
 --
 -- * 'citrPreviousState'
-data CancelImportTaskResponse = CancelImportTaskResponse'{_citrState :: Maybe Text, _citrImportTaskId :: Maybe Text, _citrPreviousState :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'citrStatusCode'
+data CancelImportTaskResponse = CancelImportTaskResponse'{_citrState :: Maybe Text, _citrImportTaskId :: Maybe Text, _citrPreviousState :: Maybe Text, _citrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelImportTaskResponse' smart constructor.
-cancelImportTaskResponse :: CancelImportTaskResponse
-cancelImportTaskResponse = CancelImportTaskResponse'{_citrState = Nothing, _citrImportTaskId = Nothing, _citrPreviousState = Nothing};
+cancelImportTaskResponse :: Int -> CancelImportTaskResponse
+cancelImportTaskResponse pStatusCode = CancelImportTaskResponse'{_citrState = Nothing, _citrImportTaskId = Nothing, _citrPreviousState = Nothing, _citrStatusCode = pStatusCode};
 
 -- | The current state of the task being canceled.
 citrState :: Lens' CancelImportTaskResponse (Maybe Text)
@@ -125,3 +129,7 @@ citrImportTaskId = lens _citrImportTaskId (\ s a -> s{_citrImportTaskId = a});
 -- | The current state of the task being canceled.
 citrPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrPreviousState = lens _citrPreviousState (\ s a -> s{_citrPreviousState = a});
+
+-- | FIXME: Undocumented member.
+citrStatusCode :: Lens' CancelImportTaskResponse Int
+citrStatusCode = lens _citrStatusCode (\ s a -> s{_citrStatusCode = a});

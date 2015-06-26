@@ -56,17 +56,20 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- ** Response constructor
     , describeClusterSnapshotsResponse
     -- ** Response lenses
-    , dcsrSnapshots
-    , dcsrMarker
+    , descSnapshots
+    , descMarker
+    , descStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeClusterSnapshots' smart constructor.
+-- |
+--
+-- /See:/ 'describeClusterSnapshots' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -178,10 +181,10 @@ desOwnerAccount = lens _desOwnerAccount (\ s a -> s{_desOwnerAccount = a});
 
 instance AWSPager DescribeClusterSnapshots where
         page rq rs
-          | stop (rs ^. dcsrMarker) = Nothing
-          | stop (rs ^. dcsrSnapshots) = Nothing
+          | stop (rs ^. descMarker) = Nothing
+          | stop (rs ^. descSnapshots) = Nothing
           | otherwise =
-            Just $ rq & desMarker .~ rs ^. dcsrMarker
+            Just $ rq & desMarker .~ rs ^. descMarker
 
 instance AWSRequest DescribeClusterSnapshots where
         type Sv DescribeClusterSnapshots = Redshift
@@ -194,7 +197,8 @@ instance AWSRequest DescribeClusterSnapshots where
                  DescribeClusterSnapshotsResponse' <$>
                    (x .@? "Snapshots" .!@ mempty >>=
                       may (parseXMLList "Snapshot"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
@@ -220,22 +224,26 @@ instance ToQuery DescribeClusterSnapshots where
                "EndTime" =: _desEndTime, "Marker" =: _desMarker,
                "OwnerAccount" =: _desOwnerAccount]
 
--- | /See:/ 'describeClusterSnapshotsResponse' smart constructor.
+-- | Contains the output from the DescribeClusterSnapshots action.
+--
+-- /See:/ 'describeClusterSnapshotsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrSnapshots'
+-- * 'descSnapshots'
 --
--- * 'dcsrMarker'
-data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots :: Maybe [Snapshot], _dcsrMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'descMarker'
+--
+-- * 'descStatusCode'
+data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_descSnapshots :: Maybe [Snapshot], _descMarker :: Maybe Text, _descStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
-describeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
-describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots = Nothing, _dcsrMarker = Nothing};
+describeClusterSnapshotsResponse :: Int -> DescribeClusterSnapshotsResponse
+describeClusterSnapshotsResponse pStatusCode = DescribeClusterSnapshotsResponse'{_descSnapshots = Nothing, _descMarker = Nothing, _descStatusCode = pStatusCode};
 
 -- | A list of Snapshot instances.
-dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
-dcsrSnapshots = lens _dcsrSnapshots (\ s a -> s{_dcsrSnapshots = a}) . _Default;
+descSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+descSnapshots = lens _descSnapshots (\ s a -> s{_descSnapshots = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -243,5 +251,9 @@ dcsrSnapshots = lens _dcsrSnapshots (\ s a -> s{_dcsrSnapshots = a}) . _Default;
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dcsrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
-dcsrMarker = lens _dcsrMarker (\ s a -> s{_dcsrMarker = a});
+descMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
+descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
+
+-- | FIXME: Undocumented member.
+descStatusCode :: Lens' DescribeClusterSnapshotsResponse Int
+descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});

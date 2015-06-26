@@ -40,6 +40,7 @@ module Network.AWS.Route53.GetChange
     , getChangeResponse
     -- ** Response lenses
     , gcrChangeInfo
+    , gcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -47,7 +48,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'getChange' smart constructor.
+-- | The input for a GetChange request.
+--
+-- /See:/ 'getChange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +74,8 @@ instance AWSRequest GetChange where
         response
           = receiveXML
               (\ s h x ->
-                 GetChangeResponse' <$> (x .@ "ChangeInfo"))
+                 GetChangeResponse' <$>
+                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetChange where
         toHeaders = const mempty
@@ -83,19 +87,27 @@ instance ToPath GetChange where
 instance ToQuery GetChange where
         toQuery = const mempty
 
--- | /See:/ 'getChangeResponse' smart constructor.
+-- | A complex type that contains the @ChangeInfo@ element.
+--
+-- /See:/ 'getChangeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcrChangeInfo'
-newtype GetChangeResponse = GetChangeResponse'{_gcrChangeInfo :: ChangeInfo} deriving (Eq, Read, Show)
+--
+-- * 'gcrStatusCode'
+data GetChangeResponse = GetChangeResponse'{_gcrChangeInfo :: ChangeInfo, _gcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetChangeResponse' smart constructor.
-getChangeResponse :: ChangeInfo -> GetChangeResponse
-getChangeResponse pChangeInfo = GetChangeResponse'{_gcrChangeInfo = pChangeInfo};
+getChangeResponse :: ChangeInfo -> Int -> GetChangeResponse
+getChangeResponse pChangeInfo pStatusCode = GetChangeResponse'{_gcrChangeInfo = pChangeInfo, _gcrStatusCode = pStatusCode};
 
 -- | A complex type that contains information about the specified change
 -- batch, including the change batch ID, the status of the change, and the
 -- date and time of the request.
 gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\ s a -> s{_gcrChangeInfo = a});
+
+-- | FIXME: Undocumented member.
+gcrStatusCode :: Lens' GetChangeResponse Int
+gcrStatusCode = lens _gcrStatusCode (\ s a -> s{_gcrStatusCode = a});

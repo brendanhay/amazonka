@@ -36,6 +36,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     , describeTrustedAdvisorChecksResponse
     -- ** Response lenses
     , dtacrChecks
+    , dtacrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -71,7 +72,7 @@ instance AWSRequest DescribeTrustedAdvisorChecks
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorChecksResponse' <$>
-                   (x .?> "checks" .!@ mempty))
+                   (x .?> "checks" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTrustedAdvisorChecks where
         toHeaders
@@ -93,17 +94,26 @@ instance ToPath DescribeTrustedAdvisorChecks where
 instance ToQuery DescribeTrustedAdvisorChecks where
         toQuery = const mempty
 
--- | /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
+-- | Information about the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorChecks operation.
+--
+-- /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtacrChecks'
-newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks :: [TrustedAdvisorCheckDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dtacrStatusCode'
+data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks :: [TrustedAdvisorCheckDescription], _dtacrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
-describeTrustedAdvisorChecksResponse :: DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks = mempty};
+describeTrustedAdvisorChecksResponse :: Int -> DescribeTrustedAdvisorChecksResponse
+describeTrustedAdvisorChecksResponse pStatusCode = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks = mempty, _dtacrStatusCode = pStatusCode};
 
 -- | Information about all available Trusted Advisor checks.
 dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
 dtacrChecks = lens _dtacrChecks (\ s a -> s{_dtacrChecks = a});
+
+-- | FIXME: Undocumented member.
+dtacrStatusCode :: Lens' DescribeTrustedAdvisorChecksResponse Int
+dtacrStatusCode = lens _dtacrStatusCode (\ s a -> s{_dtacrStatusCode = a});

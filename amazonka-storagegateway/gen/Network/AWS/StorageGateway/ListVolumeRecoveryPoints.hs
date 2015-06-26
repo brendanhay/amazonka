@@ -40,6 +40,7 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- ** Response lenses
     , lvrprVolumeRecoveryPointInfos
     , lvrprGatewayARN
+    , lvrprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -72,7 +73,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
               (\ s h x ->
                  ListVolumeRecoveryPointsResponse' <$>
                    (x .?> "VolumeRecoveryPointInfos" .!@ mempty) <*>
-                     (x .?> "GatewayARN"))
+                     (x .?> "GatewayARN")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
@@ -101,11 +103,13 @@ instance ToQuery ListVolumeRecoveryPoints where
 -- * 'lvrprVolumeRecoveryPointInfos'
 --
 -- * 'lvrprGatewayARN'
-data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos :: Maybe [VolumeRecoveryPointInfo], _lvrprGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lvrprStatusCode'
+data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos :: Maybe [VolumeRecoveryPointInfo], _lvrprGatewayARN :: Maybe Text, _lvrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
-listVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos = Nothing, _lvrprGatewayARN = Nothing};
+listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
+listVolumeRecoveryPointsResponse pStatusCode = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos = Nothing, _lvrprGatewayARN = Nothing, _lvrprStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
@@ -114,3 +118,7 @@ lvrprVolumeRecoveryPointInfos = lens _lvrprVolumeRecoveryPointInfos (\ s a -> s{
 -- | FIXME: Undocumented member.
 lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprGatewayARN = lens _lvrprGatewayARN (\ s a -> s{_lvrprGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+lvrprStatusCode :: Lens' ListVolumeRecoveryPointsResponse Int
+lvrprStatusCode = lens _lvrprStatusCode (\ s a -> s{_lvrprStatusCode = a});

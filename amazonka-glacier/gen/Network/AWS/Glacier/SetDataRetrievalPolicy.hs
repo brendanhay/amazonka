@@ -46,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'setDataRetrievalPolicy' smart constructor.
+-- | SetDataRetrievalPolicy input.
+--
+-- /See:/ 'setDataRetrievalPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

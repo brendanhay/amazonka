@@ -39,6 +39,7 @@ module Network.AWS.ECS.RegisterTaskDefinition
     , registerTaskDefinitionResponse
     -- ** Response lenses
     , rtdrTaskDefinition
+    , rtdrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -88,7 +89,7 @@ instance AWSRequest RegisterTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  RegisterTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition"))
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterTaskDefinition where
         toHeaders
@@ -117,12 +118,18 @@ instance ToQuery RegisterTaskDefinition where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtdrTaskDefinition'
-newtype RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'{_rtdrTaskDefinition :: Maybe TaskDefinition} deriving (Eq, Read, Show)
+--
+-- * 'rtdrStatusCode'
+data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'{_rtdrTaskDefinition :: Maybe TaskDefinition, _rtdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
-registerTaskDefinitionResponse :: RegisterTaskDefinitionResponse
-registerTaskDefinitionResponse = RegisterTaskDefinitionResponse'{_rtdrTaskDefinition = Nothing};
+registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse
+registerTaskDefinitionResponse pStatusCode = RegisterTaskDefinitionResponse'{_rtdrTaskDefinition = Nothing, _rtdrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rtdrTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
 rtdrTaskDefinition = lens _rtdrTaskDefinition (\ s a -> s{_rtdrTaskDefinition = a});
+
+-- | FIXME: Undocumented member.
+rtdrStatusCode :: Lens' RegisterTaskDefinitionResponse Int
+rtdrStatusCode = lens _rtdrStatusCode (\ s a -> s{_rtdrStatusCode = a});

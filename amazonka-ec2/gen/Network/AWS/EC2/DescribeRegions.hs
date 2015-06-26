@@ -37,6 +37,7 @@ module Network.AWS.EC2.DescribeRegions
     , describeRegionsResponse
     -- ** Response lenses
     , drrRegions
+    , drrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -88,7 +89,8 @@ instance AWSRequest DescribeRegions where
           = receiveXML
               (\ s h x ->
                  DescribeRegionsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
@@ -111,12 +113,18 @@ instance ToQuery DescribeRegions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drrRegions'
-newtype DescribeRegionsResponse = DescribeRegionsResponse'{_drrRegions :: Maybe [RegionInfo]} deriving (Eq, Read, Show)
+--
+-- * 'drrStatusCode'
+data DescribeRegionsResponse = DescribeRegionsResponse'{_drrRegions :: Maybe [RegionInfo], _drrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeRegionsResponse' smart constructor.
-describeRegionsResponse :: DescribeRegionsResponse
-describeRegionsResponse = DescribeRegionsResponse'{_drrRegions = Nothing};
+describeRegionsResponse :: Int -> DescribeRegionsResponse
+describeRegionsResponse pStatusCode = DescribeRegionsResponse'{_drrRegions = Nothing, _drrStatusCode = pStatusCode};
 
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResponse [RegionInfo]
 drrRegions = lens _drrRegions (\ s a -> s{_drrRegions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drrStatusCode :: Lens' DescribeRegionsResponse Int
+drrStatusCode = lens _drrStatusCode (\ s a -> s{_drrStatusCode = a});

@@ -61,9 +61,10 @@ module Network.AWS.SWF.ListActivityTypes
     -- ** Response lenses
     , latrNextPageToken
     , latrTypeInfos
+    , latrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -133,8 +134,8 @@ instance AWSPager ListActivityTypes where
           | stop (rs ^. latrNextPageToken) = Nothing
           | stop (rs ^. latrTypeInfos) = Nothing
           | otherwise =
-            Just $
-              rq & latNextPageToken .~ rs ^. latrNextPageToken
+            Just $ rq &
+              latNextPageToken .~ rs ^. latrNextPageToken
 
 instance AWSRequest ListActivityTypes where
         type Sv ListActivityTypes = SWF
@@ -145,7 +146,8 @@ instance AWSRequest ListActivityTypes where
               (\ s h x ->
                  ListActivityTypesResponse' <$>
                    (x .?> "nextPageToken") <*>
-                     (x .?> "typeInfos" .!@ mempty))
+                     (x .?> "typeInfos" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListActivityTypes where
         toHeaders
@@ -173,18 +175,22 @@ instance ToPath ListActivityTypes where
 instance ToQuery ListActivityTypes where
         toQuery = const mempty
 
--- | /See:/ 'listActivityTypesResponse' smart constructor.
+-- | Contains a paginated list of activity type information structures.
+--
+-- /See:/ 'listActivityTypesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'latrNextPageToken'
 --
 -- * 'latrTypeInfos'
-data ListActivityTypesResponse = ListActivityTypesResponse'{_latrNextPageToken :: Maybe Text, _latrTypeInfos :: [ActivityTypeInfo]} deriving (Eq, Read, Show)
+--
+-- * 'latrStatusCode'
+data ListActivityTypesResponse = ListActivityTypesResponse'{_latrNextPageToken :: Maybe Text, _latrTypeInfos :: [ActivityTypeInfo], _latrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListActivityTypesResponse' smart constructor.
-listActivityTypesResponse :: ListActivityTypesResponse
-listActivityTypesResponse = ListActivityTypesResponse'{_latrNextPageToken = Nothing, _latrTypeInfos = mempty};
+listActivityTypesResponse :: Int -> ListActivityTypesResponse
+listActivityTypesResponse pStatusCode = ListActivityTypesResponse'{_latrNextPageToken = Nothing, _latrTypeInfos = mempty, _latrStatusCode = pStatusCode};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -199,3 +205,7 @@ latrNextPageToken = lens _latrNextPageToken (\ s a -> s{_latrNextPageToken = a})
 -- | List of activity type information.
 latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrTypeInfos = lens _latrTypeInfos (\ s a -> s{_latrTypeInfos = a});
+
+-- | FIXME: Undocumented member.
+latrStatusCode :: Lens' ListActivityTypesResponse Int
+latrStatusCode = lens _latrStatusCode (\ s a -> s{_latrStatusCode = a});

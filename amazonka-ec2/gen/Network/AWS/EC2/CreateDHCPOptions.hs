@@ -71,6 +71,7 @@ module Network.AWS.EC2.CreateDHCPOptions
     , createDHCPOptionsResponse
     -- ** Response lenses
     , cdorDHCPOptions
+    , cdorStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -109,7 +110,8 @@ instance AWSRequest CreateDHCPOptions where
         response
           = receiveXML
               (\ s h x ->
-                 CreateDHCPOptionsResponse' <$> (x .@? "dhcpOptions"))
+                 CreateDHCPOptionsResponse' <$>
+                   (x .@? "dhcpOptions") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
@@ -130,12 +132,18 @@ instance ToQuery CreateDHCPOptions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdorDHCPOptions'
-newtype CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'{_cdorDHCPOptions :: Maybe DHCPOptions} deriving (Eq, Read, Show)
+--
+-- * 'cdorStatusCode'
+data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'{_cdorDHCPOptions :: Maybe DHCPOptions, _cdorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
-createDHCPOptionsResponse :: CreateDHCPOptionsResponse
-createDHCPOptionsResponse = CreateDHCPOptionsResponse'{_cdorDHCPOptions = Nothing};
+createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
+createDHCPOptionsResponse pStatusCode = CreateDHCPOptionsResponse'{_cdorDHCPOptions = Nothing, _cdorStatusCode = pStatusCode};
 
 -- | A set of DHCP options.
 cdorDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
 cdorDHCPOptions = lens _cdorDHCPOptions (\ s a -> s{_cdorDHCPOptions = a});
+
+-- | FIXME: Undocumented member.
+cdorStatusCode :: Lens' CreateDHCPOptionsResponse Int
+cdorStatusCode = lens _cdorStatusCode (\ s a -> s{_cdorStatusCode = a});

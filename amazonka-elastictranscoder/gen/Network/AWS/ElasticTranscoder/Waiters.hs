@@ -17,4 +17,4 @@ module Network.AWS.ElasticTranscoder.Waiters where
 
 import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

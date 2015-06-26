@@ -39,6 +39,7 @@ module Network.AWS.MachineLearning.DeleteMLModel
     , deleteMLModelResponse
     -- ** Response lenses
     , dmlmrMLModelId
+    , dmlmrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -68,7 +69,8 @@ instance AWSRequest DeleteMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteMLModelResponse' <$> (x .?> "MLModelId"))
+                 DeleteMLModelResponse' <$>
+                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteMLModel where
         toHeaders
@@ -89,18 +91,29 @@ instance ToPath DeleteMLModel where
 instance ToQuery DeleteMLModel where
         toQuery = const mempty
 
--- | /See:/ 'deleteMLModelResponse' smart constructor.
+-- | Represents the output of a DeleteMLModel operation.
+--
+-- You can use the GetMLModel operation and check the value of the @Status@
+-- parameter to see whether an @MLModel@ is marked as @DELETED@.
+--
+-- /See:/ 'deleteMLModelResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmlmrMLModelId'
-newtype DeleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dmlmrStatusCode'
+data DeleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId :: Maybe Text, _dmlmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteMLModelResponse' smart constructor.
-deleteMLModelResponse :: DeleteMLModelResponse
-deleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId = Nothing};
+deleteMLModelResponse :: Int -> DeleteMLModelResponse
+deleteMLModelResponse pStatusCode = DeleteMLModelResponse'{_dmlmrMLModelId = Nothing, _dmlmrStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelID@ in the request.
 dmlmrMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrMLModelId = lens _dmlmrMLModelId (\ s a -> s{_dmlmrMLModelId = a});
+
+-- | FIXME: Undocumented member.
+dmlmrStatusCode :: Lens' DeleteMLModelResponse Int
+dmlmrStatusCode = lens _dmlmrStatusCode (\ s a -> s{_dmlmrStatusCode = a});

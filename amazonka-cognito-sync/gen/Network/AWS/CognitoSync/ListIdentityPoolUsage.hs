@@ -40,6 +40,7 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , lipurCount
     , lipurNextToken
     , lipurMaxResults
+    , lipurStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -47,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listIdentityPoolUsage' smart constructor.
+-- | A request for usage information on an identity pool.
+--
+-- /See:/ 'listIdentityPoolUsage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -80,7 +83,8 @@ instance AWSRequest ListIdentityPoolUsage where
                    (x .?> "IdentityPoolUsages" .!@ mempty) <*>
                      (x .?> "Count")
                      <*> (x .?> "NextToken")
-                     <*> (x .?> "MaxResults"))
+                     <*> (x .?> "MaxResults")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
@@ -98,7 +102,9 @@ instance ToQuery ListIdentityPoolUsage where
               ["nextToken" =: _lipuNextToken,
                "maxResults" =: _lipuMaxResults]
 
--- | /See:/ 'listIdentityPoolUsageResponse' smart constructor.
+-- | Returned for a successful ListIdentityPoolUsage request.
+--
+-- /See:/ 'listIdentityPoolUsageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,11 +115,13 @@ instance ToQuery ListIdentityPoolUsage where
 -- * 'lipurNextToken'
 --
 -- * 'lipurMaxResults'
-data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages :: Maybe [IdentityPoolUsage], _lipurCount :: Maybe Int, _lipurNextToken :: Maybe Text, _lipurMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+--
+-- * 'lipurStatusCode'
+data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages :: Maybe [IdentityPoolUsage], _lipurCount :: Maybe Int, _lipurNextToken :: Maybe Text, _lipurMaxResults :: Maybe Int, _lipurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
-listIdentityPoolUsageResponse :: ListIdentityPoolUsageResponse
-listIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages = Nothing, _lipurCount = Nothing, _lipurNextToken = Nothing, _lipurMaxResults = Nothing};
+listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
+listIdentityPoolUsageResponse pStatusCode = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages = Nothing, _lipurCount = Nothing, _lipurNextToken = Nothing, _lipurMaxResults = Nothing, _lipurStatusCode = pStatusCode};
 
 -- | Usage information for the identity pools.
 lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
@@ -130,3 +138,7 @@ lipurNextToken = lens _lipurNextToken (\ s a -> s{_lipurNextToken = a});
 -- | The maximum number of results to be returned.
 lipurMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipurMaxResults = lens _lipurMaxResults (\ s a -> s{_lipurMaxResults = a});
+
+-- | FIXME: Undocumented member.
+lipurStatusCode :: Lens' ListIdentityPoolUsageResponse Int
+lipurStatusCode = lens _lipurStatusCode (\ s a -> s{_lipurStatusCode = a});

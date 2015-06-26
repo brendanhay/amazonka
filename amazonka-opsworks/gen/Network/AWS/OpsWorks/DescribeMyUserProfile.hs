@@ -35,6 +35,7 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , describeMyUserProfileResponse
     -- ** Response lenses
     , dmuprUserProfile
+    , dmuprStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -58,7 +59,7 @@ instance AWSRequest DescribeMyUserProfile where
           = receiveJSON
               (\ s h x ->
                  DescribeMyUserProfileResponse' <$>
-                   (x .?> "UserProfile"))
+                   (x .?> "UserProfile") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMyUserProfile where
         toHeaders
@@ -79,17 +80,25 @@ instance ToPath DescribeMyUserProfile where
 instance ToQuery DescribeMyUserProfile where
         toQuery = const mempty
 
--- | /See:/ 'describeMyUserProfileResponse' smart constructor.
+-- | Contains the response to a @DescribeMyUserProfile@ request.
+--
+-- /See:/ 'describeMyUserProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmuprUserProfile'
-newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'{_dmuprUserProfile :: Maybe SelfUserProfile} deriving (Eq, Read, Show)
+--
+-- * 'dmuprStatusCode'
+data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'{_dmuprUserProfile :: Maybe SelfUserProfile, _dmuprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
-describeMyUserProfileResponse :: DescribeMyUserProfileResponse
-describeMyUserProfileResponse = DescribeMyUserProfileResponse'{_dmuprUserProfile = Nothing};
+describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
+describeMyUserProfileResponse pStatusCode = DescribeMyUserProfileResponse'{_dmuprUserProfile = Nothing, _dmuprStatusCode = pStatusCode};
 
 -- | A @UserProfile@ object that describes the user\'s SSH information.
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile = lens _dmuprUserProfile (\ s a -> s{_dmuprUserProfile = a});
+
+-- | FIXME: Undocumented member.
+dmuprStatusCode :: Lens' DescribeMyUserProfileResponse Int
+dmuprStatusCode = lens _dmuprStatusCode (\ s a -> s{_dmuprStatusCode = a});

@@ -45,6 +45,7 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     , updateBandwidthRateLimitResponse
     -- ** Response lenses
     , ubrlrGatewayARN
+    , ubrlrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -52,7 +53,12 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateBandwidthRateLimit' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec
+-- -   UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec
+--
+-- /See:/ 'updateBandwidthRateLimit' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -88,7 +94,7 @@ instance AWSRequest UpdateBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  UpdateBandwidthRateLimitResponse' <$>
-                   (x .?> "GatewayARN"))
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders
@@ -115,17 +121,26 @@ instance ToPath UpdateBandwidthRateLimit where
 instance ToQuery UpdateBandwidthRateLimit where
         toQuery = const mempty
 
--- | /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
+-- | A JSON object containing the of the gateway whose throttle information
+-- was updated.
+--
+-- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ubrlrGatewayARN'
-newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'{_ubrlrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ubrlrStatusCode'
+data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'{_ubrlrGatewayARN :: Maybe Text, _ubrlrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
-updateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse
-updateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'{_ubrlrGatewayARN = Nothing};
+updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse
+updateBandwidthRateLimitResponse pStatusCode = UpdateBandwidthRateLimitResponse'{_ubrlrGatewayARN = Nothing, _ubrlrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrGatewayARN = lens _ubrlrGatewayARN (\ s a -> s{_ubrlrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+ubrlrStatusCode :: Lens' UpdateBandwidthRateLimitResponse Int
+ubrlrStatusCode = lens _ubrlrStatusCode (\ s a -> s{_ubrlrStatusCode = a});

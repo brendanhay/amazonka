@@ -34,6 +34,7 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     , ccfoairETag
     , ccfoairLocation
     , ccfoairCloudFrontOriginAccessIdentity
+    , ccfoairStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createCloudFrontOriginAccessIdentity' smart constructor.
+-- | The request to create a new origin access identity.
+--
+-- /See:/ 'createCloudFrontOriginAccessIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest
               (\ s h x ->
                  CreateCloudFrontOriginAccessIdentityResponse' <$>
                    (h .#? "ETag") <*> (h .#? "Location") <*>
-                     (x .@? "CloudFrontOriginAccessIdentity"))
+                     (x .@? "CloudFrontOriginAccessIdentity")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement
          CreateCloudFrontOriginAccessIdentity where
@@ -92,7 +96,9 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
          where
         toQuery = const mempty
 
--- | /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,11 +107,13 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
 -- * 'ccfoairLocation'
 --
 -- * 'ccfoairCloudFrontOriginAccessIdentity'
-data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'{_ccfoairETag :: Maybe Text, _ccfoairLocation :: Maybe Text, _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity} deriving (Eq, Read, Show)
+--
+-- * 'ccfoairStatusCode'
+data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'{_ccfoairETag :: Maybe Text, _ccfoairLocation :: Maybe Text, _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity, _ccfoairStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' smart constructor.
-createCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'{_ccfoairETag = Nothing, _ccfoairLocation = Nothing, _ccfoairCloudFrontOriginAccessIdentity = Nothing};
+createCloudFrontOriginAccessIdentityResponse :: Int -> CreateCloudFrontOriginAccessIdentityResponse
+createCloudFrontOriginAccessIdentityResponse pStatusCode = CreateCloudFrontOriginAccessIdentityResponse'{_ccfoairETag = Nothing, _ccfoairLocation = Nothing, _ccfoairCloudFrontOriginAccessIdentity = Nothing, _ccfoairStatusCode = pStatusCode};
 
 -- | The current version of the origin access identity created.
 ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -120,3 +128,7 @@ ccfoairLocation = lens _ccfoairLocation (\ s a -> s{_ccfoairLocation = a});
 -- | The origin access identity\'s information.
 ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ccfoairCloudFrontOriginAccessIdentity = lens _ccfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ccfoairCloudFrontOriginAccessIdentity = a});
+
+-- | FIXME: Undocumented member.
+ccfoairStatusCode :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
+ccfoairStatusCode = lens _ccfoairStatusCode (\ s a -> s{_ccfoairStatusCode = a});

@@ -21,8 +21,47 @@ module Network.AWS.IAM.Types
     (
     -- * Service
       IAM
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _CredentialReportNotPresentException
+    , _CredentialReportNotReadyException
+    , _MalformedPolicyDocumentException
+    , _EntityAlreadyExistsException
+    , _MalformedCertificateException
+    , _DuplicateCertificateException
+    , _CredentialReportExpiredException
+    , _NoSuchEntityException
+    , _DeleteConflictException
+    , _InvalidCertificateException
+    , _InvalidUserTypeException
+    , _ServiceFailureException
+    , _InvalidInputException
+    , _InvalidAuthenticationCodeException
+    , _EntityTemporarilyUnmodifiableException
+    , _KeyPairMismatchException
+    , _LimitExceededException
+    , _PasswordPolicyViolationException
+
+    -- * AssignmentStatusType
+    , AssignmentStatusType (..)
+
+    -- * EntityType
+    , EntityType (..)
+
+    -- * PolicyScopeType
+    , PolicyScopeType (..)
+
+    -- * ReportFormatType
+    , ReportFormatType (..)
+
+    -- * ReportStateType
+    , ReportStateType (..)
+
+    -- * StatusType
+    , StatusType (..)
+
+    -- * SummaryKeyType
+    , SummaryKeyType (..)
 
     -- * AccessKey
     , AccessKey
@@ -48,17 +87,11 @@ module Network.AWS.IAM.Types
     , akmUserName
     , akmAccessKeyId
 
-    -- * AssignmentStatusType
-    , AssignmentStatusType (..)
-
     -- * AttachedPolicy
     , AttachedPolicy
     , attachedPolicy
     , apPolicyName
     , apPolicyARN
-
-    -- * EntityType
-    , EntityType (..)
 
     -- * Group
     , Group
@@ -168,9 +201,6 @@ module Network.AWS.IAM.Types
     , policyRole
     , prRoleName
 
-    -- * PolicyScopeType
-    , PolicyScopeType (..)
-
     -- * PolicyUser
     , PolicyUser
     , policyUser
@@ -183,12 +213,6 @@ module Network.AWS.IAM.Types
     , pvCreateDate
     , pvDocument
     , pvIsDefaultVersion
-
-    -- * ReportFormatType
-    , ReportFormatType (..)
-
-    -- * ReportStateType
-    , ReportStateType (..)
 
     -- * Role
     , Role
@@ -246,12 +270,6 @@ module Network.AWS.IAM.Types
     , scCertificateBody
     , scStatus
 
-    -- * StatusType
-    , StatusType (..)
-
-    -- * SummaryKeyType
-    , SummaryKeyType (..)
-
     -- * User
     , User
     , user
@@ -282,6 +300,7 @@ module Network.AWS.IAM.Types
     , vmdUser
     , vmdEnableDate
     , vmdSerialNumber
+
     ) where
 
 import Network.AWS.Prelude
@@ -292,32 +311,328 @@ data IAM
 
 instance AWSService IAM where
     type Sg IAM = V4
-    type Er IAM = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service IAM
-        service' = Service
-            { _svcAbbrev  = "IAM"
-            , _svcPrefix  = "iam"
-            , _svcVersion = "2010-05-08"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service IAM
+        svc = Service
+            { _svcAbbrev   = "IAM"
+            , _svcPrefix   = "iam"
+            , _svcVersion  = "2010-05-08"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry IAM
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The request was rejected because the credential report does not exist.
+-- To generate a credential report, use GenerateCredentialReport.
+_CredentialReportNotPresentException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CredentialReportNotPresentException = _ServiceError . hasCode "ReportNotPresent" . hasStatus 410;
 
--- | /See:/ 'accessKey' smart constructor.
+-- | The request was rejected because the credential report is still being
+-- generated.
+_CredentialReportNotReadyException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CredentialReportNotReadyException = _ServiceError . hasCode "ReportInProgress" . hasStatus 404;
+
+-- | The request was rejected because the policy document was malformed. The
+-- error message describes the specific error.
+_MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException = _ServiceError . hasCode "MalformedPolicyDocument" . hasStatus 400;
+
+-- | The request was rejected because it attempted to create a resource that
+-- already exists.
+_EntityAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_EntityAlreadyExistsException = _ServiceError . hasCode "EntityAlreadyExists" . hasStatus 409;
+
+-- | The request was rejected because the certificate was malformed or
+-- expired. The error message describes the specific error.
+_MalformedCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MalformedCertificateException = _ServiceError . hasCode "MalformedCertificate" . hasStatus 400;
+
+-- | The request was rejected because the same certificate is associated to
+-- another user under the account.
+_DuplicateCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateCertificateException = _ServiceError . hasCode "DuplicateCertificate" . hasStatus 409;
+
+-- | The request was rejected because the most recent credential report has
+-- expired. To generate a new credential report, use
+-- GenerateCredentialReport. For more information about credential report
+-- expiration, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
+-- in the /Using IAM/ guide.
+_CredentialReportExpiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CredentialReportExpiredException = _ServiceError . hasCode "ReportExpired" . hasStatus 410;
+
+-- | The request was rejected because it referenced an entity that does not
+-- exist. The error message describes the entity.
+_NoSuchEntityException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchEntityException = _ServiceError . hasCode "NoSuchEntity" . hasStatus 404;
+
+-- | The request was rejected because it attempted to delete a resource that
+-- has attached subordinate entities. The error message describes these
+-- entities.
+_DeleteConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeleteConflictException = _ServiceError . hasCode "DeleteConflict" . hasStatus 409;
+
+-- | The request was rejected because the certificate is invalid.
+_InvalidCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidCertificateException = _ServiceError . hasCode "InvalidCertificate" . hasStatus 400;
+
+-- | The request was rejected because the type of user for the transaction
+-- was incorrect.
+_InvalidUserTypeException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidUserTypeException = _ServiceError . hasCode "InvalidUserType" . hasStatus 400;
+
+-- | The request processing has failed because of an unknown error, exception
+-- or failure.
+_ServiceFailureException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceFailureException = _ServiceError . hasCode "ServiceFailure" . hasStatus 500;
+
+-- | The request was rejected because an invalid or out-of-range value was
+-- supplied for an input parameter.
+_InvalidInputException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInputException = _ServiceError . hasCode "InvalidInput" . hasStatus 400;
+
+-- | The request was rejected because the authentication code was not
+-- recognized. The error message describes the specific error.
+_InvalidAuthenticationCodeException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidAuthenticationCodeException = _ServiceError . hasCode "InvalidAuthenticationCode" . hasStatus 403;
+
+-- | The request was rejected because it referenced an entity that is
+-- temporarily unmodifiable, such as a user name that was deleted and then
+-- recreated. The error indicates that the request is likely to succeed if
+-- you try again after waiting several minutes. The error message describes
+-- the entity.
+_EntityTemporarilyUnmodifiableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_EntityTemporarilyUnmodifiableException = _ServiceError . hasCode "EntityTemporarilyUnmodifiable" . hasStatus 409;
+
+-- | The request was rejected because the public key certificate and the
+-- private key do not match.
+_KeyPairMismatchException :: AWSError a => Geting (First ServiceError) a ServiceError
+_KeyPairMismatchException = _ServiceError . hasCode "KeyPairMismatch" . hasStatus 400;
+
+-- | The request was rejected because it attempted to create resources beyond
+-- the current AWS account limits. The error message describes the limit
+-- exceeded.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 409;
+
+-- | The request was rejected because the provided password did not meet the
+-- requirements imposed by the account password policy.
+_PasswordPolicyViolationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_PasswordPolicyViolationException = _ServiceError . hasCode "PasswordPolicyViolation" . hasStatus 400;
+
+data AssignmentStatusType = Assigned | Unassigned | Any deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AssignmentStatusType where
+    parser = takeLowerText >>= \case
+        "Any" -> pure Any
+        "Assigned" -> pure Assigned
+        "Unassigned" -> pure Unassigned
+        e -> fail ("Failure parsing AssignmentStatusType from " ++ show e)
+
+instance ToText AssignmentStatusType where
+    toText = \case
+        Any -> "Any"
+        Assigned -> "Assigned"
+        Unassigned -> "Unassigned"
+
+instance Hashable AssignmentStatusType
+instance ToQuery AssignmentStatusType
+instance ToHeader AssignmentStatusType
+
+data EntityType = Group | LocalManagedPolicy | AWSManagedPolicy | User | Role deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EntityType where
+    parser = takeLowerText >>= \case
+        "AWSManagedPolicy" -> pure AWSManagedPolicy
+        "Group" -> pure Group
+        "LocalManagedPolicy" -> pure LocalManagedPolicy
+        "Role" -> pure Role
+        "User" -> pure User
+        e -> fail ("Failure parsing EntityType from " ++ show e)
+
+instance ToText EntityType where
+    toText = \case
+        AWSManagedPolicy -> "AWSManagedPolicy"
+        Group -> "Group"
+        LocalManagedPolicy -> "LocalManagedPolicy"
+        Role -> "Role"
+        User -> "User"
+
+instance Hashable EntityType
+instance ToQuery EntityType
+instance ToHeader EntityType
+
+data PolicyScopeType = AWS | Local | All deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText PolicyScopeType where
+    parser = takeLowerText >>= \case
+        "AWS" -> pure AWS
+        "All" -> pure All
+        "Local" -> pure Local
+        e -> fail ("Failure parsing PolicyScopeType from " ++ show e)
+
+instance ToText PolicyScopeType where
+    toText = \case
+        AWS -> "AWS"
+        All -> "All"
+        Local -> "Local"
+
+instance Hashable PolicyScopeType
+instance ToQuery PolicyScopeType
+instance ToHeader PolicyScopeType
+
+data ReportFormatType = TextCSV deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReportFormatType where
+    parser = takeLowerText >>= \case
+        "text/csv" -> pure TextCSV
+        e -> fail ("Failure parsing ReportFormatType from " ++ show e)
+
+instance ToText ReportFormatType where
+    toText = \case
+        TextCSV -> "text/csv"
+
+instance Hashable ReportFormatType
+instance ToQuery ReportFormatType
+instance ToHeader ReportFormatType
+
+instance FromXML ReportFormatType where
+    parseXML = parseXMLText "ReportFormatType"
+
+data ReportStateType = Inprogress | Started | Complete deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReportStateType where
+    parser = takeLowerText >>= \case
+        "COMPLETE" -> pure Complete
+        "INPROGRESS" -> pure Inprogress
+        "STARTED" -> pure Started
+        e -> fail ("Failure parsing ReportStateType from " ++ show e)
+
+instance ToText ReportStateType where
+    toText = \case
+        Complete -> "COMPLETE"
+        Inprogress -> "INPROGRESS"
+        Started -> "STARTED"
+
+instance Hashable ReportStateType
+instance ToQuery ReportStateType
+instance ToHeader ReportStateType
+
+instance FromXML ReportStateType where
+    parseXML = parseXMLText "ReportStateType"
+
+data StatusType = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StatusType where
+    parser = takeLowerText >>= \case
+        "Active" -> pure Active
+        "Inactive" -> pure Inactive
+        e -> fail ("Failure parsing StatusType from " ++ show e)
+
+instance ToText StatusType where
+    toText = \case
+        Active -> "Active"
+        Inactive -> "Inactive"
+
+instance Hashable StatusType
+instance ToQuery StatusType
+instance ToHeader StatusType
+
+instance FromXML StatusType where
+    parseXML = parseXMLText "StatusType"
+
+data SummaryKeyType = AttachedPoliciesPerUserQuota | UsersQuota | Groups | GroupsQuota | Users | MFADevicesInUse | PolicyVersionsInUse | SigningCertificatesPerUserQuota | PoliciesQuota | AccessKeysPerUserQuota | PolicySizeQuota | ServerCertificates | AttachedPoliciesPerRoleQuota | GroupsPerUserQuota | GroupPolicySizeQuota | AccountSigningCertificatesPresent | UserPolicySizeQuota | AttachedPoliciesPerGroupQuota | AccountAccessKeysPresent | ServerCertificatesQuota | VersionsPerPolicyQuota | PolicyVersionsInUseQuota | Policies | AccountMFAEnabled | MFADevices deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SummaryKeyType where
+    parser = takeLowerText >>= \case
+        "AccessKeysPerUserQuota" -> pure AccessKeysPerUserQuota
+        "AccountAccessKeysPresent" -> pure AccountAccessKeysPresent
+        "AccountMFAEnabled" -> pure AccountMFAEnabled
+        "AccountSigningCertificatesPresent" -> pure AccountSigningCertificatesPresent
+        "AttachedPoliciesPerGroupQuota" -> pure AttachedPoliciesPerGroupQuota
+        "AttachedPoliciesPerRoleQuota" -> pure AttachedPoliciesPerRoleQuota
+        "AttachedPoliciesPerUserQuota" -> pure AttachedPoliciesPerUserQuota
+        "GroupPolicySizeQuota" -> pure GroupPolicySizeQuota
+        "Groups" -> pure Groups
+        "GroupsPerUserQuota" -> pure GroupsPerUserQuota
+        "GroupsQuota" -> pure GroupsQuota
+        "MFADevices" -> pure MFADevices
+        "MFADevicesInUse" -> pure MFADevicesInUse
+        "Policies" -> pure Policies
+        "PoliciesQuota" -> pure PoliciesQuota
+        "PolicySizeQuota" -> pure PolicySizeQuota
+        "PolicyVersionsInUse" -> pure PolicyVersionsInUse
+        "PolicyVersionsInUseQuota" -> pure PolicyVersionsInUseQuota
+        "ServerCertificates" -> pure ServerCertificates
+        "ServerCertificatesQuota" -> pure ServerCertificatesQuota
+        "SigningCertificatesPerUserQuota" -> pure SigningCertificatesPerUserQuota
+        "UserPolicySizeQuota" -> pure UserPolicySizeQuota
+        "Users" -> pure Users
+        "UsersQuota" -> pure UsersQuota
+        "VersionsPerPolicyQuota" -> pure VersionsPerPolicyQuota
+        e -> fail ("Failure parsing SummaryKeyType from " ++ show e)
+
+instance ToText SummaryKeyType where
+    toText = \case
+        AccessKeysPerUserQuota -> "AccessKeysPerUserQuota"
+        AccountAccessKeysPresent -> "AccountAccessKeysPresent"
+        AccountMFAEnabled -> "AccountMFAEnabled"
+        AccountSigningCertificatesPresent -> "AccountSigningCertificatesPresent"
+        AttachedPoliciesPerGroupQuota -> "AttachedPoliciesPerGroupQuota"
+        AttachedPoliciesPerRoleQuota -> "AttachedPoliciesPerRoleQuota"
+        AttachedPoliciesPerUserQuota -> "AttachedPoliciesPerUserQuota"
+        GroupPolicySizeQuota -> "GroupPolicySizeQuota"
+        Groups -> "Groups"
+        GroupsPerUserQuota -> "GroupsPerUserQuota"
+        GroupsQuota -> "GroupsQuota"
+        MFADevices -> "MFADevices"
+        MFADevicesInUse -> "MFADevicesInUse"
+        Policies -> "Policies"
+        PoliciesQuota -> "PoliciesQuota"
+        PolicySizeQuota -> "PolicySizeQuota"
+        PolicyVersionsInUse -> "PolicyVersionsInUse"
+        PolicyVersionsInUseQuota -> "PolicyVersionsInUseQuota"
+        ServerCertificates -> "ServerCertificates"
+        ServerCertificatesQuota -> "ServerCertificatesQuota"
+        SigningCertificatesPerUserQuota -> "SigningCertificatesPerUserQuota"
+        UserPolicySizeQuota -> "UserPolicySizeQuota"
+        Users -> "Users"
+        UsersQuota -> "UsersQuota"
+        VersionsPerPolicyQuota -> "VersionsPerPolicyQuota"
+
+instance Hashable SummaryKeyType
+instance ToQuery SummaryKeyType
+instance ToHeader SummaryKeyType
+
+instance FromXML SummaryKeyType where
+    parseXML = parseXMLText "SummaryKeyType"
+
+-- | Contains information about an AWS access key.
+--
+-- This data type is used as a response element in the CreateAccessKey and
+-- ListAccessKeys actions.
+--
+-- The @SecretAccessKey@ value is returned only in response to
+-- CreateAccessKey. You can get a secret access key only when you first
+-- create an access key; you cannot recover the secret access key later. If
+-- you lose a secret access key, you must create a new access key.
+--
+-- /See:/ 'accessKey' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -365,7 +680,12 @@ instance FromXML AccessKey where
                 <*> (x .@ "Status")
                 <*> (x .@ "SecretAccessKey")
 
--- | /See:/ 'accessKeyLastUsed' smart constructor.
+-- | Contains information about the last time an AWS access key was used.
+--
+-- This data type is used as a response element in the GetAccessKeyLastUsed
+-- action.
+--
+-- /See:/ 'accessKeyLastUsed' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -429,7 +749,12 @@ instance FromXML AccessKeyLastUsed where
               (x .@ "LastUsedDate") <*> (x .@ "ServiceName") <*>
                 (x .@ "Region")
 
--- | /See:/ 'accessKeyMetadata' smart constructor.
+-- | Contains information about an AWS access key, without its secret key.
+--
+-- This data type is used as a response element in the ListAccessKeys
+-- action.
+--
+-- /See:/ 'accessKeyMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -470,26 +795,18 @@ instance FromXML AccessKeyMetadata where
                 (x .@? "UserName")
                 <*> (x .@? "AccessKeyId")
 
-data AssignmentStatusType = Assigned | Unassigned | Any deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText AssignmentStatusType where
-    parser = takeLowerText >>= \case
-        "Any" -> pure Any
-        "Assigned" -> pure Assigned
-        "Unassigned" -> pure Unassigned
-        e -> fail ("Failure parsing AssignmentStatusType from " ++ show e)
-
-instance ToText AssignmentStatusType where
-    toText = \case
-        Any -> "Any"
-        Assigned -> "Assigned"
-        Unassigned -> "Unassigned"
-
-instance Hashable AssignmentStatusType
-instance ToQuery AssignmentStatusType
-instance ToHeader AssignmentStatusType
-
--- | /See:/ 'attachedPolicy' smart constructor.
+-- | Contains information about an attached policy.
+--
+-- An attached policy is a managed policy that has been attached to a user,
+-- group, or role. This data type is used as a response element in the
+-- ListAttachedGroupPolicies, ListAttachedRolePolicies,
+-- ListAttachedUserPolicies, and GetAccountAuthorizationDetails actions.
+--
+-- For more information about managed policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'attachedPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -515,30 +832,15 @@ instance FromXML AttachedPolicy where
           = AttachedPolicy' <$>
               (x .@? "PolicyName") <*> (x .@? "PolicyArn")
 
-data EntityType = Group | LocalManagedPolicy | AWSManagedPolicy | User | Role deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EntityType where
-    parser = takeLowerText >>= \case
-        "AWSManagedPolicy" -> pure AWSManagedPolicy
-        "Group" -> pure Group
-        "LocalManagedPolicy" -> pure LocalManagedPolicy
-        "Role" -> pure Role
-        "User" -> pure User
-        e -> fail ("Failure parsing EntityType from " ++ show e)
-
-instance ToText EntityType where
-    toText = \case
-        AWSManagedPolicy -> "AWSManagedPolicy"
-        Group -> "Group"
-        LocalManagedPolicy -> "LocalManagedPolicy"
-        Role -> "Role"
-        User -> "User"
-
-instance Hashable EntityType
-instance ToQuery EntityType
-instance ToHeader EntityType
-
--- | /See:/ 'group' smart constructor.
+-- | Contains information about an IAM group entity.
+--
+-- This data type is used as a response element in the following actions:
+--
+-- -   CreateGroup
+-- -   GetGroup
+-- -   ListGroups
+--
+-- /See:/ 'group' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -595,7 +897,13 @@ instance FromXML Group where
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
 
--- | /See:/ 'groupDetail' smart constructor.
+-- | Contains information about an IAM group, including all of the group\'s
+-- policies.
+--
+-- This data type is used as a response element in the
+-- GetAccountAuthorizationDetails action.
+--
+-- /See:/ 'groupDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -667,7 +975,20 @@ instance FromXML GroupDetail where
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'instanceProfile' smart constructor.
+-- | Contains information about an instance profile.
+--
+-- This data type is used as a response element in the following actions:
+--
+-- -   CreateInstanceProfile
+--
+-- -   GetInstanceProfile
+--
+-- -   ListInstanceProfiles
+--
+-- -   ListInstanceProfilesForRole
+--
+--
+-- /See:/ 'instanceProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -730,7 +1051,12 @@ instance FromXML InstanceProfile where
                 <*>
                 (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
 
--- | /See:/ 'loginProfile' smart constructor.
+-- | Contains the user name and password create date for a user.
+--
+-- This data type is used as a response element in the CreateLoginProfile
+-- and GetLoginProfile actions.
+--
+-- /See:/ 'loginProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -765,7 +1091,12 @@ instance FromXML LoginProfile where
               (x .@? "PasswordResetRequired") <*> (x .@ "UserName")
                 <*> (x .@ "CreateDate")
 
--- | /See:/ 'mfaDevice' smart constructor.
+-- | Contains information about an MFA device.
+--
+-- This data type is used as a response element in the ListMFADevices
+-- action.
+--
+-- /See:/ 'mfaDevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -799,7 +1130,18 @@ instance FromXML MFADevice where
               (x .@ "UserName") <*> (x .@ "SerialNumber") <*>
                 (x .@ "EnableDate")
 
--- | /See:/ 'managedPolicyDetail' smart constructor.
+-- | Contains information about a managed policy, including the policy\'s
+-- ARN, versions, and the number of principal entities (users, groups, and
+-- roles) that the policy is attached to.
+--
+-- This data type is used as a response element in the
+-- GetAccountAuthorizationDetails action.
+--
+-- For more information about managed policies, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'managedPolicyDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -914,7 +1256,10 @@ instance FromXML ManagedPolicyDetail where
                 <*> (x .@? "AttachmentCount")
                 <*> (x .@? "Description")
 
--- | /See:/ 'openIDConnectProviderListEntry' smart constructor.
+-- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect
+-- provider.
+--
+-- /See:/ 'openIDConnectProviderListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -933,7 +1278,12 @@ instance FromXML OpenIDConnectProviderListEntry where
         parseXML x
           = OpenIDConnectProviderListEntry' <$> (x .@? "Arn")
 
--- | /See:/ 'passwordPolicy' smart constructor.
+-- | Contains information about the account password policy.
+--
+-- This data type is used as a response element in the
+-- GetAccountPasswordPolicy action.
+--
+-- /See:/ 'passwordPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1021,7 +1371,16 @@ instance FromXML PasswordPolicy where
                 <*> (x .@? "RequireUppercaseCharacters")
                 <*> (x .@? "AllowUsersToChangePassword")
 
--- | /See:/ 'policy' smart constructor.
+-- | Contains information about a managed policy.
+--
+-- This data type is used as a response element in the CreatePolicy,
+-- GetPolicy, and ListPolicies actions.
+--
+-- For more information about managed policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'policy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1126,7 +1485,12 @@ instance FromXML Policy where
                 <*> (x .@? "AttachmentCount")
                 <*> (x .@? "Description")
 
--- | /See:/ 'policyDetail' smart constructor.
+-- | Contains information about an IAM policy, including the policy document.
+--
+-- This data type is used as a response element in the
+-- GetAccountAuthorizationDetails action.
+--
+-- /See:/ 'policyDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1152,7 +1516,16 @@ instance FromXML PolicyDetail where
           = PolicyDetail' <$>
               (x .@? "PolicyDocument") <*> (x .@? "PolicyName")
 
--- | /See:/ 'policyGroup' smart constructor.
+-- | Contains information about a group that a managed policy is attached to.
+--
+-- This data type is used as a response element in the
+-- ListEntitiesForPolicy action.
+--
+-- For more information about managed policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'policyGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1170,7 +1543,16 @@ pgGroupName = lens _pgGroupName (\ s a -> s{_pgGroupName = a});
 instance FromXML PolicyGroup where
         parseXML x = PolicyGroup' <$> (x .@? "GroupName")
 
--- | /See:/ 'policyRole' smart constructor.
+-- | Contains information about a role that a managed policy is attached to.
+--
+-- This data type is used as a response element in the
+-- ListEntitiesForPolicy action.
+--
+-- For more information about managed policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'policyRole' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1188,26 +1570,16 @@ prRoleName = lens _prRoleName (\ s a -> s{_prRoleName = a});
 instance FromXML PolicyRole where
         parseXML x = PolicyRole' <$> (x .@? "RoleName")
 
-data PolicyScopeType = AWS | Local | All deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText PolicyScopeType where
-    parser = takeLowerText >>= \case
-        "AWS" -> pure AWS
-        "All" -> pure All
-        "Local" -> pure Local
-        e -> fail ("Failure parsing PolicyScopeType from " ++ show e)
-
-instance ToText PolicyScopeType where
-    toText = \case
-        AWS -> "AWS"
-        All -> "All"
-        Local -> "Local"
-
-instance Hashable PolicyScopeType
-instance ToQuery PolicyScopeType
-instance ToHeader PolicyScopeType
-
--- | /See:/ 'policyUser' smart constructor.
+-- | Contains information about a user that a managed policy is attached to.
+--
+-- This data type is used as a response element in the
+-- ListEntitiesForPolicy action.
+--
+-- For more information about managed policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'policyUser' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1225,7 +1597,17 @@ puUserName = lens _puUserName (\ s a -> s{_puUserName = a});
 instance FromXML PolicyUser where
         parseXML x = PolicyUser' <$> (x .@? "UserName")
 
--- | /See:/ 'policyVersion' smart constructor.
+-- | Contains information about a version of a managed policy.
+--
+-- This data type is used as a response element in the CreatePolicyVersion,
+-- GetPolicyVersion, ListPolicyVersions, and GetAccountAuthorizationDetails
+-- actions.
+--
+-- For more information about managed policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ 'policyVersion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1275,47 +1657,18 @@ instance FromXML PolicyVersion where
                 (x .@? "Document")
                 <*> (x .@? "IsDefaultVersion")
 
-data ReportFormatType = TextCSV deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReportFormatType where
-    parser = takeLowerText >>= \case
-        "text/csv" -> pure TextCSV
-        e -> fail ("Failure parsing ReportFormatType from " ++ show e)
-
-instance ToText ReportFormatType where
-    toText = \case
-        TextCSV -> "text/csv"
-
-instance Hashable ReportFormatType
-instance ToQuery ReportFormatType
-instance ToHeader ReportFormatType
-
-instance FromXML ReportFormatType where
-    parseXML = parseXMLText "ReportFormatType"
-
-data ReportStateType = Inprogress | Started | Complete deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ReportStateType where
-    parser = takeLowerText >>= \case
-        "COMPLETE" -> pure Complete
-        "INPROGRESS" -> pure Inprogress
-        "STARTED" -> pure Started
-        e -> fail ("Failure parsing ReportStateType from " ++ show e)
-
-instance ToText ReportStateType where
-    toText = \case
-        Complete -> "COMPLETE"
-        Inprogress -> "INPROGRESS"
-        Started -> "STARTED"
-
-instance Hashable ReportStateType
-instance ToQuery ReportStateType
-instance ToHeader ReportStateType
-
-instance FromXML ReportStateType where
-    parseXML = parseXMLText "ReportStateType"
-
--- | /See:/ 'role' smart constructor.
+-- | Contains information about an IAM role.
+--
+-- This data type is used as a response element in the following actions:
+--
+-- -   CreateRole
+--
+-- -   GetRole
+--
+-- -   ListRoles
+--
+--
+-- /See:/ 'role' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1379,7 +1732,13 @@ instance FromXML Role where
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
 
--- | /See:/ 'roleDetail' smart constructor.
+-- | Contains information about an IAM role, including all of the role\'s
+-- policies.
+--
+-- This data type is used as a response element in the
+-- GetAccountAuthorizationDetails action.
+--
+-- /See:/ 'roleDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1469,7 +1828,9 @@ instance FromXML RoleDetail where
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'sAMLProviderListEntry' smart constructor.
+-- | Contains the list of SAML providers for this account.
+--
+-- /See:/ 'sAMLProviderListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1502,7 +1863,12 @@ instance FromXML SAMLProviderListEntry where
               (x .@? "Arn") <*> (x .@? "CreateDate") <*>
                 (x .@? "ValidUntil")
 
--- | /See:/ 'serverCertificate' smart constructor.
+-- | Contains information about a server certificate.
+--
+-- This data type is used as a response element in the GetServerCertificate
+-- action.
+--
+-- /See:/ 'serverCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1537,7 +1903,13 @@ instance FromXML ServerCertificate where
                 (x .@ "ServerCertificateMetadata")
                 <*> (x .@ "CertificateBody")
 
--- | /See:/ 'serverCertificateMetadata' smart constructor.
+-- | Contains information about a server certificate without its certificate
+-- body, certificate chain, and private key.
+--
+-- This data type is used as a response element in the
+-- UploadServerCertificate and ListServerCertificates actions.
+--
+-- /See:/ 'serverCertificateMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1600,7 +1972,12 @@ instance FromXML ServerCertificateMetadata where
                 <*> (x .@ "ServerCertificateId")
                 <*> (x .@ "Arn")
 
--- | /See:/ 'signingCertificate' smart constructor.
+-- | Contains information about an X.509 signing certificate.
+--
+-- This data type is used as a response element in the
+-- UploadSigningCertificate and ListSigningCertificates actions.
+--
+-- /See:/ 'signingCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1648,93 +2025,18 @@ instance FromXML SigningCertificate where
                 <*> (x .@ "CertificateBody")
                 <*> (x .@ "Status")
 
-data StatusType = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StatusType where
-    parser = takeLowerText >>= \case
-        "Active" -> pure Active
-        "Inactive" -> pure Inactive
-        e -> fail ("Failure parsing StatusType from " ++ show e)
-
-instance ToText StatusType where
-    toText = \case
-        Active -> "Active"
-        Inactive -> "Inactive"
-
-instance Hashable StatusType
-instance ToQuery StatusType
-instance ToHeader StatusType
-
-instance FromXML StatusType where
-    parseXML = parseXMLText "StatusType"
-
-data SummaryKeyType = AttachedPoliciesPerUserQuota | UsersQuota | Groups | GroupsQuota | Users | MFADevicesInUse | PolicyVersionsInUse | SigningCertificatesPerUserQuota | PoliciesQuota | AccessKeysPerUserQuota | PolicySizeQuota | ServerCertificates | AttachedPoliciesPerRoleQuota | GroupsPerUserQuota | GroupPolicySizeQuota | AccountSigningCertificatesPresent | UserPolicySizeQuota | AttachedPoliciesPerGroupQuota | AccountAccessKeysPresent | ServerCertificatesQuota | VersionsPerPolicyQuota | PolicyVersionsInUseQuota | Policies | AccountMFAEnabled | MFADevices deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SummaryKeyType where
-    parser = takeLowerText >>= \case
-        "AccessKeysPerUserQuota" -> pure AccessKeysPerUserQuota
-        "AccountAccessKeysPresent" -> pure AccountAccessKeysPresent
-        "AccountMFAEnabled" -> pure AccountMFAEnabled
-        "AccountSigningCertificatesPresent" -> pure AccountSigningCertificatesPresent
-        "AttachedPoliciesPerGroupQuota" -> pure AttachedPoliciesPerGroupQuota
-        "AttachedPoliciesPerRoleQuota" -> pure AttachedPoliciesPerRoleQuota
-        "AttachedPoliciesPerUserQuota" -> pure AttachedPoliciesPerUserQuota
-        "GroupPolicySizeQuota" -> pure GroupPolicySizeQuota
-        "Groups" -> pure Groups
-        "GroupsPerUserQuota" -> pure GroupsPerUserQuota
-        "GroupsQuota" -> pure GroupsQuota
-        "MFADevices" -> pure MFADevices
-        "MFADevicesInUse" -> pure MFADevicesInUse
-        "Policies" -> pure Policies
-        "PoliciesQuota" -> pure PoliciesQuota
-        "PolicySizeQuota" -> pure PolicySizeQuota
-        "PolicyVersionsInUse" -> pure PolicyVersionsInUse
-        "PolicyVersionsInUseQuota" -> pure PolicyVersionsInUseQuota
-        "ServerCertificates" -> pure ServerCertificates
-        "ServerCertificatesQuota" -> pure ServerCertificatesQuota
-        "SigningCertificatesPerUserQuota" -> pure SigningCertificatesPerUserQuota
-        "UserPolicySizeQuota" -> pure UserPolicySizeQuota
-        "Users" -> pure Users
-        "UsersQuota" -> pure UsersQuota
-        "VersionsPerPolicyQuota" -> pure VersionsPerPolicyQuota
-        e -> fail ("Failure parsing SummaryKeyType from " ++ show e)
-
-instance ToText SummaryKeyType where
-    toText = \case
-        AccessKeysPerUserQuota -> "AccessKeysPerUserQuota"
-        AccountAccessKeysPresent -> "AccountAccessKeysPresent"
-        AccountMFAEnabled -> "AccountMFAEnabled"
-        AccountSigningCertificatesPresent -> "AccountSigningCertificatesPresent"
-        AttachedPoliciesPerGroupQuota -> "AttachedPoliciesPerGroupQuota"
-        AttachedPoliciesPerRoleQuota -> "AttachedPoliciesPerRoleQuota"
-        AttachedPoliciesPerUserQuota -> "AttachedPoliciesPerUserQuota"
-        GroupPolicySizeQuota -> "GroupPolicySizeQuota"
-        Groups -> "Groups"
-        GroupsPerUserQuota -> "GroupsPerUserQuota"
-        GroupsQuota -> "GroupsQuota"
-        MFADevices -> "MFADevices"
-        MFADevicesInUse -> "MFADevicesInUse"
-        Policies -> "Policies"
-        PoliciesQuota -> "PoliciesQuota"
-        PolicySizeQuota -> "PolicySizeQuota"
-        PolicyVersionsInUse -> "PolicyVersionsInUse"
-        PolicyVersionsInUseQuota -> "PolicyVersionsInUseQuota"
-        ServerCertificates -> "ServerCertificates"
-        ServerCertificatesQuota -> "ServerCertificatesQuota"
-        SigningCertificatesPerUserQuota -> "SigningCertificatesPerUserQuota"
-        UserPolicySizeQuota -> "UserPolicySizeQuota"
-        Users -> "Users"
-        UsersQuota -> "UsersQuota"
-        VersionsPerPolicyQuota -> "VersionsPerPolicyQuota"
-
-instance Hashable SummaryKeyType
-instance ToQuery SummaryKeyType
-instance ToHeader SummaryKeyType
-
-instance FromXML SummaryKeyType where
-    parseXML = parseXMLText "SummaryKeyType"
-
--- | /See:/ 'user' smart constructor.
+-- | Contains information about an IAM user entity.
+--
+-- This data type is used as a response element in the following actions:
+--
+-- -   CreateUser
+--
+-- -   GetUser
+--
+-- -   ListUsers
+--
+--
+-- /See:/ 'user' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1814,7 +2116,13 @@ instance FromXML User where
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
 
--- | /See:/ 'userDetail' smart constructor.
+-- | Contains information about an IAM user, including all the user\'s
+-- policies and all the IAM groups the user is in.
+--
+-- This data type is used as a response element in the
+-- GetAccountAuthorizationDetails action.
+--
+-- /See:/ 'userDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1894,7 +2202,9 @@ instance FromXML UserDetail where
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | /See:/ 'virtualMFADevice' smart constructor.
+-- | Contains information about a virtual MFA device.
+--
+-- /See:/ 'virtualMFADevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

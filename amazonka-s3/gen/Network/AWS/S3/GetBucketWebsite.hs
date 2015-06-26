@@ -35,6 +35,7 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwrErrorDocument
     , gbwrRoutingRules
     , gbwrIndexDocument
+    , gbwrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -70,7 +71,8 @@ instance AWSRequest GetBucketWebsite where
                      <*>
                      (x .@? "RoutingRules" .!@ mempty >>=
                         may (parseXMLList "RoutingRule"))
-                     <*> (x .@? "IndexDocument"))
+                     <*> (x .@? "IndexDocument")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
@@ -93,11 +95,13 @@ instance ToQuery GetBucketWebsite where
 -- * 'gbwrRoutingRules'
 --
 -- * 'gbwrIndexDocument'
-data GetBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _gbwrErrorDocument :: Maybe ErrorDocument, _gbwrRoutingRules :: Maybe [RoutingRule], _gbwrIndexDocument :: Maybe IndexDocument} deriving (Eq, Read, Show)
+--
+-- * 'gbwrStatusCode'
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _gbwrErrorDocument :: Maybe ErrorDocument, _gbwrRoutingRules :: Maybe [RoutingRule], _gbwrIndexDocument :: Maybe IndexDocument, _gbwrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
-getBucketWebsiteResponse :: GetBucketWebsiteResponse
-getBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo = Nothing, _gbwrErrorDocument = Nothing, _gbwrRoutingRules = Nothing, _gbwrIndexDocument = Nothing};
+getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
+getBucketWebsiteResponse pStatusCode = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo = Nothing, _gbwrErrorDocument = Nothing, _gbwrRoutingRules = Nothing, _gbwrIndexDocument = Nothing, _gbwrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
@@ -114,3 +118,7 @@ gbwrRoutingRules = lens _gbwrRoutingRules (\ s a -> s{_gbwrRoutingRules = a}) . 
 -- | FIXME: Undocumented member.
 gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrIndexDocument = lens _gbwrIndexDocument (\ s a -> s{_gbwrIndexDocument = a});
+
+-- | FIXME: Undocumented member.
+gbwrStatusCode :: Lens' GetBucketWebsiteResponse Int
+gbwrStatusCode = lens _gbwrStatusCode (\ s a -> s{_gbwrStatusCode = a});

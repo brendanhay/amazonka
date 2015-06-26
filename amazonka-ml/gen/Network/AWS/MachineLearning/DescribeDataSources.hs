@@ -42,12 +42,13 @@ module Network.AWS.MachineLearning.DescribeDataSources
     -- ** Response constructor
     , describeDataSourcesResponse
     -- ** Response lenses
-    , ddsrResults
-    , ddsrNextToken
+    , dResults
+    , dNextToken
+    , dStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -170,10 +171,10 @@ ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a});
 
 instance AWSPager DescribeDataSources where
         page rq rs
-          | stop (rs ^. ddsrNextToken) = Nothing
-          | stop (rs ^. ddsrResults) = Nothing
+          | stop (rs ^. dNextToken) = Nothing
+          | stop (rs ^. dResults) = Nothing
           | otherwise =
-            Just $ rq & ddsNextToken .~ rs ^. ddsrNextToken
+            Just $ rq & ddsNextToken .~ rs ^. dNextToken
 
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning
@@ -184,7 +185,8 @@ instance AWSRequest DescribeDataSources where
           = receiveJSON
               (\ s h x ->
                  DescribeDataSourcesResponse' <$>
-                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDataSources where
         toHeaders
@@ -213,24 +215,33 @@ instance ToPath DescribeDataSources where
 instance ToQuery DescribeDataSources where
         toQuery = const mempty
 
--- | /See:/ 'describeDataSourcesResponse' smart constructor.
+-- | Represents the query results from a DescribeDataSources operation. The
+-- content is essentially a list of @DataSource@.
+--
+-- /See:/ 'describeDataSourcesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrResults'
+-- * 'dResults'
 --
--- * 'ddsrNextToken'
-data DescribeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults :: Maybe [DataSource], _ddsrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dNextToken'
+--
+-- * 'dStatusCode'
+data DescribeDataSourcesResponse = DescribeDataSourcesResponse'{_dResults :: Maybe [DataSource], _dNextToken :: Maybe Text, _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
-describeDataSourcesResponse :: DescribeDataSourcesResponse
-describeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults = Nothing, _ddsrNextToken = Nothing};
+describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse
+describeDataSourcesResponse pStatusCode = DescribeDataSourcesResponse'{_dResults = Nothing, _dNextToken = Nothing, _dStatusCode = pStatusCode};
 
 -- | A list of @DataSource@ that meet the search criteria.
-ddsrResults :: Lens' DescribeDataSourcesResponse [DataSource]
-ddsrResults = lens _ddsrResults (\ s a -> s{_ddsrResults = a}) . _Default;
+dResults :: Lens' DescribeDataSourcesResponse [DataSource]
+dResults = lens _dResults (\ s a -> s{_dResults = a}) . _Default;
 
 -- | An ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-ddsrNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
-ddsrNextToken = lens _ddsrNextToken (\ s a -> s{_ddsrNextToken = a});
+dNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DescribeDataSourcesResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

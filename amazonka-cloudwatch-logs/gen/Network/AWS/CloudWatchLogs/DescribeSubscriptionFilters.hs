@@ -43,6 +43,7 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     -- ** Response lenses
     , dsfrSubscriptionFilters
     , dsfrNextToken
+    , dsfrStatusCode
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -95,7 +96,8 @@ instance AWSRequest DescribeSubscriptionFilters where
               (\ s h x ->
                  DescribeSubscriptionFiltersResponse' <$>
                    (x .?> "subscriptionFilters" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
@@ -127,11 +129,13 @@ instance ToQuery DescribeSubscriptionFilters where
 -- * 'dsfrSubscriptionFilters'
 --
 -- * 'dsfrNextToken'
-data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters :: Maybe [SubscriptionFilter], _dsfrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dsfrStatusCode'
+data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters :: Maybe [SubscriptionFilter], _dsfrNextToken :: Maybe Text, _dsfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
-describeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse
-describeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters = Nothing, _dsfrNextToken = Nothing};
+describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse
+describeSubscriptionFiltersResponse pStatusCode = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters = Nothing, _dsfrNextToken = Nothing, _dsfrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dsfrSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
@@ -140,3 +144,7 @@ dsfrSubscriptionFilters = lens _dsfrSubscriptionFilters (\ s a -> s{_dsfrSubscri
 -- | FIXME: Undocumented member.
 dsfrNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dsfrStatusCode :: Lens' DescribeSubscriptionFiltersResponse Int
+dsfrStatusCode = lens _dsfrStatusCode (\ s a -> s{_dsfrStatusCode = a});

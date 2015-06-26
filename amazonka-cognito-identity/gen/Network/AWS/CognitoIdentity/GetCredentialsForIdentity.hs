@@ -39,6 +39,7 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     -- ** Response lenses
     , gcfirCredentials
     , gcfirIdentityId
+    , gcfirStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getCredentialsForIdentity' smart constructor.
+-- | Input to the @GetCredentialsForIdentity@ action.
+--
+-- /See:/ 'getCredentialsForIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -77,7 +80,8 @@ instance AWSRequest GetCredentialsForIdentity where
           = receiveJSON
               (\ s h x ->
                  GetCredentialsForIdentityResponse' <$>
-                   (x .?> "Credentials") <*> (x .?> "IdentityId"))
+                   (x .?> "Credentials") <*> (x .?> "IdentityId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
@@ -101,18 +105,23 @@ instance ToPath GetCredentialsForIdentity where
 instance ToQuery GetCredentialsForIdentity where
         toQuery = const mempty
 
--- | /See:/ 'getCredentialsForIdentityResponse' smart constructor.
+-- | Returned in response to a successful @GetCredentialsForIdentity@
+-- operation.
+--
+-- /See:/ 'getCredentialsForIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcfirCredentials'
 --
 -- * 'gcfirIdentityId'
-data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials :: Maybe Credentials, _gcfirIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gcfirStatusCode'
+data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials :: Maybe Credentials, _gcfirIdentityId :: Maybe Text, _gcfirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
-getCredentialsForIdentityResponse :: GetCredentialsForIdentityResponse
-getCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials = Nothing, _gcfirIdentityId = Nothing};
+getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
+getCredentialsForIdentityResponse pStatusCode = GetCredentialsForIdentityResponse'{_gcfirCredentials = Nothing, _gcfirIdentityId = Nothing, _gcfirStatusCode = pStatusCode};
 
 -- | Credentials for the the provided identity ID.
 gcfirCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
@@ -121,3 +130,7 @@ gcfirCredentials = lens _gcfirCredentials (\ s a -> s{_gcfirCredentials = a});
 -- | A unique identifier in the format REGION:GUID.
 gcfirIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirIdentityId = lens _gcfirIdentityId (\ s a -> s{_gcfirIdentityId = a});
+
+-- | FIXME: Undocumented member.
+gcfirStatusCode :: Lens' GetCredentialsForIdentityResponse Int
+gcfirStatusCode = lens _gcfirStatusCode (\ s a -> s{_gcfirStatusCode = a});

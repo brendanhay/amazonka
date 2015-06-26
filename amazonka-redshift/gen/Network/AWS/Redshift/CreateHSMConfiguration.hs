@@ -47,6 +47,7 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , createHSMConfigurationResponse
     -- ** Response lenses
     , chcrHSMConfiguration
+    , chcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -54,7 +55,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createHSMConfiguration' smart constructor.
+-- |
+--
+-- /See:/ 'createHSMConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -118,7 +121,7 @@ instance AWSRequest CreateHSMConfiguration where
           = receiveXMLWrapper "CreateHsmConfigurationResult"
               (\ s h x ->
                  CreateHSMConfigurationResponse' <$>
-                   (x .@? "HsmConfiguration"))
+                   (x .@? "HsmConfiguration") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
@@ -147,12 +150,18 @@ instance ToQuery CreateHSMConfiguration where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chcrHSMConfiguration'
-newtype CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'{_chcrHSMConfiguration :: Maybe HSMConfiguration} deriving (Eq, Read, Show)
+--
+-- * 'chcrStatusCode'
+data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'{_chcrHSMConfiguration :: Maybe HSMConfiguration, _chcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateHSMConfigurationResponse' smart constructor.
-createHSMConfigurationResponse :: CreateHSMConfigurationResponse
-createHSMConfigurationResponse = CreateHSMConfigurationResponse'{_chcrHSMConfiguration = Nothing};
+createHSMConfigurationResponse :: Int -> CreateHSMConfigurationResponse
+createHSMConfigurationResponse pStatusCode = CreateHSMConfigurationResponse'{_chcrHSMConfiguration = Nothing, _chcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 chcrHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
 chcrHSMConfiguration = lens _chcrHSMConfiguration (\ s a -> s{_chcrHSMConfiguration = a});
+
+-- | FIXME: Undocumented member.
+chcrStatusCode :: Lens' CreateHSMConfigurationResponse Int
+chcrStatusCode = lens _chcrStatusCode (\ s a -> s{_chcrStatusCode = a});

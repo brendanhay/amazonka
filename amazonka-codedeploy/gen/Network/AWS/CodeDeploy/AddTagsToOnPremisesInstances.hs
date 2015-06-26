@@ -38,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addTagsToOnPremisesInstances' smart constructor.
+-- | Represents the input of an adds tags to on-premises instance operation.
+--
+-- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

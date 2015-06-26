@@ -40,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyInstanceGroups' smart constructor.
+-- | Change the size of some instance groups.
+--
+-- /See:/ 'modifyInstanceGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

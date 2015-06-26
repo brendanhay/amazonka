@@ -47,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'putDeliveryChannel' smart constructor.
+-- | The input for the PutDeliveryChannel action.
+--
+-- /See:/ 'putDeliveryChannel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

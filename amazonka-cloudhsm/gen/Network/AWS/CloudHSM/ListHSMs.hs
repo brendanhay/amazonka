@@ -39,6 +39,7 @@ module Network.AWS.CloudHSM.ListHSMs
     -- ** Response lenses
     , lisNextToken
     , lisHSMList
+    , lisStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -70,7 +71,8 @@ instance AWSRequest ListHSMs where
           = receiveJSON
               (\ s h x ->
                  ListHSMsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty))
+                   (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListHSMs where
         toHeaders
@@ -91,18 +93,22 @@ instance ToPath ListHSMs where
 instance ToQuery ListHSMs where
         toQuery = const mempty
 
--- | /See:/ 'listHSMsResponse' smart constructor.
+-- | Contains the output of the ListHsms action.
+--
+-- /See:/ 'listHSMsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lisNextToken'
 --
 -- * 'lisHSMList'
-data ListHSMsResponse = ListHSMsResponse'{_lisNextToken :: Maybe Text, _lisHSMList :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lisStatusCode'
+data ListHSMsResponse = ListHSMsResponse'{_lisNextToken :: Maybe Text, _lisHSMList :: Maybe [Text], _lisStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListHSMsResponse' smart constructor.
-listHSMsResponse :: ListHSMsResponse
-listHSMsResponse = ListHSMsResponse'{_lisNextToken = Nothing, _lisHSMList = Nothing};
+listHSMsResponse :: Int -> ListHSMsResponse
+listHSMsResponse pStatusCode = ListHSMsResponse'{_lisNextToken = Nothing, _lisHSMList = Nothing, _lisStatusCode = pStatusCode};
 
 -- | If not null, more results are available. Pass this value to ListHsms to
 -- retrieve the next set of items.
@@ -112,3 +118,7 @@ lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
 -- | The list of ARNs that identify the HSMs.
 lisHSMList :: Lens' ListHSMsResponse [Text]
 lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lisStatusCode :: Lens' ListHSMsResponse Int
+lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});

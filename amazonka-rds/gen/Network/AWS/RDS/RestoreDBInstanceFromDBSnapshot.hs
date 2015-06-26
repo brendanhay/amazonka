@@ -62,6 +62,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , restoreDBInstanceFromDBSnapshotResponse
     -- ** Response lenses
     , rdifdsrDBInstance
+    , rdifdsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -289,7 +292,7 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
               "RestoreDBInstanceFromDBSnapshotResult"
               (\ s h x ->
                  RestoreDBInstanceFromDBSnapshotResponse' <$>
-                   (x .@? "DBInstance"))
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
@@ -333,12 +336,18 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdifdsrDBInstance'
-newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'{_rdifdsrDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'rdifdsrStatusCode'
+data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'{_rdifdsrDBInstance :: Maybe DBInstance, _rdifdsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' smart constructor.
-restoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResponse
-restoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'{_rdifdsrDBInstance = Nothing};
+restoreDBInstanceFromDBSnapshotResponse :: Int -> RestoreDBInstanceFromDBSnapshotResponse
+restoreDBInstanceFromDBSnapshotResponse pStatusCode = RestoreDBInstanceFromDBSnapshotResponse'{_rdifdsrDBInstance = Nothing, _rdifdsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rdifdsrDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
 rdifdsrDBInstance = lens _rdifdsrDBInstance (\ s a -> s{_rdifdsrDBInstance = a});
+
+-- | FIXME: Undocumented member.
+rdifdsrStatusCode :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
+rdifdsrStatusCode = lens _rdifdsrStatusCode (\ s a -> s{_rdifdsrStatusCode = a});

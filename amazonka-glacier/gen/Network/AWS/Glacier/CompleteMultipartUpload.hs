@@ -91,7 +91,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'completeMultipartUpload' smart constructor.
+-- | Provides options to complete a multipart upload operation. This informs
+-- Amazon Glacier that all the archive parts have been uploaded and Amazon
+-- Glacier can now assemble the archive from the uploaded parts. After
+-- assembling and saving the archive to the vault, Amazon Glacier returns
+-- the URI path of the newly created archive resource.
+--
+-- /See:/ 'completeMultipartUpload' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -36,15 +36,18 @@ module Network.AWS.SNS.ListSubscriptions
     -- ** Response lenses
     , lsrNextToken
     , lsrSubscriptions
+    , lsrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'listSubscriptions' smart constructor.
+-- | Input for ListSubscriptions action.
+--
+-- /See:/ 'listSubscriptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +79,8 @@ instance AWSRequest ListSubscriptions where
                  ListSubscriptionsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Subscriptions" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListSubscriptions where
         toHeaders = const mempty
@@ -91,18 +95,22 @@ instance ToQuery ListSubscriptions where
                "Version" =: ("2010-03-31" :: ByteString),
                "NextToken" =: _lsNextToken]
 
--- | /See:/ 'listSubscriptionsResponse' smart constructor.
+-- | Response for ListSubscriptions action
+--
+-- /See:/ 'listSubscriptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsrNextToken'
 --
 -- * 'lsrSubscriptions'
-data ListSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken :: Maybe Text, _lsrSubscriptions :: Maybe [Subscription]} deriving (Eq, Read, Show)
+--
+-- * 'lsrStatusCode'
+data ListSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken :: Maybe Text, _lsrSubscriptions :: Maybe [Subscription], _lsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListSubscriptionsResponse' smart constructor.
-listSubscriptionsResponse :: ListSubscriptionsResponse
-listSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken = Nothing, _lsrSubscriptions = Nothing};
+listSubscriptionsResponse :: Int -> ListSubscriptionsResponse
+listSubscriptionsResponse pStatusCode = ListSubscriptionsResponse'{_lsrNextToken = Nothing, _lsrSubscriptions = Nothing, _lsrStatusCode = pStatusCode};
 
 -- | Token to pass along to the next @ListSubscriptions@ request. This
 -- element is returned if there are more subscriptions to retrieve.
@@ -112,3 +120,7 @@ lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 -- | A list of subscriptions.
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrSubscriptions = lens _lsrSubscriptions (\ s a -> s{_lsrSubscriptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lsrStatusCode :: Lens' ListSubscriptionsResponse Int
+lsrStatusCode = lens _lsrStatusCode (\ s a -> s{_lsrStatusCode = a});

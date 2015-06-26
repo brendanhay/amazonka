@@ -32,6 +32,7 @@ module Network.AWS.KMS.DescribeKey
     , describeKeyResponse
     -- ** Response lenses
     , dkrKeyMetadata
+    , dkrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -71,7 +72,8 @@ instance AWSRequest DescribeKey where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeKeyResponse' <$> (x .?> "KeyMetadata"))
+                 DescribeKeyResponse' <$>
+                   (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeKey where
         toHeaders
@@ -97,12 +99,18 @@ instance ToQuery DescribeKey where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dkrKeyMetadata'
-newtype DescribeKeyResponse = DescribeKeyResponse'{_dkrKeyMetadata :: Maybe KeyMetadata} deriving (Eq, Read, Show)
+--
+-- * 'dkrStatusCode'
+data DescribeKeyResponse = DescribeKeyResponse'{_dkrKeyMetadata :: Maybe KeyMetadata, _dkrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeKeyResponse' smart constructor.
-describeKeyResponse :: DescribeKeyResponse
-describeKeyResponse = DescribeKeyResponse'{_dkrKeyMetadata = Nothing};
+describeKeyResponse :: Int -> DescribeKeyResponse
+describeKeyResponse pStatusCode = DescribeKeyResponse'{_dkrKeyMetadata = Nothing, _dkrStatusCode = pStatusCode};
 
 -- | Metadata associated with the key.
 dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrKeyMetadata = lens _dkrKeyMetadata (\ s a -> s{_dkrKeyMetadata = a});
+
+-- | FIXME: Undocumented member.
+dkrStatusCode :: Lens' DescribeKeyResponse Int
+dkrStatusCode = lens _dkrStatusCode (\ s a -> s{_dkrStatusCode = a});

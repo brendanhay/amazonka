@@ -42,6 +42,7 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     , updateDomainNameserversResponse
     -- ** Response lenses
     , udnrOperationId
+    , udnrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -49,7 +50,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'updateDomainNameservers' smart constructor.
+-- | The UpdateDomainNameserver request includes the following elements.
+--
+-- /See:/ 'updateDomainNameservers' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,7 @@ instance AWSRequest UpdateDomainNameservers where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainNameserversResponse' <$>
-                   (x .:> "OperationId"))
+                   (x .:> "OperationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
@@ -126,16 +129,20 @@ instance ToPath UpdateDomainNameservers where
 instance ToQuery UpdateDomainNameservers where
         toQuery = const mempty
 
--- | /See:/ 'updateDomainNameserversResponse' smart constructor.
+-- | The UpdateDomainNameservers response includes the following element.
+--
+-- /See:/ 'updateDomainNameserversResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udnrOperationId'
-newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'{_udnrOperationId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'udnrStatusCode'
+data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'{_udnrOperationId :: Text, _udnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
-updateDomainNameserversResponse :: Text -> UpdateDomainNameserversResponse
-updateDomainNameserversResponse pOperationId = UpdateDomainNameserversResponse'{_udnrOperationId = pOperationId};
+updateDomainNameserversResponse :: Text -> Int -> UpdateDomainNameserversResponse
+updateDomainNameserversResponse pOperationId pStatusCode = UpdateDomainNameserversResponse'{_udnrOperationId = pOperationId, _udnrStatusCode = pStatusCode};
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -147,3 +154,7 @@ updateDomainNameserversResponse pOperationId = UpdateDomainNameserversResponse'{
 -- Constraints: Maximum 255 characters.
 udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\ s a -> s{_udnrOperationId = a});
+
+-- | FIXME: Undocumented member.
+udnrStatusCode :: Lens' UpdateDomainNameserversResponse Int
+udnrStatusCode = lens _udnrStatusCode (\ s a -> s{_udnrStatusCode = a});

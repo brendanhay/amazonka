@@ -38,6 +38,7 @@ module Network.AWS.IAM.GetSAMLProvider
     , gsamlprCreateDate
     , gsamlprValidUntil
     , gsamlprSAMLMetadataDocument
+    , gsamlprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -70,7 +71,8 @@ instance AWSRequest GetSAMLProvider where
               (\ s h x ->
                  GetSAMLProviderResponse' <$>
                    (x .@? "CreateDate") <*> (x .@? "ValidUntil") <*>
-                     (x .@? "SAMLMetadataDocument"))
+                     (x .@? "SAMLMetadataDocument")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
@@ -85,7 +87,9 @@ instance ToQuery GetSAMLProvider where
                "Version" =: ("2010-05-08" :: ByteString),
                "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
 
--- | /See:/ 'getSAMLProviderResponse' smart constructor.
+-- | Contains the response to a successful GetSAMLProvider request.
+--
+-- /See:/ 'getSAMLProviderResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -94,11 +98,13 @@ instance ToQuery GetSAMLProvider where
 -- * 'gsamlprValidUntil'
 --
 -- * 'gsamlprSAMLMetadataDocument'
-data GetSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate :: Maybe ISO8601, _gsamlprValidUntil :: Maybe ISO8601, _gsamlprSAMLMetadataDocument :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gsamlprStatusCode'
+data GetSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate :: Maybe ISO8601, _gsamlprValidUntil :: Maybe ISO8601, _gsamlprSAMLMetadataDocument :: Maybe Text, _gsamlprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
-getSAMLProviderResponse :: GetSAMLProviderResponse
-getSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate = Nothing, _gsamlprValidUntil = Nothing, _gsamlprSAMLMetadataDocument = Nothing};
+getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
+getSAMLProviderResponse pStatusCode = GetSAMLProviderResponse'{_gsamlprCreateDate = Nothing, _gsamlprValidUntil = Nothing, _gsamlprSAMLMetadataDocument = Nothing, _gsamlprStatusCode = pStatusCode};
 
 -- | The date and time when the SAML provider was created.
 gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
@@ -112,3 +118,7 @@ gsamlprValidUntil = lens _gsamlprValidUntil (\ s a -> s{_gsamlprValidUntil = a})
 -- provider.
 gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprSAMLMetadataDocument = lens _gsamlprSAMLMetadataDocument (\ s a -> s{_gsamlprSAMLMetadataDocument = a});
+
+-- | FIXME: Undocumented member.
+gsamlprStatusCode :: Lens' GetSAMLProviderResponse Int
+gsamlprStatusCode = lens _gsamlprStatusCode (\ s a -> s{_gsamlprStatusCode = a});

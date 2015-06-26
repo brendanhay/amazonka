@@ -45,15 +45,21 @@ module Network.AWS.StorageGateway.ListGateways
     -- ** Response lenses
     , lgrMarker
     , lgrGateways
+    , lgrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'listGateways' smart constructor.
+-- | A JSON object containing zero or more of the following fields:
+--
+-- -   ListGatewaysInput$Limit
+-- -   ListGatewaysInput$Marker
+--
+-- /See:/ 'listGateways' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +96,8 @@ instance AWSRequest ListGateways where
           = receiveJSON
               (\ s h x ->
                  ListGatewaysResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty))
+                   (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGateways where
         toHeaders
@@ -119,11 +126,13 @@ instance ToQuery ListGateways where
 -- * 'lgrMarker'
 --
 -- * 'lgrGateways'
-data ListGatewaysResponse = ListGatewaysResponse'{_lgrMarker :: Maybe Text, _lgrGateways :: Maybe [GatewayInfo]} deriving (Eq, Read, Show)
+--
+-- * 'lgrStatusCode'
+data ListGatewaysResponse = ListGatewaysResponse'{_lgrMarker :: Maybe Text, _lgrGateways :: Maybe [GatewayInfo], _lgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListGatewaysResponse' smart constructor.
-listGatewaysResponse :: ListGatewaysResponse
-listGatewaysResponse = ListGatewaysResponse'{_lgrMarker = Nothing, _lgrGateways = Nothing};
+listGatewaysResponse :: Int -> ListGatewaysResponse
+listGatewaysResponse pStatusCode = ListGatewaysResponse'{_lgrMarker = Nothing, _lgrGateways = Nothing, _lgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
@@ -132,3 +141,7 @@ lgrMarker = lens _lgrMarker (\ s a -> s{_lgrMarker = a});
 -- | FIXME: Undocumented member.
 lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lgrStatusCode :: Lens' ListGatewaysResponse Int
+lgrStatusCode = lens _lgrStatusCode (\ s a -> s{_lgrStatusCode = a});

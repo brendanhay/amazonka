@@ -37,6 +37,7 @@ module Network.AWS.CloudSearch.DefineExpression
     , defineExpressionResponse
     -- ** Response lenses
     , derExpression
+    , derStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -44,7 +45,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'defineExpression' smart constructor.
+-- | Container for the parameters to the @DefineExpression@ operation.
+-- Specifies the name of the domain you want to update and the expression
+-- you want to configure.
+--
+-- /See:/ 'defineExpression' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -72,7 +77,8 @@ instance AWSRequest DefineExpression where
         response
           = receiveXMLWrapper "DefineExpressionResult"
               (\ s h x ->
-                 DefineExpressionResponse' <$> (x .@ "Expression"))
+                 DefineExpressionResponse' <$>
+                   (x .@ "Expression") <*> (pure (fromEnum s)))
 
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
@@ -88,17 +94,26 @@ instance ToQuery DefineExpression where
                "DomainName" =: _defDomainName,
                "Expression" =: _defExpression]
 
--- | /See:/ 'defineExpressionResponse' smart constructor.
+-- | The result of a @DefineExpression@ request. Contains the status of the
+-- newly-configured expression.
+--
+-- /See:/ 'defineExpressionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derExpression'
-newtype DefineExpressionResponse = DefineExpressionResponse'{_derExpression :: ExpressionStatus} deriving (Eq, Read, Show)
+--
+-- * 'derStatusCode'
+data DefineExpressionResponse = DefineExpressionResponse'{_derExpression :: ExpressionStatus, _derStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DefineExpressionResponse' smart constructor.
-defineExpressionResponse :: ExpressionStatus -> DefineExpressionResponse
-defineExpressionResponse pExpression = DefineExpressionResponse'{_derExpression = pExpression};
+defineExpressionResponse :: ExpressionStatus -> Int -> DefineExpressionResponse
+defineExpressionResponse pExpression pStatusCode = DefineExpressionResponse'{_derExpression = pExpression, _derStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus
 derExpression = lens _derExpression (\ s a -> s{_derExpression = a});
+
+-- | FIXME: Undocumented member.
+derStatusCode :: Lens' DefineExpressionResponse Int
+derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});

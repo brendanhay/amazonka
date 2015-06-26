@@ -33,6 +33,7 @@ module Network.AWS.CloudTrail.DescribeTrails
     , describeTrailsResponse
     -- ** Response lenses
     , dtrTrailList
+    , dtrStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeTrails' smart constructor.
+-- | Returns information about the trail.
+--
+-- /See:/ 'describeTrails' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest DescribeTrails where
           = receiveJSON
               (\ s h x ->
                  DescribeTrailsResponse' <$>
-                   (x .?> "trailList" .!@ mempty))
+                   (x .?> "trailList" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeTrails where
         toHeaders
@@ -85,17 +89,26 @@ instance ToPath DescribeTrails where
 instance ToQuery DescribeTrails where
         toQuery = const mempty
 
--- | /See:/ 'describeTrailsResponse' smart constructor.
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'describeTrailsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTrailList'
-newtype DescribeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList :: Maybe [Trail]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList :: Maybe [Trail], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrailsResponse' smart constructor.
-describeTrailsResponse :: DescribeTrailsResponse
-describeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList = Nothing};
+describeTrailsResponse :: Int -> DescribeTrailsResponse
+describeTrailsResponse pStatusCode = DescribeTrailsResponse'{_dtrTrailList = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | The list of trails.
 dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTrailsResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

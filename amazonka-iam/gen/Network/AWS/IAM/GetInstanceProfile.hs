@@ -37,6 +37,7 @@ module Network.AWS.IAM.GetInstanceProfile
     , getInstanceProfileResponse
     -- ** Response lenses
     , giprInstanceProfile
+    , giprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -68,7 +69,7 @@ instance AWSRequest GetInstanceProfile where
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->
                  GetInstanceProfileResponse' <$>
-                   (x .@ "InstanceProfile"))
+                   (x .@ "InstanceProfile") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
@@ -83,17 +84,25 @@ instance ToQuery GetInstanceProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "InstanceProfileName" =: _gipInstanceProfileName]
 
--- | /See:/ 'getInstanceProfileResponse' smart constructor.
+-- | Contains the response to a successful GetInstanceProfile request.
+--
+-- /See:/ 'getInstanceProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'giprInstanceProfile'
-newtype GetInstanceProfileResponse = GetInstanceProfileResponse'{_giprInstanceProfile :: InstanceProfile} deriving (Eq, Read, Show)
+--
+-- * 'giprStatusCode'
+data GetInstanceProfileResponse = GetInstanceProfileResponse'{_giprInstanceProfile :: InstanceProfile, _giprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
-getInstanceProfileResponse :: InstanceProfile -> GetInstanceProfileResponse
-getInstanceProfileResponse pInstanceProfile = GetInstanceProfileResponse'{_giprInstanceProfile = pInstanceProfile};
+getInstanceProfileResponse :: InstanceProfile -> Int -> GetInstanceProfileResponse
+getInstanceProfileResponse pInstanceProfile pStatusCode = GetInstanceProfileResponse'{_giprInstanceProfile = pInstanceProfile, _giprStatusCode = pStatusCode};
 
 -- | Information about the instance profile.
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile = lens _giprInstanceProfile (\ s a -> s{_giprInstanceProfile = a});
+
+-- | FIXME: Undocumented member.
+giprStatusCode :: Lens' GetInstanceProfileResponse Int
+giprStatusCode = lens _giprStatusCode (\ s a -> s{_giprStatusCode = a});

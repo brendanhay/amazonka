@@ -21,8 +21,18 @@ module Network.AWS.SES.Types
     (
     -- * Service
       SES
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _MessageRejected
+
+    -- * IdentityType
+    , IdentityType (..)
+
+    -- * NotificationType
+    , NotificationType (..)
+
+    -- * VerificationStatus
+    , VerificationStatus (..)
 
     -- * Body
     , Body
@@ -58,9 +68,6 @@ module Network.AWS.SES.Types
     , inaDeliveryTopic
     , inaForwardingEnabled
 
-    -- * IdentityType
-    , IdentityType (..)
-
     -- * IdentityVerificationAttributes
     , IdentityVerificationAttributes
     , identityVerificationAttributes
@@ -72,9 +79,6 @@ module Network.AWS.SES.Types
     , message
     , mesSubject
     , mesBody
-
-    -- * NotificationType
-    , NotificationType (..)
 
     -- * RawMessage
     , RawMessage
@@ -90,8 +94,6 @@ module Network.AWS.SES.Types
     , sdpBounces
     , sdpTimestamp
 
-    -- * VerificationStatus
-    , VerificationStatus (..)
     ) where
 
 import Network.AWS.Prelude
@@ -102,32 +104,104 @@ data SES
 
 instance AWSService SES where
     type Sg SES = V4
-    type Er SES = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service SES
-        service' = Service
-            { _svcAbbrev  = "SES"
-            , _svcPrefix  = "email"
-            , _svcVersion = "2010-12-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service SES
+        svc = Service
+            { _svcAbbrev   = "SES"
+            , _svcPrefix   = "email"
+            , _svcVersion  = "2010-12-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry SES
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Indicates that the action failed, and the message could not be sent.
+-- Check the error stack for more information about what caused the error.
+_MessageRejected :: AWSError a => Geting (First ServiceError) a ServiceError
+_MessageRejected = _ServiceError . hasCode "MessageRejected" . hasStatus 400;
 
--- | /See:/ 'body' smart constructor.
+data IdentityType = Domain | EmailAddress deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText IdentityType where
+    parser = takeLowerText >>= \case
+        "Domain" -> pure Domain
+        "EmailAddress" -> pure EmailAddress
+        e -> fail ("Failure parsing IdentityType from " ++ show e)
+
+instance ToText IdentityType where
+    toText = \case
+        Domain -> "Domain"
+        EmailAddress -> "EmailAddress"
+
+instance Hashable IdentityType
+instance ToQuery IdentityType
+instance ToHeader IdentityType
+
+data NotificationType = Delivery | Bounce | Complaint deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText NotificationType where
+    parser = takeLowerText >>= \case
+        "Bounce" -> pure Bounce
+        "Complaint" -> pure Complaint
+        "Delivery" -> pure Delivery
+        e -> fail ("Failure parsing NotificationType from " ++ show e)
+
+instance ToText NotificationType where
+    toText = \case
+        Bounce -> "Bounce"
+        Complaint -> "Complaint"
+        Delivery -> "Delivery"
+
+instance Hashable NotificationType
+instance ToQuery NotificationType
+instance ToHeader NotificationType
+
+data VerificationStatus = NotStarted | Pending | Success | TemporaryFailure | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText VerificationStatus where
+    parser = takeLowerText >>= \case
+        "Failed" -> pure Failed
+        "NotStarted" -> pure NotStarted
+        "Pending" -> pure Pending
+        "Success" -> pure Success
+        "TemporaryFailure" -> pure TemporaryFailure
+        e -> fail ("Failure parsing VerificationStatus from " ++ show e)
+
+instance ToText VerificationStatus where
+    toText = \case
+        Failed -> "Failed"
+        NotStarted -> "NotStarted"
+        Pending -> "Pending"
+        Success -> "Success"
+        TemporaryFailure -> "TemporaryFailure"
+
+instance Hashable VerificationStatus
+instance ToQuery VerificationStatus
+instance ToHeader VerificationStatus
+
+instance FromXML VerificationStatus where
+    parseXML = parseXMLText "VerificationStatus"
+
+-- | Represents the body of the message. You can specify text, HTML, or both.
+-- If you use both, then the message should display correctly in the widest
+-- variety of email clients.
+--
+-- /See:/ 'body' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -156,7 +230,14 @@ instance ToQuery Body where
         toQuery Body'{..}
           = mconcat ["Text" =: _bodText, "Html" =: _bodHTML]
 
--- | /See:/ 'content' smart constructor.
+-- | Represents textual data, plus an optional character set specification.
+--
+-- By default, the text must be 7-bit ASCII, due to the constraints of the
+-- SMTP protocol. If the text must contain any other characters, then you
+-- must also specify a character set. Examples include UTF-8, ISO-8859-1,
+-- and Shift_JIS.
+--
+-- /See:/ 'content' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -182,7 +263,16 @@ instance ToQuery Content where
           = mconcat
               ["Charset" =: _conCharset, "Data" =: _conData]
 
--- | /See:/ 'destination' smart constructor.
+-- | Represents the destination of the message, consisting of To:, CC:, and
+-- BCC: fields.
+--
+-- By default, the string must be 7-bit ASCII. If the text must contain any
+-- other characters, then you must use MIME encoded-word syntax (RFC 2047)
+-- instead of a literal string. MIME encoded-word syntax uses the following
+-- form: @=?charset?encoding?encoded-text?=@. For more information, see
+-- <http://tools.ietf.org/html/rfc2047 RFC 2047>.
+--
+-- /See:/ 'destination' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -219,7 +309,9 @@ instance ToQuery Destination where
                "ToAddresses" =:
                  toQuery (toQueryList "member" <$> _desToAddresses)]
 
--- | /See:/ 'identityDkimAttributes' smart constructor.
+-- | Represents the DKIM attributes of a verified email address or a domain.
+--
+-- /See:/ 'identityDkimAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -267,7 +359,12 @@ instance FromXML IdentityDkimAttributes where
                 <*> (x .@ "DkimEnabled")
                 <*> (x .@ "DkimVerificationStatus")
 
--- | /See:/ 'identityNotificationAttributes' smart constructor.
+-- | Represents the notification attributes of an identity, including whether
+-- an identity has Amazon Simple Notification Service (Amazon SNS) topics
+-- set for bounce, complaint, and\/or delivery notifications, and whether
+-- feedback forwarding is enabled for bounce and complaint notifications.
+--
+-- /See:/ 'identityNotificationAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -314,24 +411,9 @@ instance FromXML IdentityNotificationAttributes where
                 (x .@ "DeliveryTopic")
                 <*> (x .@ "ForwardingEnabled")
 
-data IdentityType = Domain | EmailAddress deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText IdentityType where
-    parser = takeLowerText >>= \case
-        "Domain" -> pure Domain
-        "EmailAddress" -> pure EmailAddress
-        e -> fail ("Failure parsing IdentityType from " ++ show e)
-
-instance ToText IdentityType where
-    toText = \case
-        Domain -> "Domain"
-        EmailAddress -> "EmailAddress"
-
-instance Hashable IdentityType
-instance ToQuery IdentityType
-instance ToHeader IdentityType
-
--- | /See:/ 'identityVerificationAttributes' smart constructor.
+-- | Represents the verification attributes of a single identity.
+--
+-- /See:/ 'identityVerificationAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -360,7 +442,9 @@ instance FromXML IdentityVerificationAttributes where
               (x .@? "VerificationToken") <*>
                 (x .@ "VerificationStatus")
 
--- | /See:/ 'message' smart constructor.
+-- | Represents the message to be sent, composed of a subject and a body.
+--
+-- /See:/ 'message' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -387,26 +471,9 @@ instance ToQuery Message where
           = mconcat
               ["Subject" =: _mesSubject, "Body" =: _mesBody]
 
-data NotificationType = Delivery | Bounce | Complaint deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText NotificationType where
-    parser = takeLowerText >>= \case
-        "Bounce" -> pure Bounce
-        "Complaint" -> pure Complaint
-        "Delivery" -> pure Delivery
-        e -> fail ("Failure parsing NotificationType from " ++ show e)
-
-instance ToText NotificationType where
-    toText = \case
-        Bounce -> "Bounce"
-        Complaint -> "Complaint"
-        Delivery -> "Delivery"
-
-instance Hashable NotificationType
-instance ToQuery NotificationType
-instance ToHeader NotificationType
-
--- | /See:/ 'rawMessage' smart constructor.
+-- | Represents the raw data of the message.
+--
+-- /See:/ 'rawMessage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -432,7 +499,10 @@ rmData = lens _rmData (\ s a -> s{_rmData = a});
 instance ToQuery RawMessage where
         toQuery RawMessage'{..} = mconcat ["Data" =: _rmData]
 
--- | /See:/ 'sendDataPoint' smart constructor.
+-- | Represents sending statistics data. Each @SendDataPoint@ contains
+-- statistics for a 15-minute period of sending activity.
+--
+-- /See:/ 'sendDataPoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -478,29 +548,3 @@ instance FromXML SendDataPoint where
                 (x .@? "DeliveryAttempts")
                 <*> (x .@? "Bounces")
                 <*> (x .@? "Timestamp")
-
-data VerificationStatus = NotStarted | Pending | Success | TemporaryFailure | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText VerificationStatus where
-    parser = takeLowerText >>= \case
-        "Failed" -> pure Failed
-        "NotStarted" -> pure NotStarted
-        "Pending" -> pure Pending
-        "Success" -> pure Success
-        "TemporaryFailure" -> pure TemporaryFailure
-        e -> fail ("Failure parsing VerificationStatus from " ++ show e)
-
-instance ToText VerificationStatus where
-    toText = \case
-        Failed -> "Failed"
-        NotStarted -> "NotStarted"
-        Pending -> "Pending"
-        Success -> "Success"
-        TemporaryFailure -> "TemporaryFailure"
-
-instance Hashable VerificationStatus
-instance ToQuery VerificationStatus
-instance ToHeader VerificationStatus
-
-instance FromXML VerificationStatus where
-    parseXML = parseXMLText "VerificationStatus"

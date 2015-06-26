@@ -36,7 +36,8 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- ** Response constructor
     , createCacheSubnetGroupResponse
     -- ** Response lenses
-    , ccsgrCacheSubnetGroup
+    , creCacheSubnetGroup
+    , creStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createCacheSubnetGroup' smart constructor.
+-- | Represents the input of a /CreateCacheSubnetGroup/ action.
+--
+-- /See:/ 'createCacheSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +89,7 @@ instance AWSRequest CreateCacheSubnetGroup where
           = receiveXMLWrapper "CreateCacheSubnetGroupResult"
               (\ s h x ->
                  CreateCacheSubnetGroupResponse' <$>
-                   (x .@? "CacheSubnetGroup"))
+                   (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
@@ -110,13 +113,19 @@ instance ToQuery CreateCacheSubnetGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrCacheSubnetGroup'
-newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'{_ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup} deriving (Eq, Read, Show)
+-- * 'creCacheSubnetGroup'
+--
+-- * 'creStatusCode'
+data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'{_creCacheSubnetGroup :: Maybe CacheSubnetGroup, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
-createCacheSubnetGroupResponse :: CreateCacheSubnetGroupResponse
-createCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'{_ccsgrCacheSubnetGroup = Nothing};
+createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
+createCacheSubnetGroupResponse pStatusCode = CreateCacheSubnetGroupResponse'{_creCacheSubnetGroup = Nothing, _creStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-ccsgrCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-ccsgrCacheSubnetGroup = lens _ccsgrCacheSubnetGroup (\ s a -> s{_ccsgrCacheSubnetGroup = a});
+creCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
+creCacheSubnetGroup = lens _creCacheSubnetGroup (\ s a -> s{_creCacheSubnetGroup = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateCacheSubnetGroupResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.IAM.GetServerCertificate
     , getServerCertificateResponse
     -- ** Response lenses
     , gscrServerCertificate
+    , gscrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -64,7 +65,7 @@ instance AWSRequest GetServerCertificate where
           = receiveXMLWrapper "GetServerCertificateResult"
               (\ s h x ->
                  GetServerCertificateResponse' <$>
-                   (x .@ "ServerCertificate"))
+                   (x .@ "ServerCertificate") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
@@ -79,17 +80,25 @@ instance ToQuery GetServerCertificate where
                "Version" =: ("2010-05-08" :: ByteString),
                "ServerCertificateName" =: _gscServerCertificateName]
 
--- | /See:/ 'getServerCertificateResponse' smart constructor.
+-- | Contains the response to a successful GetServerCertificate request.
+--
+-- /See:/ 'getServerCertificateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gscrServerCertificate'
-newtype GetServerCertificateResponse = GetServerCertificateResponse'{_gscrServerCertificate :: ServerCertificate} deriving (Eq, Read, Show)
+--
+-- * 'gscrStatusCode'
+data GetServerCertificateResponse = GetServerCertificateResponse'{_gscrServerCertificate :: ServerCertificate, _gscrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetServerCertificateResponse' smart constructor.
-getServerCertificateResponse :: ServerCertificate -> GetServerCertificateResponse
-getServerCertificateResponse pServerCertificate = GetServerCertificateResponse'{_gscrServerCertificate = pServerCertificate};
+getServerCertificateResponse :: ServerCertificate -> Int -> GetServerCertificateResponse
+getServerCertificateResponse pServerCertificate pStatusCode = GetServerCertificateResponse'{_gscrServerCertificate = pServerCertificate, _gscrStatusCode = pStatusCode};
 
 -- | Information about the server certificate.
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate = lens _gscrServerCertificate (\ s a -> s{_gscrServerCertificate = a});
+
+-- | FIXME: Undocumented member.
+gscrStatusCode :: Lens' GetServerCertificateResponse Int
+gscrStatusCode = lens _gscrStatusCode (\ s a -> s{_gscrStatusCode = a});

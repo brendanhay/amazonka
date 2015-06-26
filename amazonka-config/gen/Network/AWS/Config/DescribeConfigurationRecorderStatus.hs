@@ -36,6 +36,7 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     , describeConfigurationRecorderStatusResponse
     -- ** Response lenses
     , dcrsrConfigurationRecordersStatus
+    , dcrsrStatusCode
     ) where
 
 import Network.AWS.Config.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeConfigurationRecorderStatus' smart constructor.
+-- | The input for the DescribeConfigurationRecorderStatus action.
+--
+-- /See:/ 'describeConfigurationRecorderStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeConfigurationRecorderStatusResponse' <$>
-                   (x .?> "ConfigurationRecordersStatus" .!@ mempty))
+                   (x .?> "ConfigurationRecordersStatus" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeConfigurationRecorderStatus where
@@ -98,17 +102,26 @@ instance ToQuery DescribeConfigurationRecorderStatus
          where
         toQuery = const mempty
 
--- | /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
+-- | The output for the DescribeConfigurationRecorderStatus action in JSON
+-- format.
+--
+-- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrsrConfigurationRecordersStatus'
-newtype DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus :: Maybe [ConfigurationRecorderStatus]} deriving (Eq, Read, Show)
+--
+-- * 'dcrsrStatusCode'
+data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus :: Maybe [ConfigurationRecorderStatus], _dcrsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
-describeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStatusResponse
-describeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus = Nothing};
+describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse
+describeConfigurationRecorderStatusResponse pStatusCode = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus = Nothing, _dcrsrStatusCode = pStatusCode};
 
 -- | A list that contains status of the specified recorders.
 dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
 dcrsrConfigurationRecordersStatus = lens _dcrsrConfigurationRecordersStatus (\ s a -> s{_dcrsrConfigurationRecordersStatus = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcrsrStatusCode :: Lens' DescribeConfigurationRecorderStatusResponse Int
+dcrsrStatusCode = lens _dcrsrStatusCode (\ s a -> s{_dcrsrStatusCode = a});

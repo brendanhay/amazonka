@@ -39,6 +39,7 @@ module Network.AWS.Redshift.RebootCluster
     , rebootClusterResponse
     -- ** Response lenses
     , rcrCluster
+    , rcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +47,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'rebootCluster' smart constructor.
+-- |
+--
+-- /See:/ 'rebootCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest RebootCluster where
         response
           = receiveXMLWrapper "RebootClusterResult"
               (\ s h x ->
-                 RebootClusterResponse' <$> (x .@? "Cluster"))
+                 RebootClusterResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders RebootCluster where
         toHeaders = const mempty
@@ -88,12 +92,18 @@ instance ToQuery RebootCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcrCluster'
-newtype RebootClusterResponse = RebootClusterResponse'{_rcrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'rcrStatusCode'
+data RebootClusterResponse = RebootClusterResponse'{_rcrCluster :: Maybe Cluster, _rcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RebootClusterResponse' smart constructor.
-rebootClusterResponse :: RebootClusterResponse
-rebootClusterResponse = RebootClusterResponse'{_rcrCluster = Nothing};
+rebootClusterResponse :: Int -> RebootClusterResponse
+rebootClusterResponse pStatusCode = RebootClusterResponse'{_rcrCluster = Nothing, _rcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\ s a -> s{_rcrCluster = a});
+
+-- | FIXME: Undocumented member.
+rcrStatusCode :: Lens' RebootClusterResponse Int
+rcrStatusCode = lens _rcrStatusCode (\ s a -> s{_rcrStatusCode = a});

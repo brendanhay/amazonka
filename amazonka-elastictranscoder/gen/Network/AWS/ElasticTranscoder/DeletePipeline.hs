@@ -34,6 +34,8 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     , DeletePipelineResponse
     -- ** Response constructor
     , deletePipelineResponse
+    -- ** Response lenses
+    , delStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deletePipeline' smart constructor.
+-- | The @DeletePipelineRequest@ structure.
+--
+-- /See:/ 'deletePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -60,7 +64,10 @@ instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = ElasticTranscoder
         type Rs DeletePipeline = DeletePipelineResponse
         request = delete
-        response = receiveNull DeletePipelineResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeletePipelineResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeletePipeline where
         toHeaders = const mempty
@@ -72,9 +79,19 @@ instance ToPath DeletePipeline where
 instance ToQuery DeletePipeline where
         toQuery = const mempty
 
--- | /See:/ 'deletePipelineResponse' smart constructor.
-data DeletePipelineResponse = DeletePipelineResponse' deriving (Eq, Read, Show)
+-- | The @DeletePipelineResponse@ structure.
+--
+-- /See:/ 'deletePipelineResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'delStatusCode'
+newtype DeletePipelineResponse = DeletePipelineResponse'{_delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeletePipelineResponse' smart constructor.
-deletePipelineResponse :: DeletePipelineResponse
-deletePipelineResponse = DeletePipelineResponse';
+deletePipelineResponse :: Int -> DeletePipelineResponse
+deletePipelineResponse pStatusCode = DeletePipelineResponse'{_delStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeletePipelineResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

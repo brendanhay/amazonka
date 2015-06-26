@@ -46,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- | The input parameters for the /ListTagsForResource/ action.
+--
+-- /See:/ 'listTagsForResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

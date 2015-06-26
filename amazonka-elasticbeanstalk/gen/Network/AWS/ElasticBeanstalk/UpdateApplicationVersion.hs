@@ -45,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateApplicationVersion' smart constructor.
+-- |
+--
+-- /See:/ 'updateApplicationVersion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

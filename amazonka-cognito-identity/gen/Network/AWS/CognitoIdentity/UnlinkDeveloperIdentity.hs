@@ -46,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'unlinkDeveloperIdentity' smart constructor.
+-- | Input to the @UnlinkDeveloperIdentity@ action.
+--
+-- /See:/ 'unlinkDeveloperIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

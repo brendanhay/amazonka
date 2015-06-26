@@ -39,6 +39,8 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     , RestoreFromSnapshotResponse
     -- ** Response constructor
     , restoreFromSnapshotResponse
+    -- ** Response lenses
+    , rfsrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -46,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'restoreFromSnapshot' smart constructor.
+-- | An object representing the inputs for the RestoreFromSnapshot operation.
+--
+-- /See:/ 'restoreFromSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +70,10 @@ instance AWSRequest RestoreFromSnapshot where
         type Rs RestoreFromSnapshot =
              RestoreFromSnapshotResponse
         request = postJSON
-        response = receiveNull RestoreFromSnapshotResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
@@ -88,9 +95,19 @@ instance ToPath RestoreFromSnapshot where
 instance ToQuery RestoreFromSnapshot where
         toQuery = const mempty
 
--- | /See:/ 'restoreFromSnapshotResponse' smart constructor.
-data RestoreFromSnapshotResponse = RestoreFromSnapshotResponse' deriving (Eq, Read, Show)
+-- | Contains the results of the RestoreFromSnapshot operation.
+--
+-- /See:/ 'restoreFromSnapshotResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rfsrStatusCode'
+newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'{_rfsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
-restoreFromSnapshotResponse :: RestoreFromSnapshotResponse
-restoreFromSnapshotResponse = RestoreFromSnapshotResponse';
+restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
+restoreFromSnapshotResponse pStatusCode = RestoreFromSnapshotResponse'{_rfsrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+rfsrStatusCode :: Lens' RestoreFromSnapshotResponse Int
+rfsrStatusCode = lens _rfsrStatusCode (\ s a -> s{_rfsrStatusCode = a});

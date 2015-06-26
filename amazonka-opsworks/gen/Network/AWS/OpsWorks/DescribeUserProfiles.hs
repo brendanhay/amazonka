@@ -37,6 +37,7 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     , describeUserProfilesResponse
     -- ** Response lenses
     , duprUserProfiles
+    , duprStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -68,7 +69,8 @@ instance AWSRequest DescribeUserProfiles where
           = receiveJSON
               (\ s h x ->
                  DescribeUserProfilesResponse' <$>
-                   (x .?> "UserProfiles" .!@ mempty))
+                   (x .?> "UserProfiles" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeUserProfiles where
         toHeaders
@@ -90,17 +92,25 @@ instance ToPath DescribeUserProfiles where
 instance ToQuery DescribeUserProfiles where
         toQuery = const mempty
 
--- | /See:/ 'describeUserProfilesResponse' smart constructor.
+-- | Contains the response to a @DescribeUserProfiles@ request.
+--
+-- /See:/ 'describeUserProfilesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'duprUserProfiles'
-newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles :: Maybe [UserProfile]} deriving (Eq, Read, Show)
+--
+-- * 'duprStatusCode'
+data DescribeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles :: Maybe [UserProfile], _duprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
-describeUserProfilesResponse :: DescribeUserProfilesResponse
-describeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles = Nothing};
+describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
+describeUserProfilesResponse pStatusCode = DescribeUserProfilesResponse'{_duprUserProfiles = Nothing, _duprStatusCode = pStatusCode};
 
 -- | A @Users@ object that describes the specified users.
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\ s a -> s{_duprUserProfiles = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+duprStatusCode :: Lens' DescribeUserProfilesResponse Int
+duprStatusCode = lens _duprStatusCode (\ s a -> s{_duprStatusCode = a});

@@ -64,6 +64,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , createReplicationGroupResponse
     -- ** Response lenses
     , crgrReplicationGroup
+    , crgrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -71,7 +72,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createReplicationGroup' smart constructor.
+-- | Represents the input of a /CreateReplicationGroup/ action.
+--
+-- /See:/ 'createReplicationGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -358,7 +361,7 @@ instance AWSRequest CreateReplicationGroup where
           = receiveXMLWrapper "CreateReplicationGroupResult"
               (\ s h x ->
                  CreateReplicationGroupResponse' <$>
-                   (x .@? "ReplicationGroup"))
+                   (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
@@ -417,12 +420,18 @@ instance ToQuery CreateReplicationGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crgrReplicationGroup'
-newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse'{_crgrReplicationGroup :: Maybe ReplicationGroup} deriving (Eq, Read, Show)
+--
+-- * 'crgrStatusCode'
+data CreateReplicationGroupResponse = CreateReplicationGroupResponse'{_crgrReplicationGroup :: Maybe ReplicationGroup, _crgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
-createReplicationGroupResponse :: CreateReplicationGroupResponse
-createReplicationGroupResponse = CreateReplicationGroupResponse'{_crgrReplicationGroup = Nothing};
+createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse
+createReplicationGroupResponse pStatusCode = CreateReplicationGroupResponse'{_crgrReplicationGroup = Nothing, _crgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrReplicationGroup = lens _crgrReplicationGroup (\ s a -> s{_crgrReplicationGroup = a});
+
+-- | FIXME: Undocumented member.
+crgrStatusCode :: Lens' CreateReplicationGroupResponse Int
+crgrStatusCode = lens _crgrStatusCode (\ s a -> s{_crgrStatusCode = a});

@@ -36,10 +36,11 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- ** Response lenses
     , dncrNextToken
     , dncrNotificationConfigurations
+    , dncrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,7 +96,8 @@ instance AWSRequest
                  DescribeNotificationConfigurationsResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "NotificationConfigurations" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeNotificationConfigurations
          where
@@ -125,11 +127,13 @@ instance ToQuery DescribeNotificationConfigurations
 -- * 'dncrNextToken'
 --
 -- * 'dncrNotificationConfigurations'
-data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'{_dncrNextToken :: Maybe Text, _dncrNotificationConfigurations :: [NotificationConfiguration]} deriving (Eq, Read, Show)
+--
+-- * 'dncrStatusCode'
+data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'{_dncrNextToken :: Maybe Text, _dncrNotificationConfigurations :: [NotificationConfiguration], _dncrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
-describeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'{_dncrNextToken = Nothing, _dncrNotificationConfigurations = mempty};
+describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
+describeNotificationConfigurationsResponse pStatusCode = DescribeNotificationConfigurationsResponse'{_dncrNextToken = Nothing, _dncrNotificationConfigurations = mempty, _dncrStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -139,3 +143,7 @@ dncrNextToken = lens _dncrNextToken (\ s a -> s{_dncrNextToken = a});
 -- | The notification configurations.
 dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
 dncrNotificationConfigurations = lens _dncrNotificationConfigurations (\ s a -> s{_dncrNotificationConfigurations = a});
+
+-- | FIXME: Undocumented member.
+dncrStatusCode :: Lens' DescribeNotificationConfigurationsResponse Int
+dncrStatusCode = lens _dncrStatusCode (\ s a -> s{_dncrStatusCode = a});

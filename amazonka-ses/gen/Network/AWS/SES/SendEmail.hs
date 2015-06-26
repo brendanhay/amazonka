@@ -57,6 +57,7 @@ module Network.AWS.SES.SendEmail
     , sendEmailResponse
     -- ** Response lenses
     , serMessageId
+    , serStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -64,7 +65,14 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'sendEmail' smart constructor.
+-- | Represents a request instructing the service to send a single email
+-- message.
+--
+-- This datatype can be used in application code to compose a message
+-- consisting of source, destination, message, reply-to, and return-path
+-- parts. This object can then be sent using the @SendEmail@ action.
+--
+-- /See:/ 'sendEmail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,7 +132,8 @@ instance AWSRequest SendEmail where
         response
           = receiveXMLWrapper "SendEmailResult"
               (\ s h x ->
-                 SendEmailResponse' <$> (x .@ "MessageId"))
+                 SendEmailResponse' <$>
+                   (x .@ "MessageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders SendEmail where
         toHeaders = const mempty
@@ -145,17 +154,26 @@ instance ToQuery SendEmail where
                "Destination" =: _seDestination,
                "Message" =: _seMessage]
 
--- | /See:/ 'sendEmailResponse' smart constructor.
+-- | Represents a unique message ID returned from a successful @SendEmail@
+-- request.
+--
+-- /See:/ 'sendEmailResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'serMessageId'
-newtype SendEmailResponse = SendEmailResponse'{_serMessageId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'serStatusCode'
+data SendEmailResponse = SendEmailResponse'{_serMessageId :: Text, _serStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SendEmailResponse' smart constructor.
-sendEmailResponse :: Text -> SendEmailResponse
-sendEmailResponse pMessageId = SendEmailResponse'{_serMessageId = pMessageId};
+sendEmailResponse :: Text -> Int -> SendEmailResponse
+sendEmailResponse pMessageId pStatusCode = SendEmailResponse'{_serMessageId = pMessageId, _serStatusCode = pStatusCode};
 
 -- | The unique message identifier returned from the @SendEmail@ action.
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\ s a -> s{_serMessageId = a});
+
+-- | FIXME: Undocumented member.
+serStatusCode :: Lens' SendEmailResponse Int
+serStatusCode = lens _serStatusCode (\ s a -> s{_serStatusCode = a});

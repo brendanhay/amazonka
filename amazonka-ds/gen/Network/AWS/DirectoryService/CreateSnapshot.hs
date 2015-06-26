@@ -35,6 +35,7 @@ module Network.AWS.DirectoryService.CreateSnapshot
     , createSnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
+    , csrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createSnapshot' smart constructor.
+-- | Contains the inputs for the CreateSnapshot operation.
+--
+-- /See:/ 'createSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest CreateSnapshot where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateSnapshotResponse' <$> (x .?> "SnapshotId"))
+                 CreateSnapshotResponse' <$>
+                   (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -93,17 +97,25 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
         toQuery = const mempty
 
--- | /See:/ 'createSnapshotResponse' smart constructor.
+-- | Contains the results of the CreateSnapshot operation.
+--
+-- /See:/ 'createSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSnapshotId'
-newtype CreateSnapshotResponse = CreateSnapshotResponse'{_csrSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CreateSnapshotResponse = CreateSnapshotResponse'{_csrSnapshotId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: CreateSnapshotResponse
-createSnapshotResponse = CreateSnapshotResponse'{_csrSnapshotId = Nothing};
+createSnapshotResponse :: Int -> CreateSnapshotResponse
+createSnapshotResponse pStatusCode = CreateSnapshotResponse'{_csrSnapshotId = Nothing, _csrStatusCode = pStatusCode};
 
 -- | The identifier of the snapshot that was created.
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CreateSnapshotResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

@@ -39,6 +39,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , attachLoadBalancerToSubnetsResponse
     -- ** Response lenses
     , albtsrSubnets
+    , albtsrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -79,7 +80,8 @@ instance AWSRequest AttachLoadBalancerToSubnets where
               (\ s h x ->
                  AttachLoadBalancerToSubnetsResponse' <$>
                    (x .@? "Subnets" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
@@ -101,12 +103,18 @@ instance ToQuery AttachLoadBalancerToSubnets where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'albtsrSubnets'
-newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'albtsrStatusCode'
+data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets :: Maybe [Text], _albtsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
-attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
-attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets = Nothing};
+attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
+attachLoadBalancerToSubnetsResponse pStatusCode = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets = Nothing, _albtsrStatusCode = pStatusCode};
 
 -- | The IDs of the subnets attached to the load balancer.
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+albtsrStatusCode :: Lens' AttachLoadBalancerToSubnetsResponse Int
+albtsrStatusCode = lens _albtsrStatusCode (\ s a -> s{_albtsrStatusCode = a});

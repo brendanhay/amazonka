@@ -40,6 +40,7 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     , deleteEvaluationResponse
     -- ** Response lenses
     , derEvaluationId
+    , derStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -69,7 +70,8 @@ instance AWSRequest DeleteEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteEvaluationResponse' <$> (x .?> "EvaluationId"))
+                 DeleteEvaluationResponse' <$>
+                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteEvaluation where
         toHeaders
@@ -90,18 +92,31 @@ instance ToPath DeleteEvaluation where
 instance ToQuery DeleteEvaluation where
         toQuery = const mempty
 
--- | /See:/ 'deleteEvaluationResponse' smart constructor.
+-- | Represents the output of a DeleteEvaluation operation. The output
+-- indicates that Amazon Machine Learning (Amazon ML) received the request.
+--
+-- You can use the GetEvaluation operation and check the value of the
+-- @Status@ parameter to see whether an @Evaluation@ is marked as
+-- @DELETED@.
+--
+-- /See:/ 'deleteEvaluationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derEvaluationId'
-newtype DeleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'derStatusCode'
+data DeleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId :: Maybe Text, _derStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
-deleteEvaluationResponse :: DeleteEvaluationResponse
-deleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId = Nothing};
+deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
+deleteEvaluationResponse pStatusCode = DeleteEvaluationResponse'{_derEvaluationId = Nothing, _derStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
 -- should be identical to the value of the @EvaluationId@ in the request.
 derEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 derEvaluationId = lens _derEvaluationId (\ s a -> s{_derEvaluationId = a});
+
+-- | FIXME: Undocumented member.
+derStatusCode :: Lens' DeleteEvaluationResponse Int
+derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});

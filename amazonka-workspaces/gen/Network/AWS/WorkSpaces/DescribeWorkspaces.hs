@@ -46,6 +46,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     -- ** Response lenses
     , dwrNextToken
     , dwrWorkspaces
+    , dwrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -53,7 +54,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspaces' smart constructor.
+-- | Contains the inputs for the DescribeWorkspaces operation.
+--
+-- /See:/ 'describeWorkspaces' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -122,7 +125,8 @@ instance AWSRequest DescribeWorkspaces where
               (\ s h x ->
                  DescribeWorkspacesResponse' <$>
                    (x .?> "NextToken") <*>
-                     (x .?> "Workspaces" .!@ mempty))
+                     (x .?> "Workspaces" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeWorkspaces where
         toHeaders
@@ -148,18 +152,22 @@ instance ToPath DescribeWorkspaces where
 instance ToQuery DescribeWorkspaces where
         toQuery = const mempty
 
--- | /See:/ 'describeWorkspacesResponse' smart constructor.
+-- | Contains the results for the DescribeWorkspaces operation.
+--
+-- /See:/ 'describeWorkspacesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dwrNextToken'
 --
 -- * 'dwrWorkspaces'
-data DescribeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrNextToken :: Maybe Text, _dwrWorkspaces :: Maybe [Workspace]} deriving (Eq, Read, Show)
+--
+-- * 'dwrStatusCode'
+data DescribeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrNextToken :: Maybe Text, _dwrWorkspaces :: Maybe [Workspace], _dwrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspacesResponse' smart constructor.
-describeWorkspacesResponse :: DescribeWorkspacesResponse
-describeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrNextToken = Nothing, _dwrWorkspaces = Nothing};
+describeWorkspacesResponse :: Int -> DescribeWorkspacesResponse
+describeWorkspacesResponse pStatusCode = DescribeWorkspacesResponse'{_dwrNextToken = Nothing, _dwrWorkspaces = Nothing, _dwrStatusCode = pStatusCode};
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to this operation to retrieve
@@ -175,3 +183,7 @@ dwrNextToken = lens _dwrNextToken (\ s a -> s{_dwrNextToken = a});
 -- information may be incomplete for a newly-created WorkSpace.
 dwrWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
 dwrWorkspaces = lens _dwrWorkspaces (\ s a -> s{_dwrWorkspaces = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dwrStatusCode :: Lens' DescribeWorkspacesResponse Int
+dwrStatusCode = lens _dwrStatusCode (\ s a -> s{_dwrStatusCode = a});

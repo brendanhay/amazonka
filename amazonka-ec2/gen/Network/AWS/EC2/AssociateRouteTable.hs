@@ -43,6 +43,7 @@ module Network.AWS.EC2.AssociateRouteTable
     , associateRouteTableResponse
     -- ** Response lenses
     , artrAssociationId
+    , artrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -89,7 +90,7 @@ instance AWSRequest AssociateRouteTable where
           = receiveXML
               (\ s h x ->
                  AssociateRouteTableResponse' <$>
-                   (x .@? "associationId"))
+                   (x .@? "associationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
@@ -110,12 +111,18 @@ instance ToQuery AssociateRouteTable where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'artrAssociationId'
-newtype AssociateRouteTableResponse = AssociateRouteTableResponse'{_artrAssociationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'artrStatusCode'
+data AssociateRouteTableResponse = AssociateRouteTableResponse'{_artrAssociationId :: Maybe Text, _artrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
-associateRouteTableResponse :: AssociateRouteTableResponse
-associateRouteTableResponse = AssociateRouteTableResponse'{_artrAssociationId = Nothing};
+associateRouteTableResponse :: Int -> AssociateRouteTableResponse
+associateRouteTableResponse pStatusCode = AssociateRouteTableResponse'{_artrAssociationId = Nothing, _artrStatusCode = pStatusCode};
 
 -- | The route table association ID (needed to disassociate the route table).
 artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId = lens _artrAssociationId (\ s a -> s{_artrAssociationId = a});
+
+-- | FIXME: Undocumented member.
+artrStatusCode :: Lens' AssociateRouteTableResponse Int
+artrStatusCode = lens _artrStatusCode (\ s a -> s{_artrStatusCode = a});

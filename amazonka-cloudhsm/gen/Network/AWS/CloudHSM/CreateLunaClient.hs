@@ -33,6 +33,7 @@ module Network.AWS.CloudHSM.CreateLunaClient
     , createLunaClientResponse
     -- ** Response lenses
     , clcrClientARN
+    , clcrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createLunaClient' smart constructor.
+-- | Contains the inputs for the CreateLunaClient action.
+--
+-- /See:/ 'createLunaClient' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -69,7 +72,8 @@ instance AWSRequest CreateLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateLunaClientResponse' <$> (x .?> "ClientArn"))
+                 CreateLunaClientResponse' <$>
+                   (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateLunaClient where
         toHeaders
@@ -93,17 +97,25 @@ instance ToPath CreateLunaClient where
 instance ToQuery CreateLunaClient where
         toQuery = const mempty
 
--- | /See:/ 'createLunaClientResponse' smart constructor.
+-- | Contains the output of the CreateLunaClient action.
+--
+-- /See:/ 'createLunaClientResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'clcrClientARN'
-newtype CreateLunaClientResponse = CreateLunaClientResponse'{_clcrClientARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'clcrStatusCode'
+data CreateLunaClientResponse = CreateLunaClientResponse'{_clcrClientARN :: Maybe Text, _clcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLunaClientResponse' smart constructor.
-createLunaClientResponse :: CreateLunaClientResponse
-createLunaClientResponse = CreateLunaClientResponse'{_clcrClientARN = Nothing};
+createLunaClientResponse :: Int -> CreateLunaClientResponse
+createLunaClientResponse pStatusCode = CreateLunaClientResponse'{_clcrClientARN = Nothing, _clcrStatusCode = pStatusCode};
 
 -- | The ARN of the client.
 clcrClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
 clcrClientARN = lens _clcrClientARN (\ s a -> s{_clcrClientARN = a});
+
+-- | FIXME: Undocumented member.
+clcrStatusCode :: Lens' CreateLunaClientResponse Int
+clcrStatusCode = lens _clcrStatusCode (\ s a -> s{_clcrStatusCode = a});

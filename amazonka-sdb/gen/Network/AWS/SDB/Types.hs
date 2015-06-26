@@ -21,8 +21,25 @@ module Network.AWS.SDB.Types
     (
     -- * Service
       SDB
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _InvalidNumberValueTests
+    , _NoSuchDomain
+    , _NumberDomainAttributesExceeded
+    , _NumberSubmittedItemsExceeded
+    , _AttributeDoesNotExist
+    , _InvalidNextToken
+    , _MissingParameter
+    , _DuplicateItemName
+    , _InvalidParameterValue
+    , _NumberItemAttributesExceeded
+    , _RequestTimeout
+    , _TooManyRequestedAttributes
+    , _InvalidNumberPredicates
+    , _NumberDomainsExceeded
+    , _NumberSubmittedAttributesExceeded
+    , _InvalidQueryExpression
+    , _NumberDomainBytesExceeded
 
     -- * Attribute
     , Attribute
@@ -64,6 +81,7 @@ module Network.AWS.SDB.Types
     , ucExists
     , ucValue
     , ucName
+
     ) where
 
 import Network.AWS.Prelude
@@ -74,32 +92,104 @@ data SDB
 
 instance AWSService SDB where
     type Sg SDB = V2
-    type Er SDB = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service SDB
-        service' = Service
-            { _svcAbbrev  = "SDB"
-            , _svcPrefix  = "sdb"
-            , _svcVersion = "2009-04-15"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service SDB
+        svc = Service
+            { _svcAbbrev   = "SDB"
+            , _svcPrefix   = "sdb"
+            , _svcVersion  = "2009-04-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry SDB
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Too many predicates exist in the query expression.
+_InvalidNumberValueTests :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNumberValueTests = _ServiceError . hasCode "InvalidNumberValueTests" . hasStatus 400;
 
--- | /See:/ 'attribute' smart constructor.
+-- | The specified domain does not exist.
+_NoSuchDomain :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchDomain = _ServiceError . hasCode "NoSuchDomain" . hasStatus 400;
+
+-- | Too many attributes in this domain.
+_NumberDomainAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberDomainAttributesExceeded = _ServiceError . hasCode "NumberDomainAttributesExceeded" . hasStatus 409;
+
+-- | Too many items exist in a single call.
+_NumberSubmittedItemsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberSubmittedItemsExceeded = _ServiceError . hasCode "NumberSubmittedItemsExceeded" . hasStatus 409;
+
+-- | The specified attribute does not exist.
+_AttributeDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
+_AttributeDoesNotExist = _ServiceError . hasCode "AttributeDoesNotExist" . hasStatus 404;
+
+-- | The specified NextToken is not valid.
+_InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+
+-- | The request must contain the specified missing parameter.
+_MissingParameter :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingParameter = _ServiceError . hasCode "MissingParameter" . hasStatus 400;
+
+-- | The item name was specified more than once.
+_DuplicateItemName :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateItemName = _ServiceError . hasCode "DuplicateItemName" . hasStatus 400;
+
+-- | The value for a parameter is invalid.
+_InvalidParameterValue :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValue = _ServiceError . hasCode "InvalidParameterValue" . hasStatus 400;
+
+-- | Too many attributes in this item.
+_NumberItemAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberItemAttributesExceeded = _ServiceError . hasCode "NumberItemAttributesExceeded" . hasStatus 409;
+
+-- | A timeout occurred when attempting to query the specified domain with
+-- specified query expression.
+_RequestTimeout :: AWSError a => Geting (First ServiceError) a ServiceError
+_RequestTimeout = _ServiceError . hasCode "RequestTimeout" . hasStatus 408;
+
+-- | Too many attributes requested.
+_TooManyRequestedAttributes :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyRequestedAttributes = _ServiceError . hasCode "TooManyRequestedAttributes" . hasStatus 400;
+
+-- | Too many predicates exist in the query expression.
+_InvalidNumberPredicates :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNumberPredicates = _ServiceError . hasCode "InvalidNumberPredicates" . hasStatus 400;
+
+-- | Too many domains exist per this account.
+_NumberDomainsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberDomainsExceeded = _ServiceError . hasCode "NumberDomainsExceeded" . hasStatus 409;
+
+-- | Too many attributes exist in a single call.
+_NumberSubmittedAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberSubmittedAttributesExceeded = _ServiceError . hasCode "NumberSubmittedAttributesExceeded" . hasStatus 409;
+
+-- | The specified query expression syntax is not valid.
+_InvalidQueryExpression :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidQueryExpression = _ServiceError . hasCode "InvalidQueryExpression" . hasStatus 400;
+
+-- | Too many bytes in this domain.
+_NumberDomainBytesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
+_NumberDomainBytesExceeded = _ServiceError . hasCode "NumberDomainBytesExceeded" . hasStatus 409;
+
+-- |
+--
+-- /See:/ 'attribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -175,7 +265,9 @@ instance ToQuery DeletableItem where
               [toQuery (toQueryList "Attribute" <$> _diAttributes),
                "ItemName" =: _diName]
 
--- | /See:/ 'item' smart constructor.
+-- |
+--
+-- /See:/ 'item' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -208,7 +300,9 @@ instance FromXML Item where
               (x .@? "AlternateNameEncoding") <*> (x .@ "Name") <*>
                 (parseXMLList "Attribute" x)
 
--- | /See:/ 'replaceableAttribute' smart constructor.
+-- |
+--
+-- /See:/ 'replaceableAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -242,7 +336,9 @@ instance ToQuery ReplaceableAttribute where
               ["Replace" =: _raReplace, "Name" =: _raName,
                "Value" =: _raValue]
 
--- | /See:/ 'replaceableItem' smart constructor.
+-- |
+--
+-- /See:/ 'replaceableItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -269,7 +365,13 @@ instance ToQuery ReplaceableItem where
               ["ItemName" =: _riName,
                toQueryList "Attribute" _riAttributes]
 
--- | /See:/ 'updateCondition' smart constructor.
+-- | Specifies the conditions under which data should be updated. If an
+-- update condition is specified for a request, the data will only be
+-- updated if the condition is satisfied. For example, if an attribute with
+-- a specific name and value exists, or if a specific attribute doesn\'t
+-- exist.
+--
+-- /See:/ 'updateCondition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

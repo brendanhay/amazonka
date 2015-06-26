@@ -35,6 +35,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- ** Response lenses
     , udrETag
     , udrDistribution
+    , udrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateDistribution' smart constructor.
+-- | The request to update a distribution.
+--
+-- /See:/ 'updateDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,8 @@ instance AWSRequest UpdateDistribution where
           = receiveXML
               (\ s h x ->
                  UpdateDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "Distribution"))
+                   (h .#? "ETag") <*> (x .@? "Distribution") <*>
+                     (pure (fromEnum s)))
 
 instance ToElement UpdateDistribution where
         toElement
@@ -101,18 +105,22 @@ instance ToPath UpdateDistribution where
 instance ToQuery UpdateDistribution where
         toQuery = const mempty
 
--- | /See:/ 'updateDistributionResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'updateDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udrETag'
 --
 -- * 'udrDistribution'
-data UpdateDistributionResponse = UpdateDistributionResponse'{_udrETag :: Maybe Text, _udrDistribution :: Maybe Distribution} deriving (Eq, Read, Show)
+--
+-- * 'udrStatusCode'
+data UpdateDistributionResponse = UpdateDistributionResponse'{_udrETag :: Maybe Text, _udrDistribution :: Maybe Distribution, _udrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateDistributionResponse' smart constructor.
-updateDistributionResponse :: UpdateDistributionResponse
-updateDistributionResponse = UpdateDistributionResponse'{_udrETag = Nothing, _udrDistribution = Nothing};
+updateDistributionResponse :: Int -> UpdateDistributionResponse
+updateDistributionResponse pStatusCode = UpdateDistributionResponse'{_udrETag = Nothing, _udrDistribution = Nothing, _udrStatusCode = pStatusCode};
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
 udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
@@ -121,3 +129,7 @@ udrETag = lens _udrETag (\ s a -> s{_udrETag = a});
 -- | The distribution\'s information.
 udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrDistribution = lens _udrDistribution (\ s a -> s{_udrDistribution = a});
+
+-- | FIXME: Undocumented member.
+udrStatusCode :: Lens' UpdateDistributionResponse Int
+udrStatusCode = lens _udrStatusCode (\ s a -> s{_udrStatusCode = a});

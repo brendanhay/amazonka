@@ -34,6 +34,7 @@ module Network.AWS.CloudHSM.CreateHAPG
     , createHAPGResponse
     -- ** Response lenses
     , chrHAPGARN
+    , chrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createHAPG' smart constructor.
+-- | Contains the inputs for the CreateHapgRequest action.
+--
+-- /See:/ 'createHAPG' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest CreateHAPG where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateHAPGResponse' <$> (x .?> "HapgArn"))
+                 CreateHAPGResponse' <$>
+                   (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateHAPG where
         toHeaders
@@ -83,17 +87,25 @@ instance ToPath CreateHAPG where
 instance ToQuery CreateHAPG where
         toQuery = const mempty
 
--- | /See:/ 'createHAPGResponse' smart constructor.
+-- | Contains the output of the CreateHAPartitionGroup action.
+--
+-- /See:/ 'createHAPGResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chrHAPGARN'
-newtype CreateHAPGResponse = CreateHAPGResponse'{_chrHAPGARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'chrStatusCode'
+data CreateHAPGResponse = CreateHAPGResponse'{_chrHAPGARN :: Maybe Text, _chrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateHAPGResponse' smart constructor.
-createHAPGResponse :: CreateHAPGResponse
-createHAPGResponse = CreateHAPGResponse'{_chrHAPGARN = Nothing};
+createHAPGResponse :: Int -> CreateHAPGResponse
+createHAPGResponse pStatusCode = CreateHAPGResponse'{_chrHAPGARN = Nothing, _chrStatusCode = pStatusCode};
 
 -- | The ARN of the high-availability partition group.
 chrHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chrHAPGARN = lens _chrHAPGARN (\ s a -> s{_chrHAPGARN = a});
+
+-- | FIXME: Undocumented member.
+chrStatusCode :: Lens' CreateHAPGResponse Int
+chrStatusCode = lens _chrStatusCode (\ s a -> s{_chrStatusCode = a});

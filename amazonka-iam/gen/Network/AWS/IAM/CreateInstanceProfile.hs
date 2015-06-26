@@ -40,6 +40,7 @@ module Network.AWS.IAM.CreateInstanceProfile
     , createInstanceProfileResponse
     -- ** Response lenses
     , ciprInstanceProfile
+    , ciprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -82,7 +83,7 @@ instance AWSRequest CreateInstanceProfile where
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->
                  CreateInstanceProfileResponse' <$>
-                   (x .@ "InstanceProfile"))
+                   (x .@ "InstanceProfile") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
@@ -98,17 +99,25 @@ instance ToQuery CreateInstanceProfile where
                "Path" =: _cipPath,
                "InstanceProfileName" =: _cipInstanceProfileName]
 
--- | /See:/ 'createInstanceProfileResponse' smart constructor.
+-- | Contains the response to a successful CreateInstanceProfile request.
+--
+-- /See:/ 'createInstanceProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ciprInstanceProfile'
-newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse'{_ciprInstanceProfile :: InstanceProfile} deriving (Eq, Read, Show)
+--
+-- * 'ciprStatusCode'
+data CreateInstanceProfileResponse = CreateInstanceProfileResponse'{_ciprInstanceProfile :: InstanceProfile, _ciprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
-createInstanceProfileResponse :: InstanceProfile -> CreateInstanceProfileResponse
-createInstanceProfileResponse pInstanceProfile = CreateInstanceProfileResponse'{_ciprInstanceProfile = pInstanceProfile};
+createInstanceProfileResponse :: InstanceProfile -> Int -> CreateInstanceProfileResponse
+createInstanceProfileResponse pInstanceProfile pStatusCode = CreateInstanceProfileResponse'{_ciprInstanceProfile = pInstanceProfile, _ciprStatusCode = pStatusCode};
 
 -- | Information about the instance profile.
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile = lens _ciprInstanceProfile (\ s a -> s{_ciprInstanceProfile = a});
+
+-- | FIXME: Undocumented member.
+ciprStatusCode :: Lens' CreateInstanceProfileResponse Int
+ciprStatusCode = lens _ciprStatusCode (\ s a -> s{_ciprStatusCode = a});

@@ -35,6 +35,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , enableSnapshotCopyResponse
     -- ** Response lenses
     , escrCluster
+    , escrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'enableSnapshotCopy' smart constructor.
+-- |
+--
+-- /See:/ 'enableSnapshotCopy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +93,8 @@ instance AWSRequest EnableSnapshotCopy where
         response
           = receiveXMLWrapper "EnableSnapshotCopyResult"
               (\ s h x ->
-                 EnableSnapshotCopyResponse' <$> (x .@? "Cluster"))
+                 EnableSnapshotCopyResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty
@@ -112,12 +116,18 @@ instance ToQuery EnableSnapshotCopy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'escrCluster'
-newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'{_escrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'escrStatusCode'
+data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'{_escrCluster :: Maybe Cluster, _escrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnableSnapshotCopyResponse' smart constructor.
-enableSnapshotCopyResponse :: EnableSnapshotCopyResponse
-enableSnapshotCopyResponse = EnableSnapshotCopyResponse'{_escrCluster = Nothing};
+enableSnapshotCopyResponse :: Int -> EnableSnapshotCopyResponse
+enableSnapshotCopyResponse pStatusCode = EnableSnapshotCopyResponse'{_escrCluster = Nothing, _escrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrCluster = lens _escrCluster (\ s a -> s{_escrCluster = a});
+
+-- | FIXME: Undocumented member.
+escrStatusCode :: Lens' EnableSnapshotCopyResponse Int
+escrStatusCode = lens _escrStatusCode (\ s a -> s{_escrStatusCode = a});

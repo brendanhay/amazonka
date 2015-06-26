@@ -63,6 +63,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , registerInstancesWithLoadBalancerResponse
     -- ** Response lenses
     , riwlbrInstances
+    , riwlbrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -103,7 +104,8 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
               (\ s h x ->
                  RegisterInstancesWithLoadBalancerResponse' <$>
                    (x .@? "Instances" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
@@ -128,12 +130,18 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'riwlbrInstances'
-newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances :: Maybe [Instance]} deriving (Eq, Read, Show)
+--
+-- * 'riwlbrStatusCode'
+data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances :: Maybe [Instance], _riwlbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
-registerInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
-registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances = Nothing};
+registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
+registerInstancesWithLoadBalancerResponse pStatusCode = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances = Nothing, _riwlbrStatusCode = pStatusCode};
 
 -- | The updated list of instances for the load balancer.
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+riwlbrStatusCode :: Lens' RegisterInstancesWithLoadBalancerResponse Int
+riwlbrStatusCode = lens _riwlbrStatusCode (\ s a -> s{_riwlbrStatusCode = a});

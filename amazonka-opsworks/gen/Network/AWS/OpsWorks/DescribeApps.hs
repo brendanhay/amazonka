@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DescribeApps
     , describeAppsResponse
     -- ** Response lenses
     , darApps
+    , darStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -79,7 +80,8 @@ instance AWSRequest DescribeApps where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeAppsResponse' <$> (x .?> "Apps" .!@ mempty))
+                 DescribeAppsResponse' <$>
+                   (x .?> "Apps" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeApps where
         toHeaders
@@ -101,17 +103,25 @@ instance ToPath DescribeApps where
 instance ToQuery DescribeApps where
         toQuery = const mempty
 
--- | /See:/ 'describeAppsResponse' smart constructor.
+-- | Contains the response to a @DescribeApps@ request.
+--
+-- /See:/ 'describeAppsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darApps'
-newtype DescribeAppsResponse = DescribeAppsResponse'{_darApps :: Maybe [App]} deriving (Eq, Read, Show)
+--
+-- * 'darStatusCode'
+data DescribeAppsResponse = DescribeAppsResponse'{_darApps :: Maybe [App], _darStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAppsResponse' smart constructor.
-describeAppsResponse :: DescribeAppsResponse
-describeAppsResponse = DescribeAppsResponse'{_darApps = Nothing};
+describeAppsResponse :: Int -> DescribeAppsResponse
+describeAppsResponse pStatusCode = DescribeAppsResponse'{_darApps = Nothing, _darStatusCode = pStatusCode};
 
 -- | An array of @App@ objects that describe the specified apps.
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\ s a -> s{_darApps = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+darStatusCode :: Lens' DescribeAppsResponse Int
+darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});

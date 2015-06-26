@@ -44,6 +44,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     , replaceRouteTableAssociationResponse
     -- ** Response lenses
     , rrtarNewAssociationId
+    , rrtarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -91,7 +92,7 @@ instance AWSRequest ReplaceRouteTableAssociation
           = receiveXML
               (\ s h x ->
                  ReplaceRouteTableAssociationResponse' <$>
-                   (x .@? "newAssociationId"))
+                   (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty
@@ -114,12 +115,18 @@ instance ToQuery ReplaceRouteTableAssociation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rrtarNewAssociationId'
-newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'{_rrtarNewAssociationId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rrtarStatusCode'
+data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'{_rrtarNewAssociationId :: Maybe Text, _rrtarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
-replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
-replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'{_rrtarNewAssociationId = Nothing};
+replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
+replaceRouteTableAssociationResponse pStatusCode = ReplaceRouteTableAssociationResponse'{_rrtarNewAssociationId = Nothing, _rrtarStatusCode = pStatusCode};
 
 -- | The ID of the new association.
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId = lens _rrtarNewAssociationId (\ s a -> s{_rrtarNewAssociationId = a});
+
+-- | FIXME: Undocumented member.
+rrtarStatusCode :: Lens' ReplaceRouteTableAssociationResponse Int
+rrtarStatusCode = lens _rrtarStatusCode (\ s a -> s{_rrtarStatusCode = a});

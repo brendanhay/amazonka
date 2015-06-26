@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     , getDeploymentInstanceResponse
     -- ** Response lenses
     , gdirInstanceSummary
+    , gdirStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDeploymentInstance' smart constructor.
+-- | Represents the input of a get deployment instance operation.
+--
+-- /See:/ 'getDeploymentInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,7 @@ instance AWSRequest GetDeploymentInstance where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentInstanceResponse' <$>
-                   (x .?> "instanceSummary"))
+                   (x .?> "instanceSummary") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetDeploymentInstance where
         toHeaders
@@ -94,17 +97,25 @@ instance ToPath GetDeploymentInstance where
 instance ToQuery GetDeploymentInstance where
         toQuery = const mempty
 
--- | /See:/ 'getDeploymentInstanceResponse' smart constructor.
+-- | Represents the output of a get deployment instance operation.
+--
+-- /See:/ 'getDeploymentInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdirInstanceSummary'
-newtype GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'{_gdirInstanceSummary :: Maybe InstanceSummary} deriving (Eq, Read, Show)
+--
+-- * 'gdirStatusCode'
+data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'{_gdirInstanceSummary :: Maybe InstanceSummary, _gdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
-getDeploymentInstanceResponse :: GetDeploymentInstanceResponse
-getDeploymentInstanceResponse = GetDeploymentInstanceResponse'{_gdirInstanceSummary = Nothing};
+getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
+getDeploymentInstanceResponse pStatusCode = GetDeploymentInstanceResponse'{_gdirInstanceSummary = Nothing, _gdirStatusCode = pStatusCode};
 
 -- | Information about the instance.
 gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirInstanceSummary = lens _gdirInstanceSummary (\ s a -> s{_gdirInstanceSummary = a});
+
+-- | FIXME: Undocumented member.
+gdirStatusCode :: Lens' GetDeploymentInstanceResponse Int
+gdirStatusCode = lens _gdirStatusCode (\ s a -> s{_gdirStatusCode = a});

@@ -64,6 +64,7 @@ module Network.AWS.ElasticFileSystem.DescribeFileSystems
     , dfsrFileSystems
     , dfsrMarker
     , dfsrNextMarker
+    , dfsrStatusCode
     ) where
 
 import Network.AWS.ElasticFileSystem.Types
@@ -122,7 +123,8 @@ instance AWSRequest DescribeFileSystems where
               (\ s h x ->
                  DescribeFileSystemsResponse' <$>
                    (x .?> "FileSystems" .!@ mempty) <*> (x .?> "Marker")
-                     <*> (x .?> "NextMarker"))
+                     <*> (x .?> "NextMarker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
@@ -147,11 +149,13 @@ instance ToQuery DescribeFileSystems where
 -- * 'dfsrMarker'
 --
 -- * 'dfsrNextMarker'
-data DescribeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems :: Maybe [FileSystemDescription], _dfsrMarker :: Maybe Text, _dfsrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dfsrStatusCode'
+data DescribeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems :: Maybe [FileSystemDescription], _dfsrMarker :: Maybe Text, _dfsrNextMarker :: Maybe Text, _dfsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
-describeFileSystemsResponse :: DescribeFileSystemsResponse
-describeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems = Nothing, _dfsrMarker = Nothing, _dfsrNextMarker = Nothing};
+describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse
+describeFileSystemsResponse pStatusCode = DescribeFileSystemsResponse'{_dfsrFileSystems = Nothing, _dfsrMarker = Nothing, _dfsrNextMarker = Nothing, _dfsrStatusCode = pStatusCode};
 
 -- | An array of file system descriptions.
 dfsrFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
@@ -166,3 +170,7 @@ dfsrMarker = lens _dfsrMarker (\ s a -> s{_dfsrMarker = a});
 -- fetch the descriptions.
 dfsrNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrNextMarker = lens _dfsrNextMarker (\ s a -> s{_dfsrNextMarker = a});
+
+-- | FIXME: Undocumented member.
+dfsrStatusCode :: Lens' DescribeFileSystemsResponse Int
+dfsrStatusCode = lens _dfsrStatusCode (\ s a -> s{_dfsrStatusCode = a});

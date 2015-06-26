@@ -51,7 +51,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateIdentityPool' smart constructor.
+-- | An object representing a Cognito identity pool.
+--
+-- /See:/ 'updateIdentityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

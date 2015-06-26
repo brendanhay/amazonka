@@ -41,6 +41,7 @@ module Network.AWS.EC2.EnableVPCClassicLink
     , enableVPCClassicLinkResponse
     -- ** Response lenses
     , evclrReturn
+    , evclrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -80,7 +81,8 @@ instance AWSRequest EnableVPCClassicLink where
         response
           = receiveXML
               (\ s h x ->
-                 EnableVPCClassicLinkResponse' <$> (x .@? "return"))
+                 EnableVPCClassicLinkResponse' <$>
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders EnableVPCClassicLink where
         toHeaders = const mempty
@@ -100,12 +102,18 @@ instance ToQuery EnableVPCClassicLink where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'evclrReturn'
-newtype EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'{_evclrReturn :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'evclrStatusCode'
+data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'{_evclrReturn :: Maybe Bool, _evclrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnableVPCClassicLinkResponse' smart constructor.
-enableVPCClassicLinkResponse :: EnableVPCClassicLinkResponse
-enableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'{_evclrReturn = Nothing};
+enableVPCClassicLinkResponse :: Int -> EnableVPCClassicLinkResponse
+enableVPCClassicLinkResponse pStatusCode = EnableVPCClassicLinkResponse'{_evclrReturn = Nothing, _evclrStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 evclrReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
 evclrReturn = lens _evclrReturn (\ s a -> s{_evclrReturn = a});
+
+-- | FIXME: Undocumented member.
+evclrStatusCode :: Lens' EnableVPCClassicLinkResponse Int
+evclrStatusCode = lens _evclrStatusCode (\ s a -> s{_evclrStatusCode = a});

@@ -80,6 +80,7 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     , recordActivityTaskHeartbeatResponse
     -- ** Response lenses
     , rathrCancelRequested
+    , rathrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -122,7 +123,7 @@ instance AWSRequest RecordActivityTaskHeartbeat where
           = receiveJSON
               (\ s h x ->
                  RecordActivityTaskHeartbeatResponse' <$>
-                   (x .:> "cancelRequested"))
+                   (x .:> "cancelRequested") <*> (pure (fromEnum s)))
 
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders
@@ -146,17 +147,25 @@ instance ToPath RecordActivityTaskHeartbeat where
 instance ToQuery RecordActivityTaskHeartbeat where
         toQuery = const mempty
 
--- | /See:/ 'recordActivityTaskHeartbeatResponse' smart constructor.
+-- | Status information about an activity task.
+--
+-- /See:/ 'recordActivityTaskHeartbeatResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rathrCancelRequested'
-newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'{_rathrCancelRequested :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'rathrStatusCode'
+data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'{_rathrCancelRequested :: Bool, _rathrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
-recordActivityTaskHeartbeatResponse :: Bool -> RecordActivityTaskHeartbeatResponse
-recordActivityTaskHeartbeatResponse pCancelRequested = RecordActivityTaskHeartbeatResponse'{_rathrCancelRequested = pCancelRequested};
+recordActivityTaskHeartbeatResponse :: Bool -> Int -> RecordActivityTaskHeartbeatResponse
+recordActivityTaskHeartbeatResponse pCancelRequested pStatusCode = RecordActivityTaskHeartbeatResponse'{_rathrCancelRequested = pCancelRequested, _rathrStatusCode = pStatusCode};
 
 -- | Set to @true@ if cancellation of the task is requested.
 rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrCancelRequested = lens _rathrCancelRequested (\ s a -> s{_rathrCancelRequested = a});
+
+-- | FIXME: Undocumented member.
+rathrStatusCode :: Lens' RecordActivityTaskHeartbeatResponse Int
+rathrStatusCode = lens _rathrStatusCode (\ s a -> s{_rathrStatusCode = a});

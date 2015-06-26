@@ -39,10 +39,11 @@ module Network.AWS.IAM.ListGroupsForUser
     , lgfurMarker
     , lgfurIsTruncated
     , lgfurGroups
+    , lgfurStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -97,8 +98,8 @@ instance AWSRequest ListGroupsForUser where
               (\ s h x ->
                  ListGroupsForUserResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Groups" .!@ mempty >>=
-                        parseXMLList "member"))
+                     (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
@@ -114,7 +115,9 @@ instance ToQuery ListGroupsForUser where
                "MaxItems" =: _lgfuMaxItems, "Marker" =: _lgfuMarker,
                "UserName" =: _lgfuUserName]
 
--- | /See:/ 'listGroupsForUserResponse' smart constructor.
+-- | Contains the response to a successful ListGroupsForUser request.
+--
+-- /See:/ 'listGroupsForUserResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -123,11 +126,13 @@ instance ToQuery ListGroupsForUser where
 -- * 'lgfurIsTruncated'
 --
 -- * 'lgfurGroups'
-data ListGroupsForUserResponse = ListGroupsForUserResponse'{_lgfurMarker :: Maybe Text, _lgfurIsTruncated :: Maybe Bool, _lgfurGroups :: [Group]} deriving (Eq, Read, Show)
+--
+-- * 'lgfurStatusCode'
+data ListGroupsForUserResponse = ListGroupsForUserResponse'{_lgfurMarker :: Maybe Text, _lgfurIsTruncated :: Maybe Bool, _lgfurGroups :: [Group], _lgfurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
-listGroupsForUserResponse :: ListGroupsForUserResponse
-listGroupsForUserResponse = ListGroupsForUserResponse'{_lgfurMarker = Nothing, _lgfurIsTruncated = Nothing, _lgfurGroups = mempty};
+listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
+listGroupsForUserResponse pStatusCode = ListGroupsForUserResponse'{_lgfurMarker = Nothing, _lgfurIsTruncated = Nothing, _lgfurGroups = mempty, _lgfurStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -145,3 +150,7 @@ lgfurIsTruncated = lens _lgfurIsTruncated (\ s a -> s{_lgfurIsTruncated = a});
 -- | A list of groups.
 lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
 lgfurGroups = lens _lgfurGroups (\ s a -> s{_lgfurGroups = a});
+
+-- | FIXME: Undocumented member.
+lgfurStatusCode :: Lens' ListGroupsForUserResponse Int
+lgfurStatusCode = lens _lgfurStatusCode (\ s a -> s{_lgfurStatusCode = a});

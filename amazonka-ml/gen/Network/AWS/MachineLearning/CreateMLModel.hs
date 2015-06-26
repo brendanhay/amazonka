@@ -56,6 +56,7 @@ module Network.AWS.MachineLearning.CreateMLModel
     , createMLModelResponse
     -- ** Response lenses
     , cmlmrMLModelId
+    , cmlmrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -171,7 +172,8 @@ instance AWSRequest CreateMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateMLModelResponse' <$> (x .?> "MLModelId"))
+                 CreateMLModelResponse' <$>
+                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateMLModel where
         toHeaders
@@ -199,18 +201,31 @@ instance ToPath CreateMLModel where
 instance ToQuery CreateMLModel where
         toQuery = const mempty
 
--- | /See:/ 'createMLModelResponse' smart constructor.
+-- | Represents the output of a CreateMLModel operation, and is an
+-- acknowledgement that Amazon ML received the request.
+--
+-- The CreateMLModel operation is asynchronous. You can poll for status
+-- updates by using the GetMLModel operation and checking the @Status@
+-- parameter.
+--
+-- /See:/ 'createMLModelResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmlmrMLModelId'
-newtype CreateMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cmlmrStatusCode'
+data CreateMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId :: Maybe Text, _cmlmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateMLModelResponse' smart constructor.
-createMLModelResponse :: CreateMLModelResponse
-createMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId = Nothing};
+createMLModelResponse :: Int -> CreateMLModelResponse
+createMLModelResponse pStatusCode = CreateMLModelResponse'{_cmlmrMLModelId = Nothing, _cmlmrStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
 cmlmrMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 cmlmrMLModelId = lens _cmlmrMLModelId (\ s a -> s{_cmlmrMLModelId = a});
+
+-- | FIXME: Undocumented member.
+cmlmrStatusCode :: Lens' CreateMLModelResponse Int
+cmlmrStatusCode = lens _cmlmrStatusCode (\ s a -> s{_cmlmrStatusCode = a});

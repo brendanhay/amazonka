@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DescribeRAIDArrays
     , describeRAIDArraysResponse
     -- ** Response lenses
     , drarRAIDArrays
+    , drarStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -88,7 +89,8 @@ instance AWSRequest DescribeRAIDArrays where
           = receiveJSON
               (\ s h x ->
                  DescribeRAIDArraysResponse' <$>
-                   (x .?> "RaidArrays" .!@ mempty))
+                   (x .?> "RaidArrays" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeRAIDArrays where
         toHeaders
@@ -113,17 +115,25 @@ instance ToPath DescribeRAIDArrays where
 instance ToQuery DescribeRAIDArrays where
         toQuery = const mempty
 
--- | /See:/ 'describeRAIDArraysResponse' smart constructor.
+-- | Contains the response to a @DescribeRaidArrays@ request.
+--
+-- /See:/ 'describeRAIDArraysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drarRAIDArrays'
-newtype DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays :: Maybe [RAIDArray]} deriving (Eq, Read, Show)
+--
+-- * 'drarStatusCode'
+data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays :: Maybe [RAIDArray], _drarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeRAIDArraysResponse' smart constructor.
-describeRAIDArraysResponse :: DescribeRAIDArraysResponse
-describeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays = Nothing};
+describeRAIDArraysResponse :: Int -> DescribeRAIDArraysResponse
+describeRAIDArraysResponse pStatusCode = DescribeRAIDArraysResponse'{_drarRAIDArrays = Nothing, _drarStatusCode = pStatusCode};
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
 drarRAIDArrays :: Lens' DescribeRAIDArraysResponse [RAIDArray]
 drarRAIDArrays = lens _drarRAIDArrays (\ s a -> s{_drarRAIDArrays = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drarStatusCode :: Lens' DescribeRAIDArraysResponse Int
+drarStatusCode = lens _drarStatusCode (\ s a -> s{_drarStatusCode = a});

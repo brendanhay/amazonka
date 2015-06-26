@@ -46,6 +46,7 @@ module Network.AWS.Support.DescribeServices
     , describeServicesResponse
     -- ** Response lenses
     , dsrServices
+    , dsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -85,7 +86,8 @@ instance AWSRequest DescribeServices where
           = receiveJSON
               (\ s h x ->
                  DescribeServicesResponse' <$>
-                   (x .?> "services" .!@ mempty))
+                   (x .?> "services" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -109,17 +111,25 @@ instance ToPath DescribeServices where
 instance ToQuery DescribeServices where
         toQuery = const mempty
 
--- | /See:/ 'describeServicesResponse' smart constructor.
+-- | The list of AWS services returned by the DescribeServices operation.
+--
+-- /See:/ 'describeServicesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrServices'
-newtype DescribeServicesResponse = DescribeServicesResponse'{_dsrServices :: Maybe [SupportService]} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DescribeServicesResponse = DescribeServicesResponse'{_dsrServices :: Maybe [SupportService], _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
-describeServicesResponse :: DescribeServicesResponse
-describeServicesResponse = DescribeServicesResponse'{_dsrServices = Nothing};
+describeServicesResponse :: Int -> DescribeServicesResponse
+describeServicesResponse pStatusCode = DescribeServicesResponse'{_dsrServices = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | A JSON-formatted list of AWS services.
 dsrServices :: Lens' DescribeServicesResponse [SupportService]
 dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DescribeServicesResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

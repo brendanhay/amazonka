@@ -34,6 +34,7 @@ module Network.AWS.EC2.DescribeVPCs
     , describeVPCsResponse
     -- ** Response lenses
     , dvrVPCs
+    , dvrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -109,7 +110,8 @@ instance AWSRequest DescribeVPCs where
           = receiveXML
               (\ s h x ->
                  DescribeVPCsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
@@ -131,12 +133,18 @@ instance ToQuery DescribeVPCs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVPCs'
-newtype DescribeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs :: Maybe [VPC]} deriving (Eq, Read, Show)
+--
+-- * 'dvrStatusCode'
+data DescribeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs :: Maybe [VPC], _dvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCsResponse' smart constructor.
-describeVPCsResponse :: DescribeVPCsResponse
-describeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs = Nothing};
+describeVPCsResponse :: Int -> DescribeVPCsResponse
+describeVPCsResponse pStatusCode = DescribeVPCsResponse'{_dvrVPCs = Nothing, _dvrStatusCode = pStatusCode};
 
 -- | Information about one or more VPCs.
 dvrVPCs :: Lens' DescribeVPCsResponse [VPC]
 dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dvrStatusCode :: Lens' DescribeVPCsResponse Int
+dvrStatusCode = lens _dvrStatusCode (\ s a -> s{_dvrStatusCode = a});

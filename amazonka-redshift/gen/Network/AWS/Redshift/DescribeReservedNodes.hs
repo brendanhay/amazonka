@@ -35,15 +35,18 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- ** Response lenses
     , drnrReservedNodes
     , drnrMarker
+    , drnrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeReservedNodes' smart constructor.
+-- |
+--
+-- /See:/ 'describeReservedNodes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,8 @@ instance AWSRequest DescribeReservedNodes where
                  DescribeReservedNodesResponse' <$>
                    (x .@? "ReservedNodes" .!@ mempty >>=
                       may (parseXMLList "ReservedNode"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedNodes where
         toHeaders = const mempty
@@ -118,18 +122,22 @@ instance ToQuery DescribeReservedNodes where
                "MaxRecords" =: _drnMaxRecords,
                "Marker" =: _drnMarker]
 
--- | /See:/ 'describeReservedNodesResponse' smart constructor.
+-- | Contains the output from the DescribeReservedNodes action.
+--
+-- /See:/ 'describeReservedNodesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drnrReservedNodes'
 --
 -- * 'drnrMarker'
-data DescribeReservedNodesResponse = DescribeReservedNodesResponse'{_drnrReservedNodes :: Maybe [ReservedNode], _drnrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'drnrStatusCode'
+data DescribeReservedNodesResponse = DescribeReservedNodesResponse'{_drnrReservedNodes :: Maybe [ReservedNode], _drnrMarker :: Maybe Text, _drnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedNodesResponse' smart constructor.
-describeReservedNodesResponse :: DescribeReservedNodesResponse
-describeReservedNodesResponse = DescribeReservedNodesResponse'{_drnrReservedNodes = Nothing, _drnrMarker = Nothing};
+describeReservedNodesResponse :: Int -> DescribeReservedNodesResponse
+describeReservedNodesResponse pStatusCode = DescribeReservedNodesResponse'{_drnrReservedNodes = Nothing, _drnrMarker = Nothing, _drnrStatusCode = pStatusCode};
 
 -- | The list of reserved nodes.
 drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
@@ -143,3 +151,7 @@ drnrReservedNodes = lens _drnrReservedNodes (\ s a -> s{_drnrReservedNodes = a})
 -- the request.
 drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrMarker = lens _drnrMarker (\ s a -> s{_drnrMarker = a});
+
+-- | FIXME: Undocumented member.
+drnrStatusCode :: Lens' DescribeReservedNodesResponse Int
+drnrStatusCode = lens _drnrStatusCode (\ s a -> s{_drnrStatusCode = a});

@@ -39,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'restartAppServer' smart constructor.
+-- |
+--
+-- /See:/ 'restartAppServer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

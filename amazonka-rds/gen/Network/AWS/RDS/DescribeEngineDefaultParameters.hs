@@ -36,15 +36,18 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
+    , dedprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEngineDefaultParameters' smart constructor.
+-- |
+--
+-- /See:/ 'describeEngineDefaultParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,10 +98,9 @@ instance AWSPager DescribeEngineDefaultParameters
           | stop (rs ^. dedprEngineDefaults . edParameters) =
             Nothing
           | otherwise =
-            Just $
-              rq &
-                dedpMarker .~
-                  rs ^? dedprEngineDefaults . edMarker . _Just
+            Just $ rq &
+              dedpMarker .~
+                rs ^? dedprEngineDefaults . edMarker . _Just
 
 instance AWSRequest DescribeEngineDefaultParameters
          where
@@ -111,7 +113,7 @@ instance AWSRequest DescribeEngineDefaultParameters
               "DescribeEngineDefaultParametersResult"
               (\ s h x ->
                  DescribeEngineDefaultParametersResponse' <$>
-                   (x .@ "EngineDefaults"))
+                   (x .@ "EngineDefaults") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEngineDefaultParameters
          where
@@ -139,12 +141,18 @@ instance ToQuery DescribeEngineDefaultParameters
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dedprEngineDefaults'
-newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults :: EngineDefaults} deriving (Eq, Read, Show)
+--
+-- * 'dedprStatusCode'
+data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults :: EngineDefaults, _dedprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
-describeEngineDefaultParametersResponse :: EngineDefaults -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pEngineDefaults = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults = pEngineDefaults};
+describeEngineDefaultParametersResponse :: EngineDefaults -> Int -> DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse pEngineDefaults pStatusCode = DescribeEngineDefaultParametersResponse'{_dedprEngineDefaults = pEngineDefaults, _dedprStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
+
+-- | FIXME: Undocumented member.
+dedprStatusCode :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprStatusCode = lens _dedprStatusCode (\ s a -> s{_dedprStatusCode = a});

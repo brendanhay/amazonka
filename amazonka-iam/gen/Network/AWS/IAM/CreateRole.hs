@@ -43,6 +43,7 @@ module Network.AWS.IAM.CreateRole
     , createRoleResponse
     -- ** Response lenses
     , crrRole
+    , crrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -88,7 +89,9 @@ instance AWSRequest CreateRole where
         request = post
         response
           = receiveXMLWrapper "CreateRoleResult"
-              (\ s h x -> CreateRoleResponse' <$> (x .@ "Role"))
+              (\ s h x ->
+                 CreateRoleResponse' <$>
+                   (x .@ "Role") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateRole where
         toHeaders = const mempty
@@ -105,17 +108,25 @@ instance ToQuery CreateRole where
                "AssumeRolePolicyDocument" =:
                  _crAssumeRolePolicyDocument]
 
--- | /See:/ 'createRoleResponse' smart constructor.
+-- | Contains the response to a successful CreateRole request.
+--
+-- /See:/ 'createRoleResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crrRole'
-newtype CreateRoleResponse = CreateRoleResponse'{_crrRole :: Role} deriving (Eq, Read, Show)
+--
+-- * 'crrStatusCode'
+data CreateRoleResponse = CreateRoleResponse'{_crrRole :: Role, _crrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateRoleResponse' smart constructor.
-createRoleResponse :: Role -> CreateRoleResponse
-createRoleResponse pRole = CreateRoleResponse'{_crrRole = pRole};
+createRoleResponse :: Role -> Int -> CreateRoleResponse
+createRoleResponse pRole pStatusCode = CreateRoleResponse'{_crrRole = pRole, _crrStatusCode = pStatusCode};
 
 -- | Information about the role.
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\ s a -> s{_crrRole = a});
+
+-- | FIXME: Undocumented member.
+crrStatusCode :: Lens' CreateRoleResponse Int
+crrStatusCode = lens _crrStatusCode (\ s a -> s{_crrStatusCode = a});

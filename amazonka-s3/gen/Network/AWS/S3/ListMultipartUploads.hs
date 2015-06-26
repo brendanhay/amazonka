@@ -49,9 +49,10 @@ module Network.AWS.S3.ListMultipartUploads
     , lmurIsTruncated
     , lmurNextUploadIdMarker
     , lmurDelimiter
+    , lmurStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -143,7 +144,8 @@ instance AWSRequest ListMultipartUploads where
                      <*> (may (parseXMLList "Upload") x)
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "NextUploadIdMarker")
-                     <*> (x .@? "Delimiter"))
+                     <*> (x .@? "Delimiter")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -189,11 +191,13 @@ instance ToQuery ListMultipartUploads where
 -- * 'lmurNextUploadIdMarker'
 --
 -- * 'lmurDelimiter'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker :: Maybe Text, _lmurPrefix :: Maybe Text, _lmurEncodingType :: Maybe EncodingType, _lmurCommonPrefixes :: Maybe [CommonPrefix], _lmurBucket :: Maybe BucketName, _lmurMaxUploads :: Maybe Int, _lmurUploadIdMarker :: Maybe Text, _lmurNextKeyMarker :: Maybe Text, _lmurUploads :: Maybe [MultipartUpload], _lmurIsTruncated :: Maybe Bool, _lmurNextUploadIdMarker :: Maybe Text, _lmurDelimiter :: Maybe Char} deriving (Eq, Read, Show)
+--
+-- * 'lmurStatusCode'
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker :: Maybe Text, _lmurPrefix :: Maybe Text, _lmurEncodingType :: Maybe EncodingType, _lmurCommonPrefixes :: Maybe [CommonPrefix], _lmurBucket :: Maybe BucketName, _lmurMaxUploads :: Maybe Int, _lmurUploadIdMarker :: Maybe Text, _lmurNextKeyMarker :: Maybe Text, _lmurUploads :: Maybe [MultipartUpload], _lmurIsTruncated :: Maybe Bool, _lmurNextUploadIdMarker :: Maybe Text, _lmurDelimiter :: Maybe Char, _lmurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
-listMultipartUploadsResponse :: ListMultipartUploadsResponse
-listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker = Nothing, _lmurPrefix = Nothing, _lmurEncodingType = Nothing, _lmurCommonPrefixes = Nothing, _lmurBucket = Nothing, _lmurMaxUploads = Nothing, _lmurUploadIdMarker = Nothing, _lmurNextKeyMarker = Nothing, _lmurUploads = Nothing, _lmurIsTruncated = Nothing, _lmurNextUploadIdMarker = Nothing, _lmurDelimiter = Nothing};
+listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
+listMultipartUploadsResponse pStatusCode = ListMultipartUploadsResponse'{_lmurKeyMarker = Nothing, _lmurPrefix = Nothing, _lmurEncodingType = Nothing, _lmurCommonPrefixes = Nothing, _lmurBucket = Nothing, _lmurMaxUploads = Nothing, _lmurUploadIdMarker = Nothing, _lmurNextKeyMarker = Nothing, _lmurUploads = Nothing, _lmurIsTruncated = Nothing, _lmurNextUploadIdMarker = Nothing, _lmurDelimiter = Nothing, _lmurStatusCode = pStatusCode};
 
 -- | The key at or after which the listing began.
 lmurKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
@@ -251,3 +255,7 @@ lmurNextUploadIdMarker = lens _lmurNextUploadIdMarker (\ s a -> s{_lmurNextUploa
 -- | FIXME: Undocumented member.
 lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Char)
 lmurDelimiter = lens _lmurDelimiter (\ s a -> s{_lmurDelimiter = a});
+
+-- | FIXME: Undocumented member.
+lmurStatusCode :: Lens' ListMultipartUploadsResponse Int
+lmurStatusCode = lens _lmurStatusCode (\ s a -> s{_lmurStatusCode = a});

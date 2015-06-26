@@ -34,6 +34,7 @@ module Network.AWS.CloudSearch.IndexDocuments
     , indexDocumentsResponse
     -- ** Response lenses
     , idrFieldNames
+    , idrStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -41,7 +42,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'indexDocuments' smart constructor.
+-- | Container for the parameters to the @IndexDocuments@ operation.
+-- Specifies the name of the domain you want to re-index.
+--
+-- /See:/ 'indexDocuments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -65,7 +69,8 @@ instance AWSRequest IndexDocuments where
               (\ s h x ->
                  IndexDocumentsResponse' <$>
                    (x .@? "FieldNames" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty
@@ -80,17 +85,26 @@ instance ToQuery IndexDocuments where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _idDomainName]
 
--- | /See:/ 'indexDocumentsResponse' smart constructor.
+-- | The result of an @IndexDocuments@ request. Contains the status of the
+-- indexing operation, including the fields being indexed.
+--
+-- /See:/ 'indexDocumentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'idrFieldNames'
-newtype IndexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'idrStatusCode'
+data IndexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames :: Maybe [Text], _idrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'IndexDocumentsResponse' smart constructor.
-indexDocumentsResponse :: IndexDocumentsResponse
-indexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames = Nothing};
+indexDocumentsResponse :: Int -> IndexDocumentsResponse
+indexDocumentsResponse pStatusCode = IndexDocumentsResponse'{_idrFieldNames = Nothing, _idrStatusCode = pStatusCode};
 
 -- | The names of the fields that are currently being indexed.
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\ s a -> s{_idrFieldNames = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+idrStatusCode :: Lens' IndexDocumentsResponse Int
+idrStatusCode = lens _idrStatusCode (\ s a -> s{_idrStatusCode = a});

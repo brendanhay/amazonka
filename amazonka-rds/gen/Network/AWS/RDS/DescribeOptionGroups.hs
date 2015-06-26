@@ -38,15 +38,18 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- ** Response lenses
     , dogrMarker
     , dogrOptionGroupsList
+    , dogrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeOptionGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeOptionGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -122,7 +125,8 @@ instance AWSRequest DescribeOptionGroups where
                  DescribeOptionGroupsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "OptionGroupsList" .!@ mempty >>=
-                        may (parseXMLList "OptionGroup")))
+                        may (parseXMLList "OptionGroup"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeOptionGroups where
         toHeaders = const mempty
@@ -143,18 +147,22 @@ instance ToQuery DescribeOptionGroups where
                "Marker" =: _dogMarker,
                "OptionGroupName" =: _dogOptionGroupName]
 
--- | /See:/ 'describeOptionGroupsResponse' smart constructor.
+-- | List of option groups.
+--
+-- /See:/ 'describeOptionGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dogrMarker'
 --
 -- * 'dogrOptionGroupsList'
-data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker :: Maybe Text, _dogrOptionGroupsList :: Maybe [OptionGroup]} deriving (Eq, Read, Show)
+--
+-- * 'dogrStatusCode'
+data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker :: Maybe Text, _dogrOptionGroupsList :: Maybe [OptionGroup], _dogrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
-describeOptionGroupsResponse :: DescribeOptionGroupsResponse
-describeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker = Nothing, _dogrOptionGroupsList = Nothing};
+describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse
+describeOptionGroupsResponse pStatusCode = DescribeOptionGroupsResponse'{_dogrMarker = Nothing, _dogrOptionGroupsList = Nothing, _dogrStatusCode = pStatusCode};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -165,3 +173,7 @@ dogrMarker = lens _dogrMarker (\ s a -> s{_dogrMarker = a});
 -- | List of option groups.
 dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dogrStatusCode :: Lens' DescribeOptionGroupsResponse Int
+dogrStatusCode = lens _dogrStatusCode (\ s a -> s{_dogrStatusCode = a});

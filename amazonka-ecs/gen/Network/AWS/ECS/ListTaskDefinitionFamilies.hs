@@ -38,10 +38,11 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     -- ** Response lenses
     , ltdfrFamilies
     , ltdfrNextToken
+    , ltdfrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,8 +105,8 @@ instance AWSRequest ListTaskDefinitionFamilies where
           = receiveJSON
               (\ s h x ->
                  ListTaskDefinitionFamiliesResponse' <$>
-                   (x .?> "families" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                   (x .?> "families" .!@ mempty) <*> (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders
@@ -137,11 +138,13 @@ instance ToQuery ListTaskDefinitionFamilies where
 -- * 'ltdfrFamilies'
 --
 -- * 'ltdfrNextToken'
-data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies :: Maybe [Text], _ltdfrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ltdfrStatusCode'
+data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies :: Maybe [Text], _ltdfrNextToken :: Maybe Text, _ltdfrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
-listTaskDefinitionFamiliesResponse :: ListTaskDefinitionFamiliesResponse
-listTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies = Nothing, _ltdfrNextToken = Nothing};
+listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse
+listTaskDefinitionFamiliesResponse pStatusCode = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies = Nothing, _ltdfrNextToken = Nothing, _ltdfrStatusCode = pStatusCode};
 
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
@@ -155,3 +158,7 @@ ltdfrFamilies = lens _ltdfrFamilies (\ s a -> s{_ltdfrFamilies = a}) . _Default;
 -- there are no more results to return.
 ltdfrNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
 ltdfrNextToken = lens _ltdfrNextToken (\ s a -> s{_ltdfrNextToken = a});
+
+-- | FIXME: Undocumented member.
+ltdfrStatusCode :: Lens' ListTaskDefinitionFamiliesResponse Int
+ltdfrStatusCode = lens _ltdfrStatusCode (\ s a -> s{_ltdfrStatusCode = a});

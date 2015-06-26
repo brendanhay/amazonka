@@ -61,6 +61,7 @@ module Network.AWS.EC2.CreateRoute
     -- ** Response lenses
     , crrReturn
     , crrClientToken
+    , crrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -141,7 +142,8 @@ instance AWSRequest CreateRoute where
           = receiveXML
               (\ s h x ->
                  CreateRouteResponse' <$>
-                   (x .@? "return") <*> (x .@? "clientToken"))
+                   (x .@? "return") <*> (x .@? "clientToken") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateRoute where
         toHeaders = const mempty
@@ -170,11 +172,13 @@ instance ToQuery CreateRoute where
 -- * 'crrReturn'
 --
 -- * 'crrClientToken'
-data CreateRouteResponse = CreateRouteResponse'{_crrReturn :: Maybe Bool, _crrClientToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'crrStatusCode'
+data CreateRouteResponse = CreateRouteResponse'{_crrReturn :: Maybe Bool, _crrClientToken :: Maybe Text, _crrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateRouteResponse' smart constructor.
-createRouteResponse :: CreateRouteResponse
-createRouteResponse = CreateRouteResponse'{_crrReturn = Nothing, _crrClientToken = Nothing};
+createRouteResponse :: Int -> CreateRouteResponse
+createRouteResponse pStatusCode = CreateRouteResponse'{_crrReturn = Nothing, _crrClientToken = Nothing, _crrStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 crrReturn :: Lens' CreateRouteResponse (Maybe Bool)
@@ -184,3 +188,7 @@ crrReturn = lens _crrReturn (\ s a -> s{_crrReturn = a});
 -- of the request.
 crrClientToken :: Lens' CreateRouteResponse (Maybe Text)
 crrClientToken = lens _crrClientToken (\ s a -> s{_crrClientToken = a});
+
+-- | FIXME: Undocumented member.
+crrStatusCode :: Lens' CreateRouteResponse Int
+crrStatusCode = lens _crrStatusCode (\ s a -> s{_crrStatusCode = a});

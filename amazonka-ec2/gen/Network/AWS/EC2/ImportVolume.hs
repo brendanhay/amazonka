@@ -41,6 +41,7 @@ module Network.AWS.EC2.ImportVolume
     , importVolumeResponse
     -- ** Response lenses
     , ivrConversionTask
+    , ivrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -97,7 +98,8 @@ instance AWSRequest ImportVolume where
         response
           = receiveXML
               (\ s h x ->
-                 ImportVolumeResponse' <$> (x .@? "conversionTask"))
+                 ImportVolumeResponse' <$>
+                   (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
@@ -120,12 +122,18 @@ instance ToQuery ImportVolume where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ivrConversionTask'
-newtype ImportVolumeResponse = ImportVolumeResponse'{_ivrConversionTask :: Maybe ConversionTask} deriving (Eq, Read, Show)
+--
+-- * 'ivrStatusCode'
+data ImportVolumeResponse = ImportVolumeResponse'{_ivrConversionTask :: Maybe ConversionTask, _ivrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ImportVolumeResponse' smart constructor.
-importVolumeResponse :: ImportVolumeResponse
-importVolumeResponse = ImportVolumeResponse'{_ivrConversionTask = Nothing};
+importVolumeResponse :: Int -> ImportVolumeResponse
+importVolumeResponse pStatusCode = ImportVolumeResponse'{_ivrConversionTask = Nothing, _ivrStatusCode = pStatusCode};
 
 -- | Information about the conversion task.
 ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask = lens _ivrConversionTask (\ s a -> s{_ivrConversionTask = a});
+
+-- | FIXME: Undocumented member.
+ivrStatusCode :: Lens' ImportVolumeResponse Int
+ivrStatusCode = lens _ivrStatusCode (\ s a -> s{_ivrStatusCode = a});

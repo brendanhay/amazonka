@@ -40,6 +40,7 @@ module Network.AWS.MachineLearning.DeleteDataSource
     , deleteDataSourceResponse
     -- ** Response lenses
     , ddsrDataSourceId
+    , ddsrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -69,7 +70,8 @@ instance AWSRequest DeleteDataSource where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDataSourceResponse' <$> (x .?> "DataSourceId"))
+                 DeleteDataSourceResponse' <$>
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteDataSource where
         toHeaders
@@ -90,18 +92,26 @@ instance ToPath DeleteDataSource where
 instance ToQuery DeleteDataSource where
         toQuery = const mempty
 
--- | /See:/ 'deleteDataSourceResponse' smart constructor.
+-- | Represents the output of a DeleteDataSource operation.
+--
+-- /See:/ 'deleteDataSourceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddsrDataSourceId'
-newtype DeleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ddsrStatusCode'
+data DeleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId :: Maybe Text, _ddsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
-deleteDataSourceResponse :: DeleteDataSourceResponse
-deleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId = Nothing};
+deleteDataSourceResponse :: Int -> DeleteDataSourceResponse
+deleteDataSourceResponse pStatusCode = DeleteDataSourceResponse'{_ddsrDataSourceId = Nothing, _ddsrStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
 ddsrDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrDataSourceId = lens _ddsrDataSourceId (\ s a -> s{_ddsrDataSourceId = a});
+
+-- | FIXME: Undocumented member.
+ddsrStatusCode :: Lens' DeleteDataSourceResponse Int
+ddsrStatusCode = lens _ddsrStatusCode (\ s a -> s{_ddsrStatusCode = a});

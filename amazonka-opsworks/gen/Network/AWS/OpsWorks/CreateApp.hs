@@ -50,6 +50,7 @@ module Network.AWS.OpsWorks.CreateApp
     , createAppResponse
     -- ** Response lenses
     , carAppId
+    , carStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -165,7 +166,9 @@ instance AWSRequest CreateApp where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateAppResponse' <$> (x .?> "AppId"))
+              (\ s h x ->
+                 CreateAppResponse' <$>
+                   (x .?> "AppId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateApp where
         toHeaders
@@ -197,17 +200,25 @@ instance ToPath CreateApp where
 instance ToQuery CreateApp where
         toQuery = const mempty
 
--- | /See:/ 'createAppResponse' smart constructor.
+-- | Contains the response to a @CreateApp@ request.
+--
+-- /See:/ 'createAppResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'carAppId'
-newtype CreateAppResponse = CreateAppResponse'{_carAppId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'carStatusCode'
+data CreateAppResponse = CreateAppResponse'{_carAppId :: Maybe Text, _carStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateAppResponse' smart constructor.
-createAppResponse :: CreateAppResponse
-createAppResponse = CreateAppResponse'{_carAppId = Nothing};
+createAppResponse :: Int -> CreateAppResponse
+createAppResponse pStatusCode = CreateAppResponse'{_carAppId = Nothing, _carStatusCode = pStatusCode};
 
 -- | The app ID.
 carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\ s a -> s{_carAppId = a});
+
+-- | FIXME: Undocumented member.
+carStatusCode :: Lens' CreateAppResponse Int
+carStatusCode = lens _carStatusCode (\ s a -> s{_carStatusCode = a});

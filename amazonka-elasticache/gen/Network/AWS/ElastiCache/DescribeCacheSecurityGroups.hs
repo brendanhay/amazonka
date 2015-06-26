@@ -35,17 +35,20 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- ** Response constructor
     , describeCacheSecurityGroupsResponse
     -- ** Response lenses
-    , descCacheSecurityGroups
-    , descMarker
+    , dcsgr1CacheSecurityGroups
+    , dcsgr1Marker
+    , dcsgr1StatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeCacheSecurityGroups' smart constructor.
+-- | Represents the input of a /DescribeCacheSecurityGroups/ action.
+--
+-- /See:/ 'describeCacheSecurityGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,10 +86,10 @@ dcsg1Marker = lens _dcsg1Marker (\ s a -> s{_dcsg1Marker = a});
 
 instance AWSPager DescribeCacheSecurityGroups where
         page rq rs
-          | stop (rs ^. descMarker) = Nothing
-          | stop (rs ^. descCacheSecurityGroups) = Nothing
+          | stop (rs ^. dcsgr1Marker) = Nothing
+          | stop (rs ^. dcsgr1CacheSecurityGroups) = Nothing
           | otherwise =
-            Just $ rq & dcsg1Marker .~ rs ^. descMarker
+            Just $ rq & dcsg1Marker .~ rs ^. dcsgr1Marker
 
 instance AWSRequest DescribeCacheSecurityGroups where
         type Sv DescribeCacheSecurityGroups = ElastiCache
@@ -100,7 +103,8 @@ instance AWSRequest DescribeCacheSecurityGroups where
                  DescribeCacheSecurityGroupsResponse' <$>
                    (x .@? "CacheSecurityGroups" .!@ mempty >>=
                       may (parseXMLList "CacheSecurityGroup"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty
@@ -119,24 +123,32 @@ instance ToQuery DescribeCacheSecurityGroups where
                "MaxRecords" =: _dcsg1MaxRecords,
                "Marker" =: _dcsg1Marker]
 
--- | /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
+-- | Represents the output of a /DescribeCacheSecurityGroups/ action.
+--
+-- /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descCacheSecurityGroups'
+-- * 'dcsgr1CacheSecurityGroups'
 --
--- * 'descMarker'
-data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_descCacheSecurityGroups :: Maybe [CacheSecurityGroup], _descMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'dcsgr1Marker'
+--
+-- * 'dcsgr1StatusCode'
+data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_dcsgr1CacheSecurityGroups :: Maybe [CacheSecurityGroup], _dcsgr1Marker :: Maybe Text, _dcsgr1StatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
-describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_descCacheSecurityGroups = Nothing, _descMarker = Nothing};
+describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse
+describeCacheSecurityGroupsResponse pStatusCode = DescribeCacheSecurityGroupsResponse'{_dcsgr1CacheSecurityGroups = Nothing, _dcsgr1Marker = Nothing, _dcsgr1StatusCode = pStatusCode};
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
-descCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-descCacheSecurityGroups = lens _descCacheSecurityGroups (\ s a -> s{_descCacheSecurityGroups = a}) . _Default;
+dcsgr1CacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+dcsgr1CacheSecurityGroups = lens _dcsgr1CacheSecurityGroups (\ s a -> s{_dcsgr1CacheSecurityGroups = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-descMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
+dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+dcsgr1Marker = lens _dcsgr1Marker (\ s a -> s{_dcsgr1Marker = a});
+
+-- | FIXME: Undocumented member.
+dcsgr1StatusCode :: Lens' DescribeCacheSecurityGroupsResponse Int
+dcsgr1StatusCode = lens _dcsgr1StatusCode (\ s a -> s{_dcsgr1StatusCode = a});

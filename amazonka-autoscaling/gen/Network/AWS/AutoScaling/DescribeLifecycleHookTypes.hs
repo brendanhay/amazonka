@@ -30,6 +30,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , describeLifecycleHookTypesResponse
     -- ** Response lenses
     , dlhtrLifecycleHookTypes
+    , dlhtrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -55,7 +56,8 @@ instance AWSRequest DescribeLifecycleHookTypes where
               (\ s h x ->
                  DescribeLifecycleHookTypesResponse' <$>
                    (x .@? "LifecycleHookTypes" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLifecycleHookTypes where
         toHeaders = const mempty
@@ -76,11 +78,13 @@ instance ToQuery DescribeLifecycleHookTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlhtrLifecycleHookTypes'
-newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'dlhtrStatusCode'
+data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes :: Maybe [Text], _dlhtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
-describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes = Nothing};
+describeLifecycleHookTypesResponse :: Int -> DescribeLifecycleHookTypesResponse
+describeLifecycleHookTypesResponse pStatusCode = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes = Nothing, _dlhtrStatusCode = pStatusCode};
 
 -- | One or more of the following notification types:
 --
@@ -90,3 +94,7 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrL
 --
 dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes = lens _dlhtrLifecycleHookTypes (\ s a -> s{_dlhtrLifecycleHookTypes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlhtrStatusCode :: Lens' DescribeLifecycleHookTypesResponse Int
+dlhtrStatusCode = lens _dlhtrStatusCode (\ s a -> s{_dlhtrStatusCode = a});

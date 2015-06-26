@@ -38,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateApplication' smart constructor.
+-- | Represents the input of an update application operation.
+--
+-- /See:/ 'updateApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

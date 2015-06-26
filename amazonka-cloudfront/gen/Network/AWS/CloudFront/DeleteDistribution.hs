@@ -38,7 +38,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteDistribution' smart constructor.
+-- | The request to delete a distribution.
+--
+-- /See:/ 'deleteDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

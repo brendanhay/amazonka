@@ -62,6 +62,7 @@ module Network.AWS.Route53.CreateHostedZone
     , chzrChangeInfo
     , chzrDelegationSet
     , chzrLocation
+    , chzrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'createHostedZone' smart constructor.
+-- | A complex type that contains information about the request to create a
+-- hosted zone.
+--
+-- /See:/ 'createHostedZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -139,7 +143,8 @@ instance AWSRequest CreateHostedZone where
                    (x .@? "VPC") <*> (x .@ "HostedZone") <*>
                      (x .@ "ChangeInfo")
                      <*> (x .@ "DelegationSet")
-                     <*> (h .# "Location"))
+                     <*> (h .# "Location")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement CreateHostedZone where
         toElement
@@ -163,7 +168,10 @@ instance ToXML CreateHostedZone where
                "VPC" @= _chzVPC, "Name" @= _chzName,
                "CallerReference" @= _chzCallerReference]
 
--- | /See:/ 'createHostedZoneResponse' smart constructor.
+-- | A complex type containing the response information for the new hosted
+-- zone.
+--
+-- /See:/ 'createHostedZoneResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -176,11 +184,13 @@ instance ToXML CreateHostedZone where
 -- * 'chzrDelegationSet'
 --
 -- * 'chzrLocation'
-data CreateHostedZoneResponse = CreateHostedZoneResponse'{_chzrVPC :: Maybe VPC, _chzrHostedZone :: HostedZone, _chzrChangeInfo :: ChangeInfo, _chzrDelegationSet :: DelegationSet, _chzrLocation :: Text} deriving (Eq, Read, Show)
+--
+-- * 'chzrStatusCode'
+data CreateHostedZoneResponse = CreateHostedZoneResponse'{_chzrVPC :: Maybe VPC, _chzrHostedZone :: HostedZone, _chzrChangeInfo :: ChangeInfo, _chzrDelegationSet :: DelegationSet, _chzrLocation :: Text, _chzrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
-createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse
-createHostedZoneResponse pHostedZone pChangeInfo pDelegationSet pLocation = CreateHostedZoneResponse'{_chzrVPC = Nothing, _chzrHostedZone = pHostedZone, _chzrChangeInfo = pChangeInfo, _chzrDelegationSet = pDelegationSet, _chzrLocation = pLocation};
+createHostedZoneResponse :: HostedZone -> ChangeInfo -> DelegationSet -> Text -> Int -> CreateHostedZoneResponse
+createHostedZoneResponse pHostedZone pChangeInfo pDelegationSet pLocation pStatusCode = CreateHostedZoneResponse'{_chzrVPC = Nothing, _chzrHostedZone = pHostedZone, _chzrChangeInfo = pChangeInfo, _chzrDelegationSet = pDelegationSet, _chzrLocation = pLocation, _chzrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
@@ -204,3 +214,7 @@ chzrDelegationSet = lens _chzrDelegationSet (\ s a -> s{_chzrDelegationSet = a})
 -- | The unique URL representing the new hosted zone.
 chzrLocation :: Lens' CreateHostedZoneResponse Text
 chzrLocation = lens _chzrLocation (\ s a -> s{_chzrLocation = a});
+
+-- | FIXME: Undocumented member.
+chzrStatusCode :: Lens' CreateHostedZoneResponse Int
+chzrStatusCode = lens _chzrStatusCode (\ s a -> s{_chzrStatusCode = a});

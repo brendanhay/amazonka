@@ -43,15 +43,18 @@ module Network.AWS.Redshift.DescribeEvents
     -- ** Response lenses
     , derEvents
     , derMarker
+    , derStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEvents' smart constructor.
+-- |
+--
+-- /See:/ 'describeEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -171,7 +174,8 @@ instance AWSRequest DescribeEvents where
                  DescribeEventsResponse' <$>
                    (x .@? "Events" .!@ mempty >>=
                       may (parseXMLList "Event"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -191,18 +195,22 @@ instance ToQuery DescribeEvents where
                "EndTime" =: _deEndTime, "Marker" =: _deMarker,
                "Duration" =: _deDuration]
 
--- | /See:/ 'describeEventsResponse' smart constructor.
+-- | Contains the output from the DescribeEvents action.
+--
+-- /See:/ 'describeEventsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derEvents'
 --
 -- * 'derMarker'
-data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: Maybe [Event], _derMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'derStatusCode'
+data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: Maybe [Event], _derMarker :: Maybe Text, _derStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
-describeEventsResponse :: DescribeEventsResponse
-describeEventsResponse = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing};
+describeEventsResponse :: Int -> DescribeEventsResponse
+describeEventsResponse pStatusCode = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing, _derStatusCode = pStatusCode};
 
 -- | A list of Event instances.
 derEvents :: Lens' DescribeEventsResponse [Event]
@@ -216,3 +224,7 @@ derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
 -- the request.
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\ s a -> s{_derMarker = a});
+
+-- | FIXME: Undocumented member.
+derStatusCode :: Lens' DescribeEventsResponse Int
+derStatusCode = lens _derStatusCode (\ s a -> s{_derStatusCode = a});

@@ -37,7 +37,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteHSMConfiguration' smart constructor.
+-- |
+--
+-- /See:/ 'deleteHSMConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

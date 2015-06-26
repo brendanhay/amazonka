@@ -47,10 +47,11 @@ module Network.AWS.IAM.ListRolePolicies
     , lrprMarker
     , lrprIsTruncated
     , lrprPolicyNames
+    , lrprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -106,7 +107,8 @@ instance AWSRequest ListRolePolicies where
                  ListRolePoliciesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListRolePolicies where
         toHeaders = const mempty
@@ -122,7 +124,9 @@ instance ToQuery ListRolePolicies where
                "MaxItems" =: _lrpMaxItems, "Marker" =: _lrpMarker,
                "RoleName" =: _lrpRoleName]
 
--- | /See:/ 'listRolePoliciesResponse' smart constructor.
+-- | Contains the response to a successful ListRolePolicies request.
+--
+-- /See:/ 'listRolePoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -131,11 +135,13 @@ instance ToQuery ListRolePolicies where
 -- * 'lrprIsTruncated'
 --
 -- * 'lrprPolicyNames'
-data ListRolePoliciesResponse = ListRolePoliciesResponse'{_lrprMarker :: Maybe Text, _lrprIsTruncated :: Maybe Bool, _lrprPolicyNames :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lrprStatusCode'
+data ListRolePoliciesResponse = ListRolePoliciesResponse'{_lrprMarker :: Maybe Text, _lrprIsTruncated :: Maybe Bool, _lrprPolicyNames :: [Text], _lrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
-listRolePoliciesResponse :: ListRolePoliciesResponse
-listRolePoliciesResponse = ListRolePoliciesResponse'{_lrprMarker = Nothing, _lrprIsTruncated = Nothing, _lrprPolicyNames = mempty};
+listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
+listRolePoliciesResponse pStatusCode = ListRolePoliciesResponse'{_lrprMarker = Nothing, _lrprIsTruncated = Nothing, _lrprPolicyNames = mempty, _lrprStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -153,3 +159,7 @@ lrprIsTruncated = lens _lrprIsTruncated (\ s a -> s{_lrprIsTruncated = a});
 -- | A list of policy names.
 lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
 lrprPolicyNames = lens _lrprPolicyNames (\ s a -> s{_lrprPolicyNames = a});
+
+-- | FIXME: Undocumented member.
+lrprStatusCode :: Lens' ListRolePoliciesResponse Int
+lrprStatusCode = lens _lrprStatusCode (\ s a -> s{_lrprStatusCode = a});

@@ -32,6 +32,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     , deleteVirtualInterfaceResponse
     -- ** Response lenses
     , dvirVirtualInterfaceState
+    , dvirStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteVirtualInterface' smart constructor.
+-- | Container for the parameters to the DeleteVirtualInterface operation.
+--
+-- /See:/ 'deleteVirtualInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest DeleteVirtualInterface where
           = receiveJSON
               (\ s h x ->
                  DeleteVirtualInterfaceResponse' <$>
-                   (x .?> "virtualInterfaceState"))
+                   (x .?> "virtualInterfaceState") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteVirtualInterface where
         toHeaders
@@ -86,17 +90,25 @@ instance ToPath DeleteVirtualInterface where
 instance ToQuery DeleteVirtualInterface where
         toQuery = const mempty
 
--- | /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
+-- | The response received when DeleteVirtualInterface is called.
+--
+-- /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvirVirtualInterfaceState'
-newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'{_dvirVirtualInterfaceState :: Maybe VirtualInterfaceState} deriving (Eq, Read, Show)
+--
+-- * 'dvirStatusCode'
+data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'{_dvirVirtualInterfaceState :: Maybe VirtualInterfaceState, _dvirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
-deleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
-deleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'{_dvirVirtualInterfaceState = Nothing};
+deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse
+deleteVirtualInterfaceResponse pStatusCode = DeleteVirtualInterfaceResponse'{_dvirVirtualInterfaceState = Nothing, _dvirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvirVirtualInterfaceState = lens _dvirVirtualInterfaceState (\ s a -> s{_dvirVirtualInterfaceState = a});
+
+-- | FIXME: Undocumented member.
+dvirStatusCode :: Lens' DeleteVirtualInterfaceResponse Int
+dvirStatusCode = lens _dvirStatusCode (\ s a -> s{_dvirStatusCode = a});

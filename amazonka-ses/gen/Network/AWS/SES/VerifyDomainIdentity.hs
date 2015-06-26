@@ -34,6 +34,7 @@ module Network.AWS.SES.VerifyDomainIdentity
     , verifyDomainIdentityResponse
     -- ** Response lenses
     , vdirVerificationToken
+    , vdirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'verifyDomainIdentity' smart constructor.
+-- | Represents a request instructing the service to begin domain
+-- verification.
+--
+-- /See:/ 'verifyDomainIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -65,7 +69,7 @@ instance AWSRequest VerifyDomainIdentity where
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->
                  VerifyDomainIdentityResponse' <$>
-                   (x .@ "VerificationToken"))
+                   (x .@ "VerificationToken") <*> (pure (fromEnum s)))
 
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
@@ -80,18 +84,26 @@ instance ToQuery VerifyDomainIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "Domain" =: _vdiDomain]
 
--- | /See:/ 'verifyDomainIdentityResponse' smart constructor.
+-- | Represents a token used for domain ownership verification.
+--
+-- /See:/ 'verifyDomainIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vdirVerificationToken'
-newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'{_vdirVerificationToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'vdirStatusCode'
+data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'{_vdirVerificationToken :: Text, _vdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
-verifyDomainIdentityResponse :: Text -> VerifyDomainIdentityResponse
-verifyDomainIdentityResponse pVerificationToken = VerifyDomainIdentityResponse'{_vdirVerificationToken = pVerificationToken};
+verifyDomainIdentityResponse :: Text -> Int -> VerifyDomainIdentityResponse
+verifyDomainIdentityResponse pVerificationToken pStatusCode = VerifyDomainIdentityResponse'{_vdirVerificationToken = pVerificationToken, _vdirStatusCode = pStatusCode};
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken = lens _vdirVerificationToken (\ s a -> s{_vdirVerificationToken = a});
+
+-- | FIXME: Undocumented member.
+vdirStatusCode :: Lens' VerifyDomainIdentityResponse Int
+vdirStatusCode = lens _vdirStatusCode (\ s a -> s{_vdirStatusCode = a});

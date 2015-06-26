@@ -33,6 +33,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     , describeLifecycleHooksResponse
     -- ** Response lenses
     , dlhrLifecycleHooks
+    , dlhrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -71,7 +72,8 @@ instance AWSRequest DescribeLifecycleHooks where
               (\ s h x ->
                  DescribeLifecycleHooksResponse' <$>
                    (x .@? "LifecycleHooks" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeLifecycleHooks where
         toHeaders = const mempty
@@ -95,12 +97,18 @@ instance ToQuery DescribeLifecycleHooks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlhrLifecycleHooks'
-newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks :: Maybe [LifecycleHook]} deriving (Eq, Read, Show)
+--
+-- * 'dlhrStatusCode'
+data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks :: Maybe [LifecycleHook], _dlhrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
-describeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks = Nothing};
+describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
+describeLifecycleHooksResponse pStatusCode = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks = Nothing, _dlhrStatusCode = pStatusCode};
 
 -- | The lifecycle hooks for the specified group.
 dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dlhrStatusCode :: Lens' DescribeLifecycleHooksResponse Int
+dlhrStatusCode = lens _dlhrStatusCode (\ s a -> s{_dlhrStatusCode = a});

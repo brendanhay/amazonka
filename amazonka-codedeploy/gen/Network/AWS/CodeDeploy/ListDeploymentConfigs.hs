@@ -34,6 +34,7 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     -- ** Response lenses
     , ldcrNextToken
     , ldcrDeploymentConfigsList
+    , ldcrStatusCode
     ) where
 
 import Network.AWS.CodeDeploy.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listDeploymentConfigs' smart constructor.
+-- | Represents the input of a list deployment configurations operation.
+--
+-- /See:/ 'listDeploymentConfigs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest ListDeploymentConfigs where
               (\ s h x ->
                  ListDeploymentConfigsResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "deploymentConfigsList" .!@ mempty))
+                     (x .?> "deploymentConfigsList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDeploymentConfigs where
         toHeaders
@@ -90,18 +94,22 @@ instance ToPath ListDeploymentConfigs where
 instance ToQuery ListDeploymentConfigs where
         toQuery = const mempty
 
--- | /See:/ 'listDeploymentConfigsResponse' smart constructor.
+-- | Represents the output of a list deployment configurations operation.
+--
+-- /See:/ 'listDeploymentConfigsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldcrNextToken'
 --
 -- * 'ldcrDeploymentConfigsList'
-data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken :: Maybe Text, _ldcrDeploymentConfigsList :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'ldcrStatusCode'
+data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken :: Maybe Text, _ldcrDeploymentConfigsList :: Maybe [Text], _ldcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
-listDeploymentConfigsResponse :: ListDeploymentConfigsResponse
-listDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken = Nothing, _ldcrDeploymentConfigsList = Nothing};
+listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
+listDeploymentConfigsResponse pStatusCode = ListDeploymentConfigsResponse'{_ldcrNextToken = Nothing, _ldcrDeploymentConfigsList = Nothing, _ldcrStatusCode = pStatusCode};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -114,3 +122,7 @@ ldcrNextToken = lens _ldcrNextToken (\ s a -> s{_ldcrNextToken = a});
 -- configurations such as CodeDeployDefault.OneAtATime.
 ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ldcrStatusCode :: Lens' ListDeploymentConfigsResponse Int
+ldcrStatusCode = lens _ldcrStatusCode (\ s a -> s{_ldcrStatusCode = a});

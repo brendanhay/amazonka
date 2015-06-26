@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , createUserProfileResponse
     -- ** Response lenses
     , cuprIAMUserARN
+    , cuprStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -93,7 +94,8 @@ instance AWSRequest CreateUserProfile where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateUserProfileResponse' <$> (x .?> "IamUserArn"))
+                 CreateUserProfileResponse' <$>
+                   (x .?> "IamUserArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateUserProfile where
         toHeaders
@@ -119,17 +121,25 @@ instance ToPath CreateUserProfile where
 instance ToQuery CreateUserProfile where
         toQuery = const mempty
 
--- | /See:/ 'createUserProfileResponse' smart constructor.
+-- | Contains the response to a @CreateUserProfile@ request.
+--
+-- /See:/ 'createUserProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cuprIAMUserARN'
-newtype CreateUserProfileResponse = CreateUserProfileResponse'{_cuprIAMUserARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cuprStatusCode'
+data CreateUserProfileResponse = CreateUserProfileResponse'{_cuprIAMUserARN :: Maybe Text, _cuprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateUserProfileResponse' smart constructor.
-createUserProfileResponse :: CreateUserProfileResponse
-createUserProfileResponse = CreateUserProfileResponse'{_cuprIAMUserARN = Nothing};
+createUserProfileResponse :: Int -> CreateUserProfileResponse
+createUserProfileResponse pStatusCode = CreateUserProfileResponse'{_cuprIAMUserARN = Nothing, _cuprStatusCode = pStatusCode};
 
 -- | The user\'s IAM ARN.
 cuprIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprIAMUserARN = lens _cuprIAMUserARN (\ s a -> s{_cuprIAMUserARN = a});
+
+-- | FIXME: Undocumented member.
+cuprStatusCode :: Lens' CreateUserProfileResponse Int
+cuprStatusCode = lens _cuprStatusCode (\ s a -> s{_cuprStatusCode = a});

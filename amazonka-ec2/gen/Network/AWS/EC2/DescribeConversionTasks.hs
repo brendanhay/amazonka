@@ -37,6 +37,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     , describeConversionTasksResponse
     -- ** Response lenses
     , dctrConversionTasks
+    , dctrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -83,7 +84,8 @@ instance AWSRequest DescribeConversionTasks where
           = receiveXML
               (\ s h x ->
                  DescribeConversionTasksResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty
@@ -107,12 +109,18 @@ instance ToQuery DescribeConversionTasks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dctrConversionTasks'
-newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks :: Maybe [ConversionTask]} deriving (Eq, Read, Show)
+--
+-- * 'dctrStatusCode'
+data DescribeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks :: Maybe [ConversionTask], _dctrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
-describeConversionTasksResponse :: DescribeConversionTasksResponse
-describeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks = Nothing};
+describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
+describeConversionTasksResponse pStatusCode = DescribeConversionTasksResponse'{_dctrConversionTasks = Nothing, _dctrStatusCode = pStatusCode};
 
 -- | Information about the conversion tasks.
 dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dctrStatusCode :: Lens' DescribeConversionTasksResponse Int
+dctrStatusCode = lens _dctrStatusCode (\ s a -> s{_dctrStatusCode = a});

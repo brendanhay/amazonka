@@ -49,6 +49,7 @@ module Network.AWS.KMS.Decrypt
     -- ** Response lenses
     , drKeyId
     , drPlaintext
+    , drStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -95,7 +96,8 @@ instance AWSRequest Decrypt where
           = receiveJSON
               (\ s h x ->
                  DecryptResponse' <$>
-                   (x .?> "KeyId") <*> (x .?> "Plaintext"))
+                   (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders Decrypt where
         toHeaders
@@ -126,11 +128,13 @@ instance ToQuery Decrypt where
 -- * 'drKeyId'
 --
 -- * 'drPlaintext'
-data DecryptResponse = DecryptResponse'{_drKeyId :: Maybe Text, _drPlaintext :: Maybe (Sensitive Base64)} deriving (Eq, Read, Show)
+--
+-- * 'drStatusCode'
+data DecryptResponse = DecryptResponse'{_drKeyId :: Maybe Text, _drPlaintext :: Maybe (Sensitive Base64), _drStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DecryptResponse' smart constructor.
-decryptResponse :: DecryptResponse
-decryptResponse = DecryptResponse'{_drKeyId = Nothing, _drPlaintext = Nothing};
+decryptResponse :: Int -> DecryptResponse
+decryptResponse pStatusCode = DecryptResponse'{_drKeyId = Nothing, _drPlaintext = Nothing, _drStatusCode = pStatusCode};
 
 -- | ARN of the key used to perform the decryption. This value is returned if
 -- no errors are encountered during the operation.
@@ -141,3 +145,7 @@ drKeyId = lens _drKeyId (\ s a -> s{_drKeyId = a});
 -- master key is not available or if you didn\'t have permission to use it.
 drPlaintext :: Lens' DecryptResponse (Maybe Base64)
 drPlaintext = lens _drPlaintext (\ s a -> s{_drPlaintext = a}) . mapping _Sensitive;
+
+-- | FIXME: Undocumented member.
+drStatusCode :: Lens' DecryptResponse Int
+drStatusCode = lens _drStatusCode (\ s a -> s{_drStatusCode = a});

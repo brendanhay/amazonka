@@ -42,10 +42,11 @@ module Network.AWS.IAM.ListInstanceProfiles
     , liprMarker
     , liprIsTruncated
     , liprInstanceProfiles
+    , liprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -107,7 +108,8 @@ instance AWSRequest ListInstanceProfiles where
                  ListInstanceProfilesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListInstanceProfiles where
         toHeaders = const mempty
@@ -123,7 +125,9 @@ instance ToQuery ListInstanceProfiles where
                "PathPrefix" =: _lipPathPrefix,
                "MaxItems" =: _lipMaxItems, "Marker" =: _lipMarker]
 
--- | /See:/ 'listInstanceProfilesResponse' smart constructor.
+-- | Contains the response to a successful ListInstanceProfiles request.
+--
+-- /See:/ 'listInstanceProfilesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -132,11 +136,13 @@ instance ToQuery ListInstanceProfiles where
 -- * 'liprIsTruncated'
 --
 -- * 'liprInstanceProfiles'
-data ListInstanceProfilesResponse = ListInstanceProfilesResponse'{_liprMarker :: Maybe Text, _liprIsTruncated :: Maybe Bool, _liprInstanceProfiles :: [InstanceProfile]} deriving (Eq, Read, Show)
+--
+-- * 'liprStatusCode'
+data ListInstanceProfilesResponse = ListInstanceProfilesResponse'{_liprMarker :: Maybe Text, _liprIsTruncated :: Maybe Bool, _liprInstanceProfiles :: [InstanceProfile], _liprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
-listInstanceProfilesResponse :: ListInstanceProfilesResponse
-listInstanceProfilesResponse = ListInstanceProfilesResponse'{_liprMarker = Nothing, _liprIsTruncated = Nothing, _liprInstanceProfiles = mempty};
+listInstanceProfilesResponse :: Int -> ListInstanceProfilesResponse
+listInstanceProfilesResponse pStatusCode = ListInstanceProfilesResponse'{_liprMarker = Nothing, _liprIsTruncated = Nothing, _liprInstanceProfiles = mempty, _liprStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -154,3 +160,7 @@ liprIsTruncated = lens _liprIsTruncated (\ s a -> s{_liprIsTruncated = a});
 -- | A list of instance profiles.
 liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprInstanceProfiles = lens _liprInstanceProfiles (\ s a -> s{_liprInstanceProfiles = a});
+
+-- | FIXME: Undocumented member.
+liprStatusCode :: Lens' ListInstanceProfilesResponse Int
+liprStatusCode = lens _liprStatusCode (\ s a -> s{_liprStatusCode = a});

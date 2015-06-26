@@ -21,11 +21,34 @@ module Network.AWS.ECS.Types
     (
     -- * Service
       ECS
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidParameterException
+    , _ServerException
+    , _ClusterContainsServicesException
+    , _ClusterContainsContainerInstancesException
+    , _ServiceNotActiveException
+    , _NoUpdateAvailableException
+    , _ClusterNotFoundException
+    , _ServiceNotFoundException
+    , _MissingVersionException
+    , _UpdateInProgressException
+    , _ClientException
 
     -- * AgentUpdateStatus
     , AgentUpdateStatus (..)
+
+    -- * DesiredStatus
+    , DesiredStatus (..)
+
+    -- * SortOrder
+    , SortOrder (..)
+
+    -- * TaskDefinitionStatus
+    , TaskDefinitionStatus (..)
+
+    -- * TransportProtocol
+    , TransportProtocol (..)
 
     -- * Cluster
     , Cluster
@@ -114,9 +137,6 @@ module Network.AWS.ECS.Types
     , depTaskDefinition
     , depUpdatedAt
 
-    -- * DesiredStatus
-    , DesiredStatus (..)
-
     -- * Failure
     , Failure
     , failure
@@ -180,9 +200,6 @@ module Network.AWS.ECS.Types
     , seId
     , seMessage
 
-    -- * SortOrder
-    , SortOrder (..)
-
     -- * Task
     , Task
     , task
@@ -206,16 +223,10 @@ module Network.AWS.ECS.Types
     , tdRevision
     , tdVolumes
 
-    -- * TaskDefinitionStatus
-    , TaskDefinitionStatus (..)
-
     -- * TaskOverride
     , TaskOverride
     , taskOverride
     , toContainerOverrides
-
-    -- * TransportProtocol
-    , TransportProtocol (..)
 
     -- * VersionInfo
     , VersionInfo
@@ -235,6 +246,7 @@ module Network.AWS.ECS.Types
     , volumeFrom
     , vfSourceContainer
     , vfReadOnly
+
     ) where
 
 import Network.AWS.Prelude
@@ -245,30 +257,98 @@ data ECS
 
 instance AWSService ECS where
     type Sg ECS = V4
-    type Er ECS = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ECS
-        service' = Service
-            { _svcAbbrev  = "ECS"
-            , _svcPrefix  = "ecs"
-            , _svcVersion = "2014-11-13"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ECS
+        svc = Service
+            { _svcAbbrev   = "ECS"
+            , _svcPrefix   = "ecs"
+            , _svcVersion  = "2014-11-13"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ECS
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The specified parameter is invalid. Review the available parameters for
+-- the API request.
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+
+-- | These errors are usually caused by a server-side issue.
+_ServerException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServerException = _ServiceError . hasCode "ServerException";
+
+-- | You cannot delete a cluster that contains services. You must first
+-- update the service to reduce its desired task count to 0 and then delete
+-- the service. For more information, see UpdateService and DeleteService.
+_ClusterContainsServicesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterContainsServicesException = _ServiceError . hasCode "ClusterContainsServicesException";
+
+-- | You cannot delete a cluster that has registered container instances. You
+-- must first deregister the container instances before you can delete the
+-- cluster. For more information, see DeregisterContainerInstance.
+_ClusterContainsContainerInstancesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterContainsContainerInstancesException = _ServiceError . hasCode "ClusterContainsContainerInstancesException";
+
+-- | The specified service is not active. You cannot update a service that is
+-- not active. If you have previously deleted a service, you can recreate
+-- it with CreateService.
+_ServiceNotActiveException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceNotActiveException = _ServiceError . hasCode "ServiceNotActiveException";
+
+-- | There is no update available for this Amazon ECS container agent. This
+-- could be because the agent is already running the latest version, or it
+-- is so old that there is no update path to the current version.
+_NoUpdateAvailableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoUpdateAvailableException = _ServiceError . hasCode "NoUpdateAvailableException";
+
+-- | The specified cluster could not be found. You can view your available
+-- clusters with ListClusters. Amazon ECS clusters are region-specific.
+_ClusterNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException";
+
+-- | The specified service could not be found. You can view your available
+-- services with ListServices. Amazon ECS services are cluster-specific and
+-- region-specific.
+_ServiceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException";
+
+-- | Amazon ECS is unable to determine the current version of the Amazon ECS
+-- container agent on the container instance and does not have enough
+-- information to proceed with an update. This could be because the agent
+-- running on the container instance is an older or custom version that
+-- does not use our version information.
+_MissingVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingVersionException = _ServiceError . hasCode "MissingVersionException";
+
+-- | There is already a current Amazon ECS container agent update in progress
+-- on the specified container instance. If the container agent becomes
+-- disconnected while it is in a transitional stage, such as @PENDING@ or
+-- @STAGING@, the update process can get stuck in that state. However, when
+-- the agent reconnects, it will resume where it stopped previously.
+_UpdateInProgressException :: AWSError a => Geting (First ServiceError) a ServiceError
+_UpdateInProgressException = _ServiceError . hasCode "UpdateInProgressException";
+
+-- | These errors are usually caused by something the client did, such as use
+-- an action or resource on behalf of a user that doesn\'t have permission
+-- to use the action or resource, or specify an identifier that is not
+-- valid.
+_ClientException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ClientException = _ServiceError . hasCode "ClientException";
 
 data AgentUpdateStatus = AUSFailed | AUSStaged | AUSPending | AUSStaging | AUSUpdated | AUSUpdating deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -298,7 +378,101 @@ instance ToHeader AgentUpdateStatus
 instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
 
--- | /See:/ 'cluster' smart constructor.
+data DesiredStatus = Pending | Stopped | Running deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DesiredStatus where
+    parser = takeLowerText >>= \case
+        "PENDING" -> pure Pending
+        "RUNNING" -> pure Running
+        "STOPPED" -> pure Stopped
+        e -> fail ("Failure parsing DesiredStatus from " ++ show e)
+
+instance ToText DesiredStatus where
+    toText = \case
+        Pending -> "PENDING"
+        Running -> "RUNNING"
+        Stopped -> "STOPPED"
+
+instance Hashable DesiredStatus
+instance ToQuery DesiredStatus
+instance ToHeader DesiredStatus
+
+instance ToJSON DesiredStatus where
+    toJSON = toJSONText
+
+data SortOrder = Asc | Desc deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SortOrder where
+    parser = takeLowerText >>= \case
+        "ASC" -> pure Asc
+        "DESC" -> pure Desc
+        e -> fail ("Failure parsing SortOrder from " ++ show e)
+
+instance ToText SortOrder where
+    toText = \case
+        Asc -> "ASC"
+        Desc -> "DESC"
+
+instance Hashable SortOrder
+instance ToQuery SortOrder
+instance ToHeader SortOrder
+
+instance ToJSON SortOrder where
+    toJSON = toJSONText
+
+data TaskDefinitionStatus = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TaskDefinitionStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure Active
+        "INACTIVE" -> pure Inactive
+        e -> fail ("Failure parsing TaskDefinitionStatus from " ++ show e)
+
+instance ToText TaskDefinitionStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Inactive -> "INACTIVE"
+
+instance Hashable TaskDefinitionStatus
+instance ToQuery TaskDefinitionStatus
+instance ToHeader TaskDefinitionStatus
+
+instance ToJSON TaskDefinitionStatus where
+    toJSON = toJSONText
+
+instance FromJSON TaskDefinitionStatus where
+    parseJSON = parseJSONText "TaskDefinitionStatus"
+
+data TransportProtocol = Udp | TCP deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TransportProtocol where
+    parser = takeLowerText >>= \case
+        "tcp" -> pure TCP
+        "udp" -> pure Udp
+        e -> fail ("Failure parsing TransportProtocol from " ++ show e)
+
+instance ToText TransportProtocol where
+    toText = \case
+        TCP -> "tcp"
+        Udp -> "udp"
+
+instance Hashable TransportProtocol
+instance ToQuery TransportProtocol
+instance ToHeader TransportProtocol
+
+instance ToJSON TransportProtocol where
+    toJSON = toJSONText
+
+instance FromJSON TransportProtocol where
+    parseJSON = parseJSONText "TransportProtocol"
+
+-- | A regional grouping of one or more container instances on which you can
+-- run task requests. Each account receives a default cluster the first
+-- time you use the Amazon ECS service, but you may also create other
+-- clusters. Clusters may contain more than one instance type
+-- simultaneously.
+--
+-- /See:/ 'cluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -433,7 +607,10 @@ instance FromJSON Container where
                      <*> (x .:? "name")
                      <*> (x .:? "exitCode"))
 
--- | /See:/ 'containerDefinition' smart constructor.
+-- | Container definitions are used in task definitions to describe the
+-- different containers that are launched as part of a task.
+--
+-- /See:/ 'containerDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -605,7 +782,10 @@ instance ToJSON ContainerDefinition where
                "mountPoints" .= _cdMountPoints, "links" .= _cdLinks,
                "essential" .= _cdEssential, "cpu" .= _cdCpu]
 
--- | /See:/ 'containerInstance' smart constructor.
+-- | An Amazon EC2 instance that is running the Amazon ECS agent and has been
+-- registered with a cluster.
+--
+-- /See:/ 'containerInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -705,7 +885,10 @@ instance FromJSON ContainerInstance where
                      <*> (x .:? "pendingTasksCount")
                      <*> (x .:? "registeredResources" .!= mempty))
 
--- | /See:/ 'containerOverride' smart constructor.
+-- | The name of a container in a task definition and the command it should
+-- run instead of its default.
+--
+-- /See:/ 'containerOverride' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -940,28 +1123,6 @@ instance FromJSON Deployment where
                      <*> (x .:? "taskDefinition")
                      <*> (x .:? "updatedAt"))
 
-data DesiredStatus = Pending | Stopped | Running deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DesiredStatus where
-    parser = takeLowerText >>= \case
-        "PENDING" -> pure Pending
-        "RUNNING" -> pure Running
-        "STOPPED" -> pure Stopped
-        e -> fail ("Failure parsing DesiredStatus from " ++ show e)
-
-instance ToText DesiredStatus where
-    toText = \case
-        Pending -> "PENDING"
-        Running -> "RUNNING"
-        Stopped -> "STOPPED"
-
-instance Hashable DesiredStatus
-instance ToQuery DesiredStatus
-instance ToHeader DesiredStatus
-
-instance ToJSON DesiredStatus where
-    toJSON = toJSONText
-
 -- | /See:/ 'failure' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -1016,7 +1177,9 @@ instance ToJSON HostVolumeProperties where
         toJSON HostVolumeProperties'{..}
           = object ["sourcePath" .= _hvpSourcePath]
 
--- | /See:/ 'keyValuePair' smart constructor.
+-- | A key and value pair object.
+--
+-- /See:/ 'keyValuePair' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1189,7 +1352,11 @@ instance ToJSON NetworkBinding where
                "hostPort" .= _nbHostPort,
                "containerPort" .= _nbContainerPort]
 
--- | /See:/ 'portMapping' smart constructor.
+-- | Port mappings allow containers to access ports on the host container
+-- instance to send or receive traffic. Port mappings are specified as part
+-- of the container definition.
+--
+-- /See:/ 'portMapping' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1258,7 +1425,9 @@ instance ToJSON PortMapping where
                "hostPort" .= _pmHostPort,
                "containerPort" .= _pmContainerPort]
 
--- | /See:/ 'resource' smart constructor.
+-- | Describes the resources available for a container instance.
+--
+-- /See:/ 'resource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1364,26 +1533,6 @@ instance FromJSON ServiceEvent where
                  ServiceEvent' <$>
                    (x .:? "createdAt") <*> (x .:? "id") <*>
                      (x .:? "message"))
-
-data SortOrder = Asc | Desc deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SortOrder where
-    parser = takeLowerText >>= \case
-        "ASC" -> pure Asc
-        "DESC" -> pure Desc
-        e -> fail ("Failure parsing SortOrder from " ++ show e)
-
-instance ToText SortOrder where
-    toText = \case
-        Asc -> "ASC"
-        Desc -> "DESC"
-
-instance Hashable SortOrder
-instance ToQuery SortOrder
-instance ToHeader SortOrder
-
-instance ToJSON SortOrder where
-    toJSON = toJSONText
 
 -- | /See:/ 'task' smart constructor.
 --
@@ -1536,30 +1685,11 @@ instance FromJSON TaskDefinition where
                      <*> (x .:? "revision")
                      <*> (x .:? "volumes" .!= mempty))
 
-data TaskDefinitionStatus = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TaskDefinitionStatus where
-    parser = takeLowerText >>= \case
-        "ACTIVE" -> pure Active
-        "INACTIVE" -> pure Inactive
-        e -> fail ("Failure parsing TaskDefinitionStatus from " ++ show e)
-
-instance ToText TaskDefinitionStatus where
-    toText = \case
-        Active -> "ACTIVE"
-        Inactive -> "INACTIVE"
-
-instance Hashable TaskDefinitionStatus
-instance ToQuery TaskDefinitionStatus
-instance ToHeader TaskDefinitionStatus
-
-instance ToJSON TaskDefinitionStatus where
-    toJSON = toJSONText
-
-instance FromJSON TaskDefinitionStatus where
-    parseJSON = parseJSONText "TaskDefinitionStatus"
-
--- | /See:/ 'taskOverride' smart constructor.
+-- | A list of container overrides in JSON format that specify the name of a
+-- container in a task definition and the command it should run instead of
+-- its default.
+--
+-- /See:/ 'taskOverride' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1585,29 +1715,6 @@ instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
           = object
               ["containerOverrides" .= _toContainerOverrides]
-
-data TransportProtocol = Udp | TCP deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TransportProtocol where
-    parser = takeLowerText >>= \case
-        "tcp" -> pure TCP
-        "udp" -> pure Udp
-        e -> fail ("Failure parsing TransportProtocol from " ++ show e)
-
-instance ToText TransportProtocol where
-    toText = \case
-        TCP -> "tcp"
-        Udp -> "udp"
-
-instance Hashable TransportProtocol
-instance ToQuery TransportProtocol
-instance ToHeader TransportProtocol
-
-instance ToJSON TransportProtocol where
-    toJSON = toJSONText
-
-instance FromJSON TransportProtocol where
-    parseJSON = parseJSONText "TransportProtocol"
 
 -- | /See:/ 'versionInfo' smart constructor.
 --

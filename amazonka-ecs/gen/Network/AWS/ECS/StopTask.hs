@@ -32,7 +32,8 @@ module Network.AWS.ECS.StopTask
     -- ** Response constructor
     , stopTaskResponse
     -- ** Response lenses
-    , strTask
+    , stoTask
+    , stoStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -70,7 +71,9 @@ instance AWSRequest StopTask where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> StopTaskResponse' <$> (x .?> "task"))
+              (\ s h x ->
+                 StopTaskResponse' <$>
+                   (x .?> "task") <*> (pure (fromEnum s)))
 
 instance ToHeaders StopTask where
         toHeaders
@@ -96,13 +99,19 @@ instance ToQuery StopTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'strTask'
-newtype StopTaskResponse = StopTaskResponse'{_strTask :: Maybe Task} deriving (Eq, Read, Show)
+-- * 'stoTask'
+--
+-- * 'stoStatusCode'
+data StopTaskResponse = StopTaskResponse'{_stoTask :: Maybe Task, _stoStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'StopTaskResponse' smart constructor.
-stopTaskResponse :: StopTaskResponse
-stopTaskResponse = StopTaskResponse'{_strTask = Nothing};
+stopTaskResponse :: Int -> StopTaskResponse
+stopTaskResponse pStatusCode = StopTaskResponse'{_stoTask = Nothing, _stoStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-strTask :: Lens' StopTaskResponse (Maybe Task)
-strTask = lens _strTask (\ s a -> s{_strTask = a});
+stoTask :: Lens' StopTaskResponse (Maybe Task)
+stoTask = lens _stoTask (\ s a -> s{_stoTask = a});
+
+-- | FIXME: Undocumented member.
+stoStatusCode :: Lens' StopTaskResponse Int
+stoStatusCode = lens _stoStatusCode (\ s a -> s{_stoStatusCode = a});

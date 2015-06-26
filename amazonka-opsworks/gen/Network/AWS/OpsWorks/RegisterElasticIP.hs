@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     , registerElasticIPResponse
     -- ** Response lenses
     , reirElasticIP
+    , reirStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -78,7 +79,8 @@ instance AWSRequest RegisterElasticIP where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterElasticIPResponse' <$> (x .?> "ElasticIp"))
+                 RegisterElasticIPResponse' <$>
+                   (x .?> "ElasticIp") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterElasticIP where
         toHeaders
@@ -102,17 +104,25 @@ instance ToPath RegisterElasticIP where
 instance ToQuery RegisterElasticIP where
         toQuery = const mempty
 
--- | /See:/ 'registerElasticIPResponse' smart constructor.
+-- | Contains the response to a @RegisterElasticIp@ request.
+--
+-- /See:/ 'registerElasticIPResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'reirElasticIP'
-newtype RegisterElasticIPResponse = RegisterElasticIPResponse'{_reirElasticIP :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'reirStatusCode'
+data RegisterElasticIPResponse = RegisterElasticIPResponse'{_reirElasticIP :: Maybe Text, _reirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterElasticIPResponse' smart constructor.
-registerElasticIPResponse :: RegisterElasticIPResponse
-registerElasticIPResponse = RegisterElasticIPResponse'{_reirElasticIP = Nothing};
+registerElasticIPResponse :: Int -> RegisterElasticIPResponse
+registerElasticIPResponse pStatusCode = RegisterElasticIPResponse'{_reirElasticIP = Nothing, _reirStatusCode = pStatusCode};
 
 -- | The Elastic IP address.
 reirElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirElasticIP = lens _reirElasticIP (\ s a -> s{_reirElasticIP = a});
+
+-- | FIXME: Undocumented member.
+reirStatusCode :: Lens' RegisterElasticIPResponse Int
+reirStatusCode = lens _reirStatusCode (\ s a -> s{_reirStatusCode = a});

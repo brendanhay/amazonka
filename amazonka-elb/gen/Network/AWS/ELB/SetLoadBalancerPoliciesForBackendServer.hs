@@ -43,6 +43,8 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     , SetLoadBalancerPoliciesForBackendServerResponse
     -- ** Response constructor
     , setLoadBalancerPoliciesForBackendServerResponse
+    -- ** Response lenses
+    , slbpfbsrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -85,8 +87,11 @@ instance AWSRequest
              SetLoadBalancerPoliciesForBackendServerResponse
         request = post
         response
-          = receiveNull
-              SetLoadBalancerPoliciesForBackendServerResponse'
+          = receiveXMLWrapper
+              "SetLoadBalancerPoliciesForBackendServerResult"
+              (\ s h x ->
+                 SetLoadBalancerPoliciesForBackendServerResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders
          SetLoadBalancerPoliciesForBackendServer where
@@ -110,8 +115,16 @@ instance ToQuery
                  toQueryList "member" _slbpfbsPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
-data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slbpfbsrStatusCode'
+newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'{_slbpfbsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
-setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
-setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse';
+setLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoliciesForBackendServerResponse
+setLoadBalancerPoliciesForBackendServerResponse pStatusCode = SetLoadBalancerPoliciesForBackendServerResponse'{_slbpfbsrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+slbpfbsrStatusCode :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
+slbpfbsrStatusCode = lens _slbpfbsrStatusCode (\ s a -> s{_slbpfbsrStatusCode = a});

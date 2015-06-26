@@ -33,6 +33,7 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     , getCognitoEventsResponse
     -- ** Response lenses
     , gcerEvents
+    , gcerStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getCognitoEvents' smart constructor.
+-- | A request for a list of the configured Cognito Events
+--
+-- /See:/ 'getCognitoEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,7 @@ instance AWSRequest GetCognitoEvents where
           = receiveJSON
               (\ s h x ->
                  GetCognitoEventsResponse' <$>
-                   (x .?> "Events" .!@ mempty))
+                   (x .?> "Events" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetCognitoEvents where
         toHeaders
@@ -81,17 +84,25 @@ instance ToPath GetCognitoEvents where
 instance ToQuery GetCognitoEvents where
         toQuery = const mempty
 
--- | /See:/ 'getCognitoEventsResponse' smart constructor.
+-- | The response from the GetCognitoEvents request
+--
+-- /See:/ 'getCognitoEventsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcerEvents'
-newtype GetCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+--
+-- * 'gcerStatusCode'
+data GetCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents :: Maybe (Map Text Text), _gcerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetCognitoEventsResponse' smart constructor.
-getCognitoEventsResponse :: GetCognitoEventsResponse
-getCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents = Nothing};
+getCognitoEventsResponse :: Int -> GetCognitoEventsResponse
+getCognitoEventsResponse pStatusCode = GetCognitoEventsResponse'{_gcerEvents = Nothing, _gcerStatusCode = pStatusCode};
 
 -- | The Cognito Events returned from the GetCognitoEvents request
 gcerEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcerEvents = lens _gcerEvents (\ s a -> s{_gcerEvents = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+gcerStatusCode :: Lens' GetCognitoEventsResponse Int
+gcerStatusCode = lens _gcerStatusCode (\ s a -> s{_gcerStatusCode = a});

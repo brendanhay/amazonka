@@ -63,6 +63,7 @@ module Network.AWS.S3.PutObject
     , porSSEKMSKeyId
     , porSSECustomerKeyMD5
     , porServerSideEncryption
+    , porStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -266,7 +267,8 @@ instance AWSRequest PutObject where
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
-                     <*> (h .#? "x-amz-server-side-encryption"))
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (pure (fromEnum s)))
 
 instance ToBody PutObject where
         toBody = _poBody
@@ -329,11 +331,13 @@ instance ToQuery PutObject where
 -- * 'porSSECustomerKeyMD5'
 --
 -- * 'porServerSideEncryption'
-data PutObjectResponse = PutObjectResponse'{_porVersionId :: Maybe ObjectVersionId, _porETag :: Maybe ETag, _porRequestCharged :: Maybe RequestCharged, _porExpiration :: Maybe Text, _porSSECustomerAlgorithm :: Maybe Text, _porSSEKMSKeyId :: Maybe (Sensitive Text), _porSSECustomerKeyMD5 :: Maybe Text, _porServerSideEncryption :: Maybe ServerSideEncryption} deriving (Eq, Read, Show)
+--
+-- * 'porStatusCode'
+data PutObjectResponse = PutObjectResponse'{_porVersionId :: Maybe ObjectVersionId, _porETag :: Maybe ETag, _porRequestCharged :: Maybe RequestCharged, _porExpiration :: Maybe Text, _porSSECustomerAlgorithm :: Maybe Text, _porSSEKMSKeyId :: Maybe (Sensitive Text), _porSSECustomerKeyMD5 :: Maybe Text, _porServerSideEncryption :: Maybe ServerSideEncryption, _porStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PutObjectResponse' smart constructor.
-putObjectResponse :: PutObjectResponse
-putObjectResponse = PutObjectResponse'{_porVersionId = Nothing, _porETag = Nothing, _porRequestCharged = Nothing, _porExpiration = Nothing, _porSSECustomerAlgorithm = Nothing, _porSSEKMSKeyId = Nothing, _porSSECustomerKeyMD5 = Nothing, _porServerSideEncryption = Nothing};
+putObjectResponse :: Int -> PutObjectResponse
+putObjectResponse pStatusCode = PutObjectResponse'{_porVersionId = Nothing, _porETag = Nothing, _porRequestCharged = Nothing, _porExpiration = Nothing, _porSSECustomerAlgorithm = Nothing, _porSSEKMSKeyId = Nothing, _porSSECustomerKeyMD5 = Nothing, _porServerSideEncryption = Nothing, _porStatusCode = pStatusCode};
 
 -- | Version of the object.
 porVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
@@ -374,3 +378,7 @@ porSSECustomerKeyMD5 = lens _porSSECustomerKeyMD5 (\ s a -> s{_porSSECustomerKey
 -- (e.g., AES256, aws:kms).
 porServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porServerSideEncryption = lens _porServerSideEncryption (\ s a -> s{_porServerSideEncryption = a});
+
+-- | FIXME: Undocumented member.
+porStatusCode :: Lens' PutObjectResponse Int
+porStatusCode = lens _porStatusCode (\ s a -> s{_porStatusCode = a});

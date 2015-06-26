@@ -32,6 +32,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     , describeApplicationsResponse
     -- ** Response lenses
     , darApplications
+    , darStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -39,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeApplications' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeApplications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -65,7 +68,8 @@ instance AWSRequest DescribeApplications where
               (\ s h x ->
                  DescribeApplicationsResponse' <$>
                    (x .@? "Applications" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeApplications where
         toHeaders = const mempty
@@ -82,17 +86,25 @@ instance ToQuery DescribeApplications where
                  toQuery
                    (toQueryList "member" <$> _daApplicationNames)]
 
--- | /See:/ 'describeApplicationsResponse' smart constructor.
+-- | Result message containing a list of application descriptions.
+--
+-- /See:/ 'describeApplicationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darApplications'
-newtype DescribeApplicationsResponse = DescribeApplicationsResponse'{_darApplications :: Maybe [ApplicationDescription]} deriving (Eq, Read, Show)
+--
+-- * 'darStatusCode'
+data DescribeApplicationsResponse = DescribeApplicationsResponse'{_darApplications :: Maybe [ApplicationDescription], _darStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
-describeApplicationsResponse :: DescribeApplicationsResponse
-describeApplicationsResponse = DescribeApplicationsResponse'{_darApplications = Nothing};
+describeApplicationsResponse :: Int -> DescribeApplicationsResponse
+describeApplicationsResponse pStatusCode = DescribeApplicationsResponse'{_darApplications = Nothing, _darStatusCode = pStatusCode};
 
 -- | This parameter contains a list of ApplicationDescription.
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\ s a -> s{_darApplications = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+darStatusCode :: Lens' DescribeApplicationsResponse Int
+darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});

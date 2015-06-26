@@ -35,15 +35,18 @@ module Network.AWS.DataPipeline.ListPipelines
     , lprHasMoreResults
     , lprMarker
     , lprPipelineIdList
+    , lprStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listPipelines' smart constructor.
+-- | Contains the parameters for ListPipelines.
+--
+-- /See:/ 'listPipelines' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +79,8 @@ instance AWSRequest ListPipelines where
               (\ s h x ->
                  ListPipelinesResponse' <$>
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
-                     (x .?> "pipelineIdList" .!@ mempty))
+                     (x .?> "pipelineIdList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPipelines where
         toHeaders
@@ -97,7 +101,9 @@ instance ToPath ListPipelines where
 instance ToQuery ListPipelines where
         toQuery = const mempty
 
--- | /See:/ 'listPipelinesResponse' smart constructor.
+-- | Contains the output of ListPipelines.
+--
+-- /See:/ 'listPipelinesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -106,11 +112,13 @@ instance ToQuery ListPipelines where
 -- * 'lprMarker'
 --
 -- * 'lprPipelineIdList'
-data ListPipelinesResponse = ListPipelinesResponse'{_lprHasMoreResults :: Maybe Bool, _lprMarker :: Maybe Text, _lprPipelineIdList :: [PipelineIdName]} deriving (Eq, Read, Show)
+--
+-- * 'lprStatusCode'
+data ListPipelinesResponse = ListPipelinesResponse'{_lprHasMoreResults :: Maybe Bool, _lprMarker :: Maybe Text, _lprPipelineIdList :: [PipelineIdName], _lprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: ListPipelinesResponse
-listPipelinesResponse = ListPipelinesResponse'{_lprHasMoreResults = Nothing, _lprMarker = Nothing, _lprPipelineIdList = mempty};
+listPipelinesResponse :: Int -> ListPipelinesResponse
+listPipelinesResponse pStatusCode = ListPipelinesResponse'{_lprHasMoreResults = Nothing, _lprMarker = Nothing, _lprPipelineIdList = mempty, _lprStatusCode = pStatusCode};
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
@@ -128,3 +136,7 @@ lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
 -- and GetPipelineDefinition.
 lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList = lens _lprPipelineIdList (\ s a -> s{_lprPipelineIdList = a});
+
+-- | FIXME: Undocumented member.
+lprStatusCode :: Lens' ListPipelinesResponse Int
+lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});

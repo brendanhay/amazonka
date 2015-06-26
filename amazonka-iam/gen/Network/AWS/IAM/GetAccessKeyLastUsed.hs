@@ -36,6 +36,7 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- ** Response lenses
     , gaklurUserName
     , gaklurAccessKeyLastUsed
+    , gaklurStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -67,7 +68,8 @@ instance AWSRequest GetAccessKeyLastUsed where
           = receiveXMLWrapper "GetAccessKeyLastUsedResult"
               (\ s h x ->
                  GetAccessKeyLastUsedResponse' <$>
-                   (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed"))
+                   (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
@@ -82,18 +84,24 @@ instance ToQuery GetAccessKeyLastUsed where
                "Version" =: ("2010-05-08" :: ByteString),
                "AccessKeyId" =: _gakluAccessKeyId]
 
--- | /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
+-- | Contains the response to a successful GetAccessKeyLastUsed request. It
+-- is also returned as a member of the AccessKeyMetaData structure returned
+-- by the ListAccessKeys action.
+--
+-- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gaklurUserName'
 --
 -- * 'gaklurAccessKeyLastUsed'
-data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurUserName :: Maybe Text, _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed} deriving (Eq, Read, Show)
+--
+-- * 'gaklurStatusCode'
+data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurUserName :: Maybe Text, _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed, _gaklurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
-getAccessKeyLastUsedResponse :: GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurUserName = Nothing, _gaklurAccessKeyLastUsed = Nothing};
+getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
+getAccessKeyLastUsedResponse pStatusCode = GetAccessKeyLastUsedResponse'{_gaklurUserName = Nothing, _gaklurAccessKeyLastUsed = Nothing, _gaklurStatusCode = pStatusCode};
 
 -- | The name of the AWS IAM user that owns this access key.
 gaklurUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
@@ -102,3 +110,7 @@ gaklurUserName = lens _gaklurUserName (\ s a -> s{_gaklurUserName = a});
 -- | Contains information about the last time the access key was used.
 gaklurAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
 gaklurAccessKeyLastUsed = lens _gaklurAccessKeyLastUsed (\ s a -> s{_gaklurAccessKeyLastUsed = a});
+
+-- | FIXME: Undocumented member.
+gaklurStatusCode :: Lens' GetAccessKeyLastUsedResponse Int
+gaklurStatusCode = lens _gaklurStatusCode (\ s a -> s{_gaklurStatusCode = a});

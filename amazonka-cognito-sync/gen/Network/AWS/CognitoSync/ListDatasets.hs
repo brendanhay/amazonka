@@ -43,6 +43,7 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldrCount
     , ldrNextToken
     , ldrDatasets
+    , ldrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -50,7 +51,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listDatasets' smart constructor.
+-- | Request for a list of datasets for an identity.
+--
+-- /See:/ 'listDatasets' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,7 +99,8 @@ instance AWSRequest ListDatasets where
               (\ s h x ->
                  ListDatasetsResponse' <$>
                    (x .?> "Count") <*> (x .?> "NextToken") <*>
-                     (x .?> "Datasets" .!@ mempty))
+                     (x .?> "Datasets" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDatasets where
         toHeaders
@@ -117,7 +121,9 @@ instance ToQuery ListDatasets where
               ["nextToken" =: _ldNextToken,
                "maxResults" =: _ldMaxResults]
 
--- | /See:/ 'listDatasetsResponse' smart constructor.
+-- | Returned for a successful ListDatasets request.
+--
+-- /See:/ 'listDatasetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -126,11 +132,13 @@ instance ToQuery ListDatasets where
 -- * 'ldrNextToken'
 --
 -- * 'ldrDatasets'
-data ListDatasetsResponse = ListDatasetsResponse'{_ldrCount :: Maybe Int, _ldrNextToken :: Maybe Text, _ldrDatasets :: Maybe [Dataset]} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDatasetsResponse = ListDatasetsResponse'{_ldrCount :: Maybe Int, _ldrNextToken :: Maybe Text, _ldrDatasets :: Maybe [Dataset], _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDatasetsResponse' smart constructor.
-listDatasetsResponse :: ListDatasetsResponse
-listDatasetsResponse = ListDatasetsResponse'{_ldrCount = Nothing, _ldrNextToken = Nothing, _ldrDatasets = Nothing};
+listDatasetsResponse :: Int -> ListDatasetsResponse
+listDatasetsResponse pStatusCode = ListDatasetsResponse'{_ldrCount = Nothing, _ldrNextToken = Nothing, _ldrDatasets = Nothing, _ldrStatusCode = pStatusCode};
 
 -- | Number of datasets returned.
 ldrCount :: Lens' ListDatasetsResponse (Maybe Int)
@@ -143,3 +151,7 @@ ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 -- | A set of datasets.
 ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDatasetsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

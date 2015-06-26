@@ -36,6 +36,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     , createCacheParameterGroupResponse
     -- ** Response lenses
     , ccpgrCacheParameterGroup
+    , ccpgrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createCacheParameterGroup' smart constructor.
+-- | Represents the input of a /CreateCacheParameterGroup/ action.
+--
+-- /See:/ 'createCacheParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest CreateCacheParameterGroup where
           = receiveXMLWrapper "CreateCacheParameterGroupResult"
               (\ s h x ->
                  CreateCacheParameterGroupResponse' <$>
-                   (x .@? "CacheParameterGroup"))
+                   (x .@? "CacheParameterGroup") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty
@@ -107,12 +111,18 @@ instance ToQuery CreateCacheParameterGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccpgrCacheParameterGroup'
-newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'{_ccpgrCacheParameterGroup :: Maybe CacheParameterGroup} deriving (Eq, Read, Show)
+--
+-- * 'ccpgrStatusCode'
+data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'{_ccpgrCacheParameterGroup :: Maybe CacheParameterGroup, _ccpgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
-createCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
-createCacheParameterGroupResponse = CreateCacheParameterGroupResponse'{_ccpgrCacheParameterGroup = Nothing};
+createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse
+createCacheParameterGroupResponse pStatusCode = CreateCacheParameterGroupResponse'{_ccpgrCacheParameterGroup = Nothing, _ccpgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 ccpgrCacheParameterGroup = lens _ccpgrCacheParameterGroup (\ s a -> s{_ccpgrCacheParameterGroup = a});
+
+-- | FIXME: Undocumented member.
+ccpgrStatusCode :: Lens' CreateCacheParameterGroupResponse Int
+ccpgrStatusCode = lens _ccpgrStatusCode (\ s a -> s{_ccpgrStatusCode = a});

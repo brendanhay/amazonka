@@ -35,6 +35,7 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     -- ** Response lenses
     , csfrrSuccessfulFleetRequests
     , csfrrUnsuccessfulFleetRequests
+    , csfrrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'cancelSpotFleetRequests' smart constructor.
+-- | Contains the parameters for CancelSpotFleetRequests.
+--
+-- /See:/ 'cancelSpotFleetRequests' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,7 +86,8 @@ instance AWSRequest CancelSpotFleetRequests where
               (\ s h x ->
                  CancelSpotFleetRequestsResponse' <$>
                    (may (parseXMLList "item") x) <*>
-                     (may (parseXMLList "item") x))
+                     (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty
@@ -101,18 +105,22 @@ instance ToQuery CancelSpotFleetRequests where
                toQueryList "item" _csfrSpotFleetRequestIds,
                "TerminateInstances" =: _csfrTerminateInstances]
 
--- | /See:/ 'cancelSpotFleetRequestsResponse' smart constructor.
+-- | Contains the output of CancelSpotFleetRequests.
+--
+-- /See:/ 'cancelSpotFleetRequestsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csfrrSuccessfulFleetRequests'
 --
 -- * 'csfrrUnsuccessfulFleetRequests'
-data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'{_csfrrSuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsSuccessItem], _csfrrUnsuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsErrorItem]} deriving (Eq, Read, Show)
+--
+-- * 'csfrrStatusCode'
+data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'{_csfrrSuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsSuccessItem], _csfrrUnsuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsErrorItem], _csfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
-cancelSpotFleetRequestsResponse :: CancelSpotFleetRequestsResponse
-cancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'{_csfrrSuccessfulFleetRequests = Nothing, _csfrrUnsuccessfulFleetRequests = Nothing};
+cancelSpotFleetRequestsResponse :: Int -> CancelSpotFleetRequestsResponse
+cancelSpotFleetRequestsResponse pStatusCode = CancelSpotFleetRequestsResponse'{_csfrrSuccessfulFleetRequests = Nothing, _csfrrUnsuccessfulFleetRequests = Nothing, _csfrrStatusCode = pStatusCode};
 
 -- | Information about the Spot fleet requests that are successfully
 -- canceled.
@@ -123,3 +131,7 @@ csfrrSuccessfulFleetRequests = lens _csfrrSuccessfulFleetRequests (\ s a -> s{_c
 -- canceled.
 csfrrUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsErrorItem]
 csfrrUnsuccessfulFleetRequests = lens _csfrrUnsuccessfulFleetRequests (\ s a -> s{_csfrrUnsuccessfulFleetRequests = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+csfrrStatusCode :: Lens' CancelSpotFleetRequestsResponse Int
+csfrrStatusCode = lens _csfrrStatusCode (\ s a -> s{_csfrrStatusCode = a});

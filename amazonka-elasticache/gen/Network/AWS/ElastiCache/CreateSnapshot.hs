@@ -33,7 +33,8 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- ** Response constructor
     , createSnapshotResponse
     -- ** Response lenses
-    , creSnapshot
+    , cSnapshot
+    , cStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createSnapshot' smart constructor.
+-- | Represents the input of a /CreateSnapshot/ action.
+--
+-- /See:/ 'createSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +73,8 @@ instance AWSRequest CreateSnapshot where
         response
           = receiveXMLWrapper "CreateSnapshotResult"
               (\ s h x ->
-                 CreateSnapshotResponse' <$> (x .@? "Snapshot"))
+                 CreateSnapshotResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty
@@ -90,13 +94,19 @@ instance ToQuery CreateSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creSnapshot'
-newtype CreateSnapshotResponse = CreateSnapshotResponse'{_creSnapshot :: Maybe Snapshot} deriving (Eq, Read, Show)
+-- * 'cSnapshot'
+--
+-- * 'cStatusCode'
+data CreateSnapshotResponse = CreateSnapshotResponse'{_cSnapshot :: Maybe Snapshot, _cStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: CreateSnapshotResponse
-createSnapshotResponse = CreateSnapshotResponse'{_creSnapshot = Nothing};
+createSnapshotResponse :: Int -> CreateSnapshotResponse
+createSnapshotResponse pStatusCode = CreateSnapshotResponse'{_cSnapshot = Nothing, _cStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-creSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-creSnapshot = lens _creSnapshot (\ s a -> s{_creSnapshot = a});
+cSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
+cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
+
+-- | FIXME: Undocumented member.
+cStatusCode :: Lens' CreateSnapshotResponse Int
+cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});

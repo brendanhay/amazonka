@@ -50,6 +50,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , modifyCacheClusterResponse
     -- ** Response lenses
     , mccrCacheCluster
+    , mccrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -57,7 +58,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyCacheCluster' smart constructor.
+-- | Represents the input of a /ModifyCacheCluster/ action.
+--
+-- /See:/ 'modifyCacheCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -335,7 +338,7 @@ instance AWSRequest ModifyCacheCluster where
           = receiveXMLWrapper "ModifyCacheClusterResult"
               (\ s h x ->
                  ModifyCacheClusterResponse' <$>
-                   (x .@? "CacheCluster"))
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyCacheCluster where
         toHeaders = const mempty
@@ -387,12 +390,18 @@ instance ToQuery ModifyCacheCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mccrCacheCluster'
-newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse'{_mccrCacheCluster :: Maybe CacheCluster} deriving (Eq, Read, Show)
+--
+-- * 'mccrStatusCode'
+data ModifyCacheClusterResponse = ModifyCacheClusterResponse'{_mccrCacheCluster :: Maybe CacheCluster, _mccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
-modifyCacheClusterResponse :: ModifyCacheClusterResponse
-modifyCacheClusterResponse = ModifyCacheClusterResponse'{_mccrCacheCluster = Nothing};
+modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse
+modifyCacheClusterResponse pStatusCode = ModifyCacheClusterResponse'{_mccrCacheCluster = Nothing, _mccrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\ s a -> s{_mccrCacheCluster = a});
+
+-- | FIXME: Undocumented member.
+mccrStatusCode :: Lens' ModifyCacheClusterResponse Int
+mccrStatusCode = lens _mccrStatusCode (\ s a -> s{_mccrStatusCode = a});

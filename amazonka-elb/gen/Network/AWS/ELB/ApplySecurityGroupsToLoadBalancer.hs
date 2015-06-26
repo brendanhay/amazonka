@@ -39,6 +39,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     , applySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
     , asgtlbrSecurityGroups
+    , asgtlbrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -80,7 +81,8 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
               (\ s h x ->
                  ApplySecurityGroupsToLoadBalancerResponse' <$>
                    (x .@? "SecurityGroups" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
@@ -106,12 +108,18 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'asgtlbrSecurityGroups'
-newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'asgtlbrStatusCode'
+data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups :: Maybe [Text], _asgtlbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
-applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups = Nothing};
+applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
+applySecurityGroupsToLoadBalancerResponse pStatusCode = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups = Nothing, _asgtlbrStatusCode = pStatusCode};
 
 -- | The IDs of the security groups associated with the load balancer.
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+asgtlbrStatusCode :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
+asgtlbrStatusCode = lens _asgtlbrStatusCode (\ s a -> s{_asgtlbrStatusCode = a});

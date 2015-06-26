@@ -55,6 +55,7 @@ module Network.AWS.StorageGateway.ShutdownGateway
     , shutdownGatewayResponse
     -- ** Response lenses
     , sgrGatewayARN
+    , sgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -62,7 +63,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'shutdownGateway' smart constructor.
+-- | A JSON object containing the of the gateway to shut down.
+--
+-- /See:/ 'shutdownGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,8 @@ instance AWSRequest ShutdownGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 ShutdownGatewayResponse' <$> (x .?> "GatewayARN"))
+                 ShutdownGatewayResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders ShutdownGateway where
         toHeaders
@@ -106,17 +110,25 @@ instance ToPath ShutdownGateway where
 instance ToQuery ShutdownGateway where
         toQuery = const mempty
 
--- | /See:/ 'shutdownGatewayResponse' smart constructor.
+-- | A JSON object containing the of the gateway that was shut down.
+--
+-- /See:/ 'shutdownGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sgrGatewayARN'
-newtype ShutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'sgrStatusCode'
+data ShutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN :: Maybe Text, _sgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
-shutdownGatewayResponse :: ShutdownGatewayResponse
-shutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN = Nothing};
+shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
+shutdownGatewayResponse pStatusCode = ShutdownGatewayResponse'{_sgrGatewayARN = Nothing, _sgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrGatewayARN = lens _sgrGatewayARN (\ s a -> s{_sgrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+sgrStatusCode :: Lens' ShutdownGatewayResponse Int
+sgrStatusCode = lens _sgrStatusCode (\ s a -> s{_sgrStatusCode = a});

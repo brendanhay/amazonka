@@ -34,6 +34,7 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     , csdrETag
     , csdrLocation
     , csdrStreamingDistribution
+    , csdrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createStreamingDistribution' smart constructor.
+-- | The request to create a new streaming distribution.
+--
+-- /See:/ 'createStreamingDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +69,8 @@ instance AWSRequest CreateStreamingDistribution where
               (\ s h x ->
                  CreateStreamingDistributionResponse' <$>
                    (h .#? "ETag") <*> (h .#? "Location") <*>
-                     (x .@? "StreamingDistribution"))
+                     (x .@? "StreamingDistribution")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement CreateStreamingDistribution where
         toElement
@@ -84,7 +88,9 @@ instance ToPath CreateStreamingDistribution where
 instance ToQuery CreateStreamingDistribution where
         toQuery = const mempty
 
--- | /See:/ 'createStreamingDistributionResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'createStreamingDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,11 +99,13 @@ instance ToQuery CreateStreamingDistribution where
 -- * 'csdrLocation'
 --
 -- * 'csdrStreamingDistribution'
-data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'{_csdrETag :: Maybe Text, _csdrLocation :: Maybe Text, _csdrStreamingDistribution :: Maybe StreamingDistribution} deriving (Eq, Read, Show)
+--
+-- * 'csdrStatusCode'
+data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'{_csdrETag :: Maybe Text, _csdrLocation :: Maybe Text, _csdrStreamingDistribution :: Maybe StreamingDistribution, _csdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
-createStreamingDistributionResponse :: CreateStreamingDistributionResponse
-createStreamingDistributionResponse = CreateStreamingDistributionResponse'{_csdrETag = Nothing, _csdrLocation = Nothing, _csdrStreamingDistribution = Nothing};
+createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse
+createStreamingDistributionResponse pStatusCode = CreateStreamingDistributionResponse'{_csdrETag = Nothing, _csdrLocation = Nothing, _csdrStreamingDistribution = Nothing, _csdrStatusCode = pStatusCode};
 
 -- | The current version of the streaming distribution created.
 csdrETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
@@ -112,3 +120,7 @@ csdrLocation = lens _csdrLocation (\ s a -> s{_csdrLocation = a});
 -- | The streaming distribution\'s information.
 csdrStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
 csdrStreamingDistribution = lens _csdrStreamingDistribution (\ s a -> s{_csdrStreamingDistribution = a});
+
+-- | FIXME: Undocumented member.
+csdrStatusCode :: Lens' CreateStreamingDistributionResponse Int
+csdrStatusCode = lens _csdrStatusCode (\ s a -> s{_csdrStatusCode = a});

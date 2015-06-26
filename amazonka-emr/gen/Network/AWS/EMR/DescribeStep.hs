@@ -33,6 +33,7 @@ module Network.AWS.EMR.DescribeStep
     , describeStepResponse
     -- ** Response lenses
     , dsrStep
+    , dsrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeStep' smart constructor.
+-- | This input determines which step to describe.
+--
+-- /See:/ 'describeStep' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,9 @@ instance AWSRequest DescribeStep where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DescribeStepResponse' <$> (x .?> "Step"))
+              (\ s h x ->
+                 DescribeStepResponse' <$>
+                   (x .?> "Step") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeStep where
         toHeaders
@@ -89,17 +94,25 @@ instance ToPath DescribeStep where
 instance ToQuery DescribeStep where
         toQuery = const mempty
 
--- | /See:/ 'describeStepResponse' smart constructor.
+-- | This output contains the description of the cluster step.
+--
+-- /See:/ 'describeStepResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrStep'
-newtype DescribeStepResponse = DescribeStepResponse'{_dsrStep :: Maybe Step} deriving (Eq, Read, Show)
+--
+-- * 'dsrStatusCode'
+data DescribeStepResponse = DescribeStepResponse'{_dsrStep :: Maybe Step, _dsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStepResponse' smart constructor.
-describeStepResponse :: DescribeStepResponse
-describeStepResponse = DescribeStepResponse'{_dsrStep = Nothing};
+describeStepResponse :: Int -> DescribeStepResponse
+describeStepResponse pStatusCode = DescribeStepResponse'{_dsrStep = Nothing, _dsrStatusCode = pStatusCode};
 
 -- | The step details for the requested step identifier.
 dsrStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrStep = lens _dsrStep (\ s a -> s{_dsrStep = a});
+
+-- | FIXME: Undocumented member.
+dsrStatusCode :: Lens' DescribeStepResponse Int
+dsrStatusCode = lens _dsrStatusCode (\ s a -> s{_dsrStatusCode = a});

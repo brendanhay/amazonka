@@ -36,6 +36,7 @@ module Network.AWS.Support.DescribeAttachment
     , describeAttachmentResponse
     -- ** Response lenses
     , darAttachment
+    , darStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -67,7 +68,8 @@ instance AWSRequest DescribeAttachment where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeAttachmentResponse' <$> (x .?> "attachment"))
+                 DescribeAttachmentResponse' <$>
+                   (x .?> "attachment") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAttachment where
         toHeaders
@@ -89,17 +91,26 @@ instance ToPath DescribeAttachment where
 instance ToQuery DescribeAttachment where
         toQuery = const mempty
 
--- | /See:/ 'describeAttachmentResponse' smart constructor.
+-- | The content and file name of the attachment returned by the
+-- DescribeAttachment operation.
+--
+-- /See:/ 'describeAttachmentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darAttachment'
-newtype DescribeAttachmentResponse = DescribeAttachmentResponse'{_darAttachment :: Maybe Attachment} deriving (Eq, Read, Show)
+--
+-- * 'darStatusCode'
+data DescribeAttachmentResponse = DescribeAttachmentResponse'{_darAttachment :: Maybe Attachment, _darStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAttachmentResponse' smart constructor.
-describeAttachmentResponse :: DescribeAttachmentResponse
-describeAttachmentResponse = DescribeAttachmentResponse'{_darAttachment = Nothing};
+describeAttachmentResponse :: Int -> DescribeAttachmentResponse
+describeAttachmentResponse pStatusCode = DescribeAttachmentResponse'{_darAttachment = Nothing, _darStatusCode = pStatusCode};
 
 -- | The attachment content and file name.
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\ s a -> s{_darAttachment = a});
+
+-- | FIXME: Undocumented member.
+darStatusCode :: Lens' DescribeAttachmentResponse Int
+darStatusCode = lens _darStatusCode (\ s a -> s{_darStatusCode = a});

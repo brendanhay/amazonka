@@ -34,6 +34,7 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     , describeChapCredentialsResponse
     -- ** Response lenses
     , dccrChapCredentials
+    , dccrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeChapCredentials' smart constructor.
+-- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI
+-- volume target.
+--
+-- /See:/ 'describeChapCredentials' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +71,8 @@ instance AWSRequest DescribeChapCredentials where
           = receiveJSON
               (\ s h x ->
                  DescribeChapCredentialsResponse' <$>
-                   (x .?> "ChapCredentials" .!@ mempty))
+                   (x .?> "ChapCredentials" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeChapCredentials where
         toHeaders
@@ -89,16 +94,20 @@ instance ToPath DescribeChapCredentials where
 instance ToQuery DescribeChapCredentials where
         toQuery = const mempty
 
--- | /See:/ 'describeChapCredentialsResponse' smart constructor.
+-- | A JSON object containing a .
+--
+-- /See:/ 'describeChapCredentialsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dccrChapCredentials'
-newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials :: Maybe [ChapInfo]} deriving (Eq, Read, Show)
+--
+-- * 'dccrStatusCode'
+data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials :: Maybe [ChapInfo], _dccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
-describeChapCredentialsResponse :: DescribeChapCredentialsResponse
-describeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials = Nothing};
+describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse
+describeChapCredentialsResponse pStatusCode = DescribeChapCredentialsResponse'{_dccrChapCredentials = Nothing, _dccrStatusCode = pStatusCode};
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each
 -- object in the array contains CHAP credential information for one
@@ -120,3 +129,7 @@ describeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCred
 --
 dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dccrStatusCode :: Lens' DescribeChapCredentialsResponse Int
+dccrStatusCode = lens _dccrStatusCode (\ s a -> s{_dccrStatusCode = a});

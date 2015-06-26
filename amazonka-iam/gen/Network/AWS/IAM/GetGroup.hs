@@ -38,10 +38,11 @@ module Network.AWS.IAM.GetGroup
     , ggrIsTruncated
     , ggrGroup
     , ggrUsers
+    , ggrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -97,7 +98,8 @@ instance AWSRequest GetGroup where
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@ "Group")
                      <*>
-                     (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
+                     (x .@? "Users" .!@ mempty >>= parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetGroup where
         toHeaders = const mempty
@@ -113,7 +115,9 @@ instance ToQuery GetGroup where
                "MaxItems" =: _ggMaxItems, "Marker" =: _ggMarker,
                "GroupName" =: _ggGroupName]
 
--- | /See:/ 'getGroupResponse' smart constructor.
+-- | Contains the response to a successful GetGroup request.
+--
+-- /See:/ 'getGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,11 +128,13 @@ instance ToQuery GetGroup where
 -- * 'ggrGroup'
 --
 -- * 'ggrUsers'
-data GetGroupResponse = GetGroupResponse'{_ggrMarker :: Maybe Text, _ggrIsTruncated :: Maybe Bool, _ggrGroup :: Group, _ggrUsers :: [User]} deriving (Eq, Read, Show)
+--
+-- * 'ggrStatusCode'
+data GetGroupResponse = GetGroupResponse'{_ggrMarker :: Maybe Text, _ggrIsTruncated :: Maybe Bool, _ggrGroup :: Group, _ggrUsers :: [User], _ggrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetGroupResponse' smart constructor.
-getGroupResponse :: Group -> GetGroupResponse
-getGroupResponse pGroup = GetGroupResponse'{_ggrMarker = Nothing, _ggrIsTruncated = Nothing, _ggrGroup = pGroup, _ggrUsers = mempty};
+getGroupResponse :: Group -> Int -> GetGroupResponse
+getGroupResponse pGroup pStatusCode = GetGroupResponse'{_ggrMarker = Nothing, _ggrIsTruncated = Nothing, _ggrGroup = pGroup, _ggrUsers = mempty, _ggrStatusCode = pStatusCode};
 
 -- | If IsTruncated is @true@, then this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -150,3 +156,7 @@ ggrGroup = lens _ggrGroup (\ s a -> s{_ggrGroup = a});
 -- | A list of users in the group.
 ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\ s a -> s{_ggrUsers = a});
+
+-- | FIXME: Undocumented member.
+ggrStatusCode :: Lens' GetGroupResponse Int
+ggrStatusCode = lens _ggrStatusCode (\ s a -> s{_ggrStatusCode = a});

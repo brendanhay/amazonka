@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.RegisterVolume
     , registerVolumeResponse
     -- ** Response lenses
     , rvrVolumeId
+    , rvrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -78,7 +79,8 @@ instance AWSRequest RegisterVolume where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterVolumeResponse' <$> (x .?> "VolumeId"))
+                 RegisterVolumeResponse' <$>
+                   (x .?> "VolumeId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterVolume where
         toHeaders
@@ -101,17 +103,25 @@ instance ToPath RegisterVolume where
 instance ToQuery RegisterVolume where
         toQuery = const mempty
 
--- | /See:/ 'registerVolumeResponse' smart constructor.
+-- | Contains the response to a @RegisterVolume@ request.
+--
+-- /See:/ 'registerVolumeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rvrVolumeId'
-newtype RegisterVolumeResponse = RegisterVolumeResponse'{_rvrVolumeId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rvrStatusCode'
+data RegisterVolumeResponse = RegisterVolumeResponse'{_rvrVolumeId :: Maybe Text, _rvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterVolumeResponse' smart constructor.
-registerVolumeResponse :: RegisterVolumeResponse
-registerVolumeResponse = RegisterVolumeResponse'{_rvrVolumeId = Nothing};
+registerVolumeResponse :: Int -> RegisterVolumeResponse
+registerVolumeResponse pStatusCode = RegisterVolumeResponse'{_rvrVolumeId = Nothing, _rvrStatusCode = pStatusCode};
 
 -- | The volume ID.
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\ s a -> s{_rvrVolumeId = a});
+
+-- | FIXME: Undocumented member.
+rvrStatusCode :: Lens' RegisterVolumeResponse Int
+rvrStatusCode = lens _rvrStatusCode (\ s a -> s{_rvrStatusCode = a});

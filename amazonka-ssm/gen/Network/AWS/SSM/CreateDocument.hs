@@ -36,6 +36,7 @@ module Network.AWS.SSM.CreateDocument
     , createDocumentResponse
     -- ** Response lenses
     , cdrDocumentDescription
+    , cdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -74,7 +75,8 @@ instance AWSRequest CreateDocument where
           = receiveJSON
               (\ s h x ->
                  CreateDocumentResponse' <$>
-                   (x .?> "DocumentDescription"))
+                   (x .?> "DocumentDescription") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateDocument where
         toHeaders
@@ -100,12 +102,18 @@ instance ToQuery CreateDocument where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdrDocumentDescription'
-newtype CreateDocumentResponse = CreateDocumentResponse'{_cdrDocumentDescription :: Maybe DocumentDescription} deriving (Eq, Read, Show)
+--
+-- * 'cdrStatusCode'
+data CreateDocumentResponse = CreateDocumentResponse'{_cdrDocumentDescription :: Maybe DocumentDescription, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDocumentResponse' smart constructor.
-createDocumentResponse :: CreateDocumentResponse
-createDocumentResponse = CreateDocumentResponse'{_cdrDocumentDescription = Nothing};
+createDocumentResponse :: Int -> CreateDocumentResponse
+createDocumentResponse pStatusCode = CreateDocumentResponse'{_cdrDocumentDescription = Nothing, _cdrStatusCode = pStatusCode};
 
 -- | Information about the configuration document.
 cdrDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrDocumentDescription = lens _cdrDocumentDescription (\ s a -> s{_cdrDocumentDescription = a});
+
+-- | FIXME: Undocumented member.
+cdrStatusCode :: Lens' CreateDocumentResponse Int
+cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});

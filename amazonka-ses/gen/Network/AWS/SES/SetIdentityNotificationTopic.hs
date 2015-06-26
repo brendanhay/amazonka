@@ -44,6 +44,8 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     , SetIdentityNotificationTopicResponse
     -- ** Response constructor
     , setIdentityNotificationTopicResponse
+    -- ** Response lenses
+    , sintrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -51,7 +53,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'setIdentityNotificationTopic' smart constructor.
+-- | Represents a request to set or clear an identity\'s notification topic.
+--
+-- /See:/ 'setIdentityNotificationTopic' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -89,7 +93,11 @@ instance AWSRequest SetIdentityNotificationTopic
              SetIdentityNotificationTopicResponse
         request = post
         response
-          = receiveNull SetIdentityNotificationTopicResponse'
+          = receiveXMLWrapper
+              "SetIdentityNotificationTopicResult"
+              (\ s h x ->
+                 SetIdentityNotificationTopicResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
@@ -107,9 +115,20 @@ instance ToQuery SetIdentityNotificationTopic where
                "Identity" =: _sintIdentity,
                "NotificationType" =: _sintNotificationType]
 
--- | /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
-data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse' deriving (Eq, Read, Show)
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sintrStatusCode'
+newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'{_sintrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
-setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
-setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse';
+setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse
+setIdentityNotificationTopicResponse pStatusCode = SetIdentityNotificationTopicResponse'{_sintrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+sintrStatusCode :: Lens' SetIdentityNotificationTopicResponse Int
+sintrStatusCode = lens _sintrStatusCode (\ s a -> s{_sintrStatusCode = a});

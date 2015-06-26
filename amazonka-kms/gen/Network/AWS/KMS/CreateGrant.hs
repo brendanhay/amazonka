@@ -47,6 +47,7 @@ module Network.AWS.KMS.CreateGrant
     -- ** Response lenses
     , cgrGrantId
     , cgrGrantToken
+    , cgrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -127,7 +128,8 @@ instance AWSRequest CreateGrant where
           = receiveJSON
               (\ s h x ->
                  CreateGrantResponse' <$>
-                   (x .?> "GrantId") <*> (x .?> "GrantToken"))
+                   (x .?> "GrantId") <*> (x .?> "GrantToken") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreateGrant where
         toHeaders
@@ -160,11 +162,13 @@ instance ToQuery CreateGrant where
 -- * 'cgrGrantId'
 --
 -- * 'cgrGrantToken'
-data CreateGrantResponse = CreateGrantResponse'{_cgrGrantId :: Maybe Text, _cgrGrantToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cgrStatusCode'
+data CreateGrantResponse = CreateGrantResponse'{_cgrGrantId :: Maybe Text, _cgrGrantToken :: Maybe Text, _cgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateGrantResponse' smart constructor.
-createGrantResponse :: CreateGrantResponse
-createGrantResponse = CreateGrantResponse'{_cgrGrantId = Nothing, _cgrGrantToken = Nothing};
+createGrantResponse :: Int -> CreateGrantResponse
+createGrantResponse pStatusCode = CreateGrantResponse'{_cgrGrantId = Nothing, _cgrGrantToken = Nothing, _cgrStatusCode = pStatusCode};
 
 -- | Unique grant identifier. You can use the /GrantId/ value to revoke a
 -- grant.
@@ -175,3 +179,7 @@ cgrGrantId = lens _cgrGrantId (\ s a -> s{_cgrGrantId = a});
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\ s a -> s{_cgrGrantToken = a});
+
+-- | FIXME: Undocumented member.
+cgrStatusCode :: Lens' CreateGrantResponse Int
+cgrStatusCode = lens _cgrStatusCode (\ s a -> s{_cgrStatusCode = a});

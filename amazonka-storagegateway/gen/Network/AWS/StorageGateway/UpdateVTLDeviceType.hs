@@ -36,6 +36,7 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     , updateVTLDeviceTypeResponse
     -- ** Response lenses
     , uvtldtrVTLDeviceARN
+    , uvtldtrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateVTLDeviceType' smart constructor.
+-- | UpdateVTLDeviceTypeInput
+--
+-- /See:/ 'updateVTLDeviceType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -75,7 +78,7 @@ instance AWSRequest UpdateVTLDeviceType where
           = receiveJSON
               (\ s h x ->
                  UpdateVTLDeviceTypeResponse' <$>
-                   (x .?> "VTLDeviceARN"))
+                   (x .?> "VTLDeviceARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
@@ -99,17 +102,25 @@ instance ToPath UpdateVTLDeviceType where
 instance ToQuery UpdateVTLDeviceType where
         toQuery = const mempty
 
--- | /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
+-- | UpdateVTLDeviceTypeOutput
+--
+-- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uvtldtrVTLDeviceARN'
-newtype UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'uvtldtrStatusCode'
+data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN :: Maybe Text, _uvtldtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
-updateVTLDeviceTypeResponse :: UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN = Nothing};
+updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
+updateVTLDeviceTypeResponse pStatusCode = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN = Nothing, _uvtldtrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
 uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrVTLDeviceARN = lens _uvtldtrVTLDeviceARN (\ s a -> s{_uvtldtrVTLDeviceARN = a});
+
+-- | FIXME: Undocumented member.
+uvtldtrStatusCode :: Lens' UpdateVTLDeviceTypeResponse Int
+uvtldtrStatusCode = lens _uvtldtrStatusCode (\ s a -> s{_uvtldtrStatusCode = a});

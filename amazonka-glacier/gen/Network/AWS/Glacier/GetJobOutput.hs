@@ -80,12 +80,12 @@ module Network.AWS.Glacier.GetJobOutput
     -- ** Response constructor
     , getJobOutputResponse
     -- ** Response lenses
-    , gjorStatus
     , gjorChecksum
     , gjorAcceptRanges
     , gjorArchiveDescription
     , gjorContentRange
     , gjorContentType
+    , gjorStatus
     , gjorBody
     ) where
 
@@ -94,7 +94,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getJobOutput' smart constructor.
+-- | Provides options for downloading output of an Amazon Glacier job.
+--
+-- /See:/ 'getJobOutput' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -142,11 +144,12 @@ instance AWSRequest GetJobOutput where
           = receiveBody
               (\ s h x ->
                  GetJobOutputResponse' <$>
-                   (pure (Just s)) <*> (h .#? "x-amz-sha256-tree-hash")
-                     <*> (h .#? "Accept-Ranges")
+                   (h .#? "x-amz-sha256-tree-hash") <*>
+                     (h .#? "Accept-Ranges")
                      <*> (h .#? "x-amz-archive-description")
                      <*> (h .#? "Content-Range")
                      <*> (h .#? "Content-Type")
+                     <*> (pure (fromEnum s))
                      <*> (pure x))
 
 instance ToHeaders GetJobOutput where
@@ -163,11 +166,11 @@ instance ToPath GetJobOutput where
 instance ToQuery GetJobOutput where
         toQuery = const mempty
 
--- | /See:/ 'getJobOutputResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'getJobOutputResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
---
--- * 'gjorStatus'
 --
 -- * 'gjorChecksum'
 --
@@ -179,17 +182,14 @@ instance ToQuery GetJobOutput where
 --
 -- * 'gjorContentType'
 --
+-- * 'gjorStatus'
+--
 -- * 'gjorBody'
-data GetJobOutputResponse = GetJobOutputResponse'{_gjorStatus :: Maybe Int, _gjorChecksum :: Maybe Text, _gjorAcceptRanges :: Maybe Text, _gjorArchiveDescription :: Maybe Text, _gjorContentRange :: Maybe Text, _gjorContentType :: Maybe Text, _gjorBody :: RsBody} deriving Show
+data GetJobOutputResponse = GetJobOutputResponse'{_gjorChecksum :: Maybe Text, _gjorAcceptRanges :: Maybe Text, _gjorArchiveDescription :: Maybe Text, _gjorContentRange :: Maybe Text, _gjorContentType :: Maybe Text, _gjorStatus :: Int, _gjorBody :: RsBody} deriving Show
 
 -- | 'GetJobOutputResponse' smart constructor.
-getJobOutputResponse :: RsBody -> GetJobOutputResponse
-getJobOutputResponse pBody = GetJobOutputResponse'{_gjorStatus = Nothing, _gjorChecksum = Nothing, _gjorAcceptRanges = Nothing, _gjorArchiveDescription = Nothing, _gjorContentRange = Nothing, _gjorContentType = Nothing, _gjorBody = pBody};
-
--- | The HTTP response code for a job output request. The value depends on
--- whether a range was specified in the request.
-gjorStatus :: Lens' GetJobOutputResponse (Maybe Int)
-gjorStatus = lens _gjorStatus (\ s a -> s{_gjorStatus = a});
+getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse
+getJobOutputResponse pStatus pBody = GetJobOutputResponse'{_gjorChecksum = Nothing, _gjorAcceptRanges = Nothing, _gjorArchiveDescription = Nothing, _gjorContentRange = Nothing, _gjorContentType = Nothing, _gjorStatus = pStatus, _gjorBody = pBody};
 
 -- | The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
@@ -232,6 +232,11 @@ gjorContentRange = lens _gjorContentRange (\ s a -> s{_gjorContentRange = a});
 -- Content-Type is application\/json.
 gjorContentType :: Lens' GetJobOutputResponse (Maybe Text)
 gjorContentType = lens _gjorContentType (\ s a -> s{_gjorContentType = a});
+
+-- | The HTTP response code for a job output request. The value depends on
+-- whether a range was specified in the request.
+gjorStatus :: Lens' GetJobOutputResponse Int
+gjorStatus = lens _gjorStatus (\ s a -> s{_gjorStatus = a});
 
 -- | The job data, either archive data or inventory data.
 gjorBody :: Lens' GetJobOutputResponse RsBody

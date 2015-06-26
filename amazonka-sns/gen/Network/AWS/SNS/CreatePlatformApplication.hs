@@ -48,6 +48,7 @@ module Network.AWS.SNS.CreatePlatformApplication
     , createPlatformApplicationResponse
     -- ** Response lenses
     , cparPlatformApplicationARN
+    , cparStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -55,7 +56,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'createPlatformApplication' smart constructor.
+-- | Input for CreatePlatformApplication action.
+--
+-- /See:/ 'createPlatformApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -96,7 +99,8 @@ instance AWSRequest CreatePlatformApplication where
           = receiveXMLWrapper "CreatePlatformApplicationResult"
               (\ s h x ->
                  CreatePlatformApplicationResponse' <$>
-                   (x .@? "PlatformApplicationArn"))
+                   (x .@? "PlatformApplicationArn") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty
@@ -114,17 +118,25 @@ instance ToQuery CreatePlatformApplication where
                "Attributes" =:
                  toQueryMap "entry" "key" "value" _cpaAttributes]
 
--- | /See:/ 'createPlatformApplicationResponse' smart constructor.
+-- | Response from CreatePlatformApplication action.
+--
+-- /See:/ 'createPlatformApplicationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cparPlatformApplicationARN'
-newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'{_cparPlatformApplicationARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cparStatusCode'
+data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'{_cparPlatformApplicationARN :: Maybe Text, _cparStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
-createPlatformApplicationResponse :: CreatePlatformApplicationResponse
-createPlatformApplicationResponse = CreatePlatformApplicationResponse'{_cparPlatformApplicationARN = Nothing};
+createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse
+createPlatformApplicationResponse pStatusCode = CreatePlatformApplicationResponse'{_cparPlatformApplicationARN = Nothing, _cparStatusCode = pStatusCode};
 
 -- | PlatformApplicationArn is returned.
 cparPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparPlatformApplicationARN = lens _cparPlatformApplicationARN (\ s a -> s{_cparPlatformApplicationARN = a});
+
+-- | FIXME: Undocumented member.
+cparStatusCode :: Lens' CreatePlatformApplicationResponse Int
+cparStatusCode = lens _cparStatusCode (\ s a -> s{_cparStatusCode = a});

@@ -31,6 +31,8 @@ module Network.AWS.ELB.RemoveTags
     , RemoveTagsResponse
     -- ** Response constructor
     , removeTagsResponse
+    -- ** Response lenses
+    , rtrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -64,7 +66,10 @@ instance AWSRequest RemoveTags where
         type Sv RemoveTags = ELB
         type Rs RemoveTags = RemoveTagsResponse
         request = post
-        response = receiveNull RemoveTagsResponse'
+        response
+          = receiveXMLWrapper "RemoveTagsResult"
+              (\ s h x ->
+                 RemoveTagsResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders RemoveTags where
         toHeaders = const mempty
@@ -82,8 +87,16 @@ instance ToQuery RemoveTags where
                "Tags" =: toQueryList "member" _rtTags]
 
 -- | /See:/ 'removeTagsResponse' smart constructor.
-data RemoveTagsResponse = RemoveTagsResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rtrStatusCode'
+newtype RemoveTagsResponse = RemoveTagsResponse'{_rtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RemoveTagsResponse' smart constructor.
-removeTagsResponse :: RemoveTagsResponse
-removeTagsResponse = RemoveTagsResponse';
+removeTagsResponse :: Int -> RemoveTagsResponse
+removeTagsResponse pStatusCode = RemoveTagsResponse'{_rtrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+rtrStatusCode :: Lens' RemoveTagsResponse Int
+rtrStatusCode = lens _rtrStatusCode (\ s a -> s{_rtrStatusCode = a});

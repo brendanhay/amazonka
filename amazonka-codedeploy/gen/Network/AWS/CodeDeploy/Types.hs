@@ -21,8 +21,113 @@ module Network.AWS.CodeDeploy.Types
     (
     -- * Service
       CodeDeploy
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidTimeRangeException
+    , _InvalidTagException
+    , _InstanceNameAlreadyRegisteredException
+    , _InvalidIAMUserARNException
+    , _IAMUserARNRequiredException
+    , _InvalidDeploymentGroupNameException
+    , _DescriptionTooLongException
+    , _DeploymentConfigAlreadyExistsException
+    , _DeploymentConfigLimitExceededException
+    , _InvalidRoleException
+    , _DeploymentNotStartedException
+    , _RoleRequiredException
+    , _IAMUserARNAlreadyRegisteredException
+    , _DeploymentLimitExceededException
+    , _InstanceLimitExceededException
+    , _InvalidAutoScalingGroupException
+    , _InvalidApplicationNameException
+    , _InvalidDeployedStateFilterException
+    , _InvalidMinimumHealthyHostValueException
+    , _ApplicationDoesNotExistException
+    , _InvalidTagFilterException
+    , _TagRequiredException
+    , _RevisionDoesNotExistException
+    , _DeploymentGroupNameRequiredException
+    , _InvalidBucketNameFilterException
+    , _DeploymentConfigDoesNotExistException
+    , _InvalidSortByException
+    , _BucketNameFilterRequiredException
+    , _DeploymentGroupLimitExceededException
+    , _DeploymentGroupAlreadyExistsException
+    , _InvalidDeploymentIdException
+    , _DeploymentGroupDoesNotExistException
+    , _DeploymentIdRequiredException
+    , _InstanceIdRequiredException
+    , _DeploymentConfigNameRequiredException
+    , _InvalidDeploymentConfigNameException
+    , _InvalidSortOrderException
+    , _InvalidNextTokenException
+    , _InvalidRevisionException
+    , _DeploymentAlreadyCompletedException
+    , _RevisionRequiredException
+    , _InstanceDoesNotExistException
+    , _DeploymentDoesNotExistException
+    , _InstanceNameRequiredException
+    , _DeploymentConfigInUseException
+    , _InvalidEC2TagException
+    , _InvalidInstanceNameException
+    , _InvalidDeploymentStatusException
+    , _InvalidRegistrationStatusException
+    , _TagLimitExceededException
+    , _InstanceNotRegisteredException
+    , _ApplicationLimitExceededException
+    , _InvalidOperationException
+    , _ApplicationAlreadyExistsException
+    , _InvalidInstanceStatusException
+    , _ApplicationNameRequiredException
+    , _InvalidKeyPrefixFilterException
+
+    -- * ApplicationRevisionSortBy
+    , ApplicationRevisionSortBy (..)
+
+    -- * BundleType
+    , BundleType (..)
+
+    -- * DeployErrorCode
+    , DeployErrorCode (..)
+
+    -- * DeploymentCreator
+    , DeploymentCreator (..)
+
+    -- * DeploymentStatus
+    , DeploymentStatus (..)
+
+    -- * EC2TagFilterType
+    , EC2TagFilterType (..)
+
+    -- * InstanceStatus
+    , InstanceStatus (..)
+
+    -- * LifecycleErrorCode
+    , LifecycleErrorCode (..)
+
+    -- * LifecycleEventStatus
+    , LifecycleEventStatus (..)
+
+    -- * ListStateFilterAction
+    , ListStateFilterAction (..)
+
+    -- * MinimumHealthyHostsType
+    , MinimumHealthyHostsType (..)
+
+    -- * RegistrationStatus
+    , RegistrationStatus (..)
+
+    -- * RevisionLocationType
+    , RevisionLocationType (..)
+
+    -- * SortOrder
+    , SortOrder (..)
+
+    -- * StopStatus
+    , StopStatus (..)
+
+    -- * TagFilterType
+    , TagFilterType (..)
 
     -- * ApplicationInfo
     , ApplicationInfo
@@ -32,20 +137,11 @@ module Network.AWS.CodeDeploy.Types
     , aiApplicationName
     , aiCreateTime
 
-    -- * ApplicationRevisionSortBy
-    , ApplicationRevisionSortBy (..)
-
     -- * AutoScalingGroup
     , AutoScalingGroup
     , autoScalingGroup
     , asgHook
     , asgName
-
-    -- * BundleType
-    , BundleType (..)
-
-    -- * DeployErrorCode
-    , DeployErrorCode (..)
 
     -- * DeploymentConfigInfo
     , DeploymentConfigInfo
@@ -54,9 +150,6 @@ module Network.AWS.CodeDeploy.Types
     , dciMinimumHealthyHosts
     , dciDeploymentConfigId
     , dciCreateTime
-
-    -- * DeploymentCreator
-    , DeploymentCreator (..)
 
     -- * DeploymentGroupInfo
     , DeploymentGroupInfo
@@ -98,9 +191,6 @@ module Network.AWS.CodeDeploy.Types
     , doSucceeded
     , doFailed
 
-    -- * DeploymentStatus
-    , DeploymentStatus (..)
-
     -- * Diagnostics
     , Diagnostics
     , diagnostics
@@ -115,9 +205,6 @@ module Network.AWS.CodeDeploy.Types
     , etfValue
     , etfKey
     , etfType
-
-    -- * EC2TagFilterType
-    , EC2TagFilterType (..)
 
     -- * ErrorInformation
     , ErrorInformation
@@ -150,9 +237,6 @@ module Network.AWS.CodeDeploy.Types
     , iiInstanceName
     , iiTags
 
-    -- * InstanceStatus
-    , InstanceStatus (..)
-
     -- * InstanceSummary
     , InstanceSummary
     , instanceSummary
@@ -161,9 +245,6 @@ module Network.AWS.CodeDeploy.Types
     , isStatus
     , isLastUpdatedAt
     , isLifecycleEvents
-
-    -- * LifecycleErrorCode
-    , LifecycleErrorCode (..)
 
     -- * LifecycleEvent
     , LifecycleEvent
@@ -174,23 +255,11 @@ module Network.AWS.CodeDeploy.Types
     , leDiagnostics
     , leEndTime
 
-    -- * LifecycleEventStatus
-    , LifecycleEventStatus (..)
-
-    -- * ListStateFilterAction
-    , ListStateFilterAction (..)
-
     -- * MinimumHealthyHosts
     , MinimumHealthyHosts
     , minimumHealthyHosts
     , mhhValue
     , mhhType
-
-    -- * MinimumHealthyHostsType
-    , MinimumHealthyHostsType (..)
-
-    -- * RegistrationStatus
-    , RegistrationStatus (..)
 
     -- * RevisionLocation
     , RevisionLocation
@@ -198,9 +267,6 @@ module Network.AWS.CodeDeploy.Types
     , rlRevisionType
     , rlS3Location
     , rlGitHubLocation
-
-    -- * RevisionLocationType
-    , RevisionLocationType (..)
 
     -- * S3Location
     , S3Location
@@ -210,12 +276,6 @@ module Network.AWS.CodeDeploy.Types
     , slBucket
     , slKey
     , slVersion
-
-    -- * SortOrder
-    , SortOrder (..)
-
-    -- * StopStatus
-    , StopStatus (..)
 
     -- * Tag
     , Tag
@@ -230,14 +290,12 @@ module Network.AWS.CodeDeploy.Types
     , tfKey
     , tfType
 
-    -- * TagFilterType
-    , TagFilterType (..)
-
     -- * TimeRange
     , TimeRange
     , timeRange
     , trStart
     , trEnd
+
     ) where
 
 import Network.AWS.Prelude
@@ -248,73 +306,275 @@ data CodeDeploy
 
 instance AWSService CodeDeploy where
     type Sg CodeDeploy = V4
-    type Er CodeDeploy = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CodeDeploy
-        service' = Service
-            { _svcAbbrev  = "CodeDeploy"
-            , _svcPrefix  = "codedeploy"
-            , _svcVersion = "2014-10-06"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CodeDeploy
+        svc = Service
+            { _svcAbbrev   = "CodeDeploy"
+            , _svcPrefix   = "codedeploy"
+            , _svcVersion  = "2014-10-06"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CodeDeploy
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The specified time range was specified in an invalid format.
+_InvalidTimeRangeException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidTimeRangeException = _ServiceError . hasCode "InvalidTimeRangeException";
 
--- | /See:/ 'applicationInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aiLinkedToGitHub'
---
--- * 'aiApplicationId'
---
--- * 'aiApplicationName'
---
--- * 'aiCreateTime'
-data ApplicationInfo = ApplicationInfo'{_aiLinkedToGitHub :: Maybe Bool, _aiApplicationId :: Maybe Text, _aiApplicationName :: Maybe Text, _aiCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+-- | The specified tag was specified in an invalid format.
+_InvalidTagException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidTagException = _ServiceError . hasCode "InvalidTagException";
 
--- | 'ApplicationInfo' smart constructor.
-applicationInfo :: ApplicationInfo
-applicationInfo = ApplicationInfo'{_aiLinkedToGitHub = Nothing, _aiApplicationId = Nothing, _aiApplicationName = Nothing, _aiCreateTime = Nothing};
+-- | The specified on-premises instance name is already registered.
+_InstanceNameAlreadyRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceNameAlreadyRegisteredException = _ServiceError . hasCode "InstanceNameAlreadyRegisteredException";
 
--- | True if the user has authenticated with GitHub for the specified
--- application; otherwise, false.
-aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
-aiLinkedToGitHub = lens _aiLinkedToGitHub (\ s a -> s{_aiLinkedToGitHub = a});
+-- | The IAM user ARN was specified in an invalid format.
+_InvalidIAMUserARNException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidIAMUserARNException = _ServiceError . hasCode "InvalidIamUserArnException";
 
--- | The application ID.
-aiApplicationId :: Lens' ApplicationInfo (Maybe Text)
-aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a});
+-- | An IAM user ARN was not specified.
+_IAMUserARNRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_IAMUserARNRequiredException = _ServiceError . hasCode "IamUserArnRequiredException";
 
--- | The application name.
-aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
-aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
+-- | The deployment group name was specified in an invalid format.
+_InvalidDeploymentGroupNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDeploymentGroupNameException = _ServiceError . hasCode "InvalidDeploymentGroupNameException";
 
--- | The time that the application was created.
-aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
-aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time;
+-- | The description that was provided is too long.
+_DescriptionTooLongException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DescriptionTooLongException = _ServiceError . hasCode "DescriptionTooLongException";
 
-instance FromJSON ApplicationInfo where
-        parseJSON
-          = withObject "ApplicationInfo"
-              (\ x ->
-                 ApplicationInfo' <$>
-                   (x .:? "linkedToGitHub") <*> (x .:? "applicationId")
-                     <*> (x .:? "applicationName")
-                     <*> (x .:? "createTime"))
+-- | A deployment configuration with the specified name already exists with
+-- the applicable IAM user or AWS account.
+_DeploymentConfigAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentConfigAlreadyExistsException = _ServiceError . hasCode "DeploymentConfigAlreadyExistsException";
+
+-- | The deployment configurations limit was exceeded.
+_DeploymentConfigLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentConfigLimitExceededException = _ServiceError . hasCode "DeploymentConfigLimitExceededException";
+
+-- | The service role ARN was specified in an invalid format. Or, if an Auto
+-- Scaling group was specified, the specified service role does not grant
+-- the appropriate permissions to Auto Scaling.
+_InvalidRoleException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException";
+
+-- | The specified deployment has not started.
+_DeploymentNotStartedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentNotStartedException = _ServiceError . hasCode "DeploymentNotStartedException";
+
+-- | The role ID was not specified.
+_RoleRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_RoleRequiredException = _ServiceError . hasCode "RoleRequiredException";
+
+-- | The specified IAM user ARN is already registered with an on-premises
+-- instance.
+_IAMUserARNAlreadyRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_IAMUserARNAlreadyRegisteredException = _ServiceError . hasCode "IamUserArnAlreadyRegisteredException";
+
+-- | The number of allowed deployments was exceeded.
+_DeploymentLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentLimitExceededException = _ServiceError . hasCode "DeploymentLimitExceededException";
+
+-- | The maximum number of allowed on-premises instances in a single call was
+-- exceeded.
+_InstanceLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceLimitExceededException = _ServiceError . hasCode "InstanceLimitExceededException";
+
+-- | The Auto Scaling group was specified in an invalid format or does not
+-- exist.
+_InvalidAutoScalingGroupException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidAutoScalingGroupException = _ServiceError . hasCode "InvalidAutoScalingGroupException";
+
+-- | The application name was specified in an invalid format.
+_InvalidApplicationNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidApplicationNameException = _ServiceError . hasCode "InvalidApplicationNameException";
+
+-- | The deployed state filter was specified in an invalid format.
+_InvalidDeployedStateFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDeployedStateFilterException = _ServiceError . hasCode "InvalidDeployedStateFilterException";
+
+-- | The minimum healthy instances value was specified in an invalid format.
+_InvalidMinimumHealthyHostValueException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidMinimumHealthyHostValueException = _ServiceError . hasCode "InvalidMinimumHealthyHostValueException";
+
+-- | The application does not exist with the applicable IAM user or AWS
+-- account.
+_ApplicationDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ApplicationDoesNotExistException = _ServiceError . hasCode "ApplicationDoesNotExistException";
+
+-- | The specified tag filter was specified in an invalid format.
+_InvalidTagFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidTagFilterException = _ServiceError . hasCode "InvalidTagFilterException";
+
+-- | A tag was not specified.
+_TagRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TagRequiredException = _ServiceError . hasCode "TagRequiredException";
+
+-- | The named revision does not exist with the applicable IAM user or AWS
+-- account.
+_RevisionDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_RevisionDoesNotExistException = _ServiceError . hasCode "RevisionDoesNotExistException";
+
+-- | The deployment group name was not specified.
+_DeploymentGroupNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentGroupNameRequiredException = _ServiceError . hasCode "DeploymentGroupNameRequiredException";
+
+-- | The bucket name either doesn\'t exist or was specified in an invalid
+-- format.
+_InvalidBucketNameFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidBucketNameFilterException = _ServiceError . hasCode "InvalidBucketNameFilterException";
+
+-- | The deployment configuration does not exist with the applicable IAM user
+-- or AWS account.
+_DeploymentConfigDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentConfigDoesNotExistException = _ServiceError . hasCode "DeploymentConfigDoesNotExistException";
+
+-- | The column name to sort by is either not present or was specified in an
+-- invalid format.
+_InvalidSortByException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException";
+
+-- | A bucket name is required but was not provided.
+_BucketNameFilterRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_BucketNameFilterRequiredException = _ServiceError . hasCode "BucketNameFilterRequiredException";
+
+-- | The deployment groups limit was exceeded.
+_DeploymentGroupLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentGroupLimitExceededException = _ServiceError . hasCode "DeploymentGroupLimitExceededException";
+
+-- | A deployment group with the specified name already exists with the
+-- applicable IAM user or AWS account.
+_DeploymentGroupAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentGroupAlreadyExistsException = _ServiceError . hasCode "DeploymentGroupAlreadyExistsException";
+
+-- | At least one of the deployment IDs was specified in an invalid format.
+_InvalidDeploymentIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDeploymentIdException = _ServiceError . hasCode "InvalidDeploymentIdException";
+
+-- | The named deployment group does not exist with the applicable IAM user
+-- or AWS account.
+_DeploymentGroupDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentGroupDoesNotExistException = _ServiceError . hasCode "DeploymentGroupDoesNotExistException";
+
+-- | At least one deployment ID must be specified.
+_DeploymentIdRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentIdRequiredException = _ServiceError . hasCode "DeploymentIdRequiredException";
+
+-- | The instance ID was not specified.
+_InstanceIdRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceIdRequiredException = _ServiceError . hasCode "InstanceIdRequiredException";
+
+-- | The deployment configuration name was not specified.
+_DeploymentConfigNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentConfigNameRequiredException = _ServiceError . hasCode "DeploymentConfigNameRequiredException";
+
+-- | The deployment configuration name was specified in an invalid format.
+_InvalidDeploymentConfigNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDeploymentConfigNameException = _ServiceError . hasCode "InvalidDeploymentConfigNameException";
+
+-- | The sort order was specified in an invalid format.
+_InvalidSortOrderException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSortOrderException = _ServiceError . hasCode "InvalidSortOrderException";
+
+-- | The next token was specified in an invalid format.
+_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextTokenException";
+
+-- | The revision was specified in an invalid format.
+_InvalidRevisionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRevisionException = _ServiceError . hasCode "InvalidRevisionException";
+
+-- | The deployment is already completed.
+_DeploymentAlreadyCompletedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentAlreadyCompletedException = _ServiceError . hasCode "DeploymentAlreadyCompletedException";
+
+-- | The revision ID was not specified.
+_RevisionRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_RevisionRequiredException = _ServiceError . hasCode "RevisionRequiredException";
+
+-- | The specified instance does not exist in the deployment group.
+_InstanceDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceDoesNotExistException = _ServiceError . hasCode "InstanceDoesNotExistException";
+
+-- | The deployment does not exist with the applicable IAM user or AWS
+-- account.
+_DeploymentDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentDoesNotExistException = _ServiceError . hasCode "DeploymentDoesNotExistException";
+
+-- | An on-premises instance name was not specified.
+_InstanceNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceNameRequiredException = _ServiceError . hasCode "InstanceNameRequiredException";
+
+-- | The deployment configuration is still in use.
+_DeploymentConfigInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DeploymentConfigInUseException = _ServiceError . hasCode "DeploymentConfigInUseException";
+
+-- | The tag was specified in an invalid format.
+_InvalidEC2TagException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidEC2TagException = _ServiceError . hasCode "InvalidEC2TagException";
+
+-- | The specified on-premises instance name was specified in an invalid
+-- format.
+_InvalidInstanceNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInstanceNameException = _ServiceError . hasCode "InvalidInstanceNameException";
+
+-- | The specified deployment status doesn\'t exist or cannot be determined.
+_InvalidDeploymentStatusException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDeploymentStatusException = _ServiceError . hasCode "InvalidDeploymentStatusException";
+
+-- | The registration status was specified in an invalid format.
+_InvalidRegistrationStatusException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRegistrationStatusException = _ServiceError . hasCode "InvalidRegistrationStatusException";
+
+-- | The maximum allowed number of tags was exceeded.
+_TagLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TagLimitExceededException = _ServiceError . hasCode "TagLimitExceededException";
+
+-- | The specified on-premises instance is not registered.
+_InstanceNotRegisteredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InstanceNotRegisteredException = _ServiceError . hasCode "InstanceNotRegisteredException";
+
+-- | More applications were attempted to be created than were allowed.
+_ApplicationLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ApplicationLimitExceededException = _ServiceError . hasCode "ApplicationLimitExceededException";
+
+-- | An invalid operation was detected.
+_InvalidOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidOperationException = _ServiceError . hasCode "InvalidOperationException";
+
+-- | An application with the specified name already exists with the
+-- applicable IAM user or AWS account.
+_ApplicationAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ApplicationAlreadyExistsException = _ServiceError . hasCode "ApplicationAlreadyExistsException";
+
+-- | The specified instance status does not exist.
+_InvalidInstanceStatusException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidInstanceStatusException = _ServiceError . hasCode "InvalidInstanceStatusException";
+
+-- | The minimum number of required application names was not specified.
+_ApplicationNameRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ApplicationNameRequiredException = _ServiceError . hasCode "ApplicationNameRequiredException";
+
+-- | The specified key prefix filter was specified in an invalid format.
+_InvalidKeyPrefixFilterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidKeyPrefixFilterException = _ServiceError . hasCode "InvalidKeyPrefixFilterException";
 
 data ApplicationRevisionSortBy = RegisterTime | FirstUsedTime | LastUsedTime deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -337,34 +597,6 @@ instance ToHeader ApplicationRevisionSortBy
 
 instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
-
--- | /See:/ 'autoScalingGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asgHook'
---
--- * 'asgName'
-data AutoScalingGroup = AutoScalingGroup'{_asgHook :: Maybe Text, _asgName :: Maybe Text} deriving (Eq, Read, Show)
-
--- | 'AutoScalingGroup' smart constructor.
-autoScalingGroup :: AutoScalingGroup
-autoScalingGroup = AutoScalingGroup'{_asgHook = Nothing, _asgName = Nothing};
-
--- | An Auto Scaling lifecycle event hook name.
-asgHook :: Lens' AutoScalingGroup (Maybe Text)
-asgHook = lens _asgHook (\ s a -> s{_asgHook = a});
-
--- | The Auto Scaling group name.
-asgName :: Lens' AutoScalingGroup (Maybe Text)
-asgName = lens _asgName (\ s a -> s{_asgName = a});
-
-instance FromJSON AutoScalingGroup where
-        parseJSON
-          = withObject "AutoScalingGroup"
-              (\ x ->
-                 AutoScalingGroup' <$>
-                   (x .:? "hook") <*> (x .:? "name"))
 
 data BundleType = Zip | TGZ | TAR deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -433,7 +665,400 @@ instance ToHeader DeployErrorCode
 instance FromJSON DeployErrorCode where
     parseJSON = parseJSONText "DeployErrorCode"
 
--- | /See:/ 'deploymentConfigInfo' smart constructor.
+data DeploymentCreator = Autoscaling | User deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DeploymentCreator where
+    parser = takeLowerText >>= \case
+        "autoscaling" -> pure Autoscaling
+        "user" -> pure User
+        e -> fail ("Failure parsing DeploymentCreator from " ++ show e)
+
+instance ToText DeploymentCreator where
+    toText = \case
+        Autoscaling -> "autoscaling"
+        User -> "user"
+
+instance Hashable DeploymentCreator
+instance ToQuery DeploymentCreator
+instance ToHeader DeploymentCreator
+
+instance FromJSON DeploymentCreator where
+    parseJSON = parseJSONText "DeploymentCreator"
+
+data DeploymentStatus = Queued | Created | Stopped | InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DeploymentStatus where
+    parser = takeLowerText >>= \case
+        "Created" -> pure Created
+        "Failed" -> pure Failed
+        "InProgress" -> pure InProgress
+        "Queued" -> pure Queued
+        "Stopped" -> pure Stopped
+        "Succeeded" -> pure Succeeded
+        e -> fail ("Failure parsing DeploymentStatus from " ++ show e)
+
+instance ToText DeploymentStatus where
+    toText = \case
+        Created -> "Created"
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Queued -> "Queued"
+        Stopped -> "Stopped"
+        Succeeded -> "Succeeded"
+
+instance Hashable DeploymentStatus
+instance ToQuery DeploymentStatus
+instance ToHeader DeploymentStatus
+
+instance ToJSON DeploymentStatus where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentStatus where
+    parseJSON = parseJSONText "DeploymentStatus"
+
+data EC2TagFilterType = KeyAndValue | ValueOnly | KeyOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText EC2TagFilterType where
+    parser = takeLowerText >>= \case
+        "KEY_AND_VALUE" -> pure KeyAndValue
+        "KEY_ONLY" -> pure KeyOnly
+        "VALUE_ONLY" -> pure ValueOnly
+        e -> fail ("Failure parsing EC2TagFilterType from " ++ show e)
+
+instance ToText EC2TagFilterType where
+    toText = \case
+        KeyAndValue -> "KEY_AND_VALUE"
+        KeyOnly -> "KEY_ONLY"
+        ValueOnly -> "VALUE_ONLY"
+
+instance Hashable EC2TagFilterType
+instance ToQuery EC2TagFilterType
+instance ToHeader EC2TagFilterType
+
+instance ToJSON EC2TagFilterType where
+    toJSON = toJSONText
+
+instance FromJSON EC2TagFilterType where
+    parseJSON = parseJSONText "EC2TagFilterType"
+
+data InstanceStatus = ISInProgress | ISFailed | ISSucceeded | ISUnknown | ISSkipped | ISPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText InstanceStatus where
+    parser = takeLowerText >>= \case
+        "Failed" -> pure ISFailed
+        "InProgress" -> pure ISInProgress
+        "Pending" -> pure ISPending
+        "Skipped" -> pure ISSkipped
+        "Succeeded" -> pure ISSucceeded
+        "Unknown" -> pure ISUnknown
+        e -> fail ("Failure parsing InstanceStatus from " ++ show e)
+
+instance ToText InstanceStatus where
+    toText = \case
+        ISFailed -> "Failed"
+        ISInProgress -> "InProgress"
+        ISPending -> "Pending"
+        ISSkipped -> "Skipped"
+        ISSucceeded -> "Succeeded"
+        ISUnknown -> "Unknown"
+
+instance Hashable InstanceStatus
+instance ToQuery InstanceStatus
+instance ToHeader InstanceStatus
+
+instance ToJSON InstanceStatus where
+    toJSON = toJSONText
+
+instance FromJSON InstanceStatus where
+    parseJSON = parseJSONText "InstanceStatus"
+
+data LifecycleErrorCode = UnknownError | ScriptMissing | Success | ScriptFailed | ScriptNotExecutable | ScriptTimedOut deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LifecycleErrorCode where
+    parser = takeLowerText >>= \case
+        "ScriptFailed" -> pure ScriptFailed
+        "ScriptMissing" -> pure ScriptMissing
+        "ScriptNotExecutable" -> pure ScriptNotExecutable
+        "ScriptTimedOut" -> pure ScriptTimedOut
+        "Success" -> pure Success
+        "UnknownError" -> pure UnknownError
+        e -> fail ("Failure parsing LifecycleErrorCode from " ++ show e)
+
+instance ToText LifecycleErrorCode where
+    toText = \case
+        ScriptFailed -> "ScriptFailed"
+        ScriptMissing -> "ScriptMissing"
+        ScriptNotExecutable -> "ScriptNotExecutable"
+        ScriptTimedOut -> "ScriptTimedOut"
+        Success -> "Success"
+        UnknownError -> "UnknownError"
+
+instance Hashable LifecycleErrorCode
+instance ToQuery LifecycleErrorCode
+instance ToHeader LifecycleErrorCode
+
+instance FromJSON LifecycleErrorCode where
+    parseJSON = parseJSONText "LifecycleErrorCode"
+
+data LifecycleEventStatus = LESInProgress | LESFailed | LESSucceeded | LESSkipped | LESUnknown | LESPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText LifecycleEventStatus where
+    parser = takeLowerText >>= \case
+        "Failed" -> pure LESFailed
+        "InProgress" -> pure LESInProgress
+        "Pending" -> pure LESPending
+        "Skipped" -> pure LESSkipped
+        "Succeeded" -> pure LESSucceeded
+        "Unknown" -> pure LESUnknown
+        e -> fail ("Failure parsing LifecycleEventStatus from " ++ show e)
+
+instance ToText LifecycleEventStatus where
+    toText = \case
+        LESFailed -> "Failed"
+        LESInProgress -> "InProgress"
+        LESPending -> "Pending"
+        LESSkipped -> "Skipped"
+        LESSucceeded -> "Succeeded"
+        LESUnknown -> "Unknown"
+
+instance Hashable LifecycleEventStatus
+instance ToQuery LifecycleEventStatus
+instance ToHeader LifecycleEventStatus
+
+instance FromJSON LifecycleEventStatus where
+    parseJSON = parseJSONText "LifecycleEventStatus"
+
+data ListStateFilterAction = Include | Ignore | Exclude deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ListStateFilterAction where
+    parser = takeLowerText >>= \case
+        "exclude" -> pure Exclude
+        "ignore" -> pure Ignore
+        "include" -> pure Include
+        e -> fail ("Failure parsing ListStateFilterAction from " ++ show e)
+
+instance ToText ListStateFilterAction where
+    toText = \case
+        Exclude -> "exclude"
+        Ignore -> "ignore"
+        Include -> "include"
+
+instance Hashable ListStateFilterAction
+instance ToQuery ListStateFilterAction
+instance ToHeader ListStateFilterAction
+
+instance ToJSON ListStateFilterAction where
+    toJSON = toJSONText
+
+data MinimumHealthyHostsType = FleetPercent | HostCount deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText MinimumHealthyHostsType where
+    parser = takeLowerText >>= \case
+        "FLEET_PERCENT" -> pure FleetPercent
+        "HOST_COUNT" -> pure HostCount
+        e -> fail ("Failure parsing MinimumHealthyHostsType from " ++ show e)
+
+instance ToText MinimumHealthyHostsType where
+    toText = \case
+        FleetPercent -> "FLEET_PERCENT"
+        HostCount -> "HOST_COUNT"
+
+instance Hashable MinimumHealthyHostsType
+instance ToQuery MinimumHealthyHostsType
+instance ToHeader MinimumHealthyHostsType
+
+instance ToJSON MinimumHealthyHostsType where
+    toJSON = toJSONText
+
+instance FromJSON MinimumHealthyHostsType where
+    parseJSON = parseJSONText "MinimumHealthyHostsType"
+
+data RegistrationStatus = Registered | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RegistrationStatus where
+    parser = takeLowerText >>= \case
+        "Deregistered" -> pure Deregistered
+        "Registered" -> pure Registered
+        e -> fail ("Failure parsing RegistrationStatus from " ++ show e)
+
+instance ToText RegistrationStatus where
+    toText = \case
+        Deregistered -> "Deregistered"
+        Registered -> "Registered"
+
+instance Hashable RegistrationStatus
+instance ToQuery RegistrationStatus
+instance ToHeader RegistrationStatus
+
+instance ToJSON RegistrationStatus where
+    toJSON = toJSONText
+
+data RevisionLocationType = GitHub | S3 deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RevisionLocationType where
+    parser = takeLowerText >>= \case
+        "GitHub" -> pure GitHub
+        "S3" -> pure S3
+        e -> fail ("Failure parsing RevisionLocationType from " ++ show e)
+
+instance ToText RevisionLocationType where
+    toText = \case
+        GitHub -> "GitHub"
+        S3 -> "S3"
+
+instance Hashable RevisionLocationType
+instance ToQuery RevisionLocationType
+instance ToHeader RevisionLocationType
+
+instance ToJSON RevisionLocationType where
+    toJSON = toJSONText
+
+instance FromJSON RevisionLocationType where
+    parseJSON = parseJSONText "RevisionLocationType"
+
+data SortOrder = Ascending | Descending deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText SortOrder where
+    parser = takeLowerText >>= \case
+        "ascending" -> pure Ascending
+        "descending" -> pure Descending
+        e -> fail ("Failure parsing SortOrder from " ++ show e)
+
+instance ToText SortOrder where
+    toText = \case
+        Ascending -> "ascending"
+        Descending -> "descending"
+
+instance Hashable SortOrder
+instance ToQuery SortOrder
+instance ToHeader SortOrder
+
+instance ToJSON SortOrder where
+    toJSON = toJSONText
+
+data StopStatus = SSSucceeded | SSPending deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StopStatus where
+    parser = takeLowerText >>= \case
+        "Pending" -> pure SSPending
+        "Succeeded" -> pure SSSucceeded
+        e -> fail ("Failure parsing StopStatus from " ++ show e)
+
+instance ToText StopStatus where
+    toText = \case
+        SSPending -> "Pending"
+        SSSucceeded -> "Succeeded"
+
+instance Hashable StopStatus
+instance ToQuery StopStatus
+instance ToHeader StopStatus
+
+instance FromJSON StopStatus where
+    parseJSON = parseJSONText "StopStatus"
+
+data TagFilterType = TFTKeyAndValue | TFTValueOnly | TFTKeyOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TagFilterType where
+    parser = takeLowerText >>= \case
+        "KEY_AND_VALUE" -> pure TFTKeyAndValue
+        "KEY_ONLY" -> pure TFTKeyOnly
+        "VALUE_ONLY" -> pure TFTValueOnly
+        e -> fail ("Failure parsing TagFilterType from " ++ show e)
+
+instance ToText TagFilterType where
+    toText = \case
+        TFTKeyAndValue -> "KEY_AND_VALUE"
+        TFTKeyOnly -> "KEY_ONLY"
+        TFTValueOnly -> "VALUE_ONLY"
+
+instance Hashable TagFilterType
+instance ToQuery TagFilterType
+instance ToHeader TagFilterType
+
+instance ToJSON TagFilterType where
+    toJSON = toJSONText
+
+instance FromJSON TagFilterType where
+    parseJSON = parseJSONText "TagFilterType"
+
+-- | Information about an application.
+--
+-- /See:/ 'applicationInfo' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aiLinkedToGitHub'
+--
+-- * 'aiApplicationId'
+--
+-- * 'aiApplicationName'
+--
+-- * 'aiCreateTime'
+data ApplicationInfo = ApplicationInfo'{_aiLinkedToGitHub :: Maybe Bool, _aiApplicationId :: Maybe Text, _aiApplicationName :: Maybe Text, _aiCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
+
+-- | 'ApplicationInfo' smart constructor.
+applicationInfo :: ApplicationInfo
+applicationInfo = ApplicationInfo'{_aiLinkedToGitHub = Nothing, _aiApplicationId = Nothing, _aiApplicationName = Nothing, _aiCreateTime = Nothing};
+
+-- | True if the user has authenticated with GitHub for the specified
+-- application; otherwise, false.
+aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
+aiLinkedToGitHub = lens _aiLinkedToGitHub (\ s a -> s{_aiLinkedToGitHub = a});
+
+-- | The application ID.
+aiApplicationId :: Lens' ApplicationInfo (Maybe Text)
+aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a});
+
+-- | The application name.
+aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
+aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
+
+-- | The time that the application was created.
+aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
+aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time;
+
+instance FromJSON ApplicationInfo where
+        parseJSON
+          = withObject "ApplicationInfo"
+              (\ x ->
+                 ApplicationInfo' <$>
+                   (x .:? "linkedToGitHub") <*> (x .:? "applicationId")
+                     <*> (x .:? "applicationName")
+                     <*> (x .:? "createTime"))
+
+-- | Information about an Auto Scaling group.
+--
+-- /See:/ 'autoScalingGroup' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'asgHook'
+--
+-- * 'asgName'
+data AutoScalingGroup = AutoScalingGroup'{_asgHook :: Maybe Text, _asgName :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'AutoScalingGroup' smart constructor.
+autoScalingGroup :: AutoScalingGroup
+autoScalingGroup = AutoScalingGroup'{_asgHook = Nothing, _asgName = Nothing};
+
+-- | An Auto Scaling lifecycle event hook name.
+asgHook :: Lens' AutoScalingGroup (Maybe Text)
+asgHook = lens _asgHook (\ s a -> s{_asgHook = a});
+
+-- | The Auto Scaling group name.
+asgName :: Lens' AutoScalingGroup (Maybe Text)
+asgName = lens _asgName (\ s a -> s{_asgName = a});
+
+instance FromJSON AutoScalingGroup where
+        parseJSON
+          = withObject "AutoScalingGroup"
+              (\ x ->
+                 AutoScalingGroup' <$>
+                   (x .:? "hook") <*> (x .:? "name"))
+
+-- | Information about a deployment configuration.
+--
+-- /See:/ 'deploymentConfigInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -476,27 +1101,9 @@ instance FromJSON DeploymentConfigInfo where
                      <*> (x .:? "deploymentConfigId")
                      <*> (x .:? "createTime"))
 
-data DeploymentCreator = Autoscaling | User deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DeploymentCreator where
-    parser = takeLowerText >>= \case
-        "autoscaling" -> pure Autoscaling
-        "user" -> pure User
-        e -> fail ("Failure parsing DeploymentCreator from " ++ show e)
-
-instance ToText DeploymentCreator where
-    toText = \case
-        Autoscaling -> "autoscaling"
-        User -> "user"
-
-instance Hashable DeploymentCreator
-instance ToQuery DeploymentCreator
-instance ToHeader DeploymentCreator
-
-instance FromJSON DeploymentCreator where
-    parseJSON = parseJSONText "DeploymentCreator"
-
--- | /See:/ 'deploymentGroupInfo' smart constructor.
+-- | Information about a deployment group.
+--
+-- /See:/ 'deploymentGroupInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -575,7 +1182,9 @@ instance FromJSON DeploymentGroupInfo where
                      <*> (x .:? "autoScalingGroups" .!= mempty)
                      <*> (x .:? "deploymentGroupName"))
 
--- | /See:/ 'deploymentInfo' smart constructor.
+-- | Information about a deployment.
+--
+-- /See:/ 'deploymentInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -705,7 +1314,10 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "deploymentGroupName")
                      <*> (x .:? "createTime"))
 
--- | /See:/ 'deploymentOverview' smart constructor.
+-- | Information about the deployment status of the instances in the
+-- deployment.
+--
+-- /See:/ 'deploymentOverview' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -754,38 +1366,10 @@ instance FromJSON DeploymentOverview where
                      <*> (x .:? "Succeeded")
                      <*> (x .:? "Failed"))
 
-data DeploymentStatus = Queued | Created | Stopped | InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DeploymentStatus where
-    parser = takeLowerText >>= \case
-        "Created" -> pure Created
-        "Failed" -> pure Failed
-        "InProgress" -> pure InProgress
-        "Queued" -> pure Queued
-        "Stopped" -> pure Stopped
-        "Succeeded" -> pure Succeeded
-        e -> fail ("Failure parsing DeploymentStatus from " ++ show e)
-
-instance ToText DeploymentStatus where
-    toText = \case
-        Created -> "Created"
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        Queued -> "Queued"
-        Stopped -> "Stopped"
-        Succeeded -> "Succeeded"
-
-instance Hashable DeploymentStatus
-instance ToQuery DeploymentStatus
-instance ToHeader DeploymentStatus
-
-instance ToJSON DeploymentStatus where
-    toJSON = toJSONText
-
-instance FromJSON DeploymentStatus where
-    parseJSON = parseJSONText "DeploymentStatus"
-
--- | /See:/ 'diagnostics' smart constructor.
+-- | Diagnostic information about executable scripts that are part of a
+-- deployment.
+--
+-- /See:/ 'diagnostics' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -838,7 +1422,9 @@ instance FromJSON Diagnostics where
                      (x .:? "scriptName")
                      <*> (x .:? "message"))
 
--- | /See:/ 'ec2TagFilter' smart constructor.
+-- | Information about a tag filter.
+--
+-- /See:/ 'ec2TagFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -882,32 +1468,9 @@ instance ToJSON EC2TagFilter where
               ["Value" .= _etfValue, "Key" .= _etfKey,
                "Type" .= _etfType]
 
-data EC2TagFilterType = KeyAndValue | ValueOnly | KeyOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText EC2TagFilterType where
-    parser = takeLowerText >>= \case
-        "KEY_AND_VALUE" -> pure KeyAndValue
-        "KEY_ONLY" -> pure KeyOnly
-        "VALUE_ONLY" -> pure ValueOnly
-        e -> fail ("Failure parsing EC2TagFilterType from " ++ show e)
-
-instance ToText EC2TagFilterType where
-    toText = \case
-        KeyAndValue -> "KEY_AND_VALUE"
-        KeyOnly -> "KEY_ONLY"
-        ValueOnly -> "VALUE_ONLY"
-
-instance Hashable EC2TagFilterType
-instance ToQuery EC2TagFilterType
-instance ToHeader EC2TagFilterType
-
-instance ToJSON EC2TagFilterType where
-    toJSON = toJSONText
-
-instance FromJSON EC2TagFilterType where
-    parseJSON = parseJSONText "EC2TagFilterType"
-
--- | /See:/ 'errorInformation' smart constructor.
+-- | Information about a deployment error.
+--
+-- /See:/ 'errorInformation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -963,7 +1526,9 @@ instance FromJSON ErrorInformation where
                  ErrorInformation' <$>
                    (x .:? "code") <*> (x .:? "message"))
 
--- | /See:/ 'genericRevisionInfo' smart constructor.
+-- | Information about an application revision.
+--
+-- /See:/ 'genericRevisionInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1012,7 +1577,10 @@ instance FromJSON GenericRevisionInfo where
                      <*> (x .:? "lastUsedTime")
                      <*> (x .:? "description"))
 
--- | /See:/ 'gitHubLocation' smart constructor.
+-- | Information about the location of application artifacts that are stored
+-- in GitHub.
+--
+-- /See:/ 'gitHubLocation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1051,7 +1619,9 @@ instance ToJSON GitHubLocation where
               ["commitId" .= _ghlCommitId,
                "repository" .= _ghlRepository]
 
--- | /See:/ 'instanceInfo' smart constructor.
+-- | Information about an on-premises instance.
+--
+-- /See:/ 'instanceInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1108,38 +1678,9 @@ instance FromJSON InstanceInfo where
                      <*> (x .:? "instanceName")
                      <*> (x .:? "tags" .!= mempty))
 
-data InstanceStatus = ISInProgress | ISFailed | ISSucceeded | ISUnknown | ISSkipped | ISPending deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText InstanceStatus where
-    parser = takeLowerText >>= \case
-        "Failed" -> pure ISFailed
-        "InProgress" -> pure ISInProgress
-        "Pending" -> pure ISPending
-        "Skipped" -> pure ISSkipped
-        "Succeeded" -> pure ISSucceeded
-        "Unknown" -> pure ISUnknown
-        e -> fail ("Failure parsing InstanceStatus from " ++ show e)
-
-instance ToText InstanceStatus where
-    toText = \case
-        ISFailed -> "Failed"
-        ISInProgress -> "InProgress"
-        ISPending -> "Pending"
-        ISSkipped -> "Skipped"
-        ISSucceeded -> "Succeeded"
-        ISUnknown -> "Unknown"
-
-instance Hashable InstanceStatus
-instance ToQuery InstanceStatus
-instance ToHeader InstanceStatus
-
-instance ToJSON InstanceStatus where
-    toJSON = toJSONText
-
-instance FromJSON InstanceStatus where
-    parseJSON = parseJSONText "InstanceStatus"
-
--- | /See:/ 'instanceSummary' smart constructor.
+-- | Information about an instance in a deployment.
+--
+-- /See:/ 'instanceSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1195,35 +1736,9 @@ instance FromJSON InstanceSummary where
                      <*> (x .:? "lastUpdatedAt")
                      <*> (x .:? "lifecycleEvents" .!= mempty))
 
-data LifecycleErrorCode = UnknownError | ScriptMissing | Success | ScriptFailed | ScriptNotExecutable | ScriptTimedOut deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LifecycleErrorCode where
-    parser = takeLowerText >>= \case
-        "ScriptFailed" -> pure ScriptFailed
-        "ScriptMissing" -> pure ScriptMissing
-        "ScriptNotExecutable" -> pure ScriptNotExecutable
-        "ScriptTimedOut" -> pure ScriptTimedOut
-        "Success" -> pure Success
-        "UnknownError" -> pure UnknownError
-        e -> fail ("Failure parsing LifecycleErrorCode from " ++ show e)
-
-instance ToText LifecycleErrorCode where
-    toText = \case
-        ScriptFailed -> "ScriptFailed"
-        ScriptMissing -> "ScriptMissing"
-        ScriptNotExecutable -> "ScriptNotExecutable"
-        ScriptTimedOut -> "ScriptTimedOut"
-        Success -> "Success"
-        UnknownError -> "UnknownError"
-
-instance Hashable LifecycleErrorCode
-instance ToQuery LifecycleErrorCode
-instance ToHeader LifecycleErrorCode
-
-instance FromJSON LifecycleErrorCode where
-    parseJSON = parseJSONText "LifecycleErrorCode"
-
--- | /See:/ 'lifecycleEvent' smart constructor.
+-- | Information about a deployment lifecycle event.
+--
+-- /See:/ 'lifecycleEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1280,57 +1795,9 @@ instance FromJSON LifecycleEvent where
                      <*> (x .:? "diagnostics")
                      <*> (x .:? "endTime"))
 
-data LifecycleEventStatus = LESInProgress | LESFailed | LESSucceeded | LESSkipped | LESUnknown | LESPending deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText LifecycleEventStatus where
-    parser = takeLowerText >>= \case
-        "Failed" -> pure LESFailed
-        "InProgress" -> pure LESInProgress
-        "Pending" -> pure LESPending
-        "Skipped" -> pure LESSkipped
-        "Succeeded" -> pure LESSucceeded
-        "Unknown" -> pure LESUnknown
-        e -> fail ("Failure parsing LifecycleEventStatus from " ++ show e)
-
-instance ToText LifecycleEventStatus where
-    toText = \case
-        LESFailed -> "Failed"
-        LESInProgress -> "InProgress"
-        LESPending -> "Pending"
-        LESSkipped -> "Skipped"
-        LESSucceeded -> "Succeeded"
-        LESUnknown -> "Unknown"
-
-instance Hashable LifecycleEventStatus
-instance ToQuery LifecycleEventStatus
-instance ToHeader LifecycleEventStatus
-
-instance FromJSON LifecycleEventStatus where
-    parseJSON = parseJSONText "LifecycleEventStatus"
-
-data ListStateFilterAction = Include | Ignore | Exclude deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ListStateFilterAction where
-    parser = takeLowerText >>= \case
-        "exclude" -> pure Exclude
-        "ignore" -> pure Ignore
-        "include" -> pure Include
-        e -> fail ("Failure parsing ListStateFilterAction from " ++ show e)
-
-instance ToText ListStateFilterAction where
-    toText = \case
-        Exclude -> "exclude"
-        Ignore -> "ignore"
-        Include -> "include"
-
-instance Hashable ListStateFilterAction
-instance ToQuery ListStateFilterAction
-instance ToHeader ListStateFilterAction
-
-instance ToJSON ListStateFilterAction where
-    toJSON = toJSONText
-
--- | /See:/ 'minimumHealthyHosts' smart constructor.
+-- | Information about minimum healthy instances.
+--
+-- /See:/ 'minimumHealthyHosts' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1380,50 +1847,9 @@ instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
           = object ["value" .= _mhhValue, "type" .= _mhhType]
 
-data MinimumHealthyHostsType = FleetPercent | HostCount deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText MinimumHealthyHostsType where
-    parser = takeLowerText >>= \case
-        "FLEET_PERCENT" -> pure FleetPercent
-        "HOST_COUNT" -> pure HostCount
-        e -> fail ("Failure parsing MinimumHealthyHostsType from " ++ show e)
-
-instance ToText MinimumHealthyHostsType where
-    toText = \case
-        FleetPercent -> "FLEET_PERCENT"
-        HostCount -> "HOST_COUNT"
-
-instance Hashable MinimumHealthyHostsType
-instance ToQuery MinimumHealthyHostsType
-instance ToHeader MinimumHealthyHostsType
-
-instance ToJSON MinimumHealthyHostsType where
-    toJSON = toJSONText
-
-instance FromJSON MinimumHealthyHostsType where
-    parseJSON = parseJSONText "MinimumHealthyHostsType"
-
-data RegistrationStatus = Registered | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RegistrationStatus where
-    parser = takeLowerText >>= \case
-        "Deregistered" -> pure Deregistered
-        "Registered" -> pure Registered
-        e -> fail ("Failure parsing RegistrationStatus from " ++ show e)
-
-instance ToText RegistrationStatus where
-    toText = \case
-        Deregistered -> "Deregistered"
-        Registered -> "Registered"
-
-instance Hashable RegistrationStatus
-instance ToQuery RegistrationStatus
-instance ToHeader RegistrationStatus
-
-instance ToJSON RegistrationStatus where
-    toJSON = toJSONText
-
--- | /See:/ 'revisionLocation' smart constructor.
+-- | Information about an application revision\'s location.
+--
+-- /See:/ 'revisionLocation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1468,30 +1894,10 @@ instance ToJSON RevisionLocation where
                "s3Location" .= _rlS3Location,
                "gitHubLocation" .= _rlGitHubLocation]
 
-data RevisionLocationType = GitHub | S3 deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RevisionLocationType where
-    parser = takeLowerText >>= \case
-        "GitHub" -> pure GitHub
-        "S3" -> pure S3
-        e -> fail ("Failure parsing RevisionLocationType from " ++ show e)
-
-instance ToText RevisionLocationType where
-    toText = \case
-        GitHub -> "GitHub"
-        S3 -> "S3"
-
-instance Hashable RevisionLocationType
-instance ToQuery RevisionLocationType
-instance ToHeader RevisionLocationType
-
-instance ToJSON RevisionLocationType where
-    toJSON = toJSONText
-
-instance FromJSON RevisionLocationType where
-    parseJSON = parseJSONText "RevisionLocationType"
-
--- | /See:/ 's3Location' smart constructor.
+-- | Information about the location of application artifacts that are stored
+-- in Amazon S3.
+--
+-- /See:/ 's3Location' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1561,47 +1967,9 @@ instance ToJSON S3Location where
                "bucket" .= _slBucket, "key" .= _slKey,
                "version" .= _slVersion]
 
-data SortOrder = Ascending | Descending deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText SortOrder where
-    parser = takeLowerText >>= \case
-        "ascending" -> pure Ascending
-        "descending" -> pure Descending
-        e -> fail ("Failure parsing SortOrder from " ++ show e)
-
-instance ToText SortOrder where
-    toText = \case
-        Ascending -> "ascending"
-        Descending -> "descending"
-
-instance Hashable SortOrder
-instance ToQuery SortOrder
-instance ToHeader SortOrder
-
-instance ToJSON SortOrder where
-    toJSON = toJSONText
-
-data StopStatus = SSSucceeded | SSPending deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StopStatus where
-    parser = takeLowerText >>= \case
-        "Pending" -> pure SSPending
-        "Succeeded" -> pure SSSucceeded
-        e -> fail ("Failure parsing StopStatus from " ++ show e)
-
-instance ToText StopStatus where
-    toText = \case
-        SSPending -> "Pending"
-        SSSucceeded -> "Succeeded"
-
-instance Hashable StopStatus
-instance ToQuery StopStatus
-instance ToHeader StopStatus
-
-instance FromJSON StopStatus where
-    parseJSON = parseJSONText "StopStatus"
-
--- | /See:/ 'tag' smart constructor.
+-- | Information about a tag.
+--
+-- /See:/ 'tag' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1631,7 +1999,9 @@ instance ToJSON Tag where
         toJSON Tag'{..}
           = object ["Value" .= _tagValue, "Key" .= _tagKey]
 
--- | /See:/ 'tagFilter' smart constructor.
+-- | Information about an on-premises instance tag filter.
+--
+-- /See:/ 'tagFilter' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1675,32 +2045,9 @@ instance ToJSON TagFilter where
               ["Value" .= _tfValue, "Key" .= _tfKey,
                "Type" .= _tfType]
 
-data TagFilterType = TFTKeyAndValue | TFTValueOnly | TFTKeyOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText TagFilterType where
-    parser = takeLowerText >>= \case
-        "KEY_AND_VALUE" -> pure TFTKeyAndValue
-        "KEY_ONLY" -> pure TFTKeyOnly
-        "VALUE_ONLY" -> pure TFTValueOnly
-        e -> fail ("Failure parsing TagFilterType from " ++ show e)
-
-instance ToText TagFilterType where
-    toText = \case
-        TFTKeyAndValue -> "KEY_AND_VALUE"
-        TFTKeyOnly -> "KEY_ONLY"
-        TFTValueOnly -> "VALUE_ONLY"
-
-instance Hashable TagFilterType
-instance ToQuery TagFilterType
-instance ToHeader TagFilterType
-
-instance ToJSON TagFilterType where
-    toJSON = toJSONText
-
-instance FromJSON TagFilterType where
-    parseJSON = parseJSONText "TagFilterType"
-
--- | /See:/ 'timeRange' smart constructor.
+-- | Information about a time range.
+--
+-- /See:/ 'timeRange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

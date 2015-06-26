@@ -54,6 +54,7 @@ module Network.AWS.CloudFormation.UpdateStack
     , updateStackResponse
     -- ** Response lenses
     , usrStackId
+    , usrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -61,7 +62,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateStack' smart constructor.
+-- | The input for UpdateStack action.
+--
+-- /See:/ 'updateStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -207,7 +210,8 @@ instance AWSRequest UpdateStack where
         response
           = receiveXMLWrapper "UpdateStackResult"
               (\ s h x ->
-                 UpdateStackResponse' <$> (x .@? "StackId"))
+                 UpdateStackResponse' <$>
+                   (x .@? "StackId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
@@ -238,17 +242,25 @@ instance ToQuery UpdateStack where
                  toQuery (toQueryList "member" <$> _usCapabilities),
                "StackName" =: _usStackName]
 
--- | /See:/ 'updateStackResponse' smart constructor.
+-- | The output for a UpdateStack action.
+--
+-- /See:/ 'updateStackResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usrStackId'
-newtype UpdateStackResponse = UpdateStackResponse'{_usrStackId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'usrStatusCode'
+data UpdateStackResponse = UpdateStackResponse'{_usrStackId :: Maybe Text, _usrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateStackResponse' smart constructor.
-updateStackResponse :: UpdateStackResponse
-updateStackResponse = UpdateStackResponse'{_usrStackId = Nothing};
+updateStackResponse :: Int -> UpdateStackResponse
+updateStackResponse pStatusCode = UpdateStackResponse'{_usrStackId = Nothing, _usrStatusCode = pStatusCode};
 
 -- | Unique identifier of the stack.
 usrStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrStackId = lens _usrStackId (\ s a -> s{_usrStackId = a});
+
+-- | FIXME: Undocumented member.
+usrStatusCode :: Lens' UpdateStackResponse Int
+usrStatusCode = lens _usrStatusCode (\ s a -> s{_usrStatusCode = a});

@@ -38,6 +38,7 @@ module Network.AWS.EC2.DescribeNetworkACLs
     , describeNetworkACLsResponse
     -- ** Response lenses
     , dnarNetworkACLs
+    , dnarStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -141,7 +142,8 @@ instance AWSRequest DescribeNetworkACLs where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkACLsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
@@ -163,12 +165,18 @@ instance ToQuery DescribeNetworkACLs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dnarNetworkACLs'
-newtype DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs :: Maybe [NetworkACL]} deriving (Eq, Read, Show)
+--
+-- * 'dnarStatusCode'
+data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs :: Maybe [NetworkACL], _dnarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
-describeNetworkACLsResponse :: DescribeNetworkACLsResponse
-describeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs = Nothing};
+describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
+describeNetworkACLsResponse pStatusCode = DescribeNetworkACLsResponse'{_dnarNetworkACLs = Nothing, _dnarStatusCode = pStatusCode};
 
 -- | Information about one or more network ACLs.
 dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dnarStatusCode :: Lens' DescribeNetworkACLsResponse Int
+dnarStatusCode = lens _dnarStatusCode (\ s a -> s{_dnarStatusCode = a});

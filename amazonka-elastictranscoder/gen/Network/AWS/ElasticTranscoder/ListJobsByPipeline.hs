@@ -40,15 +40,18 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- ** Response lenses
     , ljbprNextPageToken
     , ljbprJobs
+    , ljbprStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listJobsByPipeline' smart constructor.
+-- | The @ListJobsByPipelineRequest@ structure.
+--
+-- /See:/ 'listJobsByPipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,8 +98,8 @@ instance AWSRequest ListJobsByPipeline where
           = receiveJSON
               (\ s h x ->
                  ListJobsByPipelineResponse' <$>
-                   (x .?> "NextPageToken") <*>
-                     (x .?> "Jobs" .!@ mempty))
+                   (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListJobsByPipeline where
         toHeaders = const mempty
@@ -113,18 +116,22 @@ instance ToQuery ListJobsByPipeline where
               ["Ascending" =: _ljbpAscending,
                "PageToken" =: _ljbpPageToken]
 
--- | /See:/ 'listJobsByPipelineResponse' smart constructor.
+-- | The @ListJobsByPipelineResponse@ structure.
+--
+-- /See:/ 'listJobsByPipelineResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ljbprNextPageToken'
 --
 -- * 'ljbprJobs'
-data ListJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken :: Maybe Text, _ljbprJobs :: Maybe [Job']} deriving (Eq, Read, Show)
+--
+-- * 'ljbprStatusCode'
+data ListJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken :: Maybe Text, _ljbprJobs :: Maybe [Job'], _ljbprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
-listJobsByPipelineResponse :: ListJobsByPipelineResponse
-listJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken = Nothing, _ljbprJobs = Nothing};
+listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
+listJobsByPipelineResponse pStatusCode = ListJobsByPipelineResponse'{_ljbprNextPageToken = Nothing, _ljbprJobs = Nothing, _ljbprStatusCode = pStatusCode};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -136,3 +143,7 @@ ljbprNextPageToken = lens _ljbprNextPageToken (\ s a -> s{_ljbprNextPageToken = 
 -- | An array of @Job@ objects that are in the specified pipeline.
 ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ljbprStatusCode :: Lens' ListJobsByPipelineResponse Int
+ljbprStatusCode = lens _ljbprStatusCode (\ s a -> s{_ljbprStatusCode = a});

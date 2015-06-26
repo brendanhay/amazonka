@@ -48,6 +48,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- ** Response lenses
     , mlbarLoadBalancerAttributes
     , mlbarLoadBalancerName
+    , mlbarStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -88,7 +89,8 @@ instance AWSRequest ModifyLoadBalancerAttributes
               (\ s h x ->
                  ModifyLoadBalancerAttributesResponse' <$>
                    (x .@? "LoadBalancerAttributes") <*>
-                     (x .@? "LoadBalancerName"))
+                     (x .@? "LoadBalancerName")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
@@ -113,11 +115,13 @@ instance ToQuery ModifyLoadBalancerAttributes where
 -- * 'mlbarLoadBalancerAttributes'
 --
 -- * 'mlbarLoadBalancerName'
-data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'{_mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes, _mlbarLoadBalancerName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'mlbarStatusCode'
+data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'{_mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes, _mlbarLoadBalancerName :: Maybe Text, _mlbarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
-modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'{_mlbarLoadBalancerAttributes = Nothing, _mlbarLoadBalancerName = Nothing};
+modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
+modifyLoadBalancerAttributesResponse pStatusCode = ModifyLoadBalancerAttributesResponse'{_mlbarLoadBalancerAttributes = Nothing, _mlbarLoadBalancerName = Nothing, _mlbarStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
@@ -126,3 +130,7 @@ mlbarLoadBalancerAttributes = lens _mlbarLoadBalancerAttributes (\ s a -> s{_mlb
 -- | The name of the load balancer.
 mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName = lens _mlbarLoadBalancerName (\ s a -> s{_mlbarLoadBalancerName = a});
+
+-- | FIXME: Undocumented member.
+mlbarStatusCode :: Lens' ModifyLoadBalancerAttributesResponse Int
+mlbarStatusCode = lens _mlbarStatusCode (\ s a -> s{_mlbarStatusCode = a});

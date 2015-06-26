@@ -47,6 +47,7 @@ module Network.AWS.SES.VerifyDomainDkim
     , verifyDomainDkimResponse
     -- ** Response lenses
     , vddrDkimTokens
+    , vddrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -54,7 +55,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SES.Types
 
--- | /See:/ 'verifyDomainDkim' smart constructor.
+-- | Represents a request instructing the service to begin DKIM verification
+-- for a domain.
+--
+-- /See:/ 'verifyDomainDkim' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -78,7 +82,8 @@ instance AWSRequest VerifyDomainDkim where
               (\ s h x ->
                  VerifyDomainDkimResponse' <$>
                    (x .@? "DkimTokens" .!@ mempty >>=
-                      parseXMLList "member"))
+                      parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
@@ -93,16 +98,21 @@ instance ToQuery VerifyDomainDkim where
                "Version" =: ("2010-12-01" :: ByteString),
                "Domain" =: _vddDomain]
 
--- | /See:/ 'verifyDomainDkimResponse' smart constructor.
+-- | Represents the DNS records that must be published in the domain name\'s
+-- DNS to complete DKIM setup.
+--
+-- /See:/ 'verifyDomainDkimResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'vddrDkimTokens'
-newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse'{_vddrDkimTokens :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'vddrStatusCode'
+data VerifyDomainDkimResponse = VerifyDomainDkimResponse'{_vddrDkimTokens :: [Text], _vddrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
-verifyDomainDkimResponse :: VerifyDomainDkimResponse
-verifyDomainDkimResponse = VerifyDomainDkimResponse'{_vddrDkimTokens = mempty};
+verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse
+verifyDomainDkimResponse pStatusCode = VerifyDomainDkimResponse'{_vddrDkimTokens = mempty, _vddrStatusCode = pStatusCode};
 
 -- | A set of character strings that represent the domain\'s identity. If the
 -- identity is an email address, the tokens represent the domain of that
@@ -119,3 +129,7 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse'{_vddrDkimTokens = mempty};
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\ s a -> s{_vddrDkimTokens = a});
+
+-- | FIXME: Undocumented member.
+vddrStatusCode :: Lens' VerifyDomainDkimResponse Int
+vddrStatusCode = lens _vddrStatusCode (\ s a -> s{_vddrStatusCode = a});

@@ -61,6 +61,7 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     , udrAdds
     , udrWarnings
     , udrDeletes
+    , udrStatusCode
     ) where
 
 import Network.AWS.CloudSearchDomains.Types
@@ -68,7 +69,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'uploadDocuments' smart constructor.
+-- | Container for the parameters to the @UploadDocuments@ request.
+--
+-- /See:/ 'uploadDocuments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,7 +106,8 @@ instance AWSRequest UploadDocuments where
                  UploadDocumentsResponse' <$>
                    (x .?> "status") <*> (x .?> "adds") <*>
                      (x .?> "warnings" .!@ mempty)
-                     <*> (x .?> "deletes"))
+                     <*> (x .?> "deletes")
+                     <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
         toBody = _udDocuments
@@ -121,7 +125,9 @@ instance ToPath UploadDocuments where
 instance ToQuery UploadDocuments where
         toQuery = const (mconcat ["format=sdk"])
 
--- | /See:/ 'uploadDocumentsResponse' smart constructor.
+-- | Contains the response to an @UploadDocuments@ request.
+--
+-- /See:/ 'uploadDocumentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -132,11 +138,13 @@ instance ToQuery UploadDocuments where
 -- * 'udrWarnings'
 --
 -- * 'udrDeletes'
-data UploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus :: Maybe Text, _udrAdds :: Maybe Integer, _udrWarnings :: Maybe [DocumentServiceWarning], _udrDeletes :: Maybe Integer} deriving (Eq, Read, Show)
+--
+-- * 'udrStatusCode'
+data UploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus :: Maybe Text, _udrAdds :: Maybe Integer, _udrWarnings :: Maybe [DocumentServiceWarning], _udrDeletes :: Maybe Integer, _udrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UploadDocumentsResponse' smart constructor.
-uploadDocumentsResponse :: UploadDocumentsResponse
-uploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus = Nothing, _udrAdds = Nothing, _udrWarnings = Nothing, _udrDeletes = Nothing};
+uploadDocumentsResponse :: Int -> UploadDocumentsResponse
+uploadDocumentsResponse pStatusCode = UploadDocumentsResponse'{_udrStatus = Nothing, _udrAdds = Nothing, _udrWarnings = Nothing, _udrDeletes = Nothing, _udrStatusCode = pStatusCode};
 
 -- | The status of an @UploadDocumentsRequest@.
 udrStatus :: Lens' UploadDocumentsResponse (Maybe Text)
@@ -154,3 +162,7 @@ udrWarnings = lens _udrWarnings (\ s a -> s{_udrWarnings = a}) . _Default;
 -- | The number of documents that were deleted from the search domain.
 udrDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrDeletes = lens _udrDeletes (\ s a -> s{_udrDeletes = a});
+
+-- | FIXME: Undocumented member.
+udrStatusCode :: Lens' UploadDocumentsResponse Int
+udrStatusCode = lens _udrStatusCode (\ s a -> s{_udrStatusCode = a});

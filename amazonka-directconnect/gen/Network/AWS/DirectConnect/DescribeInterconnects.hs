@@ -35,6 +35,7 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     , describeInterconnectsResponse
     -- ** Response lenses
     , dirInterconnects
+    , dirStatusCode
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -42,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeInterconnects' smart constructor.
+-- | Container for the parameters to the DescribeInterconnects operation.
+--
+-- /See:/ 'describeInterconnects' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +69,8 @@ instance AWSRequest DescribeInterconnects where
           = receiveJSON
               (\ s h x ->
                  DescribeInterconnectsResponse' <$>
-                   (x .?> "interconnects" .!@ mempty))
+                   (x .?> "interconnects" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeInterconnects where
         toHeaders
@@ -88,17 +92,25 @@ instance ToPath DescribeInterconnects where
 instance ToQuery DescribeInterconnects where
         toQuery = const mempty
 
--- | /See:/ 'describeInterconnectsResponse' smart constructor.
+-- | A structure containing a list of interconnects.
+--
+-- /See:/ 'describeInterconnectsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirInterconnects'
-newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirInterconnects :: Maybe [Interconnect]} deriving (Eq, Read, Show)
+--
+-- * 'dirStatusCode'
+data DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirInterconnects :: Maybe [Interconnect], _dirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
-describeInterconnectsResponse :: DescribeInterconnectsResponse
-describeInterconnectsResponse = DescribeInterconnectsResponse'{_dirInterconnects = Nothing};
+describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
+describeInterconnectsResponse pStatusCode = DescribeInterconnectsResponse'{_dirInterconnects = Nothing, _dirStatusCode = pStatusCode};
 
 -- | A list of interconnects.
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\ s a -> s{_dirInterconnects = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dirStatusCode :: Lens' DescribeInterconnectsResponse Int
+dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});

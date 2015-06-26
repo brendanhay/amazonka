@@ -41,6 +41,7 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , updateScalingParametersResponse
     -- ** Response lenses
     , usprScalingParameters
+    , usprStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -48,7 +49,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateScalingParameters' smart constructor.
+-- | Container for the parameters to the @UpdateScalingParameters@ operation.
+-- Specifies the name of the domain you want to update and the scaling
+-- parameters you want to configure.
+--
+-- /See:/ 'updateScalingParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -78,7 +83,7 @@ instance AWSRequest UpdateScalingParameters where
           = receiveXMLWrapper "UpdateScalingParametersResult"
               (\ s h x ->
                  UpdateScalingParametersResponse' <$>
-                   (x .@ "ScalingParameters"))
+                   (x .@ "ScalingParameters") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
@@ -95,17 +100,26 @@ instance ToQuery UpdateScalingParameters where
                "DomainName" =: _uspDomainName,
                "ScalingParameters" =: _uspScalingParameters]
 
--- | /See:/ 'updateScalingParametersResponse' smart constructor.
+-- | The result of a @UpdateScalingParameters@ request. Contains the status
+-- of the newly-configured scaling parameters.
+--
+-- /See:/ 'updateScalingParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usprScalingParameters'
-newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse'{_usprScalingParameters :: ScalingParametersStatus} deriving (Eq, Read, Show)
+--
+-- * 'usprStatusCode'
+data UpdateScalingParametersResponse = UpdateScalingParametersResponse'{_usprScalingParameters :: ScalingParametersStatus, _usprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
-updateScalingParametersResponse :: ScalingParametersStatus -> UpdateScalingParametersResponse
-updateScalingParametersResponse pScalingParameters = UpdateScalingParametersResponse'{_usprScalingParameters = pScalingParameters};
+updateScalingParametersResponse :: ScalingParametersStatus -> Int -> UpdateScalingParametersResponse
+updateScalingParametersResponse pScalingParameters pStatusCode = UpdateScalingParametersResponse'{_usprScalingParameters = pScalingParameters, _usprStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprScalingParameters = lens _usprScalingParameters (\ s a -> s{_usprScalingParameters = a});
+
+-- | FIXME: Undocumented member.
+usprStatusCode :: Lens' UpdateScalingParametersResponse Int
+usprStatusCode = lens _usprStatusCode (\ s a -> s{_usprStatusCode = a});

@@ -36,6 +36,7 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , evaluateExpressionResponse
     -- ** Response lenses
     , eerEvaluatedExpression
+    , eerStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'evaluateExpression' smart constructor.
+-- | Contains the parameters for EvaluateExpression.
+--
+-- /See:/ 'evaluateExpression' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,8 @@ instance AWSRequest EvaluateExpression where
           = receiveJSON
               (\ s h x ->
                  EvaluateExpressionResponse' <$>
-                   (x .:> "evaluatedExpression"))
+                   (x .:> "evaluatedExpression") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders EvaluateExpression where
         toHeaders
@@ -103,17 +107,25 @@ instance ToPath EvaluateExpression where
 instance ToQuery EvaluateExpression where
         toQuery = const mempty
 
--- | /See:/ 'evaluateExpressionResponse' smart constructor.
+-- | Contains the output of EvaluateExpression.
+--
+-- /See:/ 'evaluateExpressionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'eerEvaluatedExpression'
-newtype EvaluateExpressionResponse = EvaluateExpressionResponse'{_eerEvaluatedExpression :: Text} deriving (Eq, Read, Show)
+--
+-- * 'eerStatusCode'
+data EvaluateExpressionResponse = EvaluateExpressionResponse'{_eerEvaluatedExpression :: Text, _eerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
-evaluateExpressionResponse :: Text -> EvaluateExpressionResponse
-evaluateExpressionResponse pEvaluatedExpression = EvaluateExpressionResponse'{_eerEvaluatedExpression = pEvaluatedExpression};
+evaluateExpressionResponse :: Text -> Int -> EvaluateExpressionResponse
+evaluateExpressionResponse pEvaluatedExpression pStatusCode = EvaluateExpressionResponse'{_eerEvaluatedExpression = pEvaluatedExpression, _eerStatusCode = pStatusCode};
 
 -- | The evaluated expression.
 eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eerEvaluatedExpression = lens _eerEvaluatedExpression (\ s a -> s{_eerEvaluatedExpression = a});
+
+-- | FIXME: Undocumented member.
+eerStatusCode :: Lens' EvaluateExpressionResponse Int
+eerStatusCode = lens _eerStatusCode (\ s a -> s{_eerStatusCode = a});

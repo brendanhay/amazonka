@@ -21,11 +21,43 @@ module Network.AWS.Config.Types
     (
     -- * Service
       Config
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _ValidationException
+    , _InvalidTimeRangeException
+    , _InvalidSNSTopicARNException
+    , _InvalidRoleException
+    , _LastDeliveryChannelDeleteFailedException
+    , _InvalidLimitException
+    , _InvalidDeliveryChannelNameException
+    , _NoSuchDeliveryChannelException
+    , _ResourceNotDiscoveredException
+    , _InvalidNextTokenException
+    , _NoSuchBucketException
+    , _NoAvailableConfigurationRecorderException
+    , _NoAvailableDeliveryChannelException
+    , _NoRunningConfigurationRecorderException
+    , _MaxNumberOfConfigurationRecordersExceededException
+    , _InvalidConfigurationRecorderNameException
+    , _InsufficientDeliveryPolicyException
+    , _MaxNumberOfDeliveryChannelsExceededException
+    , _NoSuchConfigurationRecorderException
+    , _InvalidS3KeyPrefixException
 
     -- * ChronologicalOrder
     , ChronologicalOrder (..)
+
+    -- * ConfigurationItemStatus
+    , ConfigurationItemStatus (..)
+
+    -- * DeliveryStatus
+    , DeliveryStatus (..)
+
+    -- * RecorderStatus
+    , RecorderStatus (..)
+
+    -- * ResourceType
+    , ResourceType (..)
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -63,9 +95,6 @@ module Network.AWS.Config.Types
     , ciConfigurationItemMD5Hash
     , ciTags
 
-    -- * ConfigurationItemStatus
-    , ConfigurationItemStatus (..)
-
     -- * ConfigurationRecorder
     , ConfigurationRecorder
     , configurationRecorder
@@ -100,12 +129,6 @@ module Network.AWS.Config.Types
     , dcsConfigHistoryDeliveryInfo
     , dcsName
 
-    -- * DeliveryStatus
-    , DeliveryStatus (..)
-
-    -- * RecorderStatus
-    , RecorderStatus (..)
-
     -- * Relationship
     , Relationship
     , relationship
@@ -113,8 +136,6 @@ module Network.AWS.Config.Types
     , relResourceType
     , relRelationshipName
 
-    -- * ResourceType
-    , ResourceType (..)
     ) where
 
 import Network.AWS.Prelude
@@ -125,30 +146,116 @@ data Config
 
 instance AWSService Config where
     type Sg Config = V4
-    type Er Config = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service Config
-        service' = Service
-            { _svcAbbrev  = "Config"
-            , _svcPrefix  = "config"
-            , _svcVersion = "2014-11-12"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service Config
+        svc = Service
+            { _svcAbbrev   = "Config"
+            , _svcPrefix   = "config"
+            , _svcVersion  = "2014-11-12"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry Config
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The requested action is not valid.
+_ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ValidationException = _ServiceError . hasCode "ValidationException";
+
+-- | The specified time range is not valid. The earlier time is not
+-- chronologically before the later time.
+_InvalidTimeRangeException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidTimeRangeException = _ServiceError . hasCode "InvalidTimeRangeException";
+
+-- | The specified Amazon SNS topic does not exist.
+_InvalidSNSTopicARNException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidSNSTopicARNException = _ServiceError . hasCode "InvalidSNSTopicARNException";
+
+-- | You have provided a null or empty role ARN.
+_InvalidRoleException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException";
+
+-- | You cannot delete the delivery channel you specified because the
+-- configuration recorder is running.
+_LastDeliveryChannelDeleteFailedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LastDeliveryChannelDeleteFailedException = _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException";
+
+-- | You have reached the limit on the pagination.
+_InvalidLimitException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidLimitException = _ServiceError . hasCode "InvalidLimitException";
+
+-- | The specified delivery channel name is not valid.
+_InvalidDeliveryChannelNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidDeliveryChannelNameException = _ServiceError . hasCode "InvalidDeliveryChannelNameException";
+
+-- | You have specified a delivery channel that does not exist.
+_NoSuchDeliveryChannelException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchDeliveryChannelException = _ServiceError . hasCode "NoSuchDeliveryChannelException";
+
+-- | You have specified a resource that is either unknown or has not been
+-- discovered.
+_ResourceNotDiscoveredException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotDiscoveredException = _ServiceError . hasCode "ResourceNotDiscoveredException";
+
+-- | The specified nextToken for pagination is not valid.
+_InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextTokenException";
+
+-- | The specified Amazon S3 bucket does not exist.
+_NoSuchBucketException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException";
+
+-- | There are no configuration recorders available to provide the role
+-- needed to describe your resources.
+_NoAvailableConfigurationRecorderException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoAvailableConfigurationRecorderException = _ServiceError . hasCode "NoAvailableConfigurationRecorderException";
+
+-- | There is no delivery channel available to record configurations.
+_NoAvailableDeliveryChannelException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoAvailableDeliveryChannelException = _ServiceError . hasCode "NoAvailableDeliveryChannelException";
+
+-- | There is no configuration recorder running.
+_NoRunningConfigurationRecorderException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoRunningConfigurationRecorderException = _ServiceError . hasCode "NoRunningConfigurationRecorderException";
+
+-- | You have reached the limit on the number of recorders you can create.
+_MaxNumberOfConfigurationRecordersExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MaxNumberOfConfigurationRecordersExceededException = _ServiceError . hasCode "MaxNumberOfConfigurationRecordersExceededException";
+
+-- | You have provided a configuration recorder name that is not valid.
+_InvalidConfigurationRecorderNameException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidConfigurationRecorderNameException = _ServiceError . hasCode "InvalidConfigurationRecorderNameException";
+
+-- | Your Amazon S3 bucket policy does not permit AWS Config to write to it.
+_InsufficientDeliveryPolicyException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InsufficientDeliveryPolicyException = _ServiceError . hasCode "InsufficientDeliveryPolicyException";
+
+-- | You have reached the limit on the number of delivery channels you can
+-- create.
+_MaxNumberOfDeliveryChannelsExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MaxNumberOfDeliveryChannelsExceededException = _ServiceError . hasCode "MaxNumberOfDeliveryChannelsExceededException";
+
+-- | You have specified a configuration recorder that does not exist.
+_NoSuchConfigurationRecorderException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchConfigurationRecorderException = _ServiceError . hasCode "NoSuchConfigurationRecorderException";
+
+-- | The specified Amazon S3 key prefix is not valid.
+_InvalidS3KeyPrefixException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidS3KeyPrefixException = _ServiceError . hasCode "InvalidS3KeyPrefixException";
 
 data ChronologicalOrder = Forward | Reverse deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -170,7 +277,125 @@ instance ToHeader ChronologicalOrder
 instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
--- | /See:/ 'configExportDeliveryInfo' smart constructor.
+data ConfigurationItemStatus = OK | Discovered | Deleted | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ConfigurationItemStatus where
+    parser = takeLowerText >>= \case
+        "Deleted" -> pure Deleted
+        "Discovered" -> pure Discovered
+        "Failed" -> pure Failed
+        "Ok" -> pure OK
+        e -> fail ("Failure parsing ConfigurationItemStatus from " ++ show e)
+
+instance ToText ConfigurationItemStatus where
+    toText = \case
+        Deleted -> "Deleted"
+        Discovered -> "Discovered"
+        Failed -> "Failed"
+        OK -> "Ok"
+
+instance Hashable ConfigurationItemStatus
+instance ToQuery ConfigurationItemStatus
+instance ToHeader ConfigurationItemStatus
+
+instance FromJSON ConfigurationItemStatus where
+    parseJSON = parseJSONText "ConfigurationItemStatus"
+
+data DeliveryStatus = Success | NotApplicable | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DeliveryStatus where
+    parser = takeLowerText >>= \case
+        "Failure" -> pure Failure
+        "Not_Applicable" -> pure NotApplicable
+        "Success" -> pure Success
+        e -> fail ("Failure parsing DeliveryStatus from " ++ show e)
+
+instance ToText DeliveryStatus where
+    toText = \case
+        Failure -> "Failure"
+        NotApplicable -> "Not_Applicable"
+        Success -> "Success"
+
+instance Hashable DeliveryStatus
+instance ToQuery DeliveryStatus
+instance ToHeader DeliveryStatus
+
+instance FromJSON DeliveryStatus where
+    parseJSON = parseJSONText "DeliveryStatus"
+
+data RecorderStatus = RSPending | RSFailure | RSSuccess deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText RecorderStatus where
+    parser = takeLowerText >>= \case
+        "Failure" -> pure RSFailure
+        "Pending" -> pure RSPending
+        "Success" -> pure RSSuccess
+        e -> fail ("Failure parsing RecorderStatus from " ++ show e)
+
+instance ToText RecorderStatus where
+    toText = \case
+        RSFailure -> "Failure"
+        RSPending -> "Pending"
+        RSSuccess -> "Success"
+
+instance Hashable RecorderStatus
+instance ToQuery RecorderStatus
+instance ToHeader RecorderStatus
+
+instance FromJSON RecorderStatus where
+    parseJSON = parseJSONText "RecorderStatus"
+
+data ResourceType = AWSCloudTrailTrail | AWSEC2VPNConnection | AWSEC2SecurityGroup | AWSEC2Instance | AWSEC2NetworkACL | AWSEC2VPNGateway | AWSEC2VPC | AWSEC2NetworkInterface | AWSEC2InternetGateway | AWSEC2Subnet | AWSEC2EIP | AWSEC2CustomerGateway | AWSEC2RouteTable | AWSEC2Volume deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ResourceType where
+    parser = takeLowerText >>= \case
+        "AWS::CloudTrail::Trail" -> pure AWSCloudTrailTrail
+        "AWS::EC2::CustomerGateway" -> pure AWSEC2CustomerGateway
+        "AWS::EC2::EIP" -> pure AWSEC2EIP
+        "AWS::EC2::Instance" -> pure AWSEC2Instance
+        "AWS::EC2::InternetGateway" -> pure AWSEC2InternetGateway
+        "AWS::EC2::NetworkAcl" -> pure AWSEC2NetworkACL
+        "AWS::EC2::NetworkInterface" -> pure AWSEC2NetworkInterface
+        "AWS::EC2::RouteTable" -> pure AWSEC2RouteTable
+        "AWS::EC2::SecurityGroup" -> pure AWSEC2SecurityGroup
+        "AWS::EC2::Subnet" -> pure AWSEC2Subnet
+        "AWS::EC2::VPC" -> pure AWSEC2VPC
+        "AWS::EC2::VPNConnection" -> pure AWSEC2VPNConnection
+        "AWS::EC2::VPNGateway" -> pure AWSEC2VPNGateway
+        "AWS::EC2::Volume" -> pure AWSEC2Volume
+        e -> fail ("Failure parsing ResourceType from " ++ show e)
+
+instance ToText ResourceType where
+    toText = \case
+        AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
+        AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
+        AWSEC2EIP -> "AWS::EC2::EIP"
+        AWSEC2Instance -> "AWS::EC2::Instance"
+        AWSEC2InternetGateway -> "AWS::EC2::InternetGateway"
+        AWSEC2NetworkACL -> "AWS::EC2::NetworkAcl"
+        AWSEC2NetworkInterface -> "AWS::EC2::NetworkInterface"
+        AWSEC2RouteTable -> "AWS::EC2::RouteTable"
+        AWSEC2SecurityGroup -> "AWS::EC2::SecurityGroup"
+        AWSEC2Subnet -> "AWS::EC2::Subnet"
+        AWSEC2VPC -> "AWS::EC2::VPC"
+        AWSEC2VPNConnection -> "AWS::EC2::VPNConnection"
+        AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
+        AWSEC2Volume -> "AWS::EC2::Volume"
+
+instance Hashable ResourceType
+instance ToQuery ResourceType
+instance ToHeader ResourceType
+
+instance ToJSON ResourceType where
+    toJSON = toJSONText
+
+instance FromJSON ResourceType where
+    parseJSON = parseJSONText "ResourceType"
+
+-- | A list that contains the status of the delivery of either the snapshot
+-- or the configuration history to the specified Amazon S3 bucket.
+--
+-- /See:/ 'configExportDeliveryInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -219,7 +444,10 @@ instance FromJSON ConfigExportDeliveryInfo where
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "lastErrorMessage"))
 
--- | /See:/ 'configStreamDeliveryInfo' smart constructor.
+-- | A list that contains the status of the delivery of the configuration
+-- stream notification to the Amazon SNS topic.
+--
+-- /See:/ 'configStreamDeliveryInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -262,7 +490,12 @@ instance FromJSON ConfigStreamDeliveryInfo where
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "lastErrorMessage"))
 
--- | /See:/ 'configurationItem' smart constructor.
+-- | A list that contains detailed configurations of a specified resource.
+--
+-- Currently, the list does not contain information about non-AWS
+-- components (for example, applications on your Amazon EC2 instances).
+--
+-- /See:/ 'configurationItem' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -394,31 +627,10 @@ instance FromJSON ConfigurationItem where
                      <*> (x .:? "configurationItemMD5Hash")
                      <*> (x .:? "tags" .!= mempty))
 
-data ConfigurationItemStatus = OK | Discovered | Deleted | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ConfigurationItemStatus where
-    parser = takeLowerText >>= \case
-        "Deleted" -> pure Deleted
-        "Discovered" -> pure Discovered
-        "Failed" -> pure Failed
-        "Ok" -> pure OK
-        e -> fail ("Failure parsing ConfigurationItemStatus from " ++ show e)
-
-instance ToText ConfigurationItemStatus where
-    toText = \case
-        Deleted -> "Deleted"
-        Discovered -> "Discovered"
-        Failed -> "Failed"
-        OK -> "Ok"
-
-instance Hashable ConfigurationItemStatus
-instance ToQuery ConfigurationItemStatus
-instance ToHeader ConfigurationItemStatus
-
-instance FromJSON ConfigurationItemStatus where
-    parseJSON = parseJSONText "ConfigurationItemStatus"
-
--- | /See:/ 'configurationRecorder' smart constructor.
+-- | An object that represents the recording of configuration changes of an
+-- AWS resource.
+--
+-- /See:/ 'configurationRecorder' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -453,7 +665,9 @@ instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
           = object ["name" .= _crName, "roleARN" .= _crRoleARN]
 
--- | /See:/ 'configurationRecorderStatus' smart constructor.
+-- | The current status of the configuration recorder.
+--
+-- /See:/ 'configurationRecorderStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -523,7 +737,10 @@ instance FromJSON ConfigurationRecorderStatus where
                      <*> (x .:? "name")
                      <*> (x .:? "lastStartTime"))
 
--- | /See:/ 'deliveryChannel' smart constructor.
+-- | A logical container used for storing the configuration changes of an AWS
+-- resource.
+--
+-- /See:/ 'deliveryChannel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -576,7 +793,11 @@ instance ToJSON DeliveryChannel where
                "snsTopicARN" .= _dcSnsTopicARN, "name" .= _dcName,
                "s3BucketName" .= _dcS3BucketName]
 
--- | /See:/ 'deliveryChannelStatus' smart constructor.
+-- | The status of a specified delivery channel.
+--
+-- Valid values: @Success@ | @Failure@
+--
+-- /See:/ 'deliveryChannelStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -622,51 +843,9 @@ instance FromJSON DeliveryChannelStatus where
                      <*> (x .:? "configHistoryDeliveryInfo")
                      <*> (x .:? "name"))
 
-data DeliveryStatus = Success | NotApplicable | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText DeliveryStatus where
-    parser = takeLowerText >>= \case
-        "Failure" -> pure Failure
-        "Not_Applicable" -> pure NotApplicable
-        "Success" -> pure Success
-        e -> fail ("Failure parsing DeliveryStatus from " ++ show e)
-
-instance ToText DeliveryStatus where
-    toText = \case
-        Failure -> "Failure"
-        NotApplicable -> "Not_Applicable"
-        Success -> "Success"
-
-instance Hashable DeliveryStatus
-instance ToQuery DeliveryStatus
-instance ToHeader DeliveryStatus
-
-instance FromJSON DeliveryStatus where
-    parseJSON = parseJSONText "DeliveryStatus"
-
-data RecorderStatus = RSPending | RSFailure | RSSuccess deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText RecorderStatus where
-    parser = takeLowerText >>= \case
-        "Failure" -> pure RSFailure
-        "Pending" -> pure RSPending
-        "Success" -> pure RSSuccess
-        e -> fail ("Failure parsing RecorderStatus from " ++ show e)
-
-instance ToText RecorderStatus where
-    toText = \case
-        RSFailure -> "Failure"
-        RSPending -> "Pending"
-        RSSuccess -> "Success"
-
-instance Hashable RecorderStatus
-instance ToQuery RecorderStatus
-instance ToHeader RecorderStatus
-
-instance FromJSON RecorderStatus where
-    parseJSON = parseJSONText "RecorderStatus"
-
--- | /See:/ 'relationship' smart constructor.
+-- | The relationship of the related resource to the main resource.
+--
+-- /See:/ 'relationship' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -700,50 +879,3 @@ instance FromJSON Relationship where
                  Relationship' <$>
                    (x .:? "resourceId") <*> (x .:? "resourceType") <*>
                      (x .:? "relationshipName"))
-
-data ResourceType = AWSCloudTrailTrail | AWSEC2VPNConnection | AWSEC2SecurityGroup | AWSEC2Instance | AWSEC2NetworkACL | AWSEC2VPNGateway | AWSEC2VPC | AWSEC2NetworkInterface | AWSEC2InternetGateway | AWSEC2Subnet | AWSEC2EIP | AWSEC2CustomerGateway | AWSEC2RouteTable | AWSEC2Volume deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ResourceType where
-    parser = takeLowerText >>= \case
-        "AWS::CloudTrail::Trail" -> pure AWSCloudTrailTrail
-        "AWS::EC2::CustomerGateway" -> pure AWSEC2CustomerGateway
-        "AWS::EC2::EIP" -> pure AWSEC2EIP
-        "AWS::EC2::Instance" -> pure AWSEC2Instance
-        "AWS::EC2::InternetGateway" -> pure AWSEC2InternetGateway
-        "AWS::EC2::NetworkAcl" -> pure AWSEC2NetworkACL
-        "AWS::EC2::NetworkInterface" -> pure AWSEC2NetworkInterface
-        "AWS::EC2::RouteTable" -> pure AWSEC2RouteTable
-        "AWS::EC2::SecurityGroup" -> pure AWSEC2SecurityGroup
-        "AWS::EC2::Subnet" -> pure AWSEC2Subnet
-        "AWS::EC2::VPC" -> pure AWSEC2VPC
-        "AWS::EC2::VPNConnection" -> pure AWSEC2VPNConnection
-        "AWS::EC2::VPNGateway" -> pure AWSEC2VPNGateway
-        "AWS::EC2::Volume" -> pure AWSEC2Volume
-        e -> fail ("Failure parsing ResourceType from " ++ show e)
-
-instance ToText ResourceType where
-    toText = \case
-        AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
-        AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
-        AWSEC2EIP -> "AWS::EC2::EIP"
-        AWSEC2Instance -> "AWS::EC2::Instance"
-        AWSEC2InternetGateway -> "AWS::EC2::InternetGateway"
-        AWSEC2NetworkACL -> "AWS::EC2::NetworkAcl"
-        AWSEC2NetworkInterface -> "AWS::EC2::NetworkInterface"
-        AWSEC2RouteTable -> "AWS::EC2::RouteTable"
-        AWSEC2SecurityGroup -> "AWS::EC2::SecurityGroup"
-        AWSEC2Subnet -> "AWS::EC2::Subnet"
-        AWSEC2VPC -> "AWS::EC2::VPC"
-        AWSEC2VPNConnection -> "AWS::EC2::VPNConnection"
-        AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
-        AWSEC2Volume -> "AWS::EC2::Volume"
-
-instance Hashable ResourceType
-instance ToQuery ResourceType
-instance ToHeader ResourceType
-
-instance ToJSON ResourceType where
-    toJSON = toJSONText
-
-instance FromJSON ResourceType where
-    parseJSON = parseJSONText "ResourceType"

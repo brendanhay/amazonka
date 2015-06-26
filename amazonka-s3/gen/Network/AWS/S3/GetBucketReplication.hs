@@ -32,6 +32,7 @@ module Network.AWS.S3.GetBucketReplication
     , getBucketReplicationResponse
     -- ** Response lenses
     , gbrrReplicationConfiguration
+    , gbrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -63,7 +64,8 @@ instance AWSRequest GetBucketReplication where
           = receiveXML
               (\ s h x ->
                  GetBucketReplicationResponse' <$>
-                   (x .@? "ReplicationConfiguration"))
+                   (x .@? "ReplicationConfiguration") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty
@@ -80,12 +82,18 @@ instance ToQuery GetBucketReplication where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbrrReplicationConfiguration'
-newtype GetBucketReplicationResponse = GetBucketReplicationResponse'{_gbrrReplicationConfiguration :: Maybe ReplicationConfiguration} deriving (Eq, Read, Show)
+--
+-- * 'gbrrStatusCode'
+data GetBucketReplicationResponse = GetBucketReplicationResponse'{_gbrrReplicationConfiguration :: Maybe ReplicationConfiguration, _gbrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketReplicationResponse' smart constructor.
-getBucketReplicationResponse :: GetBucketReplicationResponse
-getBucketReplicationResponse = GetBucketReplicationResponse'{_gbrrReplicationConfiguration = Nothing};
+getBucketReplicationResponse :: Int -> GetBucketReplicationResponse
+getBucketReplicationResponse pStatusCode = GetBucketReplicationResponse'{_gbrrReplicationConfiguration = Nothing, _gbrrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 gbrrReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
 gbrrReplicationConfiguration = lens _gbrrReplicationConfiguration (\ s a -> s{_gbrrReplicationConfiguration = a});
+
+-- | FIXME: Undocumented member.
+gbrrStatusCode :: Lens' GetBucketReplicationResponse Int
+gbrrStatusCode = lens _gbrrStatusCode (\ s a -> s{_gbrrStatusCode = a});

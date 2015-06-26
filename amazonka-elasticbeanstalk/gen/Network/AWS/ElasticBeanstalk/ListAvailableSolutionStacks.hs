@@ -31,6 +31,7 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- ** Response lenses
     , lassrSolutionStacks
     , lassrSolutionStackDetails
+    , lassrStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -60,7 +61,8 @@ instance AWSRequest ListAvailableSolutionStacks where
                       may (parseXMLList "member"))
                      <*>
                      (x .@? "SolutionStackDetails" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
@@ -76,18 +78,22 @@ instance ToQuery ListAvailableSolutionStacks where
                     ("ListAvailableSolutionStacks" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
+-- | A list of available AWS Elastic Beanstalk solution stacks.
+--
+-- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lassrSolutionStacks'
 --
 -- * 'lassrSolutionStackDetails'
-data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks :: Maybe [Text], _lassrSolutionStackDetails :: Maybe [SolutionStackDescription]} deriving (Eq, Read, Show)
+--
+-- * 'lassrStatusCode'
+data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks :: Maybe [Text], _lassrSolutionStackDetails :: Maybe [SolutionStackDescription], _lassrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
-listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks = Nothing, _lassrSolutionStackDetails = Nothing};
+listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
+listAvailableSolutionStacksResponse pStatusCode = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks = Nothing, _lassrSolutionStackDetails = Nothing, _lassrStatusCode = pStatusCode};
 
 -- | A list of available solution stacks.
 lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
@@ -96,3 +102,7 @@ lassrSolutionStacks = lens _lassrSolutionStacks (\ s a -> s{_lassrSolutionStacks
 -- | A list of available solution stacks and their SolutionStackDescription.
 lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lassrStatusCode :: Lens' ListAvailableSolutionStacksResponse Int
+lassrStatusCode = lens _lassrStatusCode (\ s a -> s{_lassrStatusCode = a});

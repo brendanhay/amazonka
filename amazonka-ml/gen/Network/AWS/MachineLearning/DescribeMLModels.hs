@@ -42,12 +42,13 @@ module Network.AWS.MachineLearning.DescribeMLModels
     -- ** Response constructor
     , describeMLModelsResponse
     -- ** Response lenses
-    , dmlmrResults
-    , dmlmrNextToken
+    , descResults
+    , descNextToken
+    , descStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -176,10 +177,10 @@ dmlmLE = lens _dmlmLE (\ s a -> s{_dmlmLE = a});
 
 instance AWSPager DescribeMLModels where
         page rq rs
-          | stop (rs ^. dmlmrNextToken) = Nothing
-          | stop (rs ^. dmlmrResults) = Nothing
+          | stop (rs ^. descNextToken) = Nothing
+          | stop (rs ^. descResults) = Nothing
           | otherwise =
-            Just $ rq & dmlmNextToken .~ rs ^. dmlmrNextToken
+            Just $ rq & dmlmNextToken .~ rs ^. descNextToken
 
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning
@@ -189,7 +190,8 @@ instance AWSRequest DescribeMLModels where
           = receiveJSON
               (\ s h x ->
                  DescribeMLModelsResponse' <$>
-                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeMLModels where
         toHeaders
@@ -217,24 +219,33 @@ instance ToPath DescribeMLModels where
 instance ToQuery DescribeMLModels where
         toQuery = const mempty
 
--- | /See:/ 'describeMLModelsResponse' smart constructor.
+-- | Represents the output of a DescribeMLModels operation. The content is
+-- essentially a list of @MLModel@.
+--
+-- /See:/ 'describeMLModelsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmrResults'
+-- * 'descResults'
 --
--- * 'dmlmrNextToken'
-data DescribeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults :: Maybe [MLModel], _dmlmrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'descNextToken'
+--
+-- * 'descStatusCode'
+data DescribeMLModelsResponse = DescribeMLModelsResponse'{_descResults :: Maybe [MLModel], _descNextToken :: Maybe Text, _descStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
-describeMLModelsResponse :: DescribeMLModelsResponse
-describeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults = Nothing, _dmlmrNextToken = Nothing};
+describeMLModelsResponse :: Int -> DescribeMLModelsResponse
+describeMLModelsResponse pStatusCode = DescribeMLModelsResponse'{_descResults = Nothing, _descNextToken = Nothing, _descStatusCode = pStatusCode};
 
 -- | A list of MLModel that meet the search criteria.
-dmlmrResults :: Lens' DescribeMLModelsResponse [MLModel]
-dmlmrResults = lens _dmlmrResults (\ s a -> s{_dmlmrResults = a}) . _Default;
+descResults :: Lens' DescribeMLModelsResponse [MLModel]
+descResults = lens _descResults (\ s a -> s{_descResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-dmlmrNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
-dmlmrNextToken = lens _dmlmrNextToken (\ s a -> s{_dmlmrNextToken = a});
+descNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
+descNextToken = lens _descNextToken (\ s a -> s{_descNextToken = a});
+
+-- | FIXME: Undocumented member.
+descStatusCode :: Lens' DescribeMLModelsResponse Int
+descStatusCode = lens _descStatusCode (\ s a -> s{_descStatusCode = a});

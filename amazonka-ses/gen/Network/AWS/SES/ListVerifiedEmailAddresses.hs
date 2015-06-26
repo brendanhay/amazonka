@@ -37,6 +37,7 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     , listVerifiedEmailAddressesResponse
     -- ** Response lenses
     , lvearVerifiedEmailAddresses
+    , lvearStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -62,7 +63,8 @@ instance AWSRequest ListVerifiedEmailAddresses where
               (\ s h x ->
                  ListVerifiedEmailAddressesResponse' <$>
                    (x .@? "VerifiedEmailAddresses" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
@@ -78,17 +80,26 @@ instance ToQuery ListVerifiedEmailAddresses where
                     ("ListVerifiedEmailAddresses" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
+-- | Represents a list of all the email addresses verified for the current
+-- user.
+--
+-- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lvearVerifiedEmailAddresses'
-newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lvearStatusCode'
+data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses :: Maybe [Text], _lvearStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
-listVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses = Nothing};
+listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse
+listVerifiedEmailAddressesResponse pStatusCode = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses = Nothing, _lvearStatusCode = pStatusCode};
 
 -- | A list of email addresses that have been verified.
 lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lvearStatusCode :: Lens' ListVerifiedEmailAddressesResponse Int
+lvearStatusCode = lens _lvearStatusCode (\ s a -> s{_lvearStatusCode = a});

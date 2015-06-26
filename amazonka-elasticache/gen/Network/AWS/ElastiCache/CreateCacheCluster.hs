@@ -55,6 +55,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , createCacheClusterResponse
     -- ** Response lenses
     , cccrCacheCluster
+    , cccrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -62,7 +63,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createCacheCluster' smart constructor.
+-- | Represents the input of a /CreateCacheCluster/ action.
+--
+-- /See:/ 'createCacheCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -370,7 +373,7 @@ instance AWSRequest CreateCacheCluster where
           = receiveXMLWrapper "CreateCacheClusterResult"
               (\ s h x ->
                  CreateCacheClusterResponse' <$>
-                   (x .@? "CacheCluster"))
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
@@ -427,12 +430,18 @@ instance ToQuery CreateCacheCluster where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cccrCacheCluster'
-newtype CreateCacheClusterResponse = CreateCacheClusterResponse'{_cccrCacheCluster :: Maybe CacheCluster} deriving (Eq, Read, Show)
+--
+-- * 'cccrStatusCode'
+data CreateCacheClusterResponse = CreateCacheClusterResponse'{_cccrCacheCluster :: Maybe CacheCluster, _cccrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCacheClusterResponse' smart constructor.
-createCacheClusterResponse :: CreateCacheClusterResponse
-createCacheClusterResponse = CreateCacheClusterResponse'{_cccrCacheCluster = Nothing};
+createCacheClusterResponse :: Int -> CreateCacheClusterResponse
+createCacheClusterResponse pStatusCode = CreateCacheClusterResponse'{_cccrCacheCluster = Nothing, _cccrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\ s a -> s{_cccrCacheCluster = a});
+
+-- | FIXME: Undocumented member.
+cccrStatusCode :: Lens' CreateCacheClusterResponse Int
+cccrStatusCode = lens _cccrStatusCode (\ s a -> s{_cccrStatusCode = a});

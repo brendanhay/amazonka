@@ -34,6 +34,8 @@ module Network.AWS.Route53Domains.DeleteTagsForDomain
     , DeleteTagsForDomainResponse
     -- ** Response constructor
     , deleteTagsForDomainResponse
+    -- ** Response lenses
+    , dtfdrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'deleteTagsForDomain' smart constructor.
+-- | The DeleteTagsForDomainRequest includes the following elements.
+--
+-- /See:/ 'deleteTagsForDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -89,7 +93,10 @@ instance AWSRequest DeleteTagsForDomain where
         type Rs DeleteTagsForDomain =
              DeleteTagsForDomainResponse
         request = postJSON
-        response = receiveNull DeleteTagsForDomainResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeleteTagsForDomain where
         toHeaders
@@ -114,8 +121,16 @@ instance ToQuery DeleteTagsForDomain where
         toQuery = const mempty
 
 -- | /See:/ 'deleteTagsForDomainResponse' smart constructor.
-data DeleteTagsForDomainResponse = DeleteTagsForDomainResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dtfdrStatusCode'
+newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'{_dtfdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteTagsForDomainResponse' smart constructor.
-deleteTagsForDomainResponse :: DeleteTagsForDomainResponse
-deleteTagsForDomainResponse = DeleteTagsForDomainResponse';
+deleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
+deleteTagsForDomainResponse pStatusCode = DeleteTagsForDomainResponse'{_dtfdrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+dtfdrStatusCode :: Lens' DeleteTagsForDomainResponse Int
+dtfdrStatusCode = lens _dtfdrStatusCode (\ s a -> s{_dtfdrStatusCode = a});

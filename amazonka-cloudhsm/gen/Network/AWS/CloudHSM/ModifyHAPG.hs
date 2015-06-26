@@ -34,6 +34,7 @@ module Network.AWS.CloudHSM.ModifyHAPG
     , modifyHAPGResponse
     -- ** Response lenses
     , mhrHAPGARN
+    , mhrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -76,7 +77,8 @@ instance AWSRequest ModifyHAPG where
         response
           = receiveJSON
               (\ s h x ->
-                 ModifyHAPGResponse' <$> (x .?> "HapgArn"))
+                 ModifyHAPGResponse' <$>
+                   (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyHAPG where
         toHeaders
@@ -104,12 +106,18 @@ instance ToQuery ModifyHAPG where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mhrHAPGARN'
-newtype ModifyHAPGResponse = ModifyHAPGResponse'{_mhrHAPGARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'mhrStatusCode'
+data ModifyHAPGResponse = ModifyHAPGResponse'{_mhrHAPGARN :: Maybe Text, _mhrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyHAPGResponse' smart constructor.
-modifyHAPGResponse :: ModifyHAPGResponse
-modifyHAPGResponse = ModifyHAPGResponse'{_mhrHAPGARN = Nothing};
+modifyHAPGResponse :: Int -> ModifyHAPGResponse
+modifyHAPGResponse pStatusCode = ModifyHAPGResponse'{_mhrHAPGARN = Nothing, _mhrStatusCode = pStatusCode};
 
 -- | The ARN of the high-availability partition group.
 mhrHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
 mhrHAPGARN = lens _mhrHAPGARN (\ s a -> s{_mhrHAPGARN = a});
+
+-- | FIXME: Undocumented member.
+mhrStatusCode :: Lens' ModifyHAPGResponse Int
+mhrStatusCode = lens _mhrStatusCode (\ s a -> s{_mhrStatusCode = a});

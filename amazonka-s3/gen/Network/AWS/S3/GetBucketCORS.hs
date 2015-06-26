@@ -32,6 +32,7 @@ module Network.AWS.S3.GetBucketCORS
     , getBucketCORSResponse
     -- ** Response lenses
     , gbcrCORSRules
+    , gbcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -62,7 +63,8 @@ instance AWSRequest GetBucketCORS where
           = receiveXML
               (\ s h x ->
                  GetBucketCORSResponse' <$>
-                   (may (parseXMLList "CORSRule") x))
+                   (may (parseXMLList "CORSRule") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
@@ -79,12 +81,18 @@ instance ToQuery GetBucketCORS where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbcrCORSRules'
-newtype GetBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules :: Maybe [CORSRule]} deriving (Eq, Read, Show)
+--
+-- * 'gbcrStatusCode'
+data GetBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules :: Maybe [CORSRule], _gbcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetBucketCORSResponse' smart constructor.
-getBucketCORSResponse :: GetBucketCORSResponse
-getBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules = Nothing};
+getBucketCORSResponse :: Int -> GetBucketCORSResponse
+getBucketCORSResponse pStatusCode = GetBucketCORSResponse'{_gbcrCORSRules = Nothing, _gbcrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 gbcrCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+gbcrStatusCode :: Lens' GetBucketCORSResponse Int
+gbcrStatusCode = lens _gbcrStatusCode (\ s a -> s{_gbcrStatusCode = a});

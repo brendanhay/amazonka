@@ -30,6 +30,7 @@ module Network.AWS.CloudSearch.ListDomainNames
     , listDomainNamesResponse
     -- ** Response lenses
     , ldnrDomainNames
+    , ldnrStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -53,7 +54,8 @@ instance AWSRequest ListDomainNames where
               (\ s h x ->
                  ListDomainNamesResponse' <$>
                    (x .@? "DomainNames" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value")))
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty
@@ -68,17 +70,26 @@ instance ToQuery ListDomainNames where
                  ["Action" =: ("ListDomainNames" :: ByteString),
                   "Version" =: ("2013-01-01" :: ByteString)])
 
--- | /See:/ 'listDomainNamesResponse' smart constructor.
+-- | The result of a @ListDomainNames@ request. Contains a list of the
+-- domains owned by an account.
+--
+-- /See:/ 'listDomainNamesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldnrDomainNames'
-newtype ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+--
+-- * 'ldnrStatusCode'
+data ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: Maybe (Map Text Text), _ldnrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDomainNamesResponse' smart constructor.
-listDomainNamesResponse :: ListDomainNamesResponse
-listDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames = Nothing};
+listDomainNamesResponse :: Int -> ListDomainNamesResponse
+listDomainNamesResponse pStatusCode = ListDomainNamesResponse'{_ldnrDomainNames = Nothing, _ldnrStatusCode = pStatusCode};
 
 -- | The names of the search domains owned by an account.
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+ldnrStatusCode :: Lens' ListDomainNamesResponse Int
+ldnrStatusCode = lens _ldnrStatusCode (\ s a -> s{_ldnrStatusCode = a});

@@ -34,7 +34,8 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- ** Response constructor
     , deleteSuggesterResponse
     -- ** Response lenses
-    , delSuggester
+    , deleSuggester
+    , deleStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -42,7 +43,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteSuggester' smart constructor.
+-- | Container for the parameters to the @DeleteSuggester@ operation.
+-- Specifies the name of the domain you want to update and name of the
+-- suggester you want to delete.
+--
+-- /See:/ 'deleteSuggester' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -70,7 +75,8 @@ instance AWSRequest DeleteSuggester where
         response
           = receiveXMLWrapper "DeleteSuggesterResult"
               (\ s h x ->
-                 DeleteSuggesterResponse' <$> (x .@ "Suggester"))
+                 DeleteSuggesterResponse' <$>
+                   (x .@ "Suggester") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
@@ -86,17 +92,26 @@ instance ToQuery DeleteSuggester where
                "DomainName" =: _deleDomainName,
                "SuggesterName" =: _deleSuggesterName]
 
--- | /See:/ 'deleteSuggesterResponse' smart constructor.
+-- | The result of a @DeleteSuggester@ request. Contains the status of the
+-- deleted suggester.
+--
+-- /See:/ 'deleteSuggesterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delSuggester'
-newtype DeleteSuggesterResponse = DeleteSuggesterResponse'{_delSuggester :: SuggesterStatus} deriving (Eq, Read, Show)
+-- * 'deleSuggester'
+--
+-- * 'deleStatusCode'
+data DeleteSuggesterResponse = DeleteSuggesterResponse'{_deleSuggester :: SuggesterStatus, _deleStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
-deleteSuggesterResponse :: SuggesterStatus -> DeleteSuggesterResponse
-deleteSuggesterResponse pSuggester = DeleteSuggesterResponse'{_delSuggester = pSuggester};
+deleteSuggesterResponse :: SuggesterStatus -> Int -> DeleteSuggesterResponse
+deleteSuggesterResponse pSuggester pStatusCode = DeleteSuggesterResponse'{_deleSuggester = pSuggester, _deleStatusCode = pStatusCode};
 
 -- | The status of the suggester being deleted.
-delSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-delSuggester = lens _delSuggester (\ s a -> s{_delSuggester = a});
+deleSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+deleSuggester = lens _deleSuggester (\ s a -> s{_deleSuggester = a});
+
+-- | FIXME: Undocumented member.
+deleStatusCode :: Lens' DeleteSuggesterResponse Int
+deleStatusCode = lens _deleStatusCode (\ s a -> s{_deleStatusCode = a});

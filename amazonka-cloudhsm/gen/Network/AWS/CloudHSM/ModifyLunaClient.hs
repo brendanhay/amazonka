@@ -36,6 +36,7 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     , modifyLunaClientResponse
     -- ** Response lenses
     , mlcrClientARN
+    , mlcrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -71,7 +72,8 @@ instance AWSRequest ModifyLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 ModifyLunaClientResponse' <$> (x .?> "ClientArn"))
+                 ModifyLunaClientResponse' <$>
+                   (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyLunaClient where
         toHeaders
@@ -100,12 +102,18 @@ instance ToQuery ModifyLunaClient where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mlcrClientARN'
-newtype ModifyLunaClientResponse = ModifyLunaClientResponse'{_mlcrClientARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'mlcrStatusCode'
+data ModifyLunaClientResponse = ModifyLunaClientResponse'{_mlcrClientARN :: Maybe Text, _mlcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
-modifyLunaClientResponse :: ModifyLunaClientResponse
-modifyLunaClientResponse = ModifyLunaClientResponse'{_mlcrClientARN = Nothing};
+modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
+modifyLunaClientResponse pStatusCode = ModifyLunaClientResponse'{_mlcrClientARN = Nothing, _mlcrStatusCode = pStatusCode};
 
 -- | The ARN of the client.
 mlcrClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrClientARN = lens _mlcrClientARN (\ s a -> s{_mlcrClientARN = a});
+
+-- | FIXME: Undocumented member.
+mlcrStatusCode :: Lens' ModifyLunaClientResponse Int
+mlcrStatusCode = lens _mlcrStatusCode (\ s a -> s{_mlcrStatusCode = a});

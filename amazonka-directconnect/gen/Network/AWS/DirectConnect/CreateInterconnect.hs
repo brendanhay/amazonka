@@ -62,7 +62,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createInterconnect' smart constructor.
+-- | Container for the parameters to the CreateInterconnect operation.
+--
+-- /See:/ 'createInterconnect' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -21,11 +21,32 @@ module Network.AWS.CognitoSync.Types
     (
     -- * Service
       CognitoSync
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidParameterException
+    , _NotAuthorizedException
+    , _InternalErrorException
+    , _InvalidConfigurationException
+    , _DuplicateRequestException
+    , _LambdaThrottledException
+    , _AlreadyStreamedException
+    , _InvalidLambdaFunctionOutputException
+    , _TooManyRequestsException
+    , _ResourceConflictException
+    , _ResourceNotFoundException
+    , _LimitExceededException
 
     -- * BulkPublishStatus
     , BulkPublishStatus (..)
+
+    -- * Operation
+    , Operation (..)
+
+    -- * Platform
+    , Platform (..)
+
+    -- * StreamingStatus
+    , StreamingStatus (..)
 
     -- * CognitoStreams
     , CognitoStreams
@@ -62,12 +83,6 @@ module Network.AWS.CognitoSync.Types
     , iuDataStorage
     , iuIdentityId
 
-    -- * Operation
-    , Operation (..)
-
-    -- * Platform
-    , Platform (..)
-
     -- * PushSync
     , PushSync
     , pushSync
@@ -93,8 +108,6 @@ module Network.AWS.CognitoSync.Types
     , rpKey
     , rpSyncCount
 
-    -- * StreamingStatus
-    , StreamingStatus (..)
     ) where
 
 import Network.AWS.Prelude
@@ -105,30 +118,84 @@ data CognitoSync
 
 instance AWSService CognitoSync where
     type Sg CognitoSync = V4
-    type Er CognitoSync = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CognitoSync
-        service' = Service
-            { _svcAbbrev  = "CognitoSync"
-            , _svcPrefix  = "cognito-sync"
-            , _svcVersion = "2014-06-30"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CognitoSync
+        svc = Service
+            { _svcAbbrev   = "CognitoSync"
+            , _svcPrefix   = "cognito-sync"
+            , _svcVersion  = "2014-06-30"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CognitoSync
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Thrown when a request parameter does not comply with the associated
+-- constraints.
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameter" . hasStatus 400;
+
+-- | Thrown when a user is not authorized to access the requested resource.
+_NotAuthorizedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NotAuthorizedException = _ServiceError . hasCode "NotAuthorizedError" . hasStatus 403;
+
+-- | Indicates an internal service error.
+_InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InternalErrorException = _ServiceError . hasCode "InternalError" . hasStatus 500;
+
+-- | Prism for InvalidConfigurationException' errors.
+_InvalidConfigurationException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidConfigurationException = _ServiceError . hasCode "InvalidConfiguration" . hasStatus 400;
+
+-- | An exception thrown when there is an IN_PROGRESS bulk publish operation
+-- for the given identity pool.
+_DuplicateRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_DuplicateRequestException = _ServiceError . hasCode "DuplicateRequest" . hasStatus 400;
+
+-- | AWS Lambda throttled your account, please contact AWS Support
+_LambdaThrottledException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LambdaThrottledException = _ServiceError . hasCode "LambdaThrottled" . hasStatus 429;
+
+-- | An exception thrown when a bulk publish operation is requested less than
+-- 24 hours after a previous bulk publish operation completed successfully.
+_AlreadyStreamedException :: AWSError a => Geting (First ServiceError) a ServiceError
+_AlreadyStreamedException = _ServiceError . hasCode "AlreadyStreamed" . hasStatus 400;
+
+-- | The AWS Lambda function returned invalid output or an exception.
+_InvalidLambdaFunctionOutputException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionOutputException = _ServiceError . hasCode "InvalidLambdaFunctionOutput" . hasStatus 400;
+
+-- | Thrown if the request is throttled.
+_TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_TooManyRequestsException = _ServiceError . hasCode "TooManyRequests" . hasStatus 429;
+
+-- | Thrown if an update can\'t be applied because the resource was changed
+-- by another call and this would result in a conflict.
+_ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceConflictException = _ServiceError . hasCode "ResourceConflict" . hasStatus 409;
+
+-- | Thrown if the resource doesn\'t exist.
+_ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFound" . hasStatus 404;
+
+-- | Thrown when the limit on the number of objects or operations has been
+-- exceeded.
+_LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
 
 data BulkPublishStatus = NotStarted | INProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -154,7 +221,76 @@ instance ToHeader BulkPublishStatus
 instance FromJSON BulkPublishStatus where
     parseJSON = parseJSONText "BulkPublishStatus"
 
--- | /See:/ 'cognitoStreams' smart constructor.
+data Operation = Replace | Remove deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Operation where
+    parser = takeLowerText >>= \case
+        "remove" -> pure Remove
+        "replace" -> pure Replace
+        e -> fail ("Failure parsing Operation from " ++ show e)
+
+instance ToText Operation where
+    toText = \case
+        Remove -> "remove"
+        Replace -> "replace"
+
+instance Hashable Operation
+instance ToQuery Operation
+instance ToHeader Operation
+
+instance ToJSON Operation where
+    toJSON = toJSONText
+
+data Platform = GCM | APNS | ADM | APNSSandbox deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Platform where
+    parser = takeLowerText >>= \case
+        "ADM" -> pure ADM
+        "APNS" -> pure APNS
+        "APNS_SANDBOX" -> pure APNSSandbox
+        "GCM" -> pure GCM
+        e -> fail ("Failure parsing Platform from " ++ show e)
+
+instance ToText Platform where
+    toText = \case
+        ADM -> "ADM"
+        APNS -> "APNS"
+        APNSSandbox -> "APNS_SANDBOX"
+        GCM -> "GCM"
+
+instance Hashable Platform
+instance ToQuery Platform
+instance ToHeader Platform
+
+instance ToJSON Platform where
+    toJSON = toJSONText
+
+data StreamingStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText StreamingStatus where
+    parser = takeLowerText >>= \case
+        "DISABLED" -> pure Disabled
+        "ENABLED" -> pure Enabled
+        e -> fail ("Failure parsing StreamingStatus from " ++ show e)
+
+instance ToText StreamingStatus where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable StreamingStatus
+instance ToQuery StreamingStatus
+instance ToHeader StreamingStatus
+
+instance ToJSON StreamingStatus where
+    toJSON = toJSONText
+
+instance FromJSON StreamingStatus where
+    parseJSON = parseJSONText "StreamingStatus"
+
+-- | Configuration options for configure Cognito streams.
+--
+-- /See:/ 'cognitoStreams' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -204,7 +340,13 @@ instance ToJSON CognitoStreams where
                "StreamName" .= _csStreamName,
                "RoleArn" .= _csRoleARN]
 
--- | /See:/ 'dataset' smart constructor.
+-- | A collection of data for an identity pool. An identity pool can have
+-- multiple datasets. A dataset is per identity and can be general or
+-- associated with a particular entity in an application (like a saved
+-- game). Datasets are automatically created if they don\'t exist. Data is
+-- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+--
+-- /See:/ 'dataset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -270,7 +412,9 @@ instance FromJSON Dataset where
                      <*> (x .:? "LastModifiedBy")
                      <*> (x .:? "IdentityId"))
 
--- | /See:/ 'identityPoolUsage' smart constructor.
+-- | Usage information for the identity pool.
+--
+-- /See:/ 'identityPoolUsage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -315,7 +459,9 @@ instance FromJSON IdentityPoolUsage where
                      <*> (x .:? "DataStorage")
                      <*> (x .:? "SyncSessionsCount"))
 
--- | /See:/ 'identityUsage' smart constructor.
+-- | Usage information for the identity.
+--
+-- /See:/ 'identityUsage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -369,51 +515,9 @@ instance FromJSON IdentityUsage where
                      <*> (x .:? "DataStorage")
                      <*> (x .:? "IdentityId"))
 
-data Operation = Replace | Remove deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Operation where
-    parser = takeLowerText >>= \case
-        "remove" -> pure Remove
-        "replace" -> pure Replace
-        e -> fail ("Failure parsing Operation from " ++ show e)
-
-instance ToText Operation where
-    toText = \case
-        Remove -> "remove"
-        Replace -> "replace"
-
-instance Hashable Operation
-instance ToQuery Operation
-instance ToHeader Operation
-
-instance ToJSON Operation where
-    toJSON = toJSONText
-
-data Platform = GCM | APNS | ADM | APNSSandbox deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText Platform where
-    parser = takeLowerText >>= \case
-        "ADM" -> pure ADM
-        "APNS" -> pure APNS
-        "APNS_SANDBOX" -> pure APNSSandbox
-        "GCM" -> pure GCM
-        e -> fail ("Failure parsing Platform from " ++ show e)
-
-instance ToText Platform where
-    toText = \case
-        ADM -> "ADM"
-        APNS -> "APNS"
-        APNSSandbox -> "APNS_SANDBOX"
-        GCM -> "GCM"
-
-instance Hashable Platform
-instance ToQuery Platform
-instance ToHeader Platform
-
-instance ToJSON Platform where
-    toJSON = toJSONText
-
--- | /See:/ 'pushSync' smart constructor.
+-- | Configuration options to be applied to the identity pool.
+--
+-- /See:/ 'pushSync' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -449,7 +553,9 @@ instance ToJSON PushSync where
               ["ApplicationArns" .= _psApplicationARNs,
                "RoleArn" .= _psRoleARN]
 
--- | /See:/ 'record' smart constructor.
+-- | The basic data structure of a dataset.
+--
+-- /See:/ 'record' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -505,7 +611,9 @@ instance FromJSON Record where
                      <*> (x .:? "Key")
                      <*> (x .:? "LastModifiedBy"))
 
--- | /See:/ 'recordPatch' smart constructor.
+-- | An update operation for a record.
+--
+-- /See:/ 'recordPatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -551,26 +659,3 @@ instance ToJSON RecordPatch where
                  _rpDeviceLastModifiedDate,
                "Value" .= _rpValue, "Op" .= _rpOp, "Key" .= _rpKey,
                "SyncCount" .= _rpSyncCount]
-
-data StreamingStatus = Enabled | Disabled deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText StreamingStatus where
-    parser = takeLowerText >>= \case
-        "DISABLED" -> pure Disabled
-        "ENABLED" -> pure Enabled
-        e -> fail ("Failure parsing StreamingStatus from " ++ show e)
-
-instance ToText StreamingStatus where
-    toText = \case
-        Disabled -> "DISABLED"
-        Enabled -> "ENABLED"
-
-instance Hashable StreamingStatus
-instance ToQuery StreamingStatus
-instance ToHeader StreamingStatus
-
-instance ToJSON StreamingStatus where
-    toJSON = toJSONText
-
-instance FromJSON StreamingStatus where
-    parseJSON = parseJSONText "StreamingStatus"

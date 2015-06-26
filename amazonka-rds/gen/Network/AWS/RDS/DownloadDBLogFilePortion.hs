@@ -37,15 +37,18 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     , ddlfprLogFileData
     , ddlfprAdditionalDataPending
     , ddlfprMarker
+    , ddlfprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'downloadDBLogFilePortion' smart constructor.
+-- |
+--
+-- /See:/ 'downloadDBLogFilePortion' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -126,7 +129,8 @@ instance AWSRequest DownloadDBLogFilePortion where
                  DownloadDBLogFilePortionResponse' <$>
                    (x .@? "LogFileData") <*>
                      (x .@? "AdditionalDataPending")
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
@@ -145,7 +149,10 @@ instance ToQuery DownloadDBLogFilePortion where
                "DBInstanceIdentifier" =: _ddlfpDBInstanceIdentifier,
                "LogFileName" =: _ddlfpLogFileName]
 
--- | /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
+-- | This data type is used as a response element to
+-- DownloadDBLogFilePortion.
+--
+-- /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -154,11 +161,13 @@ instance ToQuery DownloadDBLogFilePortion where
 -- * 'ddlfprAdditionalDataPending'
 --
 -- * 'ddlfprMarker'
-data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'{_ddlfprLogFileData :: Maybe Text, _ddlfprAdditionalDataPending :: Maybe Bool, _ddlfprMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ddlfprStatusCode'
+data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'{_ddlfprLogFileData :: Maybe Text, _ddlfprAdditionalDataPending :: Maybe Bool, _ddlfprMarker :: Maybe Text, _ddlfprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
-downloadDBLogFilePortionResponse :: DownloadDBLogFilePortionResponse
-downloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'{_ddlfprLogFileData = Nothing, _ddlfprAdditionalDataPending = Nothing, _ddlfprMarker = Nothing};
+downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse
+downloadDBLogFilePortionResponse pStatusCode = DownloadDBLogFilePortionResponse'{_ddlfprLogFileData = Nothing, _ddlfprAdditionalDataPending = Nothing, _ddlfprMarker = Nothing, _ddlfprStatusCode = pStatusCode};
 
 -- | Entries from the specified log file.
 ddlfprLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
@@ -173,3 +182,7 @@ ddlfprAdditionalDataPending = lens _ddlfprAdditionalDataPending (\ s a -> s{_ddl
 -- DownloadDBLogFilePortion request.
 ddlfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddlfprMarker = lens _ddlfprMarker (\ s a -> s{_ddlfprMarker = a});
+
+-- | FIXME: Undocumented member.
+ddlfprStatusCode :: Lens' DownloadDBLogFilePortionResponse Int
+ddlfprStatusCode = lens _ddlfprStatusCode (\ s a -> s{_ddlfprStatusCode = a});

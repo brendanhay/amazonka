@@ -36,6 +36,7 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     , checkDomainAvailabilityResponse
     -- ** Response lenses
     , cdarAvailability
+    , cdarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'checkDomainAvailability' smart constructor.
+-- | The CheckDomainAvailability request contains the following elements.
+--
+-- /See:/ 'checkDomainAvailability' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -83,7 +86,7 @@ instance AWSRequest CheckDomainAvailability where
           = receiveJSON
               (\ s h x ->
                  CheckDomainAvailabilityResponse' <$>
-                   (x .:> "Availability"))
+                   (x .:> "Availability") <*> (pure (fromEnum s)))
 
 instance ToHeaders CheckDomainAvailability where
         toHeaders
@@ -107,16 +110,20 @@ instance ToPath CheckDomainAvailability where
 instance ToQuery CheckDomainAvailability where
         toQuery = const mempty
 
--- | /See:/ 'checkDomainAvailabilityResponse' smart constructor.
+-- | The CheckDomainAvailability response includes the following elements.
+--
+-- /See:/ 'checkDomainAvailabilityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdarAvailability'
-newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'{_cdarAvailability :: DomainAvailability} deriving (Eq, Read, Show)
+--
+-- * 'cdarStatusCode'
+data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'{_cdarAvailability :: DomainAvailability, _cdarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
-checkDomainAvailabilityResponse :: DomainAvailability -> CheckDomainAvailabilityResponse
-checkDomainAvailabilityResponse pAvailability = CheckDomainAvailabilityResponse'{_cdarAvailability = pAvailability};
+checkDomainAvailabilityResponse :: DomainAvailability -> Int -> CheckDomainAvailabilityResponse
+checkDomainAvailabilityResponse pAvailability pStatusCode = CheckDomainAvailabilityResponse'{_cdarAvailability = pAvailability, _cdarStatusCode = pStatusCode};
 
 -- | Whether the domain name is available for registering.
 --
@@ -142,3 +149,7 @@ checkDomainAvailabilityResponse pAvailability = CheckDomainAvailabilityResponse'
 --     registry is performing maintenance. Try again later.
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\ s a -> s{_cdarAvailability = a});
+
+-- | FIXME: Undocumented member.
+cdarStatusCode :: Lens' CheckDomainAvailabilityResponse Int
+cdarStatusCode = lens _cdarStatusCode (\ s a -> s{_cdarStatusCode = a});

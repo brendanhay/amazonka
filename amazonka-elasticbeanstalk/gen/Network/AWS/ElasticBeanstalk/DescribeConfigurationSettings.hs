@@ -46,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     , describeConfigurationSettingsResponse
     -- ** Response lenses
     , dcsrConfigurationSettings
+    , dcsrStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -53,7 +54,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeConfigurationSettings' smart constructor.
+-- | Result message containing all of the configuration settings for a
+-- specified solution stack or configuration template.
+--
+-- /See:/ 'describeConfigurationSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -104,7 +108,8 @@ instance AWSRequest DescribeConfigurationSettings
               (\ s h x ->
                  DescribeConfigurationSettingsResponse' <$>
                    (x .@? "ConfigurationSettings" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeConfigurationSettings
          where
@@ -123,17 +128,26 @@ instance ToQuery DescribeConfigurationSettings where
                "EnvironmentName" =: _dcsEnvironmentName,
                "ApplicationName" =: _dcsApplicationName]
 
--- | /See:/ 'describeConfigurationSettingsResponse' smart constructor.
+-- | The results from a request to change the configuration settings of an
+-- environment.
+--
+-- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsrConfigurationSettings'
-newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings :: Maybe [ConfigurationSettingsDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dcsrStatusCode'
+data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings :: Maybe [ConfigurationSettingsDescription], _dcsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
-describeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings = Nothing};
+describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
+describeConfigurationSettingsResponse pStatusCode = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings = Nothing, _dcsrStatusCode = pStatusCode};
 
 -- | A list of ConfigurationSettingsDescription.
 dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcsrStatusCode :: Lens' DescribeConfigurationSettingsResponse Int
+dcsrStatusCode = lens _dcsrStatusCode (\ s a -> s{_dcsrStatusCode = a});

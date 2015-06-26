@@ -44,6 +44,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     , cKey
     , cSSEKMSKeyId
     , cServerSideEncryption
+    , cStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -107,7 +108,8 @@ instance AWSRequest CompleteMultipartUpload where
                      <*> (x .@? "Key")
                      <*>
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
-                     <*> (h .#? "x-amz-server-side-encryption"))
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement CompleteMultipartUpload where
         toElement
@@ -150,11 +152,13 @@ instance ToQuery CompleteMultipartUpload where
 -- * 'cSSEKMSKeyId'
 --
 -- * 'cServerSideEncryption'
-data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'{_cVersionId :: Maybe ObjectVersionId, _cETag :: Maybe ETag, _cRequestCharged :: Maybe RequestCharged, _cLocation :: Maybe Text, _cExpiration :: Maybe Text, _cBucket :: Maybe BucketName, _cKey :: Maybe ObjectKey, _cSSEKMSKeyId :: Maybe (Sensitive Text), _cServerSideEncryption :: Maybe ServerSideEncryption} deriving (Eq, Read, Show)
+--
+-- * 'cStatusCode'
+data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'{_cVersionId :: Maybe ObjectVersionId, _cETag :: Maybe ETag, _cRequestCharged :: Maybe RequestCharged, _cLocation :: Maybe Text, _cExpiration :: Maybe Text, _cBucket :: Maybe BucketName, _cKey :: Maybe ObjectKey, _cSSEKMSKeyId :: Maybe (Sensitive Text), _cServerSideEncryption :: Maybe ServerSideEncryption, _cStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
-completeMultipartUploadResponse :: CompleteMultipartUploadResponse
-completeMultipartUploadResponse = CompleteMultipartUploadResponse'{_cVersionId = Nothing, _cETag = Nothing, _cRequestCharged = Nothing, _cLocation = Nothing, _cExpiration = Nothing, _cBucket = Nothing, _cKey = Nothing, _cSSEKMSKeyId = Nothing, _cServerSideEncryption = Nothing};
+completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse
+completeMultipartUploadResponse pStatusCode = CompleteMultipartUploadResponse'{_cVersionId = Nothing, _cETag = Nothing, _cRequestCharged = Nothing, _cLocation = Nothing, _cExpiration = Nothing, _cBucket = Nothing, _cKey = Nothing, _cSSEKMSKeyId = Nothing, _cServerSideEncryption = Nothing, _cStatusCode = pStatusCode};
 
 -- | Version of the object.
 cVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
@@ -195,3 +199,7 @@ cSSEKMSKeyId = lens _cSSEKMSKeyId (\ s a -> s{_cSSEKMSKeyId = a}) . mapping _Sen
 -- (e.g., AES256, aws:kms).
 cServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 cServerSideEncryption = lens _cServerSideEncryption (\ s a -> s{_cServerSideEncryption = a});
+
+-- | FIXME: Undocumented member.
+cStatusCode :: Lens' CompleteMultipartUploadResponse Int
+cStatusCode = lens _cStatusCode (\ s a -> s{_cStatusCode = a});

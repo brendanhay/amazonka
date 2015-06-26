@@ -42,6 +42,7 @@ module Network.AWS.SQS.GetQueueURL
     , getQueueURLResponse
     -- ** Response lenses
     , gqurQueueURL
+    , gqurStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -78,7 +79,8 @@ instance AWSRequest GetQueueURL where
         response
           = receiveXMLWrapper "GetQueueUrlResult"
               (\ s h x ->
-                 GetQueueURLResponse' <$> (x .@ "QueueUrl"))
+                 GetQueueURLResponse' <$>
+                   (x .@ "QueueUrl") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
@@ -95,17 +97,27 @@ instance ToQuery GetQueueURL where
                  _gquQueueOwnerAWSAccountId,
                "QueueName" =: _gquQueueName]
 
--- | /See:/ 'getQueueURLResponse' smart constructor.
+-- | For more information, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses>
+-- in the /Amazon SQS Developer Guide/.
+--
+-- /See:/ 'getQueueURLResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gqurQueueURL'
-newtype GetQueueURLResponse = GetQueueURLResponse'{_gqurQueueURL :: Text} deriving (Eq, Read, Show)
+--
+-- * 'gqurStatusCode'
+data GetQueueURLResponse = GetQueueURLResponse'{_gqurQueueURL :: Text, _gqurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetQueueURLResponse' smart constructor.
-getQueueURLResponse :: Text -> GetQueueURLResponse
-getQueueURLResponse pQueueURL = GetQueueURLResponse'{_gqurQueueURL = pQueueURL};
+getQueueURLResponse :: Text -> Int -> GetQueueURLResponse
+getQueueURLResponse pQueueURL pStatusCode = GetQueueURLResponse'{_gqurQueueURL = pQueueURL, _gqurStatusCode = pStatusCode};
 
 -- | The URL for the queue.
 gqurQueueURL :: Lens' GetQueueURLResponse Text
 gqurQueueURL = lens _gqurQueueURL (\ s a -> s{_gqurQueueURL = a});
+
+-- | FIXME: Undocumented member.
+gqurStatusCode :: Lens' GetQueueURLResponse Int
+gqurStatusCode = lens _gqurStatusCode (\ s a -> s{_gqurStatusCode = a});

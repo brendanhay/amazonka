@@ -52,6 +52,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     -- ** Response lenses
     , goitfdirToken
     , goitfdirIdentityId
+    , goitfdirStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -59,7 +60,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getOpenIdTokenForDeveloperIdentity' smart constructor.
+-- | Input to the @GetOpenIdTokenForDeveloperIdentity@ action.
+--
+-- /See:/ 'getOpenIdTokenForDeveloperIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -120,7 +123,8 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  GetOpenIdTokenForDeveloperIdentityResponse' <$>
-                   (x .?> "Token") <*> (x .?> "IdentityId"))
+                   (x .?> "Token") <*> (x .?> "IdentityId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where
@@ -150,18 +154,23 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
          where
         toQuery = const mempty
 
--- | /See:/ 'getOpenIdTokenForDeveloperIdentityResponse' smart constructor.
+-- | Returned in response to a successful
+-- @GetOpenIdTokenForDeveloperIdentity@ request.
+--
+-- /See:/ 'getOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'goitfdirToken'
 --
 -- * 'goitfdirIdentityId'
-data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken :: Maybe Text, _goitfdirIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'goitfdirStatusCode'
+data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken :: Maybe Text, _goitfdirIdentityId :: Maybe Text, _goitfdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
-getOpenIdTokenForDeveloperIdentityResponse :: GetOpenIdTokenForDeveloperIdentityResponse
-getOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken = Nothing, _goitfdirIdentityId = Nothing};
+getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse
+getOpenIdTokenForDeveloperIdentityResponse pStatusCode = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken = Nothing, _goitfdirIdentityId = Nothing, _goitfdirStatusCode = pStatusCode};
 
 -- | An OpenID token.
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
@@ -170,3 +179,7 @@ goitfdirToken = lens _goitfdirToken (\ s a -> s{_goitfdirToken = a});
 -- | A unique identifier in the format REGION:GUID.
 goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirIdentityId = lens _goitfdirIdentityId (\ s a -> s{_goitfdirIdentityId = a});
+
+-- | FIXME: Undocumented member.
+goitfdirStatusCode :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
+goitfdirStatusCode = lens _goitfdirStatusCode (\ s a -> s{_goitfdirStatusCode = a});

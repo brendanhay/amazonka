@@ -39,10 +39,11 @@ module Network.AWS.IAM.ListGroups
     , lgrMarker
     , lgrIsTruncated
     , lgrGroups
+    , lgrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -101,8 +102,8 @@ instance AWSRequest ListGroups where
               (\ s h x ->
                  ListGroupsResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Groups" .!@ mempty >>=
-                        parseXMLList "member"))
+                     (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGroups where
         toHeaders = const mempty
@@ -118,7 +119,9 @@ instance ToQuery ListGroups where
                "PathPrefix" =: _lgPathPrefix,
                "MaxItems" =: _lgMaxItems, "Marker" =: _lgMarker]
 
--- | /See:/ 'listGroupsResponse' smart constructor.
+-- | Contains the response to a successful ListGroups request.
+--
+-- /See:/ 'listGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -127,11 +130,13 @@ instance ToQuery ListGroups where
 -- * 'lgrIsTruncated'
 --
 -- * 'lgrGroups'
-data ListGroupsResponse = ListGroupsResponse'{_lgrMarker :: Maybe Text, _lgrIsTruncated :: Maybe Bool, _lgrGroups :: [Group]} deriving (Eq, Read, Show)
+--
+-- * 'lgrStatusCode'
+data ListGroupsResponse = ListGroupsResponse'{_lgrMarker :: Maybe Text, _lgrIsTruncated :: Maybe Bool, _lgrGroups :: [Group], _lgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListGroupsResponse' smart constructor.
-listGroupsResponse :: ListGroupsResponse
-listGroupsResponse = ListGroupsResponse'{_lgrMarker = Nothing, _lgrIsTruncated = Nothing, _lgrGroups = mempty};
+listGroupsResponse :: Int -> ListGroupsResponse
+listGroupsResponse pStatusCode = ListGroupsResponse'{_lgrMarker = Nothing, _lgrIsTruncated = Nothing, _lgrGroups = mempty, _lgrStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -149,3 +154,7 @@ lgrIsTruncated = lens _lgrIsTruncated (\ s a -> s{_lgrIsTruncated = a});
 -- | A list of groups.
 lgrGroups :: Lens' ListGroupsResponse [Group]
 lgrGroups = lens _lgrGroups (\ s a -> s{_lgrGroups = a});
+
+-- | FIXME: Undocumented member.
+lgrStatusCode :: Lens' ListGroupsResponse Int
+lgrStatusCode = lens _lgrStatusCode (\ s a -> s{_lgrStatusCode = a});

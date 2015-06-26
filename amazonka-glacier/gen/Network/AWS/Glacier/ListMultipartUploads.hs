@@ -68,6 +68,7 @@ module Network.AWS.Glacier.ListMultipartUploads
     -- ** Response lenses
     , lmurUploadsList
     , lmurMarker
+    , lmurStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -75,7 +76,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listMultipartUploads' smart constructor.
+-- | Provides options for retrieving list of in-progress multipart uploads
+-- for an Amazon Glacier vault.
+--
+-- /See:/ 'listMultipartUploads' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -127,8 +131,8 @@ instance AWSRequest ListMultipartUploads where
           = receiveJSON
               (\ s h x ->
                  ListMultipartUploadsResponse' <$>
-                   (x .?> "UploadsList" .!@ mempty) <*>
-                     (x .?> "Marker"))
+                   (x .?> "UploadsList" .!@ mempty) <*> (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -144,18 +148,22 @@ instance ToQuery ListMultipartUploads where
           = mconcat
               ["marker" =: _lmuMarker, "limit" =: _lmuLimit]
 
--- | /See:/ 'listMultipartUploadsResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'listMultipartUploadsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lmurUploadsList'
 --
 -- * 'lmurMarker'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList :: Maybe [UploadListElement], _lmurMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lmurStatusCode'
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList :: Maybe [UploadListElement], _lmurMarker :: Maybe Text, _lmurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
-listMultipartUploadsResponse :: ListMultipartUploadsResponse
-listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList = Nothing, _lmurMarker = Nothing};
+listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
+listMultipartUploadsResponse pStatusCode = ListMultipartUploadsResponse'{_lmurUploadsList = Nothing, _lmurMarker = Nothing, _lmurStatusCode = pStatusCode};
 
 -- | A list of in-progress multipart uploads.
 lmurUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
@@ -167,3 +175,7 @@ lmurUploadsList = lens _lmurUploadsList (\ s a -> s{_lmurUploadsList = a}) . _De
 -- value is @null@.
 lmurMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurMarker = lens _lmurMarker (\ s a -> s{_lmurMarker = a});
+
+-- | FIXME: Undocumented member.
+lmurStatusCode :: Lens' ListMultipartUploadsResponse Int
+lmurStatusCode = lens _lmurStatusCode (\ s a -> s{_lmurStatusCode = a});

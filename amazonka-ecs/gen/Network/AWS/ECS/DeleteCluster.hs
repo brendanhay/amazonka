@@ -34,7 +34,8 @@ module Network.AWS.ECS.DeleteCluster
     -- ** Response constructor
     , deleteClusterResponse
     -- ** Response lenses
-    , dcrCluster
+    , delCluster
+    , delStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -65,7 +66,8 @@ instance AWSRequest DeleteCluster where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteClusterResponse' <$> (x .?> "cluster"))
+                 DeleteClusterResponse' <$>
+                   (x .?> "cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteCluster where
         toHeaders
@@ -91,13 +93,19 @@ instance ToQuery DeleteCluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCluster'
-newtype DeleteClusterResponse = DeleteClusterResponse'{_dcrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+-- * 'delCluster'
+--
+-- * 'delStatusCode'
+data DeleteClusterResponse = DeleteClusterResponse'{_delCluster :: Maybe Cluster, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteClusterResponse' smart constructor.
-deleteClusterResponse :: DeleteClusterResponse
-deleteClusterResponse = DeleteClusterResponse'{_dcrCluster = Nothing};
+deleteClusterResponse :: Int -> DeleteClusterResponse
+deleteClusterResponse pStatusCode = DeleteClusterResponse'{_delCluster = Nothing, _delStatusCode = pStatusCode};
 
 -- | The full description of the deleted cluster.
-dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});
+delCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+delCluster = lens _delCluster (\ s a -> s{_delCluster = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteClusterResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

@@ -39,7 +39,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'abortEnvironmentUpdate' smart constructor.
+-- |
+--
+-- /See:/ 'abortEnvironmentUpdate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

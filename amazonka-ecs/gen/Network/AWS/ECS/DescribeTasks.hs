@@ -34,6 +34,7 @@ module Network.AWS.ECS.DescribeTasks
     -- ** Response lenses
     , dtrFailures
     , dtrTasks
+    , dtrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -74,7 +75,8 @@ instance AWSRequest DescribeTasks where
               (\ s h x ->
                  DescribeTasksResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "tasks" .!@ mempty))
+                     (x .?> "tasks" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTasks where
         toHeaders
@@ -104,11 +106,13 @@ instance ToQuery DescribeTasks where
 -- * 'dtrFailures'
 --
 -- * 'dtrTasks'
-data DescribeTasksResponse = DescribeTasksResponse'{_dtrFailures :: Maybe [Failure], _dtrTasks :: Maybe [Task]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTasksResponse = DescribeTasksResponse'{_dtrFailures :: Maybe [Failure], _dtrTasks :: Maybe [Task], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTasksResponse' smart constructor.
-describeTasksResponse :: DescribeTasksResponse
-describeTasksResponse = DescribeTasksResponse'{_dtrFailures = Nothing, _dtrTasks = Nothing};
+describeTasksResponse :: Int -> DescribeTasksResponse
+describeTasksResponse pStatusCode = DescribeTasksResponse'{_dtrFailures = Nothing, _dtrTasks = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dtrFailures :: Lens' DescribeTasksResponse [Failure]
@@ -117,3 +121,7 @@ dtrFailures = lens _dtrFailures (\ s a -> s{_dtrFailures = a}) . _Default;
 -- | The list of tasks.
 dtrTasks :: Lens' DescribeTasksResponse [Task]
 dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTasksResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

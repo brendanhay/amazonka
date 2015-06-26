@@ -126,7 +126,7 @@ instance AWSRequest Invoke where
                    (h .#? "X-Amz-Function-Error") <*>
                      (h .#? "X-Amz-Log-Result")
                      <*> (x .?> "Payload")
-                     <*> (pure (Just s)))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Invoke where
         toHeaders Invoke'{..}
@@ -148,7 +148,9 @@ instance ToPath Invoke where
 instance ToQuery Invoke where
         toQuery = const mempty
 
--- | /See:/ 'invokeResponse' smart constructor.
+-- | Upon success, returns an empty response. Otherwise, throws an exception.
+--
+-- /See:/ 'invokeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -159,11 +161,11 @@ instance ToQuery Invoke where
 -- * 'irPayload'
 --
 -- * 'irStatusCode'
-data InvokeResponse = InvokeResponse'{_irFunctionError :: Maybe Text, _irLogResult :: Maybe Text, _irPayload :: Maybe Base64, _irStatusCode :: Maybe Int} deriving (Eq, Read, Show)
+data InvokeResponse = InvokeResponse'{_irFunctionError :: Maybe Text, _irLogResult :: Maybe Text, _irPayload :: Maybe Base64, _irStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'InvokeResponse' smart constructor.
-invokeResponse :: InvokeResponse
-invokeResponse = InvokeResponse'{_irFunctionError = Nothing, _irLogResult = Nothing, _irPayload = Nothing, _irStatusCode = Nothing};
+invokeResponse :: Int -> InvokeResponse
+invokeResponse pStatusCode = InvokeResponse'{_irFunctionError = Nothing, _irLogResult = Nothing, _irPayload = Nothing, _irStatusCode = pStatusCode};
 
 -- | Indicates whether an error occurred while executing the Lambda function.
 -- If an error occurred this field will have one of two values; @Handled@
@@ -196,5 +198,5 @@ irPayload = lens _irPayload (\ s a -> s{_irPayload = a});
 -- For the \"RequestResonse\" invocation type this status code will be 200.
 -- For the \"Event\" invocation type this status code will be 202. For the
 -- \"DryRun\" invocation type the status code will be 204.
-irStatusCode :: Lens' InvokeResponse (Maybe Int)
+irStatusCode :: Lens' InvokeResponse Int
 irStatusCode = lens _irStatusCode (\ s a -> s{_irStatusCode = a});

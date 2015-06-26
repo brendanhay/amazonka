@@ -71,6 +71,7 @@ module Network.AWS.SWF.PollForActivityTask
     , pfatrStartedEventId
     , pfatrWorkflowExecution
     , pfatrActivityType
+    , pfatrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -126,7 +127,8 @@ instance AWSRequest PollForActivityTask where
                      (x .:> "activityId")
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
-                     <*> (x .:> "activityType"))
+                     <*> (x .:> "activityType")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders PollForActivityTask where
         toHeaders
@@ -150,7 +152,9 @@ instance ToPath PollForActivityTask where
 instance ToQuery PollForActivityTask where
         toQuery = const mempty
 
--- | /See:/ 'pollForActivityTaskResponse' smart constructor.
+-- | Unit of work sent to an activity worker.
+--
+-- /See:/ 'pollForActivityTaskResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -165,11 +169,13 @@ instance ToQuery PollForActivityTask where
 -- * 'pfatrWorkflowExecution'
 --
 -- * 'pfatrActivityType'
-data PollForActivityTaskResponse = PollForActivityTaskResponse'{_pfatrInput :: Maybe Text, _pfatrTaskToken :: Text, _pfatrActivityId :: Text, _pfatrStartedEventId :: Integer, _pfatrWorkflowExecution :: WorkflowExecution, _pfatrActivityType :: ActivityType} deriving (Eq, Read, Show)
+--
+-- * 'pfatrStatusCode'
+data PollForActivityTaskResponse = PollForActivityTaskResponse'{_pfatrInput :: Maybe Text, _pfatrTaskToken :: Text, _pfatrActivityId :: Text, _pfatrStartedEventId :: Integer, _pfatrWorkflowExecution :: WorkflowExecution, _pfatrActivityType :: ActivityType, _pfatrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
-pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
-pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType = PollForActivityTaskResponse'{_pfatrInput = Nothing, _pfatrTaskToken = pTaskToken, _pfatrActivityId = pActivityId, _pfatrStartedEventId = pStartedEventId, _pfatrWorkflowExecution = pWorkflowExecution, _pfatrActivityType = pActivityType};
+pollForActivityTaskResponse :: Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> Int -> PollForActivityTaskResponse
+pollForActivityTaskResponse pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType pStatusCode = PollForActivityTaskResponse'{_pfatrInput = Nothing, _pfatrTaskToken = pTaskToken, _pfatrActivityId = pActivityId, _pfatrStartedEventId = pStartedEventId, _pfatrWorkflowExecution = pWorkflowExecution, _pfatrActivityType = pActivityType, _pfatrStatusCode = pStatusCode};
 
 -- | The inputs provided when the activity task was scheduled. The form of
 -- the input is user defined and should be meaningful to the activity
@@ -198,3 +204,7 @@ pfatrWorkflowExecution = lens _pfatrWorkflowExecution (\ s a -> s{_pfatrWorkflow
 -- | The type of this activity task.
 pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrActivityType = lens _pfatrActivityType (\ s a -> s{_pfatrActivityType = a});
+
+-- | FIXME: Undocumented member.
+pfatrStatusCode :: Lens' PollForActivityTaskResponse Int
+pfatrStatusCode = lens _pfatrStatusCode (\ s a -> s{_pfatrStatusCode = a});

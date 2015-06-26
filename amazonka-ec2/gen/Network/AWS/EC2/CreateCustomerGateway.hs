@@ -61,6 +61,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     , createCustomerGatewayResponse
     -- ** Response lenses
     , ccgrCustomerGateway
+    , ccgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -117,7 +118,7 @@ instance AWSRequest CreateCustomerGateway where
           = receiveXML
               (\ s h x ->
                  CreateCustomerGatewayResponse' <$>
-                   (x .@? "customerGateway"))
+                   (x .@? "customerGateway") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty
@@ -138,12 +139,18 @@ instance ToQuery CreateCustomerGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccgrCustomerGateway'
-newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'{_ccgrCustomerGateway :: Maybe CustomerGateway} deriving (Eq, Read, Show)
+--
+-- * 'ccgrStatusCode'
+data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'{_ccgrCustomerGateway :: Maybe CustomerGateway, _ccgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
-createCustomerGatewayResponse :: CreateCustomerGatewayResponse
-createCustomerGatewayResponse = CreateCustomerGatewayResponse'{_ccgrCustomerGateway = Nothing};
+createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
+createCustomerGatewayResponse pStatusCode = CreateCustomerGatewayResponse'{_ccgrCustomerGateway = Nothing, _ccgrStatusCode = pStatusCode};
 
 -- | Information about the customer gateway.
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrCustomerGateway = lens _ccgrCustomerGateway (\ s a -> s{_ccgrCustomerGateway = a});
+
+-- | FIXME: Undocumented member.
+ccgrStatusCode :: Lens' CreateCustomerGatewayResponse Int
+ccgrStatusCode = lens _ccgrStatusCode (\ s a -> s{_ccgrStatusCode = a});

@@ -34,6 +34,7 @@ module Network.AWS.CloudSearch.CreateDomain
     , createDomainResponse
     -- ** Response lenses
     , cdrDomainStatus
+    , cdrStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -41,7 +42,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDomain' smart constructor.
+-- | Container for the parameters to the @CreateDomain@ operation. Specifies
+-- a name for the new search domain.
+--
+-- /See:/ 'createDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +70,8 @@ instance AWSRequest CreateDomain where
         response
           = receiveXMLWrapper "CreateDomainResult"
               (\ s h x ->
-                 CreateDomainResponse' <$> (x .@? "DomainStatus"))
+                 CreateDomainResponse' <$>
+                   (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
@@ -81,17 +86,26 @@ instance ToQuery CreateDomain where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _cdDomainName]
 
--- | /See:/ 'createDomainResponse' smart constructor.
+-- | The result of a @CreateDomainRequest@. Contains the status of a newly
+-- created domain.
+--
+-- /See:/ 'createDomainResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdrDomainStatus'
-newtype CreateDomainResponse = CreateDomainResponse'{_cdrDomainStatus :: Maybe DomainStatus} deriving (Eq, Read, Show)
+--
+-- * 'cdrStatusCode'
+data CreateDomainResponse = CreateDomainResponse'{_cdrDomainStatus :: Maybe DomainStatus, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDomainResponse' smart constructor.
-createDomainResponse :: CreateDomainResponse
-createDomainResponse = CreateDomainResponse'{_cdrDomainStatus = Nothing};
+createDomainResponse :: Int -> CreateDomainResponse
+createDomainResponse pStatusCode = CreateDomainResponse'{_cdrDomainStatus = Nothing, _cdrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\ s a -> s{_cdrDomainStatus = a});
+
+-- | FIXME: Undocumented member.
+cdrStatusCode :: Lens' CreateDomainResponse Int
+cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});

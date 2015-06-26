@@ -40,6 +40,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- ** Response lenses
     , goitrToken
     , goitrIdentityId
+    , goitrStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -47,7 +48,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getOpenIdToken' smart constructor.
+-- | Input to the GetOpenIdToken action.
+--
+-- /See:/ 'getOpenIdToken' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -80,7 +83,8 @@ instance AWSRequest GetOpenIdToken where
           = receiveJSON
               (\ s h x ->
                  GetOpenIdTokenResponse' <$>
-                   (x .?> "Token") <*> (x .?> "IdentityId"))
+                   (x .?> "Token") <*> (x .?> "IdentityId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetOpenIdToken where
         toHeaders
@@ -104,18 +108,22 @@ instance ToPath GetOpenIdToken where
 instance ToQuery GetOpenIdToken where
         toQuery = const mempty
 
--- | /See:/ 'getOpenIdTokenResponse' smart constructor.
+-- | Returned in response to a successful GetOpenIdToken request.
+--
+-- /See:/ 'getOpenIdTokenResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'goitrToken'
 --
 -- * 'goitrIdentityId'
-data GetOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken :: Maybe Text, _goitrIdentityId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'goitrStatusCode'
+data GetOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken :: Maybe Text, _goitrIdentityId :: Maybe Text, _goitrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
-getOpenIdTokenResponse :: GetOpenIdTokenResponse
-getOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken = Nothing, _goitrIdentityId = Nothing};
+getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
+getOpenIdTokenResponse pStatusCode = GetOpenIdTokenResponse'{_goitrToken = Nothing, _goitrIdentityId = Nothing, _goitrStatusCode = pStatusCode};
 
 -- | An OpenID token, valid for 15 minutes.
 goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
@@ -125,3 +133,7 @@ goitrToken = lens _goitrToken (\ s a -> s{_goitrToken = a});
 -- returned may not match the one passed on input.
 goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrIdentityId = lens _goitrIdentityId (\ s a -> s{_goitrIdentityId = a});
+
+-- | FIXME: Undocumented member.
+goitrStatusCode :: Lens' GetOpenIdTokenResponse Int
+goitrStatusCode = lens _goitrStatusCode (\ s a -> s{_goitrStatusCode = a});

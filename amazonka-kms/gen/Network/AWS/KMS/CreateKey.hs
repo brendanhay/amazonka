@@ -38,6 +38,7 @@ module Network.AWS.KMS.CreateKey
     , createKeyResponse
     -- ** Response lenses
     , ckrKeyMetadata
+    , ckrStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -83,7 +84,8 @@ instance AWSRequest CreateKey where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateKeyResponse' <$> (x .?> "KeyMetadata"))
+                 CreateKeyResponse' <$>
+                   (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateKey where
         toHeaders
@@ -111,12 +113,18 @@ instance ToQuery CreateKey where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ckrKeyMetadata'
-newtype CreateKeyResponse = CreateKeyResponse'{_ckrKeyMetadata :: Maybe KeyMetadata} deriving (Eq, Read, Show)
+--
+-- * 'ckrStatusCode'
+data CreateKeyResponse = CreateKeyResponse'{_ckrKeyMetadata :: Maybe KeyMetadata, _ckrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateKeyResponse' smart constructor.
-createKeyResponse :: CreateKeyResponse
-createKeyResponse = CreateKeyResponse'{_ckrKeyMetadata = Nothing};
+createKeyResponse :: Int -> CreateKeyResponse
+createKeyResponse pStatusCode = CreateKeyResponse'{_ckrKeyMetadata = Nothing, _ckrStatusCode = pStatusCode};
 
 -- | Metadata associated with the key.
 ckrKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrKeyMetadata = lens _ckrKeyMetadata (\ s a -> s{_ckrKeyMetadata = a});
+
+-- | FIXME: Undocumented member.
+ckrStatusCode :: Lens' CreateKeyResponse Int
+ckrStatusCode = lens _ckrStatusCode (\ s a -> s{_ckrStatusCode = a});

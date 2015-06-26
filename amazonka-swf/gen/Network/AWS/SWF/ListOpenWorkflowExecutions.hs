@@ -73,7 +73,7 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     , weiExecutionInfos
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -167,8 +167,8 @@ instance AWSPager ListOpenWorkflowExecutions where
           | stop (rs ^. weiNextPageToken) = Nothing
           | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
-            Just $
-              rq & loweNextPageToken .~ rs ^. weiNextPageToken
+            Just $ rq &
+              loweNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF

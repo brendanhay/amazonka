@@ -41,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'cancelUpdateStack' smart constructor.
+-- | The input for CancelUpdateStack action.
+--
+-- /See:/ 'cancelUpdateStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

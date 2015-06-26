@@ -37,9 +37,10 @@ module Network.AWS.RDS.DescribeDBParameters
     -- ** Response lenses
     , ddprParameters
     , ddprMarker
+    , ddprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
@@ -122,7 +123,8 @@ instance AWSRequest DescribeDBParameters where
                  DescribeDBParametersResponse' <$>
                    (x .@? "Parameters" .!@ mempty >>=
                       may (parseXMLList "Parameter"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBParameters where
         toHeaders = const mempty
@@ -141,18 +143,23 @@ instance ToQuery DescribeDBParameters where
                "Marker" =: _ddpMarker, "Source" =: _ddpSource,
                "DBParameterGroupName" =: _ddpDBParameterGroupName]
 
--- | /See:/ 'describeDBParametersResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBParameters action.
+--
+-- /See:/ 'describeDBParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddprParameters'
 --
 -- * 'ddprMarker'
-data DescribeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters :: Maybe [Parameter], _ddprMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ddprStatusCode'
+data DescribeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters :: Maybe [Parameter], _ddprMarker :: Maybe Text, _ddprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParametersResponse' smart constructor.
-describeDBParametersResponse :: DescribeDBParametersResponse
-describeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters = Nothing, _ddprMarker = Nothing};
+describeDBParametersResponse :: Int -> DescribeDBParametersResponse
+describeDBParametersResponse pStatusCode = DescribeDBParametersResponse'{_ddprParameters = Nothing, _ddprMarker = Nothing, _ddprStatusCode = pStatusCode};
 
 -- | A list of Parameter values.
 ddprParameters :: Lens' DescribeDBParametersResponse [Parameter]
@@ -163,3 +170,7 @@ ddprParameters = lens _ddprParameters (\ s a -> s{_ddprParameters = a}) . _Defau
 -- marker, up to the value specified by @MaxRecords@.
 ddprMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprMarker = lens _ddprMarker (\ s a -> s{_ddprMarker = a});
+
+-- | FIXME: Undocumented member.
+ddprStatusCode :: Lens' DescribeDBParametersResponse Int
+ddprStatusCode = lens _ddprStatusCode (\ s a -> s{_ddprStatusCode = a});

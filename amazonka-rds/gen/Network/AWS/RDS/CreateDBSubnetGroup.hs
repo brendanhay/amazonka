@@ -36,6 +36,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     , createDBSubnetGroupResponse
     -- ** Response lenses
     , cdsgrDBSubnetGroup
+    , cdsgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -43,7 +44,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDBSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createDBSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,7 +94,7 @@ instance AWSRequest CreateDBSubnetGroup where
           = receiveXMLWrapper "CreateDBSubnetGroupResult"
               (\ s h x ->
                  CreateDBSubnetGroupResponse' <$>
-                   (x .@? "DBSubnetGroup"))
+                   (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
@@ -116,12 +119,18 @@ instance ToQuery CreateDBSubnetGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdsgrDBSubnetGroup'
-newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'{_cdsgrDBSubnetGroup :: Maybe DBSubnetGroup} deriving (Eq, Read, Show)
+--
+-- * 'cdsgrStatusCode'
+data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'{_cdsgrDBSubnetGroup :: Maybe DBSubnetGroup, _cdsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
-createDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
-createDBSubnetGroupResponse = CreateDBSubnetGroupResponse'{_cdsgrDBSubnetGroup = Nothing};
+createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse
+createDBSubnetGroupResponse pStatusCode = CreateDBSubnetGroupResponse'{_cdsgrDBSubnetGroup = Nothing, _cdsgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cdsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdsgrDBSubnetGroup = lens _cdsgrDBSubnetGroup (\ s a -> s{_cdsgrDBSubnetGroup = a});
+
+-- | FIXME: Undocumented member.
+cdsgrStatusCode :: Lens' CreateDBSubnetGroupResponse Int
+cdsgrStatusCode = lens _cdsgrStatusCode (\ s a -> s{_cdsgrStatusCode = a});

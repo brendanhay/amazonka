@@ -43,6 +43,7 @@ module Network.AWS.EC2.BundleInstance
     , bundleInstanceResponse
     -- ** Response lenses
     , birBundleTask
+    , birStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -97,7 +98,7 @@ instance AWSRequest BundleInstance where
           = receiveXML
               (\ s h x ->
                  BundleInstanceResponse' <$>
-                   (x .@? "bundleInstanceTask"))
+                   (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders BundleInstance where
         toHeaders = const mempty
@@ -118,12 +119,18 @@ instance ToQuery BundleInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'birBundleTask'
-newtype BundleInstanceResponse = BundleInstanceResponse'{_birBundleTask :: Maybe BundleTask} deriving (Eq, Read, Show)
+--
+-- * 'birStatusCode'
+data BundleInstanceResponse = BundleInstanceResponse'{_birBundleTask :: Maybe BundleTask, _birStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'BundleInstanceResponse' smart constructor.
-bundleInstanceResponse :: BundleInstanceResponse
-bundleInstanceResponse = BundleInstanceResponse'{_birBundleTask = Nothing};
+bundleInstanceResponse :: Int -> BundleInstanceResponse
+bundleInstanceResponse pStatusCode = BundleInstanceResponse'{_birBundleTask = Nothing, _birStatusCode = pStatusCode};
 
 -- | Information about the bundle task.
 birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\ s a -> s{_birBundleTask = a});
+
+-- | FIXME: Undocumented member.
+birStatusCode :: Lens' BundleInstanceResponse Int
+birStatusCode = lens _birStatusCode (\ s a -> s{_birStatusCode = a});

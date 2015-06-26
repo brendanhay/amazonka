@@ -37,15 +37,18 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- ** Response lenses
     , ljbsrNextPageToken
     , ljbsrJobs
+    , ljbsrStatusCode
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listJobsByStatus' smart constructor.
+-- | The @ListJobsByStatusRequest@ structure.
+--
+-- /See:/ 'listJobsByStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,8 +96,8 @@ instance AWSRequest ListJobsByStatus where
           = receiveJSON
               (\ s h x ->
                  ListJobsByStatusResponse' <$>
-                   (x .?> "NextPageToken") <*>
-                     (x .?> "Jobs" .!@ mempty))
+                   (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListJobsByStatus where
         toHeaders = const mempty
@@ -110,18 +113,22 @@ instance ToQuery ListJobsByStatus where
               ["Ascending" =: _ljbsAscending,
                "PageToken" =: _ljbsPageToken]
 
--- | /See:/ 'listJobsByStatusResponse' smart constructor.
+-- | The @ListJobsByStatusResponse@ structure.
+--
+-- /See:/ 'listJobsByStatusResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ljbsrNextPageToken'
 --
 -- * 'ljbsrJobs'
-data ListJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken :: Maybe Text, _ljbsrJobs :: Maybe [Job']} deriving (Eq, Read, Show)
+--
+-- * 'ljbsrStatusCode'
+data ListJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken :: Maybe Text, _ljbsrJobs :: Maybe [Job'], _ljbsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListJobsByStatusResponse' smart constructor.
-listJobsByStatusResponse :: ListJobsByStatusResponse
-listJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken = Nothing, _ljbsrJobs = Nothing};
+listJobsByStatusResponse :: Int -> ListJobsByStatusResponse
+listJobsByStatusResponse pStatusCode = ListJobsByStatusResponse'{_ljbsrNextPageToken = Nothing, _ljbsrJobs = Nothing, _ljbsrStatusCode = pStatusCode};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -133,3 +140,7 @@ ljbsrNextPageToken = lens _ljbsrNextPageToken (\ s a -> s{_ljbsrNextPageToken = 
 -- | An array of @Job@ objects that have the specified status.
 ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
 ljbsrJobs = lens _ljbsrJobs (\ s a -> s{_ljbsrJobs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ljbsrStatusCode :: Lens' ListJobsByStatusResponse Int
+ljbsrStatusCode = lens _ljbsrStatusCode (\ s a -> s{_ljbsrStatusCode = a});

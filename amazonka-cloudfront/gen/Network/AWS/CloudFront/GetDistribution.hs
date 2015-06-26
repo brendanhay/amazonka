@@ -33,6 +33,7 @@ module Network.AWS.CloudFront.GetDistribution
     -- ** Response lenses
     , gdrETag
     , gdrDistribution
+    , gdrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getDistribution' smart constructor.
+-- | The request to get a distribution\'s information.
+--
+-- /See:/ 'getDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -63,7 +66,8 @@ instance AWSRequest GetDistribution where
           = receiveXML
               (\ s h x ->
                  GetDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "Distribution"))
+                   (h .#? "ETag") <*> (x .@? "Distribution") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetDistribution where
         toHeaders = const mempty
@@ -75,18 +79,22 @@ instance ToPath GetDistribution where
 instance ToQuery GetDistribution where
         toQuery = const mempty
 
--- | /See:/ 'getDistributionResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdrETag'
 --
 -- * 'gdrDistribution'
-data GetDistributionResponse = GetDistributionResponse'{_gdrETag :: Maybe Text, _gdrDistribution :: Maybe Distribution} deriving (Eq, Read, Show)
+--
+-- * 'gdrStatusCode'
+data GetDistributionResponse = GetDistributionResponse'{_gdrETag :: Maybe Text, _gdrDistribution :: Maybe Distribution, _gdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetDistributionResponse' smart constructor.
-getDistributionResponse :: GetDistributionResponse
-getDistributionResponse = GetDistributionResponse'{_gdrETag = Nothing, _gdrDistribution = Nothing};
+getDistributionResponse :: Int -> GetDistributionResponse
+getDistributionResponse pStatusCode = GetDistributionResponse'{_gdrETag = Nothing, _gdrDistribution = Nothing, _gdrStatusCode = pStatusCode};
 
 -- | The current version of the distribution\'s information. For example:
 -- E2QWRUHAPOMQZL.
@@ -96,3 +104,7 @@ gdrETag = lens _gdrETag (\ s a -> s{_gdrETag = a});
 -- | The distribution\'s information.
 gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrDistribution = lens _gdrDistribution (\ s a -> s{_gdrDistribution = a});
+
+-- | FIXME: Undocumented member.
+gdrStatusCode :: Lens' GetDistributionResponse Int
+gdrStatusCode = lens _gdrStatusCode (\ s a -> s{_gdrStatusCode = a});

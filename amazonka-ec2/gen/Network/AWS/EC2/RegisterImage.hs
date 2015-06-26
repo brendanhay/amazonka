@@ -63,6 +63,7 @@ module Network.AWS.EC2.RegisterImage
     , registerImageResponse
     -- ** Response lenses
     , rirImageId
+    , rirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -171,7 +172,8 @@ instance AWSRequest RegisterImage where
         response
           = receiveXML
               (\ s h x ->
-                 RegisterImageResponse' <$> (x .@? "imageId"))
+                 RegisterImageResponse' <$>
+                   (x .@? "imageId") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
@@ -202,12 +204,18 @@ instance ToQuery RegisterImage where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rirImageId'
-newtype RegisterImageResponse = RegisterImageResponse'{_rirImageId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'rirStatusCode'
+data RegisterImageResponse = RegisterImageResponse'{_rirImageId :: Maybe Text, _rirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterImageResponse' smart constructor.
-registerImageResponse :: RegisterImageResponse
-registerImageResponse = RegisterImageResponse'{_rirImageId = Nothing};
+registerImageResponse :: Int -> RegisterImageResponse
+registerImageResponse pStatusCode = RegisterImageResponse'{_rirImageId = Nothing, _rirStatusCode = pStatusCode};
 
 -- | The ID of the newly registered AMI.
 rirImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirImageId = lens _rirImageId (\ s a -> s{_rirImageId = a});
+
+-- | FIXME: Undocumented member.
+rirStatusCode :: Lens' RegisterImageResponse Int
+rirStatusCode = lens _rirStatusCode (\ s a -> s{_rirStatusCode = a});

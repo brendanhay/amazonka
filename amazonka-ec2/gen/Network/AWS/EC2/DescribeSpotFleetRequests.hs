@@ -36,6 +36,7 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     -- ** Response lenses
     , dsfrrNextToken
     , dsfrrSpotFleetRequestConfigs
+    , dsfrrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSpotFleetRequests' smart constructor.
+-- | Contains the parameters for DescribeSpotFleetRequests.
+--
+-- /See:/ 'describeSpotFleetRequests' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,7 +94,8 @@ instance AWSRequest DescribeSpotFleetRequests where
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestsResponse' <$>
-                   (x .@? "nextToken") <*> (parseXMLList "item" x))
+                   (x .@? "nextToken") <*> (parseXMLList "item" x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty
@@ -111,18 +115,22 @@ instance ToQuery DescribeSpotFleetRequests where
                "DryRun" =: _dsfrDryRun,
                "MaxResults" =: _dsfrMaxResults]
 
--- | /See:/ 'describeSpotFleetRequestsResponse' smart constructor.
+-- | Contains the output of DescribeSpotFleetRequests.
+--
+-- /See:/ 'describeSpotFleetRequestsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsfrrNextToken'
 --
 -- * 'dsfrrSpotFleetRequestConfigs'
-data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken :: Maybe Text, _dsfrrSpotFleetRequestConfigs :: [SpotFleetRequestConfig]} deriving (Eq, Read, Show)
+--
+-- * 'dsfrrStatusCode'
+data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken :: Maybe Text, _dsfrrSpotFleetRequestConfigs :: [SpotFleetRequestConfig], _dsfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
-describeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse
-describeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken = Nothing, _dsfrrSpotFleetRequestConfigs = mempty};
+describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse
+describeSpotFleetRequestsResponse pStatusCode = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken = Nothing, _dsfrrSpotFleetRequestConfigs = mempty, _dsfrrStatusCode = pStatusCode};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -132,3 +140,7 @@ dsfrrNextToken = lens _dsfrrNextToken (\ s a -> s{_dsfrrNextToken = a});
 -- | Information about the configuration of your Spot fleet.
 dsfrrSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFleetRequestConfig]
 dsfrrSpotFleetRequestConfigs = lens _dsfrrSpotFleetRequestConfigs (\ s a -> s{_dsfrrSpotFleetRequestConfigs = a});
+
+-- | FIXME: Undocumented member.
+dsfrrStatusCode :: Lens' DescribeSpotFleetRequestsResponse Int
+dsfrrStatusCode = lens _dsfrrStatusCode (\ s a -> s{_dsfrrStatusCode = a});

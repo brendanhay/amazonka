@@ -40,6 +40,7 @@ module Network.AWS.S3.DeleteObject
     , dorVersionId
     , dorRequestCharged
     , dorDeleteMarker
+    , dorStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -97,7 +98,8 @@ instance AWSRequest DeleteObject where
                  DeleteObjectResponse' <$>
                    (h .#? "x-amz-version-id") <*>
                      (h .#? "x-amz-request-charged")
-                     <*> (h .#? "x-amz-delete-marker"))
+                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
@@ -122,11 +124,13 @@ instance ToQuery DeleteObject where
 -- * 'dorRequestCharged'
 --
 -- * 'dorDeleteMarker'
-data DeleteObjectResponse = DeleteObjectResponse'{_dorVersionId :: Maybe ObjectVersionId, _dorRequestCharged :: Maybe RequestCharged, _dorDeleteMarker :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'dorStatusCode'
+data DeleteObjectResponse = DeleteObjectResponse'{_dorVersionId :: Maybe ObjectVersionId, _dorRequestCharged :: Maybe RequestCharged, _dorDeleteMarker :: Maybe Bool, _dorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteObjectResponse' smart constructor.
-deleteObjectResponse :: DeleteObjectResponse
-deleteObjectResponse = DeleteObjectResponse'{_dorVersionId = Nothing, _dorRequestCharged = Nothing, _dorDeleteMarker = Nothing};
+deleteObjectResponse :: Int -> DeleteObjectResponse
+deleteObjectResponse pStatusCode = DeleteObjectResponse'{_dorVersionId = Nothing, _dorRequestCharged = Nothing, _dorDeleteMarker = Nothing, _dorStatusCode = pStatusCode};
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
@@ -141,3 +145,7 @@ dorRequestCharged = lens _dorRequestCharged (\ s a -> s{_dorRequestCharged = a})
 -- (true) or was not (false) a delete marker.
 dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorDeleteMarker = lens _dorDeleteMarker (\ s a -> s{_dorDeleteMarker = a});
+
+-- | FIXME: Undocumented member.
+dorStatusCode :: Lens' DeleteObjectResponse Int
+dorStatusCode = lens _dorStatusCode (\ s a -> s{_dorStatusCode = a});

@@ -39,6 +39,7 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , modifyVPCEndpointResponse
     -- ** Response lenses
     , mverReturn
+    , mverStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -103,7 +104,8 @@ instance AWSRequest ModifyVPCEndpoint where
         response
           = receiveXML
               (\ s h x ->
-                 ModifyVPCEndpointResponse' <$> (x .@? "return"))
+                 ModifyVPCEndpointResponse' <$>
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
@@ -130,12 +132,18 @@ instance ToQuery ModifyVPCEndpoint where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mverReturn'
-newtype ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'{_mverReturn :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'mverStatusCode'
+data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'{_mverReturn :: Maybe Bool, _mverStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
-modifyVPCEndpointResponse :: ModifyVPCEndpointResponse
-modifyVPCEndpointResponse = ModifyVPCEndpointResponse'{_mverReturn = Nothing};
+modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
+modifyVPCEndpointResponse pStatusCode = ModifyVPCEndpointResponse'{_mverReturn = Nothing, _mverStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 mverReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mverReturn = lens _mverReturn (\ s a -> s{_mverReturn = a});
+
+-- | FIXME: Undocumented member.
+mverStatusCode :: Lens' ModifyVPCEndpointResponse Int
+mverStatusCode = lens _mverStatusCode (\ s a -> s{_mverStatusCode = a});

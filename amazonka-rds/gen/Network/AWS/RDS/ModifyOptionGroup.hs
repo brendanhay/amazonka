@@ -35,6 +35,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     , modifyOptionGroupResponse
     -- ** Response lenses
     , mogrOptionGroup
+    , mogrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyOptionGroup' smart constructor.
+-- |
+--
+-- /See:/ 'modifyOptionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -91,7 +94,8 @@ instance AWSRequest ModifyOptionGroup where
         response
           = receiveXMLWrapper "ModifyOptionGroupResult"
               (\ s h x ->
-                 ModifyOptionGroupResponse' <$> (x .@? "OptionGroup"))
+                 ModifyOptionGroupResponse' <$>
+                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyOptionGroup where
         toHeaders = const mempty
@@ -119,12 +123,18 @@ instance ToQuery ModifyOptionGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mogrOptionGroup'
-newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse'{_mogrOptionGroup :: Maybe OptionGroup} deriving (Eq, Read, Show)
+--
+-- * 'mogrStatusCode'
+data ModifyOptionGroupResponse = ModifyOptionGroupResponse'{_mogrOptionGroup :: Maybe OptionGroup, _mogrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
-modifyOptionGroupResponse :: ModifyOptionGroupResponse
-modifyOptionGroupResponse = ModifyOptionGroupResponse'{_mogrOptionGroup = Nothing};
+modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
+modifyOptionGroupResponse pStatusCode = ModifyOptionGroupResponse'{_mogrOptionGroup = Nothing, _mogrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\ s a -> s{_mogrOptionGroup = a});
+
+-- | FIXME: Undocumented member.
+mogrStatusCode :: Lens' ModifyOptionGroupResponse Int
+mogrStatusCode = lens _mogrStatusCode (\ s a -> s{_mogrStatusCode = a});

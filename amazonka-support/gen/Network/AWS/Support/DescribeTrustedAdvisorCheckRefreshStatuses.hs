@@ -34,6 +34,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     , describeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response lenses
     , dtacrsrStatuses
+    , dtacrsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -67,7 +68,9 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-                   <$> (x .?> "statuses" .!@ mempty))
+                   <$>
+                   (x .?> "statuses" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeTrustedAdvisorCheckRefreshStatuses where
@@ -94,17 +97,26 @@ instance ToQuery
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toQuery = const mempty
 
--- | /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
+-- | The statuses of the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorCheckRefreshStatuses operation.
+--
+-- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtacrsrStatuses'
-newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]} deriving (Eq, Read, Show)
+--
+-- * 'dtacrsrStatusCode'
+data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus], _dtacrsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
-describeTrustedAdvisorCheckRefreshStatusesResponse :: DescribeTrustedAdvisorCheckRefreshStatusesResponse
-describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses = mempty};
+describeTrustedAdvisorCheckRefreshStatusesResponse :: Int -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
+describeTrustedAdvisorCheckRefreshStatusesResponse pStatusCode = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses = mempty, _dtacrsrStatusCode = pStatusCode};
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrStatuses = lens _dtacrsrStatuses (\ s a -> s{_dtacrsrStatuses = a});
+
+-- | FIXME: Undocumented member.
+dtacrsrStatusCode :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
+dtacrsrStatusCode = lens _dtacrsrStatusCode (\ s a -> s{_dtacrsrStatusCode = a});

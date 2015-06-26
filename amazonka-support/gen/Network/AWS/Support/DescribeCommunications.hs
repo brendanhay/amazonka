@@ -49,9 +49,10 @@ module Network.AWS.Support.DescribeCommunications
     -- ** Response lenses
     , dcrNextToken
     , dcrCommunications
+    , dcrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -118,7 +119,8 @@ instance AWSRequest DescribeCommunications where
               (\ s h x ->
                  DescribeCommunicationsResponse' <$>
                    (x .?> "nextToken") <*>
-                     (x .?> "communications" .!@ mempty))
+                     (x .?> "communications" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCommunications where
         toHeaders
@@ -144,18 +146,22 @@ instance ToPath DescribeCommunications where
 instance ToQuery DescribeCommunications where
         toQuery = const mempty
 
--- | /See:/ 'describeCommunicationsResponse' smart constructor.
+-- | The communications returned by the DescribeCommunications operation.
+--
+-- /See:/ 'describeCommunicationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrNextToken'
 --
 -- * 'dcrCommunications'
-data DescribeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken :: Maybe Text, _dcrCommunications :: Maybe [Communication]} deriving (Eq, Read, Show)
+--
+-- * 'dcrStatusCode'
+data DescribeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken :: Maybe Text, _dcrCommunications :: Maybe [Communication], _dcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
-describeCommunicationsResponse :: DescribeCommunicationsResponse
-describeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken = Nothing, _dcrCommunications = Nothing};
+describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
+describeCommunicationsResponse pStatusCode = DescribeCommunicationsResponse'{_dcrNextToken = Nothing, _dcrCommunications = Nothing, _dcrStatusCode = pStatusCode};
 
 -- | A resumption point for pagination.
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
@@ -164,3 +170,7 @@ dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
 -- | The communications for the case.
 dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcrStatusCode :: Lens' DescribeCommunicationsResponse Int
+dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});

@@ -40,9 +40,10 @@ module Network.AWS.SDB.ListDomains
     -- ** Response lenses
     , ldrDomainNames
     , ldrNextToken
+    , ldrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,7 +88,8 @@ instance AWSRequest ListDomains where
               (\ s h x ->
                  ListDomainsResponse' <$>
                    (may (parseXMLList "DomainName") x) <*>
-                     (x .@? "NextToken"))
+                     (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListDomains where
         toHeaders = const mempty
@@ -110,11 +112,13 @@ instance ToQuery ListDomains where
 -- * 'ldrDomainNames'
 --
 -- * 'ldrNextToken'
-data ListDomainsResponse = ListDomainsResponse'{_ldrDomainNames :: Maybe [Text], _ldrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ldrStatusCode'
+data ListDomainsResponse = ListDomainsResponse'{_ldrDomainNames :: Maybe [Text], _ldrNextToken :: Maybe Text, _ldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse'{_ldrDomainNames = Nothing, _ldrNextToken = Nothing};
+listDomainsResponse :: Int -> ListDomainsResponse
+listDomainsResponse pStatusCode = ListDomainsResponse'{_ldrDomainNames = Nothing, _ldrNextToken = Nothing, _ldrStatusCode = pStatusCode};
 
 -- | A list of domain names that match the expression.
 ldrDomainNames :: Lens' ListDomainsResponse [Text]
@@ -124,3 +128,7 @@ ldrDomainNames = lens _ldrDomainNames (\ s a -> s{_ldrDomainNames = a}) . _Defau
 -- specified @MaxNumberOfDomains@ still available.
 ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+
+-- | FIXME: Undocumented member.
+ldrStatusCode :: Lens' ListDomainsResponse Int
+ldrStatusCode = lens _ldrStatusCode (\ s a -> s{_ldrStatusCode = a});

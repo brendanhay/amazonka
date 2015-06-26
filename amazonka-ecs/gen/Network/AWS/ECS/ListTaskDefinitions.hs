@@ -39,10 +39,11 @@ module Network.AWS.ECS.ListTaskDefinitions
     -- ** Response lenses
     , ltdrTaskDefinitionARNs
     , ltdrNextToken
+    , ltdrStatusCode
     ) where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -127,7 +128,8 @@ instance AWSRequest ListTaskDefinitions where
               (\ s h x ->
                  ListTaskDefinitionsResponse' <$>
                    (x .?> "taskDefinitionArns" .!@ mempty) <*>
-                     (x .?> "nextToken"))
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListTaskDefinitions where
         toHeaders
@@ -160,11 +162,13 @@ instance ToQuery ListTaskDefinitions where
 -- * 'ltdrTaskDefinitionARNs'
 --
 -- * 'ltdrNextToken'
-data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs :: Maybe [Text], _ltdrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ltdrStatusCode'
+data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs :: Maybe [Text], _ltdrNextToken :: Maybe Text, _ltdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
-listTaskDefinitionsResponse :: ListTaskDefinitionsResponse
-listTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs = Nothing, _ltdrNextToken = Nothing};
+listTaskDefinitionsResponse :: Int -> ListTaskDefinitionsResponse
+listTaskDefinitionsResponse pStatusCode = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs = Nothing, _ltdrNextToken = Nothing, _ltdrStatusCode = pStatusCode};
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
 -- @ListTaskDefintions@ request.
@@ -177,3 +181,7 @@ ltdrTaskDefinitionARNs = lens _ltdrTaskDefinitionARNs (\ s a -> s{_ltdrTaskDefin
 -- results. This value is @null@ when there are no more results to return.
 ltdrNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
 ltdrNextToken = lens _ltdrNextToken (\ s a -> s{_ltdrNextToken = a});
+
+-- | FIXME: Undocumented member.
+ltdrStatusCode :: Lens' ListTaskDefinitionsResponse Int
+ltdrStatusCode = lens _ltdrStatusCode (\ s a -> s{_ltdrStatusCode = a});

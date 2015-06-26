@@ -33,6 +33,7 @@ module Network.AWS.CloudHSM.DeleteHSM
     , deleteHSMResponse
     -- ** Response lenses
     , delStatus
+    , delStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteHSM' smart constructor.
+-- | Contains the inputs for the DeleteHsm action.
+--
+-- /See:/ 'deleteHSM' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -61,7 +64,9 @@ instance AWSRequest DeleteHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteHSMResponse' <$> (x .:> "Status"))
+              (\ s h x ->
+                 DeleteHSMResponse' <$>
+                   (x .:> "Status") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -82,17 +87,25 @@ instance ToPath DeleteHSM where
 instance ToQuery DeleteHSM where
         toQuery = const mempty
 
--- | /See:/ 'deleteHSMResponse' smart constructor.
+-- | Contains the output of the DeleteHsm action.
+--
+-- /See:/ 'deleteHSMResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delStatus'
-newtype DeleteHSMResponse = DeleteHSMResponse'{_delStatus :: Text} deriving (Eq, Read, Show)
+--
+-- * 'delStatusCode'
+data DeleteHSMResponse = DeleteHSMResponse'{_delStatus :: Text, _delStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteHSMResponse' smart constructor.
-deleteHSMResponse :: Text -> DeleteHSMResponse
-deleteHSMResponse pStatus = DeleteHSMResponse'{_delStatus = pStatus};
+deleteHSMResponse :: Text -> Int -> DeleteHSMResponse
+deleteHSMResponse pStatus pStatusCode = DeleteHSMResponse'{_delStatus = pStatus, _delStatusCode = pStatusCode};
 
 -- | The status of the action.
 delStatus :: Lens' DeleteHSMResponse Text
 delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+
+-- | FIXME: Undocumented member.
+delStatusCode :: Lens' DeleteHSMResponse Int
+delStatusCode = lens _delStatusCode (\ s a -> s{_delStatusCode = a});

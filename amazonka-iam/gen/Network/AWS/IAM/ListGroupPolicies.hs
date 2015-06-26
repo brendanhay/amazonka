@@ -47,10 +47,11 @@ module Network.AWS.IAM.ListGroupPolicies
     , lgprMarker
     , lgprIsTruncated
     , lgprPolicyNames
+    , lgprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -106,7 +107,8 @@ instance AWSRequest ListGroupPolicies where
                  ListGroupPoliciesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListGroupPolicies where
         toHeaders = const mempty
@@ -122,7 +124,9 @@ instance ToQuery ListGroupPolicies where
                "MaxItems" =: _lgpMaxItems, "Marker" =: _lgpMarker,
                "GroupName" =: _lgpGroupName]
 
--- | /See:/ 'listGroupPoliciesResponse' smart constructor.
+-- | Contains the response to a successful ListGroupPolicies request.
+--
+-- /See:/ 'listGroupPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -131,11 +135,13 @@ instance ToQuery ListGroupPolicies where
 -- * 'lgprIsTruncated'
 --
 -- * 'lgprPolicyNames'
-data ListGroupPoliciesResponse = ListGroupPoliciesResponse'{_lgprMarker :: Maybe Text, _lgprIsTruncated :: Maybe Bool, _lgprPolicyNames :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lgprStatusCode'
+data ListGroupPoliciesResponse = ListGroupPoliciesResponse'{_lgprMarker :: Maybe Text, _lgprIsTruncated :: Maybe Bool, _lgprPolicyNames :: [Text], _lgprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
-listGroupPoliciesResponse :: ListGroupPoliciesResponse
-listGroupPoliciesResponse = ListGroupPoliciesResponse'{_lgprMarker = Nothing, _lgprIsTruncated = Nothing, _lgprPolicyNames = mempty};
+listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
+listGroupPoliciesResponse pStatusCode = ListGroupPoliciesResponse'{_lgprMarker = Nothing, _lgprIsTruncated = Nothing, _lgprPolicyNames = mempty, _lgprStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -153,3 +159,7 @@ lgprIsTruncated = lens _lgprIsTruncated (\ s a -> s{_lgprIsTruncated = a});
 -- | A list of policy names.
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprPolicyNames = lens _lgprPolicyNames (\ s a -> s{_lgprPolicyNames = a});
+
+-- | FIXME: Undocumented member.
+lgprStatusCode :: Lens' ListGroupPoliciesResponse Int
+lgprStatusCode = lens _lgprStatusCode (\ s a -> s{_lgprStatusCode = a});

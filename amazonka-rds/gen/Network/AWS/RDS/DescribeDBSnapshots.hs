@@ -38,15 +38,18 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- ** Response lenses
     , ddsrMarker
     , ddsrDBSnapshots
+    , ddsrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDBSnapshots' smart constructor.
+-- |
+--
+-- /See:/ 'describeDBSnapshots' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -139,7 +142,8 @@ instance AWSRequest DescribeDBSnapshots where
                  DescribeDBSnapshotsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "DBSnapshots" .!@ mempty >>=
-                        may (parseXMLList "DBSnapshot")))
+                        may (parseXMLList "DBSnapshot"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBSnapshots where
         toHeaders = const mempty
@@ -160,18 +164,23 @@ instance ToQuery DescribeDBSnapshots where
                "MaxRecords" =: _ddsMaxRecords,
                "Marker" =: _ddsMarker]
 
--- | /See:/ 'describeDBSnapshotsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeDBSnapshots action.
+--
+-- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddsrMarker'
 --
 -- * 'ddsrDBSnapshots'
-data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker :: Maybe Text, _ddsrDBSnapshots :: Maybe [DBSnapshot]} deriving (Eq, Read, Show)
+--
+-- * 'ddsrStatusCode'
+data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker :: Maybe Text, _ddsrDBSnapshots :: Maybe [DBSnapshot], _ddsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSnapshotsResponse' smart constructor.
-describeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker = Nothing, _ddsrDBSnapshots = Nothing};
+describeDBSnapshotsResponse :: Int -> DescribeDBSnapshotsResponse
+describeDBSnapshotsResponse pStatusCode = DescribeDBSnapshotsResponse'{_ddsrMarker = Nothing, _ddsrDBSnapshots = Nothing, _ddsrStatusCode = pStatusCode};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -182,3 +191,7 @@ ddsrMarker = lens _ddsrMarker (\ s a -> s{_ddsrMarker = a});
 -- | A list of DBSnapshot instances.
 ddsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrDBSnapshots = lens _ddsrDBSnapshots (\ s a -> s{_ddsrDBSnapshots = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+ddsrStatusCode :: Lens' DescribeDBSnapshotsResponse Int
+ddsrStatusCode = lens _ddsrStatusCode (\ s a -> s{_ddsrStatusCode = a});

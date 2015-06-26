@@ -47,9 +47,10 @@ module Network.AWS.SDB.Select
     -- ** Response lenses
     , srItems
     , srNextToken
+    , srStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -102,8 +103,8 @@ instance AWSRequest Select where
           = receiveXMLWrapper "SelectResult"
               (\ s h x ->
                  SelectResponse' <$>
-                   (may (parseXMLList "Item") x) <*>
-                     (x .@? "NextToken"))
+                   (may (parseXMLList "Item") x) <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Select where
         toHeaders = const mempty
@@ -127,11 +128,13 @@ instance ToQuery Select where
 -- * 'srItems'
 --
 -- * 'srNextToken'
-data SelectResponse = SelectResponse'{_srItems :: Maybe [Item], _srNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'srStatusCode'
+data SelectResponse = SelectResponse'{_srItems :: Maybe [Item], _srNextToken :: Maybe Text, _srStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'SelectResponse' smart constructor.
-selectResponse :: SelectResponse
-selectResponse = SelectResponse'{_srItems = Nothing, _srNextToken = Nothing};
+selectResponse :: Int -> SelectResponse
+selectResponse pStatusCode = SelectResponse'{_srItems = Nothing, _srNextToken = Nothing, _srStatusCode = pStatusCode};
 
 -- | A list of items that match the select expression.
 srItems :: Lens' SelectResponse [Item]
@@ -142,3 +145,7 @@ srItems = lens _srItems (\ s a -> s{_srItems = a}) . _Default;
 -- exceeded 5 seconds.
 srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\ s a -> s{_srNextToken = a});
+
+-- | FIXME: Undocumented member.
+srStatusCode :: Lens' SelectResponse Int
+srStatusCode = lens _srStatusCode (\ s a -> s{_srStatusCode = a});

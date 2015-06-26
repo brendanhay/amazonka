@@ -37,6 +37,7 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , connectDirectoryResponse
     -- ** Response lenses
     , cdrDirectoryId
+    , cdrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'connectDirectory' smart constructor.
+-- | Contains the inputs for the ConnectDirectory operation.
+--
+-- /See:/ 'connectDirectory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,7 +101,8 @@ instance AWSRequest ConnectDirectory where
         response
           = receiveJSON
               (\ s h x ->
-                 ConnectDirectoryResponse' <$> (x .?> "DirectoryId"))
+                 ConnectDirectoryResponse' <$>
+                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConnectDirectory where
         toHeaders
@@ -124,17 +128,25 @@ instance ToPath ConnectDirectory where
 instance ToQuery ConnectDirectory where
         toQuery = const mempty
 
--- | /See:/ 'connectDirectoryResponse' smart constructor.
+-- | Contains the results of the ConnectDirectory operation.
+--
+-- /See:/ 'connectDirectoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdrDirectoryId'
-newtype ConnectDirectoryResponse = ConnectDirectoryResponse'{_cdrDirectoryId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdrStatusCode'
+data ConnectDirectoryResponse = ConnectDirectoryResponse'{_cdrDirectoryId :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ConnectDirectoryResponse' smart constructor.
-connectDirectoryResponse :: ConnectDirectoryResponse
-connectDirectoryResponse = ConnectDirectoryResponse'{_cdrDirectoryId = Nothing};
+connectDirectoryResponse :: Int -> ConnectDirectoryResponse
+connectDirectoryResponse pStatusCode = ConnectDirectoryResponse'{_cdrDirectoryId = Nothing, _cdrStatusCode = pStatusCode};
 
 -- | The identifier of the new directory.
 cdrDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrDirectoryId = lens _cdrDirectoryId (\ s a -> s{_cdrDirectoryId = a});
+
+-- | FIXME: Undocumented member.
+cdrStatusCode :: Lens' ConnectDirectoryResponse Int
+cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});

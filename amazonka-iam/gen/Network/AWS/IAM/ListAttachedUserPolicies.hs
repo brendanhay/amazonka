@@ -49,6 +49,7 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     , lauprAttachedPolicies
     , lauprMarker
     , lauprIsTruncated
+    , lauprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -111,7 +112,8 @@ instance AWSRequest ListAttachedUserPolicies where
                    (x .@? "AttachedPolicies" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "Marker")
-                     <*> (x .@? "IsTruncated"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAttachedUserPolicies where
         toHeaders = const mempty
@@ -129,7 +131,9 @@ instance ToQuery ListAttachedUserPolicies where
                "MaxItems" =: _laupMaxItems, "Marker" =: _laupMarker,
                "UserName" =: _laupUserName]
 
--- | /See:/ 'listAttachedUserPoliciesResponse' smart constructor.
+-- | Contains the response to a successful ListAttachedUserPolicies request.
+--
+-- /See:/ 'listAttachedUserPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -138,11 +142,13 @@ instance ToQuery ListAttachedUserPolicies where
 -- * 'lauprMarker'
 --
 -- * 'lauprIsTruncated'
-data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies :: Maybe [AttachedPolicy], _lauprMarker :: Maybe Text, _lauprIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'lauprStatusCode'
+data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies :: Maybe [AttachedPolicy], _lauprMarker :: Maybe Text, _lauprIsTruncated :: Maybe Bool, _lauprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
-listAttachedUserPoliciesResponse :: ListAttachedUserPoliciesResponse
-listAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies = Nothing, _lauprMarker = Nothing, _lauprIsTruncated = Nothing};
+listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse
+listAttachedUserPoliciesResponse pStatusCode = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies = Nothing, _lauprMarker = Nothing, _lauprIsTruncated = Nothing, _lauprStatusCode = pStatusCode};
 
 -- | A list of the attached policies.
 lauprAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
@@ -160,3 +166,7 @@ lauprMarker = lens _lauprMarker (\ s a -> s{_lauprMarker = a});
 -- list.
 lauprIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprIsTruncated = lens _lauprIsTruncated (\ s a -> s{_lauprIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lauprStatusCode :: Lens' ListAttachedUserPoliciesResponse Int
+lauprStatusCode = lens _lauprStatusCode (\ s a -> s{_lauprStatusCode = a});

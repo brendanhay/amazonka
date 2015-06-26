@@ -34,8 +34,9 @@ module Network.AWS.ECS.DescribeContainerInstances
     -- ** Response constructor
     , describeContainerInstancesResponse
     -- ** Response lenses
-    , dcirFailures
-    , dcirContainerInstances
+    , desFailures
+    , desContainerInstances
+    , desStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -77,7 +78,8 @@ instance AWSRequest DescribeContainerInstances where
               (\ s h x ->
                  DescribeContainerInstancesResponse' <$>
                    (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "containerInstances" .!@ mempty))
+                     (x .?> "containerInstances" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeContainerInstances where
         toHeaders
@@ -105,19 +107,25 @@ instance ToQuery DescribeContainerInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcirFailures'
+-- * 'desFailures'
 --
--- * 'dcirContainerInstances'
-data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures :: Maybe [Failure], _dcirContainerInstances :: Maybe [ContainerInstance]} deriving (Eq, Read, Show)
+-- * 'desContainerInstances'
+--
+-- * 'desStatusCode'
+data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'{_desFailures :: Maybe [Failure], _desContainerInstances :: Maybe [ContainerInstance], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
-describeContainerInstancesResponse :: DescribeContainerInstancesResponse
-describeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures = Nothing, _dcirContainerInstances = Nothing};
+describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
+describeContainerInstancesResponse pStatusCode = DescribeContainerInstancesResponse'{_desFailures = Nothing, _desContainerInstances = Nothing, _desStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
-dcirFailures :: Lens' DescribeContainerInstancesResponse [Failure]
-dcirFailures = lens _dcirFailures (\ s a -> s{_dcirFailures = a}) . _Default;
+desFailures :: Lens' DescribeContainerInstancesResponse [Failure]
+desFailures = lens _desFailures (\ s a -> s{_desFailures = a}) . _Default;
 
 -- | The list of container instances.
-dcirContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
-dcirContainerInstances = lens _dcirContainerInstances (\ s a -> s{_dcirContainerInstances = a}) . _Default;
+desContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
+desContainerInstances = lens _desContainerInstances (\ s a -> s{_desContainerInstances = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeContainerInstancesResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

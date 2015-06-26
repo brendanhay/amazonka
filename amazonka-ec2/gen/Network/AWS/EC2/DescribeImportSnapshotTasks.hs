@@ -37,6 +37,7 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     -- ** Response lenses
     , distrNextToken
     , distrImportSnapshotTasks
+    , distrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -95,8 +96,8 @@ instance AWSRequest DescribeImportSnapshotTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportSnapshotTasksResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
@@ -124,11 +125,13 @@ instance ToQuery DescribeImportSnapshotTasks where
 -- * 'distrNextToken'
 --
 -- * 'distrImportSnapshotTasks'
-data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken :: Maybe Text, _distrImportSnapshotTasks :: Maybe [ImportSnapshotTask]} deriving (Eq, Read, Show)
+--
+-- * 'distrStatusCode'
+data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken :: Maybe Text, _distrImportSnapshotTasks :: Maybe [ImportSnapshotTask], _distrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
-describeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken = Nothing, _distrImportSnapshotTasks = Nothing};
+describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
+describeImportSnapshotTasksResponse pStatusCode = DescribeImportSnapshotTasksResponse'{_distrNextToken = Nothing, _distrImportSnapshotTasks = Nothing, _distrStatusCode = pStatusCode};
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.
@@ -139,3 +142,7 @@ distrNextToken = lens _distrNextToken (\ s a -> s{_distrNextToken = a});
 -- or were completed or canceled in the previous 7 days.
 distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
 distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+distrStatusCode :: Lens' DescribeImportSnapshotTasksResponse Int
+distrStatusCode = lens _distrStatusCode (\ s a -> s{_distrStatusCode = a});

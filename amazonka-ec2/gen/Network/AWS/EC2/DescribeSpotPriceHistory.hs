@@ -51,15 +51,18 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- ** Response lenses
     , dsphrNextToken
     , dsphrSpotPriceHistory
+    , dsphrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeSpotPriceHistory' smart constructor.
+-- | Contains the parameters for DescribeSpotPriceHistory.
+--
+-- /See:/ 'describeSpotPriceHistory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -167,8 +170,8 @@ instance AWSRequest DescribeSpotPriceHistory where
           = receiveXML
               (\ s h x ->
                  DescribeSpotPriceHistoryResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
@@ -195,18 +198,22 @@ instance ToQuery DescribeSpotPriceHistory where
                "DryRun" =: _dsphDryRun,
                "MaxResults" =: _dsphMaxResults]
 
--- | /See:/ 'describeSpotPriceHistoryResponse' smart constructor.
+-- | Contains the output of DescribeSpotPriceHistory.
+--
+-- /See:/ 'describeSpotPriceHistoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsphrNextToken'
 --
 -- * 'dsphrSpotPriceHistory'
-data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken :: Maybe Text, _dsphrSpotPriceHistory :: Maybe [SpotPrice]} deriving (Eq, Read, Show)
+--
+-- * 'dsphrStatusCode'
+data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken :: Maybe Text, _dsphrSpotPriceHistory :: Maybe [SpotPrice], _dsphrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
-describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken = Nothing, _dsphrSpotPriceHistory = Nothing};
+describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
+describeSpotPriceHistoryResponse pStatusCode = DescribeSpotPriceHistoryResponse'{_dsphrNextToken = Nothing, _dsphrSpotPriceHistory = Nothing, _dsphrStatusCode = pStatusCode};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -216,3 +223,7 @@ dsphrNextToken = lens _dsphrNextToken (\ s a -> s{_dsphrNextToken = a});
 -- | The historical Spot Prices.
 dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsphrStatusCode :: Lens' DescribeSpotPriceHistoryResponse Int
+dsphrStatusCode = lens _dsphrStatusCode (\ s a -> s{_dsphrStatusCode = a});

@@ -32,6 +32,8 @@ module Network.AWS.DirectoryService.EnableSso
     , EnableSsoResponse
     -- ** Response constructor
     , enableSsoResponse
+    -- ** Response lenses
+    , esrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -39,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'enableSso' smart constructor.
+-- | Contains the inputs for the EnableSso operation.
+--
+-- /See:/ 'enableSso' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -80,7 +84,10 @@ instance AWSRequest EnableSso where
         type Sv EnableSso = DirectoryService
         type Rs EnableSso = EnableSsoResponse
         request = postJSON
-        response = receiveNull EnableSsoResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 EnableSsoResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders EnableSso where
         toHeaders
@@ -105,9 +112,19 @@ instance ToPath EnableSso where
 instance ToQuery EnableSso where
         toQuery = const mempty
 
--- | /See:/ 'enableSsoResponse' smart constructor.
-data EnableSsoResponse = EnableSsoResponse' deriving (Eq, Read, Show)
+-- | Contains the results of the EnableSso operation.
+--
+-- /See:/ 'enableSsoResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'esrStatusCode'
+newtype EnableSsoResponse = EnableSsoResponse'{_esrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnableSsoResponse' smart constructor.
-enableSsoResponse :: EnableSsoResponse
-enableSsoResponse = EnableSsoResponse';
+enableSsoResponse :: Int -> EnableSsoResponse
+enableSsoResponse pStatusCode = EnableSsoResponse'{_esrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+esrStatusCode :: Lens' EnableSsoResponse Int
+esrStatusCode = lens _esrStatusCode (\ s a -> s{_esrStatusCode = a});

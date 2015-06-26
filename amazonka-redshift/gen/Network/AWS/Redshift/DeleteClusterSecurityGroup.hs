@@ -44,7 +44,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteClusterSecurityGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteClusterSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

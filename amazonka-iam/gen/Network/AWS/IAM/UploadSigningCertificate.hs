@@ -52,6 +52,7 @@ module Network.AWS.IAM.UploadSigningCertificate
     , uploadSigningCertificateResponse
     -- ** Response lenses
     , uscrCertificate
+    , uscrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -89,7 +90,7 @@ instance AWSRequest UploadSigningCertificate where
           = receiveXMLWrapper "UploadSigningCertificateResult"
               (\ s h x ->
                  UploadSigningCertificateResponse' <$>
-                   (x .@ "Certificate"))
+                   (x .@ "Certificate") <*> (pure (fromEnum s)))
 
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
@@ -106,17 +107,25 @@ instance ToQuery UploadSigningCertificate where
                "UserName" =: _uplUserName,
                "CertificateBody" =: _uplCertificateBody]
 
--- | /See:/ 'uploadSigningCertificateResponse' smart constructor.
+-- | Contains the response to a successful UploadSigningCertificate request.
+--
+-- /See:/ 'uploadSigningCertificateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uscrCertificate'
-newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse'{_uscrCertificate :: SigningCertificate} deriving (Eq, Read, Show)
+--
+-- * 'uscrStatusCode'
+data UploadSigningCertificateResponse = UploadSigningCertificateResponse'{_uscrCertificate :: SigningCertificate, _uscrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
-uploadSigningCertificateResponse :: SigningCertificate -> UploadSigningCertificateResponse
-uploadSigningCertificateResponse pCertificate = UploadSigningCertificateResponse'{_uscrCertificate = pCertificate};
+uploadSigningCertificateResponse :: SigningCertificate -> Int -> UploadSigningCertificateResponse
+uploadSigningCertificateResponse pCertificate pStatusCode = UploadSigningCertificateResponse'{_uscrCertificate = pCertificate, _uscrStatusCode = pStatusCode};
 
 -- | Information about the certificate.
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\ s a -> s{_uscrCertificate = a});
+
+-- | FIXME: Undocumented member.
+uscrStatusCode :: Lens' UploadSigningCertificateResponse Int
+uscrStatusCode = lens _uscrStatusCode (\ s a -> s{_uscrStatusCode = a});

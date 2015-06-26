@@ -38,6 +38,7 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     , dssrRecurrenceInHours
     , dssrTimezone
     , dssrDescription
+    , dssrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -45,7 +46,10 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeSnapshotSchedule' smart constructor.
+-- | A JSON object containing the DescribeSnapshotScheduleInput$VolumeARN of
+-- the volume.
+--
+-- /See:/ 'describeSnapshotSchedule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +77,8 @@ instance AWSRequest DescribeSnapshotSchedule where
                    (x .?> "VolumeARN") <*> (x .?> "StartAt") <*>
                      (x .?> "RecurrenceInHours")
                      <*> (x .?> "Timezone")
-                     <*> (x .?> "Description"))
+                     <*> (x .?> "Description")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders
@@ -108,11 +113,13 @@ instance ToQuery DescribeSnapshotSchedule where
 -- * 'dssrTimezone'
 --
 -- * 'dssrDescription'
-data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'{_dssrVolumeARN :: Maybe Text, _dssrStartAt :: Maybe Nat, _dssrRecurrenceInHours :: Maybe Nat, _dssrTimezone :: Maybe Text, _dssrDescription :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dssrStatusCode'
+data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'{_dssrVolumeARN :: Maybe Text, _dssrStartAt :: Maybe Nat, _dssrRecurrenceInHours :: Maybe Nat, _dssrTimezone :: Maybe Text, _dssrDescription :: Maybe Text, _dssrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotScheduleResponse' smart constructor.
-describeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
-describeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'{_dssrVolumeARN = Nothing, _dssrStartAt = Nothing, _dssrRecurrenceInHours = Nothing, _dssrTimezone = Nothing, _dssrDescription = Nothing};
+describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse
+describeSnapshotScheduleResponse pStatusCode = DescribeSnapshotScheduleResponse'{_dssrVolumeARN = Nothing, _dssrStartAt = Nothing, _dssrRecurrenceInHours = Nothing, _dssrTimezone = Nothing, _dssrDescription = Nothing, _dssrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dssrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
@@ -133,3 +140,7 @@ dssrTimezone = lens _dssrTimezone (\ s a -> s{_dssrTimezone = a});
 -- | FIXME: Undocumented member.
 dssrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrDescription = lens _dssrDescription (\ s a -> s{_dssrDescription = a});
+
+-- | FIXME: Undocumented member.
+dssrStatusCode :: Lens' DescribeSnapshotScheduleResponse Int
+dssrStatusCode = lens _dssrStatusCode (\ s a -> s{_dssrStatusCode = a});

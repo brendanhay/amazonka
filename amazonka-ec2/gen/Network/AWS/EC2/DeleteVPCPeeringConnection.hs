@@ -36,6 +36,7 @@ module Network.AWS.EC2.DeleteVPCPeeringConnection
     , deleteVPCPeeringConnectionResponse
     -- ** Response lenses
     , dvpcrReturn
+    , dvpcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -76,7 +77,7 @@ instance AWSRequest DeleteVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  DeleteVPCPeeringConnectionResponse' <$>
-                   (x .@? "return"))
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
@@ -99,12 +100,18 @@ instance ToQuery DeleteVPCPeeringConnection where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvpcrReturn'
-newtype DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'{_dvpcrReturn :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'dvpcrStatusCode'
+data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'{_dvpcrReturn :: Maybe Bool, _dvpcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
-deleteVPCPeeringConnectionResponse :: DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'{_dvpcrReturn = Nothing};
+deleteVPCPeeringConnectionResponse :: Int -> DeleteVPCPeeringConnectionResponse
+deleteVPCPeeringConnectionResponse pStatusCode = DeleteVPCPeeringConnectionResponse'{_dvpcrReturn = Nothing, _dvpcrStatusCode = pStatusCode};
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcrReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\ s a -> s{_dvpcrReturn = a});
+
+-- | FIXME: Undocumented member.
+dvpcrStatusCode :: Lens' DeleteVPCPeeringConnectionResponse Int
+dvpcrStatusCode = lens _dvpcrStatusCode (\ s a -> s{_dvpcrStatusCode = a});

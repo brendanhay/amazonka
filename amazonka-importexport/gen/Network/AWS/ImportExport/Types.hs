@@ -21,8 +21,31 @@ module Network.AWS.ImportExport.Types
     (
     -- * Service
       ImportExport
-    -- ** Errors
-    , RESTError
+
+    -- * Errors
+    , _InvalidJobIdException
+    , _InvalidParameterException
+    , _ExpiredJobIdException
+    , _InvalidFileSystemException
+    , _InvalidAccessKeyIdException
+    , _UnableToUpdateJobIdException
+    , _UnableToCancelJobIdException
+    , _InvalidVersionException
+    , _MultipleRegionsException
+    , _MalformedManifestException
+    , _CanceledJobIdException
+    , _BucketPermissionException
+    , _MissingParameterException
+    , _NoSuchBucketException
+    , _InvalidAddressException
+    , _InvalidManifestFieldException
+    , _MissingCustomsException
+    , _InvalidCustomsException
+    , _MissingManifestFieldException
+    , _CreateJobQuotaExceededException
+
+    -- * JobType
+    , JobType (..)
 
     -- * Artifact
     , Artifact
@@ -38,8 +61,6 @@ module Network.AWS.ImportExport.Types
     , jobIsCanceled
     , jobCreationDate
 
-    -- * JobType
-    , JobType (..)
     ) where
 
 import Network.AWS.Prelude
@@ -50,32 +71,147 @@ data ImportExport
 
 instance AWSService ImportExport where
     type Sg ImportExport = V2
-    type Er ImportExport = RESTError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service ImportExport
-        service' = Service
-            { _svcAbbrev  = "ImportExport"
-            , _svcPrefix  = "importexport"
-            , _svcVersion = "2010-06-01"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service ImportExport
+        svc = Service
+            { _svcAbbrev   = "ImportExport"
+            , _svcPrefix   = "importexport"
+            , _svcVersion  = "2010-06-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseXMLError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry ImportExport
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | The JOBID was missing, not found, or not associated with the AWS
+-- account.
+_InvalidJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidJobIdException = _ServiceError . hasCode "InvalidJobIdException";
 
--- | /See:/ 'artifact' smart constructor.
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterException = _ServiceError . hasCode "InvalidParameterException";
+
+-- | Indicates that the specified job has expired out of the system.
+_ExpiredJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ExpiredJobIdException = _ServiceError . hasCode "ExpiredJobIdException";
+
+-- | File system specified in export manifest is invalid.
+_InvalidFileSystemException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidFileSystemException = _ServiceError . hasCode "InvalidFileSystemException";
+
+-- | The AWS Access Key ID specified in the request did not match the
+-- manifest\'s accessKeyId value. The manifest and the request
+-- authentication must use the same AWS Access Key ID.
+_InvalidAccessKeyIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidAccessKeyIdException = _ServiceError . hasCode "InvalidAccessKeyIdException";
+
+-- | AWS Import\/Export cannot update the job
+_UnableToUpdateJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnableToUpdateJobIdException = _ServiceError . hasCode "UnableToUpdateJobIdException";
+
+-- | AWS Import\/Export cannot cancel the job
+_UnableToCancelJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_UnableToCancelJobIdException = _ServiceError . hasCode "UnableToCancelJobIdException";
+
+-- | The client tool version is invalid.
+_InvalidVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidVersionException = _ServiceError . hasCode "InvalidVersionException";
+
+-- | Your manifest file contained buckets from multiple regions. A job is
+-- restricted to buckets from one region. Please correct and resubmit.
+_MultipleRegionsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MultipleRegionsException = _ServiceError . hasCode "MultipleRegionsException";
+
+-- | Your manifest is not well-formed.
+_MalformedManifestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MalformedManifestException = _ServiceError . hasCode "MalformedManifestException";
+
+-- | The specified job ID has been canceled and is no longer valid.
+_CanceledJobIdException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CanceledJobIdException = _ServiceError . hasCode "CanceledJobIdException";
+
+-- | The account specified does not have the appropriate bucket permissions.
+_BucketPermissionException :: AWSError a => Geting (First ServiceError) a ServiceError
+_BucketPermissionException = _ServiceError . hasCode "BucketPermissionException";
+
+-- | One or more required parameters was missing from the request.
+_MissingParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingParameterException = _ServiceError . hasCode "MissingParameterException";
+
+-- | The specified bucket does not exist. Create the specified bucket or
+-- change the manifest\'s bucket, exportBucket, or logBucket field to a
+-- bucket that the account, as specified by the manifest\'s Access Key ID,
+-- has write permissions to.
+_NoSuchBucketException :: AWSError a => Geting (First ServiceError) a ServiceError
+_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException";
+
+-- | The address specified in the manifest is invalid.
+_InvalidAddressException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidAddressException = _ServiceError . hasCode "InvalidAddressException";
+
+-- | One or more manifest fields was invalid. Please correct and resubmit.
+_InvalidManifestFieldException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidManifestFieldException = _ServiceError . hasCode "InvalidManifestFieldException";
+
+-- | One or more required customs parameters was missing from the manifest.
+_MissingCustomsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingCustomsException = _ServiceError . hasCode "MissingCustomsException";
+
+-- | One or more customs parameters was invalid. Please correct and resubmit.
+_InvalidCustomsException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidCustomsException = _ServiceError . hasCode "InvalidCustomsException";
+
+-- | One or more required fields were missing from the manifest file. Please
+-- correct and resubmit.
+_MissingManifestFieldException :: AWSError a => Geting (First ServiceError) a ServiceError
+_MissingManifestFieldException = _ServiceError . hasCode "MissingManifestFieldException";
+
+-- | Each account can create only a certain number of jobs per day. If you
+-- need to create more than this, please contact
+-- awsimportexport\@amazon.com to explain your particular use case.
+_CreateJobQuotaExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CreateJobQuotaExceededException = _ServiceError . hasCode "CreateJobQuotaExceededException";
+
+-- | Specifies whether the job to initiate is an import or export job.
+data JobType = Export | Import deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText JobType where
+    parser = takeLowerText >>= \case
+        "Export" -> pure Export
+        "Import" -> pure Import
+        e -> fail ("Failure parsing JobType from " ++ show e)
+
+instance ToText JobType where
+    toText = \case
+        Export -> "Export"
+        Import -> "Import"
+
+instance Hashable JobType
+instance ToQuery JobType
+instance ToHeader JobType
+
+instance FromXML JobType where
+    parseXML = parseXMLText "JobType"
+
+-- | A discrete item that contains the description and URL of an artifact
+-- (such as a PDF).
+--
+-- /See:/ 'artifact' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +237,9 @@ instance FromXML Artifact where
           = Artifact' <$>
               (x .@? "URL") <*> (x .@? "Description")
 
--- | /See:/ 'job' smart constructor.
+-- | Representation of a job returned by the ListJobs operation.
+--
+-- /See:/ 'job' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -140,23 +278,3 @@ instance FromXML Job where
               (x .@ "JobType") <*> (x .@ "JobId") <*>
                 (x .@ "IsCanceled")
                 <*> (x .@ "CreationDate")
-
-data JobType = Export | Import deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText JobType where
-    parser = takeLowerText >>= \case
-        "Export" -> pure Export
-        "Import" -> pure Import
-        e -> fail ("Failure parsing JobType from " ++ show e)
-
-instance ToText JobType where
-    toText = \case
-        Export -> "Export"
-        Import -> "Import"
-
-instance Hashable JobType
-instance ToQuery JobType
-instance ToHeader JobType
-
-instance FromXML JobType where
-    parseXML = parseXMLText "JobType"

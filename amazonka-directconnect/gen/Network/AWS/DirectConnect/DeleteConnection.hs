@@ -52,7 +52,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteConnection' smart constructor.
+-- | Container for the parameters to the DeleteConnection operation.
+--
+-- /See:/ 'deleteConnection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

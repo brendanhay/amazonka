@@ -53,6 +53,7 @@ module Network.AWS.CognitoSync.ListRecords
     , lrrMergedDatasetNames
     , lrrLastModifiedBy
     , lrrDatasetSyncCount
+    , lrrStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -60,7 +61,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listRecords' smart constructor.
+-- | A request for a list of records.
+--
+-- /See:/ 'listRecords' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -132,7 +135,8 @@ instance AWSRequest ListRecords where
                      <*> (x .?> "SyncSessionToken")
                      <*> (x .?> "MergedDatasetNames" .!@ mempty)
                      <*> (x .?> "LastModifiedBy")
-                     <*> (x .?> "DatasetSyncCount"))
+                     <*> (x .?> "DatasetSyncCount")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListRecords where
         toHeaders
@@ -156,7 +160,9 @@ instance ToQuery ListRecords where
                "syncSessionToken" =: _lrSyncSessionToken,
                "maxResults" =: _lrMaxResults]
 
--- | /See:/ 'listRecordsResponse' smart constructor.
+-- | Returned for a successful ListRecordsRequest.
+--
+-- /See:/ 'listRecordsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -177,11 +183,13 @@ instance ToQuery ListRecords where
 -- * 'lrrLastModifiedBy'
 --
 -- * 'lrrDatasetSyncCount'
-data ListRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool, _lrrDatasetExists :: Maybe Bool, _lrrCount :: Maybe Int, _lrrRecords :: Maybe [Record], _lrrNextToken :: Maybe Text, _lrrSyncSessionToken :: Maybe Text, _lrrMergedDatasetNames :: Maybe [Text], _lrrLastModifiedBy :: Maybe Text, _lrrDatasetSyncCount :: Maybe Integer} deriving (Eq, Read, Show)
+--
+-- * 'lrrStatusCode'
+data ListRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool, _lrrDatasetExists :: Maybe Bool, _lrrCount :: Maybe Int, _lrrRecords :: Maybe [Record], _lrrNextToken :: Maybe Text, _lrrSyncSessionToken :: Maybe Text, _lrrMergedDatasetNames :: Maybe [Text], _lrrLastModifiedBy :: Maybe Text, _lrrDatasetSyncCount :: Maybe Integer, _lrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListRecordsResponse' smart constructor.
-listRecordsResponse :: ListRecordsResponse
-listRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount = Nothing, _lrrDatasetExists = Nothing, _lrrCount = Nothing, _lrrRecords = Nothing, _lrrNextToken = Nothing, _lrrSyncSessionToken = Nothing, _lrrMergedDatasetNames = Nothing, _lrrLastModifiedBy = Nothing, _lrrDatasetSyncCount = Nothing};
+listRecordsResponse :: Int -> ListRecordsResponse
+listRecordsResponse pStatusCode = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount = Nothing, _lrrDatasetExists = Nothing, _lrrCount = Nothing, _lrrRecords = Nothing, _lrrNextToken = Nothing, _lrrSyncSessionToken = Nothing, _lrrMergedDatasetNames = Nothing, _lrrLastModifiedBy = Nothing, _lrrDatasetSyncCount = Nothing, _lrrStatusCode = pStatusCode};
 
 -- | A boolean value specifying whether to delete the dataset locally.
 lrrDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
@@ -218,3 +226,7 @@ lrrLastModifiedBy = lens _lrrLastModifiedBy (\ s a -> s{_lrrLastModifiedBy = a})
 -- | Server sync count for this dataset.
 lrrDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrDatasetSyncCount = lens _lrrDatasetSyncCount (\ s a -> s{_lrrDatasetSyncCount = a});
+
+-- | FIXME: Undocumented member.
+lrrStatusCode :: Lens' ListRecordsResponse Int
+lrrStatusCode = lens _lrrStatusCode (\ s a -> s{_lrrStatusCode = a});

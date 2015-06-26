@@ -39,10 +39,11 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Response lenses
     , dNextToken
     , dActivities
+    , dStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,7 +105,8 @@ instance AWSRequest DescribeScalingActivities where
                  DescribeScalingActivitiesResponse' <$>
                    (x .@? "NextToken") <*>
                      (x .@? "Activities" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty
@@ -131,11 +133,13 @@ instance ToQuery DescribeScalingActivities where
 -- * 'dNextToken'
 --
 -- * 'dActivities'
-data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'{_dNextToken :: Maybe Text, _dActivities :: [Activity]} deriving (Eq, Read, Show)
+--
+-- * 'dStatusCode'
+data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'{_dNextToken :: Maybe Text, _dActivities :: [Activity], _dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
-describeScalingActivitiesResponse :: DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse = DescribeScalingActivitiesResponse'{_dNextToken = Nothing, _dActivities = mempty};
+describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
+describeScalingActivitiesResponse pStatusCode = DescribeScalingActivitiesResponse'{_dNextToken = Nothing, _dActivities = mempty, _dStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -145,3 +149,7 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 -- | The scaling activities.
 dActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dActivities = lens _dActivities (\ s a -> s{_dActivities = a});
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DescribeScalingActivitiesResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

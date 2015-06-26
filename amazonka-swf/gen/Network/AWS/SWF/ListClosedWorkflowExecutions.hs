@@ -75,7 +75,7 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     , weiExecutionInfos
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -197,8 +197,8 @@ instance AWSPager ListClosedWorkflowExecutions where
           | stop (rs ^. weiNextPageToken) = Nothing
           | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
-            Just $
-              rq & lcweNextPageToken .~ rs ^. weiNextPageToken
+            Just $ rq &
+              lcweNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListClosedWorkflowExecutions
          where

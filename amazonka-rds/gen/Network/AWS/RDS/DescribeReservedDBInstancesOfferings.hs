@@ -41,15 +41,18 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- ** Response lenses
     , drdiorMarker
     , drdiorReservedDBInstancesOfferings
+    , drdiorStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeReservedDBInstancesOfferings' smart constructor.
+-- |
+--
+-- /See:/ 'describeReservedDBInstancesOfferings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -157,7 +160,8 @@ instance AWSRequest
                  DescribeReservedDBInstancesOfferingsResponse' <$>
                    (x .@? "Marker") <*>
                      (x .@? "ReservedDBInstancesOfferings" .!@ mempty >>=
-                        may (parseXMLList "ReservedDBInstancesOffering")))
+                        may (parseXMLList "ReservedDBInstancesOffering"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders
          DescribeReservedDBInstancesOfferings where
@@ -186,18 +190,23 @@ instance ToQuery DescribeReservedDBInstancesOfferings
                "OfferingType" =: _drdioOfferingType,
                "Duration" =: _drdioDuration]
 
--- | /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeReservedDBInstancesOfferings action.
+--
+-- /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drdiorMarker'
 --
 -- * 'drdiorReservedDBInstancesOfferings'
-data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker :: Maybe Text, _drdiorReservedDBInstancesOfferings :: Maybe [ReservedDBInstancesOffering]} deriving (Eq, Read, Show)
+--
+-- * 'drdiorStatusCode'
+data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker :: Maybe Text, _drdiorReservedDBInstancesOfferings :: Maybe [ReservedDBInstancesOffering], _drdiorStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
-describeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker = Nothing, _drdiorReservedDBInstancesOfferings = Nothing};
+describeReservedDBInstancesOfferingsResponse :: Int -> DescribeReservedDBInstancesOfferingsResponse
+describeReservedDBInstancesOfferingsResponse pStatusCode = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker = Nothing, _drdiorReservedDBInstancesOfferings = Nothing, _drdiorStatusCode = pStatusCode};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -208,3 +217,7 @@ drdiorMarker = lens _drdiorMarker (\ s a -> s{_drdiorMarker = a});
 -- | A list of reserved DB instance offerings.
 drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
 drdiorReservedDBInstancesOfferings = lens _drdiorReservedDBInstancesOfferings (\ s a -> s{_drdiorReservedDBInstancesOfferings = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+drdiorStatusCode :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
+drdiorStatusCode = lens _drdiorStatusCode (\ s a -> s{_drdiorStatusCode = a});

@@ -58,6 +58,7 @@ module Network.AWS.OpsWorks.CloneStack
     , cloneStackResponse
     -- ** Response lenses
     , csrStackId
+    , csrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -330,7 +331,8 @@ instance AWSRequest CloneStack where
         response
           = receiveJSON
               (\ s h x ->
-                 CloneStackResponse' <$> (x .?> "StackId"))
+                 CloneStackResponse' <$>
+                   (x .?> "StackId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CloneStack where
         toHeaders
@@ -375,17 +377,25 @@ instance ToPath CloneStack where
 instance ToQuery CloneStack where
         toQuery = const mempty
 
--- | /See:/ 'cloneStackResponse' smart constructor.
+-- | Contains the response to a @CloneStack@ request.
+--
+-- /See:/ 'cloneStackResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrStackId'
-newtype CloneStackResponse = CloneStackResponse'{_csrStackId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data CloneStackResponse = CloneStackResponse'{_csrStackId :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CloneStackResponse' smart constructor.
-cloneStackResponse :: CloneStackResponse
-cloneStackResponse = CloneStackResponse'{_csrStackId = Nothing};
+cloneStackResponse :: Int -> CloneStackResponse
+cloneStackResponse pStatusCode = CloneStackResponse'{_csrStackId = Nothing, _csrStatusCode = pStatusCode};
 
 -- | The cloned stack ID.
 csrStackId :: Lens' CloneStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' CloneStackResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

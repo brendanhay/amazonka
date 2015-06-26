@@ -39,6 +39,7 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     , describeServiceAccessPoliciesResponse
     -- ** Response lenses
     , dsaprAccessPolicies
+    , dsaprStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -46,7 +47,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeServiceAccessPolicies' smart constructor.
+-- | Container for the parameters to the @DescribeServiceAccessPolicies@
+-- operation. Specifies the name of the domain you want to describe. To
+-- show the active configuration and exclude any pending changes, set the
+-- @Deployed@ option to @true@.
+--
+-- /See:/ 'describeServiceAccessPolicies' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +85,7 @@ instance AWSRequest DescribeServiceAccessPolicies
               "DescribeServiceAccessPoliciesResult"
               (\ s h x ->
                  DescribeServiceAccessPoliciesResponse' <$>
-                   (x .@ "AccessPolicies"))
+                   (x .@ "AccessPolicies") <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeServiceAccessPolicies
          where
@@ -97,17 +103,25 @@ instance ToQuery DescribeServiceAccessPolicies where
                "Deployed" =: _dsapDeployed,
                "DomainName" =: _dsapDomainName]
 
--- | /See:/ 'describeServiceAccessPoliciesResponse' smart constructor.
+-- | The result of a @DescribeServiceAccessPolicies@ request.
+--
+-- /See:/ 'describeServiceAccessPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsaprAccessPolicies'
-newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'{_dsaprAccessPolicies :: AccessPoliciesStatus} deriving (Eq, Read, Show)
+--
+-- * 'dsaprStatusCode'
+data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'{_dsaprAccessPolicies :: AccessPoliciesStatus, _dsaprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
-describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
-describeServiceAccessPoliciesResponse pAccessPolicies = DescribeServiceAccessPoliciesResponse'{_dsaprAccessPolicies = pAccessPolicies};
+describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -> Int -> DescribeServiceAccessPoliciesResponse
+describeServiceAccessPoliciesResponse pAccessPolicies pStatusCode = DescribeServiceAccessPoliciesResponse'{_dsaprAccessPolicies = pAccessPolicies, _dsaprStatusCode = pStatusCode};
 
 -- | The access rules configured for the domain specified in the request.
 dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
 dsaprAccessPolicies = lens _dsaprAccessPolicies (\ s a -> s{_dsaprAccessPolicies = a});
+
+-- | FIXME: Undocumented member.
+dsaprStatusCode :: Lens' DescribeServiceAccessPoliciesResponse Int
+dsaprStatusCode = lens _dsaprStatusCode (\ s a -> s{_dsaprStatusCode = a});

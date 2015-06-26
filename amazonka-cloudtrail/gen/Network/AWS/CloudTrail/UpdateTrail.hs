@@ -50,6 +50,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrIncludeGlobalServiceEvents
     , utrCloudWatchLogsRoleARN
     , utrS3BucketName
+    , utrStatusCode
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -57,7 +58,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'updateTrail' smart constructor.
+-- | Specifies settings to update for the trail.
+--
+-- /See:/ 'updateTrail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -128,7 +131,8 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "Name")
                      <*> (x .?> "IncludeGlobalServiceEvents")
                      <*> (x .?> "CloudWatchLogsRoleArn")
-                     <*> (x .?> "S3BucketName"))
+                     <*> (x .?> "S3BucketName")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateTrail where
         toHeaders
@@ -158,7 +162,10 @@ instance ToPath UpdateTrail where
 instance ToQuery UpdateTrail where
         toQuery = const mempty
 
--- | /See:/ 'updateTrailResponse' smart constructor.
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'updateTrailResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -175,11 +182,13 @@ instance ToQuery UpdateTrail where
 -- * 'utrCloudWatchLogsRoleARN'
 --
 -- * 'utrS3BucketName'
-data UpdateTrailResponse = UpdateTrailResponse'{_utrS3KeyPrefix :: Maybe Text, _utrSNSTopicName :: Maybe Text, _utrCloudWatchLogsLogGroupARN :: Maybe Text, _utrName :: Maybe Text, _utrIncludeGlobalServiceEvents :: Maybe Bool, _utrCloudWatchLogsRoleARN :: Maybe Text, _utrS3BucketName :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'utrStatusCode'
+data UpdateTrailResponse = UpdateTrailResponse'{_utrS3KeyPrefix :: Maybe Text, _utrSNSTopicName :: Maybe Text, _utrCloudWatchLogsLogGroupARN :: Maybe Text, _utrName :: Maybe Text, _utrIncludeGlobalServiceEvents :: Maybe Bool, _utrCloudWatchLogsRoleARN :: Maybe Text, _utrS3BucketName :: Maybe Text, _utrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateTrailResponse' smart constructor.
-updateTrailResponse :: UpdateTrailResponse
-updateTrailResponse = UpdateTrailResponse'{_utrS3KeyPrefix = Nothing, _utrSNSTopicName = Nothing, _utrCloudWatchLogsLogGroupARN = Nothing, _utrName = Nothing, _utrIncludeGlobalServiceEvents = Nothing, _utrCloudWatchLogsRoleARN = Nothing, _utrS3BucketName = Nothing};
+updateTrailResponse :: Int -> UpdateTrailResponse
+updateTrailResponse pStatusCode = UpdateTrailResponse'{_utrS3KeyPrefix = Nothing, _utrSNSTopicName = Nothing, _utrCloudWatchLogsLogGroupARN = Nothing, _utrName = Nothing, _utrIncludeGlobalServiceEvents = Nothing, _utrCloudWatchLogsRoleARN = Nothing, _utrS3BucketName = Nothing, _utrStatusCode = pStatusCode};
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
@@ -214,3 +223,7 @@ utrCloudWatchLogsRoleARN = lens _utrCloudWatchLogsRoleARN (\ s a -> s{_utrCloudW
 -- files.
 utrS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrS3BucketName = lens _utrS3BucketName (\ s a -> s{_utrS3BucketName = a});
+
+-- | FIXME: Undocumented member.
+utrStatusCode :: Lens' UpdateTrailResponse Int
+utrStatusCode = lens _utrStatusCode (\ s a -> s{_utrStatusCode = a});

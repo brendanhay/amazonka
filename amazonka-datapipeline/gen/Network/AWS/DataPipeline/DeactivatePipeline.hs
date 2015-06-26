@@ -36,6 +36,8 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     , DeactivatePipelineResponse
     -- ** Response constructor
     , deactivatePipelineResponse
+    -- ** Response lenses
+    , deaStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -43,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deactivatePipeline' smart constructor.
+-- | Contains the parameters for DeactivatePipeline.
+--
+-- /See:/ 'deactivatePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -71,7 +75,10 @@ instance AWSRequest DeactivatePipeline where
         type Rs DeactivatePipeline =
              DeactivatePipelineResponse
         request = postJSON
-        response = receiveNull DeactivatePipelineResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeactivatePipelineResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DeactivatePipeline where
         toHeaders
@@ -94,9 +101,19 @@ instance ToPath DeactivatePipeline where
 instance ToQuery DeactivatePipeline where
         toQuery = const mempty
 
--- | /See:/ 'deactivatePipelineResponse' smart constructor.
-data DeactivatePipelineResponse = DeactivatePipelineResponse' deriving (Eq, Read, Show)
+-- | Contains the output of DeactivatePipeline.
+--
+-- /See:/ 'deactivatePipelineResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'deaStatusCode'
+newtype DeactivatePipelineResponse = DeactivatePipelineResponse'{_deaStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeactivatePipelineResponse' smart constructor.
-deactivatePipelineResponse :: DeactivatePipelineResponse
-deactivatePipelineResponse = DeactivatePipelineResponse';
+deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
+deactivatePipelineResponse pStatusCode = DeactivatePipelineResponse'{_deaStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+deaStatusCode :: Lens' DeactivatePipelineResponse Int
+deaStatusCode = lens _deaStatusCode (\ s a -> s{_deaStatusCode = a});

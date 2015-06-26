@@ -34,6 +34,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     , addSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
     , asitsrEventSubscription
+    , asitsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addSourceIdentifierToSubscription' smart constructor.
+-- |
+--
+-- /See:/ 'addSourceIdentifierToSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,7 +90,7 @@ instance AWSRequest AddSourceIdentifierToSubscription
               "AddSourceIdentifierToSubscriptionResult"
               (\ s h x ->
                  AddSourceIdentifierToSubscriptionResponse' <$>
-                   (x .@? "EventSubscription"))
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddSourceIdentifierToSubscription
          where
@@ -112,12 +115,18 @@ instance ToQuery AddSourceIdentifierToSubscription
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'asitsrEventSubscription'
-newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'{_asitsrEventSubscription :: Maybe EventSubscription} deriving (Eq, Read, Show)
+--
+-- * 'asitsrStatusCode'
+data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'{_asitsrEventSubscription :: Maybe EventSubscription, _asitsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
-addSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
-addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'{_asitsrEventSubscription = Nothing};
+addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
+addSourceIdentifierToSubscriptionResponse pStatusCode = AddSourceIdentifierToSubscriptionResponse'{_asitsrEventSubscription = Nothing, _asitsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrEventSubscription = lens _asitsrEventSubscription (\ s a -> s{_asitsrEventSubscription = a});
+
+-- | FIXME: Undocumented member.
+asitsrStatusCode :: Lens' AddSourceIdentifierToSubscriptionResponse Int
+asitsrStatusCode = lens _asitsrStatusCode (\ s a -> s{_asitsrStatusCode = a});

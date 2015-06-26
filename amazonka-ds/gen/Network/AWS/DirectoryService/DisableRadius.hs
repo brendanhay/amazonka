@@ -31,6 +31,8 @@ module Network.AWS.DirectoryService.DisableRadius
     , DisableRadiusResponse
     -- ** Response constructor
     , disableRadiusResponse
+    -- ** Response lenses
+    , drrStatusCode
     ) where
 
 import Network.AWS.DirectoryService.Types
@@ -38,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'disableRadius' smart constructor.
+-- | Contains the inputs for the DisableRadius operation.
+--
+-- /See:/ 'disableRadius' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -57,7 +61,10 @@ instance AWSRequest DisableRadius where
         type Sv DisableRadius = DirectoryService
         type Rs DisableRadius = DisableRadiusResponse
         request = postJSON
-        response = receiveNull DisableRadiusResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DisableRadiusResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders DisableRadius where
         toHeaders
@@ -79,9 +86,19 @@ instance ToPath DisableRadius where
 instance ToQuery DisableRadius where
         toQuery = const mempty
 
--- | /See:/ 'disableRadiusResponse' smart constructor.
-data DisableRadiusResponse = DisableRadiusResponse' deriving (Eq, Read, Show)
+-- | Contains the results of the DisableRadius operation.
+--
+-- /See:/ 'disableRadiusResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drrStatusCode'
+newtype DisableRadiusResponse = DisableRadiusResponse'{_drrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableRadiusResponse' smart constructor.
-disableRadiusResponse :: DisableRadiusResponse
-disableRadiusResponse = DisableRadiusResponse';
+disableRadiusResponse :: Int -> DisableRadiusResponse
+disableRadiusResponse pStatusCode = DisableRadiusResponse'{_drrStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+drrStatusCode :: Lens' DisableRadiusResponse Int
+drrStatusCode = lens _drrStatusCode (\ s a -> s{_drrStatusCode = a});

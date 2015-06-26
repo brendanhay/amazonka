@@ -42,6 +42,7 @@ module Network.AWS.ElasticFileSystem.DescribeTags
     , dtrMarker
     , dtrNextMarker
     , dtrTags
+    , dtrStatusCode
     ) where
 
 import Network.AWS.ElasticFileSystem.Types
@@ -88,7 +89,8 @@ instance AWSRequest DescribeTags where
               (\ s h x ->
                  DescribeTagsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "NextMarker") <*>
-                     (x .?> "Tags" .!@ mempty))
+                     (x .?> "Tags" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -112,11 +114,13 @@ instance ToQuery DescribeTags where
 -- * 'dtrNextMarker'
 --
 -- * 'dtrTags'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrNextMarker :: Maybe Text, _dtrTags :: [Tag]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrNextMarker :: Maybe Text, _dtrTags :: [Tag], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrNextMarker = Nothing, _dtrTags = mempty};
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrNextMarker = Nothing, _dtrTags = mempty, _dtrStatusCode = pStatusCode};
 
 -- | If the request included a @Marker@, the response returns that value in
 -- this field.
@@ -134,3 +138,7 @@ dtrNextMarker = lens _dtrNextMarker (\ s a -> s{_dtrNextMarker = a});
 -- objects.
 dtrTags :: Lens' DescribeTagsResponse [Tag]
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTagsResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

@@ -41,6 +41,7 @@ module Network.AWS.Config.DeliverConfigSnapshot
     , deliverConfigSnapshotResponse
     -- ** Response lenses
     , dcsrConfigSnapshotId
+    , dcsrStatusCode
     ) where
 
 import Network.AWS.Config.Types
@@ -48,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deliverConfigSnapshot' smart constructor.
+-- | The input for the DeliverConfigSnapshot action.
+--
+-- /See:/ 'deliverConfigSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -73,7 +76,7 @@ instance AWSRequest DeliverConfigSnapshot where
           = receiveJSON
               (\ s h x ->
                  DeliverConfigSnapshotResponse' <$>
-                   (x .?> "configSnapshotId"))
+                   (x .?> "configSnapshotId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders
@@ -96,17 +99,25 @@ instance ToPath DeliverConfigSnapshot where
 instance ToQuery DeliverConfigSnapshot where
         toQuery = const mempty
 
--- | /See:/ 'deliverConfigSnapshotResponse' smart constructor.
+-- | The output for the DeliverConfigSnapshot action in JSON format.
+--
+-- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsrConfigSnapshotId'
-newtype DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'{_dcsrConfigSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcsrStatusCode'
+data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'{_dcsrConfigSnapshotId :: Maybe Text, _dcsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
-deliverConfigSnapshotResponse :: DeliverConfigSnapshotResponse
-deliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'{_dcsrConfigSnapshotId = Nothing};
+deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
+deliverConfigSnapshotResponse pStatusCode = DeliverConfigSnapshotResponse'{_dcsrConfigSnapshotId = Nothing, _dcsrStatusCode = pStatusCode};
 
 -- | The ID of the snapshot that is being created.
 dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrConfigSnapshotId = lens _dcsrConfigSnapshotId (\ s a -> s{_dcsrConfigSnapshotId = a});
+
+-- | FIXME: Undocumented member.
+dcsrStatusCode :: Lens' DeliverConfigSnapshotResponse Int
+dcsrStatusCode = lens _dcsrStatusCode (\ s a -> s{_dcsrStatusCode = a});

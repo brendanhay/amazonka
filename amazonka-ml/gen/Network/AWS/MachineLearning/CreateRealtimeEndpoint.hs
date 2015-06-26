@@ -35,6 +35,7 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     -- ** Response lenses
     , crerRealtimeEndpointInfo
     , crerMLModelId
+    , crerStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -67,7 +68,8 @@ instance AWSRequest CreateRealtimeEndpoint where
               (\ s h x ->
                  CreateRealtimeEndpointResponse' <$>
                    (x .?> "RealtimeEndpointInfo") <*>
-                     (x .?> "MLModelId"))
+                     (x .?> "MLModelId")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
@@ -89,18 +91,28 @@ instance ToPath CreateRealtimeEndpoint where
 instance ToQuery CreateRealtimeEndpoint where
         toQuery = const mempty
 
--- | /See:/ 'createRealtimeEndpointResponse' smart constructor.
+-- | Represents the output of an CreateRealtimeEndpoint operation.
+--
+-- The result contains the @MLModelId@ and the endpoint information for the
+-- @MLModel@.
+--
+-- The endpoint information includes the URI of the @MLModel@; that is, the
+-- location to send online prediction requests for the specified @MLModel@.
+--
+-- /See:/ 'createRealtimeEndpointResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crerRealtimeEndpointInfo'
 --
 -- * 'crerMLModelId'
-data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _crerMLModelId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'crerStatusCode'
+data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _crerMLModelId :: Maybe Text, _crerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
-createRealtimeEndpointResponse :: CreateRealtimeEndpointResponse
-createRealtimeEndpointResponse = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo = Nothing, _crerMLModelId = Nothing};
+createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse
+createRealtimeEndpointResponse pStatusCode = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo = Nothing, _crerMLModelId = Nothing, _crerStatusCode = pStatusCode};
 
 -- | The endpoint information of the @MLModel@
 crerRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
@@ -110,3 +122,7 @@ crerRealtimeEndpointInfo = lens _crerRealtimeEndpointInfo (\ s a -> s{_crerRealt
 -- should be identical to the value of the @MLModelId@ in the request.
 crerMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crerMLModelId = lens _crerMLModelId (\ s a -> s{_crerMLModelId = a});
+
+-- | FIXME: Undocumented member.
+crerStatusCode :: Lens' CreateRealtimeEndpointResponse Int
+crerStatusCode = lens _crerStatusCode (\ s a -> s{_crerStatusCode = a});

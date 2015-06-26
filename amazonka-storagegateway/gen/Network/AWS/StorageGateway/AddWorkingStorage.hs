@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     , addWorkingStorageResponse
     -- ** Response lenses
     , awsrGatewayARN
+    , awsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -51,7 +52,11 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'addWorkingStorage' smart constructor.
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   AddWorkingStorageInput$DiskIds
+--
+-- /See:/ 'addWorkingStorage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -81,7 +86,8 @@ instance AWSRequest AddWorkingStorage where
         response
           = receiveJSON
               (\ s h x ->
-                 AddWorkingStorageResponse' <$> (x .?> "GatewayARN"))
+                 AddWorkingStorageResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddWorkingStorage where
         toHeaders
@@ -105,17 +111,26 @@ instance ToPath AddWorkingStorage where
 instance ToQuery AddWorkingStorage where
         toQuery = const mempty
 
--- | /See:/ 'addWorkingStorageResponse' smart constructor.
+-- | A JSON object containing the of the gateway for which working storage
+-- was configured.
+--
+-- /See:/ 'addWorkingStorageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'awsrGatewayARN'
-newtype AddWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'awsrStatusCode'
+data AddWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN :: Maybe Text, _awsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
-addWorkingStorageResponse :: AddWorkingStorageResponse
-addWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN = Nothing};
+addWorkingStorageResponse :: Int -> AddWorkingStorageResponse
+addWorkingStorageResponse pStatusCode = AddWorkingStorageResponse'{_awsrGatewayARN = Nothing, _awsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrGatewayARN = lens _awsrGatewayARN (\ s a -> s{_awsrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+awsrStatusCode :: Lens' AddWorkingStorageResponse Int
+awsrStatusCode = lens _awsrStatusCode (\ s a -> s{_awsrStatusCode = a});

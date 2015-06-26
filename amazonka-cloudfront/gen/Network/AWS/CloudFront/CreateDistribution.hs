@@ -34,6 +34,7 @@ module Network.AWS.CloudFront.CreateDistribution
     , cdrETag
     , cdrDistribution
     , cdrLocation
+    , cdrStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -41,7 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDistribution' smart constructor.
+-- | The request to create a new distribution.
+--
+-- /See:/ 'createDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +69,8 @@ instance AWSRequest CreateDistribution where
               (\ s h x ->
                  CreateDistributionResponse' <$>
                    (h .#? "ETag") <*> (x .@? "Distribution") <*>
-                     (h .#? "Location"))
+                     (h .#? "Location")
+                     <*> (pure (fromEnum s)))
 
 instance ToElement CreateDistribution where
         toElement
@@ -84,7 +88,9 @@ instance ToPath CreateDistribution where
 instance ToQuery CreateDistribution where
         toQuery = const mempty
 
--- | /See:/ 'createDistributionResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'createDistributionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,11 +99,13 @@ instance ToQuery CreateDistribution where
 -- * 'cdrDistribution'
 --
 -- * 'cdrLocation'
-data CreateDistributionResponse = CreateDistributionResponse'{_cdrETag :: Maybe Text, _cdrDistribution :: Maybe Distribution, _cdrLocation :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdrStatusCode'
+data CreateDistributionResponse = CreateDistributionResponse'{_cdrETag :: Maybe Text, _cdrDistribution :: Maybe Distribution, _cdrLocation :: Maybe Text, _cdrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDistributionResponse' smart constructor.
-createDistributionResponse :: CreateDistributionResponse
-createDistributionResponse = CreateDistributionResponse'{_cdrETag = Nothing, _cdrDistribution = Nothing, _cdrLocation = Nothing};
+createDistributionResponse :: Int -> CreateDistributionResponse
+createDistributionResponse pStatusCode = CreateDistributionResponse'{_cdrETag = Nothing, _cdrDistribution = Nothing, _cdrLocation = Nothing, _cdrStatusCode = pStatusCode};
 
 -- | The current version of the distribution created.
 cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
@@ -112,3 +120,7 @@ cdrDistribution = lens _cdrDistribution (\ s a -> s{_cdrDistribution = a});
 -- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
 cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\ s a -> s{_cdrLocation = a});
+
+-- | FIXME: Undocumented member.
+cdrStatusCode :: Lens' CreateDistributionResponse Int
+cdrStatusCode = lens _cdrStatusCode (\ s a -> s{_cdrStatusCode = a});

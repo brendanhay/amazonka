@@ -35,6 +35,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     , createDBSnapshotResponse
     -- ** Response lenses
     , creDBSnapshot
+    , creStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createDBSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'createDBSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -92,7 +95,8 @@ instance AWSRequest CreateDBSnapshot where
         response
           = receiveXMLWrapper "CreateDBSnapshotResult"
               (\ s h x ->
-                 CreateDBSnapshotResponse' <$> (x .@? "DBSnapshot"))
+                 CreateDBSnapshotResponse' <$>
+                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty
@@ -114,12 +118,18 @@ instance ToQuery CreateDBSnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'creDBSnapshot'
-newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse'{_creDBSnapshot :: Maybe DBSnapshot} deriving (Eq, Read, Show)
+--
+-- * 'creStatusCode'
+data CreateDBSnapshotResponse = CreateDBSnapshotResponse'{_creDBSnapshot :: Maybe DBSnapshot, _creStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSnapshotResponse' smart constructor.
-createDBSnapshotResponse :: CreateDBSnapshotResponse
-createDBSnapshotResponse = CreateDBSnapshotResponse'{_creDBSnapshot = Nothing};
+createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse
+createDBSnapshotResponse pStatusCode = CreateDBSnapshotResponse'{_creDBSnapshot = Nothing, _creStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 creDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 creDBSnapshot = lens _creDBSnapshot (\ s a -> s{_creDBSnapshot = a});
+
+-- | FIXME: Undocumented member.
+creStatusCode :: Lens' CreateDBSnapshotResponse Int
+creStatusCode = lens _creStatusCode (\ s a -> s{_creStatusCode = a});

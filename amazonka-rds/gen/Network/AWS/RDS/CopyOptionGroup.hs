@@ -35,6 +35,7 @@ module Network.AWS.RDS.CopyOptionGroup
     , copyOptionGroupResponse
     -- ** Response lenses
     , cogrOptionGroup
+    , cogrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -42,7 +43,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'copyOptionGroup' smart constructor.
+-- |
+--
+-- /See:/ 'copyOptionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,8 @@ instance AWSRequest CopyOptionGroup where
         response
           = receiveXMLWrapper "CopyOptionGroupResult"
               (\ s h x ->
-                 CopyOptionGroupResponse' <$> (x .@? "OptionGroup"))
+                 CopyOptionGroupResponse' <$>
+                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
@@ -127,12 +131,18 @@ instance ToQuery CopyOptionGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cogrOptionGroup'
-newtype CopyOptionGroupResponse = CopyOptionGroupResponse'{_cogrOptionGroup :: Maybe OptionGroup} deriving (Eq, Read, Show)
+--
+-- * 'cogrStatusCode'
+data CopyOptionGroupResponse = CopyOptionGroupResponse'{_cogrOptionGroup :: Maybe OptionGroup, _cogrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
-copyOptionGroupResponse :: CopyOptionGroupResponse
-copyOptionGroupResponse = CopyOptionGroupResponse'{_cogrOptionGroup = Nothing};
+copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
+copyOptionGroupResponse pStatusCode = CopyOptionGroupResponse'{_cogrOptionGroup = Nothing, _cogrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\ s a -> s{_cogrOptionGroup = a});
+
+-- | FIXME: Undocumented member.
+cogrStatusCode :: Lens' CopyOptionGroupResponse Int
+cogrStatusCode = lens _cogrStatusCode (\ s a -> s{_cogrStatusCode = a});

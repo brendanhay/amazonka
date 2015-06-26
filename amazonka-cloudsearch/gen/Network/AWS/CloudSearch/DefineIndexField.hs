@@ -41,6 +41,7 @@ module Network.AWS.CloudSearch.DefineIndexField
     , defineIndexFieldResponse
     -- ** Response lenses
     , defIndexField
+    , defStatusCode
     ) where
 
 import Network.AWS.CloudSearch.Types
@@ -48,7 +49,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'defineIndexField' smart constructor.
+-- | Container for the parameters to the @DefineIndexField@ operation.
+-- Specifies the name of the domain you want to update and the index field
+-- configuration.
+--
+-- /See:/ 'defineIndexField' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +81,8 @@ instance AWSRequest DefineIndexField where
         response
           = receiveXMLWrapper "DefineIndexFieldResult"
               (\ s h x ->
-                 DefineIndexFieldResponse' <$> (x .@ "IndexField"))
+                 DefineIndexFieldResponse' <$>
+                   (x .@ "IndexField") <*> (pure (fromEnum s)))
 
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
@@ -92,17 +98,26 @@ instance ToQuery DefineIndexField where
                "DomainName" =: _def1DomainName,
                "IndexField" =: _def1IndexField]
 
--- | /See:/ 'defineIndexFieldResponse' smart constructor.
+-- | The result of a @DefineIndexField@ request. Contains the status of the
+-- newly-configured index field.
+--
+-- /See:/ 'defineIndexFieldResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'defIndexField'
-newtype DefineIndexFieldResponse = DefineIndexFieldResponse'{_defIndexField :: IndexFieldStatus} deriving (Eq, Read, Show)
+--
+-- * 'defStatusCode'
+data DefineIndexFieldResponse = DefineIndexFieldResponse'{_defIndexField :: IndexFieldStatus, _defStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
-defineIndexFieldResponse :: IndexFieldStatus -> DefineIndexFieldResponse
-defineIndexFieldResponse pIndexField = DefineIndexFieldResponse'{_defIndexField = pIndexField};
+defineIndexFieldResponse :: IndexFieldStatus -> Int -> DefineIndexFieldResponse
+defineIndexFieldResponse pIndexField pStatusCode = DefineIndexFieldResponse'{_defIndexField = pIndexField, _defStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 defIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 defIndexField = lens _defIndexField (\ s a -> s{_defIndexField = a});
+
+-- | FIXME: Undocumented member.
+defStatusCode :: Lens' DefineIndexFieldResponse Int
+defStatusCode = lens _defStatusCode (\ s a -> s{_defStatusCode = a});

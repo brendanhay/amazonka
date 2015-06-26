@@ -34,6 +34,7 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     , listVolumeInitiatorsResponse
     -- ** Response lenses
     , lvirInitiators
+    , lvirStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'listVolumeInitiators' smart constructor.
+-- | ListVolumeInitiatorsInput
+--
+-- /See:/ 'listVolumeInitiators' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +69,8 @@ instance AWSRequest ListVolumeInitiators where
           = receiveJSON
               (\ s h x ->
                  ListVolumeInitiatorsResponse' <$>
-                   (x .?> "Initiators" .!@ mempty))
+                   (x .?> "Initiators" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ListVolumeInitiators where
         toHeaders
@@ -88,18 +92,26 @@ instance ToPath ListVolumeInitiators where
 instance ToQuery ListVolumeInitiators where
         toQuery = const mempty
 
--- | /See:/ 'listVolumeInitiatorsResponse' smart constructor.
+-- | ListVolumeInitiatorsOutput
+--
+-- /See:/ 'listVolumeInitiatorsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lvirInitiators'
-newtype ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators :: Maybe [Text]} deriving (Eq, Read, Show)
+--
+-- * 'lvirStatusCode'
+data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators :: Maybe [Text], _lvirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
-listVolumeInitiatorsResponse :: ListVolumeInitiatorsResponse
-listVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators = Nothing};
+listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse
+listVolumeInitiatorsResponse pStatusCode = ListVolumeInitiatorsResponse'{_lvirInitiators = Nothing, _lvirStatusCode = pStatusCode};
 
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
 lvirInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lvirStatusCode :: Lens' ListVolumeInitiatorsResponse Int
+lvirStatusCode = lens _lvirStatusCode (\ s a -> s{_lvirStatusCode = a});

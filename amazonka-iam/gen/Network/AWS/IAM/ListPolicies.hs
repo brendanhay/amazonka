@@ -52,6 +52,7 @@ module Network.AWS.IAM.ListPolicies
     , lprMarker
     , lprIsTruncated
     , lprPolicies
+    , lprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -129,7 +130,8 @@ instance AWSRequest ListPolicies where
                  ListPoliciesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Policies" .!@ mempty >>=
-                        may (parseXMLList "member")))
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
@@ -147,7 +149,9 @@ instance ToQuery ListPolicies where
                "Scope" =: _lpScope, "MaxItems" =: _lpMaxItems,
                "Marker" =: _lpMarker]
 
--- | /See:/ 'listPoliciesResponse' smart constructor.
+-- | Contains the response to a successful ListPolicies request.
+--
+-- /See:/ 'listPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -156,11 +160,13 @@ instance ToQuery ListPolicies where
 -- * 'lprIsTruncated'
 --
 -- * 'lprPolicies'
-data ListPoliciesResponse = ListPoliciesResponse'{_lprMarker :: Maybe Text, _lprIsTruncated :: Maybe Bool, _lprPolicies :: Maybe [Policy]} deriving (Eq, Read, Show)
+--
+-- * 'lprStatusCode'
+data ListPoliciesResponse = ListPoliciesResponse'{_lprMarker :: Maybe Text, _lprIsTruncated :: Maybe Bool, _lprPolicies :: Maybe [Policy], _lprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListPoliciesResponse' smart constructor.
-listPoliciesResponse :: ListPoliciesResponse
-listPoliciesResponse = ListPoliciesResponse'{_lprMarker = Nothing, _lprIsTruncated = Nothing, _lprPolicies = Nothing};
+listPoliciesResponse :: Int -> ListPoliciesResponse
+listPoliciesResponse pStatusCode = ListPoliciesResponse'{_lprMarker = Nothing, _lprIsTruncated = Nothing, _lprPolicies = Nothing, _lprStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -178,3 +184,7 @@ lprIsTruncated = lens _lprIsTruncated (\ s a -> s{_lprIsTruncated = a});
 -- | A list of policies.
 lprPolicies :: Lens' ListPoliciesResponse [Policy]
 lprPolicies = lens _lprPolicies (\ s a -> s{_lprPolicies = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lprStatusCode :: Lens' ListPoliciesResponse Int
+lprStatusCode = lens _lprStatusCode (\ s a -> s{_lprStatusCode = a});

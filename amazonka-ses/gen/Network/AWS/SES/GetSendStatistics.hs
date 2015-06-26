@@ -36,6 +36,7 @@ module Network.AWS.SES.GetSendStatistics
     , getSendStatisticsResponse
     -- ** Response lenses
     , gssrSendDataPoints
+    , gssrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -59,7 +60,8 @@ instance AWSRequest GetSendStatistics where
               (\ s h x ->
                  GetSendStatisticsResponse' <$>
                    (x .@? "SendDataPoints" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
@@ -74,17 +76,27 @@ instance ToQuery GetSendStatistics where
                  ["Action" =: ("GetSendStatistics" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'getSendStatisticsResponse' smart constructor.
+-- | Represents a list of @SendDataPoint@ items returned from a successful
+-- @GetSendStatistics@ request. This list contains aggregated data from the
+-- previous two weeks of sending activity.
+--
+-- /See:/ 'getSendStatisticsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gssrSendDataPoints'
-newtype GetSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints :: Maybe [SendDataPoint]} deriving (Eq, Read, Show)
+--
+-- * 'gssrStatusCode'
+data GetSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints :: Maybe [SendDataPoint], _gssrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetSendStatisticsResponse' smart constructor.
-getSendStatisticsResponse :: GetSendStatisticsResponse
-getSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints = Nothing};
+getSendStatisticsResponse :: Int -> GetSendStatisticsResponse
+getSendStatisticsResponse pStatusCode = GetSendStatisticsResponse'{_gssrSendDataPoints = Nothing, _gssrStatusCode = pStatusCode};
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+gssrStatusCode :: Lens' GetSendStatisticsResponse Int
+gssrStatusCode = lens _gssrStatusCode (\ s a -> s{_gssrStatusCode = a});

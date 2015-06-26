@@ -53,6 +53,8 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , CompleteLifecycleActionResponse
     -- ** Response constructor
     , completeLifecycleActionResponse
+    -- ** Response lenses
+    , clarStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -103,7 +105,10 @@ instance AWSRequest CompleteLifecycleAction where
              CompleteLifecycleActionResponse
         request = post
         response
-          = receiveNull CompleteLifecycleActionResponse'
+          = receiveXMLWrapper "CompleteLifecycleActionResult"
+              (\ s h x ->
+                 CompleteLifecycleActionResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
@@ -123,8 +128,16 @@ instance ToQuery CompleteLifecycleAction where
                "LifecycleActionResult" =: _claLifecycleActionResult]
 
 -- | /See:/ 'completeLifecycleActionResponse' smart constructor.
-data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'clarStatusCode'
+newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'{_clarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
-completeLifecycleActionResponse :: CompleteLifecycleActionResponse
-completeLifecycleActionResponse = CompleteLifecycleActionResponse';
+completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
+completeLifecycleActionResponse pStatusCode = CompleteLifecycleActionResponse'{_clarStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+clarStatusCode :: Lens' CompleteLifecycleActionResponse Int
+clarStatusCode = lens _clarStatusCode (\ s a -> s{_clarStatusCode = a});

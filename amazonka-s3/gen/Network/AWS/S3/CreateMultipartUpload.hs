@@ -66,6 +66,7 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmurSSECustomerKeyMD5
     , cmurUploadId
     , cmurServerSideEncryption
+    , cmurStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -251,7 +252,8 @@ instance AWSRequest CreateMultipartUpload where
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (x .@? "UploadId")
-                     <*> (h .#? "x-amz-server-side-encryption"))
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
@@ -310,11 +312,13 @@ instance ToQuery CreateMultipartUpload where
 -- * 'cmurUploadId'
 --
 -- * 'cmurServerSideEncryption'
-data CreateMultipartUploadResponse = CreateMultipartUploadResponse'{_cmurRequestCharged :: Maybe RequestCharged, _cmurSSECustomerAlgorithm :: Maybe Text, _cmurBucket :: Maybe BucketName, _cmurKey :: Maybe ObjectKey, _cmurSSEKMSKeyId :: Maybe (Sensitive Text), _cmurSSECustomerKeyMD5 :: Maybe Text, _cmurUploadId :: Maybe Text, _cmurServerSideEncryption :: Maybe ServerSideEncryption} deriving (Eq, Read, Show)
+--
+-- * 'cmurStatusCode'
+data CreateMultipartUploadResponse = CreateMultipartUploadResponse'{_cmurRequestCharged :: Maybe RequestCharged, _cmurSSECustomerAlgorithm :: Maybe Text, _cmurBucket :: Maybe BucketName, _cmurKey :: Maybe ObjectKey, _cmurSSEKMSKeyId :: Maybe (Sensitive Text), _cmurSSECustomerKeyMD5 :: Maybe Text, _cmurUploadId :: Maybe Text, _cmurServerSideEncryption :: Maybe ServerSideEncryption, _cmurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateMultipartUploadResponse' smart constructor.
-createMultipartUploadResponse :: CreateMultipartUploadResponse
-createMultipartUploadResponse = CreateMultipartUploadResponse'{_cmurRequestCharged = Nothing, _cmurSSECustomerAlgorithm = Nothing, _cmurBucket = Nothing, _cmurKey = Nothing, _cmurSSEKMSKeyId = Nothing, _cmurSSECustomerKeyMD5 = Nothing, _cmurUploadId = Nothing, _cmurServerSideEncryption = Nothing};
+createMultipartUploadResponse :: Int -> CreateMultipartUploadResponse
+createMultipartUploadResponse pStatusCode = CreateMultipartUploadResponse'{_cmurRequestCharged = Nothing, _cmurSSECustomerAlgorithm = Nothing, _cmurBucket = Nothing, _cmurKey = Nothing, _cmurSSEKMSKeyId = Nothing, _cmurSSECustomerKeyMD5 = Nothing, _cmurUploadId = Nothing, _cmurServerSideEncryption = Nothing, _cmurStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 cmurRequestCharged :: Lens' CreateMultipartUploadResponse (Maybe RequestCharged)
@@ -353,3 +357,7 @@ cmurUploadId = lens _cmurUploadId (\ s a -> s{_cmurUploadId = a});
 -- (e.g., AES256, aws:kms).
 cmurServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmurServerSideEncryption = lens _cmurServerSideEncryption (\ s a -> s{_cmurServerSideEncryption = a});
+
+-- | FIXME: Undocumented member.
+cmurStatusCode :: Lens' CreateMultipartUploadResponse Int
+cmurStatusCode = lens _cmurStatusCode (\ s a -> s{_cmurStatusCode = a});

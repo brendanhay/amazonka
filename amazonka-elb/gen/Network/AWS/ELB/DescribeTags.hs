@@ -32,6 +32,7 @@ module Network.AWS.ELB.DescribeTags
     , describeTagsResponse
     -- ** Response lenses
     , dtrTagDescriptions
+    , dtrStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -63,7 +64,8 @@ instance AWSRequest DescribeTags where
               (\ s h x ->
                  DescribeTagsResponse' <$>
                    (x .@? "TagDescriptions" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -84,12 +86,18 @@ instance ToQuery DescribeTags where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTagDescriptions'
-newtype DescribeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions :: Maybe [TagDescription]} deriving (Eq, Read, Show)
+--
+-- * 'dtrStatusCode'
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions :: Maybe [TagDescription], _dtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions = Nothing};
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatusCode = DescribeTagsResponse'{_dtrTagDescriptions = Nothing, _dtrStatusCode = pStatusCode};
 
 -- | Information about the tags.
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions = lens _dtrTagDescriptions (\ s a -> s{_dtrTagDescriptions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrStatusCode :: Lens' DescribeTagsResponse Int
+dtrStatusCode = lens _dtrStatusCode (\ s a -> s{_dtrStatusCode = a});

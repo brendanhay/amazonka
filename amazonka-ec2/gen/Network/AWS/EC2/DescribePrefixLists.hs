@@ -41,6 +41,7 @@ module Network.AWS.EC2.DescribePrefixLists
     -- ** Response lenses
     , dplrNextToken
     , dplrPrefixLists
+    , dplrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -110,8 +111,8 @@ instance AWSRequest DescribePrefixLists where
           = receiveXML
               (\ s h x ->
                  DescribePrefixListsResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
@@ -137,11 +138,13 @@ instance ToQuery DescribePrefixLists where
 -- * 'dplrNextToken'
 --
 -- * 'dplrPrefixLists'
-data DescribePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken :: Maybe Text, _dplrPrefixLists :: Maybe [PrefixList]} deriving (Eq, Read, Show)
+--
+-- * 'dplrStatusCode'
+data DescribePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken :: Maybe Text, _dplrPrefixLists :: Maybe [PrefixList], _dplrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
-describePrefixListsResponse :: DescribePrefixListsResponse
-describePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken = Nothing, _dplrPrefixLists = Nothing};
+describePrefixListsResponse :: Int -> DescribePrefixListsResponse
+describePrefixListsResponse pStatusCode = DescribePrefixListsResponse'{_dplrNextToken = Nothing, _dplrPrefixLists = Nothing, _dplrStatusCode = pStatusCode};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -151,3 +154,7 @@ dplrNextToken = lens _dplrNextToken (\ s a -> s{_dplrNextToken = a});
 -- | All available prefix lists.
 dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
 dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dplrStatusCode :: Lens' DescribePrefixListsResponse Int
+dplrStatusCode = lens _dplrStatusCode (\ s a -> s{_dplrStatusCode = a});

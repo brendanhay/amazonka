@@ -69,6 +69,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     , createDataSourceFromRedshiftResponse
     -- ** Response lenses
     , cdsfrrDataSourceId
+    , cdsfrrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -167,7 +168,7 @@ instance AWSRequest CreateDataSourceFromRedshift
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRedshiftResponse' <$>
-                   (x .?> "DataSourceId"))
+                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
@@ -194,18 +195,31 @@ instance ToPath CreateDataSourceFromRedshift where
 instance ToQuery CreateDataSourceFromRedshift where
         toQuery = const mempty
 
--- | /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
+-- | Represents the output of a CreateDataSourceFromRedshift operation, and
+-- is an acknowledgement that Amazon ML received the request.
+--
+-- The CreateDataSourceFromRedshift operation is asynchronous. You can poll
+-- for updates by using the GetBatchPrediction operation and checking the
+-- @Status@ parameter.
+--
+-- /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdsfrrDataSourceId'
-newtype CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'cdsfrrStatusCode'
+data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId :: Maybe Text, _cdsfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
-createDataSourceFromRedshiftResponse :: CreateDataSourceFromRedshiftResponse
-createDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId = Nothing};
+createDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse
+createDataSourceFromRedshiftResponse pStatusCode = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId = Nothing, _cdsfrrStatusCode = pStatusCode};
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
 cdsfrrDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
 cdsfrrDataSourceId = lens _cdsfrrDataSourceId (\ s a -> s{_cdsfrrDataSourceId = a});
+
+-- | FIXME: Undocumented member.
+cdsfrrStatusCode :: Lens' CreateDataSourceFromRedshiftResponse Int
+cdsfrrStatusCode = lens _cdsfrrStatusCode (\ s a -> s{_cdsfrrStatusCode = a});

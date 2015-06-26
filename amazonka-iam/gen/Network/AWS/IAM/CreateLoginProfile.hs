@@ -38,6 +38,7 @@ module Network.AWS.IAM.CreateLoginProfile
     , createLoginProfileResponse
     -- ** Response lenses
     , clprLoginProfile
+    , clprStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -82,7 +83,7 @@ instance AWSRequest CreateLoginProfile where
           = receiveXMLWrapper "CreateLoginProfileResult"
               (\ s h x ->
                  CreateLoginProfileResponse' <$>
-                   (x .@ "LoginProfile"))
+                   (x .@ "LoginProfile") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateLoginProfile where
         toHeaders = const mempty
@@ -99,17 +100,25 @@ instance ToQuery CreateLoginProfile where
                "UserName" =: _clpUserName,
                "Password" =: _clpPassword]
 
--- | /See:/ 'createLoginProfileResponse' smart constructor.
+-- | Contains the response to a successful CreateLoginProfile request.
+--
+-- /See:/ 'createLoginProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'clprLoginProfile'
-newtype CreateLoginProfileResponse = CreateLoginProfileResponse'{_clprLoginProfile :: LoginProfile} deriving (Eq, Read, Show)
+--
+-- * 'clprStatusCode'
+data CreateLoginProfileResponse = CreateLoginProfileResponse'{_clprLoginProfile :: LoginProfile, _clprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
-createLoginProfileResponse :: LoginProfile -> CreateLoginProfileResponse
-createLoginProfileResponse pLoginProfile = CreateLoginProfileResponse'{_clprLoginProfile = pLoginProfile};
+createLoginProfileResponse :: LoginProfile -> Int -> CreateLoginProfileResponse
+createLoginProfileResponse pLoginProfile pStatusCode = CreateLoginProfileResponse'{_clprLoginProfile = pLoginProfile, _clprStatusCode = pStatusCode};
 
 -- | The user name and password create date.
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\ s a -> s{_clprLoginProfile = a});
+
+-- | FIXME: Undocumented member.
+clprStatusCode :: Lens' CreateLoginProfileResponse Int
+clprStatusCode = lens _clprStatusCode (\ s a -> s{_clprStatusCode = a});

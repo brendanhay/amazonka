@@ -40,6 +40,7 @@ module Network.AWS.SDB.DomainMetadata
     , dmrAttributeNamesSizeBytes
     , dmrTimestamp
     , dmrItemCount
+    , dmrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -76,7 +77,8 @@ instance AWSRequest DomainMetadata where
                      <*> (x .@? "AttributeValueCount")
                      <*> (x .@? "AttributeNamesSizeBytes")
                      <*> (x .@? "Timestamp")
-                     <*> (x .@? "ItemCount"))
+                     <*> (x .@? "ItemCount")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty
@@ -108,11 +110,13 @@ instance ToQuery DomainMetadata where
 -- * 'dmrTimestamp'
 --
 -- * 'dmrItemCount'
-data DomainMetadataResponse = DomainMetadataResponse'{_dmrItemNamesSizeBytes :: Maybe Integer, _dmrAttributeNameCount :: Maybe Int, _dmrAttributeValuesSizeBytes :: Maybe Integer, _dmrAttributeValueCount :: Maybe Int, _dmrAttributeNamesSizeBytes :: Maybe Integer, _dmrTimestamp :: Maybe Int, _dmrItemCount :: Maybe Int} deriving (Eq, Read, Show)
+--
+-- * 'dmrStatusCode'
+data DomainMetadataResponse = DomainMetadataResponse'{_dmrItemNamesSizeBytes :: Maybe Integer, _dmrAttributeNameCount :: Maybe Int, _dmrAttributeValuesSizeBytes :: Maybe Integer, _dmrAttributeValueCount :: Maybe Int, _dmrAttributeNamesSizeBytes :: Maybe Integer, _dmrTimestamp :: Maybe Int, _dmrItemCount :: Maybe Int, _dmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DomainMetadataResponse' smart constructor.
-domainMetadataResponse :: DomainMetadataResponse
-domainMetadataResponse = DomainMetadataResponse'{_dmrItemNamesSizeBytes = Nothing, _dmrAttributeNameCount = Nothing, _dmrAttributeValuesSizeBytes = Nothing, _dmrAttributeValueCount = Nothing, _dmrAttributeNamesSizeBytes = Nothing, _dmrTimestamp = Nothing, _dmrItemCount = Nothing};
+domainMetadataResponse :: Int -> DomainMetadataResponse
+domainMetadataResponse pStatusCode = DomainMetadataResponse'{_dmrItemNamesSizeBytes = Nothing, _dmrAttributeNameCount = Nothing, _dmrAttributeValuesSizeBytes = Nothing, _dmrAttributeValueCount = Nothing, _dmrAttributeNamesSizeBytes = Nothing, _dmrTimestamp = Nothing, _dmrItemCount = Nothing, _dmrStatusCode = pStatusCode};
 
 -- | The total size of all item names in the domain, in bytes.
 dmrItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
@@ -141,3 +145,7 @@ dmrTimestamp = lens _dmrTimestamp (\ s a -> s{_dmrTimestamp = a});
 -- | The number of all items in the domain.
 dmrItemCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrItemCount = lens _dmrItemCount (\ s a -> s{_dmrItemCount = a});
+
+-- | FIXME: Undocumented member.
+dmrStatusCode :: Lens' DomainMetadataResponse Int
+dmrStatusCode = lens _dmrStatusCode (\ s a -> s{_dmrStatusCode = a});

@@ -42,10 +42,11 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     , lipfrrMarker
     , lipfrrIsTruncated
     , lipfrrInstanceProfiles
+    , lipfrrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,7 +104,8 @@ instance AWSRequest ListInstanceProfilesForRole where
                  ListInstanceProfilesForRoleResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
@@ -121,7 +123,10 @@ instance ToQuery ListInstanceProfilesForRole where
                "Marker" =: _lipfrMarker,
                "RoleName" =: _lipfrRoleName]
 
--- | /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
+-- | Contains the response to a successful ListInstanceProfilesForRole
+-- request.
+--
+-- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -130,11 +135,13 @@ instance ToQuery ListInstanceProfilesForRole where
 -- * 'lipfrrIsTruncated'
 --
 -- * 'lipfrrInstanceProfiles'
-data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrMarker :: Maybe Text, _lipfrrIsTruncated :: Maybe Bool, _lipfrrInstanceProfiles :: [InstanceProfile]} deriving (Eq, Read, Show)
+--
+-- * 'lipfrrStatusCode'
+data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrMarker :: Maybe Text, _lipfrrIsTruncated :: Maybe Bool, _lipfrrInstanceProfiles :: [InstanceProfile], _lipfrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
-listInstanceProfilesForRoleResponse :: ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrMarker = Nothing, _lipfrrIsTruncated = Nothing, _lipfrrInstanceProfiles = mempty};
+listInstanceProfilesForRoleResponse :: Int -> ListInstanceProfilesForRoleResponse
+listInstanceProfilesForRoleResponse pStatusCode = ListInstanceProfilesForRoleResponse'{_lipfrrMarker = Nothing, _lipfrrIsTruncated = Nothing, _lipfrrInstanceProfiles = mempty, _lipfrrStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -152,3 +159,7 @@ lipfrrIsTruncated = lens _lipfrrIsTruncated (\ s a -> s{_lipfrrIsTruncated = a})
 -- | A list of instance profiles.
 lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
 lipfrrInstanceProfiles = lens _lipfrrInstanceProfiles (\ s a -> s{_lipfrrInstanceProfiles = a});
+
+-- | FIXME: Undocumented member.
+lipfrrStatusCode :: Lens' ListInstanceProfilesForRoleResponse Int
+lipfrrStatusCode = lens _lipfrrStatusCode (\ s a -> s{_lipfrrStatusCode = a});

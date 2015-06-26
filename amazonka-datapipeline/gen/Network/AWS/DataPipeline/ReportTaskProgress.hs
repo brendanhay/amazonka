@@ -44,6 +44,7 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     , reportTaskProgressResponse
     -- ** Response lenses
     , rtprCanceled
+    , rtprStatusCode
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -51,7 +52,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'reportTaskProgress' smart constructor.
+-- | Contains the parameters for ReportTaskProgress.
+--
+-- /See:/ 'reportTaskProgress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest ReportTaskProgress where
         response
           = receiveJSON
               (\ s h x ->
-                 ReportTaskProgressResponse' <$> (x .:> "canceled"))
+                 ReportTaskProgressResponse' <$>
+                   (x .:> "canceled") <*> (pure (fromEnum s)))
 
 instance ToHeaders ReportTaskProgress where
         toHeaders
@@ -104,18 +108,26 @@ instance ToPath ReportTaskProgress where
 instance ToQuery ReportTaskProgress where
         toQuery = const mempty
 
--- | /See:/ 'reportTaskProgressResponse' smart constructor.
+-- | Contains the output of ReportTaskProgress.
+--
+-- /See:/ 'reportTaskProgressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtprCanceled'
-newtype ReportTaskProgressResponse = ReportTaskProgressResponse'{_rtprCanceled :: Bool} deriving (Eq, Read, Show)
+--
+-- * 'rtprStatusCode'
+data ReportTaskProgressResponse = ReportTaskProgressResponse'{_rtprCanceled :: Bool, _rtprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
-reportTaskProgressResponse :: Bool -> ReportTaskProgressResponse
-reportTaskProgressResponse pCanceled = ReportTaskProgressResponse'{_rtprCanceled = pCanceled};
+reportTaskProgressResponse :: Bool -> Int -> ReportTaskProgressResponse
+reportTaskProgressResponse pCanceled pStatusCode = ReportTaskProgressResponse'{_rtprCanceled = pCanceled, _rtprStatusCode = pStatusCode};
 
 -- | If true, the calling task runner should cancel processing of the task.
 -- The task runner does not need to call SetTaskStatus for canceled tasks.
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\ s a -> s{_rtprCanceled = a});
+
+-- | FIXME: Undocumented member.
+rtprStatusCode :: Lens' ReportTaskProgressResponse Int
+rtprStatusCode = lens _rtprStatusCode (\ s a -> s{_rtprStatusCode = a});

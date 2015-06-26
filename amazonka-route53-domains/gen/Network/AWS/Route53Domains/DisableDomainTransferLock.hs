@@ -38,6 +38,7 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
     , disableDomainTransferLockResponse
     -- ** Response lenses
     , ddtlrOperationId
+    , ddtlrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -45,7 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53Domains.Types
 
--- | /See:/ 'disableDomainTransferLock' smart constructor.
+-- | The DisableDomainTransferLock request includes the following element.
+--
+-- /See:/ 'disableDomainTransferLock' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -79,7 +82,7 @@ instance AWSRequest DisableDomainTransferLock where
           = receiveJSON
               (\ s h x ->
                  DisableDomainTransferLockResponse' <$>
-                   (x .:> "OperationId"))
+                   (x .:> "OperationId") <*> (pure (fromEnum s)))
 
 instance ToHeaders DisableDomainTransferLock where
         toHeaders
@@ -101,16 +104,20 @@ instance ToPath DisableDomainTransferLock where
 instance ToQuery DisableDomainTransferLock where
         toQuery = const mempty
 
--- | /See:/ 'disableDomainTransferLockResponse' smart constructor.
+-- | The DisableDomainTransferLock response includes the following element.
+--
+-- /See:/ 'disableDomainTransferLockResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddtlrOperationId'
-newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'{_ddtlrOperationId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ddtlrStatusCode'
+data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'{_ddtlrOperationId :: Text, _ddtlrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
-disableDomainTransferLockResponse :: Text -> DisableDomainTransferLockResponse
-disableDomainTransferLockResponse pOperationId = DisableDomainTransferLockResponse'{_ddtlrOperationId = pOperationId};
+disableDomainTransferLockResponse :: Text -> Int -> DisableDomainTransferLockResponse
+disableDomainTransferLockResponse pOperationId pStatusCode = DisableDomainTransferLockResponse'{_ddtlrOperationId = pOperationId, _ddtlrStatusCode = pStatusCode};
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -122,3 +129,7 @@ disableDomainTransferLockResponse pOperationId = DisableDomainTransferLockRespon
 -- Constraints: Maximum 255 characters.
 ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrOperationId = lens _ddtlrOperationId (\ s a -> s{_ddtlrOperationId = a});
+
+-- | FIXME: Undocumented member.
+ddtlrStatusCode :: Lens' DisableDomainTransferLockResponse Int
+ddtlrStatusCode = lens _ddtlrStatusCode (\ s a -> s{_ddtlrStatusCode = a});

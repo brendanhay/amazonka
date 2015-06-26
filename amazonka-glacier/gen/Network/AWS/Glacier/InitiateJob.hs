@@ -162,6 +162,7 @@ module Network.AWS.Glacier.InitiateJob
     -- ** Response lenses
     , ijrJobId
     , ijrLocation
+    , ijrStatusCode
     ) where
 
 import Network.AWS.Glacier.Types
@@ -169,7 +170,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'initiateJob' smart constructor.
+-- | Provides options for initiating an Amazon Glacier job.
+--
+-- /See:/ 'initiateJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -208,7 +211,8 @@ instance AWSRequest InitiateJob where
           = receiveJSON
               (\ s h x ->
                  InitiateJobResponse' <$>
-                   (h .#? "x-amz-job-id") <*> (h .#? "Location"))
+                   (h .#? "x-amz-job-id") <*> (h .#? "Location") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders InitiateJob where
         toHeaders = const mempty
@@ -226,18 +230,22 @@ instance ToPath InitiateJob where
 instance ToQuery InitiateJob where
         toQuery = const mempty
 
--- | /See:/ 'initiateJobResponse' smart constructor.
+-- | Contains the Amazon Glacier response to your request.
+--
+-- /See:/ 'initiateJobResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ijrJobId'
 --
 -- * 'ijrLocation'
-data InitiateJobResponse = InitiateJobResponse'{_ijrJobId :: Maybe Text, _ijrLocation :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ijrStatusCode'
+data InitiateJobResponse = InitiateJobResponse'{_ijrJobId :: Maybe Text, _ijrLocation :: Maybe Text, _ijrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'InitiateJobResponse' smart constructor.
-initiateJobResponse :: InitiateJobResponse
-initiateJobResponse = InitiateJobResponse'{_ijrJobId = Nothing, _ijrLocation = Nothing};
+initiateJobResponse :: Int -> InitiateJobResponse
+initiateJobResponse pStatusCode = InitiateJobResponse'{_ijrJobId = Nothing, _ijrLocation = Nothing, _ijrStatusCode = pStatusCode};
 
 -- | The ID of the job.
 ijrJobId :: Lens' InitiateJobResponse (Maybe Text)
@@ -246,3 +254,7 @@ ijrJobId = lens _ijrJobId (\ s a -> s{_ijrJobId = a});
 -- | The relative URI path of the job.
 ijrLocation :: Lens' InitiateJobResponse (Maybe Text)
 ijrLocation = lens _ijrLocation (\ s a -> s{_ijrLocation = a});
+
+-- | FIXME: Undocumented member.
+ijrStatusCode :: Lens' InitiateJobResponse Int
+ijrStatusCode = lens _ijrStatusCode (\ s a -> s{_ijrStatusCode = a});

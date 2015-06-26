@@ -39,6 +39,7 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirIdentityPoolId
     , lirNextToken
     , lirIdentities
+    , lirStatusCode
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -46,7 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listIdentities' smart constructor.
+-- | Input to the ListIdentities action.
+--
+-- /See:/ 'listIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +93,8 @@ instance AWSRequest ListIdentities where
               (\ s h x ->
                  ListIdentitiesResponse' <$>
                    (x .?> "IdentityPoolId") <*> (x .?> "NextToken") <*>
-                     (x .?> "Identities" .!@ mempty))
+                     (x .?> "Identities" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListIdentities where
         toHeaders
@@ -116,7 +120,9 @@ instance ToPath ListIdentities where
 instance ToQuery ListIdentities where
         toQuery = const mempty
 
--- | /See:/ 'listIdentitiesResponse' smart constructor.
+-- | The response to a ListIdentities request.
+--
+-- /See:/ 'listIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -125,11 +131,13 @@ instance ToQuery ListIdentities where
 -- * 'lirNextToken'
 --
 -- * 'lirIdentities'
-data ListIdentitiesResponse = ListIdentitiesResponse'{_lirIdentityPoolId :: Maybe Text, _lirNextToken :: Maybe Text, _lirIdentities :: Maybe [IdentityDescription]} deriving (Eq, Read, Show)
+--
+-- * 'lirStatusCode'
+data ListIdentitiesResponse = ListIdentitiesResponse'{_lirIdentityPoolId :: Maybe Text, _lirNextToken :: Maybe Text, _lirIdentities :: Maybe [IdentityDescription], _lirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: ListIdentitiesResponse
-listIdentitiesResponse = ListIdentitiesResponse'{_lirIdentityPoolId = Nothing, _lirNextToken = Nothing, _lirIdentities = Nothing};
+listIdentitiesResponse :: Int -> ListIdentitiesResponse
+listIdentitiesResponse pStatusCode = ListIdentitiesResponse'{_lirIdentityPoolId = Nothing, _lirNextToken = Nothing, _lirIdentities = Nothing, _lirStatusCode = pStatusCode};
 
 -- | An identity pool ID in the format REGION:GUID.
 lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -142,3 +150,7 @@ lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
 -- | An object containing a set of identities and associated mappings.
 lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lirStatusCode :: Lens' ListIdentitiesResponse Int
+lirStatusCode = lens _lirStatusCode (\ s a -> s{_lirStatusCode = a});

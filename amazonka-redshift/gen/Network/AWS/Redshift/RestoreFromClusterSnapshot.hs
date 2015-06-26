@@ -62,6 +62,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , restoreFromClusterSnapshotResponse
     -- ** Response lenses
     , rfcsrCluster
+    , rfcsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -69,7 +70,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'restoreFromClusterSnapshot' smart constructor.
+-- |
+--
+-- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -271,7 +274,7 @@ instance AWSRequest RestoreFromClusterSnapshot where
               "RestoreFromClusterSnapshotResult"
               (\ s h x ->
                  RestoreFromClusterSnapshotResponse' <$>
-                   (x .@? "Cluster"))
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
@@ -322,12 +325,18 @@ instance ToQuery RestoreFromClusterSnapshot where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rfcsrCluster'
-newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'{_rfcsrCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'rfcsrStatusCode'
+data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'{_rfcsrCluster :: Maybe Cluster, _rfcsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RestoreFromClusterSnapshotResponse' smart constructor.
-restoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResponse
-restoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'{_rfcsrCluster = Nothing};
+restoreFromClusterSnapshotResponse :: Int -> RestoreFromClusterSnapshotResponse
+restoreFromClusterSnapshotResponse pStatusCode = RestoreFromClusterSnapshotResponse'{_rfcsrCluster = Nothing, _rfcsrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrCluster = lens _rfcsrCluster (\ s a -> s{_rfcsrCluster = a});
+
+-- | FIXME: Undocumented member.
+rfcsrStatusCode :: Lens' RestoreFromClusterSnapshotResponse Int
+rfcsrStatusCode = lens _rfcsrStatusCode (\ s a -> s{_rfcsrStatusCode = a});

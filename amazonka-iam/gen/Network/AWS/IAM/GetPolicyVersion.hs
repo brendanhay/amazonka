@@ -44,6 +44,7 @@ module Network.AWS.IAM.GetPolicyVersion
     , getPolicyVersionResponse
     -- ** Response lenses
     , gpvrPolicyVersion
+    , gpvrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
@@ -80,7 +81,7 @@ instance AWSRequest GetPolicyVersion where
           = receiveXMLWrapper "GetPolicyVersionResult"
               (\ s h x ->
                  GetPolicyVersionResponse' <$>
-                   (x .@? "PolicyVersion"))
+                   (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
@@ -96,16 +97,20 @@ instance ToQuery GetPolicyVersion where
                "PolicyArn" =: _gpvPolicyARN,
                "VersionId" =: _gpvVersionId]
 
--- | /See:/ 'getPolicyVersionResponse' smart constructor.
+-- | Contains the response to a successful GetPolicyVersion request.
+--
+-- /See:/ 'getPolicyVersionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gpvrPolicyVersion'
-newtype GetPolicyVersionResponse = GetPolicyVersionResponse'{_gpvrPolicyVersion :: Maybe PolicyVersion} deriving (Eq, Read, Show)
+--
+-- * 'gpvrStatusCode'
+data GetPolicyVersionResponse = GetPolicyVersionResponse'{_gpvrPolicyVersion :: Maybe PolicyVersion, _gpvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetPolicyVersionResponse' smart constructor.
-getPolicyVersionResponse :: GetPolicyVersionResponse
-getPolicyVersionResponse = GetPolicyVersionResponse'{_gpvrPolicyVersion = Nothing};
+getPolicyVersionResponse :: Int -> GetPolicyVersionResponse
+getPolicyVersionResponse pStatusCode = GetPolicyVersionResponse'{_gpvrPolicyVersion = Nothing, _gpvrStatusCode = pStatusCode};
 
 -- | Information about the policy version.
 --
@@ -114,3 +119,7 @@ getPolicyVersionResponse = GetPolicyVersionResponse'{_gpvrPolicyVersion = Nothin
 -- in the /Using IAM/ guide.
 gpvrPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrPolicyVersion = lens _gpvrPolicyVersion (\ s a -> s{_gpvrPolicyVersion = a});
+
+-- | FIXME: Undocumented member.
+gpvrStatusCode :: Lens' GetPolicyVersionResponse Int
+gpvrStatusCode = lens _gpvrStatusCode (\ s a -> s{_gpvrStatusCode = a});

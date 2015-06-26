@@ -39,15 +39,18 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     , describeDefaultClusterParametersResponse
     -- ** Response lenses
     , ddcprDefaultClusterParameters
+    , ddcprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeDefaultClusterParameters' smart constructor.
+-- |
+--
+-- /See:/ 'describeDefaultClusterParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -99,11 +102,10 @@ instance AWSPager DescribeDefaultClusterParameters
               (rs ^. ddcprDefaultClusterParameters . dcpParameters)
             = Nothing
           | otherwise =
-            Just $
-              rq &
-                ddcpMarker .~
-                  rs ^?
-                    ddcprDefaultClusterParameters . dcpMarker . _Just
+            Just $ rq &
+              ddcpMarker .~
+                rs ^?
+                  ddcprDefaultClusterParameters . dcpMarker . _Just
 
 instance AWSRequest DescribeDefaultClusterParameters
          where
@@ -116,7 +118,8 @@ instance AWSRequest DescribeDefaultClusterParameters
               "DescribeDefaultClusterParametersResult"
               (\ s h x ->
                  DescribeDefaultClusterParametersResponse' <$>
-                   (x .@ "DefaultClusterParameters"))
+                   (x .@ "DefaultClusterParameters") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeDefaultClusterParameters
          where
@@ -142,12 +145,18 @@ instance ToQuery DescribeDefaultClusterParameters
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcprDefaultClusterParameters'
-newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'{_ddcprDefaultClusterParameters :: DefaultClusterParameters} deriving (Eq, Read, Show)
+--
+-- * 'ddcprStatusCode'
+data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'{_ddcprDefaultClusterParameters :: DefaultClusterParameters, _ddcprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
-describeDefaultClusterParametersResponse :: DefaultClusterParameters -> DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse pDefaultClusterParameters = DescribeDefaultClusterParametersResponse'{_ddcprDefaultClusterParameters = pDefaultClusterParameters};
+describeDefaultClusterParametersResponse :: DefaultClusterParameters -> Int -> DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse pDefaultClusterParameters pStatusCode = DescribeDefaultClusterParametersResponse'{_ddcprDefaultClusterParameters = pDefaultClusterParameters, _ddcprStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprDefaultClusterParameters = lens _ddcprDefaultClusterParameters (\ s a -> s{_ddcprDefaultClusterParameters = a});
+
+-- | FIXME: Undocumented member.
+ddcprStatusCode :: Lens' DescribeDefaultClusterParametersResponse Int
+ddcprStatusCode = lens _ddcprStatusCode (\ s a -> s{_ddcprStatusCode = a});

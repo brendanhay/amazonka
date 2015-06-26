@@ -30,6 +30,7 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , describeAdjustmentTypesResponse
     -- ** Response lenses
     , datrAdjustmentTypes
+    , datrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -54,7 +55,8 @@ instance AWSRequest DescribeAdjustmentTypes where
               (\ s h x ->
                  DescribeAdjustmentTypesResponse' <$>
                    (x .@? "AdjustmentTypes" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
@@ -75,12 +77,18 @@ instance ToQuery DescribeAdjustmentTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'datrAdjustmentTypes'
-newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes :: Maybe [AdjustmentType]} deriving (Eq, Read, Show)
+--
+-- * 'datrStatusCode'
+data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes :: Maybe [AdjustmentType], _datrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
-describeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes = Nothing};
+describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
+describeAdjustmentTypesResponse pStatusCode = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes = Nothing, _datrStatusCode = pStatusCode};
 
 -- | The policy adjustment types.
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+datrStatusCode :: Lens' DescribeAdjustmentTypesResponse Int
+datrStatusCode = lens _datrStatusCode (\ s a -> s{_datrStatusCode = a});

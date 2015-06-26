@@ -43,15 +43,18 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- ** Response lenses
     , drdirReservedDBInstances
     , drdirMarker
+    , drdirStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeReservedDBInstances' smart constructor.
+-- |
+--
+-- /See:/ 'describeReservedDBInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -160,7 +163,8 @@ instance AWSRequest DescribeReservedDBInstances where
                  DescribeReservedDBInstancesResponse' <$>
                    (x .@? "ReservedDBInstances" .!@ mempty >>=
                       may (parseXMLList "ReservedDBInstance"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeReservedDBInstances where
         toHeaders = const mempty
@@ -186,18 +190,23 @@ instance ToQuery DescribeReservedDBInstances where
                "OfferingType" =: _drdiOfferingType,
                "Duration" =: _drdiDuration]
 
--- | /See:/ 'describeReservedDBInstancesResponse' smart constructor.
+-- | Contains the result of a successful invocation of the
+-- DescribeReservedDBInstances action.
+--
+-- /See:/ 'describeReservedDBInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drdirReservedDBInstances'
 --
 -- * 'drdirMarker'
-data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances :: Maybe [ReservedDBInstance], _drdirMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'drdirStatusCode'
+data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances :: Maybe [ReservedDBInstance], _drdirMarker :: Maybe Text, _drdirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
-describeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse
-describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances = Nothing, _drdirMarker = Nothing};
+describeReservedDBInstancesResponse :: Int -> DescribeReservedDBInstancesResponse
+describeReservedDBInstancesResponse pStatusCode = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances = Nothing, _drdirMarker = Nothing, _drdirStatusCode = pStatusCode};
 
 -- | A list of reserved DB instances.
 drdirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
@@ -208,3 +217,7 @@ drdirReservedDBInstances = lens _drdirReservedDBInstances (\ s a -> s{_drdirRese
 -- marker, up to the value specified by @MaxRecords@.
 drdirMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirMarker = lens _drdirMarker (\ s a -> s{_drdirMarker = a});
+
+-- | FIXME: Undocumented member.
+drdirStatusCode :: Lens' DescribeReservedDBInstancesResponse Int
+drdirStatusCode = lens _drdirStatusCode (\ s a -> s{_drdirStatusCode = a});

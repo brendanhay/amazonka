@@ -37,6 +37,7 @@ module Network.AWS.CloudHSM.GetConfig
     , gcrConfigFile
     , gcrConfigCred
     , gcrConfigType
+    , gcrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -81,7 +82,8 @@ instance AWSRequest GetConfig where
               (\ s h x ->
                  GetConfigResponse' <$>
                    (x .?> "ConfigFile") <*> (x .?> "ConfigCred") <*>
-                     (x .?> "ConfigType"))
+                     (x .?> "ConfigType")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetConfig where
         toHeaders
@@ -114,11 +116,13 @@ instance ToQuery GetConfig where
 -- * 'gcrConfigCred'
 --
 -- * 'gcrConfigType'
-data GetConfigResponse = GetConfigResponse'{_gcrConfigFile :: Maybe Text, _gcrConfigCred :: Maybe Text, _gcrConfigType :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gcrStatusCode'
+data GetConfigResponse = GetConfigResponse'{_gcrConfigFile :: Maybe Text, _gcrConfigCred :: Maybe Text, _gcrConfigType :: Maybe Text, _gcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetConfigResponse' smart constructor.
-getConfigResponse :: GetConfigResponse
-getConfigResponse = GetConfigResponse'{_gcrConfigFile = Nothing, _gcrConfigCred = Nothing, _gcrConfigType = Nothing};
+getConfigResponse :: Int -> GetConfigResponse
+getConfigResponse pStatusCode = GetConfigResponse'{_gcrConfigFile = Nothing, _gcrConfigCred = Nothing, _gcrConfigType = Nothing, _gcrStatusCode = pStatusCode};
 
 -- | The chrystoki.conf configuration file.
 gcrConfigFile :: Lens' GetConfigResponse (Maybe Text)
@@ -131,3 +135,7 @@ gcrConfigCred = lens _gcrConfigCred (\ s a -> s{_gcrConfigCred = a});
 -- | The type of credentials.
 gcrConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrConfigType = lens _gcrConfigType (\ s a -> s{_gcrConfigType = a});
+
+-- | FIXME: Undocumented member.
+gcrStatusCode :: Lens' GetConfigResponse Int
+gcrStatusCode = lens _gcrStatusCode (\ s a -> s{_gcrStatusCode = a});

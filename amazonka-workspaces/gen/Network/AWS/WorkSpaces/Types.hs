@@ -21,11 +21,23 @@ module Network.AWS.WorkSpaces.Types
     (
     -- * Service
       WorkSpaces
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidParameterValuesException
+    , _ResourceUnavailableException
+    , _ResourceLimitExceededException
 
     -- * Compute
     , Compute (..)
+
+    -- * WorkspaceDirectoryState
+    , WorkspaceDirectoryState (..)
+
+    -- * WorkspaceDirectoryType
+    , WorkspaceDirectoryType (..)
+
+    -- * WorkspaceState
+    , WorkspaceState (..)
 
     -- * ComputeType
     , ComputeType
@@ -114,12 +126,6 @@ module Network.AWS.WorkSpaces.Types
     , wdDNSIPAddresses
     , wdDirectoryName
 
-    -- * WorkspaceDirectoryState
-    , WorkspaceDirectoryState (..)
-
-    -- * WorkspaceDirectoryType
-    , WorkspaceDirectoryType (..)
-
     -- * WorkspaceRequest
     , WorkspaceRequest
     , workspaceRequest
@@ -127,8 +133,6 @@ module Network.AWS.WorkSpaces.Types
     , wrUserName
     , wrBundleId
 
-    -- * WorkspaceState
-    , WorkspaceState (..)
     ) where
 
 import Network.AWS.Prelude
@@ -139,30 +143,43 @@ data WorkSpaces
 
 instance AWSService WorkSpaces where
     type Sg WorkSpaces = V4
-    type Er WorkSpaces = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service WorkSpaces
-        service' = Service
-            { _svcAbbrev  = "WorkSpaces"
-            , _svcPrefix  = "workspaces"
-            , _svcVersion = "2015-04-08"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service WorkSpaces
+        svc = Service
+            { _svcAbbrev   = "WorkSpaces"
+            , _svcPrefix   = "workspaces"
+            , _svcVersion  = "2015-04-08"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry WorkSpaces
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | One or more parameter values are not valid.
+_InvalidParameterValuesException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidParameterValuesException = _ServiceError . hasCode "InvalidParameterValuesException";
+
+-- | The specified resource is not available.
+_ResourceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceUnavailableException = _ServiceError . hasCode "ResourceUnavailableException";
+
+-- | Your resource limits have been exceeded.
+_ResourceLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
+_ResourceLimitExceededException = _ServiceError . hasCode "ResourceLimitExceededException";
 
 data Compute = Performance | Value | Standard deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -186,7 +203,91 @@ instance ToHeader Compute
 instance FromJSON Compute where
     parseJSON = parseJSONText "Compute"
 
--- | /See:/ 'computeType' smart constructor.
+data WorkspaceDirectoryState = Deregistering | Error | Registered | Registering | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText WorkspaceDirectoryState where
+    parser = takeLowerText >>= \case
+        "DEREGISTERED" -> pure Deregistered
+        "DEREGISTERING" -> pure Deregistering
+        "ERROR" -> pure Error
+        "REGISTERED" -> pure Registered
+        "REGISTERING" -> pure Registering
+        e -> fail ("Failure parsing WorkspaceDirectoryState from " ++ show e)
+
+instance ToText WorkspaceDirectoryState where
+    toText = \case
+        Deregistered -> "DEREGISTERED"
+        Deregistering -> "DEREGISTERING"
+        Error -> "ERROR"
+        Registered -> "REGISTERED"
+        Registering -> "REGISTERING"
+
+instance Hashable WorkspaceDirectoryState
+instance ToQuery WorkspaceDirectoryState
+instance ToHeader WorkspaceDirectoryState
+
+instance FromJSON WorkspaceDirectoryState where
+    parseJSON = parseJSONText "WorkspaceDirectoryState"
+
+data WorkspaceDirectoryType = ADConnector | SimpleAD deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText WorkspaceDirectoryType where
+    parser = takeLowerText >>= \case
+        "AD_CONNECTOR" -> pure ADConnector
+        "SIMPLE_AD" -> pure SimpleAD
+        e -> fail ("Failure parsing WorkspaceDirectoryType from " ++ show e)
+
+instance ToText WorkspaceDirectoryType where
+    toText = \case
+        ADConnector -> "AD_CONNECTOR"
+        SimpleAD -> "SIMPLE_AD"
+
+instance Hashable WorkspaceDirectoryType
+instance ToQuery WorkspaceDirectoryType
+instance ToHeader WorkspaceDirectoryType
+
+instance FromJSON WorkspaceDirectoryType where
+    parseJSON = parseJSONText "WorkspaceDirectoryType"
+
+data WorkspaceState = WSError | WSSuspended | WSUnhealthy | WSRebooting | WSTerminating | WSImpaired | WSPending | WSRebuilding | WSAvailable | WSTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText WorkspaceState where
+    parser = takeLowerText >>= \case
+        "AVAILABLE" -> pure WSAvailable
+        "ERROR" -> pure WSError
+        "IMPAIRED" -> pure WSImpaired
+        "PENDING" -> pure WSPending
+        "REBOOTING" -> pure WSRebooting
+        "REBUILDING" -> pure WSRebuilding
+        "SUSPENDED" -> pure WSSuspended
+        "TERMINATED" -> pure WSTerminated
+        "TERMINATING" -> pure WSTerminating
+        "UNHEALTHY" -> pure WSUnhealthy
+        e -> fail ("Failure parsing WorkspaceState from " ++ show e)
+
+instance ToText WorkspaceState where
+    toText = \case
+        WSAvailable -> "AVAILABLE"
+        WSError -> "ERROR"
+        WSImpaired -> "IMPAIRED"
+        WSPending -> "PENDING"
+        WSRebooting -> "REBOOTING"
+        WSRebuilding -> "REBUILDING"
+        WSSuspended -> "SUSPENDED"
+        WSTerminated -> "TERMINATED"
+        WSTerminating -> "TERMINATING"
+        WSUnhealthy -> "UNHEALTHY"
+
+instance Hashable WorkspaceState
+instance ToQuery WorkspaceState
+instance ToHeader WorkspaceState
+
+instance FromJSON WorkspaceState where
+    parseJSON = parseJSONText "WorkspaceState"
+
+-- | Contains information about the compute type of a WorkSpace bundle.
+--
+-- /See:/ 'computeType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -206,7 +307,9 @@ instance FromJSON ComputeType where
           = withObject "ComputeType"
               (\ x -> ComputeType' <$> (x .:? "Name"))
 
--- | /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
+-- | Contains default WorkSpace creation information.
+--
+-- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -260,7 +363,9 @@ instance FromJSON DefaultWorkspaceCreationProperties
                      <*> (x .:? "EnableInternetAccess")
                      <*> (x .:? "DefaultOu"))
 
--- | /See:/ 'failedCreateWorkspaceRequest' smart constructor.
+-- | Contains information about a WorkSpace that could not be created.
+--
+-- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -296,7 +401,11 @@ instance FromJSON FailedCreateWorkspaceRequest where
                    (x .:? "WorkspaceRequest") <*> (x .:? "ErrorCode")
                      <*> (x .:? "ErrorMessage"))
 
--- | /See:/ 'failedWorkspaceChangeRequest' smart constructor.
+-- | Contains information about a WorkSpace that could not be rebooted
+-- (RebootWorkspaces), rebuilt (RebuildWorkspaces), or terminated
+-- (TerminateWorkspaces).
+--
+-- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -331,7 +440,10 @@ instance FromJSON FailedWorkspaceChangeRequest where
                    (x .:? "ErrorCode") <*> (x .:? "WorkspaceId") <*>
                      (x .:? "ErrorMessage"))
 
--- | /See:/ 'rebootRequest' smart constructor.
+-- | Contains information used with the RebootWorkspaces operation to reboot
+-- a WorkSpace.
+--
+-- /See:/ 'rebootRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -350,7 +462,10 @@ instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
           = object ["WorkspaceId" .= _rebWorkspaceId]
 
--- | /See:/ 'rebuildRequest' smart constructor.
+-- | Contains information used with the RebuildWorkspaces operation to
+-- rebuild a WorkSpace.
+--
+-- /See:/ 'rebuildRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -369,7 +484,10 @@ instance ToJSON RebuildRequest where
         toJSON RebuildRequest'{..}
           = object ["WorkspaceId" .= _rrWorkspaceId]
 
--- | /See:/ 'terminateRequest' smart constructor.
+-- | Contains information used with the TerminateWorkspaces operation to
+-- terminate a WorkSpace.
+--
+-- /See:/ 'terminateRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -388,7 +506,9 @@ instance ToJSON TerminateRequest where
         toJSON TerminateRequest'{..}
           = object ["WorkspaceId" .= _trWorkspaceId]
 
--- | /See:/ 'userStorage' smart constructor.
+-- | Contains information about the user storage for a WorkSpace bundle.
+--
+-- /See:/ 'userStorage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -408,7 +528,9 @@ instance FromJSON UserStorage where
           = withObject "UserStorage"
               (\ x -> UserStorage' <$> (x .:? "Capacity"))
 
--- | /See:/ 'workspace' smart constructor.
+-- | Contains information about a WorkSpace.
+--
+-- /See:/ 'workspace' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -487,7 +609,9 @@ instance FromJSON Workspace where
                      <*> (x .:? "WorkspaceId")
                      <*> (x .:? "ErrorMessage"))
 
--- | /See:/ 'workspaceBundle' smart constructor.
+-- | Contains information about a WorkSpace bundle.
+--
+-- /See:/ 'workspaceBundle' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -545,7 +669,10 @@ instance FromJSON WorkspaceBundle where
                      <*> (x .:? "UserStorage")
                      <*> (x .:? "Description"))
 
--- | /See:/ 'workspaceDirectory' smart constructor.
+-- | Contains information about an AWS Directory Service directory for use
+-- with Amazon WorkSpaces.
+--
+-- /See:/ 'workspaceDirectory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -650,53 +777,9 @@ instance FromJSON WorkspaceDirectory where
                      <*> (x .:? "DnsIpAddresses" .!= mempty)
                      <*> (x .:? "DirectoryName"))
 
-data WorkspaceDirectoryState = Deregistering | Error | Registered | Registering | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText WorkspaceDirectoryState where
-    parser = takeLowerText >>= \case
-        "DEREGISTERED" -> pure Deregistered
-        "DEREGISTERING" -> pure Deregistering
-        "ERROR" -> pure Error
-        "REGISTERED" -> pure Registered
-        "REGISTERING" -> pure Registering
-        e -> fail ("Failure parsing WorkspaceDirectoryState from " ++ show e)
-
-instance ToText WorkspaceDirectoryState where
-    toText = \case
-        Deregistered -> "DEREGISTERED"
-        Deregistering -> "DEREGISTERING"
-        Error -> "ERROR"
-        Registered -> "REGISTERED"
-        Registering -> "REGISTERING"
-
-instance Hashable WorkspaceDirectoryState
-instance ToQuery WorkspaceDirectoryState
-instance ToHeader WorkspaceDirectoryState
-
-instance FromJSON WorkspaceDirectoryState where
-    parseJSON = parseJSONText "WorkspaceDirectoryState"
-
-data WorkspaceDirectoryType = ADConnector | SimpleAD deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText WorkspaceDirectoryType where
-    parser = takeLowerText >>= \case
-        "AD_CONNECTOR" -> pure ADConnector
-        "SIMPLE_AD" -> pure SimpleAD
-        e -> fail ("Failure parsing WorkspaceDirectoryType from " ++ show e)
-
-instance ToText WorkspaceDirectoryType where
-    toText = \case
-        ADConnector -> "AD_CONNECTOR"
-        SimpleAD -> "SIMPLE_AD"
-
-instance Hashable WorkspaceDirectoryType
-instance ToQuery WorkspaceDirectoryType
-instance ToHeader WorkspaceDirectoryType
-
-instance FromJSON WorkspaceDirectoryType where
-    parseJSON = parseJSONText "WorkspaceDirectoryType"
-
--- | /See:/ 'workspaceRequest' smart constructor.
+-- | Contains information about a WorkSpace creation request.
+--
+-- /See:/ 'workspaceRequest' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -742,39 +825,3 @@ instance ToJSON WorkspaceRequest where
           = object
               ["DirectoryId" .= _wrDirectoryId,
                "UserName" .= _wrUserName, "BundleId" .= _wrBundleId]
-
-data WorkspaceState = WSError | WSSuspended | WSUnhealthy | WSRebooting | WSTerminating | WSImpaired | WSPending | WSRebuilding | WSAvailable | WSTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText WorkspaceState where
-    parser = takeLowerText >>= \case
-        "AVAILABLE" -> pure WSAvailable
-        "ERROR" -> pure WSError
-        "IMPAIRED" -> pure WSImpaired
-        "PENDING" -> pure WSPending
-        "REBOOTING" -> pure WSRebooting
-        "REBUILDING" -> pure WSRebuilding
-        "SUSPENDED" -> pure WSSuspended
-        "TERMINATED" -> pure WSTerminated
-        "TERMINATING" -> pure WSTerminating
-        "UNHEALTHY" -> pure WSUnhealthy
-        e -> fail ("Failure parsing WorkspaceState from " ++ show e)
-
-instance ToText WorkspaceState where
-    toText = \case
-        WSAvailable -> "AVAILABLE"
-        WSError -> "ERROR"
-        WSImpaired -> "IMPAIRED"
-        WSPending -> "PENDING"
-        WSRebooting -> "REBOOTING"
-        WSRebuilding -> "REBUILDING"
-        WSSuspended -> "SUSPENDED"
-        WSTerminated -> "TERMINATED"
-        WSTerminating -> "TERMINATING"
-        WSUnhealthy -> "UNHEALTHY"
-
-instance Hashable WorkspaceState
-instance ToQuery WorkspaceState
-instance ToHeader WorkspaceState
-
-instance FromJSON WorkspaceState where
-    parseJSON = parseJSONText "WorkspaceState"

@@ -38,15 +38,18 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Response lenses
     , lisStackSummaries
     , lisNextToken
+    , lisStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listStacks' smart constructor.
+-- | The input for ListStacks action.
+--
+-- /See:/ 'listStacks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -90,7 +93,8 @@ instance AWSRequest ListStacks where
                  ListStacksResponse' <$>
                    (x .@? "StackSummaries" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "NextToken"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListStacks where
         toHeaders = const mempty
@@ -108,18 +112,22 @@ instance ToQuery ListStacks where
                  toQuery
                    (toQueryList "member" <$> _lsStackStatusFilter)]
 
--- | /See:/ 'listStacksResponse' smart constructor.
+-- | The output for ListStacks action.
+--
+-- /See:/ 'listStacksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lisStackSummaries'
 --
 -- * 'lisNextToken'
-data ListStacksResponse = ListStacksResponse'{_lisStackSummaries :: Maybe [StackSummary], _lisNextToken :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lisStatusCode'
+data ListStacksResponse = ListStacksResponse'{_lisStackSummaries :: Maybe [StackSummary], _lisNextToken :: Maybe Text, _lisStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListStacksResponse' smart constructor.
-listStacksResponse :: ListStacksResponse
-listStacksResponse = ListStacksResponse'{_lisStackSummaries = Nothing, _lisNextToken = Nothing};
+listStacksResponse :: Int -> ListStacksResponse
+listStacksResponse pStatusCode = ListStacksResponse'{_lisStackSummaries = Nothing, _lisNextToken = Nothing, _lisStatusCode = pStatusCode};
 
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
@@ -130,3 +138,7 @@ lisStackSummaries = lens _lisStackSummaries (\ s a -> s{_lisStackSummaries = a})
 -- one.
 lisNextToken :: Lens' ListStacksResponse (Maybe Text)
 lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
+
+-- | FIXME: Undocumented member.
+lisStatusCode :: Lens' ListStacksResponse Int
+lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});

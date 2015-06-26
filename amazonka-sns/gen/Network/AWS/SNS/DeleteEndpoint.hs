@@ -39,7 +39,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'deleteEndpoint' smart constructor.
+-- | Input for DeleteEndpoint action.
+--
+-- /See:/ 'deleteEndpoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

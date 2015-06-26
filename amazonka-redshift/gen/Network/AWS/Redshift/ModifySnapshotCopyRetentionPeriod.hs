@@ -34,6 +34,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     , modifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
     , mscrprCluster
+    , mscrprStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -41,7 +42,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifySnapshotCopyRetentionPeriod' smart constructor.
+-- |
+--
+-- /See:/ 'modifySnapshotCopyRetentionPeriod' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -86,7 +89,7 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
               "ModifySnapshotCopyRetentionPeriodResult"
               (\ s h x ->
                  ModifySnapshotCopyRetentionPeriodResponse' <$>
-                   (x .@? "Cluster"))
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where
@@ -111,12 +114,18 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mscrprCluster'
-newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'{_mscrprCluster :: Maybe Cluster} deriving (Eq, Read, Show)
+--
+-- * 'mscrprStatusCode'
+data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'{_mscrprCluster :: Maybe Cluster, _mscrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
-modifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResponse
-modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'{_mscrprCluster = Nothing};
+modifySnapshotCopyRetentionPeriodResponse :: Int -> ModifySnapshotCopyRetentionPeriodResponse
+modifySnapshotCopyRetentionPeriodResponse pStatusCode = ModifySnapshotCopyRetentionPeriodResponse'{_mscrprCluster = Nothing, _mscrprStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\ s a -> s{_mscrprCluster = a});
+
+-- | FIXME: Undocumented member.
+mscrprStatusCode :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
+mscrprStatusCode = lens _mscrprStatusCode (\ s a -> s{_mscrprStatusCode = a});

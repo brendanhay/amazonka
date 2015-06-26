@@ -38,6 +38,7 @@ module Network.AWS.CloudHSM.ListLunaClients
     -- ** Response lenses
     , llcrNextToken
     , llcrClientList
+    , llcrStatusCode
     ) where
 
 import Network.AWS.CloudHSM.Types
@@ -70,7 +71,8 @@ instance AWSRequest ListLunaClients where
               (\ s h x ->
                  ListLunaClientsResponse' <$>
                    (x .?> "NextToken") <*>
-                     (x .?> "ClientList" .!@ mempty))
+                     (x .?> "ClientList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListLunaClients where
         toHeaders
@@ -99,11 +101,13 @@ instance ToQuery ListLunaClients where
 -- * 'llcrNextToken'
 --
 -- * 'llcrClientList'
-data ListLunaClientsResponse = ListLunaClientsResponse'{_llcrNextToken :: Maybe Text, _llcrClientList :: [Text]} deriving (Eq, Read, Show)
+--
+-- * 'llcrStatusCode'
+data ListLunaClientsResponse = ListLunaClientsResponse'{_llcrNextToken :: Maybe Text, _llcrClientList :: [Text], _llcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListLunaClientsResponse' smart constructor.
-listLunaClientsResponse :: ListLunaClientsResponse
-listLunaClientsResponse = ListLunaClientsResponse'{_llcrNextToken = Nothing, _llcrClientList = mempty};
+listLunaClientsResponse :: Int -> ListLunaClientsResponse
+listLunaClientsResponse pStatusCode = ListLunaClientsResponse'{_llcrNextToken = Nothing, _llcrClientList = mempty, _llcrStatusCode = pStatusCode};
 
 -- | If not null, more results are available. Pass this to ListLunaClients to
 -- retrieve the next set of items.
@@ -113,3 +117,7 @@ llcrNextToken = lens _llcrNextToken (\ s a -> s{_llcrNextToken = a});
 -- | The list of clients.
 llcrClientList :: Lens' ListLunaClientsResponse [Text]
 llcrClientList = lens _llcrClientList (\ s a -> s{_llcrClientList = a});
+
+-- | FIXME: Undocumented member.
+llcrStatusCode :: Lens' ListLunaClientsResponse Int
+llcrStatusCode = lens _llcrStatusCode (\ s a -> s{_llcrStatusCode = a});

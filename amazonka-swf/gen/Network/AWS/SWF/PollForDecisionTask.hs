@@ -86,9 +86,10 @@ module Network.AWS.SWF.PollForDecisionTask
     , pfdtrWorkflowExecution
     , pfdtrWorkflowType
     , pfdtrEvents
+    , pfdtrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -174,8 +175,8 @@ instance AWSPager PollForDecisionTask where
           | stop (rs ^. pfdtrNextPageToken) = Nothing
           | stop (rs ^. pfdtrEvents) = Nothing
           | otherwise =
-            Just $
-              rq & pfdtNextPageToken .~ rs ^. pfdtrNextPageToken
+            Just $ rq &
+              pfdtNextPageToken .~ rs ^. pfdtrNextPageToken
 
 instance AWSRequest PollForDecisionTask where
         type Sv PollForDecisionTask = SWF
@@ -192,7 +193,8 @@ instance AWSRequest PollForDecisionTask where
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "workflowType")
-                     <*> (x .?> "events" .!@ mempty))
+                     <*> (x .?> "events" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders PollForDecisionTask where
         toHeaders
@@ -219,7 +221,10 @@ instance ToPath PollForDecisionTask where
 instance ToQuery PollForDecisionTask where
         toQuery = const mempty
 
--- | /See:/ 'pollForDecisionTaskResponse' smart constructor.
+-- | A structure that represents a decision task. Decision tasks are sent to
+-- deciders in order for them to make decisions.
+--
+-- /See:/ 'pollForDecisionTaskResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -236,11 +241,13 @@ instance ToQuery PollForDecisionTask where
 -- * 'pfdtrWorkflowType'
 --
 -- * 'pfdtrEvents'
-data PollForDecisionTaskResponse = PollForDecisionTaskResponse'{_pfdtrNextPageToken :: Maybe Text, _pfdtrPreviousStartedEventId :: Maybe Integer, _pfdtrTaskToken :: Text, _pfdtrStartedEventId :: Integer, _pfdtrWorkflowExecution :: WorkflowExecution, _pfdtrWorkflowType :: WorkflowType, _pfdtrEvents :: [HistoryEvent]} deriving (Eq, Read, Show)
+--
+-- * 'pfdtrStatusCode'
+data PollForDecisionTaskResponse = PollForDecisionTaskResponse'{_pfdtrNextPageToken :: Maybe Text, _pfdtrPreviousStartedEventId :: Maybe Integer, _pfdtrTaskToken :: Text, _pfdtrStartedEventId :: Integer, _pfdtrWorkflowExecution :: WorkflowExecution, _pfdtrWorkflowType :: WorkflowType, _pfdtrEvents :: [HistoryEvent], _pfdtrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
-pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType = PollForDecisionTaskResponse'{_pfdtrNextPageToken = Nothing, _pfdtrPreviousStartedEventId = Nothing, _pfdtrTaskToken = pTaskToken, _pfdtrStartedEventId = pStartedEventId, _pfdtrWorkflowExecution = pWorkflowExecution, _pfdtrWorkflowType = pWorkflowType, _pfdtrEvents = mempty};
+pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> Int -> PollForDecisionTaskResponse
+pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType pStatusCode = PollForDecisionTaskResponse'{_pfdtrNextPageToken = Nothing, _pfdtrPreviousStartedEventId = Nothing, _pfdtrTaskToken = pTaskToken, _pfdtrStartedEventId = pStartedEventId, _pfdtrWorkflowExecution = pWorkflowExecution, _pfdtrWorkflowType = pWorkflowType, _pfdtrEvents = mempty, _pfdtrStatusCode = pStatusCode};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -282,3 +289,7 @@ pfdtrWorkflowType = lens _pfdtrWorkflowType (\ s a -> s{_pfdtrWorkflowType = a})
 -- decider uses this during the processing of the decision task.
 pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrEvents = lens _pfdtrEvents (\ s a -> s{_pfdtrEvents = a});
+
+-- | FIXME: Undocumented member.
+pfdtrStatusCode :: Lens' PollForDecisionTaskResponse Int
+pfdtrStatusCode = lens _pfdtrStatusCode (\ s a -> s{_pfdtrStatusCode = a});

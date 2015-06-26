@@ -50,6 +50,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- ** Response lenses
     , cmvbrSuccessful
     , cmvbrFailed
+    , cmvbrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -93,7 +94,8 @@ instance AWSRequest ChangeMessageVisibilityBatch
                    (parseXMLList
                       "ChangeMessageVisibilityBatchResultEntry"
                       x)
-                     <*> (parseXMLList "BatchResultErrorEntry" x))
+                     <*> (parseXMLList "BatchResultErrorEntry" x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
@@ -112,18 +114,24 @@ instance ToQuery ChangeMessageVisibilityBatch where
                  "ChangeMessageVisibilityBatchRequestEntry"
                  _cmvbEntries]
 
--- | /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
+-- | For each message in the batch, the response contains a
+-- ChangeMessageVisibilityBatchResultEntry tag if the message succeeds or a
+-- BatchResultErrorEntry tag if the message fails.
+--
+-- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmvbrSuccessful'
 --
 -- * 'cmvbrFailed'
-data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry], _cmvbrFailed :: [BatchResultErrorEntry]} deriving (Eq, Read, Show)
+--
+-- * 'cmvbrStatusCode'
+data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry], _cmvbrFailed :: [BatchResultErrorEntry], _cmvbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
-changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful = mempty, _cmvbrFailed = mempty};
+changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse pStatusCode = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful = mempty, _cmvbrFailed = mempty, _cmvbrStatusCode = pStatusCode};
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
@@ -132,3 +140,7 @@ cmvbrSuccessful = lens _cmvbrSuccessful (\ s a -> s{_cmvbrSuccessful = a});
 -- | A list of BatchResultErrorEntry items.
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\ s a -> s{_cmvbrFailed = a});
+
+-- | FIXME: Undocumented member.
+cmvbrStatusCode :: Lens' ChangeMessageVisibilityBatchResponse Int
+cmvbrStatusCode = lens _cmvbrStatusCode (\ s a -> s{_cmvbrStatusCode = a});

@@ -40,15 +40,19 @@ module Network.AWS.EMR.ListClusters
     -- ** Response lenses
     , lcrMarker
     , lcrClusters
+    , lcrStatusCode
     ) where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listClusters' smart constructor.
+-- | This input determines how the ListClusters action filters the list of
+-- clusters that it returns.
+--
+-- /See:/ 'listClusters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,7 +99,8 @@ instance AWSRequest ListClusters where
           = receiveJSON
               (\ s h x ->
                  ListClustersResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty))
+                   (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListClusters where
         toHeaders
@@ -120,18 +125,23 @@ instance ToPath ListClusters where
 instance ToQuery ListClusters where
         toQuery = const mempty
 
--- | /See:/ 'listClustersResponse' smart constructor.
+-- | This contains a ClusterSummaryList with the cluster details; for
+-- example, the cluster IDs, names, and status.
+--
+-- /See:/ 'listClustersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lcrMarker'
 --
 -- * 'lcrClusters'
-data ListClustersResponse = ListClustersResponse'{_lcrMarker :: Maybe Text, _lcrClusters :: Maybe [ClusterSummary]} deriving (Eq, Read, Show)
+--
+-- * 'lcrStatusCode'
+data ListClustersResponse = ListClustersResponse'{_lcrMarker :: Maybe Text, _lcrClusters :: Maybe [ClusterSummary], _lcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListClustersResponse' smart constructor.
-listClustersResponse :: ListClustersResponse
-listClustersResponse = ListClustersResponse'{_lcrMarker = Nothing, _lcrClusters = Nothing};
+listClustersResponse :: Int -> ListClustersResponse
+listClustersResponse pStatusCode = ListClustersResponse'{_lcrMarker = Nothing, _lcrClusters = Nothing, _lcrStatusCode = pStatusCode};
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
@@ -140,3 +150,7 @@ lcrMarker = lens _lcrMarker (\ s a -> s{_lcrMarker = a});
 -- | The list of clusters for the account based on the given filters.
 lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lcrStatusCode :: Lens' ListClustersResponse Int
+lcrStatusCode = lens _lcrStatusCode (\ s a -> s{_lcrStatusCode = a});

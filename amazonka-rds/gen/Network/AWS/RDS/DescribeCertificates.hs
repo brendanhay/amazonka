@@ -37,6 +37,7 @@ module Network.AWS.RDS.DescribeCertificates
     -- ** Response lenses
     , dcrCertificates
     , dcrMarker
+    , dcrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -44,7 +45,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeCertificates' smart constructor.
+-- |
+--
+-- /See:/ 'describeCertificates' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -105,7 +108,8 @@ instance AWSRequest DescribeCertificates where
                  DescribeCertificatesResponse' <$>
                    (x .@? "Certificates" .!@ mempty >>=
                       may (parseXMLList "Certificate"))
-                     <*> (x .@? "Marker"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
@@ -123,18 +127,22 @@ instance ToQuery DescribeCertificates where
                "CertificateIdentifier" =: _dcCertificateIdentifier,
                "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
 
--- | /See:/ 'describeCertificatesResponse' smart constructor.
+-- | Data returned by the __DescribeCertificates__ action.
+--
+-- /See:/ 'describeCertificatesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrCertificates'
 --
 -- * 'dcrMarker'
-data DescribeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates :: Maybe [Certificate], _dcrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dcrStatusCode'
+data DescribeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates :: Maybe [Certificate], _dcrMarker :: Maybe Text, _dcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeCertificatesResponse' smart constructor.
-describeCertificatesResponse :: DescribeCertificatesResponse
-describeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates = Nothing, _dcrMarker = Nothing};
+describeCertificatesResponse :: Int -> DescribeCertificatesResponse
+describeCertificatesResponse pStatusCode = DescribeCertificatesResponse'{_dcrCertificates = Nothing, _dcrMarker = Nothing, _dcrStatusCode = pStatusCode};
 
 -- | The list of Certificate objects for the AWS account.
 dcrCertificates :: Lens' DescribeCertificatesResponse [Certificate]
@@ -145,3 +153,7 @@ dcrCertificates = lens _dcrCertificates (\ s a -> s{_dcrCertificates = a}) . _De
 -- records beyond the marker, up to the value specified by @MaxRecords@ .
 dcrMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
+
+-- | FIXME: Undocumented member.
+dcrStatusCode :: Lens' DescribeCertificatesResponse Int
+dcrStatusCode = lens _dcrStatusCode (\ s a -> s{_dcrStatusCode = a});

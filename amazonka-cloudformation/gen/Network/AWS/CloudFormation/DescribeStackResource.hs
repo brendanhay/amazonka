@@ -36,6 +36,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     , describeStackResourceResponse
     -- ** Response lenses
     , dsrrStackResourceDetail
+    , dsrrStatusCode
     ) where
 
 import Network.AWS.CloudFormation.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeStackResource' smart constructor.
+-- | The input for DescribeStackResource action.
+--
+-- /See:/ 'describeStackResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest DescribeStackResource where
           = receiveXMLWrapper "DescribeStackResourceResult"
               (\ s h x ->
                  DescribeStackResourceResponse' <$>
-                   (x .@? "StackResourceDetail"))
+                   (x .@? "StackResourceDetail") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
@@ -98,18 +102,26 @@ instance ToQuery DescribeStackResource where
                "StackName" =: _dStackName,
                "LogicalResourceId" =: _dLogicalResourceId]
 
--- | /See:/ 'describeStackResourceResponse' smart constructor.
+-- | The output for a DescribeStackResource action.
+--
+-- /See:/ 'describeStackResourceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrrStackResourceDetail'
-newtype DescribeStackResourceResponse = DescribeStackResourceResponse'{_dsrrStackResourceDetail :: Maybe StackResourceDetail} deriving (Eq, Read, Show)
+--
+-- * 'dsrrStatusCode'
+data DescribeStackResourceResponse = DescribeStackResourceResponse'{_dsrrStackResourceDetail :: Maybe StackResourceDetail, _dsrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
-describeStackResourceResponse :: DescribeStackResourceResponse
-describeStackResourceResponse = DescribeStackResourceResponse'{_dsrrStackResourceDetail = Nothing};
+describeStackResourceResponse :: Int -> DescribeStackResourceResponse
+describeStackResourceResponse pStatusCode = DescribeStackResourceResponse'{_dsrrStackResourceDetail = Nothing, _dsrrStatusCode = pStatusCode};
 
 -- | A @StackResourceDetail@ structure containing the description of the
 -- specified resource in the specified stack.
 dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrStackResourceDetail = lens _dsrrStackResourceDetail (\ s a -> s{_dsrrStackResourceDetail = a});
+
+-- | FIXME: Undocumented member.
+dsrrStatusCode :: Lens' DescribeStackResourceResponse Int
+dsrrStatusCode = lens _dsrrStatusCode (\ s a -> s{_dsrrStatusCode = a});

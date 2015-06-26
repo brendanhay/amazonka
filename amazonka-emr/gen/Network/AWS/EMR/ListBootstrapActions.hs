@@ -35,15 +35,18 @@ module Network.AWS.EMR.ListBootstrapActions
     -- ** Response lenses
     , lbarBootstrapActions
     , lbarMarker
+    , lbarStatusCode
     ) where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listBootstrapActions' smart constructor.
+-- | This input determines which bootstrap actions to retrieve.
+--
+-- /See:/ 'listBootstrapActions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -82,7 +85,8 @@ instance AWSRequest ListBootstrapActions where
               (\ s h x ->
                  ListBootstrapActionsResponse' <$>
                    (x .?> "BootstrapActions" .!@ mempty) <*>
-                     (x .?> "Marker"))
+                     (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListBootstrapActions where
         toHeaders
@@ -106,18 +110,22 @@ instance ToPath ListBootstrapActions where
 instance ToQuery ListBootstrapActions where
         toQuery = const mempty
 
--- | /See:/ 'listBootstrapActionsResponse' smart constructor.
+-- | This output contains the boostrap actions detail .
+--
+-- /See:/ 'listBootstrapActionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lbarBootstrapActions'
 --
 -- * 'lbarMarker'
-data ListBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions :: Maybe [Command], _lbarMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'lbarStatusCode'
+data ListBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions :: Maybe [Command], _lbarMarker :: Maybe Text, _lbarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
-listBootstrapActionsResponse :: ListBootstrapActionsResponse
-listBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions = Nothing, _lbarMarker = Nothing};
+listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
+listBootstrapActionsResponse pStatusCode = ListBootstrapActionsResponse'{_lbarBootstrapActions = Nothing, _lbarMarker = Nothing, _lbarStatusCode = pStatusCode};
 
 -- | The bootstrap actions associated with the cluster .
 lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
@@ -127,3 +135,7 @@ lbarBootstrapActions = lens _lbarBootstrapActions (\ s a -> s{_lbarBootstrapActi
 -- .
 lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarMarker = lens _lbarMarker (\ s a -> s{_lbarMarker = a});
+
+-- | FIXME: Undocumented member.
+lbarStatusCode :: Lens' ListBootstrapActionsResponse Int
+lbarStatusCode = lens _lbarStatusCode (\ s a -> s{_lbarStatusCode = a});

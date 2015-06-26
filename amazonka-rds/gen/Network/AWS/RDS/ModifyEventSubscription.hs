@@ -45,6 +45,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     , modifyEventSubscriptionResponse
     -- ** Response lenses
     , mesrEventSubscription
+    , mesrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -52,7 +53,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyEventSubscription' smart constructor.
+-- |
+--
+-- /See:/ 'modifyEventSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -112,7 +115,7 @@ instance AWSRequest ModifyEventSubscription where
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->
                  ModifyEventSubscriptionResponse' <$>
-                   (x .@? "EventSubscription"))
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
@@ -140,12 +143,18 @@ instance ToQuery ModifyEventSubscription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mesrEventSubscription'
-newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'{_mesrEventSubscription :: Maybe EventSubscription} deriving (Eq, Read, Show)
+--
+-- * 'mesrStatusCode'
+data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'{_mesrEventSubscription :: Maybe EventSubscription, _mesrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyEventSubscriptionResponse' smart constructor.
-modifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'{_mesrEventSubscription = Nothing};
+modifyEventSubscriptionResponse :: Int -> ModifyEventSubscriptionResponse
+modifyEventSubscriptionResponse pStatusCode = ModifyEventSubscriptionResponse'{_mesrEventSubscription = Nothing, _mesrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 mesrEventSubscription = lens _mesrEventSubscription (\ s a -> s{_mesrEventSubscription = a});
+
+-- | FIXME: Undocumented member.
+mesrStatusCode :: Lens' ModifyEventSubscriptionResponse Int
+mesrStatusCode = lens _mesrStatusCode (\ s a -> s{_mesrStatusCode = a});

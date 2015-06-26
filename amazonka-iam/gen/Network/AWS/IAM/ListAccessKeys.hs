@@ -49,10 +49,11 @@ module Network.AWS.IAM.ListAccessKeys
     , lakrMarker
     , lakrIsTruncated
     , lakrAccessKeyMetadata
+    , lakrStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -108,7 +109,8 @@ instance AWSRequest ListAccessKeys where
                  ListAccessKeysResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
@@ -124,7 +126,9 @@ instance ToQuery ListAccessKeys where
                "UserName" =: _lakUserName,
                "MaxItems" =: _lakMaxItems, "Marker" =: _lakMarker]
 
--- | /See:/ 'listAccessKeysResponse' smart constructor.
+-- | Contains the response to a successful ListAccessKeys request.
+--
+-- /See:/ 'listAccessKeysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -133,11 +137,13 @@ instance ToQuery ListAccessKeys where
 -- * 'lakrIsTruncated'
 --
 -- * 'lakrAccessKeyMetadata'
-data ListAccessKeysResponse = ListAccessKeysResponse'{_lakrMarker :: Maybe Text, _lakrIsTruncated :: Maybe Bool, _lakrAccessKeyMetadata :: [AccessKeyMetadata]} deriving (Eq, Read, Show)
+--
+-- * 'lakrStatusCode'
+data ListAccessKeysResponse = ListAccessKeysResponse'{_lakrMarker :: Maybe Text, _lakrIsTruncated :: Maybe Bool, _lakrAccessKeyMetadata :: [AccessKeyMetadata], _lakrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
-listAccessKeysResponse :: ListAccessKeysResponse
-listAccessKeysResponse = ListAccessKeysResponse'{_lakrMarker = Nothing, _lakrIsTruncated = Nothing, _lakrAccessKeyMetadata = mempty};
+listAccessKeysResponse :: Int -> ListAccessKeysResponse
+listAccessKeysResponse pStatusCode = ListAccessKeysResponse'{_lakrMarker = Nothing, _lakrIsTruncated = Nothing, _lakrAccessKeyMetadata = mempty, _lakrStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -154,3 +160,7 @@ lakrIsTruncated = lens _lakrIsTruncated (\ s a -> s{_lakrIsTruncated = a});
 -- | A list of access key metadata.
 lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata = lens _lakrAccessKeyMetadata (\ s a -> s{_lakrAccessKeyMetadata = a});
+
+-- | FIXME: Undocumented member.
+lakrStatusCode :: Lens' ListAccessKeysResponse Int
+lakrStatusCode = lens _lakrStatusCode (\ s a -> s{_lakrStatusCode = a});

@@ -46,7 +46,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'terminateJobFlows' smart constructor.
+-- | Input to the TerminateJobFlows operation.
+--
+-- /See:/ 'terminateJobFlows' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

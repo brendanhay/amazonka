@@ -36,6 +36,7 @@ module Network.AWS.EC2.CreateInternetGateway
     , createInternetGatewayResponse
     -- ** Response lenses
     , cigrInternetGateway
+    , cigrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -70,7 +71,7 @@ instance AWSRequest CreateInternetGateway where
           = receiveXML
               (\ s h x ->
                  CreateInternetGatewayResponse' <$>
-                   (x .@? "internetGateway"))
+                   (x .@? "internetGateway") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
@@ -90,12 +91,18 @@ instance ToQuery CreateInternetGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cigrInternetGateway'
-newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse'{_cigrInternetGateway :: Maybe InternetGateway} deriving (Eq, Read, Show)
+--
+-- * 'cigrStatusCode'
+data CreateInternetGatewayResponse = CreateInternetGatewayResponse'{_cigrInternetGateway :: Maybe InternetGateway, _cigrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateInternetGatewayResponse' smart constructor.
-createInternetGatewayResponse :: CreateInternetGatewayResponse
-createInternetGatewayResponse = CreateInternetGatewayResponse'{_cigrInternetGateway = Nothing};
+createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse
+createInternetGatewayResponse pStatusCode = CreateInternetGatewayResponse'{_cigrInternetGateway = Nothing, _cigrStatusCode = pStatusCode};
 
 -- | Information about the Internet gateway.
 cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrInternetGateway = lens _cigrInternetGateway (\ s a -> s{_cigrInternetGateway = a});
+
+-- | FIXME: Undocumented member.
+cigrStatusCode :: Lens' CreateInternetGatewayResponse Int
+cigrStatusCode = lens _cigrStatusCode (\ s a -> s{_cigrStatusCode = a});

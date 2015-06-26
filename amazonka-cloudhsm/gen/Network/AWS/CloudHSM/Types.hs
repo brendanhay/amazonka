@@ -21,8 +21,11 @@ module Network.AWS.CloudHSM.Types
     (
     -- * Service
       CloudHSM
-    -- ** Errors
-    , JSONError
+
+    -- * Errors
+    , _InvalidRequestException
+    , _CloudHSMServiceException
+    , _CloudHSMInternalException
 
     -- * ClientVersion
     , ClientVersion (..)
@@ -35,6 +38,7 @@ module Network.AWS.CloudHSM.Types
 
     -- * SubscriptionType
     , SubscriptionType (..)
+
     ) where
 
 import Network.AWS.Prelude
@@ -45,30 +49,43 @@ data CloudHSM
 
 instance AWSService CloudHSM where
     type Sg CloudHSM = V4
-    type Er CloudHSM = JSONError
 
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudHSM
-        service' = Service
-            { _svcAbbrev  = "CloudHSM"
-            , _svcPrefix  = "cloudhsm"
-            , _svcVersion = "2014-05-30"
-            , _svcHandle  = handle
-            , _svcRetry   = retry
+        svc :: Service CloudHSM
+        svc = Service
+            { _svcAbbrev   = "CloudHSM"
+            , _svcPrefix   = "cloudhsm"
+            , _svcVersion  = "2014-05-30"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout  = 80000000
+            , _svcStatus   = statusSuccess
+            , _svcError    = parseJSONError
+            , _svcRetry    = retry
             }
 
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
+        retry :: Retry
+        retry = Exponential
+            { _retryBase     = 0
+            , _retryGrowth   = 0
+            , _retryAttempts = 0
+            , _retryCheck    = check
+            }
 
-        retry :: Retry CloudHSM
-        retry = undefined
+        check :: ServiceError -> Bool
+        check ServiceError'{..} = error "FIXME: Retry check not implemented."
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e) = undefined
+-- | Indicates that one or more of the request parameters are not valid.
+_InvalidRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
+_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException";
+
+-- | Indicates that an exception occurred in the AWS CloudHSM service.
+_CloudHSMServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CloudHSMServiceException = _ServiceError . hasCode "CloudHsmServiceException";
+
+-- | Indicates that an internal error occurred.
+_CloudHSMInternalException :: AWSError a => Geting (First ServiceError) a ServiceError
+_CloudHSMInternalException = _ServiceError . hasCode "CloudHsmInternalException";
 
 data ClientVersion = V51 | V53 deriving (Eq, Ord, Read, Show, Enum, Generic)
 

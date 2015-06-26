@@ -46,6 +46,7 @@ module Network.AWS.StorageGateway.DeleteVolume
     , deleteVolumeResponse
     -- ** Response lenses
     , dvrVolumeARN
+    , dvrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -53,7 +54,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'deleteVolume' smart constructor.
+-- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
+--
+-- /See:/ 'deleteVolume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -76,7 +79,8 @@ instance AWSRequest DeleteVolume where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteVolumeResponse' <$> (x .?> "VolumeARN"))
+                 DeleteVolumeResponse' <$>
+                   (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders DeleteVolume where
         toHeaders
@@ -98,18 +102,26 @@ instance ToPath DeleteVolume where
 instance ToQuery DeleteVolume where
         toQuery = const mempty
 
--- | /See:/ 'deleteVolumeResponse' smart constructor.
+-- | A JSON object containing the of the storage volume that was deleted
+--
+-- /See:/ 'deleteVolumeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVolumeARN'
-newtype DeleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dvrStatusCode'
+data DeleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN :: Maybe Text, _dvrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteVolumeResponse' smart constructor.
-deleteVolumeResponse :: DeleteVolumeResponse
-deleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN = Nothing};
+deleteVolumeResponse :: Int -> DeleteVolumeResponse
+deleteVolumeResponse pStatusCode = DeleteVolumeResponse'{_dvrVolumeARN = Nothing, _dvrStatusCode = pStatusCode};
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
 -- It is the same ARN you provided in the request.
 dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\ s a -> s{_dvrVolumeARN = a});
+
+-- | FIXME: Undocumented member.
+dvrStatusCode :: Lens' DeleteVolumeResponse Int
+dvrStatusCode = lens _dvrStatusCode (\ s a -> s{_dvrStatusCode = a});

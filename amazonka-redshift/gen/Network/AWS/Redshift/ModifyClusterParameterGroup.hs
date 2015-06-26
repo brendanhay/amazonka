@@ -45,7 +45,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyClusterParameterGroup' smart constructor.
+-- |
+--
+-- /See:/ 'modifyClusterParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

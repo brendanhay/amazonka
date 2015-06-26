@@ -48,6 +48,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , modifyReplicationGroupResponse
     -- ** Response lenses
     , mrgrReplicationGroup
+    , mrgrStatusCode
     ) where
 
 import Network.AWS.ElastiCache.Types
@@ -55,7 +56,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'modifyReplicationGroup' smart constructor.
+-- | Represents the input of a /ModifyReplicationGroups/ action.
+--
+-- /See:/ 'modifyReplicationGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -241,7 +244,7 @@ instance AWSRequest ModifyReplicationGroup where
           = receiveXMLWrapper "ModifyReplicationGroupResult"
               (\ s h x ->
                  ModifyReplicationGroupResponse' <$>
-                   (x .@? "ReplicationGroup"))
+                   (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
@@ -290,12 +293,18 @@ instance ToQuery ModifyReplicationGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mrgrReplicationGroup'
-newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'{_mrgrReplicationGroup :: Maybe ReplicationGroup} deriving (Eq, Read, Show)
+--
+-- * 'mrgrStatusCode'
+data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'{_mrgrReplicationGroup :: Maybe ReplicationGroup, _mrgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
-modifyReplicationGroupResponse :: ModifyReplicationGroupResponse
-modifyReplicationGroupResponse = ModifyReplicationGroupResponse'{_mrgrReplicationGroup = Nothing};
+modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse
+modifyReplicationGroupResponse pStatusCode = ModifyReplicationGroupResponse'{_mrgrReplicationGroup = Nothing, _mrgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 mrgrReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 mrgrReplicationGroup = lens _mrgrReplicationGroup (\ s a -> s{_mrgrReplicationGroup = a});
+
+-- | FIXME: Undocumented member.
+mrgrStatusCode :: Lens' ModifyReplicationGroupResponse Int
+mrgrStatusCode = lens _mrgrStatusCode (\ s a -> s{_mrgrStatusCode = a});

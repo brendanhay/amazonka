@@ -17,4 +17,4 @@ module Network.AWS.EC2.Waiters where
 
 import Network.AWS.EC2.Types
 import Network.AWS.Prelude
-import Network.AWS.Waiters
+import Network.AWS.Waiter

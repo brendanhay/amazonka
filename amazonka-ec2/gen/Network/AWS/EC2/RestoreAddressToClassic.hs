@@ -37,6 +37,7 @@ module Network.AWS.EC2.RestoreAddressToClassic
     -- ** Response lenses
     , ratcrStatus
     , ratcrPublicIP
+    , ratcrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -77,7 +78,8 @@ instance AWSRequest RestoreAddressToClassic where
           = receiveXML
               (\ s h x ->
                  RestoreAddressToClassicResponse' <$>
-                   (x .@? "status") <*> (x .@? "publicIp"))
+                   (x .@? "status") <*> (x .@? "publicIp") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
@@ -100,11 +102,13 @@ instance ToQuery RestoreAddressToClassic where
 -- * 'ratcrStatus'
 --
 -- * 'ratcrPublicIP'
-data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrStatus :: Maybe AddressStatus, _ratcrPublicIP :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ratcrStatusCode'
+data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrStatus :: Maybe AddressStatus, _ratcrPublicIP :: Maybe Text, _ratcrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
-restoreAddressToClassicResponse :: RestoreAddressToClassicResponse
-restoreAddressToClassicResponse = RestoreAddressToClassicResponse'{_ratcrStatus = Nothing, _ratcrPublicIP = Nothing};
+restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
+restoreAddressToClassicResponse pStatusCode = RestoreAddressToClassicResponse'{_ratcrStatus = Nothing, _ratcrPublicIP = Nothing, _ratcrStatusCode = pStatusCode};
 
 -- | The move status for the IP address.
 ratcrStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
@@ -113,3 +117,7 @@ ratcrStatus = lens _ratcrStatus (\ s a -> s{_ratcrStatus = a});
 -- | The Elastic IP address.
 ratcrPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrPublicIP = lens _ratcrPublicIP (\ s a -> s{_ratcrPublicIP = a});
+
+-- | FIXME: Undocumented member.
+ratcrStatusCode :: Lens' RestoreAddressToClassicResponse Int
+ratcrStatusCode = lens _ratcrStatusCode (\ s a -> s{_ratcrStatusCode = a});

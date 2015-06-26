@@ -34,6 +34,7 @@ module Network.AWS.Support.DescribeSeverityLevels
     , describeSeverityLevelsResponse
     -- ** Response lenses
     , dslrSeverityLevels
+    , dslrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -68,7 +69,8 @@ instance AWSRequest DescribeSeverityLevels where
           = receiveJSON
               (\ s h x ->
                  DescribeSeverityLevelsResponse' <$>
-                   (x .?> "severityLevels" .!@ mempty))
+                   (x .?> "severityLevels" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeSeverityLevels where
         toHeaders
@@ -90,18 +92,27 @@ instance ToPath DescribeSeverityLevels where
 instance ToQuery DescribeSeverityLevels where
         toQuery = const mempty
 
--- | /See:/ 'describeSeverityLevelsResponse' smart constructor.
+-- | The list of severity levels returned by the DescribeSeverityLevels
+-- operation.
+--
+-- /See:/ 'describeSeverityLevelsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dslrSeverityLevels'
-newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels :: Maybe [SeverityLevel]} deriving (Eq, Read, Show)
+--
+-- * 'dslrStatusCode'
+data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels :: Maybe [SeverityLevel], _dslrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
-describeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
-describeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels = Nothing};
+describeSeverityLevelsResponse :: Int -> DescribeSeverityLevelsResponse
+describeSeverityLevelsResponse pStatusCode = DescribeSeverityLevelsResponse'{_dslrSeverityLevels = Nothing, _dslrStatusCode = pStatusCode};
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
 dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels = lens _dslrSeverityLevels (\ s a -> s{_dslrSeverityLevels = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dslrStatusCode :: Lens' DescribeSeverityLevelsResponse Int
+dslrStatusCode = lens _dslrStatusCode (\ s a -> s{_dslrStatusCode = a});

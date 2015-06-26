@@ -42,15 +42,18 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     , dtrprTapeRecoveryPointInfos
     , dtrprGatewayARN
     , dtrprMarker
+    , dtrprStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeTapeRecoveryPoints' smart constructor.
+-- | DescribeTapeRecoveryPointsInput
+--
+-- /See:/ 'describeTapeRecoveryPoints' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,7 +100,8 @@ instance AWSRequest DescribeTapeRecoveryPoints where
                  DescribeTapeRecoveryPointsResponse' <$>
                    (x .?> "TapeRecoveryPointInfos" .!@ mempty) <*>
                      (x .?> "GatewayARN")
-                     <*> (x .?> "Marker"))
+                     <*> (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
@@ -121,7 +125,9 @@ instance ToPath DescribeTapeRecoveryPoints where
 instance ToQuery DescribeTapeRecoveryPoints where
         toQuery = const mempty
 
--- | /See:/ 'describeTapeRecoveryPointsResponse' smart constructor.
+-- | DescribeTapeRecoveryPointsOutput
+--
+-- /See:/ 'describeTapeRecoveryPointsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -130,11 +136,13 @@ instance ToQuery DescribeTapeRecoveryPoints where
 -- * 'dtrprGatewayARN'
 --
 -- * 'dtrprMarker'
-data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'{_dtrprTapeRecoveryPointInfos :: Maybe [TapeRecoveryPointInfo], _dtrprGatewayARN :: Maybe Text, _dtrprMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dtrprStatusCode'
+data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'{_dtrprTapeRecoveryPointInfos :: Maybe [TapeRecoveryPointInfo], _dtrprGatewayARN :: Maybe Text, _dtrprMarker :: Maybe Text, _dtrprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
-describeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse
-describeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'{_dtrprTapeRecoveryPointInfos = Nothing, _dtrprGatewayARN = Nothing, _dtrprMarker = Nothing};
+describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse
+describeTapeRecoveryPointsResponse pStatusCode = DescribeTapeRecoveryPointsResponse'{_dtrprTapeRecoveryPointInfos = Nothing, _dtrprGatewayARN = Nothing, _dtrprMarker = Nothing, _dtrprStatusCode = pStatusCode};
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
@@ -153,3 +161,7 @@ dtrprGatewayARN = lens _dtrprGatewayARN (\ s a -> s{_dtrprGatewayARN = a});
 -- to describe, this field does not appear in the response.
 dtrprMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprMarker = lens _dtrprMarker (\ s a -> s{_dtrprMarker = a});
+
+-- | FIXME: Undocumented member.
+dtrprStatusCode :: Lens' DescribeTapeRecoveryPointsResponse Int
+dtrprStatusCode = lens _dtrprStatusCode (\ s a -> s{_dtrprStatusCode = a});

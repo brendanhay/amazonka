@@ -40,6 +40,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     , registerContainerInstanceResponse
     -- ** Response lenses
     , rcirContainerInstance
+    , rcirStatusCode
     ) where
 
 import Network.AWS.ECS.Types
@@ -104,7 +105,7 @@ instance AWSRequest RegisterContainerInstance where
           = receiveJSON
               (\ s h x ->
                  RegisterContainerInstanceResponse' <$>
-                   (x .?> "containerInstance"))
+                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders RegisterContainerInstance where
         toHeaders
@@ -138,12 +139,18 @@ instance ToQuery RegisterContainerInstance where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcirContainerInstance'
-newtype RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'{_rcirContainerInstance :: Maybe ContainerInstance} deriving (Eq, Read, Show)
+--
+-- * 'rcirStatusCode'
+data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'{_rcirContainerInstance :: Maybe ContainerInstance, _rcirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
-registerContainerInstanceResponse :: RegisterContainerInstanceResponse
-registerContainerInstanceResponse = RegisterContainerInstanceResponse'{_rcirContainerInstance = Nothing};
+registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
+registerContainerInstanceResponse pStatusCode = RegisterContainerInstanceResponse'{_rcirContainerInstance = Nothing, _rcirStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 rcirContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
 rcirContainerInstance = lens _rcirContainerInstance (\ s a -> s{_rcirContainerInstance = a});
+
+-- | FIXME: Undocumented member.
+rcirStatusCode :: Lens' RegisterContainerInstanceResponse Int
+rcirStatusCode = lens _rcirStatusCode (\ s a -> s{_rcirStatusCode = a});

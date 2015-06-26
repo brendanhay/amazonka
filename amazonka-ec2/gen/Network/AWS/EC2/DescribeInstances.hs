@@ -47,10 +47,11 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Response lenses
     , dirNextToken
     , dirReservations
+    , dirStatusCode
     ) where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -363,8 +364,8 @@ instance AWSRequest DescribeInstances where
           = receiveXML
               (\ s h x ->
                  DescribeInstancesResponse' <$>
-                   (x .@? "nextToken") <*>
-                     (may (parseXMLList "item") x))
+                   (x .@? "nextToken") <*> (may (parseXMLList "item") x)
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty
@@ -391,11 +392,13 @@ instance ToQuery DescribeInstances where
 -- * 'dirNextToken'
 --
 -- * 'dirReservations'
-data DescribeInstancesResponse = DescribeInstancesResponse'{_dirNextToken :: Maybe Text, _dirReservations :: Maybe [Reservation]} deriving (Eq, Read, Show)
+--
+-- * 'dirStatusCode'
+data DescribeInstancesResponse = DescribeInstancesResponse'{_dirNextToken :: Maybe Text, _dirReservations :: Maybe [Reservation], _dirStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
-describeInstancesResponse :: DescribeInstancesResponse
-describeInstancesResponse = DescribeInstancesResponse'{_dirNextToken = Nothing, _dirReservations = Nothing};
+describeInstancesResponse :: Int -> DescribeInstancesResponse
+describeInstancesResponse pStatusCode = DescribeInstancesResponse'{_dirNextToken = Nothing, _dirReservations = Nothing, _dirStatusCode = pStatusCode};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -405,3 +408,7 @@ dirNextToken = lens _dirNextToken (\ s a -> s{_dirNextToken = a});
 -- | One or more reservations.
 dirReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirReservations = lens _dirReservations (\ s a -> s{_dirReservations = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dirStatusCode :: Lens' DescribeInstancesResponse Int
+dirStatusCode = lens _dirStatusCode (\ s a -> s{_dirStatusCode = a});

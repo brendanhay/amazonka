@@ -33,6 +33,7 @@ module Network.AWS.SNS.GetTopicAttributes
     , getTopicAttributesResponse
     -- ** Response lenses
     , gtarAttributes
+    , gtarStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -40,7 +41,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'getTopicAttributes' smart constructor.
+-- | Input for GetTopicAttributes action.
+--
+-- /See:/ 'getTopicAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -65,7 +68,8 @@ instance AWSRequest GetTopicAttributes where
               (\ s h x ->
                  GetTopicAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLMap "entry" "key" "value")))
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
@@ -80,16 +84,20 @@ instance ToQuery GetTopicAttributes where
                "Version" =: ("2010-03-31" :: ByteString),
                "TopicArn" =: _gtaTopicARN]
 
--- | /See:/ 'getTopicAttributesResponse' smart constructor.
+-- | Response for GetTopicAttributes action.
+--
+-- /See:/ 'getTopicAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtarAttributes'
-newtype GetTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
+--
+-- * 'gtarStatusCode'
+data GetTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes :: Maybe (Map Text Text), _gtarStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetTopicAttributesResponse' smart constructor.
-getTopicAttributesResponse :: GetTopicAttributesResponse
-getTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes = Nothing};
+getTopicAttributesResponse :: Int -> GetTopicAttributesResponse
+getTopicAttributesResponse pStatusCode = GetTopicAttributesResponse'{_gtarAttributes = Nothing, _gtarStatusCode = pStatusCode};
 
 -- | A map of the topic\'s attributes. Attributes in this map include the
 -- following:
@@ -112,3 +120,7 @@ getTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes = Nothi
 --     delivery policy that takes into account system defaults
 gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . _Default . _Map;
+
+-- | FIXME: Undocumented member.
+gtarStatusCode :: Lens' GetTopicAttributesResponse Int
+gtarStatusCode = lens _gtarStatusCode (\ s a -> s{_gtarStatusCode = a});

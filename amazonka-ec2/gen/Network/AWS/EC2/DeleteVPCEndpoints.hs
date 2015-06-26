@@ -35,6 +35,7 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     , deleteVPCEndpointsResponse
     -- ** Response lenses
     , dverUnsuccessful
+    , dverStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -75,7 +76,8 @@ instance AWSRequest DeleteVPCEndpoints where
           = receiveXML
               (\ s h x ->
                  DeleteVPCEndpointsResponse' <$>
-                   (may (parseXMLList "item") x))
+                   (may (parseXMLList "item") x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
@@ -96,12 +98,18 @@ instance ToQuery DeleteVPCEndpoints where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dverUnsuccessful'
-newtype DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful :: Maybe [UnsuccessfulItem]} deriving (Eq, Read, Show)
+--
+-- * 'dverStatusCode'
+data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful :: Maybe [UnsuccessfulItem], _dverStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
-deleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful = Nothing};
+deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
+deleteVPCEndpointsResponse pStatusCode = DeleteVPCEndpointsResponse'{_dverUnsuccessful = Nothing, _dverStatusCode = pStatusCode};
 
 -- | Information about the endpoints that were not successfully deleted.
 dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dverStatusCode :: Lens' DeleteVPCEndpointsResponse Int
+dverStatusCode = lens _dverStatusCode (\ s a -> s{_dverStatusCode = a});

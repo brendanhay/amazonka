@@ -36,6 +36,7 @@ module Network.AWS.CognitoSync.BulkPublish
     , bulkPublishResponse
     -- ** Response lenses
     , bprIdentityPoolId
+    , bprStatusCode
     ) where
 
 import Network.AWS.CognitoSync.Types
@@ -43,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'bulkPublish' smart constructor.
+-- | The input for the BulkPublish operation.
+--
+-- /See:/ 'bulkPublish' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -67,7 +70,8 @@ instance AWSRequest BulkPublish where
         response
           = receiveJSON
               (\ s h x ->
-                 BulkPublishResponse' <$> (x .?> "IdentityPoolId"))
+                 BulkPublishResponse' <$>
+                   (x .?> "IdentityPoolId") <*> (pure (fromEnum s)))
 
 instance ToHeaders BulkPublish where
         toHeaders
@@ -88,19 +92,27 @@ instance ToPath BulkPublish where
 instance ToQuery BulkPublish where
         toQuery = const mempty
 
--- | /See:/ 'bulkPublishResponse' smart constructor.
+-- | The output for the BulkPublish operation.
+--
+-- /See:/ 'bulkPublishResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bprIdentityPoolId'
-newtype BulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'bprStatusCode'
+data BulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId :: Maybe Text, _bprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'BulkPublishResponse' smart constructor.
-bulkPublishResponse :: BulkPublishResponse
-bulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId = Nothing};
+bulkPublishResponse :: Int -> BulkPublishResponse
+bulkPublishResponse pStatusCode = BulkPublishResponse'{_bprIdentityPoolId = Nothing, _bprStatusCode = pStatusCode};
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
 bprIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprIdentityPoolId = lens _bprIdentityPoolId (\ s a -> s{_bprIdentityPoolId = a});
+
+-- | FIXME: Undocumented member.
+bprStatusCode :: Lens' BulkPublishResponse Int
+bprStatusCode = lens _bprStatusCode (\ s a -> s{_bprStatusCode = a});

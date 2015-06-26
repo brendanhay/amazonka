@@ -45,6 +45,7 @@ module Network.AWS.ImportExport.GetShippingLabel
     -- ** Response lenses
     , gslrShippingLabelURL
     , gslrWarning
+    , gslrStatusCode
     ) where
 
 import Network.AWS.ImportExport.Types
@@ -141,7 +142,8 @@ instance AWSRequest GetShippingLabel where
           = receiveXMLWrapper "GetShippingLabelResult"
               (\ s h x ->
                  GetShippingLabelResponse' <$>
-                   (x .@? "ShippingLabelURL") <*> (x .@? "Warning"))
+                   (x .@? "ShippingLabelURL") <*> (x .@? "Warning") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
@@ -173,11 +175,13 @@ instance ToQuery GetShippingLabel where
 -- * 'gslrShippingLabelURL'
 --
 -- * 'gslrWarning'
-data GetShippingLabelResponse = GetShippingLabelResponse'{_gslrShippingLabelURL :: Maybe Text, _gslrWarning :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'gslrStatusCode'
+data GetShippingLabelResponse = GetShippingLabelResponse'{_gslrShippingLabelURL :: Maybe Text, _gslrWarning :: Maybe Text, _gslrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetShippingLabelResponse' smart constructor.
-getShippingLabelResponse :: GetShippingLabelResponse
-getShippingLabelResponse = GetShippingLabelResponse'{_gslrShippingLabelURL = Nothing, _gslrWarning = Nothing};
+getShippingLabelResponse :: Int -> GetShippingLabelResponse
+getShippingLabelResponse pStatusCode = GetShippingLabelResponse'{_gslrShippingLabelURL = Nothing, _gslrWarning = Nothing, _gslrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 gslrShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
@@ -186,3 +190,7 @@ gslrShippingLabelURL = lens _gslrShippingLabelURL (\ s a -> s{_gslrShippingLabel
 -- | FIXME: Undocumented member.
 gslrWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrWarning = lens _gslrWarning (\ s a -> s{_gslrWarning = a});
+
+-- | FIXME: Undocumented member.
+gslrStatusCode :: Lens' GetShippingLabelResponse Int
+gslrStatusCode = lens _gslrStatusCode (\ s a -> s{_gslrStatusCode = a});

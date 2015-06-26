@@ -53,6 +53,7 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrTrainingDataSourceId
     , gmlmrMessage
     , gmlmrMLModelType
+    , gmlmrStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -110,7 +111,8 @@ instance AWSRequest GetMLModel where
                      <*> (x .?> "EndpointInfo")
                      <*> (x .?> "TrainingDataSourceId")
                      <*> (x .?> "Message")
-                     <*> (x .?> "MLModelType"))
+                     <*> (x .?> "MLModelType")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetMLModel where
         toHeaders
@@ -133,7 +135,10 @@ instance ToPath GetMLModel where
 instance ToQuery GetMLModel where
         toQuery = const mempty
 
--- | /See:/ 'getMLModelResponse' smart constructor.
+-- | Represents the output of a GetMLModel operation, and provides detailed
+-- information about a @MLModel@.
+--
+-- /See:/ 'getMLModelResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -172,11 +177,13 @@ instance ToQuery GetMLModel where
 -- * 'gmlmrMessage'
 --
 -- * 'gmlmrMLModelType'
-data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: Maybe (Map Text Text), _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrMLModelId :: Maybe Text, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrTrainingDataSourceId :: Maybe Text, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
+--
+-- * 'gmlmrStatusCode'
+data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: Maybe (Map Text Text), _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrMLModelId :: Maybe Text, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrTrainingDataSourceId :: Maybe Text, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType, _gmlmrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetMLModelResponse' smart constructor.
-getMLModelResponse :: GetMLModelResponse
-getMLModelResponse = GetMLModelResponse'{_gmlmrStatus = Nothing, _gmlmrTrainingParameters = Nothing, _gmlmrLastUpdatedAt = Nothing, _gmlmrCreatedAt = Nothing, _gmlmrScoreThresholdLastUpdatedAt = Nothing, _gmlmrRecipe = Nothing, _gmlmrInputDataLocationS3 = Nothing, _gmlmrSizeInBytes = Nothing, _gmlmrMLModelId = Nothing, _gmlmrSchema = Nothing, _gmlmrScoreThreshold = Nothing, _gmlmrName = Nothing, _gmlmrCreatedByIAMUser = Nothing, _gmlmrLogURI = Nothing, _gmlmrEndpointInfo = Nothing, _gmlmrTrainingDataSourceId = Nothing, _gmlmrMessage = Nothing, _gmlmrMLModelType = Nothing};
+getMLModelResponse :: Int -> GetMLModelResponse
+getMLModelResponse pStatusCode = GetMLModelResponse'{_gmlmrStatus = Nothing, _gmlmrTrainingParameters = Nothing, _gmlmrLastUpdatedAt = Nothing, _gmlmrCreatedAt = Nothing, _gmlmrScoreThresholdLastUpdatedAt = Nothing, _gmlmrRecipe = Nothing, _gmlmrInputDataLocationS3 = Nothing, _gmlmrSizeInBytes = Nothing, _gmlmrMLModelId = Nothing, _gmlmrSchema = Nothing, _gmlmrScoreThreshold = Nothing, _gmlmrName = Nothing, _gmlmrCreatedByIAMUser = Nothing, _gmlmrLogURI = Nothing, _gmlmrEndpointInfo = Nothing, _gmlmrTrainingDataSourceId = Nothing, _gmlmrMessage = Nothing, _gmlmrMLModelType = Nothing, _gmlmrStatusCode = pStatusCode};
 
 -- | The current status of the @MLModel@. This element can have one of the
 -- following values:
@@ -323,3 +330,7 @@ gmlmrMessage = lens _gmlmrMessage (\ s a -> s{_gmlmrMessage = a});
 --     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
 gmlmrMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrMLModelType = lens _gmlmrMLModelType (\ s a -> s{_gmlmrMLModelType = a});
+
+-- | FIXME: Undocumented member.
+gmlmrStatusCode :: Lens' GetMLModelResponse Int
+gmlmrStatusCode = lens _gmlmrStatusCode (\ s a -> s{_gmlmrStatusCode = a});

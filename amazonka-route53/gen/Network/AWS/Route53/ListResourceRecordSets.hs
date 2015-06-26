@@ -82,15 +82,18 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsrResourceRecordSets
     , lrrsrIsTruncated
     , lrrsrMaxItems
+    , lrrsrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listResourceRecordSets' smart constructor.
+-- | The input for a ListResourceRecordSets request.
+--
+-- /See:/ 'listResourceRecordSets' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -177,7 +180,8 @@ instance AWSRequest ListResourceRecordSets where
                      (x .@? "ResourceRecordSets" .!@ mempty >>=
                         parseXMLList "ResourceRecordSet")
                      <*> (x .@ "IsTruncated")
-                     <*> (x .@ "MaxItems"))
+                     <*> (x .@ "MaxItems")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
@@ -196,7 +200,10 @@ instance ToQuery ListResourceRecordSets where
                "identifier" =: _lrrsStartRecordIdentifier,
                "maxitems" =: _lrrsMaxItems]
 
--- | /See:/ 'listResourceRecordSetsResponse' smart constructor.
+-- | A complex type that contains information about the resource record sets
+-- that are returned by the request and information about the response.
+--
+-- /See:/ 'listResourceRecordSetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -211,11 +218,13 @@ instance ToQuery ListResourceRecordSets where
 -- * 'lrrsrIsTruncated'
 --
 -- * 'lrrsrMaxItems'
-data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'{_lrrsrNextRecordType :: Maybe RecordType, _lrrsrNextRecordName :: Maybe Text, _lrrsrNextRecordIdentifier :: Maybe Text, _lrrsrResourceRecordSets :: [ResourceRecordSet], _lrrsrIsTruncated :: Bool, _lrrsrMaxItems :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lrrsrStatusCode'
+data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'{_lrrsrNextRecordType :: Maybe RecordType, _lrrsrNextRecordName :: Maybe Text, _lrrsrNextRecordIdentifier :: Maybe Text, _lrrsrResourceRecordSets :: [ResourceRecordSet], _lrrsrIsTruncated :: Bool, _lrrsrMaxItems :: Text, _lrrsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
-listResourceRecordSetsResponse :: Bool -> Text -> ListResourceRecordSetsResponse
-listResourceRecordSetsResponse pIsTruncated pMaxItems = ListResourceRecordSetsResponse'{_lrrsrNextRecordType = Nothing, _lrrsrNextRecordName = Nothing, _lrrsrNextRecordIdentifier = Nothing, _lrrsrResourceRecordSets = mempty, _lrrsrIsTruncated = pIsTruncated, _lrrsrMaxItems = pMaxItems};
+listResourceRecordSetsResponse :: Bool -> Text -> Int -> ListResourceRecordSetsResponse
+listResourceRecordSetsResponse pIsTruncated pMaxItems pStatusCode = ListResourceRecordSetsResponse'{_lrrsrNextRecordType = Nothing, _lrrsrNextRecordName = Nothing, _lrrsrNextRecordIdentifier = Nothing, _lrrsrResourceRecordSets = mempty, _lrrsrIsTruncated = pIsTruncated, _lrrsrMaxItems = pMaxItems, _lrrsrStatusCode = pStatusCode};
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if
@@ -253,3 +262,7 @@ lrrsrIsTruncated = lens _lrrsrIsTruncated (\ s a -> s{_lrrsrIsTruncated = a});
 -- @MaxItems@ is 100.
 lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\ s a -> s{_lrrsrMaxItems = a});
+
+-- | FIXME: Undocumented member.
+lrrsrStatusCode :: Lens' ListResourceRecordSetsResponse Int
+lrrsrStatusCode = lens _lrrsrStatusCode (\ s a -> s{_lrrsrStatusCode = a});

@@ -32,6 +32,8 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     , DeleteLoadBalancerPolicyResponse
     -- ** Response constructor
     , deleteLoadBalancerPolicyResponse
+    -- ** Response lenses
+    , dStatusCode
     ) where
 
 import Network.AWS.ELB.Types
@@ -39,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'deleteLoadBalancerPolicy' smart constructor.
+-- | =
+--
+-- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -66,7 +70,10 @@ instance AWSRequest DeleteLoadBalancerPolicy where
              DeleteLoadBalancerPolicyResponse
         request = post
         response
-          = receiveNull DeleteLoadBalancerPolicyResponse'
+          = receiveXMLWrapper "DeleteLoadBalancerPolicyResult"
+              (\ s h x ->
+                 DeleteLoadBalancerPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty
@@ -84,8 +91,16 @@ instance ToQuery DeleteLoadBalancerPolicy where
                "PolicyName" =: _delPolicyName]
 
 -- | /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
-data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse' deriving (Eq, Read, Show)
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dStatusCode'
+newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'{_dStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
-deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
-deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse';
+deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
+deleteLoadBalancerPolicyResponse pStatusCode = DeleteLoadBalancerPolicyResponse'{_dStatusCode = pStatusCode};
+
+-- | FIXME: Undocumented member.
+dStatusCode :: Lens' DeleteLoadBalancerPolicyResponse Int
+dStatusCode = lens _dStatusCode (\ s a -> s{_dStatusCode = a});

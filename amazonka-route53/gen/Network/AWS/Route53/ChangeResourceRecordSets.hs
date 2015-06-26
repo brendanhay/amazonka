@@ -63,6 +63,7 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     , changeResourceRecordSetsResponse
     -- ** Response lenses
     , crrsrChangeInfo
+    , crrsrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -70,7 +71,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Route53.Types
 
--- | /See:/ 'changeResourceRecordSets' smart constructor.
+-- | A complex type that contains a change batch.
+--
+-- /See:/ 'changeResourceRecordSets' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -102,7 +105,7 @@ instance AWSRequest ChangeResourceRecordSets where
           = receiveXML
               (\ s h x ->
                  ChangeResourceRecordSetsResponse' <$>
-                   (x .@ "ChangeInfo"))
+                   (x .@ "ChangeInfo") <*> (pure (fromEnum s)))
 
 instance ToElement ChangeResourceRecordSets where
         toElement
@@ -125,16 +128,20 @@ instance ToXML ChangeResourceRecordSets where
         toXML ChangeResourceRecordSets'{..}
           = mconcat ["ChangeBatch" @= _crrsChangeBatch]
 
--- | /See:/ 'changeResourceRecordSetsResponse' smart constructor.
+-- | A complex type containing the response for the request.
+--
+-- /See:/ 'changeResourceRecordSetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crrsrChangeInfo'
-newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'{_crrsrChangeInfo :: ChangeInfo} deriving (Eq, Read, Show)
+--
+-- * 'crrsrStatusCode'
+data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'{_crrsrChangeInfo :: ChangeInfo, _crrsrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
-changeResourceRecordSetsResponse :: ChangeInfo -> ChangeResourceRecordSetsResponse
-changeResourceRecordSetsResponse pChangeInfo = ChangeResourceRecordSetsResponse'{_crrsrChangeInfo = pChangeInfo};
+changeResourceRecordSetsResponse :: ChangeInfo -> Int -> ChangeResourceRecordSetsResponse
+changeResourceRecordSetsResponse pChangeInfo pStatusCode = ChangeResourceRecordSetsResponse'{_crrsrChangeInfo = pChangeInfo, _crrsrStatusCode = pStatusCode};
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone.
@@ -143,3 +150,7 @@ changeResourceRecordSetsResponse pChangeInfo = ChangeResourceRecordSetsResponse'
 -- action to get detailed information about the change.
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\ s a -> s{_crrsrChangeInfo = a});
+
+-- | FIXME: Undocumented member.
+crrsrStatusCode :: Lens' ChangeResourceRecordSetsResponse Int
+crrsrStatusCode = lens _crrsrStatusCode (\ s a -> s{_crrsrStatusCode = a});

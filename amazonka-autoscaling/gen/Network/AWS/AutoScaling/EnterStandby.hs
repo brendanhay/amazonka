@@ -38,6 +38,7 @@ module Network.AWS.AutoScaling.EnterStandby
     , enterStandbyResponse
     -- ** Response lenses
     , esrActivities
+    , esrStatusCode
     ) where
 
 import Network.AWS.AutoScaling.Types
@@ -85,7 +86,8 @@ instance AWSRequest EnterStandby where
               (\ s h x ->
                  EnterStandbyResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders EnterStandby where
         toHeaders = const mempty
@@ -109,12 +111,18 @@ instance ToQuery EnterStandby where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'esrActivities'
-newtype EnterStandbyResponse = EnterStandbyResponse'{_esrActivities :: Maybe [Activity]} deriving (Eq, Read, Show)
+--
+-- * 'esrStatusCode'
+data EnterStandbyResponse = EnterStandbyResponse'{_esrActivities :: Maybe [Activity], _esrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EnterStandbyResponse' smart constructor.
-enterStandbyResponse :: EnterStandbyResponse
-enterStandbyResponse = EnterStandbyResponse'{_esrActivities = Nothing};
+enterStandbyResponse :: Int -> EnterStandbyResponse
+enterStandbyResponse pStatusCode = EnterStandbyResponse'{_esrActivities = Nothing, _esrStatusCode = pStatusCode};
 
 -- | The activities related to moving instances into @Standby@ mode.
 esrActivities :: Lens' EnterStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+esrStatusCode :: Lens' EnterStandbyResponse Int
+esrStatusCode = lens _esrStatusCode (\ s a -> s{_esrStatusCode = a});

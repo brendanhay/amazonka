@@ -39,6 +39,7 @@ module Network.AWS.RDS.PromoteReadReplica
     , promoteReadReplicaResponse
     -- ** Response lenses
     , prrrDBInstance
+    , prrrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -46,7 +47,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'promoteReadReplica' smart constructor.
+-- |
+--
+-- /See:/ 'promoteReadReplica' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -108,7 +111,8 @@ instance AWSRequest PromoteReadReplica where
         response
           = receiveXMLWrapper "PromoteReadReplicaResult"
               (\ s h x ->
-                 PromoteReadReplicaResponse' <$> (x .@? "DBInstance"))
+                 PromoteReadReplicaResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
@@ -130,12 +134,18 @@ instance ToQuery PromoteReadReplica where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prrrDBInstance'
-newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse'{_prrrDBInstance :: Maybe DBInstance} deriving (Eq, Read, Show)
+--
+-- * 'prrrStatusCode'
+data PromoteReadReplicaResponse = PromoteReadReplicaResponse'{_prrrDBInstance :: Maybe DBInstance, _prrrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PromoteReadReplicaResponse' smart constructor.
-promoteReadReplicaResponse :: PromoteReadReplicaResponse
-promoteReadReplicaResponse = PromoteReadReplicaResponse'{_prrrDBInstance = Nothing};
+promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
+promoteReadReplicaResponse pStatusCode = PromoteReadReplicaResponse'{_prrrDBInstance = Nothing, _prrrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\ s a -> s{_prrrDBInstance = a});
+
+-- | FIXME: Undocumented member.
+prrrStatusCode :: Lens' PromoteReadReplicaResponse Int
+prrrStatusCode = lens _prrrStatusCode (\ s a -> s{_prrrStatusCode = a});

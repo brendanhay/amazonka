@@ -41,15 +41,18 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldrGatewayARN
     , dvtldrVTLDevices
     , dvtldrMarker
+    , dvtldrStatusCode
     ) where
 
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeVTLDevices' smart constructor.
+-- | DescribeVTLDevicesInput
+--
+-- /See:/ 'describeVTLDevices' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,7 +110,8 @@ instance AWSRequest DescribeVTLDevices where
                  DescribeVTLDevicesResponse' <$>
                    (x .?> "GatewayARN") <*>
                      (x .?> "VTLDevices" .!@ mempty)
-                     <*> (x .?> "Marker"))
+                     <*> (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeVTLDevices where
         toHeaders
@@ -132,7 +136,9 @@ instance ToPath DescribeVTLDevices where
 instance ToQuery DescribeVTLDevices where
         toQuery = const mempty
 
--- | /See:/ 'describeVTLDevicesResponse' smart constructor.
+-- | DescribeVTLDevicesOutput
+--
+-- /See:/ 'describeVTLDevicesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -141,11 +147,13 @@ instance ToQuery DescribeVTLDevices where
 -- * 'dvtldrVTLDevices'
 --
 -- * 'dvtldrMarker'
-data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrGatewayARN :: Maybe Text, _dvtldrVTLDevices :: Maybe [VTLDevice], _dvtldrMarker :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'dvtldrStatusCode'
+data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrGatewayARN :: Maybe Text, _dvtldrVTLDevices :: Maybe [VTLDevice], _dvtldrMarker :: Maybe Text, _dvtldrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
-describeVTLDevicesResponse :: DescribeVTLDevicesResponse
-describeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrGatewayARN = Nothing, _dvtldrVTLDevices = Nothing, _dvtldrMarker = Nothing};
+describeVTLDevicesResponse :: Int -> DescribeVTLDevicesResponse
+describeVTLDevicesResponse pStatusCode = DescribeVTLDevicesResponse'{_dvtldrGatewayARN = Nothing, _dvtldrVTLDevices = Nothing, _dvtldrMarker = Nothing, _dvtldrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
@@ -163,3 +171,7 @@ dvtldrVTLDevices = lens _dvtldrVTLDevices (\ s a -> s{_dvtldrVTLDevices = a}) . 
 -- response.
 dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrMarker = lens _dvtldrMarker (\ s a -> s{_dvtldrMarker = a});
+
+-- | FIXME: Undocumented member.
+dvtldrStatusCode :: Lens' DescribeVTLDevicesResponse Int
+dvtldrStatusCode = lens _dvtldrStatusCode (\ s a -> s{_dvtldrStatusCode = a});

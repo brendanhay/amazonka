@@ -36,6 +36,7 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     , updateBatchPredictionResponse
     -- ** Response lenses
     , ubprBatchPredictionId
+    , ubprStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -73,7 +74,7 @@ instance AWSRequest UpdateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  UpdateBatchPredictionResponse' <$>
-                   (x .?> "BatchPredictionId"))
+                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateBatchPrediction where
         toHeaders
@@ -97,19 +98,30 @@ instance ToPath UpdateBatchPrediction where
 instance ToQuery UpdateBatchPrediction where
         toQuery = const mempty
 
--- | /See:/ 'updateBatchPredictionResponse' smart constructor.
+-- | Represents the output of an UpdateBatchPrediction operation.
+--
+-- You can see the updated content by using the GetBatchPrediction
+-- operation.
+--
+-- /See:/ 'updateBatchPredictionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ubprBatchPredictionId'
-newtype UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'ubprStatusCode'
+data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId :: Maybe Text, _ubprStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
-updateBatchPredictionResponse :: UpdateBatchPredictionResponse
-updateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId = Nothing};
+updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse
+updateBatchPredictionResponse pStatusCode = UpdateBatchPredictionResponse'{_ubprBatchPredictionId = Nothing, _ubprStatusCode = pStatusCode};
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value
 -- should be identical to the value of the @BatchPredictionId@ in the
 -- request.
 ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprBatchPredictionId = lens _ubprBatchPredictionId (\ s a -> s{_ubprBatchPredictionId = a});
+
+-- | FIXME: Undocumented member.
+ubprStatusCode :: Lens' UpdateBatchPredictionResponse Int
+ubprStatusCode = lens _ubprStatusCode (\ s a -> s{_ubprStatusCode = a});

@@ -57,6 +57,7 @@ module Network.AWS.KMS.Encrypt
     -- ** Response lenses
     , erKeyId
     , erCiphertextBlob
+    , erStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -119,7 +120,8 @@ instance AWSRequest Encrypt where
           = receiveJSON
               (\ s h x ->
                  EncryptResponse' <$>
-                   (x .?> "KeyId") <*> (x .?> "CiphertextBlob"))
+                   (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders Encrypt where
         toHeaders
@@ -150,11 +152,13 @@ instance ToQuery Encrypt where
 -- * 'erKeyId'
 --
 -- * 'erCiphertextBlob'
-data EncryptResponse = EncryptResponse'{_erKeyId :: Maybe Text, _erCiphertextBlob :: Maybe Base64} deriving (Eq, Read, Show)
+--
+-- * 'erStatusCode'
+data EncryptResponse = EncryptResponse'{_erKeyId :: Maybe Text, _erCiphertextBlob :: Maybe Base64, _erStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'EncryptResponse' smart constructor.
-encryptResponse :: EncryptResponse
-encryptResponse = EncryptResponse'{_erKeyId = Nothing, _erCiphertextBlob = Nothing};
+encryptResponse :: Int -> EncryptResponse
+encryptResponse pStatusCode = EncryptResponse'{_erKeyId = Nothing, _erCiphertextBlob = Nothing, _erStatusCode = pStatusCode};
 
 -- | The ID of the key used during encryption.
 erKeyId :: Lens' EncryptResponse (Maybe Text)
@@ -164,3 +168,7 @@ erKeyId = lens _erKeyId (\ s a -> s{_erKeyId = a});
 -- encoded. Otherwise, it is not encoded.
 erCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
 erCiphertextBlob = lens _erCiphertextBlob (\ s a -> s{_erCiphertextBlob = a});
+
+-- | FIXME: Undocumented member.
+erStatusCode :: Lens' EncryptResponse Int
+erStatusCode = lens _erStatusCode (\ s a -> s{_erStatusCode = a});

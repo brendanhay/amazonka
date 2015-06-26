@@ -33,6 +33,7 @@ module Network.AWS.CloudFront.GetInvalidation
     , getInvalidationResponse
     -- ** Response lenses
     , girInvalidation
+    , girStatusCode
     ) where
 
 import Network.AWS.CloudFront.Types
@@ -40,7 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'getInvalidation' smart constructor.
+-- | The request to get an invalidation\'s information.
+--
+-- /See:/ 'getInvalidation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -68,7 +71,8 @@ instance AWSRequest GetInvalidation where
         response
           = receiveXML
               (\ s h x ->
-                 GetInvalidationResponse' <$> (x .@? "Invalidation"))
+                 GetInvalidationResponse' <$>
+                   (x .@? "Invalidation") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
@@ -83,17 +87,25 @@ instance ToPath GetInvalidation where
 instance ToQuery GetInvalidation where
         toQuery = const mempty
 
--- | /See:/ 'getInvalidationResponse' smart constructor.
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getInvalidationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'girInvalidation'
-newtype GetInvalidationResponse = GetInvalidationResponse'{_girInvalidation :: Maybe Invalidation} deriving (Eq, Read, Show)
+--
+-- * 'girStatusCode'
+data GetInvalidationResponse = GetInvalidationResponse'{_girInvalidation :: Maybe Invalidation, _girStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'GetInvalidationResponse' smart constructor.
-getInvalidationResponse :: GetInvalidationResponse
-getInvalidationResponse = GetInvalidationResponse'{_girInvalidation = Nothing};
+getInvalidationResponse :: Int -> GetInvalidationResponse
+getInvalidationResponse pStatusCode = GetInvalidationResponse'{_girInvalidation = Nothing, _girStatusCode = pStatusCode};
 
 -- | The invalidation\'s information.
 girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\ s a -> s{_girInvalidation = a});
+
+-- | FIXME: Undocumented member.
+girStatusCode :: Lens' GetInvalidationResponse Int
+girStatusCode = lens _girStatusCode (\ s a -> s{_girStatusCode = a});

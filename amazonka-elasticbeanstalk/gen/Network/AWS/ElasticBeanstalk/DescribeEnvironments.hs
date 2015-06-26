@@ -36,7 +36,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- ** Response constructor
     , describeEnvironmentsResponse
     -- ** Response lenses
-    , derEnvironments
+    , desEnvironments
+    , desStatusCode
     ) where
 
 import Network.AWS.ElasticBeanstalk.Types
@@ -44,7 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'describeEnvironments' smart constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeEnvironments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -109,7 +112,8 @@ instance AWSRequest DescribeEnvironments where
               (\ s h x ->
                  DescribeEnvironmentsResponse' <$>
                    (x .@? "Environments" .!@ mempty >>=
-                      may (parseXMLList "member")))
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty
@@ -133,17 +137,25 @@ instance ToQuery DescribeEnvironments where
                "ApplicationName" =: _desApplicationName,
                "IncludeDeleted" =: _desIncludeDeleted]
 
--- | /See:/ 'describeEnvironmentsResponse' smart constructor.
+-- | Result message containing a list of environment descriptions.
+--
+-- /See:/ 'describeEnvironmentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derEnvironments'
-newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments :: Maybe [EnvironmentDescription]} deriving (Eq, Read, Show)
+-- * 'desEnvironments'
+--
+-- * 'desStatusCode'
+data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'{_desEnvironments :: Maybe [EnvironmentDescription], _desStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
-describeEnvironmentsResponse :: DescribeEnvironmentsResponse
-describeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments = Nothing};
+describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
+describeEnvironmentsResponse pStatusCode = DescribeEnvironmentsResponse'{_desEnvironments = Nothing, _desStatusCode = pStatusCode};
 
 -- | Returns an EnvironmentDescription list.
-derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
-derEnvironments = lens _derEnvironments (\ s a -> s{_derEnvironments = a}) . _Default;
+desEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+desEnvironments = lens _desEnvironments (\ s a -> s{_desEnvironments = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+desStatusCode :: Lens' DescribeEnvironmentsResponse Int
+desStatusCode = lens _desStatusCode (\ s a -> s{_desStatusCode = a});

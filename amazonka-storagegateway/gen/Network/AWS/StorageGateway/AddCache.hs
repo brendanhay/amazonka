@@ -40,6 +40,7 @@ module Network.AWS.StorageGateway.AddCache
     , addCacheResponse
     -- ** Response lenses
     , acrGatewayARN
+    , acrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -75,7 +76,8 @@ instance AWSRequest AddCache where
         response
           = receiveJSON
               (\ s h x ->
-                 AddCacheResponse' <$> (x .?> "GatewayARN"))
+                 AddCacheResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
 instance ToHeaders AddCache where
         toHeaders
@@ -103,12 +105,18 @@ instance ToQuery AddCache where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'acrGatewayARN'
-newtype AddCacheResponse = AddCacheResponse'{_acrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'acrStatusCode'
+data AddCacheResponse = AddCacheResponse'{_acrGatewayARN :: Maybe Text, _acrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AddCacheResponse' smart constructor.
-addCacheResponse :: AddCacheResponse
-addCacheResponse = AddCacheResponse'{_acrGatewayARN = Nothing};
+addCacheResponse :: Int -> AddCacheResponse
+addCacheResponse pStatusCode = AddCacheResponse'{_acrGatewayARN = Nothing, _acrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrGatewayARN = lens _acrGatewayARN (\ s a -> s{_acrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+acrStatusCode :: Lens' AddCacheResponse Int
+acrStatusCode = lens _acrStatusCode (\ s a -> s{_acrStatusCode = a});

@@ -44,7 +44,9 @@ import Network.AWS.RDS.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'addTagsToResource' smart constructor.
+-- |
+--
+-- /See:/ 'addTagsToResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

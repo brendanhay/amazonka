@@ -40,6 +40,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , createInstanceExportTaskResponse
     -- ** Response lenses
     , cietrExportTask
+    , cietrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -90,7 +91,7 @@ instance AWSRequest CreateInstanceExportTask where
           = receiveXML
               (\ s h x ->
                  CreateInstanceExportTaskResponse' <$>
-                   (x .@? "exportTask"))
+                   (x .@? "exportTask") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
@@ -114,12 +115,18 @@ instance ToQuery CreateInstanceExportTask where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cietrExportTask'
-newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'{_cietrExportTask :: Maybe ExportTask} deriving (Eq, Read, Show)
+--
+-- * 'cietrStatusCode'
+data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'{_cietrExportTask :: Maybe ExportTask, _cietrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
-createInstanceExportTaskResponse :: CreateInstanceExportTaskResponse
-createInstanceExportTaskResponse = CreateInstanceExportTaskResponse'{_cietrExportTask = Nothing};
+createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse
+createInstanceExportTaskResponse pStatusCode = CreateInstanceExportTaskResponse'{_cietrExportTask = Nothing, _cietrStatusCode = pStatusCode};
 
 -- | Information about the instance export task.
 cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\ s a -> s{_cietrExportTask = a});
+
+-- | FIXME: Undocumented member.
+cietrStatusCode :: Lens' CreateInstanceExportTaskResponse Int
+cietrStatusCode = lens _cietrStatusCode (\ s a -> s{_cietrStatusCode = a});

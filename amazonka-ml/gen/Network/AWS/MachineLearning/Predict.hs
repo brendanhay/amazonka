@@ -40,6 +40,7 @@ module Network.AWS.MachineLearning.Predict
     , predictResponse
     -- ** Response lenses
     , prPrediction
+    , prStatusCode
     ) where
 
 import Network.AWS.MachineLearning.Types
@@ -81,7 +82,8 @@ instance AWSRequest Predict where
         response
           = receiveJSON
               (\ s h x ->
-                 PredictResponse' <$> (x .?> "Prediction"))
+                 PredictResponse' <$>
+                   (x .?> "Prediction") <*> (pure (fromEnum s)))
 
 instance ToHeaders Predict where
         toHeaders
@@ -110,12 +112,18 @@ instance ToQuery Predict where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prPrediction'
-newtype PredictResponse = PredictResponse'{_prPrediction :: Maybe Prediction} deriving (Eq, Read, Show)
+--
+-- * 'prStatusCode'
+data PredictResponse = PredictResponse'{_prPrediction :: Maybe Prediction, _prStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'PredictResponse' smart constructor.
-predictResponse :: PredictResponse
-predictResponse = PredictResponse'{_prPrediction = Nothing};
+predictResponse :: Int -> PredictResponse
+predictResponse pStatusCode = PredictResponse'{_prPrediction = Nothing, _prStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 prPrediction :: Lens' PredictResponse (Maybe Prediction)
 prPrediction = lens _prPrediction (\ s a -> s{_prPrediction = a});
+
+-- | FIXME: Undocumented member.
+prStatusCode :: Lens' PredictResponse Int
+prStatusCode = lens _prStatusCode (\ s a -> s{_prStatusCode = a});

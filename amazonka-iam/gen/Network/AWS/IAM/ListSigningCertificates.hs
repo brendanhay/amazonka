@@ -47,10 +47,11 @@ module Network.AWS.IAM.ListSigningCertificates
     , lisMarker
     , lisIsTruncated
     , lisCertificates
+    , lisStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -106,7 +107,8 @@ instance AWSRequest ListSigningCertificates where
                  ListSigningCertificatesResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Certificates" .!@ mempty >>=
-                        parseXMLList "member"))
+                        parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
@@ -123,7 +125,9 @@ instance ToQuery ListSigningCertificates where
                "UserName" =: _lUserName, "MaxItems" =: _lMaxItems,
                "Marker" =: _lMarker]
 
--- | /See:/ 'listSigningCertificatesResponse' smart constructor.
+-- | Contains the response to a successful ListSigningCertificates request.
+--
+-- /See:/ 'listSigningCertificatesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -132,11 +136,13 @@ instance ToQuery ListSigningCertificates where
 -- * 'lisIsTruncated'
 --
 -- * 'lisCertificates'
-data ListSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisMarker :: Maybe Text, _lisIsTruncated :: Maybe Bool, _lisCertificates :: [SigningCertificate]} deriving (Eq, Read, Show)
+--
+-- * 'lisStatusCode'
+data ListSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisMarker :: Maybe Text, _lisIsTruncated :: Maybe Bool, _lisCertificates :: [SigningCertificate], _lisStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
-listSigningCertificatesResponse :: ListSigningCertificatesResponse
-listSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisMarker = Nothing, _lisIsTruncated = Nothing, _lisCertificates = mempty};
+listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
+listSigningCertificatesResponse pStatusCode = ListSigningCertificatesResponse'{_lisMarker = Nothing, _lisIsTruncated = Nothing, _lisCertificates = mempty, _lisStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -154,3 +160,7 @@ lisIsTruncated = lens _lisIsTruncated (\ s a -> s{_lisIsTruncated = a});
 -- | A list of the user\'s signing certificate information.
 lisCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lisCertificates = lens _lisCertificates (\ s a -> s{_lisCertificates = a});
+
+-- | FIXME: Undocumented member.
+lisStatusCode :: Lens' ListSigningCertificatesResponse Int
+lisStatusCode = lens _lisStatusCode (\ s a -> s{_lisStatusCode = a});

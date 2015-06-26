@@ -41,6 +41,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     , createClusterSubnetGroupResponse
     -- ** Response lenses
     , ccsgrClusterSubnetGroup
+    , ccsgrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -48,7 +49,9 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'createClusterSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createClusterSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -101,7 +104,7 @@ instance AWSRequest CreateClusterSubnetGroup where
           = receiveXMLWrapper "CreateClusterSubnetGroupResult"
               (\ s h x ->
                  CreateClusterSubnetGroupResponse' <$>
-                   (x .@? "ClusterSubnetGroup"))
+                   (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
@@ -127,12 +130,18 @@ instance ToQuery CreateClusterSubnetGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccsgrClusterSubnetGroup'
-newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'{_ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup} deriving (Eq, Read, Show)
+--
+-- * 'ccsgrStatusCode'
+data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'{_ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup, _ccsgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSubnetGroupResponse' smart constructor.
-createClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse
-createClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'{_ccsgrClusterSubnetGroup = Nothing};
+createClusterSubnetGroupResponse :: Int -> CreateClusterSubnetGroupResponse
+createClusterSubnetGroupResponse pStatusCode = CreateClusterSubnetGroupResponse'{_ccsgrClusterSubnetGroup = Nothing, _ccsgrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 ccsgrClusterSubnetGroup = lens _ccsgrClusterSubnetGroup (\ s a -> s{_ccsgrClusterSubnetGroup = a});
+
+-- | FIXME: Undocumented member.
+ccsgrStatusCode :: Lens' CreateClusterSubnetGroupResponse Int
+ccsgrStatusCode = lens _ccsgrStatusCode (\ s a -> s{_ccsgrStatusCode = a});

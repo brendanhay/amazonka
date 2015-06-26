@@ -50,6 +50,7 @@ module Network.AWS.KMS.ReEncrypt
     , rerSourceKeyId
     , rerKeyId
     , rerCiphertextBlob
+    , rerStatusCode
     ) where
 
 import Network.AWS.KMS.Types
@@ -118,7 +119,8 @@ instance AWSRequest ReEncrypt where
               (\ s h x ->
                  ReEncryptResponse' <$>
                    (x .?> "SourceKeyId") <*> (x .?> "KeyId") <*>
-                     (x .?> "CiphertextBlob"))
+                     (x .?> "CiphertextBlob")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ReEncrypt where
         toHeaders
@@ -155,11 +157,13 @@ instance ToQuery ReEncrypt where
 -- * 'rerKeyId'
 --
 -- * 'rerCiphertextBlob'
-data ReEncryptResponse = ReEncryptResponse'{_rerSourceKeyId :: Maybe Text, _rerKeyId :: Maybe Text, _rerCiphertextBlob :: Maybe Base64} deriving (Eq, Read, Show)
+--
+-- * 'rerStatusCode'
+data ReEncryptResponse = ReEncryptResponse'{_rerSourceKeyId :: Maybe Text, _rerKeyId :: Maybe Text, _rerCiphertextBlob :: Maybe Base64, _rerStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ReEncryptResponse' smart constructor.
-reEncryptResponse :: ReEncryptResponse
-reEncryptResponse = ReEncryptResponse'{_rerSourceKeyId = Nothing, _rerKeyId = Nothing, _rerCiphertextBlob = Nothing};
+reEncryptResponse :: Int -> ReEncryptResponse
+reEncryptResponse pStatusCode = ReEncryptResponse'{_rerSourceKeyId = Nothing, _rerKeyId = Nothing, _rerCiphertextBlob = Nothing, _rerStatusCode = pStatusCode};
 
 -- | Unique identifier of the key used to originally encrypt the data.
 rerSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
@@ -173,3 +177,7 @@ rerKeyId = lens _rerKeyId (\ s a -> s{_rerKeyId = a});
 -- encoded. Otherwise, it is not encoded.
 rerCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
 rerCiphertextBlob = lens _rerCiphertextBlob (\ s a -> s{_rerCiphertextBlob = a});
+
+-- | FIXME: Undocumented member.
+rerStatusCode :: Lens' ReEncryptResponse Int
+rerStatusCode = lens _rerStatusCode (\ s a -> s{_rerStatusCode = a});

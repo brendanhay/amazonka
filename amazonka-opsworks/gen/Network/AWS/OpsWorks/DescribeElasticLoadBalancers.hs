@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     , describeElasticLoadBalancersResponse
     -- ** Response lenses
     , delbrElasticLoadBalancers
+    , delbrStatusCode
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -81,7 +82,8 @@ instance AWSRequest DescribeElasticLoadBalancers
           = receiveJSON
               (\ s h x ->
                  DescribeElasticLoadBalancersResponse' <$>
-                   (x .?> "ElasticLoadBalancers" .!@ mempty))
+                   (x .?> "ElasticLoadBalancers" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders DescribeElasticLoadBalancers where
         toHeaders
@@ -105,18 +107,26 @@ instance ToPath DescribeElasticLoadBalancers where
 instance ToQuery DescribeElasticLoadBalancers where
         toQuery = const mempty
 
--- | /See:/ 'describeElasticLoadBalancersResponse' smart constructor.
+-- | Contains the response to a @DescribeElasticLoadBalancers@ request.
+--
+-- /See:/ 'describeElasticLoadBalancersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delbrElasticLoadBalancers'
-newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers :: Maybe [ElasticLoadBalancer]} deriving (Eq, Read, Show)
+--
+-- * 'delbrStatusCode'
+data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers :: Maybe [ElasticLoadBalancer], _delbrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
-describeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers = Nothing};
+describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
+describeElasticLoadBalancersResponse pStatusCode = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers = Nothing, _delbrStatusCode = pStatusCode};
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
 delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
 delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+delbrStatusCode :: Lens' DescribeElasticLoadBalancersResponse Int
+delbrStatusCode = lens _delbrStatusCode (\ s a -> s{_delbrStatusCode = a});

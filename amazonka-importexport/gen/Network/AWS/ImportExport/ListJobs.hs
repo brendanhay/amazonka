@@ -39,15 +39,18 @@ module Network.AWS.ImportExport.ListJobs
     -- ** Response lenses
     , ljrJobs
     , ljrIsTruncated
+    , ljrStatusCode
     ) where
 
 import Network.AWS.ImportExport.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'listJobs' smart constructor.
+-- | Input structure for the ListJobs operation.
+--
+-- /See:/ 'listJobs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -93,7 +96,8 @@ instance AWSRequest ListJobs where
                  ListJobsResponse' <$>
                    (x .@? "Jobs" .!@ mempty >>=
                       may (parseXMLList "member"))
-                     <*> (x .@? "IsTruncated"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -110,18 +114,22 @@ instance ToQuery ListJobs where
                "APIVersion" =: _ljAPIVersion, "Marker" =: _ljMarker,
                "MaxJobs" =: _ljMaxJobs]
 
--- | /See:/ 'listJobsResponse' smart constructor.
+-- | Output structure for the ListJobs operation.
+--
+-- /See:/ 'listJobsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ljrJobs'
 --
 -- * 'ljrIsTruncated'
-data ListJobsResponse = ListJobsResponse'{_ljrJobs :: Maybe [Job], _ljrIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+--
+-- * 'ljrStatusCode'
+data ListJobsResponse = ListJobsResponse'{_ljrJobs :: Maybe [Job], _ljrIsTruncated :: Maybe Bool, _ljrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: ListJobsResponse
-listJobsResponse = ListJobsResponse'{_ljrJobs = Nothing, _ljrIsTruncated = Nothing};
+listJobsResponse :: Int -> ListJobsResponse
+listJobsResponse pStatusCode = ListJobsResponse'{_ljrJobs = Nothing, _ljrIsTruncated = Nothing, _ljrStatusCode = pStatusCode};
 
 -- | FIXME: Undocumented member.
 ljrJobs :: Lens' ListJobsResponse [Job]
@@ -130,3 +138,7 @@ ljrJobs = lens _ljrJobs (\ s a -> s{_ljrJobs = a}) . _Default;
 -- | FIXME: Undocumented member.
 ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrIsTruncated = lens _ljrIsTruncated (\ s a -> s{_ljrIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+ljrStatusCode :: Lens' ListJobsResponse Int
+ljrStatusCode = lens _ljrStatusCode (\ s a -> s{_ljrStatusCode = a});

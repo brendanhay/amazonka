@@ -41,10 +41,11 @@ module Network.AWS.IAM.ListUsers
     , lurMarker
     , lurIsTruncated
     , lurUsers
+    , lurStatusCode
     ) where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Pagers
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,7 +104,8 @@ instance AWSRequest ListUsers where
               (\ s h x ->
                  ListUsersResponse' <$>
                    (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
+                     (x .@? "Users" .!@ mempty >>= parseXMLList "member")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders ListUsers where
         toHeaders = const mempty
@@ -119,7 +121,9 @@ instance ToQuery ListUsers where
                "PathPrefix" =: _luPathPrefix,
                "MaxItems" =: _luMaxItems, "Marker" =: _luMarker]
 
--- | /See:/ 'listUsersResponse' smart constructor.
+-- | Contains the response to a successful ListUsers request.
+--
+-- /See:/ 'listUsersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -128,11 +132,13 @@ instance ToQuery ListUsers where
 -- * 'lurIsTruncated'
 --
 -- * 'lurUsers'
-data ListUsersResponse = ListUsersResponse'{_lurMarker :: Maybe Text, _lurIsTruncated :: Maybe Bool, _lurUsers :: [User]} deriving (Eq, Read, Show)
+--
+-- * 'lurStatusCode'
+data ListUsersResponse = ListUsersResponse'{_lurMarker :: Maybe Text, _lurIsTruncated :: Maybe Bool, _lurUsers :: [User], _lurStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ListUsersResponse' smart constructor.
-listUsersResponse :: ListUsersResponse
-listUsersResponse = ListUsersResponse'{_lurMarker = Nothing, _lurIsTruncated = Nothing, _lurUsers = mempty};
+listUsersResponse :: Int -> ListUsersResponse
+listUsersResponse pStatusCode = ListUsersResponse'{_lurMarker = Nothing, _lurIsTruncated = Nothing, _lurUsers = mempty, _lurStatusCode = pStatusCode};
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -149,3 +155,7 @@ lurIsTruncated = lens _lurIsTruncated (\ s a -> s{_lurIsTruncated = a});
 -- | A list of users.
 lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\ s a -> s{_lurUsers = a});
+
+-- | FIXME: Undocumented member.
+lurStatusCode :: Lens' ListUsersResponse Int
+lurStatusCode = lens _lurStatusCode (\ s a -> s{_lurStatusCode = a});

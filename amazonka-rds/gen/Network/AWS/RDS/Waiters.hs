@@ -17,4 +17,4 @@ module Network.AWS.RDS.Waiters where
 
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.Waiters
+import Network.AWS.Waiter

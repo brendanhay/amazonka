@@ -38,6 +38,7 @@ module Network.AWS.SNS.ConfirmSubscription
     , confirmSubscriptionResponse
     -- ** Response lenses
     , csrSubscriptionARN
+    , csrStatusCode
     ) where
 
 import Network.AWS.Prelude
@@ -45,7 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SNS.Types
 
--- | /See:/ 'confirmSubscription' smart constructor.
+-- | Input for ConfirmSubscription action.
+--
+-- /See:/ 'confirmSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -84,7 +87,7 @@ instance AWSRequest ConfirmSubscription where
           = receiveXMLWrapper "ConfirmSubscriptionResult"
               (\ s h x ->
                  ConfirmSubscriptionResponse' <$>
-                   (x .@? "SubscriptionArn"))
+                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
@@ -101,17 +104,25 @@ instance ToQuery ConfirmSubscription where
                  _csAuthenticateOnUnsubscribe,
                "TopicArn" =: _csTopicARN, "Token" =: _csToken]
 
--- | /See:/ 'confirmSubscriptionResponse' smart constructor.
+-- | Response for ConfirmSubscriptions action.
+--
+-- /See:/ 'confirmSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSubscriptionARN'
-newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'{_csrSubscriptionARN :: Maybe Text} deriving (Eq, Read, Show)
+--
+-- * 'csrStatusCode'
+data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'{_csrSubscriptionARN :: Maybe Text, _csrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
-confirmSubscriptionResponse :: ConfirmSubscriptionResponse
-confirmSubscriptionResponse = ConfirmSubscriptionResponse'{_csrSubscriptionARN = Nothing};
+confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse
+confirmSubscriptionResponse pStatusCode = ConfirmSubscriptionResponse'{_csrSubscriptionARN = Nothing, _csrStatusCode = pStatusCode};
 
 -- | The ARN of the created subscription.
 csrSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionARN = lens _csrSubscriptionARN (\ s a -> s{_csrSubscriptionARN = a});
+
+-- | FIXME: Undocumented member.
+csrStatusCode :: Lens' ConfirmSubscriptionResponse Int
+csrStatusCode = lens _csrStatusCode (\ s a -> s{_csrStatusCode = a});

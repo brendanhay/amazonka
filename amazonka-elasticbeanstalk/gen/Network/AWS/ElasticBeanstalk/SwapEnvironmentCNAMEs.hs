@@ -40,7 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | /See:/ 'swapEnvironmentCNAMEs' smart constructor.
+-- | Swaps the CNAMEs of two environments.
+--
+-- /See:/ 'swapEnvironmentCNAMEs' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

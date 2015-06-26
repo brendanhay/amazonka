@@ -36,6 +36,7 @@ module Network.AWS.EC2.AttachVPNGateway
     , attachVPNGatewayResponse
     -- ** Response lenses
     , avgrVPCAttachment
+    , avgrStatusCode
     ) where
 
 import Network.AWS.EC2.Types
@@ -80,7 +81,8 @@ instance AWSRequest AttachVPNGateway where
         response
           = receiveXML
               (\ s h x ->
-                 AttachVPNGatewayResponse' <$> (x .@? "attachment"))
+                 AttachVPNGatewayResponse' <$>
+                   (x .@? "attachment") <*> (pure (fromEnum s)))
 
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
@@ -102,12 +104,18 @@ instance ToQuery AttachVPNGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avgrVPCAttachment'
-newtype AttachVPNGatewayResponse = AttachVPNGatewayResponse'{_avgrVPCAttachment :: Maybe VPCAttachment} deriving (Eq, Read, Show)
+--
+-- * 'avgrStatusCode'
+data AttachVPNGatewayResponse = AttachVPNGatewayResponse'{_avgrVPCAttachment :: Maybe VPCAttachment, _avgrStatusCode :: Int} deriving (Eq, Read, Show)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
-attachVPNGatewayResponse :: AttachVPNGatewayResponse
-attachVPNGatewayResponse = AttachVPNGatewayResponse'{_avgrVPCAttachment = Nothing};
+attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
+attachVPNGatewayResponse pStatusCode = AttachVPNGatewayResponse'{_avgrVPCAttachment = Nothing, _avgrStatusCode = pStatusCode};
 
 -- | Information about the attachment.
 avgrVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrVPCAttachment = lens _avgrVPCAttachment (\ s a -> s{_avgrVPCAttachment = a});
+
+-- | FIXME: Undocumented member.
+avgrStatusCode :: Lens' AttachVPNGatewayResponse Int
+avgrStatusCode = lens _avgrStatusCode (\ s a -> s{_avgrStatusCode = a});

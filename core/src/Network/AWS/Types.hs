@@ -144,7 +144,7 @@ data Retry = Exponential
     }
 
 -- | Attributes and functions specific to an AWS service.
-data Service v s = Service
+data Service s = Service
     { _svcAbbrev   :: Abbrev
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
@@ -196,19 +196,21 @@ rqQuery :: Lens' (Request a) QueryString
 rqQuery = lens _rqQuery (\s a -> s { _rqQuery = a })
 
 class AWSSigner v where
-    signed :: AuthEnv
+    signed :: v ~ Sg s
+           => AuthEnv
            -> Region
            -> UTCTime
-           -> Service v s
+           -> Service s
            -> Request a
            -> Signed  v a
 
 class AWSPresigner v where
-    presigned :: AuthEnv
+    presigned :: v ~ Sg s
+              => AuthEnv
               -> Region
               -> UTCTime
               -> Integer
-              -> Service v s
+              -> Service s
               -> Request a
               -> Signed  v a
 
@@ -237,7 +239,7 @@ class AWSSigner (Sg a) => AWSService a where
     -- | The default signing algorithm for the service.
     type Sg a :: *
 
-    service :: Sv p ~ a => p -> Service (Sg a) a
+    service :: Sv p ~ a => p -> Service a
 
 -- | Specify how a request can be de/serialised.
 class AWSService (Sv a) => AWSRequest a where
@@ -250,7 +252,7 @@ class AWSService (Sv a) => AWSRequest a where
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Service v s
+             -> Service s
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response a)

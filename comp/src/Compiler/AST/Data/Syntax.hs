@@ -81,7 +81,8 @@ fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
 lensS :: Timestamp -> TType -> Field -> Decl
 lensS ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
     TyApp (TyApp (tycon "Lens'")
-                 (signature ts t)) (external ts f)
+                 (signature ts t))
+          (external ts f)
 
 lensD :: Field -> Decl
 lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
@@ -93,6 +94,23 @@ lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
         app (app (var "lens") (var a))
             (paren (lamE noLoc [pvar "s", pvar "a"]
                    (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
+
+errorS :: Text -> Decl
+errorS n = TypeSig noLoc [ident n] $
+    TyForall Nothing [ClassA (unqual "AWSError") [tyvar "a"]] $
+        TyApp (TyApp (TyApp (tycon "Geting")
+                            (TyApp (tycon "First") (tycon "ServiceError")))
+                     (tyvar "a"))
+              (tycon "ServiceError")
+
+errorD :: Text -> Maybe Integer -> Text -> Decl
+errorD n s c = sfun noLoc (ident n) [] (UnGuardedRhs rhs) noBinds
+  where
+    rhs = Fold.foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
+        catMaybes [status <$> s, Just code]
+
+    status i = app (var "hasStatus") (intE i)
+    code     = app (var "hasCode")   (str c)
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
 dataD n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
@@ -687,6 +705,9 @@ literal i ts = tycon . \case
     Bool             -> "Bool"
     Time | i         -> tsToText ts
          | otherwise -> "UTCTime"
+
+tyvar :: Text -> Type
+tyvar = TyVar . ident
 
 tycon :: Text -> Type
 tycon = TyCon . unqual

@@ -4,6 +4,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
@@ -155,6 +156,16 @@ httpStatus = _Error . f
             -> SerializerError a <$> g s <*> pure e
         ServiceError e
             -> g (_errorStatus e) <&> \x -> ServiceError (e { _errorStatus = x })
+
+hasStatus :: (Applicative f, Choice p)
+          => Int
+          -> Optic' p f ServiceError ServiceError
+hasStatus n = filtered ((n ==) . fromEnum . _errorStatus)
+
+hasCode :: (Applicative f, Choice p)
+        => ErrorCode
+        -> Optic' p f ServiceError ServiceError
+hasCode c = filtered ((c ==) . _errorCode)
 
 instance ToBuilder Error where
     build = \case

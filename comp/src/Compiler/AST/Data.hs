@@ -99,14 +99,38 @@ shapeData :: HasMetadata a Identity
           -> Shape Solved
           -> Either Error (Maybe SData)
 shapeData m (a :< s) = case s of
-    Enum   i vs -> Just <$> sumData p a i vs
-    Struct st   -> do
+    _ | s ^. infoException -> errorData p a (s ^. info)
+    Enum   i vs            -> Just <$> sumData p a i vs
+    Struct st              -> do
         (d, fs) <- prodData m a st
         is      <- renderInsts p (a ^. annId) (shapeInsts p (a ^. relMode) fs)
         return $! Just $ Prod (isShared a) d is
     _                -> return Nothing
   where
     p = m ^. protocol
+
+-- FIXME: take into account "error":{"httpStatusCode":400},
+-- https://github.com/boto/botocore/blob/develop/botocore/data/cognito-identity/2014-06-30/service-2.json#L31
+errorData :: Protocol
+          -> Solved
+          -> Info
+          -> Either Error (Maybe SData)
+errorData p s i = Just <$> (Fun <$> mk)
+  where
+    mk = Fun' p h
+        <$> pp None   (errorS p)
+        <*> pp Indent (errorD p status code)
+
+    h = flip fromMaybe (i ^. infoDocumentation)
+        . fromString
+        . LText.unpack
+        $ format ("Prism for " % iprimary % "' errors.") n
+
+    status = i ^? infoError . _Just . errStatus
+    code   = fromMaybe (n ^. memberId) (i ^. infoError . _Just . errCode)
+
+    p = n ^. typeId . to (Text.cons '_')
+    n = s ^. annId
 
 sumData :: Protocol
         -> Solved
@@ -143,12 +167,12 @@ prodData m s st = (,fields) <$> mk
     fields = mkFields m s st
 
     mkLens :: Field -> Either Error Fun
-    mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)
+    mkLens f = Fun' (f ^. fieldLens) (f ^. fieldHelp)
         <$> pp None (lensS ts (s ^. annType) f)
         <*> pp None (lensD f)
 
     mkCtor :: Either Error Fun
-    mkCtor = Fun (n ^. smartCtorId) mkHelp
+    mkCtor = Fun' (n ^. smartCtorId) mkHelp
         <$> pp None   (ctorS ts n fields)
         <*> pp Indent (ctorD n fields)
 
@@ -158,6 +182,7 @@ prodData m s st = (,fields) <$> mk
         $ format ("'" % itype % "' smart constructor.") n
     -- <> mkSee
 
+    -- FIXME: Re-add /See:/ documentation for shared types.
     -- mkSee :: LText.Text
     -- mkSee = case r ^. relParents of
     --     [] -> mempty

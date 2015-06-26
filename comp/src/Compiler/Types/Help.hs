@@ -30,6 +30,7 @@ data Help
     = Help [Help]
     | Pan  Pandoc
     | Raw  Text
+      deriving (Eq)
 
 instance Monoid Help where
     mempty      = Help []

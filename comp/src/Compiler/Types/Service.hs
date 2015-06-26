@@ -185,6 +185,20 @@ instance FromJSON (RefF ()) where
 class HasRefs f where
      references :: Traversal (f a) (f b) (RefF a) (RefF b)
 
+data ErrorInfo = ErrorInfo
+    { _errCode        :: Maybe Text
+    , _errStatus      :: !Integer
+    , _errSenderFault :: !Bool
+    } deriving (Show, Generic)
+
+makeLenses ''ErrorInfo
+
+instance FromJSON ErrorInfo where
+    parseJSON = withObject "error" $ \o -> ErrorInfo
+        <$> o .:? "code"
+        <*> o .:  "httpStatusCode"
+        <*> o .:? "senderFault" .!= False
+
 data Info = Info
     { _infoDocumentation :: Maybe Help
     , _infoMin           :: Maybe Natural
@@ -193,6 +207,7 @@ data Info = Info
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool
     , _infoException     :: !Bool
+    , _infoError         :: Maybe ErrorInfo
     } deriving (Show, Generic)
 
 makeClassy ''Info
@@ -206,6 +221,7 @@ instance FromJSON Info where
         <*> o .:? "sensitive" .!= False
         <*> o .:? "streaming" .!= False
         <*> o .:? "exception" .!= False
+        <*> o .:? "error"
 
 nonEmpty :: HasInfo a => a -> Bool
 nonEmpty = (> Just 0) . view infoMin

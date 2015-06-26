@@ -201,6 +201,7 @@ emptyInfo = Info
     , _infoSensitive     = False
     , _infoStreaming     = False
     , _infoException     = False
+    , _infoError         = Nothing
     }
 
 emptyRef :: Id -> RefF ()

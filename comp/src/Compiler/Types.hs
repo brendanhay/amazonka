@@ -188,11 +188,11 @@ instance ToJSON Library where
             , "libraryVersion"   .= (l ^. libraryVersion)
             , "clientVersion"    .= (l ^. clientVersion)
             , "coreVersion"      .= (l ^. coreVersion)
-            , "typeModules"      .= sort (l ^. typeModules)
-            , "operationModules" .= sort (l ^. operationModules)
-            , "exposedModules"   .= sort (l ^. exposedModules)
-            , "otherModules"     .= sort (l ^. otherModules)
-            , "shapes"           .= (l ^. shapes & kvTraversal %~ first (^. typeId))
+            , "typeModules"      .= sort (l ^.  typeModules)
+            , "operationModules" .= sort (l ^.  operationModules)
+            , "exposedModules"   .= sort (l ^.  exposedModules)
+            , "otherModules"     .= sort (l ^.  otherModules)
+            , "shapes"           .= sort (l ^.. shapes  . each) --  & kvTraversal %~ first (^. typeId))
             , "waiters"          .= (l ^.. waiters . each)
             ]
 

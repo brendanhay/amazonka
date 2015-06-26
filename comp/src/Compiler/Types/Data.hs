@@ -29,6 +29,7 @@ import           Control.Lens              hiding ((.=))
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Bifunctor
+import           Data.Function             (on)
 import           Data.List                 (sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
@@ -46,31 +47,32 @@ import           Text.EDE                  (Template)
 
 type Rendered = LText.Text
 
-data Fun = Fun Text Help Rendered Rendered
-    deriving (Show)
+data Fun = Fun' Text Help Rendered Rendered
+    deriving (Eq, Show)
 
 instance ToJSON Fun where
-    toJSON (Fun n c s d) = object
-        [ "name"        .= n
-        , "comment"     .= c
-        , "signature"   .= s
-        , "declaration" .= d
+    toJSON (Fun' n c s d) = object
+        [ "type"          .= Text.pack "function"
+        , "name"          .= n
+        , "documentation" .= c
+        , "signature"     .= s
+        , "declaration"   .= d
         ]
 
 data Prod = Prod'
-    { _prodName          :: Text
-    , _prodDocumentation :: Maybe Help
-    , _prodDecl          :: Rendered
-    , _prodCtor          :: Fun
-    , _prodLenses        :: [Fun]
-    } deriving (Show)
+    { _prodName   :: Text
+    , _prodDoc    :: Maybe Help
+    , _prodDecl   :: Rendered
+    , _prodCtor   :: Fun
+    , _prodLenses :: [Fun]
+    } deriving (Eq, Show)
 
 prodToJSON :: ToJSON a => Bool -> Prod -> Map Text a -> [Pair]
 prodToJSON s Prod'{..} is =
     [ "type"          .= Text.pack "product"
     , "name"          .= _prodName
     , "constructor"   .= _prodCtor
-    , "documentation" .= _prodDocumentation
+    , "documentation" .= _prodDoc
     , "declaration"   .= _prodDecl
     , "lenses"        .= _prodLenses
     , "instances"     .= is
@@ -78,32 +80,59 @@ prodToJSON s Prod'{..} is =
     ]
 
 data Sum = Sum'
-    { _sumName          :: Text
-    , _sumDocumentation :: Maybe Help
-    , _sumDecl          :: Rendered
-    , _sumCtors         :: Map Text Text
-    } deriving (Show)
+    { _sumName  :: Text
+    , _sumDoc   :: Maybe Help
+    , _sumDecl  :: Rendered
+    , _sumCtors :: Map Text Text
+    } deriving (Eq, Show)
 
 sumToJSON :: Bool -> Sum -> [Text] -> [Pair]
 sumToJSON s Sum'{..} is =
     [ "type"          .= Text.pack "sum"
     , "name"          .= _sumName
     , "constructors"  .= _sumCtors
-    , "documentation" .= _sumDocumentation
+    , "documentation" .= _sumDoc
     , "declaration"   .= _sumDecl
     , "instances"     .= is
     , "shared"        .= s
     ]
 
+data Gen = Gen'
+    { _genName :: Text
+    , _genDoc  :: Maybe Help
+    , _genDecl :: Rendered
+    } deriving (Eq, Show)
+
+instance ToJSON Gen where
+    toJSON Gen'{..} = object
+        [ "type"          .= Text.pack "error"
+        , "name"          .= _genName
+        , "documentation" .= _genDoc
+        , "declaration"   .= _genDecl
+        ]
+
 data SData
-    = Prod !Bool Prod (Map Text Rendered)
-    | Sum  !Bool Sum  [Text]
-      deriving (Show)
+    = Prod !Bool Prod (Map Text Rendered) -- ^ A product type (record).
+    | Sum  !Bool Sum  [Text]              -- ^ A nullary sum type.
+    | Fun        Fun                      -- ^ A function declaration.
+      deriving (Eq, Show)
+
+instance Ord SData where
+    compare a b =
+        case (a, b) of
+            (Prod _ x _, Prod _ y _) -> on compare _prodName x y
+            (Sum  _ x _, Sum  _ y _) -> on compare _sumName  x y
+            (Fun  _,     Fun  _)     -> EQ
+            (Prod {},    _)          -> GT
+            (_,          Prod {})    -> LT
+            (Sum  {},    _)          -> GT
+            (_,          Sum  {})    -> LT
 
 instance ToJSON SData where
     toJSON = \case
         Prod s p  is -> object (prodToJSON s p  is)
         Sum  s st is -> object (sumToJSON  s st is)
+        Fun  f       -> toJSON f
 
 data WData = WData
     { _waitOpName :: Id

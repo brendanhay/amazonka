@@ -23,7 +23,7 @@ import           Network.AWS.Types
 
 -- | Determine the full host address and credential scope for a 'Service'
 -- within the specified 'Region'.
-defaultEndpoint :: Service v s -> Region -> Endpoint
+defaultEndpoint :: Service s -> Region -> Endpoint
 defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
   where
     go = \case

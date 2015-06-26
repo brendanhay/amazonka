@@ -84,7 +84,8 @@ renderShapes cfg svc = do
         -- Separate the operation input/output shapes from the .Types shapes.
         >>= separate (svc ^. operations)
 
-    let prune = Map.filter (not . isOrphan)
+    -- Prune anything that is an orphan, or not an exception
+    let prune = Map.filter $ \s -> not (isOrphan s) || s ^. infoException
 
     -- Convert shape ASTs into a rendered Haskell AST declaration,
     xs <- traverse (operationData svc) x
@@ -170,7 +171,10 @@ type MemoS a = StateT (Map Id a) (Either Error)
 -- and attach the associated shape to the appropriate operation.
 separate :: (Show a, HasRelation a) => Map Id (Operation Identity (RefF b) c)
          -> Map Id a
-         -> Either Error (Map Id (Operation Identity (RefF a) c), Map Id a)
+         -> Either Error
+                ( Map Id (Operation Identity (RefF a) c) -- ^ Operations
+                , Map Id a                               -- ^ Data Types
+                )
 separate os ss = runStateT (traverse go os) ss
   where
     go :: HasRelation b

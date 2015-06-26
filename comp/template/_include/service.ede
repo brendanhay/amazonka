@@ -4,7 +4,7 @@ data {{ serviceAbbrev }}
 instance AWSService {{ serviceAbbrev }} where
     type Sg {{ serviceAbbrev }} = {{ signatureVersion }}
 
-    service = svc
+    service = const svc
       where
         svc :: Service {{ serviceAbbrev }}
         svc = Service

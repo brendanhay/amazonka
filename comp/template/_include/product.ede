@@ -1,5 +1,5 @@
-{% if shape.comment %}
-{{ shape.comment }}
+{% if shape.documentation %}
+{{ shape.documentation }}
 --
 -- /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% else %}
@@ -15,14 +15,10 @@
 {% endfor %}
 {{ shape.declaration }}
 
-{{ shape.constructor.comment }}
-{{ shape.constructor.signature }}
-{{ shape.constructor.declaration }}
+{% include "function.ede" with function = shape.constructor %}
 {% for lens in shape.lenses %}
 
-{{ lens.value.comment }}
-{{ lens.value.signature }}
-{{ lens.value.declaration }}
+{% include "function.ede" with function = lens.value %}
 {% endfor %}
 {% for inst in shape.instances %}
 

@@ -13,27 +13,34 @@ module {{ moduleName }}
     (
     -- * Service
       {{ serviceAbbrev }}
+  {% for shape in shapes %}
+    {% if shape.first %}
+
+    -- * Errors
+    {% endif %}
+    {% case shape.value.type %}
+    {% when "function" %}
+    , {{ shape.value.name }}
+    {% endcase %}
+  {% endfor %}
 
   {% for shape in shapes %}
-    -- * {{ shape.value.name }}
     {% case shape.value.type %}
     {% when "product" %}
+    -- * {{ shape.value.name }}
     , {{ shape.value.name }}
     , {{ shape.value.constructor.name }}
       {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}
       {% endfor %}
-    {% when "sum" %}
-    , {{ shape.value.name }} (..)
-    {% endcase %}
-    {% if !shape.last %}
 
-    {% endif %}
+    {% when "sum" %}
+    -- * {{ shape.value.name }}
+    , {{ shape.value.name }} (..)
+
+    {% endcase %}
   {% endfor %}
   {% for module in typeModules %}
-    {% if module.first %}
-
-    {% endif %}
     , module {{ module.value }}
   {% endfor %}
     ) where

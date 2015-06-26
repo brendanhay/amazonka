@@ -74,8 +74,8 @@ format: compile
  -printf ' -> %p\n' \
  -exec stylish-haskell -i {} \;
 
-compile: build
-	./bin/compile \
+compile: install
+	~/.local/bin/amazonka-compiler \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \
  --client-version=$(VERSION) \
@@ -88,7 +88,10 @@ compile: build
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
 
 build: $(MODEL_DIR)
-	stack build
+	build
+
+install: $(MODEL_DIR)
+	stack install
 
 clean:
 	stack clean

@@ -1634,10 +1634,8 @@ module Network.AWS.EC2.Types
     , vsiEvents
     , vsiVolumeId
 
-    , module Network.AWS.EC2.Internal
     ) where
 
-import Network.AWS.EC2.Internal
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
 

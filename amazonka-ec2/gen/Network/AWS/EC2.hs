@@ -204,4 +204,3 @@ import Network.AWS.EC2.Types as Export
 import Network.AWS.EC2.UnassignPrivateIPAddresses as Export
 import Network.AWS.EC2.UnmonitorInstances as Export
 import Network.AWS.EC2.Waiters as Export
-import Network.AWS.EC2.Internal as Export

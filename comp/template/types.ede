@@ -37,10 +37,12 @@ module {{ moduleName }}
     {% when "sum" %}
     -- * {{ shape.value.name }}
     , {{ shape.value.name }} (..)
-
     {% endcase %}
   {% endfor %}
   {% for module in typeModules %}
+    {% if module.first %}
+
+    {% endif %}
     , module {{ module.value }}
   {% endfor %}
     ) where

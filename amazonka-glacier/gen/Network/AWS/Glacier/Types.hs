@@ -179,34 +179,34 @@ instance AWSService Glacier where
 -- retrieval rate limit. For more information about data retrieval
 -- policies,
 _PolicyEnforcedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyEnforcedException = _ServiceError . hasCode "PolicyEnforcedException" . hasStatus 400;
+_PolicyEnforcedException = _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException";
 
 -- | Returned if a parameter of the request is incorrectly specified.
 _InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValueException" . hasStatus 400;
+_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException";
 
 -- | Returned if, when uploading an archive, Amazon Glacier times out while
 -- receiving the upload.
 _RequestTimeoutException :: AWSError a => Geting (First ServiceError) a ServiceError
-_RequestTimeoutException = _ServiceError . hasCode "RequestTimeoutException" . hasStatus 408;
+_RequestTimeoutException = _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException";
 
 -- | Returned if the service cannot complete the request.
 _ServiceUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceUnavailableException = _ServiceError . hasCode "ServiceUnavailableException" . hasStatus 500;
+_ServiceUnavailableException = _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException";
 
 -- | Returned if the specified resource, such as a vault, upload ID, or job
 -- ID, does not exist.
 _ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
 
 -- | Returned if the request results in a vault or account limit being
 -- exceeded.
 _LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 400;
+_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceededException";
 
 -- | Returned if a required header or parameter is missing from the request.
 _MissingParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingParameterValueException = _ServiceError . hasCode "MissingParameterValueException" . hasStatus 400;
+_MissingParameterValueException = _ServiceError . hasStatus 400 . hasCode "MissingParameterValueException";
 
 data ActionCode = InventoryRetrieval | ArchiveRetrieval deriving (Eq, Ord, Read, Show, Enum, Generic)
 

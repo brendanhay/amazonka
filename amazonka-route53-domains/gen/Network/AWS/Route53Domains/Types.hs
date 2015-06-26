@@ -140,29 +140,29 @@ instance AWSService Route53Domains where
 -- domain name, it may not be a valid domain name or belong to the
 -- requester account.
 _InvalidInput :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInput = _ServiceError . hasCode "InvalidInput" . hasStatus 400;
+_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput";
 
 -- | The number of operations or jobs running exceeded the allowed threshold
 -- for the account.
 _OperationLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_OperationLimitExceeded = _ServiceError . hasCode "OperationLimitExceeded" . hasStatus 400;
+_OperationLimitExceeded = _ServiceError . hasStatus 400 . hasCode "OperationLimitExceeded";
 
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
 _DomainLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_DomainLimitExceeded = _ServiceError . hasCode "DomainLimitExceeded" . hasStatus 400;
+_DomainLimitExceeded = _ServiceError . hasStatus 400 . hasCode "DomainLimitExceeded";
 
 -- | Amazon Route 53 does not support this top-level domain.
 _UnsupportedTLD :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedTLD = _ServiceError . hasCode "UnsupportedTLD" . hasStatus 400;
+_UnsupportedTLD = _ServiceError . hasStatus 400 . hasCode "UnsupportedTLD";
 
 -- | The top-level domain does not support this operation.
 _TLDRulesViolation :: AWSError a => Geting (First ServiceError) a ServiceError
-_TLDRulesViolation = _ServiceError . hasCode "TLDRulesViolation" . hasStatus 400;
+_TLDRulesViolation = _ServiceError . hasStatus 400 . hasCode "TLDRulesViolation";
 
 -- | The request is already in progress for the domain.
 _DuplicateRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateRequest = _ServiceError . hasCode "DuplicateRequest" . hasStatus 400;
+_DuplicateRequest = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest";
 
 data ContactType = Person | Company | Reseller | Association | PublicBody deriving (Eq, Ord, Read, Show, Enum, Generic)
 

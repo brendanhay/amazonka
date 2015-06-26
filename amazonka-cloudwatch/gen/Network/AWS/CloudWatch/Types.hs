@@ -166,37 +166,37 @@ instance AWSService CloudWatch where
 
 -- | The quota for alarms for this customer has already been reached.
 _LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
+_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
 
 -- | The next token specified is invalid.
 _InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
 
 -- | Indicates that the request processing has failed due to some unknown
 -- error, exception, or failure.
 _InternalServiceFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServiceFault = _ServiceError . hasCode "InternalServiceError" . hasStatus 500;
+_InternalServiceFault = _ServiceError . hasStatus 500 . hasCode "InternalServiceError";
 
 -- | Bad or out-of-range value was supplied for the input parameter.
 _InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValue" . hasStatus 400;
+_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue";
 
 -- | Data was not syntactically valid JSON.
 _InvalidFormatFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidFormatFault = _ServiceError . hasCode "InvalidFormat" . hasStatus 400;
+_InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat";
 
 -- | An input parameter that is mandatory for processing the request is not
 -- supplied.
 _MissingRequiredParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingRequiredParameterException = _ServiceError . hasCode "MissingParameter" . hasStatus 400;
+_MissingRequiredParameterException = _ServiceError . hasStatus 400 . hasCode "MissingParameter";
 
 -- | Parameters that must not be used together were used together.
 _InvalidParameterCombinationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterCombinationException = _ServiceError . hasCode "InvalidParameterCombination" . hasStatus 400;
+_InvalidParameterCombinationException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination";
 
 -- | The named resource does not exist.
 _ResourceNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFound = _ServiceError . hasCode "ResourceNotFound" . hasStatus 404;
+_ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound";
 
 data ComparisonOperator = GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold deriving (Eq, Ord, Read, Show, Enum, Generic)
 

@@ -543,172 +543,172 @@ instance AWSService RDS where
 
 -- | /CertificateIdentifier/ does not refer to an existing certificate.
 _CertificateNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_CertificateNotFoundFault = _ServiceError . hasCode "CertificateNotFound" . hasStatus 400;
+_CertificateNotFoundFault = _ServiceError . hasStatus 400 . hasCode "CertificateNotFound";
 
 -- | Request would exceed the user\'s DB Instance quota.
 _ReservedDBInstanceQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstanceQuotaExceededFault = _ServiceError . hasCode "ReservedDBInstanceQuotaExceeded" . hasStatus 400;
+_ReservedDBInstanceQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "ReservedDBInstanceQuotaExceeded";
 
 -- | DB security group authorization quota has been reached.
 _AuthorizationQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationQuotaExceededFault = _ServiceError . hasCode "AuthorizationQuotaExceeded" . hasStatus 400;
+_AuthorizationQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationQuotaExceeded";
 
 -- | The requested source could not be found.
 _SourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SourceNotFoundFault = _ServiceError . hasCode "SourceNotFound" . hasStatus 404;
+_SourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SourceNotFound";
 
 -- | The DB parameter group cannot be deleted because it is in use.
 _InvalidDBParameterGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBParameterGroupStateFault = _ServiceError . hasCode "InvalidDBParameterGroupState" . hasStatus 400;
+_InvalidDBParameterGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBParameterGroupState";
 
 -- | A DB parameter group with the same name exists.
 _DBParameterGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBParameterGroupAlreadyExistsFault = _ServiceError . hasCode "DBParameterGroupAlreadyExists" . hasStatus 400;
+_DBParameterGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBParameterGroupAlreadyExists";
 
 -- | /SourceDBInstanceIdentifier/ refers to a DB instance with
 -- /BackupRetentionPeriod/ equal to 0.
 _PointInTimeRestoreNotEnabledFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_PointInTimeRestoreNotEnabledFault = _ServiceError . hasCode "PointInTimeRestoreNotEnabled" . hasStatus 400;
+_PointInTimeRestoreNotEnabledFault = _ServiceError . hasStatus 400 . hasCode "PointInTimeRestoreNotEnabled";
 
 -- | Request would result in user exceeding the allowed number of DB
 -- parameter groups.
 _DBParameterGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBParameterGroupQuotaExceededFault = _ServiceError . hasCode "DBParameterGroupQuotaExceeded" . hasStatus 400;
+_DBParameterGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "DBParameterGroupQuotaExceeded";
 
 -- | Provisioned IOPS not available in the specified Availability Zone.
 _ProvisionedIOPSNotAvailableInAZFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ProvisionedIOPSNotAvailableInAZFault = _ServiceError . hasCode "ProvisionedIopsNotAvailableInAZFault" . hasStatus 400;
+_ProvisionedIOPSNotAvailableInAZFault = _ServiceError . hasStatus 400 . hasCode "ProvisionedIopsNotAvailableInAZFault";
 
 -- | The specified CIDRIP or EC2 security group is already authorized for the
 -- specified DB security group.
 _AuthorizationAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationAlreadyExistsFault = _ServiceError . hasCode "AuthorizationAlreadyExists" . hasStatus 400;
+_AuthorizationAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists";
 
 -- | User already has a reservation with the given identifier.
 _ReservedDBInstanceAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstanceAlreadyExistsFault = _ServiceError . hasCode "ReservedDBInstanceAlreadyExists" . hasStatus 404;
+_ReservedDBInstanceAlreadyExistsFault = _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceAlreadyExists";
 
 -- | The supplied category does not exist.
 _SubscriptionCategoryNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionCategoryNotFoundFault = _ServiceError . hasCode "SubscriptionCategoryNotFound" . hasStatus 404;
+_SubscriptionCategoryNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionCategoryNotFound";
 
 -- | Request would result in user exceeding the allowed number of subnets in
 -- a DB subnet groups.
 _DBSubnetQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetQuotaExceededFault = _ServiceError . hasCode "DBSubnetQuotaExceededFault" . hasStatus 400;
+_DBSubnetQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetQuotaExceededFault";
 
 -- | The subscription name does not exist.
 _SubscriptionNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionNotFoundFault = _ServiceError . hasCode "SubscriptionNotFound" . hasStatus 404;
+_SubscriptionNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound";
 
 -- | The requested subnet is invalid, or multiple subnets were requested that
 -- are not all in a common VPC.
 _InvalidSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubnet = _ServiceError . hasCode "InvalidSubnet" . hasStatus 400;
+_InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet";
 
 -- | The specified option group could not be found.
 _OptionGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_OptionGroupNotFoundFault = _ServiceError . hasCode "OptionGroupNotFoundFault" . hasStatus 404;
+_OptionGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "OptionGroupNotFoundFault";
 
 -- | The option group you are trying to create already exists.
 _OptionGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_OptionGroupAlreadyExistsFault = _ServiceError . hasCode "OptionGroupAlreadyExistsFault" . hasStatus 400;
+_OptionGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "OptionGroupAlreadyExistsFault";
 
 -- | /StorageType/ specified cannot be associated with the DB Instance.
 _StorageTypeNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_StorageTypeNotSupportedFault = _ServiceError . hasCode "StorageTypeNotSupported" . hasStatus 400;
+_StorageTypeNotSupportedFault = _ServiceError . hasStatus 400 . hasCode "StorageTypeNotSupported";
 
 -- | Request would result in user exceeding the allowed number of DB security
 -- groups.
 _DBSecurityGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupQuotaExceededFault = _ServiceError . hasCode "QuotaExceeded.DBSecurityGroup" . hasStatus 400;
+_DBSecurityGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.DBSecurityGroup";
 
 -- | /DBSnapshotIdentifier/ does not refer to an existing DB snapshot.
 _DBSnapshotNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSnapshotNotFoundFault = _ServiceError . hasCode "DBSnapshotNotFound" . hasStatus 404;
+_DBSnapshotNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBSnapshotNotFound";
 
 -- | This error can occur if someone else is modifying a subscription. You
 -- should retry the action.
 _InvalidEventSubscriptionStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidEventSubscriptionStateFault = _ServiceError . hasCode "InvalidEventSubscriptionState" . hasStatus 400;
+_InvalidEventSubscriptionStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidEventSubscriptionState";
 
 -- | Error accessing KMS key.
 _KMSKeyNotAccessibleFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_KMSKeyNotAccessibleFault = _ServiceError . hasCode "KMSKeyNotAccessibleFault" . hasStatus 400;
+_KMSKeyNotAccessibleFault = _ServiceError . hasStatus 400 . hasCode "KMSKeyNotAccessibleFault";
 
 -- | The quota of 20 option groups was exceeded for this AWS account.
 _OptionGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_OptionGroupQuotaExceededFault = _ServiceError . hasCode "OptionGroupQuotaExceededFault" . hasStatus 400;
+_OptionGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "OptionGroupQuotaExceededFault";
 
 -- | A DB security group with the name specified in /DBSecurityGroupName/
 -- already exists.
 _DBSecurityGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupAlreadyExistsFault = _ServiceError . hasCode "DBSecurityGroupAlreadyExists" . hasStatus 400;
+_DBSecurityGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupAlreadyExists";
 
 -- | Request would result in user exceeding the allowed number of DB
 -- snapshots.
 _SnapshotQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SnapshotQuotaExceededFault = _ServiceError . hasCode "SnapshotQuotaExceeded" . hasStatus 400;
+_SnapshotQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceeded";
 
 -- | The SNS topic ARN does not exist.
 _SNSTopicARNNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSTopicARNNotFoundFault = _ServiceError . hasCode "SNSTopicArnNotFound" . hasStatus 404;
+_SNSTopicARNNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound";
 
 -- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
 _DBSubnetGroupAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupAlreadyExistsFault = _ServiceError . hasCode "DBSubnetGroupAlreadyExists" . hasStatus 400;
+_DBSubnetGroupAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupAlreadyExists";
 
 -- | Request would result in user exceeding the allowed number of DB
 -- instances.
 _InstanceQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InstanceQuotaExceededFault = _ServiceError . hasCode "InstanceQuotaExceeded" . hasStatus 400;
+_InstanceQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded";
 
 -- | You do not have permission to publish to the SNS topic ARN.
 _SNSNoAuthorizationFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSNoAuthorizationFault = _ServiceError . hasCode "SNSNoAuthorization" . hasStatus 400;
+_SNSNoAuthorizationFault = _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization";
 
 -- | /DBSecurityGroupName/ does not refer to an existing DB security group.
 _DBSecurityGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupNotFoundFault = _ServiceError . hasCode "DBSecurityGroupNotFound" . hasStatus 404;
+_DBSecurityGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBSecurityGroupNotFound";
 
 -- | A DB security group is not allowed for this action.
 _DBSecurityGroupNotSupportedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSecurityGroupNotSupportedFault = _ServiceError . hasCode "DBSecurityGroupNotSupported" . hasStatus 400;
+_DBSecurityGroupNotSupportedFault = _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupNotSupported";
 
 -- | Specified offering does not exist.
 _ReservedDBInstancesOfferingNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstancesOfferingNotFoundFault = _ServiceError . hasCode "ReservedDBInstancesOfferingNotFound" . hasStatus 404;
+_ReservedDBInstancesOfferingNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedDBInstancesOfferingNotFound";
 
 -- | Indicates the DBSubnetGroup does not belong to the same VPC as that of
 -- an existing cross region read replica of the same source instance.
 _InvalidDBSubnetGroupFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSubnetGroupFault = _ServiceError . hasCode "InvalidDBSubnetGroupFault" . hasStatus 400;
+_InvalidDBSubnetGroupFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupFault";
 
 -- | The DB subnet is not in the /available/ state.
 _InvalidDBSubnetStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSubnetStateFault = _ServiceError . hasCode "InvalidDBSubnetStateFault" . hasStatus 400;
+_InvalidDBSubnetStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetStateFault";
 
 -- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
 _DBParameterGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBParameterGroupNotFoundFault = _ServiceError . hasCode "DBParameterGroupNotFound" . hasStatus 404;
+_DBParameterGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBParameterGroupNotFound";
 
 -- | SNS has responded that there is a problem with the SND topic specified.
 _SNSInvalidTopicFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SNSInvalidTopicFault = _ServiceError . hasCode "SNSInvalidTopic" . hasStatus 400;
+_SNSInvalidTopicFault = _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic";
 
 -- | The supplied subscription name already exists.
 _SubscriptionAlreadyExistFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionAlreadyExistFault = _ServiceError . hasCode "SubscriptionAlreadyExist" . hasStatus 400;
+_SubscriptionAlreadyExistFault = _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist";
 
 -- | Specified DB instance class is not available in the specified
 -- Availability Zone.
 _InsufficientDBInstanceCapacityFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientDBInstanceCapacityFault = _ServiceError . hasCode "InsufficientDBInstanceCapacity" . hasStatus 400;
+_InsufficientDBInstanceCapacityFault = _ServiceError . hasStatus 400 . hasCode "InsufficientDBInstanceCapacity";
 
 -- | DB subnet group does not cover all Availability Zones after it is
 -- created because users\' change.
 _InvalidVPCNetworkStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidVPCNetworkStateFault = _ServiceError . hasCode "InvalidVPCNetworkStateFault" . hasStatus 400;
+_InvalidVPCNetworkStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault";
 
 -- | Specified CIDRIP or EC2 security group is not authorized for the
 -- specified DB security group.
@@ -716,88 +716,88 @@ _InvalidVPCNetworkStateFault = _ServiceError . hasCode "InvalidVPCNetworkStateFa
 -- RDS may not also be authorized via IAM to perform necessary actions on
 -- your behalf.
 _AuthorizationNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationNotFoundFault = _ServiceError . hasCode "AuthorizationNotFound" . hasStatus 404;
+_AuthorizationNotFoundFault = _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound";
 
 -- | The specified reserved DB Instance not found.
 _ReservedDBInstanceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ReservedDBInstanceNotFoundFault = _ServiceError . hasCode "ReservedDBInstanceNotFound" . hasStatus 404;
+_ReservedDBInstanceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceNotFound";
 
 -- | Request would result in user exceeding the allowed number of DB subnet
 -- groups.
 _DBSubnetGroupQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupQuotaExceededFault = _ServiceError . hasCode "DBSubnetGroupQuotaExceeded" . hasStatus 400;
+_DBSubnetGroupQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupQuotaExceeded";
 
 -- | Indicates that the DBSubnetGroup should not be specified while creating
 -- read replicas that lie in the same region as the source instance.
 _DBSubnetGroupNotAllowedFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupNotAllowedFault = _ServiceError . hasCode "DBSubnetGroupNotAllowedFault" . hasStatus 400;
+_DBSubnetGroupNotAllowedFault = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupNotAllowedFault";
 
 -- | You have reached the maximum number of event subscriptions.
 _EventSubscriptionQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_EventSubscriptionQuotaExceededFault = _ServiceError . hasCode "EventSubscriptionQuotaExceeded" . hasStatus 400;
+_EventSubscriptionQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded";
 
 -- | The option group is not in the /available/ state.
 _InvalidOptionGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOptionGroupStateFault = _ServiceError . hasCode "InvalidOptionGroupStateFault" . hasStatus 400;
+_InvalidOptionGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidOptionGroupStateFault";
 
 -- | User already has a DB instance with the given identifier.
 _DBInstanceAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBInstanceAlreadyExistsFault = _ServiceError . hasCode "DBInstanceAlreadyExists" . hasStatus 400;
+_DBInstanceAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBInstanceAlreadyExists";
 
 -- | The specified resource ID was not found.
 _ResourceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundFault = _ServiceError . hasCode "ResourceNotFoundFault" . hasStatus 404;
+_ResourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault";
 
 -- | The DB upgrade failed because a resource the DB depends on could not be
 -- modified.
 _DBUpgradeDependencyFailureFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBUpgradeDependencyFailureFault = _ServiceError . hasCode "DBUpgradeDependencyFailure" . hasStatus 400;
+_DBUpgradeDependencyFailureFault = _ServiceError . hasStatus 400 . hasCode "DBUpgradeDependencyFailure";
 
 -- | The state of the DB security group does not allow deletion.
 _InvalidDBSecurityGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSecurityGroupStateFault = _ServiceError . hasCode "InvalidDBSecurityGroupState" . hasStatus 400;
+_InvalidDBSecurityGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSecurityGroupState";
 
 -- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
 _DBSubnetGroupNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupNotFoundFault = _ServiceError . hasCode "DBSubnetGroupNotFoundFault" . hasStatus 404;
+_DBSubnetGroupNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBSubnetGroupNotFoundFault";
 
 -- | Cannot restore from vpc backup to non-vpc DB instance.
 _InvalidRestoreFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRestoreFault = _ServiceError . hasCode "InvalidRestoreFault" . hasStatus 400;
+_InvalidRestoreFault = _ServiceError . hasStatus 400 . hasCode "InvalidRestoreFault";
 
 -- | The specified DB instance is not in the /available/ state.
 _InvalidDBInstanceStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBInstanceStateFault = _ServiceError . hasCode "InvalidDBInstanceState" . hasStatus 400;
+_InvalidDBInstanceStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBInstanceState";
 
 -- | The state of the DB snapshot does not allow deletion.
 _InvalidDBSnapshotStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSnapshotStateFault = _ServiceError . hasCode "InvalidDBSnapshotState" . hasStatus 400;
+_InvalidDBSnapshotStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSnapshotState";
 
 -- | The DB subnet group cannot be deleted because it is in use.
 _InvalidDBSubnetGroupStateFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDBSubnetGroupStateFault = _ServiceError . hasCode "InvalidDBSubnetGroupStateFault" . hasStatus 400;
+_InvalidDBSubnetGroupStateFault = _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupStateFault";
 
 -- | Request would result in user exceeding the allowed amount of storage
 -- available across all DB instances.
 _StorageQuotaExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_StorageQuotaExceededFault = _ServiceError . hasCode "StorageQuotaExceeded" . hasStatus 400;
+_StorageQuotaExceededFault = _ServiceError . hasStatus 400 . hasCode "StorageQuotaExceeded";
 
 -- | /DBSnapshotIdentifier/ is already used by an existing snapshot.
 _DBSnapshotAlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSnapshotAlreadyExistsFault = _ServiceError . hasCode "DBSnapshotAlreadyExists" . hasStatus 400;
+_DBSnapshotAlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "DBSnapshotAlreadyExists";
 
 -- | /DBInstanceIdentifier/ does not refer to an existing DB instance.
 _DBInstanceNotFoundFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBInstanceNotFoundFault = _ServiceError . hasCode "DBInstanceNotFound" . hasStatus 404;
+_DBInstanceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "DBInstanceNotFound";
 
 -- | The DB subnet is already in use in the Availability Zone.
 _SubnetAlreadyInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetAlreadyInUse = _ServiceError . hasCode "SubnetAlreadyInUse" . hasStatus 400;
+_SubnetAlreadyInUse = _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse";
 
 -- | Subnets in the DB subnet group should cover at least two Availability
 -- Zones unless there is only one Availability Zone.
 _DBSubnetGroupDoesNotCoverEnoughAZs :: AWSError a => Geting (First ServiceError) a ServiceError
-_DBSubnetGroupDoesNotCoverEnoughAZs = _ServiceError . hasCode "DBSubnetGroupDoesNotCoverEnoughAZs" . hasStatus 400;
+_DBSubnetGroupDoesNotCoverEnoughAZs = _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupDoesNotCoverEnoughAZs";
 
 data ApplyMethod = PendingReboot | Immediate deriving (Eq, Ord, Read, Show, Enum, Generic)
 

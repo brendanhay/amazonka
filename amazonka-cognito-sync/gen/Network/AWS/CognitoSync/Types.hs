@@ -146,55 +146,55 @@ instance AWSService CognitoSync where
 -- | Thrown when a request parameter does not comply with the associated
 -- constraints.
 _InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasCode "InvalidParameter" . hasStatus 400;
+_InvalidParameterException = _ServiceError . hasStatus 400 . hasCode "InvalidParameter";
 
 -- | Thrown when a user is not authorized to access the requested resource.
 _NotAuthorizedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotAuthorizedException = _ServiceError . hasCode "NotAuthorizedError" . hasStatus 403;
+_NotAuthorizedException = _ServiceError . hasStatus 403 . hasCode "NotAuthorizedError";
 
 -- | Indicates an internal service error.
 _InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasCode "InternalError" . hasStatus 500;
+_InternalErrorException = _ServiceError . hasStatus 500 . hasCode "InternalError";
 
 -- | Prism for InvalidConfigurationException' errors.
 _InvalidConfigurationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidConfigurationException = _ServiceError . hasCode "InvalidConfiguration" . hasStatus 400;
+_InvalidConfigurationException = _ServiceError . hasStatus 400 . hasCode "InvalidConfiguration";
 
 -- | An exception thrown when there is an IN_PROGRESS bulk publish operation
 -- for the given identity pool.
 _DuplicateRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateRequestException = _ServiceError . hasCode "DuplicateRequest" . hasStatus 400;
+_DuplicateRequestException = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest";
 
 -- | AWS Lambda throttled your account, please contact AWS Support
 _LambdaThrottledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LambdaThrottledException = _ServiceError . hasCode "LambdaThrottled" . hasStatus 429;
+_LambdaThrottledException = _ServiceError . hasStatus 429 . hasCode "LambdaThrottled";
 
 -- | An exception thrown when a bulk publish operation is requested less than
 -- 24 hours after a previous bulk publish operation completed successfully.
 _AlreadyStreamedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyStreamedException = _ServiceError . hasCode "AlreadyStreamed" . hasStatus 400;
+_AlreadyStreamedException = _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed";
 
 -- | The AWS Lambda function returned invalid output or an exception.
 _InvalidLambdaFunctionOutputException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLambdaFunctionOutputException = _ServiceError . hasCode "InvalidLambdaFunctionOutput" . hasStatus 400;
+_InvalidLambdaFunctionOutputException = _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput";
 
 -- | Thrown if the request is throttled.
 _TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestsException = _ServiceError . hasCode "TooManyRequests" . hasStatus 429;
+_TooManyRequestsException = _ServiceError . hasStatus 429 . hasCode "TooManyRequests";
 
 -- | Thrown if an update can\'t be applied because the resource was changed
 -- by another call and this would result in a conflict.
 _ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceConflictException = _ServiceError . hasCode "ResourceConflict" . hasStatus 409;
+_ResourceConflictException = _ServiceError . hasStatus 409 . hasCode "ResourceConflict";
 
 -- | Thrown if the resource doesn\'t exist.
 _ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFound" . hasStatus 404;
+_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound";
 
 -- | Thrown when the limit on the number of objects or operations has been
 -- exceeded.
 _LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
+_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
 
 data BulkPublishStatus = NotStarted | INProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 

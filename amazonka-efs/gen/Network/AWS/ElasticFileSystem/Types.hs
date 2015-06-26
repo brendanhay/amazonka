@@ -118,36 +118,36 @@ instance AWSService ElasticFileSystem where
 -- | Returned if there is no mount target with the specified ID is found in
 -- the caller\'s account.
 _MountTargetNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_MountTargetNotFound = _ServiceError . hasCode "MountTargetNotFound" . hasStatus 404;
+_MountTargetNotFound = _ServiceError . hasStatus 404 . hasCode "MountTargetNotFound";
 
 -- | Returned if the size of @SecurityGroups@ specified in the request is
 -- greater than five.
 _SecurityGroupLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_SecurityGroupLimitExceeded = _ServiceError . hasCode "SecurityGroupLimitExceeded" . hasStatus 400;
+_SecurityGroupLimitExceeded = _ServiceError . hasStatus 400 . hasCode "SecurityGroupLimitExceeded";
 
 -- | Returned if the mount target would violate one of the specified
 -- restrictions based on the file system\'s existing mount targets.
 _MountTargetConflict :: AWSError a => Geting (First ServiceError) a ServiceError
-_MountTargetConflict = _ServiceError . hasCode "MountTargetConflict" . hasStatus 409;
+_MountTargetConflict = _ServiceError . hasStatus 409 . hasCode "MountTargetConflict";
 
 -- | Prism for UnsupportedAvailabilityZone' errors.
 _UnsupportedAvailabilityZone :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedAvailabilityZone = _ServiceError . hasCode "UnsupportedAvailabilityZone" . hasStatus 400;
+_UnsupportedAvailabilityZone = _ServiceError . hasStatus 400 . hasCode "UnsupportedAvailabilityZone";
 
 -- | Returned if one of the specified security groups does not exist in the
 -- subnet\'s VPC.
 _SecurityGroupNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_SecurityGroupNotFound = _ServiceError . hasCode "SecurityGroupNotFound" . hasStatus 400;
+_SecurityGroupNotFound = _ServiceError . hasStatus 400 . hasCode "SecurityGroupNotFound";
 
 -- | Returned if the file system you are trying to create already exists,
 -- with the creation token you provided.
 _FileSystemAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_FileSystemAlreadyExists = _ServiceError . hasCode "FileSystemAlreadyExists" . hasStatus 409;
+_FileSystemAlreadyExists = _ServiceError . hasStatus 409 . hasCode "FileSystemAlreadyExists";
 
 -- | Returned if the AWS account has already created maximum number of file
 -- systems allowed per account.
 _FileSystemLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_FileSystemLimitExceeded = _ServiceError . hasCode "FileSystemLimitExceeded" . hasStatus 403;
+_FileSystemLimitExceeded = _ServiceError . hasStatus 403 . hasCode "FileSystemLimitExceeded";
 
 -- | The calling account has reached the ENI limit for the specific AWS
 -- region. Client should try to delete some ENIs or get its account limit
@@ -156,54 +156,54 @@ _FileSystemLimitExceeded = _ServiceError . hasCode "FileSystemLimitExceeded" . h
 -- in the Amazon Virtual Private Cloud User Guide (see the Network
 -- interfaces per VPC entry in the table).
 _NetworkInterfaceLimitExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NetworkInterfaceLimitExceeded = _ServiceError . hasCode "NetworkInterfaceLimitExceeded" . hasStatus 409;
+_NetworkInterfaceLimitExceeded = _ServiceError . hasStatus 409 . hasCode "NetworkInterfaceLimitExceeded";
 
 -- | Returned if the specified @FileSystemId@ does not exist in the
 -- requester\'s AWS account.
 _FileSystemNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_FileSystemNotFound = _ServiceError . hasCode "FileSystemNotFound" . hasStatus 404;
+_FileSystemNotFound = _ServiceError . hasStatus 404 . hasCode "FileSystemNotFound";
 
 -- | Returned if there is no subnet with ID @SubnetId@ provided in the
 -- request.
 _SubnetNotFound :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetNotFound = _ServiceError . hasCode "SubnetNotFound" . hasStatus 400;
+_SubnetNotFound = _ServiceError . hasStatus 400 . hasCode "SubnetNotFound";
 
 -- | Returned if the file system\'s life cycle state is not \"created\".
 _IncorrectFileSystemLifeCycleState :: AWSError a => Geting (First ServiceError) a ServiceError
-_IncorrectFileSystemLifeCycleState = _ServiceError . hasCode "IncorrectFileSystemLifeCycleState" . hasStatus 409;
+_IncorrectFileSystemLifeCycleState = _ServiceError . hasStatus 409 . hasCode "IncorrectFileSystemLifeCycleState";
 
 -- | Returned if the request is malformed or contains an error such as an
 -- invalid parameter value or a missing required parameter.
 _BadRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_BadRequest = _ServiceError . hasCode "BadRequest" . hasStatus 400;
+_BadRequest = _ServiceError . hasStatus 400 . hasCode "BadRequest";
 
 -- | Returned if @IpAddress@ was not specified in the request and there are
 -- no free IP addresses in the subnet.
 _NoFreeAddressesInSubnet :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoFreeAddressesInSubnet = _ServiceError . hasCode "NoFreeAddressesInSubnet" . hasStatus 409;
+_NoFreeAddressesInSubnet = _ServiceError . hasStatus 409 . hasCode "NoFreeAddressesInSubnet";
 
 -- | The service timed out trying to fulfill the request, and the client
 -- should try the call again.
 _DependencyTimeout :: AWSError a => Geting (First ServiceError) a ServiceError
-_DependencyTimeout = _ServiceError . hasCode "DependencyTimeout" . hasStatus 504;
+_DependencyTimeout = _ServiceError . hasStatus 504 . hasCode "DependencyTimeout";
 
 -- | Returned if a file system has mount targets.
 _FileSystemInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_FileSystemInUse = _ServiceError . hasCode "FileSystemInUse" . hasStatus 409;
+_FileSystemInUse = _ServiceError . hasStatus 409 . hasCode "FileSystemInUse";
 
 -- | Returned if the mount target is not in the correct state for the
 -- operation.
 _IncorrectMountTargetState :: AWSError a => Geting (First ServiceError) a ServiceError
-_IncorrectMountTargetState = _ServiceError . hasCode "IncorrectMountTargetState" . hasStatus 409;
+_IncorrectMountTargetState = _ServiceError . hasStatus 409 . hasCode "IncorrectMountTargetState";
 
 -- | Returned if an error occurred on the server side.
 _InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError" . hasStatus 500;
+_InternalServerError = _ServiceError . hasStatus 500 . hasCode "InternalServerError";
 
 -- | Returned if the request specified an @IpAddress@ that is already in use
 -- in the subnet.
 _IPAddressInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_IPAddressInUse = _ServiceError . hasCode "IpAddressInUse" . hasStatus 409;
+_IPAddressInUse = _ServiceError . hasStatus 409 . hasCode "IpAddressInUse";
 
 data LifeCycleState = Deleting | Creating | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
 

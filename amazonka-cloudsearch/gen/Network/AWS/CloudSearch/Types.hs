@@ -333,27 +333,27 @@ _BaseException = _ServiceError . hasCode "BaseException";
 -- | The request was rejected because it attempted an operation which is not
 -- enabled.
 _DisabledOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DisabledOperationException = _ServiceError . hasCode "DisabledAction" . hasStatus 409;
+_DisabledOperationException = _ServiceError . hasStatus 409 . hasCode "DisabledAction";
 
 -- | An internal error occurred while processing the request. If this problem
 -- persists, report an issue from the
 -- <http://status.aws.amazon.com/ Service Health Dashboard>.
 _InternalException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalException = _ServiceError . hasCode "InternalException" . hasStatus 500;
+_InternalException = _ServiceError . hasStatus 500 . hasCode "InternalException";
 
 -- | The request was rejected because it specified an invalid type
 -- definition.
 _InvalidTypeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTypeException = _ServiceError . hasCode "InvalidType" . hasStatus 409;
+_InvalidTypeException = _ServiceError . hasStatus 409 . hasCode "InvalidType";
 
 -- | The request was rejected because it attempted to reference a resource
 -- that does not exist.
 _ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFound" . hasStatus 409;
+_ResourceNotFoundException = _ServiceError . hasStatus 409 . hasCode "ResourceNotFound";
 
 -- | The request was rejected because a resource limit has already been met.
 _LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 409;
+_LimitExceededException = _ServiceError . hasStatus 409 . hasCode "LimitExceeded";
 
 data AlgorithmicStemming = ASLight | ASNone | ASMinimal | ASFull deriving (Eq, Ord, Read, Show, Enum, Generic)
 

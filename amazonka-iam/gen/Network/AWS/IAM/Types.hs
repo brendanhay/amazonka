@@ -339,32 +339,32 @@ instance AWSService IAM where
 -- | The request was rejected because the credential report does not exist.
 -- To generate a credential report, use GenerateCredentialReport.
 _CredentialReportNotPresentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CredentialReportNotPresentException = _ServiceError . hasCode "ReportNotPresent" . hasStatus 410;
+_CredentialReportNotPresentException = _ServiceError . hasStatus 410 . hasCode "ReportNotPresent";
 
 -- | The request was rejected because the credential report is still being
 -- generated.
 _CredentialReportNotReadyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CredentialReportNotReadyException = _ServiceError . hasCode "ReportInProgress" . hasStatus 404;
+_CredentialReportNotReadyException = _ServiceError . hasStatus 404 . hasCode "ReportInProgress";
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
 _MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = _ServiceError . hasCode "MalformedPolicyDocument" . hasStatus 400;
+_MalformedPolicyDocumentException = _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument";
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
 _EntityAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EntityAlreadyExistsException = _ServiceError . hasCode "EntityAlreadyExists" . hasStatus 409;
+_EntityAlreadyExistsException = _ServiceError . hasStatus 409 . hasCode "EntityAlreadyExists";
 
 -- | The request was rejected because the certificate was malformed or
 -- expired. The error message describes the specific error.
 _MalformedCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedCertificateException = _ServiceError . hasCode "MalformedCertificate" . hasStatus 400;
+_MalformedCertificateException = _ServiceError . hasStatus 400 . hasCode "MalformedCertificate";
 
 -- | The request was rejected because the same certificate is associated to
 -- another user under the account.
 _DuplicateCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateCertificateException = _ServiceError . hasCode "DuplicateCertificate" . hasStatus 409;
+_DuplicateCertificateException = _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate";
 
 -- | The request was rejected because the most recent credential report has
 -- expired. To generate a new credential report, use
@@ -373,42 +373,42 @@ _DuplicateCertificateException = _ServiceError . hasCode "DuplicateCertificate" 
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /Using IAM/ guide.
 _CredentialReportExpiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CredentialReportExpiredException = _ServiceError . hasCode "ReportExpired" . hasStatus 410;
+_CredentialReportExpiredException = _ServiceError . hasStatus 410 . hasCode "ReportExpired";
 
 -- | The request was rejected because it referenced an entity that does not
 -- exist. The error message describes the entity.
 _NoSuchEntityException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchEntityException = _ServiceError . hasCode "NoSuchEntity" . hasStatus 404;
+_NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity";
 
 -- | The request was rejected because it attempted to delete a resource that
 -- has attached subordinate entities. The error message describes these
 -- entities.
 _DeleteConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DeleteConflictException = _ServiceError . hasCode "DeleteConflict" . hasStatus 409;
+_DeleteConflictException = _ServiceError . hasStatus 409 . hasCode "DeleteConflict";
 
 -- | The request was rejected because the certificate is invalid.
 _InvalidCertificateException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCertificateException = _ServiceError . hasCode "InvalidCertificate" . hasStatus 400;
+_InvalidCertificateException = _ServiceError . hasStatus 400 . hasCode "InvalidCertificate";
 
 -- | The request was rejected because the type of user for the transaction
 -- was incorrect.
 _InvalidUserTypeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidUserTypeException = _ServiceError . hasCode "InvalidUserType" . hasStatus 400;
+_InvalidUserTypeException = _ServiceError . hasStatus 400 . hasCode "InvalidUserType";
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
 _ServiceFailureException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceFailureException = _ServiceError . hasCode "ServiceFailure" . hasStatus 500;
+_ServiceFailureException = _ServiceError . hasStatus 500 . hasCode "ServiceFailure";
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
 _InvalidInputException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasCode "InvalidInput" . hasStatus 400;
+_InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInput";
 
 -- | The request was rejected because the authentication code was not
 -- recognized. The error message describes the specific error.
 _InvalidAuthenticationCodeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAuthenticationCodeException = _ServiceError . hasCode "InvalidAuthenticationCode" . hasStatus 403;
+_InvalidAuthenticationCodeException = _ServiceError . hasStatus 403 . hasCode "InvalidAuthenticationCode";
 
 -- | The request was rejected because it referenced an entity that is
 -- temporarily unmodifiable, such as a user name that was deleted and then
@@ -416,23 +416,23 @@ _InvalidAuthenticationCodeException = _ServiceError . hasCode "InvalidAuthentica
 -- you try again after waiting several minutes. The error message describes
 -- the entity.
 _EntityTemporarilyUnmodifiableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EntityTemporarilyUnmodifiableException = _ServiceError . hasCode "EntityTemporarilyUnmodifiable" . hasStatus 409;
+_EntityTemporarilyUnmodifiableException = _ServiceError . hasStatus 409 . hasCode "EntityTemporarilyUnmodifiable";
 
 -- | The request was rejected because the public key certificate and the
 -- private key do not match.
 _KeyPairMismatchException :: AWSError a => Geting (First ServiceError) a ServiceError
-_KeyPairMismatchException = _ServiceError . hasCode "KeyPairMismatch" . hasStatus 400;
+_KeyPairMismatchException = _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch";
 
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error message describes the limit
 -- exceeded.
 _LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 409;
+_LimitExceededException = _ServiceError . hasStatus 409 . hasCode "LimitExceeded";
 
 -- | The request was rejected because the provided password did not meet the
 -- requirements imposed by the account password policy.
 _PasswordPolicyViolationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PasswordPolicyViolationException = _ServiceError . hasCode "PasswordPolicyViolation" . hasStatus 400;
+_PasswordPolicyViolationException = _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation";
 
 data AssignmentStatusType = Assigned | Unassigned | Any deriving (Eq, Ord, Read, Show, Enum, Generic)
 

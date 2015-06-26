@@ -103,44 +103,44 @@ instance AWSService SNS where
 
 -- | Exception error indicating endpoint disabled.
 _EndpointDisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_EndpointDisabledException = _ServiceError . hasCode "EndpointDisabled" . hasStatus 400;
+_EndpointDisabledException = _ServiceError . hasStatus 400 . hasCode "EndpointDisabled";
 
 -- | Indicates that the user has been denied access to the requested
 -- resource.
 _AuthorizationErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AuthorizationErrorException = _ServiceError . hasCode "AuthorizationError" . hasStatus 403;
+_AuthorizationErrorException = _ServiceError . hasStatus 403 . hasCode "AuthorizationError";
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
 _InvalidParameterException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterException = _ServiceError . hasCode "InvalidParameter" . hasStatus 400;
+_InvalidParameterException = _ServiceError . hasStatus 400 . hasCode "InvalidParameter";
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- subscriptions.
 _SubscriptionLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubscriptionLimitExceededException = _ServiceError . hasCode "SubscriptionLimitExceeded" . hasStatus 403;
+_SubscriptionLimitExceededException = _ServiceError . hasStatus 403 . hasCode "SubscriptionLimitExceeded";
 
 -- | Exception error indicating platform application disabled.
 _PlatformApplicationDisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PlatformApplicationDisabledException = _ServiceError . hasCode "PlatformApplicationDisabled" . hasStatus 400;
+_PlatformApplicationDisabledException = _ServiceError . hasStatus 400 . hasCode "PlatformApplicationDisabled";
 
 -- | Indicates an internal service error.
 _InternalErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasCode "InternalError" . hasStatus 500;
+_InternalErrorException = _ServiceError . hasStatus 500 . hasCode "InternalError";
 
 -- | Indicates that the requested resource does not exist.
 _NotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFound" . hasStatus 404;
+_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound";
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
 _InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasCode "ParameterValueInvalid" . hasStatus 400;
+_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid";
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- topics.
 _TopicLimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TopicLimitExceededException = _ServiceError . hasCode "TopicLimitExceeded" . hasStatus 403;
+_TopicLimitExceededException = _ServiceError . hasStatus 403 . hasCode "TopicLimitExceeded";
 
 -- | Endpoint for mobile app and device.
 --

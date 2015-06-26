@@ -132,7 +132,7 @@ instance AWSService SES where
 -- | Indicates that the action failed, and the message could not be sent.
 -- Check the error stack for more information about what caused the error.
 _MessageRejected :: AWSError a => Geting (First ServiceError) a ServiceError
-_MessageRejected = _ServiceError . hasCode "MessageRejected" . hasStatus 400;
+_MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected";
 
 data IdentityType = Domain | EmailAddress deriving (Eq, Ord, Read, Show, Enum, Generic)
 

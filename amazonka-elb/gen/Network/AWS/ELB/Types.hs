@@ -259,86 +259,86 @@ instance AWSService ELB where
 
 -- | One or more of the specified policies do not exist.
 _PolicyNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyNotFoundException = _ServiceError . hasCode "PolicyNotFound" . hasStatus 400;
+_PolicyNotFoundException = _ServiceError . hasStatus 400 . hasCode "PolicyNotFound";
 
 -- | The specified load balancer does not exist.
 _AccessPointNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessPointNotFoundException = _ServiceError . hasCode "LoadBalancerNotFound" . hasStatus 400;
+_AccessPointNotFoundException = _ServiceError . hasStatus 400 . hasCode "LoadBalancerNotFound";
 
 -- | A policy with the specified name already exists for this load balancer.
 _DuplicatePolicyNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicatePolicyNameException = _ServiceError . hasCode "DuplicatePolicyName" . hasStatus 400;
+_DuplicatePolicyNameException = _ServiceError . hasStatus 400 . hasCode "DuplicatePolicyName";
 
 -- | The requested configuration change is not valid.
 _InvalidConfigurationRequestException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidConfigurationRequestException = _ServiceError . hasCode "InvalidConfigurationRequest" . hasStatus 409;
+_InvalidConfigurationRequestException = _ServiceError . hasStatus 409 . hasCode "InvalidConfigurationRequest";
 
 -- | One or more of the specified subnets do not exist.
 _SubnetNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SubnetNotFoundException = _ServiceError . hasCode "SubnetNotFound" . hasStatus 400;
+_SubnetNotFoundException = _ServiceError . hasStatus 400 . hasCode "SubnetNotFound";
 
 -- | The specified load balancer attribute does not exist.
 _LoadBalancerAttributeNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LoadBalancerAttributeNotFoundException = _ServiceError . hasCode "LoadBalancerAttributeNotFound" . hasStatus 400;
+_LoadBalancerAttributeNotFoundException = _ServiceError . hasStatus 400 . hasCode "LoadBalancerAttributeNotFound";
 
 -- | The specified VPC has no associated Internet gateway.
 _InvalidSubnetException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSubnetException = _ServiceError . hasCode "InvalidSubnet" . hasStatus 400;
+_InvalidSubnetException = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet";
 
 -- | A tag key was specified more than once.
 _DuplicateTagKeysException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateTagKeysException = _ServiceError . hasCode "DuplicateTagKeys" . hasStatus 400;
+_DuplicateTagKeysException = _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys";
 
 -- | A listener already exists for the specified @LoadBalancerName@ and
 -- @LoadBalancerPort@, but with a different @InstancePort@, @Protocol@, or
 -- @SSLCertificateId@.
 _DuplicateListenerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateListenerException = _ServiceError . hasCode "DuplicateListener" . hasStatus 400;
+_DuplicateListenerException = _ServiceError . hasStatus 400 . hasCode "DuplicateListener";
 
 -- | The quota for the number of tags that can be assigned to a load balancer
 -- has been reached.
 _TooManyTagsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyTagsException = _ServiceError . hasCode "TooManyTags" . hasStatus 400;
+_TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags";
 
 -- | One or more of the specified policy types do not exist.
 _PolicyTypeNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyTypeNotFoundException = _ServiceError . hasCode "PolicyTypeNotFound" . hasStatus 400;
+_PolicyTypeNotFoundException = _ServiceError . hasStatus 400 . hasCode "PolicyTypeNotFound";
 
 -- | The specified load balancer name already exists for this account.
 _DuplicateAccessPointNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateAccessPointNameException = _ServiceError . hasCode "DuplicateLoadBalancerName" . hasStatus 400;
+_DuplicateAccessPointNameException = _ServiceError . hasStatus 400 . hasCode "DuplicateLoadBalancerName";
 
 -- | One or more of the specified security groups do not exist.
 _InvalidSecurityGroupException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSecurityGroupException = _ServiceError . hasCode "InvalidSecurityGroup" . hasStatus 400;
+_InvalidSecurityGroupException = _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup";
 
 -- | The load balancer does not have a listener configured at the specified
 -- port.
 _ListenerNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ListenerNotFoundException = _ServiceError . hasCode "ListenerNotFound" . hasStatus 400;
+_ListenerNotFoundException = _ServiceError . hasStatus 400 . hasCode "ListenerNotFound";
 
 -- | The specified endpoint is not valid.
 _InvalidEndPointException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidEndPointException = _ServiceError . hasCode "InvalidInstance" . hasStatus 400;
+_InvalidEndPointException = _ServiceError . hasStatus 400 . hasCode "InvalidInstance";
 
 -- | The quota for the number of load balancers has been reached.
 _TooManyAccessPointsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyAccessPointsException = _ServiceError . hasCode "TooManyLoadBalancers" . hasStatus 400;
+_TooManyAccessPointsException = _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers";
 
 -- | The specified value for the schema is not valid. You can only specify a
 -- scheme for load balancers in a VPC.
 _InvalidSchemeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSchemeException = _ServiceError . hasCode "InvalidScheme" . hasStatus 400;
+_InvalidSchemeException = _ServiceError . hasStatus 400 . hasCode "InvalidScheme";
 
 -- | The quota for the number of policies for this load balancer has been
 -- reached.
 _TooManyPoliciesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyPoliciesException = _ServiceError . hasCode "TooManyPolicies" . hasStatus 400;
+_TooManyPoliciesException = _ServiceError . hasStatus 400 . hasCode "TooManyPolicies";
 
 -- | The specified SSL ID does not refer to a valid SSL certificate in AWS
 -- Identity and Access Management (IAM).
 _CertificateNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CertificateNotFoundException = _ServiceError . hasCode "CertificateNotFound" . hasStatus 400;
+_CertificateNotFoundException = _ServiceError . hasStatus 400 . hasCode "CertificateNotFound";
 
 -- | Information about the @AccessLog@ attribute.
 --

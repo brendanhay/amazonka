@@ -148,11 +148,11 @@ instance AWSService SQS where
 -- | The @Id@ of a batch entry in a batch request does not abide by the
 -- specification.
 _InvalidBatchEntryId :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidBatchEntryId = _ServiceError . hasCode "AWS.SimpleQueueService.InvalidBatchEntryId" . hasStatus 400;
+_InvalidBatchEntryId = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.InvalidBatchEntryId";
 
 -- | Batch request contains more number of entries than permissible.
 _TooManyEntriesInBatchRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyEntriesInBatchRequest = _ServiceError . hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" . hasStatus 400;
+_TooManyEntriesInBatchRequest = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest";
 
 -- | The attribute referred to does not exist.
 _InvalidAttributeName :: AWSError a => Geting (First ServiceError) a ServiceError
@@ -161,15 +161,15 @@ _InvalidAttributeName = _ServiceError . hasCode "InvalidAttributeName";
 -- | You must wait 60 seconds after deleting a queue before you can create
 -- another with the same name.
 _QueueDeletedRecently :: AWSError a => Geting (First ServiceError) a ServiceError
-_QueueDeletedRecently = _ServiceError . hasCode "AWS.SimpleQueueService.QueueDeletedRecently" . hasStatus 400;
+_QueueDeletedRecently = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.QueueDeletedRecently";
 
 -- | The queue referred to does not exist.
 _QueueDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_QueueDoesNotExist = _ServiceError . hasCode "AWS.SimpleQueueService.NonExistentQueue" . hasStatus 400;
+_QueueDoesNotExist = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.NonExistentQueue";
 
 -- | Error code 400. Unsupported operation.
 _UnsupportedOperation :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedOperation = _ServiceError . hasCode "AWS.SimpleQueueService.UnsupportedOperation" . hasStatus 400;
+_UnsupportedOperation = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.UnsupportedOperation";
 
 -- | The message contains characters outside the allowed set.
 _InvalidMessageContents :: AWSError a => Geting (First ServiceError) a ServiceError
@@ -177,7 +177,7 @@ _InvalidMessageContents = _ServiceError . hasCode "InvalidMessageContents";
 
 -- | The length of all the messages put together is more than the limit.
 _BatchRequestTooLong :: AWSError a => Geting (First ServiceError) a ServiceError
-_BatchRequestTooLong = _ServiceError . hasCode "AWS.SimpleQueueService.BatchRequestTooLong" . hasStatus 400;
+_BatchRequestTooLong = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchRequestTooLong";
 
 -- | The action that you requested would violate a limit. For example,
 -- ReceiveMessage returns this error if the maximum number of messages
@@ -185,19 +185,19 @@ _BatchRequestTooLong = _ServiceError . hasCode "AWS.SimpleQueueService.BatchRequ
 -- the maximum number of permissions for the queue has already been
 -- reached.
 _OverLimit :: AWSError a => Geting (First ServiceError) a ServiceError
-_OverLimit = _ServiceError . hasCode "OverLimit" . hasStatus 403;
+_OverLimit = _ServiceError . hasStatus 403 . hasCode "OverLimit";
 
 -- | Indicates that the specified queue previously received a @PurgeQueue@
 -- request within the last 60 seconds, the time it can take to delete the
 -- messages in the queue.
 _PurgeQueueInProgress :: AWSError a => Geting (First ServiceError) a ServiceError
-_PurgeQueueInProgress = _ServiceError . hasCode "AWS.SimpleQueueService.PurgeQueueInProgress" . hasStatus 403;
+_PurgeQueueInProgress = _ServiceError . hasStatus 403 . hasCode "AWS.SimpleQueueService.PurgeQueueInProgress";
 
 -- | A queue already exists with this name. Amazon SQS returns this error
 -- only if the request includes attributes whose values differ from those
 -- of the existing queue.
 _QueueNameExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_QueueNameExists = _ServiceError . hasCode "QueueAlreadyExists" . hasStatus 400;
+_QueueNameExists = _ServiceError . hasStatus 400 . hasCode "QueueAlreadyExists";
 
 -- | The receipt handle is not valid for the current version.
 _InvalidIdFormat :: AWSError a => Geting (First ServiceError) a ServiceError
@@ -209,15 +209,15 @@ _ReceiptHandleIsInvalid = _ServiceError . hasCode "ReceiptHandleIsInvalid";
 
 -- | Batch request does not contain an entry.
 _EmptyBatchRequest :: AWSError a => Geting (First ServiceError) a ServiceError
-_EmptyBatchRequest = _ServiceError . hasCode "AWS.SimpleQueueService.EmptyBatchRequest" . hasStatus 400;
+_EmptyBatchRequest = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.EmptyBatchRequest";
 
 -- | The message referred to is not in flight.
 _MessageNotInflight :: AWSError a => Geting (First ServiceError) a ServiceError
-_MessageNotInflight = _ServiceError . hasCode "AWS.SimpleQueueService.MessageNotInflight" . hasStatus 400;
+_MessageNotInflight = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.MessageNotInflight";
 
 -- | Two or more batch entries have the same @Id@ in the request.
 _BatchEntryIdsNotDistinct :: AWSError a => Geting (First ServiceError) a ServiceError
-_BatchEntryIdsNotDistinct = _ServiceError . hasCode "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" . hasStatus 400;
+_BatchEntryIdsNotDistinct = _ServiceError . hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchEntryIdsNotDistinct";
 
 data QueueAttributeName = MessageRetentionPeriod | LastModifiedTimestamp | VisibilityTimeout | RedrivePolicy | ApproximateNumberOfMessagesDelayed | MaximumMessageSize | DelaySeconds | QueueARN | ApproximateNumberOfMessages | ReceiveMessageWaitTimeSeconds | Policy | CreatedTimestamp | ApproximateNumberOfMessagesNotVisible deriving (Eq, Ord, Read, Show, Enum, Generic)
 

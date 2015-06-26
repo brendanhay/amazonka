@@ -126,70 +126,70 @@ instance AWSService KMS where
 -- | The request was rejected because the marker that specifies where
 -- pagination should next begin is not valid.
 _InvalidMarkerException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidMarkerException = _ServiceError . hasCode "InvalidMarker" . hasStatus 400;
+_InvalidMarkerException = _ServiceError . hasStatus 400 . hasCode "InvalidMarker";
 
 -- | The request was rejected because the specified KeySpec parameter is not
 -- valid. The currently supported value is ENCRYPT\/DECRYPT.
 _InvalidKeyUsageException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidKeyUsageException = _ServiceError . hasCode "InvalidKeyUsage" . hasStatus 400;
+_InvalidKeyUsageException = _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage";
 
 -- | The request was rejected because a specified parameter is not supported.
 _UnsupportedOperationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_UnsupportedOperationException = _ServiceError . hasCode "UnsupportedOperation" . hasStatus 400;
+_UnsupportedOperationException = _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation";
 
 -- | The request was rejected because the specified policy is not
 -- syntactically or semantically correct.
 _MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = _ServiceError . hasCode "MalformedPolicyDocument" . hasStatus 400;
+_MalformedPolicyDocumentException = _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument";
 
 -- | A request was rejected because the specified key was marked as disabled.
 _DisabledException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DisabledException = _ServiceError . hasCode "Disabled" . hasStatus 409;
+_DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled";
 
 -- | The request was rejected because the key was disabled, not found, or
 -- otherwise not available.
 _KeyUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_KeyUnavailableException = _ServiceError . hasCode "KeyUnavailable" . hasStatus 500;
+_KeyUnavailableException = _ServiceError . hasStatus 500 . hasCode "KeyUnavailable";
 
 -- | The request was rejected because an internal exception occurred. This
 -- error can be retried.
 _KMSInternalException :: AWSError a => Geting (First ServiceError) a ServiceError
-_KMSInternalException = _ServiceError . hasCode "KMSInternal" . hasStatus 500;
+_KMSInternalException = _ServiceError . hasStatus 500 . hasCode "KMSInternal";
 
 -- | The request was rejected because the specified entity or resource could
 -- not be found.
 _NotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFound" . hasStatus 404;
+_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound";
 
 -- | The request was rejected because the specified alias name is not valid.
 _InvalidAliasNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAliasNameException = _ServiceError . hasCode "InvalidAliasName" . hasStatus 400;
+_InvalidAliasNameException = _ServiceError . hasStatus 400 . hasCode "InvalidAliasName";
 
 -- | The request was rejected because a specified ARN was not valid.
 _InvalidARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidARNException = _ServiceError . hasCode "InvalidArn" . hasStatus 400;
+_InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn";
 
 -- | The system timed out while trying to fulfill the request.
 _DependencyTimeoutException :: AWSError a => Geting (First ServiceError) a ServiceError
-_DependencyTimeoutException = _ServiceError . hasCode "DependencyTimeout" . hasStatus 503;
+_DependencyTimeoutException = _ServiceError . hasStatus 503 . hasCode "DependencyTimeout";
 
 -- | A grant token provided as part of the request is invalid.
 _InvalidGrantTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidGrantTokenException = _ServiceError . hasCode "InvalidGrantToken" . hasStatus 400;
+_InvalidGrantTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken";
 
 -- | The request was rejected because the specified ciphertext has been
 -- corrupted or is otherwise invalid.
 _InvalidCiphertextException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCiphertextException = _ServiceError . hasCode "InvalidCiphertext" . hasStatus 400;
+_InvalidCiphertextException = _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext";
 
 -- | The request was rejected because a quota was exceeded.
 _LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
+_LimitExceededException = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
 _AlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyExistsException = _ServiceError . hasCode "AlreadyExists" . hasStatus 400;
+_AlreadyExistsException = _ServiceError . hasStatus 400 . hasCode "AlreadyExists";
 
 data DataKeySpec = AES128 | AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
 

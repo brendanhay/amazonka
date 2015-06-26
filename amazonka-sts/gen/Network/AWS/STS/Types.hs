@@ -89,19 +89,19 @@ instance AWSService STS where
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
 _MalformedPolicyDocumentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = _ServiceError . hasCode "MalformedPolicyDocument" . hasStatus 400;
+_MalformedPolicyDocumentException = _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument";
 
 -- | The request was rejected because the policy document was too large. The
 -- error message describes how big the policy document is, in packed form,
 -- as a percentage of what the API allows.
 _PackedPolicyTooLargeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PackedPolicyTooLargeException = _ServiceError . hasCode "PackedPolicyTooLarge" . hasStatus 400;
+_PackedPolicyTooLargeException = _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge";
 
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
 _InvalidAuthorizationMessageException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidAuthorizationMessageException = _ServiceError . hasCode "InvalidAuthorizationMessageException" . hasStatus 400;
+_InvalidAuthorizationMessageException = _ServiceError . hasStatus 400 . hasCode "InvalidAuthorizationMessageException";
 
 -- | The request could not be fulfilled because the non-AWS identity provider
 -- (IDP) that was asked to verify the incoming identity token could not be
@@ -110,19 +110,19 @@ _InvalidAuthorizationMessageException = _ServiceError . hasCode "InvalidAuthoriz
 -- the request rate. If the error persists, the non-AWS identity provider
 -- might be down or not responding.
 _IDPCommunicationErrorException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IDPCommunicationErrorException = _ServiceError . hasCode "IDPCommunicationError" . hasStatus 400;
+_IDPCommunicationErrorException = _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError";
 
 -- | The web identity token that was passed is expired or is not valid. Get a
 -- new identity token from the identity provider and then retry the
 -- request.
 _ExpiredTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ExpiredTokenException = _ServiceError . hasCode "ExpiredTokenException" . hasStatus 400;
+_ExpiredTokenException = _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException";
 
 -- | The web identity token that was passed could not be validated by AWS.
 -- Get a new identity token from the identity provider and then retry the
 -- request.
 _InvalidIdentityTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIdentityTokenException = _ServiceError . hasCode "InvalidIdentityToken" . hasStatus 400;
+_InvalidIdentityTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken";
 
 -- | The identity provider (IdP) reported that authentication failed. This
 -- might be because the claim is invalid.
@@ -131,7 +131,7 @@ _InvalidIdentityTokenException = _ServiceError . hasCode "InvalidIdentityToken" 
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
 _IDPRejectedClaimException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IDPRejectedClaimException = _ServiceError . hasCode "IDPRejectedClaim" . hasStatus 403;
+_IDPRejectedClaimException = _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim";
 
 -- | The identifiers for the temporary security credentials that the
 -- operation returns.

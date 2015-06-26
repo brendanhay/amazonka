@@ -376,15 +376,15 @@ instance AWSService ElasticTranscoder where
 
 -- | One or more required parameter values were not provided in the request.
 _ValidationException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasCode "ValidationException" . hasStatus 400;
+_ValidationException = _ServiceError . hasStatus 400 . hasCode "ValidationException";
 
 -- | Prism for IncompatibleVersionException' errors.
 _IncompatibleVersionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_IncompatibleVersionException = _ServiceError . hasCode "IncompatibleVersionException" . hasStatus 400;
+_IncompatibleVersionException = _ServiceError . hasStatus 400 . hasCode "IncompatibleVersionException";
 
 -- | General authentication failure. The request was not signed correctly.
 _AccessDeniedException :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException" . hasStatus 403;
+_AccessDeniedException = _ServiceError . hasStatus 403 . hasCode "AccessDeniedException";
 
 -- | Elastic Transcoder encountered an unexpected exception while trying to
 -- fulfill the request.
@@ -395,17 +395,17 @@ _InternalServiceException = _ServiceError . hasCode "InternalServiceException";
 -- the pipeline to which you\'re trying to add a job doesn\'t exist or is
 -- still being created.
 _ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
 
 -- | The resource you are attempting to change is in use. For example, you
 -- are attempting to delete a pipeline that is currently in use.
 _ResourceInUseException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException" . hasStatus 409;
+_ResourceInUseException = _ServiceError . hasStatus 409 . hasCode "ResourceInUseException";
 
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
 _LimitExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException" . hasStatus 429;
+_LimitExceededException = _ServiceError . hasStatus 429 . hasCode "LimitExceededException";
 
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20.

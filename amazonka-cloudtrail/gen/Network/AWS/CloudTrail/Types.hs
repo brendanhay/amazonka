@@ -116,76 +116,76 @@ instance AWSService CloudTrail where
 -- after the end time or the time range is outside the range of possible
 -- values.
 _InvalidTimeRangeException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTimeRangeException = _ServiceError . hasCode "InvalidTimeRange" . hasStatus 400;
+_InvalidTimeRangeException = _ServiceError . hasStatus 400 . hasCode "InvalidTimeRange";
 
 -- | This exception is thrown when the policy on the S3 bucket is not
 -- sufficient.
 _InsufficientS3BucketPolicyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientS3BucketPolicyException = _ServiceError . hasCode "InsufficientS3BucketPolicy" . hasStatus 403;
+_InsufficientS3BucketPolicyException = _ServiceError . hasStatus 403 . hasCode "InsufficientS3BucketPolicy";
 
 -- | This exception is thrown when the maximum number of trails is reached.
 _MaximumNumberOfTrailsExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_MaximumNumberOfTrailsExceededException = _ServiceError . hasCode "MaximumNumberOfTrailsExceeded" . hasStatus 403;
+_MaximumNumberOfTrailsExceededException = _ServiceError . hasStatus 403 . hasCode "MaximumNumberOfTrailsExceeded";
 
 -- | This exception is thrown when the policy on the SNS topic is not
 -- sufficient.
 _InsufficientSNSTopicPolicyException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientSNSTopicPolicyException = _ServiceError . hasCode "InsufficientSnsTopicPolicy" . hasStatus 403;
+_InsufficientSNSTopicPolicyException = _ServiceError . hasStatus 403 . hasCode "InsufficientSnsTopicPolicy";
 
 -- | This exception is thrown when the provided role is not valid.
 _InvalidCloudWatchLogsRoleARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCloudWatchLogsRoleARNException = _ServiceError . hasCode "InvalidCloudWatchLogsRoleArn" . hasStatus 400;
+_InvalidCloudWatchLogsRoleARNException = _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsRoleArn";
 
 -- | This exception is thrown when the provided trail name is not valid.
 _InvalidTrailNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidTrailNameException = _ServiceError . hasCode "InvalidTrailName" . hasStatus 400;
+_InvalidTrailNameException = _ServiceError . hasStatus 400 . hasCode "InvalidTrailName";
 
 -- | Occurs when an invalid lookup attribute is specified.
 _InvalidLookupAttributesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLookupAttributesException = _ServiceError . hasCode "InvalidLookupAttributes" . hasStatus 400;
+_InvalidLookupAttributesException = _ServiceError . hasStatus 400 . hasCode "InvalidLookupAttributes";
 
 -- | This exception is thrown when the trail with the given name is not
 -- found.
 _TrailNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TrailNotFoundException = _ServiceError . hasCode "TrailNotFound" . hasStatus 404;
+_TrailNotFoundException = _ServiceError . hasStatus 404 . hasCode "TrailNotFound";
 
 -- | Cannot set a CloudWatch Logs delivery for this region.
 _CloudWatchLogsDeliveryUnavailableException :: AWSError a => Geting (First ServiceError) a ServiceError
-_CloudWatchLogsDeliveryUnavailableException = _ServiceError . hasCode "CloudWatchLogsDeliveryUnavailable" . hasStatus 400;
+_CloudWatchLogsDeliveryUnavailableException = _ServiceError . hasStatus 400 . hasCode "CloudWatchLogsDeliveryUnavailable";
 
 -- | This exception is thrown when the provided SNS topic name is not valid.
 _InvalidSNSTopicNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidSNSTopicNameException = _ServiceError . hasCode "InvalidSnsTopicName" . hasStatus 400;
+_InvalidSNSTopicNameException = _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopicName";
 
 -- | This exception is thrown when the provided CloudWatch log group is not
 -- valid.
 _InvalidCloudWatchLogsLogGroupARNException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidCloudWatchLogsLogGroupARNException = _ServiceError . hasCode "InvalidCloudWatchLogsLogGroupArn" . hasStatus 400;
+_InvalidCloudWatchLogsLogGroupARNException = _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsLogGroupArn";
 
 -- | This exception is thrown when the provided S3 bucket name is not valid.
 _InvalidS3BucketNameException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3BucketNameException = _ServiceError . hasCode "InvalidS3BucketName" . hasStatus 400;
+_InvalidS3BucketNameException = _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketName";
 
 -- | Invalid token or token that was previously used in a request with
 -- different parameters. This exception is thrown if the token is invalid.
 _InvalidNextTokenException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextTokenException = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+_InvalidNextTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
 
 -- | This exception is thrown when the specified S3 bucket does not exist.
 _S3BucketDoesNotExistException :: AWSError a => Geting (First ServiceError) a ServiceError
-_S3BucketDoesNotExistException = _ServiceError . hasCode "S3BucketDoesNotExist" . hasStatus 404;
+_S3BucketDoesNotExistException = _ServiceError . hasStatus 404 . hasCode "S3BucketDoesNotExist";
 
 -- | This exception is thrown if the limit specified is invalid.
 _InvalidMaxResultsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidMaxResultsException = _ServiceError . hasCode "InvalidMaxResults" . hasStatus 400;
+_InvalidMaxResultsException = _ServiceError . hasStatus 400 . hasCode "InvalidMaxResults";
 
 -- | This exception is thrown when the specified trail already exists.
 _TrailAlreadyExistsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TrailAlreadyExistsException = _ServiceError . hasCode "TrailAlreadyExists" . hasStatus 400;
+_TrailAlreadyExistsException = _ServiceError . hasStatus 400 . hasCode "TrailAlreadyExists";
 
 -- | This exception is thrown when the provided S3 prefix is not valid.
 _InvalidS3PrefixException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidS3PrefixException = _ServiceError . hasCode "InvalidS3Prefix" . hasStatus 400;
+_InvalidS3PrefixException = _ServiceError . hasStatus 400 . hasCode "InvalidS3Prefix";
 
 data LookupAttributeKey = ResourceType | ResourceName | Username | EventName | EventId deriving (Eq, Ord, Read, Show, Enum, Generic)
 

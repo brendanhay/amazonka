@@ -119,72 +119,72 @@ instance AWSService SDB where
 
 -- | Too many predicates exist in the query expression.
 _InvalidNumberValueTests :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNumberValueTests = _ServiceError . hasCode "InvalidNumberValueTests" . hasStatus 400;
+_InvalidNumberValueTests = _ServiceError . hasStatus 400 . hasCode "InvalidNumberValueTests";
 
 -- | The specified domain does not exist.
 _NoSuchDomain :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchDomain = _ServiceError . hasCode "NoSuchDomain" . hasStatus 400;
+_NoSuchDomain = _ServiceError . hasStatus 400 . hasCode "NoSuchDomain";
 
 -- | Too many attributes in this domain.
 _NumberDomainAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberDomainAttributesExceeded = _ServiceError . hasCode "NumberDomainAttributesExceeded" . hasStatus 409;
+_NumberDomainAttributesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDomainAttributesExceeded";
 
 -- | Too many items exist in a single call.
 _NumberSubmittedItemsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberSubmittedItemsExceeded = _ServiceError . hasCode "NumberSubmittedItemsExceeded" . hasStatus 409;
+_NumberSubmittedItemsExceeded = _ServiceError . hasStatus 409 . hasCode "NumberSubmittedItemsExceeded";
 
 -- | The specified attribute does not exist.
 _AttributeDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_AttributeDoesNotExist = _ServiceError . hasCode "AttributeDoesNotExist" . hasStatus 404;
+_AttributeDoesNotExist = _ServiceError . hasStatus 404 . hasCode "AttributeDoesNotExist";
 
 -- | The specified NextToken is not valid.
 _InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
 
 -- | The request must contain the specified missing parameter.
 _MissingParameter :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingParameter = _ServiceError . hasCode "MissingParameter" . hasStatus 400;
+_MissingParameter = _ServiceError . hasStatus 400 . hasCode "MissingParameter";
 
 -- | The item name was specified more than once.
 _DuplicateItemName :: AWSError a => Geting (First ServiceError) a ServiceError
-_DuplicateItemName = _ServiceError . hasCode "DuplicateItemName" . hasStatus 400;
+_DuplicateItemName = _ServiceError . hasStatus 400 . hasCode "DuplicateItemName";
 
 -- | The value for a parameter is invalid.
 _InvalidParameterValue :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValue = _ServiceError . hasCode "InvalidParameterValue" . hasStatus 400;
+_InvalidParameterValue = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue";
 
 -- | Too many attributes in this item.
 _NumberItemAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberItemAttributesExceeded = _ServiceError . hasCode "NumberItemAttributesExceeded" . hasStatus 409;
+_NumberItemAttributesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberItemAttributesExceeded";
 
 -- | A timeout occurred when attempting to query the specified domain with
 -- specified query expression.
 _RequestTimeout :: AWSError a => Geting (First ServiceError) a ServiceError
-_RequestTimeout = _ServiceError . hasCode "RequestTimeout" . hasStatus 408;
+_RequestTimeout = _ServiceError . hasStatus 408 . hasCode "RequestTimeout";
 
 -- | Too many attributes requested.
 _TooManyRequestedAttributes :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestedAttributes = _ServiceError . hasCode "TooManyRequestedAttributes" . hasStatus 400;
+_TooManyRequestedAttributes = _ServiceError . hasStatus 400 . hasCode "TooManyRequestedAttributes";
 
 -- | Too many predicates exist in the query expression.
 _InvalidNumberPredicates :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNumberPredicates = _ServiceError . hasCode "InvalidNumberPredicates" . hasStatus 400;
+_InvalidNumberPredicates = _ServiceError . hasStatus 400 . hasCode "InvalidNumberPredicates";
 
 -- | Too many domains exist per this account.
 _NumberDomainsExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberDomainsExceeded = _ServiceError . hasCode "NumberDomainsExceeded" . hasStatus 409;
+_NumberDomainsExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDomainsExceeded";
 
 -- | Too many attributes exist in a single call.
 _NumberSubmittedAttributesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberSubmittedAttributesExceeded = _ServiceError . hasCode "NumberSubmittedAttributesExceeded" . hasStatus 409;
+_NumberSubmittedAttributesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberSubmittedAttributesExceeded";
 
 -- | The specified query expression syntax is not valid.
 _InvalidQueryExpression :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidQueryExpression = _ServiceError . hasCode "InvalidQueryExpression" . hasStatus 400;
+_InvalidQueryExpression = _ServiceError . hasStatus 400 . hasCode "InvalidQueryExpression";
 
 -- | Too many bytes in this domain.
 _NumberDomainBytesExceeded :: AWSError a => Geting (First ServiceError) a ServiceError
-_NumberDomainBytesExceeded = _ServiceError . hasCode "NumberDomainBytesExceeded" . hasStatus 409;
+_NumberDomainBytesExceeded = _ServiceError . hasStatus 409 . hasCode "NumberDomainBytesExceeded";
 
 -- |
 --

@@ -374,7 +374,7 @@ _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException";
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
 _InternalServerError :: AWSError a => Geting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalFailure" . hasStatus 500;
+_InternalServerError = _ServiceError . hasStatus 500 . hasCode "InternalFailure";
 
 -- | This exception occurs when there is an internal failure in the EMR
 -- service.

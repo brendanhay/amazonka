@@ -481,171 +481,171 @@ instance AWSService CloudFront where
 
 -- | Prism for InvalidErrorCode' errors.
 _InvalidErrorCode :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidErrorCode = _ServiceError . hasCode "InvalidErrorCode" . hasStatus 400;
+_InvalidErrorCode = _ServiceError . hasStatus 400 . hasCode "InvalidErrorCode";
 
 -- | You cannot create anymore cache behaviors for the distribution.
 _TooManyCacheBehaviors :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCacheBehaviors = _ServiceError . hasCode "TooManyCacheBehaviors" . hasStatus 400;
+_TooManyCacheBehaviors = _ServiceError . hasStatus 400 . hasCode "TooManyCacheBehaviors";
 
 -- | Prism for DistributionNotDisabled' errors.
 _DistributionNotDisabled :: AWSError a => Geting (First ServiceError) a ServiceError
-_DistributionNotDisabled = _ServiceError . hasCode "DistributionNotDisabled" . hasStatus 409;
+_DistributionNotDisabled = _ServiceError . hasStatus 409 . hasCode "DistributionNotDisabled";
 
 -- | The origin access identity is not valid or doesn\'t exist.
 _InvalidOriginAccessIdentity :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOriginAccessIdentity = _ServiceError . hasCode "InvalidOriginAccessIdentity" . hasStatus 400;
+_InvalidOriginAccessIdentity = _ServiceError . hasStatus 400 . hasCode "InvalidOriginAccessIdentity";
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- origin access identities allowed.
 _TooManyCloudFrontOriginAccessIdentities :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCloudFrontOriginAccessIdentities = _ServiceError . hasCode "TooManyCloudFrontOriginAccessIdentities" . hasStatus 400;
+_TooManyCloudFrontOriginAccessIdentities = _ServiceError . hasStatus 400 . hasCode "TooManyCloudFrontOriginAccessIdentities";
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- streaming distributions allowed.
 _TooManyStreamingDistributions :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyStreamingDistributions = _ServiceError . hasCode "TooManyStreamingDistributions" . hasStatus 400;
+_TooManyStreamingDistributions = _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributions";
 
 -- | The argument is invalid.
 _InvalidArgument :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidArgument = _ServiceError . hasCode "InvalidArgument" . hasStatus 400;
+_InvalidArgument = _ServiceError . hasStatus 400 . hasCode "InvalidArgument";
 
 -- | The specified origin access identity does not exist.
 _NoSuchCloudFrontOriginAccessIdentity :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchCloudFrontOriginAccessIdentity = _ServiceError . hasCode "NoSuchCloudFrontOriginAccessIdentity" . hasStatus 404;
+_NoSuchCloudFrontOriginAccessIdentity = _ServiceError . hasStatus 404 . hasCode "NoSuchCloudFrontOriginAccessIdentity";
 
 -- | The specified streaming distribution does not exist.
 _NoSuchStreamingDistribution :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchStreamingDistribution = _ServiceError . hasCode "NoSuchStreamingDistribution" . hasStatus 404;
+_NoSuchStreamingDistribution = _ServiceError . hasStatus 404 . hasCode "NoSuchStreamingDistribution";
 
 -- | Prism for CloudFrontOriginAccessIdentityInUse' errors.
 _CloudFrontOriginAccessIdentityInUse :: AWSError a => Geting (First ServiceError) a ServiceError
-_CloudFrontOriginAccessIdentityInUse = _ServiceError . hasCode "CloudFrontOriginAccessIdentityInUse" . hasStatus 409;
+_CloudFrontOriginAccessIdentityInUse = _ServiceError . hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityInUse";
 
 -- | The value of Quantity and the size of Items do not match.
 _InconsistentQuantities :: AWSError a => Geting (First ServiceError) a ServiceError
-_InconsistentQuantities = _ServiceError . hasCode "InconsistentQuantities" . hasStatus 400;
+_InconsistentQuantities = _ServiceError . hasStatus 400 . hasCode "InconsistentQuantities";
 
 -- | You have exceeded the maximum number of allowable InProgress
 -- invalidation batch requests, or invalidation objects.
 _TooManyInvalidationsInProgress :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyInvalidationsInProgress = _ServiceError . hasCode "TooManyInvalidationsInProgress" . hasStatus 400;
+_TooManyInvalidationsInProgress = _ServiceError . hasStatus 400 . hasCode "TooManyInvalidationsInProgress";
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
 _TooManyDistributionCNAMEs :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyDistributionCNAMEs = _ServiceError . hasCode "TooManyDistributionCNAMEs" . hasStatus 400;
+_TooManyDistributionCNAMEs = _ServiceError . hasStatus 400 . hasCode "TooManyDistributionCNAMEs";
 
 -- | Your request contains forward cookies option which doesn\'t match with
 -- the expectation for the whitelisted list of cookie names. Either list of
 -- cookie names has been specified when not allowed or list of cookie names
 -- is missing when expected.
 _InvalidForwardCookies :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidForwardCookies = _ServiceError . hasCode "InvalidForwardCookies" . hasStatus 400;
+_InvalidForwardCookies = _ServiceError . hasStatus 400 . hasCode "InvalidForwardCookies";
 
 -- | Your request contains more cookie names in the whitelist than are
 -- allowed per cache behavior.
 _TooManyCookieNamesInWhiteList :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCookieNamesInWhiteList = _ServiceError . hasCode "TooManyCookieNamesInWhiteList" . hasStatus 400;
+_TooManyCookieNamesInWhiteList = _ServiceError . hasStatus 400 . hasCode "TooManyCookieNamesInWhiteList";
 
 -- | Prism for BatchTooLarge' errors.
 _BatchTooLarge :: AWSError a => Geting (First ServiceError) a ServiceError
-_BatchTooLarge = _ServiceError . hasCode "BatchTooLarge" . hasStatus 413;
+_BatchTooLarge = _ServiceError . hasStatus 413 . hasCode "BatchTooLarge";
 
 -- | The Amazon S3 origin server specified does not refer to a valid Amazon
 -- S3 bucket.
 _InvalidOrigin :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidOrigin = _ServiceError . hasCode "InvalidOrigin" . hasStatus 400;
+_InvalidOrigin = _ServiceError . hasStatus 400 . hasCode "InvalidOrigin";
 
 -- | Your request contains more trusted signers than are allowed per
 -- distribution.
 _TooManyTrustedSigners :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyTrustedSigners = _ServiceError . hasCode "TooManyTrustedSigners" . hasStatus 400;
+_TooManyTrustedSigners = _ServiceError . hasStatus 400 . hasCode "TooManyTrustedSigners";
 
 -- | No origin exists with the specified Origin Id.
 _NoSuchOrigin :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchOrigin = _ServiceError . hasCode "NoSuchOrigin" . hasStatus 404;
+_NoSuchOrigin = _ServiceError . hasStatus 404 . hasCode "NoSuchOrigin";
 
 -- | The specified invalidation does not exist.
 _NoSuchInvalidation :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchInvalidation = _ServiceError . hasCode "NoSuchInvalidation" . hasStatus 404;
+_NoSuchInvalidation = _ServiceError . hasStatus 404 . hasCode "NoSuchInvalidation";
 
 -- | Prism for StreamingDistributionNotDisabled' errors.
 _StreamingDistributionNotDisabled :: AWSError a => Geting (First ServiceError) a ServiceError
-_StreamingDistributionNotDisabled = _ServiceError . hasCode "StreamingDistributionNotDisabled" . hasStatus 409;
+_StreamingDistributionNotDisabled = _ServiceError . hasStatus 409 . hasCode "StreamingDistributionNotDisabled";
 
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
 _TooManyStreamingDistributionCNAMEs :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyStreamingDistributionCNAMEs = _ServiceError . hasCode "TooManyStreamingDistributionCNAMEs" . hasStatus 400;
+_TooManyStreamingDistributionCNAMEs = _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributionCNAMEs";
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- distributions allowed.
 _TooManyDistributions :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyDistributions = _ServiceError . hasCode "TooManyDistributions" . hasStatus 400;
+_TooManyDistributions = _ServiceError . hasStatus 400 . hasCode "TooManyDistributions";
 
 -- | This operation requires the HTTPS protocol. Ensure that you specify the
 -- HTTPS protocol in your request, or omit the RequiredProtocols element
 -- from your distribution configuration.
 _InvalidRequiredProtocol :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRequiredProtocol = _ServiceError . hasCode "InvalidRequiredProtocol" . hasStatus 400;
+_InvalidRequiredProtocol = _ServiceError . hasStatus 400 . hasCode "InvalidRequiredProtocol";
 
 -- | Prism for TooManyHeadersInForwardedValues' errors.
 _TooManyHeadersInForwardedValues :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyHeadersInForwardedValues = _ServiceError . hasCode "TooManyHeadersInForwardedValues" . hasStatus 400;
+_TooManyHeadersInForwardedValues = _ServiceError . hasStatus 400 . hasCode "TooManyHeadersInForwardedValues";
 
 -- | You cannot create anymore custom ssl certificates.
 _TooManyCertificates :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyCertificates = _ServiceError . hasCode "TooManyCertificates" . hasStatus 400;
+_TooManyCertificates = _ServiceError . hasStatus 400 . hasCode "TooManyCertificates";
 
 -- | This operation requires a body. Ensure that the body is present and the
 -- Content-Type header is set.
 _MissingBody :: AWSError a => Geting (First ServiceError) a ServiceError
-_MissingBody = _ServiceError . hasCode "MissingBody" . hasStatus 400;
+_MissingBody = _ServiceError . hasStatus 400 . hasCode "MissingBody";
 
 -- | The caller reference you attempted to create the distribution with is
 -- associated with another distribution.
 _DistributionAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_DistributionAlreadyExists = _ServiceError . hasCode "DistributionAlreadyExists" . hasStatus 409;
+_DistributionAlreadyExists = _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists";
 
 -- | Origin and CallerReference cannot be updated.
 _IllegalUpdate :: AWSError a => Geting (First ServiceError) a ServiceError
-_IllegalUpdate = _ServiceError . hasCode "IllegalUpdate" . hasStatus 400;
+_IllegalUpdate = _ServiceError . hasStatus 400 . hasCode "IllegalUpdate";
 
 -- | Prism for InvalidResponseCode' errors.
 _InvalidResponseCode :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidResponseCode = _ServiceError . hasCode "InvalidResponseCode" . hasStatus 400;
+_InvalidResponseCode = _ServiceError . hasStatus 400 . hasCode "InvalidResponseCode";
 
 -- | The If-Match version is missing or not valid for the distribution.
 _InvalidIfMatchVersion :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidIfMatchVersion = _ServiceError . hasCode "InvalidIfMatchVersion" . hasStatus 400;
+_InvalidIfMatchVersion = _ServiceError . hasStatus 400 . hasCode "InvalidIfMatchVersion";
 
 -- | The precondition given in one or more of the request-header fields
 -- evaluated to false.
 _PreconditionFailed :: AWSError a => Geting (First ServiceError) a ServiceError
-_PreconditionFailed = _ServiceError . hasCode "PreconditionFailed" . hasStatus 412;
+_PreconditionFailed = _ServiceError . hasStatus 412 . hasCode "PreconditionFailed";
 
 -- | You cannot specify SSLv3 as the minimum protocol version if you only
 -- want to support only clients that Support Server Name Indication (SNI).
 _InvalidProtocolSettings :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidProtocolSettings = _ServiceError . hasCode "InvalidProtocolSettings" . hasStatus 400;
+_InvalidProtocolSettings = _ServiceError . hasStatus 400 . hasCode "InvalidProtocolSettings";
 
 -- | One or more of your trusted signers do not exist.
 _TrustedSignerDoesNotExist :: AWSError a => Geting (First ServiceError) a ServiceError
-_TrustedSignerDoesNotExist = _ServiceError . hasCode "TrustedSignerDoesNotExist" . hasStatus 400;
+_TrustedSignerDoesNotExist = _ServiceError . hasStatus 400 . hasCode "TrustedSignerDoesNotExist";
 
 -- | Prism for InvalidHeadersForS3Origin' errors.
 _InvalidHeadersForS3Origin :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidHeadersForS3Origin = _ServiceError . hasCode "InvalidHeadersForS3Origin" . hasStatus 400;
+_InvalidHeadersForS3Origin = _ServiceError . hasStatus 400 . hasCode "InvalidHeadersForS3Origin";
 
 -- | Prism for CNAMEAlreadyExists' errors.
 _CNAMEAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_CNAMEAlreadyExists = _ServiceError . hasCode "CNAMEAlreadyExists" . hasStatus 409;
+_CNAMEAlreadyExists = _ServiceError . hasStatus 409 . hasCode "CNAMEAlreadyExists";
 
 -- | Prism for StreamingDistributionAlreadyExists' errors.
 _StreamingDistributionAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_StreamingDistributionAlreadyExists = _ServiceError . hasCode "StreamingDistributionAlreadyExists" . hasStatus 409;
+_StreamingDistributionAlreadyExists = _ServiceError . hasStatus 409 . hasCode "StreamingDistributionAlreadyExists";
 
 -- | You cannot create anymore origins for the distribution.
 _TooManyOrigins :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyOrigins = _ServiceError . hasCode "TooManyOrigins" . hasStatus 400;
+_TooManyOrigins = _ServiceError . hasStatus 400 . hasCode "TooManyOrigins";
 
 -- | If the CallerReference is a value you already sent in a previous request
 -- to create an identity but the content of the
@@ -653,37 +653,37 @@ _TooManyOrigins = _ServiceError . hasCode "TooManyOrigins" . hasStatus 400;
 -- request, CloudFront returns a
 -- CloudFrontOriginAccessIdentityAlreadyExists error.
 _CloudFrontOriginAccessIdentityAlreadyExists :: AWSError a => Geting (First ServiceError) a ServiceError
-_CloudFrontOriginAccessIdentityAlreadyExists = _ServiceError . hasCode "CloudFrontOriginAccessIdentityAlreadyExists" . hasStatus 409;
+_CloudFrontOriginAccessIdentityAlreadyExists = _ServiceError . hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityAlreadyExists";
 
 -- | The relative path is too big, is not URL-encoded, or does not begin with
 -- a slash (\/).
 _InvalidRelativePath :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRelativePath = _ServiceError . hasCode "InvalidRelativePath" . hasStatus 400;
+_InvalidRelativePath = _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath";
 
 -- | Access denied.
 _AccessDenied :: AWSError a => Geting (First ServiceError) a ServiceError
-_AccessDenied = _ServiceError . hasCode "AccessDenied" . hasStatus 403;
+_AccessDenied = _ServiceError . hasStatus 403 . hasCode "AccessDenied";
 
 -- | The specified distribution does not exist.
 _NoSuchDistribution :: AWSError a => Geting (First ServiceError) a ServiceError
-_NoSuchDistribution = _ServiceError . hasCode "NoSuchDistribution" . hasStatus 404;
+_NoSuchDistribution = _ServiceError . hasStatus 404 . hasCode "NoSuchDistribution";
 
 -- | Prism for InvalidViewerCertificate' errors.
 _InvalidViewerCertificate :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidViewerCertificate = _ServiceError . hasCode "InvalidViewerCertificate" . hasStatus 400;
+_InvalidViewerCertificate = _ServiceError . hasStatus 400 . hasCode "InvalidViewerCertificate";
 
 -- | The default root object file name is too big or contains an invalid
 -- character.
 _InvalidDefaultRootObject :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidDefaultRootObject = _ServiceError . hasCode "InvalidDefaultRootObject" . hasStatus 400;
+_InvalidDefaultRootObject = _ServiceError . hasStatus 400 . hasCode "InvalidDefaultRootObject";
 
 -- | Prism for InvalidLocationCode' errors.
 _InvalidLocationCode :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidLocationCode = _ServiceError . hasCode "InvalidLocationCode" . hasStatus 400;
+_InvalidLocationCode = _ServiceError . hasStatus 400 . hasCode "InvalidLocationCode";
 
 -- | Prism for InvalidGeoRestrictionParameter' errors.
 _InvalidGeoRestrictionParameter :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidGeoRestrictionParameter = _ServiceError . hasCode "InvalidGeoRestrictionParameter" . hasStatus 400;
+_InvalidGeoRestrictionParameter = _ServiceError . hasStatus 400 . hasCode "InvalidGeoRestrictionParameter";
 
 data GeoRestrictionType = None | Whitelist | Blacklist deriving (Eq, Ord, Read, Show, Enum, Generic)
 

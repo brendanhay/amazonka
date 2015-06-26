@@ -297,31 +297,31 @@ instance AWSService AutoScaling where
 -- example, groups, launch configurations, or lifecycle hooks). For more
 -- information, see DescribeAccountLimits.
 _LimitExceededFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasCode "LimitExceeded" . hasStatus 400;
+_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded";
 
 -- | You already have an Auto Scaling group or launch configuration with this
 -- name.
 _AlreadyExistsFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_AlreadyExistsFault = _ServiceError . hasCode "AlreadyExists" . hasStatus 400;
+_AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists";
 
 -- | The Auto Scaling group or launch configuration can\'t be deleted because
 -- it is in use.
 _ResourceInUseFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceInUseFault = _ServiceError . hasCode "ResourceInUse" . hasStatus 400;
+_ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse";
 
 -- | The @NextToken@ value is not valid.
 _InvalidNextToken :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken" . hasStatus 400;
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken";
 
 -- | The Auto Scaling group can\'t be deleted because there are scaling
 -- activities in progress.
 _ScalingActivityInProgressFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ScalingActivityInProgressFault = _ServiceError . hasCode "ScalingActivityInProgress" . hasStatus 400;
+_ScalingActivityInProgressFault = _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress";
 
 -- | You already have a pending update to an Auto Scaling resource (for
 -- example, a group, instance, or load balancer).
 _ResourceContentionFault :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceContentionFault = _ServiceError . hasCode "ResourceContention" . hasStatus 500;
+_ResourceContentionFault = _ServiceError . hasStatus 500 . hasCode "ResourceContention";
 
 data LifecycleState = PendingWait | Terminating | TerminatingWait | Pending | Standby | EnteringStandby | InService | Detached | Detaching | Quarantined | PendingProceed | Terminated | TerminatingProceed deriving (Eq, Ord, Read, Show, Enum, Generic)
 

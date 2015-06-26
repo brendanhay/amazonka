@@ -120,35 +120,35 @@ instance AWSService Lambda where
 
 -- | Lambda function access policy is limited to 20 KB.
 _PolicyLengthExceededException :: AWSError a => Geting (First ServiceError) a ServiceError
-_PolicyLengthExceededException = _ServiceError . hasCode "PolicyLengthExceededException" . hasStatus 400;
+_PolicyLengthExceededException = _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException";
 
 -- | The request body could not be parsed as JSON.
 _InvalidRequestContentException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidRequestContentException = _ServiceError . hasCode "InvalidRequestContentException" . hasStatus 400;
+_InvalidRequestContentException = _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException";
 
 -- | One of the parameters in the request is invalid. For example, if you
 -- provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or
 -- the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to
 -- assume you will get this exception.
 _InvalidParameterValueException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InvalidParameterValueException = _ServiceError . hasCode "InvalidParameterValueException" . hasStatus 400;
+_InvalidParameterValueException = _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException";
 
 -- | Prism for TooManyRequestsException' errors.
 _TooManyRequestsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyRequestsException = _ServiceError . hasCode "TooManyRequestsException" . hasStatus 429;
+_TooManyRequestsException = _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException";
 
 -- | The AWS Lambda service encountered an internal error.
 _ServiceException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ServiceException = _ServiceError . hasCode "ServiceException" . hasStatus 500;
+_ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException";
 
 -- | The resource already exists.
 _ResourceConflictException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceConflictException = _ServiceError . hasCode "ResourceConflictException" . hasStatus 409;
+_ResourceConflictException = _ServiceError . hasStatus 409 . hasCode "ResourceConflictException";
 
 -- | The resource (for example, a Lambda function or access policy statement)
 -- specified in the request does not exist.
 _ResourceNotFoundException :: AWSError a => Geting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _ServiceError . hasCode "ResourceNotFoundException" . hasStatus 404;
+_ResourceNotFoundException = _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException";
 
 data EventSourcePosition = TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
 

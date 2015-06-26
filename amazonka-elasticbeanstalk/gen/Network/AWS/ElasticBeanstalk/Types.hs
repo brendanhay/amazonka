@@ -310,22 +310,22 @@ instance AWSService ElasticBeanstalk where
 
 -- | The caller does not have a subscription to Amazon S3.
 _S3SubscriptionRequiredException :: AWSError a => Geting (First ServiceError) a ServiceError
-_S3SubscriptionRequiredException = _ServiceError . hasCode "S3SubscriptionRequiredException" . hasStatus 400;
+_S3SubscriptionRequiredException = _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException";
 
 -- | The web service attempted to create a bucket in an Amazon S3 account
 -- that already has 100 buckets.
 _TooManyBucketsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyBucketsException = _ServiceError . hasCode "TooManyBucketsException" . hasStatus 400;
+_TooManyBucketsException = _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException";
 
 -- | Unable to perform the specified operation because another operation is
 -- already in progress affecting an an element in this activity.
 _OperationInProgressException :: AWSError a => Geting (First ServiceError) a ServiceError
-_OperationInProgressException = _ServiceError . hasCode "OperationInProgressFailure" . hasStatus 400;
+_OperationInProgressException = _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure";
 
 -- | The caller has exceeded the limit on the number of configuration
 -- templates associated with their account.
 _TooManyConfigurationTemplatesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyConfigurationTemplatesException = _ServiceError . hasCode "TooManyConfigurationTemplatesException" . hasStatus 400;
+_TooManyConfigurationTemplatesException = _ServiceError . hasStatus 400 . hasCode "TooManyConfigurationTemplatesException";
 
 -- | The caller has exceeded the limit on the number of application versions
 -- associated with their account.
@@ -335,28 +335,28 @@ _TooManyApplicationVersionsException = _ServiceError . hasCode "TooManyApplicati
 -- | Unable to perform the specified operation because the user does not have
 -- enough privileges for one of more downstream aws services
 _InsufficientPrivilegesException :: AWSError a => Geting (First ServiceError) a ServiceError
-_InsufficientPrivilegesException = _ServiceError . hasCode "InsufficientPrivilegesException" . hasStatus 403;
+_InsufficientPrivilegesException = _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException";
 
 -- | The caller has exceeded the limit on the number of applications
 -- associated with their account.
 _TooManyApplicationsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyApplicationsException = _ServiceError . hasCode "TooManyApplicationsException" . hasStatus 400;
+_TooManyApplicationsException = _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException";
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
 -- application version, although the application version deleted
 -- successfully.
 _SourceBundleDeletionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_SourceBundleDeletionException = _ServiceError . hasCode "SourceBundleDeletionFailure" . hasStatus 400;
+_SourceBundleDeletionException = _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure";
 
 -- | The specified S3 bucket does not belong to the S3 region in which the
 -- service is running.
 _S3LocationNotInServiceRegionException :: AWSError a => Geting (First ServiceError) a ServiceError
-_S3LocationNotInServiceRegionException = _ServiceError . hasCode "S3LocationNotInServiceRegionException" . hasStatus 400;
+_S3LocationNotInServiceRegionException = _ServiceError . hasStatus 400 . hasCode "S3LocationNotInServiceRegionException";
 
 -- | The caller has exceeded the limit of allowed environments associated
 -- with the account.
 _TooManyEnvironmentsException :: AWSError a => Geting (First ServiceError) a ServiceError
-_TooManyEnvironmentsException = _ServiceError . hasCode "TooManyEnvironmentsException" . hasStatus 400;
+_TooManyEnvironmentsException = _ServiceError . hasStatus 400 . hasCode "TooManyEnvironmentsException";
 
 data ConfigurationDeploymentStatus = Pending | Deployed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 

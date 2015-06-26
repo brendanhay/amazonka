@@ -1,5 +1,5 @@
 name:                  amazonka-opsworks-examples
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon OpsWorks SDK Examples.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -21,9 +21,9 @@ library
         OpsWorks
 
     build-depends:
-        amazonka      == 0.3.6.*
-      , amazonka-core == 0.3.6.*
-      , amazonka-opsworks  == 0.3.6.*
+        amazonka      == 1.0.0.*
+      , amazonka-core == 1.0.0.*
+      , amazonka-opsworks  == 1.0.0.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1

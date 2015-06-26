@@ -1,5 +1,5 @@
 name:                  amazonka-route53-domains
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Route 53 Domains SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -56,5 +56,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5

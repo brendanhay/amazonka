@@ -13,7 +13,6 @@
 module Network.AWS.Data.Body where
 
 import           Control.Lens
-import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
 import           Crypto.Hash
 import           Data.Aeson
@@ -37,7 +36,7 @@ instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
 sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
-sinkBody (RsBody src) sink = hoist liftResourceT src $$+- sink
+sinkBody (RsBody src) sink = transResourceT liftResourceT src $$+- sink
 
 data RqBody = RqBody
     { _bdyHash :: Digest SHA256

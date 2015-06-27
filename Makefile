@@ -1,12 +1,9 @@
 SERVICES  ?= $(wildcard amazonka-*)
-LIBRARIES ?= core amazonka $(SERVICES)
+LIBRARIES ?= core test amazonka $(SERVICES)
 FORWARD   := sdist upload
 
 build:
 	stack build
-
-test:
-	stack test amazonka-core
 
 clean:
 	stack clean
@@ -29,6 +26,9 @@ amazonka:
 
 core:
 	stack build amazonka-core
+
+test:
+	stack test amazonka-test
 
 $(SERVICES):
 	stack build $@

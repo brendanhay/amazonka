@@ -3,6 +3,7 @@ flags:      {}
 extra-deps: []
 packages:
   - core
+  - test
   - amazonka
   - amazonka-autoscaling
   - amazonka-cloudformation

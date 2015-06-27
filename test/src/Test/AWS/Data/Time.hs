@@ -16,9 +16,8 @@
 module Test.AWS.Data.Time (tests) where
 
 import           Data.Aeson
-import           Network.AWS.Data
 import           Network.AWS.Prelude
-import           Test.AWS.Types
+import           Test.AWS.Util
 import           Test.Tasty
 import           Test.Tasty.HUnit
 

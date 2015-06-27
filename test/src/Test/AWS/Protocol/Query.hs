@@ -1,4 +1,7 @@
--- Module      : Main
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+
+-- Module      : Test.AWS.Protocol.Query
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,12 +11,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Main (main) where
+module Test.AWS.Protocol.Query (tests) where
 
-import qualified Test.AWS.Data as Data
+import           Data.Aeson
+import           Network.AWS.Prelude
+import           Test.AWS.Util
 import           Test.Tasty
+import           Test.Tasty.HUnit
 
-main :: IO ()
-main = defaultMain $ testGroup "amazonka"
-    [ Data.tests
+tests :: TestTree
+tests = testGroup "Query"
+    [
     ]

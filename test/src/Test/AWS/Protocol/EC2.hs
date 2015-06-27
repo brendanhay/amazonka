@@ -1,4 +1,7 @@
--- Module      : Test.AWS.TH
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+
+-- Module      : Test.AWS.Protocol.EC2
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,10 +11,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AWS.TH where
+module Test.AWS.Protocol.EC2 (tests) where
 
-import Language.Haskell.TH
-import Language.Haskell.TH.Quote
+import           Data.Aeson
+import           Network.AWS.Prelude
+import           Test.AWS.Util
+import           Test.Tasty
+import           Test.Tasty.HUnit
 
-doc :: QuasiQuoter
-doc = QuasiQuoter { quoteExp = stringE }
+tests :: TestTree
+tests = testGroup "EC2"
+    [
+    ]

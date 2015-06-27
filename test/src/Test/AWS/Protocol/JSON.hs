@@ -1,4 +1,7 @@
--- Module      : Test.AWS.Data
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+
+-- Module      : Test.AWS.Protocol.JSON
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,18 +11,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AWS.Data (tests) where
+module Test.AWS.Protocol.JSON (tests) where
 
-import qualified Test.AWS.Data.List    as List
-import qualified Test.AWS.Data.Map     as Map
-import qualified Test.AWS.Data.Numeric as Numeric
-import qualified Test.AWS.Data.Time    as Time
+import           Data.Aeson
+import           Network.AWS.Prelude
+import           Test.AWS.Util
 import           Test.Tasty
+import           Test.Tasty.HUnit
 
 tests :: TestTree
-tests = testGroup "data types"
-    [ List.tests
-    , Map.tests
-    , Numeric.tests
-    , Time.tests
+tests = testGroup "JSON"
+    [
     ]

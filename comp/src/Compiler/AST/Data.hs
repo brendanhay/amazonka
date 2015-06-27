@@ -139,7 +139,8 @@ sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
         <$> pp Indent decl
         <*> pure bs
 
-    decl  = dataD n (map conD (Map.keys bs)) (derivingOf s)
+    decl  = dataD n (map con (Map.keys bs)) (derivingOf s)
+    con x = conD (ConDecl (ident x) [])
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId

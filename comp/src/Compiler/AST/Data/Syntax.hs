@@ -29,7 +29,7 @@ import           Compiler.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens                 hiding (iso, mapping, op)
+import           Control.Lens                 hiding (iso, mapping, op, strict)
 import           Control.Monad
 import           Data.Bifunctor
 import qualified Data.Foldable                as Fold
@@ -121,15 +121,16 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
 
     ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
 
-conD :: Text -> QualConDecl
-conD n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
-
 recordD :: Timestamp -> Id -> [Field] -> QualConDecl
-recordD _  n [] = conD (n ^. ctorId)
-recordD ts n fs = QualConDecl noLoc [] [] $
-    RecDecl (ident (n ^. ctorId)) (map g fs)
+recordD ts n = conD . \case
+    []  -> ConDecl (n ^. ctorId . to ident) []
+    [x] -> RecDecl (ident (n ^. ctorId)) [g internal x]
+    xs  -> RecDecl (ident (n ^. ctorId)) (map (g banged) xs)
   where
-    g f = ([f ^. fieldAccessor . to ident], internal ts f)
+    g h f = ([f ^. fieldAccessor . to ident], h ts f)
+
+conD :: ConDecl -> QualConDecl
+conD = QualConDecl noLoc [] []
 
 serviceD :: HasMetadata a f => a -> Retry -> Decl
 serviceD m r = instD "AWSService" n
@@ -693,26 +694,27 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
       --          | otherwise       = key f
 
 signature :: Timestamp -> TType -> Type
-signature ts = directed False ts Nothing
+signature ts = directed False False ts Nothing
 
-internal, external :: Timestamp -> Field -> Type
-internal ts f = directed True  ts (f ^. fieldDirection) f
-external ts f = directed False ts (f ^. fieldDirection) f
+internal, external, banged :: Timestamp -> Field -> Type
+internal ts f = directed True  False ts (f ^. fieldDirection) f
+external ts f = directed False False ts (f ^. fieldDirection) f
+banged   ts f = directed True  True  ts (f ^. fieldDirection) f
 
 -- FIXME: split again into internal/external
-directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
-directed i ts d (typeOf -> t) = case t of
-    TType      x _    -> tycon x
-    TLit       x      -> literal i ts x
-    TNatural          -> tycon nat
-    TStream           -> tycon stream
-    TSensitive x      -> sensitive (go x)
-    TMaybe     x      -> may x
-    TList      x      -> TyList (go x)
-    TList1     x      -> list1  (go x)
-    TMap       k v    -> hmap k v
+directed :: TypeOf a => Bool -> Bool -> Timestamp -> Maybe Direction -> a -> Type
+directed i s ts d (typeOf -> t) = case t of
+    TType      x _ -> tycon x
+    TLit       x   -> literal i s ts x
+    TNatural       -> strict s (tycon nat)
+    TStream        -> tycon stream
+    TSensitive x   -> sensitive (go x)
+    TMaybe     x   -> may x
+    TList      x   -> TyList (go x)
+    TList1     x   -> list1  (go x)
+    TMap       k v -> hmap k v
   where
-    go = directed i ts d
+    go = directed i False ts d
 
     nat | i         = "Nat"
         | otherwise = "Natural"
@@ -761,16 +763,20 @@ iso = \case
     TMap         {}  -> Just (var "_Map")
     _                -> Nothing
 
-literal :: Bool -> Timestamp -> Lit -> Type
-literal i ts = tycon . \case
-    Int              -> "Int"
-    Long             -> "Integer"
-    Double           -> "Double"
-    Text             -> "Text"
-    Blob             -> "Base64"
-    Bool             -> "Bool"
-    Time | i         -> tsToText ts
-         | otherwise -> "UTCTime"
+literal :: Bool -> Bool -> Timestamp -> Lit -> Type
+literal i s ts = \case
+    Int              -> strict s (tycon "Int")
+    Long             -> strict s (tycon "Integer")
+    Double           -> strict s (tycon "Double")
+    Text             -> tycon "Text"
+    Blob             -> tycon "Base64"
+    Bool             -> strict s (tycon "Bool")
+    Time | i         -> tycon (tsToText ts)
+         | otherwise -> tycon "UTCTime"
+
+strict :: Bool -> Type -> Type
+strict False = id
+strict True  = TyBang BangedTy
 
 tyvar :: Text -> Type
 tyvar = TyVar . ident

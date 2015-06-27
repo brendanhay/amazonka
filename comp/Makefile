@@ -62,11 +62,11 @@ MODELS ?= \
  swf \
  workspaces
 
-.PHONY: compile format
+.PHONY: gen format
 
-release: compile format
+release: gen format
 
-compile: install
+gen: install
 	~/.local/bin/amazonka-gen \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \

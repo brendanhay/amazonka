@@ -17,12 +17,6 @@
 
 module Main (main) where
 
-import qualified Gen.AST              as AST
-import           Gen.Formatting
-import           Gen.IO
-import qualified Gen.JSON             as JS
-import qualified Gen.Tree             as Tree
-import           Gen.Types            hiding (info)
 import           Control.Error
 import           Control.Lens
 import           Control.Monad
@@ -34,6 +28,12 @@ import           Data.String
 import qualified Data.Text                 as Text
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
+import qualified Gen.AST                   as AST
+import           Gen.Formatting
+import           Gen.IO
+import qualified Gen.JSON                  as JS
+import qualified Gen.Tree                  as Tree
+import           Gen.Types                 hiding (info)
 import           Options.Applicative
 
 data Opt = Opt
@@ -51,43 +51,43 @@ makeLenses ''Opt
 
 parser :: Parser Opt
 parser = Opt
-    <$> option isString
+    <$> option isPath
          ( long "out"
         <> metavar "DIR"
         <> help "Directory to place the generated library."
          )
 
-    <*> some (option isString
+    <*> some (option isPath
          ( long "model"
         <> metavar "DIR"
         <> help "Directory for a service's botocore models."
          ))
 
-    <*> option isString
+    <*> option isPath
          ( long "annexes"
         <> metavar "DIR"
         <> help "Directory containing botocore model annexes."
          )
 
-    <*> option isString
+    <*> option isPath
          ( long "configs"
         <> metavar "DIR"
         <> help "Directory containing service configuration."
          )
 
-    <*> option isString
+    <*> option isPath
          ( long "templates"
         <> metavar "DIR"
         <> help "Directory containing ED-E templates."
          )
 
-    <*> option isString
+    <*> option isPath
          ( long "static"
         <> metavar "DIR"
         <> help "Directory containing static files for generated libraries."
          )
 
-    <*> option isString
+    <*> option isPath
          ( long "retry"
         <> metavar "PATH"
         <> help "Path to the file containing retry definitions."
@@ -112,8 +112,8 @@ parser = Opt
             <> help "Core library version dependency."
              ))
 
-isString :: IsString a => ReadM a
-isString = eitherReader (Right . fromString)
+isPath :: ReadM Path
+isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromString)
 
 version :: ReadM (Version v)
 version = eitherReader (fmap Version . SemVer.fromText . Text.pack)

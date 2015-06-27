@@ -11,60 +11,14 @@ VERSION        = $(call version,amazonka-gen.cabal)
 CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
 CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
 
-MODELS ?= \
- autoscaling \
- cloudformation \
- cloudfront \
- cloudhsm \
- cloudsearch \
- cloudsearchdomain \
- cloudtrail \
- cloudwatch \
- codedeploy \
- cognito-identity \
- cognito-sync \
- config \
- datapipeline \
- directconnect \
- ds \
- dynamodb \
- ec2 \
- ecs \
- efs \
- elasticache \
- elasticbeanstalk \
- elastictranscoder \
- elb \
- emr \
- glacier \
- iam \
- importexport \
- kinesis \
- kms \
- lambda \
- logs \
- machinelearning \
- opsworks \
- rds \
- redshift \
- route53 \
- route53domains \
- s3 \
- sdb \
- ses \
- sns \
- sqs \
- ssm \
- storagegateway \
- sts \
- support \
- swf \
- workspaces
+MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
 .PHONY: gen format
 
 release: gen format
 
+# Relying on install since it seems the simplest path to finding out where
+# the stack built binary lives.
 gen: install
 	~/.local/bin/amazonka-gen \
  --out=$(OUT_DIR) \
@@ -76,7 +30,7 @@ gen: install
  --templates=template \
  --static=static \
  --retry=$(MODEL_DIR)/_retry.json \
- $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
+ $(addprefix --model=,$(MODELS))
 
 format:
 	@echo -e '\nFormatting...'

@@ -156,7 +156,7 @@ addStatus Output = go
         & refLocation ?~ StatusCode
         & refAnn      .~ Related n mempty :< Lit emptyInfo Int
 
-    n = mkId "StatusCode"
+    n = mkId "Status"
 
 save :: Id -> Shape a -> MemoS a ()
 save n s = memo %= Map.insert n s

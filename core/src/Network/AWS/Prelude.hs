@@ -18,7 +18,8 @@ import           Data.Hashable               as Export (Hashable)
 import           Data.HashMap.Strict         as Export (HashMap)
 import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Maybe                  as Export
-import           Data.Monoid                 as Export (mconcat, mempty, (<>))
+import           Data.Monoid                 as Export (First, mconcat, mempty,
+                                                        (<>))
 import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export
@@ -37,6 +38,6 @@ import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Endpoint        as Export
 import           Network.AWS.Error           as Export
 import           Network.AWS.Types           as Export hiding (AccessKey,
-                                                        SecretKey)
+                                                        Endpoint, SecretKey)
 import           Network.HTTP.Types.Status   as Export (Status (..))
 import           Numeric.Natural             as Export (Natural)

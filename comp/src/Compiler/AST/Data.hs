@@ -110,8 +110,6 @@ shapeData m (a :< s) = case s of
   where
     p = m ^. protocol
 
--- FIXME: take into account "error":{"httpStatusCode":400},
--- https://github.com/boto/botocore/blob/develop/botocore/data/cognito-identity/2014-06-30/service-2.json#L31
 errorData :: Solved -> Info -> Either Error SData
 errorData s i = Fun <$> mk
   where
@@ -315,7 +313,7 @@ data Ident
 
 pp :: Pretty a => Ident -> a -> Either Error LText.Text
 pp i d
---    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
+    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack
@@ -329,8 +327,9 @@ pp i d
         , ribbonsPerLine = 1.5
         }
 
-    m | i == Print = defaultMode
-      | otherwise  = defaultMode
+    m | i == Print  = defaultMode
+      | i == Indent = defaultMode -- Temporary, while hindent speed issues are considered.
+      | otherwise   = defaultMode
           { layout  = PPNoLayout
           , spacing = False
           }

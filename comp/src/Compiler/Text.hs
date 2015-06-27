@@ -106,9 +106,11 @@ renameReserved x
         , "map"
         , "object"
         , "get"
+        , "group"
         , "GT"
         , "LT"
         , "EQ"
+        , "Error"
         ] ++ map Text.pack (reservedNames haskellDef)
 
 upperAcronym :: Text -> Text

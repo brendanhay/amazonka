@@ -62,17 +62,9 @@ MODELS ?= \
  swf \
  workspaces
 
-.PHONY: format compile
+.PHONY: compile format
 
-default: compile # temporary to avoid formatting
-
-format: compile
-	@echo -e '\nFormatting...'
-	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) \
- -type f \
- -name '*.hs' \
- -printf ' -> %p\n' \
- -exec stylish-haskell -i {} \;
+release: compile format
 
 compile: install
 	~/.local/bin/amazonka-compiler \
@@ -86,6 +78,14 @@ compile: install
  --static=static \
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
+
+format:
+	@echo -e '\nFormatting...'
+	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) \
+ -type f \
+ -name '*.hs' \
+ -printf ' -> %p\n' \
+ -exec stylish-haskell -i {} \;
 
 build: $(MODEL_DIR)
 	stack build amazonka-compiler

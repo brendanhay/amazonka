@@ -98,7 +98,7 @@ lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
 errorS :: Text -> Decl
 errorS n = TypeSig noLoc [ident n] $
     TyForall Nothing [ClassA (unqual "AWSError") [tyvar "a"]] $
-        TyApp (TyApp (TyApp (tycon "Geting")
+        TyApp (TyApp (TyApp (tycon "Getting")
                             (TyApp (tycon "First") (tycon "ServiceError")))
                      (tyvar "a"))
               (tycon "ServiceError")
@@ -133,7 +133,7 @@ recordD ts n fs = QualConDecl noLoc [] [] $
 
 serviceD :: HasMetadata a f => a -> Retry -> Decl
 serviceD m r = instD "AWSService" n
-    [ assocD n "Sv" sig
+    [ assocD n "Sg" sig
     , InsDecl $ patBindWhere noLoc (pvar "service") rhs binds
     ]
   where
@@ -154,7 +154,7 @@ serviceD m r = instD "AWSService" n
 
     try = sfun noLoc (ident "retry") [] . UnGuardedRhs $
         RecConstr (r ^. delayType . to unqual)
-            [ FieldUpdate (unqual "_retryBase")     (r ^. delayBase . to (Exts.Lit . PrimDouble))
+            [ FieldUpdate (unqual "_retryBase")     (r ^. delayBase . to (Exts.Lit . Frac))
             , FieldUpdate (unqual "_retryGrowth")   (r ^. delayGrowth . to intE)
             , FieldUpdate (unqual "_retryAttempts") (r ^. retryAttempts . to intE)
             , FieldUpdate (unqual "_retryCheck")    (var "check")

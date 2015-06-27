@@ -82,13 +82,13 @@ import           Network.AWS.Response
 --
 -- * 'cmlmTrainingDataSourceId'
 data CreateMLModel = CreateMLModel'
-    { _cmlmRecipe               :: Maybe Text
-    , _cmlmRecipeURI            :: Maybe Text
-    , _cmlmMLModelName          :: Maybe Text
-    , _cmlmParameters           :: Maybe (Map Text Text)
-    , _cmlmMLModelId            :: Text
-    , _cmlmMLModelType          :: MLModelType
-    , _cmlmTrainingDataSourceId :: Text
+    { _cmlmRecipe               :: !(Maybe Text)
+    , _cmlmRecipeURI            :: !(Maybe Text)
+    , _cmlmMLModelName          :: !(Maybe Text)
+    , _cmlmParameters           :: !(Maybe (Map Text Text))
+    , _cmlmMLModelId            :: !Text
+    , _cmlmMLModelType          :: !MLModelType
+    , _cmlmTrainingDataSourceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateMLModel' smart constructor.
@@ -233,7 +233,7 @@ instance ToQuery CreateMLModel where
 --
 -- * 'cmlmrStatus'
 data CreateMLModelResponse = CreateMLModelResponse'
-    { _cmlmrMLModelId :: Maybe Text
+    { _cmlmrMLModelId :: !(Maybe Text)
     , _cmlmrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

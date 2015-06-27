@@ -105,7 +105,7 @@ instance ToQuery DeleteVirtualInterface where
 --
 -- * 'dvirStatus'
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
-    { _dvirVirtualInterfaceState :: Maybe VirtualInterfaceState
+    { _dvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _dvirStatus                :: !Int
     } deriving (Eq,Read,Show)
 

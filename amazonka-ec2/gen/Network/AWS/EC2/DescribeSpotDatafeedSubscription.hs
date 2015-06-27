@@ -107,7 +107,7 @@ instance ToQuery DescribeSpotDatafeedSubscription
 --
 -- * 'dsdsrStatus'
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
-    { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    { _dsdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _dsdsrStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

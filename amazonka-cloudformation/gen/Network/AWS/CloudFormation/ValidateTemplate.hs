@@ -54,8 +54,8 @@ import           Network.AWS.Response
 --
 -- * 'vtTemplateURL'
 data ValidateTemplate = ValidateTemplate'
-    { _vtTemplateBody :: Maybe Text
-    , _vtTemplateURL  :: Maybe Text
+    { _vtTemplateBody :: !(Maybe Text)
+    , _vtTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ValidateTemplate' smart constructor.
@@ -134,10 +134,10 @@ instance ToQuery ValidateTemplate where
 --
 -- * 'vtrStatus'
 data ValidateTemplateResponse = ValidateTemplateResponse'
-    { _vtrParameters         :: Maybe [TemplateParameter]
-    , _vtrCapabilitiesReason :: Maybe Text
-    , _vtrCapabilities       :: Maybe [Capability]
-    , _vtrDescription        :: Maybe Text
+    { _vtrParameters         :: !(Maybe [TemplateParameter])
+    , _vtrCapabilitiesReason :: !(Maybe Text)
+    , _vtrCapabilities       :: !(Maybe [Capability])
+    , _vtrDescription        :: !(Maybe Text)
     , _vtrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

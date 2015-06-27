@@ -75,11 +75,11 @@ import           Network.AWS.Response
 --
 -- * 'dhccMarker'
 data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
-    { _dhccTagValues                      :: Maybe [Text]
-    , _dhccTagKeys                        :: Maybe [Text]
-    , _dhccHSMClientCertificateIdentifier :: Maybe Text
-    , _dhccMaxRecords                     :: Maybe Int
-    , _dhccMarker                         :: Maybe Text
+    { _dhccTagValues                      :: !(Maybe [Text])
+    , _dhccTagKeys                        :: !(Maybe [Text])
+    , _dhccHSMClientCertificateIdentifier :: !(Maybe Text)
+    , _dhccMaxRecords                     :: !(Maybe Int)
+    , _dhccMarker                         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMClientCertificates' smart constructor.
@@ -197,8 +197,8 @@ instance ToQuery DescribeHSMClientCertificates where
 --
 -- * 'dhccrStatus'
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
-    { _dhccrMarker                :: Maybe Text
-    , _dhccrHSMClientCertificates :: Maybe [HSMClientCertificate]
+    { _dhccrMarker                :: !(Maybe Text)
+    , _dhccrHSMClientCertificates :: !(Maybe [HSMClientCertificate])
     , _dhccrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

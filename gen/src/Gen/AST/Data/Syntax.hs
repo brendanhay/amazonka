@@ -18,14 +18,6 @@
 
 module Gen.AST.Data.Syntax where
 
-import           Gen.AST.Data.Field
-import           Gen.AST.Data.Instance
-import           Gen.AST.TypeOf
-import           Gen.Formatting
-import           Gen.Protocol            (Names (..))
-import qualified Gen.Protocol            as Proto
-import           Gen.Text
-import           Gen.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
@@ -42,6 +34,14 @@ import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Debug.Trace
+import           Gen.AST.Data.Field
+import           Gen.AST.Data.Instance
+import           Gen.AST.TypeOf
+import           Gen.Formatting
+import           Gen.Protocol                 (Names (..))
+import qualified Gen.Protocol                 as Proto
+import           Gen.Text
+import           Gen.Types
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
@@ -124,10 +124,10 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
 recordD :: Timestamp -> Id -> [Field] -> QualConDecl
 recordD ts n = conD . \case
     []  -> ConDecl (n ^. ctorId . to ident) []
-    [x] -> RecDecl (ident (n ^. ctorId)) [g internal x]
-    xs  -> RecDecl (ident (n ^. ctorId)) (map (g banged) xs)
+    [x] -> RecDecl (ident (n ^. ctorId)) [g (internal ts) x]
+    xs  -> RecDecl (ident (n ^. ctorId)) (map (g (strict . internal ts)) xs)
   where
-    g h f = ([f ^. fieldAccessor . to ident], h ts f)
+    g h f = ([f ^. fieldAccessor . to ident], h f)
 
 conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
@@ -694,19 +694,18 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
       --          | otherwise       = key f
 
 signature :: Timestamp -> TType -> Type
-signature ts = directed False False ts Nothing
+signature ts = directed False ts Nothing
 
-internal, external, banged :: Timestamp -> Field -> Type
-internal ts f = directed True  False ts (f ^. fieldDirection) f
-external ts f = directed False False ts (f ^. fieldDirection) f
-banged   ts f = directed True  True  ts (f ^. fieldDirection) f
+internal, external :: Timestamp -> Field -> Type
+internal ts f = directed True  ts (f ^. fieldDirection) f
+external ts f = directed False ts (f ^. fieldDirection) f
 
 -- FIXME: split again into internal/external
-directed :: TypeOf a => Bool -> Bool -> Timestamp -> Maybe Direction -> a -> Type
-directed i s ts d (typeOf -> t) = case t of
+directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
+directed i ts d (typeOf -> t) = case t of
     TType      x _ -> tycon x
-    TLit       x   -> literal i s ts x
-    TNatural       -> strict s (tycon nat)
+    TLit       x   -> literal i ts x
+    TNatural       -> tycon nat
     TStream        -> tycon stream
     TSensitive x   -> sensitive (go x)
     TMaybe     x   -> may x
@@ -714,7 +713,7 @@ directed i s ts d (typeOf -> t) = case t of
     TList1     x   -> list1  (go x)
     TMap       k v -> hmap k v
   where
-    go = directed i False ts d
+    go = directed i ts d
 
     nat | i         = "Nat"
         | otherwise = "Natural"
@@ -732,7 +731,7 @@ directed i s ts d (typeOf -> t) = case t of
         | otherwise = TyApp (tycon "NonEmpty")
 
     hmap k v
-        | i         = TyApp (TyApp (tycon "Map") (go k)) (go v)
+        | i         = TyApp (TyApp (tycon "Map")     (go k)) (go v)
         | otherwise = TyApp (TyApp (tycon "HashMap") (go k)) (go v)
 
     stream = case d of
@@ -763,20 +762,21 @@ iso = \case
     TMap         {}  -> Just (var "_Map")
     _                -> Nothing
 
-literal :: Bool -> Bool -> Timestamp -> Lit -> Type
-literal i s ts = \case
-    Int              -> strict s (tycon "Int")
-    Long             -> strict s (tycon "Integer")
-    Double           -> strict s (tycon "Double")
+literal :: Bool -> Timestamp -> Lit -> Type
+literal i ts = \case
+    Int              -> tycon "Int"
+    Long             -> tycon "Integer"
+    Double           -> tycon "Double"
     Text             -> tycon "Text"
     Blob             -> tycon "Base64"
-    Bool             -> strict s (tycon "Bool")
+    Bool             -> tycon "Bool"
     Time | i         -> tycon (tsToText ts)
          | otherwise -> tycon "UTCTime"
 
-strict :: Bool -> Type -> Type
-strict False = id
-strict True  = TyBang BangedTy
+strict :: Type -> Type
+strict = TyBang BangedTy . \case
+    t@TyApp{} -> TyParen t
+    t         -> t
 
 tyvar :: Text -> Type
 tyvar = TyVar . ident

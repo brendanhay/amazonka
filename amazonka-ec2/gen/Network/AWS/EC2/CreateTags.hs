@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'creTags'
 data CreateTags = CreateTags'
-    { _creDryRun    :: Maybe Bool
-    , _creResources :: [Text]
-    , _creTags      :: [Tag]
+    { _creDryRun    :: !(Maybe Bool)
+    , _creResources :: ![Text]
+    , _creTags      :: ![Tag]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTags' smart constructor.

@@ -112,13 +112,13 @@ import           Network.AWS.Response
 --
 -- * 'ds1MaxResults'
 data DescribeSnapshots = DescribeSnapshots'
-    { _ds1OwnerIds            :: Maybe [Text]
-    , _ds1Filters             :: Maybe [Filter]
-    , _ds1NextToken           :: Maybe Text
-    , _ds1SnapshotIds         :: Maybe [Text]
-    , _ds1RestorableByUserIds :: Maybe [Text]
-    , _ds1DryRun              :: Maybe Bool
-    , _ds1MaxResults          :: Maybe Int
+    { _ds1OwnerIds            :: !(Maybe [Text])
+    , _ds1Filters             :: !(Maybe [Filter])
+    , _ds1NextToken           :: !(Maybe Text)
+    , _ds1SnapshotIds         :: !(Maybe [Text])
+    , _ds1RestorableByUserIds :: !(Maybe [Text])
+    , _ds1DryRun              :: !(Maybe Bool)
+    , _ds1MaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshots' smart constructor.
@@ -267,8 +267,8 @@ instance ToQuery DescribeSnapshots where
 --
 -- * 'dsr1Status'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsr1NextToken :: Maybe Text
-    , _dsr1Snapshots :: Maybe [Snapshot]
+    { _dsr1NextToken :: !(Maybe Text)
+    , _dsr1Snapshots :: !(Maybe [Snapshot])
     , _dsr1Status    :: !Int
     } deriving (Eq,Read,Show)
 

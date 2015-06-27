@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'upnNotifications'
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-    { _upnId            :: Text
-    , _upnNotifications :: Notifications
+    { _upnId            :: !Text
+    , _upnNotifications :: !Notifications
     } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineNotifications' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery UpdatePipelineNotifications where
 --
 -- * 'upnrStatus'
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
-    { _upnrPipeline :: Maybe Pipeline
+    { _upnrPipeline :: !(Maybe Pipeline)
     , _upnrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

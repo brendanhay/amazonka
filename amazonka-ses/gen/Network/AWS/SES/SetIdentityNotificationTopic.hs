@@ -65,9 +65,9 @@ import           Network.AWS.SES.Types
 --
 -- * 'sintNotificationType'
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
-    { _sintSNSTopic         :: Maybe Text
-    , _sintIdentity         :: Text
-    , _sintNotificationType :: NotificationType
+    { _sintSNSTopic         :: !(Maybe Text)
+    , _sintIdentity         :: !Text
+    , _sintNotificationType :: !NotificationType
     } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityNotificationTopic' smart constructor.

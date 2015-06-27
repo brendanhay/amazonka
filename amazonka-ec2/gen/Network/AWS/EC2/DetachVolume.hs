@@ -76,11 +76,11 @@ import           Network.AWS.Response
 --
 -- * 'dvVolumeId'
 data DetachVolume = DetachVolume'
-    { _dvInstanceId :: Maybe Text
-    , _dvForce      :: Maybe Bool
-    , _dvDevice     :: Maybe Text
-    , _dvDryRun     :: Maybe Bool
-    , _dvVolumeId   :: Text
+    { _dvInstanceId :: !(Maybe Text)
+    , _dvForce      :: !(Maybe Bool)
+    , _dvDevice     :: !(Maybe Text)
+    , _dvDryRun     :: !(Maybe Bool)
+    , _dvVolumeId   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DetachVolume' smart constructor.

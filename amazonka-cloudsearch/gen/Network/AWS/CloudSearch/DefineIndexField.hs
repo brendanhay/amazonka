@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'def1IndexField'
 data DefineIndexField = DefineIndexField'
-    { _def1DomainName :: Text
-    , _def1IndexField :: IndexField
+    { _def1DomainName :: !Text
+    , _def1IndexField :: !IndexField
     } deriving (Eq,Read,Show)
 
 -- | 'DefineIndexField' smart constructor.
@@ -116,7 +116,7 @@ instance ToQuery DefineIndexField where
 --
 -- * 'defStatus'
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-    { _defIndexField :: IndexFieldStatus
+    { _defIndexField :: !IndexFieldStatus
     , _defStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -76,9 +76,9 @@ import           Network.AWS.Response
 --
 -- * 'daArchiveId'
 data DeleteArchive = DeleteArchive'
-    { _daAccountId :: Text
-    , _daVaultName :: Text
-    , _daArchiveId :: Text
+    { _daAccountId :: !Text
+    , _daVaultName :: !Text
+    , _daArchiveId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteArchive' smart constructor.

@@ -98,7 +98,7 @@ instance ToQuery RotateEncryptionKey where
 --
 -- * 'rekrStatus'
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-    { _rekrCluster :: Maybe Cluster
+    { _rekrCluster :: !(Maybe Cluster)
     , _rekrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

@@ -120,9 +120,9 @@ instance ToQuery DescribeBandwidthRateLimit where
 --
 -- * 'dbrlrStatus'
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-    { _dbrlrGatewayARN                           :: Maybe Text
-    , _dbrlrAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
-    , _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
+    { _dbrlrGatewayARN                           :: !(Maybe Text)
+    , _dbrlrAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+    , _dbrlrAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
     , _dbrlrStatus                               :: !Int
     } deriving (Eq,Read,Show)
 

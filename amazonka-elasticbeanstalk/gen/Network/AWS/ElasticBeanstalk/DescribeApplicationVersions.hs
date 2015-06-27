@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'dApplicationName'
 data DescribeApplicationVersions = DescribeApplicationVersions'
-    { _dVersionLabels   :: Maybe [Text]
-    , _dApplicationName :: Maybe Text
+    { _dVersionLabels   :: !(Maybe [Text])
+    , _dApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeApplicationVersions' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery DescribeApplicationVersions where
 --
 -- * 'davrStatus'
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
-    { _davrApplicationVersions :: Maybe [ApplicationVersionDescription]
+    { _davrApplicationVersions :: !(Maybe [ApplicationVersionDescription])
     , _davrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

@@ -54,8 +54,8 @@ import           Network.AWS.Response
 --
 -- * 'ueiElasticIP'
 data UpdateElasticIP = UpdateElasticIP'
-    { _ueiName      :: Maybe Text
-    , _ueiElasticIP :: Text
+    { _ueiName      :: !(Maybe Text)
+    , _ueiElasticIP :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateElasticIP' smart constructor.

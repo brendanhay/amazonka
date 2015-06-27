@@ -119,7 +119,7 @@ instance ToQuery DeleteGateway where
 --
 -- * 'dgrStatus'
 data DeleteGatewayResponse = DeleteGatewayResponse'
-    { _dgrGatewayARN :: Maybe Text
+    { _dgrGatewayARN :: !(Maybe Text)
     , _dgrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

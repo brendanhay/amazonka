@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'ddoDryRun'
 data DescribeDHCPOptions = DescribeDHCPOptions'
-    { _ddoFilters        :: Maybe [Filter]
-    , _ddoDHCPOptionsIds :: Maybe [Text]
-    , _ddoDryRun         :: Maybe Bool
+    { _ddoFilters        :: !(Maybe [Filter])
+    , _ddoDHCPOptionsIds :: !(Maybe [Text])
+    , _ddoDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDHCPOptions' smart constructor.
@@ -144,7 +144,7 @@ instance ToQuery DescribeDHCPOptions where
 --
 -- * 'ddorStatus'
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
-    { _ddorDHCPOptions :: Maybe [DHCPOptions]
+    { _ddorDHCPOptions :: !(Maybe [DHCPOptions])
     , _ddorStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'cupIAMUserARN'
 data CreateUserProfile = CreateUserProfile'
-    { _cupSSHUsername         :: Maybe Text
-    , _cupSSHPublicKey        :: Maybe Text
-    , _cupAllowSelfManagement :: Maybe Bool
-    , _cupIAMUserARN          :: Text
+    { _cupSSHUsername         :: !(Maybe Text)
+    , _cupSSHPublicKey        :: !(Maybe Text)
+    , _cupAllowSelfManagement :: !(Maybe Bool)
+    , _cupIAMUserARN          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateUserProfile' smart constructor.
@@ -142,7 +142,7 @@ instance ToQuery CreateUserProfile where
 --
 -- * 'cuprStatus'
 data CreateUserProfileResponse = CreateUserProfileResponse'
-    { _cuprIAMUserARN :: Maybe Text
+    { _cuprIAMUserARN :: !(Maybe Text)
     , _cuprStatus     :: !Int
     } deriving (Eq,Read,Show)
 

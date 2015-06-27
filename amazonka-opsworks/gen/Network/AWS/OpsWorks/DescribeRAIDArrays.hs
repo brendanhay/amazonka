@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'draStackId'
 data DescribeRAIDArrays = DescribeRAIDArrays'
-    { _draInstanceId   :: Maybe Text
-    , _draRAIDArrayIds :: Maybe [Text]
-    , _draStackId      :: Maybe Text
+    { _draInstanceId   :: !(Maybe Text)
+    , _draRAIDArrayIds :: !(Maybe [Text])
+    , _draStackId      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeRAIDArrays' smart constructor.
@@ -134,7 +134,7 @@ instance ToQuery DescribeRAIDArrays where
 --
 -- * 'drarStatus'
 data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'
-    { _drarRAIDArrays :: Maybe [RAIDArray]
+    { _drarRAIDArrays :: !(Maybe [RAIDArray])
     , _drarStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -125,7 +125,7 @@ instance ToQuery RebuildWorkspaces where
 --
 -- * 'rwrStatus'
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
-    { _rwrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]
+    { _rwrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _rwrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

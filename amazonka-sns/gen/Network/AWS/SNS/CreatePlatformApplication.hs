@@ -68,9 +68,9 @@ import           Network.AWS.SNS.Types
 --
 -- * 'cpaAttributes'
 data CreatePlatformApplication = CreatePlatformApplication'
-    { _cpaName       :: Text
-    , _cpaPlatform   :: Text
-    , _cpaAttributes :: Map Text Text
+    { _cpaName       :: !Text
+    , _cpaPlatform   :: !Text
+    , _cpaAttributes :: !(Map Text Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePlatformApplication' smart constructor.
@@ -137,7 +137,7 @@ instance ToQuery CreatePlatformApplication where
 --
 -- * 'cparStatus'
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
-    { _cparPlatformApplicationARN :: Maybe Text
+    { _cparPlatformApplicationARN :: !(Maybe Text)
     , _cparStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

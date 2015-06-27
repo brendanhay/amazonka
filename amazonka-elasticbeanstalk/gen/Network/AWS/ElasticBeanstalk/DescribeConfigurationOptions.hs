@@ -65,11 +65,11 @@ import           Network.AWS.Response
 --
 -- * 'dcoSolutionStackName'
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-    { _dcoTemplateName      :: Maybe Text
-    , _dcoEnvironmentName   :: Maybe Text
-    , _dcoApplicationName   :: Maybe Text
-    , _dcoOptions           :: Maybe [OptionSpecification]
-    , _dcoSolutionStackName :: Maybe Text
+    { _dcoTemplateName      :: !(Maybe Text)
+    , _dcoEnvironmentName   :: !(Maybe Text)
+    , _dcoApplicationName   :: !(Maybe Text)
+    , _dcoOptions           :: !(Maybe [OptionSpecification])
+    , _dcoSolutionStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationOptions' smart constructor.
@@ -157,8 +157,8 @@ instance ToQuery DescribeConfigurationOptions where
 --
 -- * 'dcorStatus'
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-    { _dcorOptions           :: Maybe [ConfigurationOptionDescription]
-    , _dcorSolutionStackName :: Maybe Text
+    { _dcorOptions           :: !(Maybe [ConfigurationOptionDescription])
+    , _dcorSolutionStackName :: !(Maybe Text)
     , _dcorStatus            :: !Int
     } deriving (Eq,Read,Show)
 

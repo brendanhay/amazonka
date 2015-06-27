@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'tmfLogEventMessages'
 data TestMetricFilter = TestMetricFilter'
-    { _tmfFilterPattern    :: Text
-    , _tmfLogEventMessages :: List1 Text
+    { _tmfFilterPattern    :: !Text
+    , _tmfLogEventMessages :: !(List1 Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TestMetricFilter' smart constructor.
@@ -110,7 +110,7 @@ instance ToQuery TestMetricFilter where
 --
 -- * 'tmfrStatus'
 data TestMetricFilterResponse = TestMetricFilterResponse'
-    { _tmfrMatches :: Maybe [MetricFilterMatchRecord]
+    { _tmfrMatches :: !(Maybe [MetricFilterMatchRecord])
     , _tmfrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

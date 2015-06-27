@@ -69,9 +69,9 @@ import           Network.AWS.Response
 --
 -- * 'gtsStackName'
 data GetTemplateSummary = GetTemplateSummary'
-    { _gtsTemplateBody :: Maybe Text
-    , _gtsTemplateURL  :: Maybe Text
-    , _gtsStackName    :: Maybe Text
+    { _gtsTemplateBody :: !(Maybe Text)
+    , _gtsTemplateURL  :: !(Maybe Text)
+    , _gtsStackName    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GetTemplateSummary' smart constructor.
@@ -170,12 +170,12 @@ instance ToQuery GetTemplateSummary where
 --
 -- * 'gtsrStatus'
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-    { _gtsrVersion            :: Maybe Text
-    , _gtsrParameters         :: Maybe [ParameterDeclaration]
-    , _gtsrCapabilitiesReason :: Maybe Text
-    , _gtsrMetadata           :: Maybe Text
-    , _gtsrCapabilities       :: Maybe [Capability]
-    , _gtsrDescription        :: Maybe Text
+    { _gtsrVersion            :: !(Maybe Text)
+    , _gtsrParameters         :: !(Maybe [ParameterDeclaration])
+    , _gtsrCapabilitiesReason :: !(Maybe Text)
+    , _gtsrMetadata           :: !(Maybe Text)
+    , _gtsrCapabilities       :: !(Maybe [Capability])
+    , _gtsrDescription        :: !(Maybe Text)
     , _gtsrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

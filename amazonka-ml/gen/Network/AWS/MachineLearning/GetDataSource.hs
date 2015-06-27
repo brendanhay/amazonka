@@ -69,8 +69,8 @@ import           Network.AWS.Response
 --
 -- * 'gdsDataSourceId'
 data GetDataSource = GetDataSource'
-    { _gdsVerbose      :: Maybe Bool
-    , _gdsDataSourceId :: Text
+    { _gdsVerbose      :: !(Maybe Bool)
+    , _gdsDataSourceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetDataSource' smart constructor.
@@ -181,22 +181,22 @@ instance ToQuery GetDataSource where
 --
 -- * 'gdsrStatus'
 data GetDataSourceResponse = GetDataSourceResponse'
-    { _gdsrNumberOfFiles     :: Maybe Integer
-    , _gdsrLastUpdatedAt     :: Maybe POSIX
-    , _gdsrCreatedAt         :: Maybe POSIX
-    , _gdsrRDSMetadata       :: Maybe RDSMetadata
-    , _gdsrDataSourceId      :: Maybe Text
-    , _gdsrDataSizeInBytes   :: Maybe Integer
-    , _gdsrDataSourceSchema  :: Maybe Text
-    , _gdsrName              :: Maybe Text
-    , _gdsrCreatedByIAMUser  :: Maybe Text
-    , _gdsrLogURI            :: Maybe Text
-    , _gdsrDataLocationS3    :: Maybe Text
-    , _gdsrComputeStatistics :: Maybe Bool
-    , _gdsrMessage           :: Maybe Text
-    , _gdsrRedshiftMetadata  :: Maybe RedshiftMetadata
-    , _gdsrRoleARN           :: Maybe Text
-    , _gdsrDataRearrangement :: Maybe Text
+    { _gdsrNumberOfFiles     :: !(Maybe Integer)
+    , _gdsrLastUpdatedAt     :: !(Maybe POSIX)
+    , _gdsrCreatedAt         :: !(Maybe POSIX)
+    , _gdsrRDSMetadata       :: !(Maybe RDSMetadata)
+    , _gdsrDataSourceId      :: !(Maybe Text)
+    , _gdsrDataSizeInBytes   :: !(Maybe Integer)
+    , _gdsrDataSourceSchema  :: !(Maybe Text)
+    , _gdsrName              :: !(Maybe Text)
+    , _gdsrCreatedByIAMUser  :: !(Maybe Text)
+    , _gdsrLogURI            :: !(Maybe Text)
+    , _gdsrDataLocationS3    :: !(Maybe Text)
+    , _gdsrComputeStatistics :: !(Maybe Bool)
+    , _gdsrMessage           :: !(Maybe Text)
+    , _gdsrRedshiftMetadata  :: !(Maybe RedshiftMetadata)
+    , _gdsrRoleARN           :: !(Maybe Text)
+    , _gdsrDataRearrangement :: !(Maybe Text)
     , _gdsrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

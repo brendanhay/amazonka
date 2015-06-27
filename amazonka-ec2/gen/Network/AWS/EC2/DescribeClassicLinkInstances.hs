@@ -62,11 +62,11 @@ import           Network.AWS.Response
 --
 -- * 'dcliMaxResults'
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-    { _dcliFilters     :: Maybe [Filter]
-    , _dcliNextToken   :: Maybe Text
-    , _dcliInstanceIds :: Maybe [Text]
-    , _dcliDryRun      :: Maybe Bool
-    , _dcliMaxResults  :: Maybe Int
+    { _dcliFilters     :: !(Maybe [Filter])
+    , _dcliNextToken   :: !(Maybe Text)
+    , _dcliInstanceIds :: !(Maybe [Text])
+    , _dcliDryRun      :: !(Maybe Bool)
+    , _dcliMaxResults  :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClassicLinkInstances' smart constructor.
@@ -176,8 +176,8 @@ instance ToQuery DescribeClassicLinkInstances where
 --
 -- * 'dclirStatus'
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
-    { _dclirNextToken :: Maybe Text
-    , _dclirInstances :: Maybe [ClassicLinkInstance]
+    { _dclirNextToken :: !(Maybe Text)
+    , _dclirInstances :: !(Maybe [ClassicLinkInstance])
     , _dclirStatus    :: !Int
     } deriving (Eq,Read,Show)
 

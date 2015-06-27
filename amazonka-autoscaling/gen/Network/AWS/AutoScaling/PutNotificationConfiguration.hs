@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'pncNotificationTypes'
 data PutNotificationConfiguration = PutNotificationConfiguration'
-    { _pncAutoScalingGroupName :: Text
-    , _pncTopicARN             :: Text
-    , _pncNotificationTypes    :: [Text]
+    { _pncAutoScalingGroupName :: !Text
+    , _pncTopicARN             :: !Text
+    , _pncNotificationTypes    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'PutNotificationConfiguration' smart constructor.

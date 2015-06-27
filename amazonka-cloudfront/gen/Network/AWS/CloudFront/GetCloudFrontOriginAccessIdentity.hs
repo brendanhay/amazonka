@@ -105,8 +105,8 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
 --
 -- * 'gcfoairStatus'
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
-    { _gcfoairETag                           :: Maybe Text
-    , _gcfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    { _gcfoairETag                           :: !(Maybe Text)
+    , _gcfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _gcfoairStatus                         :: !Int
     } deriving (Eq,Read,Show)
 

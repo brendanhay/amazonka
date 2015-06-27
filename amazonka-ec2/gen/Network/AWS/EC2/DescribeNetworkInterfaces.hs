@@ -52,9 +52,9 @@ import           Network.AWS.Response
 --
 -- * 'dDryRun'
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
-    { _dNetworkInterfaceIds :: Maybe [Text]
-    , _dFilters             :: Maybe [Filter]
-    , _dDryRun              :: Maybe Bool
+    { _dNetworkInterfaceIds :: !(Maybe [Text])
+    , _dFilters             :: !(Maybe [Filter])
+    , _dDryRun              :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkInterfaces' smart constructor.
@@ -227,7 +227,7 @@ instance ToQuery DescribeNetworkInterfaces where
 --
 -- * 'dnirStatus'
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
-    { _dnirNetworkInterfaces :: Maybe [NetworkInterface]
+    { _dnirNetworkInterfaces :: !(Maybe [NetworkInterface])
     , _dnirStatus            :: !Int
     } deriving (Eq,Read,Show)
 

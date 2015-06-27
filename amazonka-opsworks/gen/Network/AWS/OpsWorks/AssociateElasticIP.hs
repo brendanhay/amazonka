@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'aeiElasticIP'
 data AssociateElasticIP = AssociateElasticIP'
-    { _aeiInstanceId :: Maybe Text
-    , _aeiElasticIP  :: Text
+    { _aeiInstanceId :: !(Maybe Text)
+    , _aeiElasticIP  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssociateElasticIP' smart constructor.

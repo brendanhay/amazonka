@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'lcMaxResults'
 data ListClusters = ListClusters'
-    { _lcNextToken  :: Maybe Text
-    , _lcMaxResults :: Maybe Int
+    { _lcNextToken  :: !(Maybe Text)
+    , _lcMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListClusters' smart constructor.
@@ -133,8 +133,8 @@ instance ToQuery ListClusters where
 --
 -- * 'lcrStatus'
 data ListClustersResponse = ListClustersResponse'
-    { _lcrClusterARNs :: Maybe [Text]
-    , _lcrNextToken   :: Maybe Text
+    { _lcrClusterARNs :: !(Maybe [Text])
+    , _lcrNextToken   :: !(Maybe Text)
     , _lcrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

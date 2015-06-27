@@ -64,10 +64,10 @@ import           Network.AWS.Response
 --
 -- * 'lcCreatedBefore'
 data ListClusters = ListClusters'
-    { _lcCreatedAfter  :: Maybe POSIX
-    , _lcMarker        :: Maybe Text
-    , _lcClusterStates :: Maybe [ClusterState]
-    , _lcCreatedBefore :: Maybe POSIX
+    { _lcCreatedAfter  :: !(Maybe POSIX)
+    , _lcMarker        :: !(Maybe Text)
+    , _lcClusterStates :: !(Maybe [ClusterState])
+    , _lcCreatedBefore :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'ListClusters' smart constructor.
@@ -149,8 +149,8 @@ instance ToQuery ListClusters where
 --
 -- * 'lcrStatus'
 data ListClustersResponse = ListClustersResponse'
-    { _lcrMarker   :: Maybe Text
-    , _lcrClusters :: Maybe [ClusterSummary]
+    { _lcrMarker   :: !(Maybe Text)
+    , _lcrClusters :: !(Maybe [ClusterSummary])
     , _lcrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

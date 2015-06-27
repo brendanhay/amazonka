@@ -68,10 +68,10 @@ import           Network.AWS.Response
 --
 -- * 'ccpgDescription'
 data CreateClusterParameterGroup = CreateClusterParameterGroup'
-    { _ccpgTags                 :: Maybe [Tag]
-    , _ccpgParameterGroupName   :: Text
-    , _ccpgParameterGroupFamily :: Text
-    , _ccpgDescription          :: Text
+    { _ccpgTags                 :: !(Maybe [Tag])
+    , _ccpgParameterGroupName   :: !Text
+    , _ccpgParameterGroupFamily :: !Text
+    , _ccpgDescription          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterParameterGroup' smart constructor.
@@ -156,7 +156,7 @@ instance ToQuery CreateClusterParameterGroup where
 --
 -- * 'ccpgrStatus'
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
-    { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
+    { _ccpgrClusterParameterGroup :: !(Maybe ClusterParameterGroup)
     , _ccpgrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

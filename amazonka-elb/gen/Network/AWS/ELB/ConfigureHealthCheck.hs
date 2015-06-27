@@ -54,8 +54,8 @@ import           Network.AWS.Response
 --
 -- * 'chcHealthCheck'
 data ConfigureHealthCheck = ConfigureHealthCheck'
-    { _chcLoadBalancerName :: Text
-    , _chcHealthCheck      :: HealthCheck
+    { _chcLoadBalancerName :: !Text
+    , _chcHealthCheck      :: !HealthCheck
     } deriving (Eq,Read,Show)
 
 -- | 'ConfigureHealthCheck' smart constructor.
@@ -107,7 +107,7 @@ instance ToQuery ConfigureHealthCheck where
 --
 -- * 'chcrStatus'
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-    { _chcrHealthCheck :: Maybe HealthCheck
+    { _chcrHealthCheck :: !(Maybe HealthCheck)
     , _chcrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

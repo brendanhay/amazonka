@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'lcfoaiMarker'
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-    { _lcfoaiMaxItems :: Maybe Text
-    , _lcfoaiMarker   :: Maybe Text
+    { _lcfoaiMaxItems :: !(Maybe Text)
+    , _lcfoaiMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
@@ -117,7 +117,7 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- * 'lcfoairStatus'
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
+    { _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     , _lcfoairStatus                             :: !Int
     } deriving (Eq,Read,Show)
 

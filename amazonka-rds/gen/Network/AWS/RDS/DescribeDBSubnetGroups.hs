@@ -64,10 +64,10 @@ import           Network.AWS.Response
 --
 -- * 'ddsgMarker'
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
-    { _ddsgDBSubnetGroupName :: Maybe Text
-    , _ddsgFilters           :: Maybe [Filter]
-    , _ddsgMaxRecords        :: Maybe Int
-    , _ddsgMarker            :: Maybe Text
+    { _ddsgDBSubnetGroupName :: !(Maybe Text)
+    , _ddsgFilters           :: !(Maybe [Filter])
+    , _ddsgMaxRecords        :: !(Maybe Int)
+    , _ddsgMarker            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSubnetGroups' smart constructor.
@@ -158,8 +158,8 @@ instance ToQuery DescribeDBSubnetGroups where
 --
 -- * 'ddsgrStatus'
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
-    { _ddsgrDBSubnetGroups :: Maybe [DBSubnetGroup]
-    , _ddsgrMarker         :: Maybe Text
+    { _ddsgrDBSubnetGroups :: !(Maybe [DBSubnetGroup])
+    , _ddsgrMarker         :: !(Maybe Text)
     , _ddsgrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

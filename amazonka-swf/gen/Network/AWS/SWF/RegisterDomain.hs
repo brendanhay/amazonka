@@ -68,9 +68,9 @@ import           Network.AWS.SWF.Types
 --
 -- * 'rdWorkflowExecutionRetentionPeriodInDays'
 data RegisterDomain = RegisterDomain'
-    { _rdDescription                            :: Maybe Text
-    , _rdName                                   :: Text
-    , _rdWorkflowExecutionRetentionPeriodInDays :: Text
+    { _rdDescription                            :: !(Maybe Text)
+    , _rdName                                   :: !Text
+    , _rdWorkflowExecutionRetentionPeriodInDays :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomain' smart constructor.

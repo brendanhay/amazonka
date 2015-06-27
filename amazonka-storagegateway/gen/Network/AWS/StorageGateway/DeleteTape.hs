@@ -51,8 +51,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'dt1TapeARN'
 data DeleteTape = DeleteTape'
-    { _dt1GatewayARN :: Text
-    , _dt1TapeARN    :: Text
+    { _dt1GatewayARN :: !Text
+    , _dt1TapeARN    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteTape' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery DeleteTape where
 --
 -- * 'dtrStatus'
 data DeleteTapeResponse = DeleteTapeResponse'
-    { _dtrTapeARN :: Maybe Text
+    { _dtrTapeARN :: !(Maybe Text)
     , _dtrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

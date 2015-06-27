@@ -50,9 +50,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'pbrReplicationConfiguration'
 data PutBucketReplication = PutBucketReplication'
-    { _pbrContentMD5               :: Maybe Text
-    , _pbrBucket                   :: BucketName
-    , _pbrReplicationConfiguration :: ReplicationConfiguration
+    { _pbrContentMD5               :: !(Maybe Text)
+    , _pbrBucket                   :: !BucketName
+    , _pbrReplicationConfiguration :: !ReplicationConfiguration
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketReplication' smart constructor.

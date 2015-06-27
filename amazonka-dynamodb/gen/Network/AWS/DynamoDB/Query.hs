@@ -127,23 +127,23 @@ import           Network.AWS.Response
 --
 -- * 'queTableName'
 data Query = Query'
-    { _queProjectionExpression      :: Maybe Text
-    , _queKeyConditions             :: Maybe (Map Text Condition)
-    , _queFilterExpression          :: Maybe Text
-    , _queQueryFilter               :: Maybe (Map Text Condition)
-    , _queConsistentRead            :: Maybe Bool
-    , _queExpressionAttributeNames  :: Maybe (Map Text Text)
-    , _queAttributesToGet           :: Maybe (List1 Text)
-    , _queReturnConsumedCapacity    :: Maybe ReturnConsumedCapacity
-    , _queExpressionAttributeValues :: Maybe (Map Text AttributeValue)
-    , _queScanIndexForward          :: Maybe Bool
-    , _queLimit                     :: Maybe Nat
-    , _queSelect                    :: Maybe Select
-    , _queConditionalOperator       :: Maybe ConditionalOperator
-    , _queKeyConditionExpression    :: Maybe Text
-    , _queExclusiveStartKey         :: Maybe (Map Text AttributeValue)
-    , _queIndexName                 :: Maybe Text
-    , _queTableName                 :: Text
+    { _queProjectionExpression      :: !(Maybe Text)
+    , _queKeyConditions             :: !(Maybe (Map Text Condition))
+    , _queFilterExpression          :: !(Maybe Text)
+    , _queQueryFilter               :: !(Maybe (Map Text Condition))
+    , _queConsistentRead            :: !(Maybe Bool)
+    , _queExpressionAttributeNames  :: !(Maybe (Map Text Text))
+    , _queAttributesToGet           :: !(Maybe (List1 Text))
+    , _queReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+    , _queExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _queScanIndexForward          :: !(Maybe Bool)
+    , _queLimit                     :: !(Maybe Nat)
+    , _queSelect                    :: !(Maybe Select)
+    , _queConditionalOperator       :: !(Maybe ConditionalOperator)
+    , _queKeyConditionExpression    :: !(Maybe Text)
+    , _queExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+    , _queIndexName                 :: !(Maybe Text)
+    , _queTableName                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Query' smart constructor.
@@ -762,11 +762,11 @@ instance ToQuery Query where
 --
 -- * 'qrStatus'
 data QueryResponse = QueryResponse'
-    { _qrLastEvaluatedKey :: Maybe (Map Text AttributeValue)
-    , _qrCount            :: Maybe Int
-    , _qrScannedCount     :: Maybe Int
-    , _qrItems            :: Maybe [Map Text AttributeValue]
-    , _qrConsumedCapacity :: Maybe ConsumedCapacity
+    { _qrLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
+    , _qrCount            :: !(Maybe Int)
+    , _qrScannedCount     :: !(Maybe Int)
+    , _qrItems            :: !(Maybe [Map Text AttributeValue])
+    , _qrConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _qrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

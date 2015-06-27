@@ -77,17 +77,17 @@ import           Network.AWS.S3.Types
 --
 -- * 'poaKey'
 data PutObjectACL = PutObjectACL'
-    { _poaGrantReadACP        :: Maybe Text
-    , _poaRequestPayer        :: Maybe RequestPayer
-    , _poaGrantWriteACP       :: Maybe Text
-    , _poaGrantRead           :: Maybe Text
-    , _poaGrantFullControl    :: Maybe Text
-    , _poaContentMD5          :: Maybe Text
-    , _poaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _poaGrantWrite          :: Maybe Text
-    , _poaACL                 :: Maybe ObjectCannedACL
-    , _poaBucket              :: BucketName
-    , _poaKey                 :: ObjectKey
+    { _poaGrantReadACP        :: !(Maybe Text)
+    , _poaRequestPayer        :: !(Maybe RequestPayer)
+    , _poaGrantWriteACP       :: !(Maybe Text)
+    , _poaGrantRead           :: !(Maybe Text)
+    , _poaGrantFullControl    :: !(Maybe Text)
+    , _poaContentMD5          :: !(Maybe Text)
+    , _poaAccessControlPolicy :: !(Maybe AccessControlPolicy)
+    , _poaGrantWrite          :: !(Maybe Text)
+    , _poaACL                 :: !(Maybe ObjectCannedACL)
+    , _poaBucket              :: !BucketName
+    , _poaKey                 :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'PutObjectACL' smart constructor.
@@ -199,7 +199,7 @@ instance ToQuery PutObjectACL where
 --
 -- * 'poarStatus'
 data PutObjectACLResponse = PutObjectACLResponse'
-    { _poarRequestCharged :: Maybe RequestCharged
+    { _poarRequestCharged :: !(Maybe RequestCharged)
     , _poarStatus         :: !Int
     } deriving (Eq,Read,Show)
 

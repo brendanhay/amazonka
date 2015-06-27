@@ -49,8 +49,8 @@ import           Network.AWS.Response
 --
 -- * 'diImageId'
 data DeregisterImage = DeregisterImage'
-    { _diDryRun  :: Maybe Bool
-    , _diImageId :: Text
+    { _diDryRun  :: !(Maybe Bool)
+    , _diImageId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeregisterImage' smart constructor.

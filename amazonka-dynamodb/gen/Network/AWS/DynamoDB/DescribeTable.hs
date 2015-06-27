@@ -109,7 +109,7 @@ instance ToQuery DescribeTable where
 --
 -- * 'desStatus'
 data DescribeTableResponse = DescribeTableResponse'
-    { _desTable  :: Maybe TableDescription
+    { _desTable  :: !(Maybe TableDescription)
     , _desStatus :: !Int
     } deriving (Eq,Read,Show)
 

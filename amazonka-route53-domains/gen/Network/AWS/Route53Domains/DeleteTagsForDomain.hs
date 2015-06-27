@@ -53,8 +53,8 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'dtfdTagsToDelete'
 data DeleteTagsForDomain = DeleteTagsForDomain'
-    { _dtfdDomainName   :: Text
-    , _dtfdTagsToDelete :: [Text]
+    { _dtfdDomainName   :: !Text
+    , _dtfdTagsToDelete :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteTagsForDomain' smart constructor.

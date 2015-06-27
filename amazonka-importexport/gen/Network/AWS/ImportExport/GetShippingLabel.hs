@@ -81,18 +81,18 @@ import           Network.AWS.Response
 --
 -- * 'gslJobIds'
 data GetShippingLabel = GetShippingLabel'
-    { _gslStreet3         :: Maybe Text
-    , _gslAPIVersion      :: Maybe Text
-    , _gslPostalCode      :: Maybe Text
-    , _gslCountry         :: Maybe Text
-    , _gslStateOrProvince :: Maybe Text
-    , _gslStreet2         :: Maybe Text
-    , _gslName            :: Maybe Text
-    , _gslCompany         :: Maybe Text
-    , _gslCity            :: Maybe Text
-    , _gslPhoneNumber     :: Maybe Text
-    , _gslStreet1         :: Maybe Text
-    , _gslJobIds          :: [Text]
+    { _gslStreet3         :: !(Maybe Text)
+    , _gslAPIVersion      :: !(Maybe Text)
+    , _gslPostalCode      :: !(Maybe Text)
+    , _gslCountry         :: !(Maybe Text)
+    , _gslStateOrProvince :: !(Maybe Text)
+    , _gslStreet2         :: !(Maybe Text)
+    , _gslName            :: !(Maybe Text)
+    , _gslCompany         :: !(Maybe Text)
+    , _gslCity            :: !(Maybe Text)
+    , _gslPhoneNumber     :: !(Maybe Text)
+    , _gslStreet1         :: !(Maybe Text)
+    , _gslJobIds          :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'GetShippingLabel' smart constructor.
@@ -205,8 +205,8 @@ instance ToQuery GetShippingLabel where
 --
 -- * 'gslrStatus'
 data GetShippingLabelResponse = GetShippingLabelResponse'
-    { _gslrShippingLabelURL :: Maybe Text
-    , _gslrWarning          :: Maybe Text
+    { _gslrShippingLabelURL :: !(Maybe Text)
+    , _gslrWarning          :: !(Maybe Text)
     , _gslrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

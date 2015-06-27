@@ -66,9 +66,9 @@ import           Network.AWS.Response
 --
 -- * 'reiInfoType'
 data RequestEnvironmentInfo = RequestEnvironmentInfo'
-    { _reiEnvironmentName :: Maybe Text
-    , _reiEnvironmentId   :: Maybe Text
-    , _reiInfoType        :: EnvironmentInfoType
+    { _reiEnvironmentName :: !(Maybe Text)
+    , _reiEnvironmentId   :: !(Maybe Text)
+    , _reiInfoType        :: !EnvironmentInfoType
     } deriving (Eq,Read,Show)
 
 -- | 'RequestEnvironmentInfo' smart constructor.

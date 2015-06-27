@@ -65,12 +65,12 @@ import           Network.AWS.Response
 --
 -- * 'dogOptionGroupName'
 data DescribeOptionGroups = DescribeOptionGroups'
-    { _dogFilters            :: Maybe [Filter]
-    , _dogEngineName         :: Maybe Text
-    , _dogMajorEngineVersion :: Maybe Text
-    , _dogMaxRecords         :: Maybe Int
-    , _dogMarker             :: Maybe Text
-    , _dogOptionGroupName    :: Maybe Text
+    { _dogFilters            :: !(Maybe [Filter])
+    , _dogEngineName         :: !(Maybe Text)
+    , _dogMajorEngineVersion :: !(Maybe Text)
+    , _dogMaxRecords         :: !(Maybe Int)
+    , _dogMarker             :: !(Maybe Text)
+    , _dogOptionGroupName    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroups' smart constructor.
@@ -174,8 +174,8 @@ instance ToQuery DescribeOptionGroups where
 --
 -- * 'dogrStatus'
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
-    { _dogrMarker           :: Maybe Text
-    , _dogrOptionGroupsList :: Maybe [OptionGroup]
+    { _dogrMarker           :: !(Maybe Text)
+    , _dogrOptionGroupsList :: !(Maybe [OptionGroup])
     , _dogrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

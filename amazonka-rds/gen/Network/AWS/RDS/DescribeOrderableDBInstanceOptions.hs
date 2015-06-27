@@ -72,14 +72,14 @@ import           Network.AWS.Response
 --
 -- * 'dodioEngine'
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
-    { _dodioEngineVersion   :: Maybe Text
-    , _dodioFilters         :: Maybe [Filter]
-    , _dodioDBInstanceClass :: Maybe Text
-    , _dodioLicenseModel    :: Maybe Text
-    , _dodioMaxRecords      :: Maybe Int
-    , _dodioMarker          :: Maybe Text
-    , _dodioVPC             :: Maybe Bool
-    , _dodioEngine          :: Text
+    { _dodioEngineVersion   :: !(Maybe Text)
+    , _dodioFilters         :: !(Maybe [Filter])
+    , _dodioDBInstanceClass :: !(Maybe Text)
+    , _dodioLicenseModel    :: !(Maybe Text)
+    , _dodioMaxRecords      :: !(Maybe Int)
+    , _dodioMarker          :: !(Maybe Text)
+    , _dodioVPC             :: !(Maybe Bool)
+    , _dodioEngine          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableDBInstanceOptions' smart constructor.
@@ -204,8 +204,8 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 --
 -- * 'dodiorStatus'
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
-    { _dodiorOrderableDBInstanceOptions :: Maybe [OrderableDBInstanceOption]
-    , _dodiorMarker                     :: Maybe Text
+    { _dodiorOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
+    , _dodiorMarker                     :: !(Maybe Text)
     , _dodiorStatus                     :: !Int
     } deriving (Eq,Read,Show)
 

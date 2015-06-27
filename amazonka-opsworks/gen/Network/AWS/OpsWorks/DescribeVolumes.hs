@@ -63,10 +63,10 @@ import           Network.AWS.Response
 --
 -- * 'dvStackId'
 data DescribeVolumes = DescribeVolumes'
-    { _dvInstanceId  :: Maybe Text
-    , _dvVolumeIds   :: Maybe [Text]
-    , _dvRAIDArrayId :: Maybe Text
-    , _dvStackId     :: Maybe Text
+    { _dvInstanceId  :: !(Maybe Text)
+    , _dvVolumeIds   :: !(Maybe [Text])
+    , _dvRAIDArrayId :: !(Maybe Text)
+    , _dvStackId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumes' smart constructor.
@@ -143,7 +143,7 @@ instance ToQuery DescribeVolumes where
 --
 -- * 'dvrStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvrVolumes :: Maybe [Volume]
+    { _dvrVolumes :: !(Maybe [Volume])
     , _dvrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

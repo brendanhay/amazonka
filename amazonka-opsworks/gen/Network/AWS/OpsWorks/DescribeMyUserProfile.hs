@@ -92,7 +92,7 @@ instance ToQuery DescribeMyUserProfile where
 --
 -- * 'dmuprStatus'
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-    { _dmuprUserProfile :: Maybe SelfUserProfile
+    { _dmuprUserProfile :: !(Maybe SelfUserProfile)
     , _dmuprStatus      :: !Int
     } deriving (Eq,Read,Show)
 

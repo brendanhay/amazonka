@@ -75,11 +75,11 @@ import           Network.AWS.Response
 --
 -- * 'uscPrivateKey'
 data UploadServerCertificate = UploadServerCertificate'
-    { _uscPath                  :: Maybe Text
-    , _uscCertificateChain      :: Maybe Text
-    , _uscServerCertificateName :: Text
-    , _uscCertificateBody       :: Text
-    , _uscPrivateKey            :: Sensitive Text
+    { _uscPath                  :: !(Maybe Text)
+    , _uscCertificateChain      :: !(Maybe Text)
+    , _uscServerCertificateName :: !Text
+    , _uscCertificateBody       :: !Text
+    , _uscPrivateKey            :: !(Sensitive Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UploadServerCertificate' smart constructor.
@@ -166,7 +166,7 @@ instance ToQuery UploadServerCertificate where
 --
 -- * 'uplStatus'
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
-    { _uplServerCertificateMetadata :: Maybe ServerCertificateMetadata
+    { _uplServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
     , _uplStatus                    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -98,7 +98,7 @@ instance ToQuery ListQueues where
 --
 -- * 'lqrStatus'
 data ListQueuesResponse = ListQueuesResponse'
-    { _lqrQueueURLs :: Maybe [Text]
+    { _lqrQueueURLs :: !(Maybe [Text])
     , _lqrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -59,10 +59,10 @@ import           Network.AWS.Response
 --
 -- * 'lsClusterId'
 data ListSteps = ListSteps'
-    { _lsStepIds    :: Maybe [Text]
-    , _lsStepStates :: Maybe [StepState]
-    , _lsMarker     :: Maybe Text
-    , _lsClusterId  :: Text
+    { _lsStepIds    :: !(Maybe [Text])
+    , _lsStepStates :: !(Maybe [StepState])
+    , _lsMarker     :: !(Maybe Text)
+    , _lsClusterId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListSteps' smart constructor.
@@ -142,8 +142,8 @@ instance ToQuery ListSteps where
 --
 -- * 'lsrStatus'
 data ListStepsResponse = ListStepsResponse'
-    { _lsrSteps  :: Maybe [StepSummary]
-    , _lsrMarker :: Maybe Text
+    { _lsrSteps  :: !(Maybe [StepSummary])
+    , _lsrMarker :: !(Maybe Text)
     , _lsrStatus :: !Int
     } deriving (Eq,Read,Show)
 

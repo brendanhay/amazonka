@@ -62,9 +62,9 @@ import           Network.AWS.Response
 --
 -- * 'slbpfbsPolicyNames'
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
-    { _slbpfbsLoadBalancerName :: Text
+    { _slbpfbsLoadBalancerName :: !Text
     , _slbpfbsInstancePort     :: !Int
-    , _slbpfbsPolicyNames      :: [Text]
+    , _slbpfbsPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.

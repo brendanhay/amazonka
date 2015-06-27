@@ -83,13 +83,13 @@ import           Network.AWS.Response
 --
 -- * 'assDryRun'
 data AssociateAddress = AssociateAddress'
-    { _assInstanceId         :: Maybe Text
-    , _assAllocationId       :: Maybe Text
-    , _assNetworkInterfaceId :: Maybe Text
-    , _assAllowReassociation :: Maybe Bool
-    , _assPrivateIPAddress   :: Maybe Text
-    , _assPublicIP           :: Maybe Text
-    , _assDryRun             :: Maybe Bool
+    { _assInstanceId         :: !(Maybe Text)
+    , _assAllocationId       :: !(Maybe Text)
+    , _assNetworkInterfaceId :: !(Maybe Text)
+    , _assAllowReassociation :: !(Maybe Bool)
+    , _assPrivateIPAddress   :: !(Maybe Text)
+    , _assPublicIP           :: !(Maybe Text)
+    , _assDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'AssociateAddress' smart constructor.
@@ -182,7 +182,7 @@ instance ToQuery AssociateAddress where
 --
 -- * 'assStatus'
 data AssociateAddressResponse = AssociateAddressResponse'
-    { _assAssociationId :: Maybe Text
+    { _assAssociationId :: !(Maybe Text)
     , _assStatus        :: !Int
     } deriving (Eq,Read,Show)
 

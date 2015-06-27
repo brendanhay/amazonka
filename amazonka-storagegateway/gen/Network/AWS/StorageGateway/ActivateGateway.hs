@@ -84,13 +84,13 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'agGatewayRegion'
 data ActivateGateway = ActivateGateway'
-    { _agMediumChangerType :: Maybe Text
-    , _agTapeDriveType     :: Maybe Text
-    , _agGatewayType       :: Maybe Text
-    , _agActivationKey     :: Text
-    , _agGatewayName       :: Text
-    , _agGatewayTimezone   :: Text
-    , _agGatewayRegion     :: Text
+    { _agMediumChangerType :: !(Maybe Text)
+    , _agTapeDriveType     :: !(Maybe Text)
+    , _agGatewayType       :: !(Maybe Text)
+    , _agActivationKey     :: !Text
+    , _agGatewayName       :: !Text
+    , _agGatewayTimezone   :: !Text
+    , _agGatewayRegion     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ActivateGateway' smart constructor.
@@ -210,7 +210,7 @@ instance ToQuery ActivateGateway where
 --
 -- * 'agrStatus'
 data ActivateGatewayResponse = ActivateGatewayResponse'
-    { _agrGatewayARN :: Maybe Text
+    { _agrGatewayARN :: !(Maybe Text)
     , _agrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'uuUserName'
 data UpdateUser = UpdateUser'
-    { _uuNewUserName :: Maybe Text
-    , _uuNewPath     :: Maybe Text
-    , _uuUserName    :: Text
+    { _uuNewUserName :: !(Maybe Text)
+    , _uuNewPath     :: !(Maybe Text)
+    , _uuUserName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateUser' smart constructor.

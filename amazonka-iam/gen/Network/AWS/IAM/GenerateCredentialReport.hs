@@ -89,8 +89,8 @@ instance ToQuery GenerateCredentialReport where
 --
 -- * 'gcrrStatus'
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-    { _gcrrState       :: Maybe ReportStateType
-    , _gcrrDescription :: Maybe Text
+    { _gcrrState       :: !(Maybe ReportStateType)
+    , _gcrrDescription :: !(Maybe Text)
     , _gcrrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

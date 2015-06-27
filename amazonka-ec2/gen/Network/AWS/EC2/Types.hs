@@ -3866,8 +3866,8 @@ instance FromXML VolumeType where
 --
 -- * 'aaAttributeName'
 data AccountAttribute = AccountAttribute'
-    { _aaAttributeValues :: Maybe [AccountAttributeValue]
-    , _aaAttributeName   :: Maybe Text
+    { _aaAttributeValues :: !(Maybe [AccountAttributeValue])
+    , _aaAttributeName   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AccountAttribute' smart constructor.
@@ -3930,9 +3930,9 @@ instance FromXML AccountAttributeValue where
 --
 -- * 'aiSpotInstanceRequestId'
 data ActiveInstance = ActiveInstance'
-    { _aiInstanceId            :: Maybe Text
-    , _aiInstanceType          :: Maybe Text
-    , _aiSpotInstanceRequestId :: Maybe Text
+    { _aiInstanceId            :: !(Maybe Text)
+    , _aiInstanceType          :: !(Maybe Text)
+    , _aiSpotInstanceRequestId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ActiveInstance' smart constructor.
@@ -3984,14 +3984,14 @@ instance FromXML ActiveInstance where
 --
 -- * 'addPublicIP'
 data Address = Address'
-    { _addInstanceId              :: Maybe Text
-    , _addAssociationId           :: Maybe Text
-    , _addNetworkInterfaceOwnerId :: Maybe Text
-    , _addAllocationId            :: Maybe Text
-    , _addDomain                  :: Maybe DomainType
-    , _addNetworkInterfaceId      :: Maybe Text
-    , _addPrivateIPAddress        :: Maybe Text
-    , _addPublicIP                :: Maybe Text
+    { _addInstanceId              :: !(Maybe Text)
+    , _addAssociationId           :: !(Maybe Text)
+    , _addNetworkInterfaceOwnerId :: !(Maybe Text)
+    , _addAllocationId            :: !(Maybe Text)
+    , _addDomain                  :: !(Maybe DomainType)
+    , _addNetworkInterfaceId      :: !(Maybe Text)
+    , _addPrivateIPAddress        :: !(Maybe Text)
+    , _addPublicIP                :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Address' smart constructor.
@@ -4126,10 +4126,10 @@ instance ToQuery AttributeValue where
 --
 -- * 'azMessages'
 data AvailabilityZone = AvailabilityZone'
-    { _azRegionName :: Maybe Text
-    , _azState      :: Maybe AvailabilityZoneState
-    , _azZoneName   :: Maybe Text
-    , _azMessages   :: Maybe [AvailabilityZoneMessage]
+    { _azRegionName :: !(Maybe Text)
+    , _azState      :: !(Maybe AvailabilityZoneState)
+    , _azZoneName   :: !(Maybe Text)
+    , _azMessages   :: !(Maybe [AvailabilityZoneMessage])
     } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityZone' smart constructor.
@@ -4230,10 +4230,10 @@ instance ToQuery BlobAttributeValue where
 --
 -- * 'bdmDeviceName'
 data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: Maybe Text
-    , _bdmNoDevice    :: Maybe Text
-    , _bdmEBS         :: Maybe EBSBlockDevice
-    , _bdmDeviceName  :: Text
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmNoDevice    :: !(Maybe Text)
+    , _bdmEBS         :: !(Maybe EBSBlockDevice)
+    , _bdmDeviceName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
@@ -4310,14 +4310,14 @@ instance ToQuery BlockDeviceMapping where
 --
 -- * 'btUpdateTime'
 data BundleTask = BundleTask'
-    { _btBundleTaskError :: Maybe BundleTaskError
-    , _btBundleId        :: Text
-    , _btInstanceId      :: Text
-    , _btProgress        :: Text
-    , _btStartTime       :: ISO8601
-    , _btState           :: BundleTaskState
-    , _btStorage         :: Storage
-    , _btUpdateTime      :: ISO8601
+    { _btBundleTaskError :: !(Maybe BundleTaskError)
+    , _btBundleId        :: !Text
+    , _btInstanceId      :: !Text
+    , _btProgress        :: !Text
+    , _btStartTime       :: !ISO8601
+    , _btState           :: !BundleTaskState
+    , _btStorage         :: !Storage
+    , _btUpdateTime      :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'BundleTask' smart constructor.
@@ -4387,8 +4387,8 @@ instance FromXML BundleTask where
 --
 -- * 'bteMessage'
 data BundleTaskError = BundleTaskError'
-    { _bteCode    :: Maybe Text
-    , _bteMessage :: Maybe Text
+    { _bteCode    :: !(Maybe Text)
+    , _bteMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'BundleTaskError' smart constructor.
@@ -4422,8 +4422,8 @@ instance FromXML BundleTaskError where
 --
 -- * 'csfreMessage'
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
-    { _csfreCode    :: CancelBatchErrorCode
-    , _csfreMessage :: Text
+    { _csfreCode    :: !CancelBatchErrorCode
+    , _csfreMessage :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsError' smart constructor.
@@ -4457,8 +4457,8 @@ instance FromXML CancelSpotFleetRequestsError where
 --
 -- * 'csfreiError'
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
-    { _csfreiSpotFleetRequestId :: Text
-    , _csfreiError              :: CancelSpotFleetRequestsError
+    { _csfreiSpotFleetRequestId :: !Text
+    , _csfreiError              :: !CancelSpotFleetRequestsError
     } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsErrorItem' smart constructor.
@@ -4495,9 +4495,9 @@ instance FromXML CancelSpotFleetRequestsErrorItem
 --
 -- * 'csfrsiPreviousSpotFleetRequestState'
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
-    { _csfrsiSpotFleetRequestId            :: Text
-    , _csfrsiCurrentSpotFleetRequestState  :: BatchState
-    , _csfrsiPreviousSpotFleetRequestState :: BatchState
+    { _csfrsiSpotFleetRequestId            :: !Text
+    , _csfrsiCurrentSpotFleetRequestState  :: !BatchState
+    , _csfrsiPreviousSpotFleetRequestState :: !BatchState
     } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotFleetRequestsSuccessItem' smart constructor.
@@ -4539,8 +4539,8 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
 --
 -- * 'csirSpotInstanceRequestId'
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
-    { _csirState                 :: Maybe CancelSpotInstanceRequestState
-    , _csirSpotInstanceRequestId :: Maybe Text
+    { _csirState                 :: !(Maybe CancelSpotInstanceRequestState)
+    , _csirSpotInstanceRequestId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CancelledSpotInstanceRequest' smart constructor.
@@ -4578,10 +4578,10 @@ instance FromXML CancelledSpotInstanceRequest where
 --
 -- * 'cliTags'
 data ClassicLinkInstance = ClassicLinkInstance'
-    { _cliInstanceId :: Maybe Text
-    , _cliGroups     :: Maybe [GroupIdentifier]
-    , _cliVPCId      :: Maybe Text
-    , _cliTags       :: Maybe [Tag]
+    { _cliInstanceId :: !(Maybe Text)
+    , _cliGroups     :: !(Maybe [GroupIdentifier])
+    , _cliVPCId      :: !(Maybe Text)
+    , _cliTags       :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'ClassicLinkInstance' smart constructor.
@@ -4632,10 +4632,10 @@ instance FromXML ClassicLinkInstance where
 --
 -- * 'cdComment'
 data ClientData = ClientData'
-    { _cdUploadStart :: Maybe ISO8601
-    , _cdUploadSize  :: Maybe Double
-    , _cdUploadEnd   :: Maybe ISO8601
-    , _cdComment     :: Maybe Text
+    { _cdUploadStart :: !(Maybe ISO8601)
+    , _cdUploadSize  :: !(Maybe Double)
+    , _cdUploadEnd   :: !(Maybe ISO8601)
+    , _cdComment     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClientData' smart constructor.
@@ -4691,13 +4691,13 @@ instance ToQuery ClientData where
 --
 -- * 'ctState'
 data ConversionTask = ConversionTask'
-    { _ctImportInstance   :: Maybe ImportInstanceTaskDetails
-    , _ctStatusMessage    :: Maybe Text
-    , _ctImportVolume     :: Maybe ImportVolumeTaskDetails
-    , _ctExpirationTime   :: Maybe Text
-    , _ctTags             :: Maybe [Tag]
-    , _ctConversionTaskId :: Text
-    , _ctState            :: ConversionTaskState
+    { _ctImportInstance   :: !(Maybe ImportInstanceTaskDetails)
+    , _ctStatusMessage    :: !(Maybe Text)
+    , _ctImportVolume     :: !(Maybe ImportVolumeTaskDetails)
+    , _ctExpirationTime   :: !(Maybe Text)
+    , _ctTags             :: !(Maybe [Tag])
+    , _ctConversionTaskId :: !Text
+    , _ctState            :: !ConversionTaskState
     } deriving (Eq,Read,Show)
 
 -- | 'ConversionTask' smart constructor.
@@ -4765,8 +4765,8 @@ instance FromXML ConversionTask where
 --
 -- * 'cvpUserId'
 data CreateVolumePermission = CreateVolumePermission'
-    { _cvpGroup  :: Maybe PermissionGroup
-    , _cvpUserId :: Maybe Text
+    { _cvpGroup  :: !(Maybe PermissionGroup)
+    , _cvpUserId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVolumePermission' smart constructor.
@@ -4807,8 +4807,8 @@ instance ToQuery CreateVolumePermission where
 --
 -- * 'cvpmAdd'
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
-    { _cvpmRemove :: Maybe [CreateVolumePermission]
-    , _cvpmAdd    :: Maybe [CreateVolumePermission]
+    { _cvpmRemove :: !(Maybe [CreateVolumePermission])
+    , _cvpmAdd    :: !(Maybe [CreateVolumePermission])
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVolumePermissionModifications' smart constructor.
@@ -4854,12 +4854,12 @@ instance ToQuery CreateVolumePermissionModifications
 --
 -- * 'cgType'
 data CustomerGateway = CustomerGateway'
-    { _cgTags              :: Maybe [Tag]
-    , _cgBGPASN            :: Text
-    , _cgCustomerGatewayId :: Text
-    , _cgIPAddress         :: Text
-    , _cgState             :: Text
-    , _cgType              :: Text
+    { _cgTags              :: !(Maybe [Tag])
+    , _cgBGPASN            :: !Text
+    , _cgCustomerGatewayId :: !Text
+    , _cgIPAddress         :: !Text
+    , _cgState             :: !Text
+    , _cgType              :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CustomerGateway' smart constructor.
@@ -4920,8 +4920,8 @@ instance FromXML CustomerGateway where
 --
 -- * 'dcKey'
 data DHCPConfiguration = DHCPConfiguration'
-    { _dcValues :: Maybe [AttributeValue]
-    , _dcKey    :: Maybe Text
+    { _dcValues :: !(Maybe [AttributeValue])
+    , _dcKey    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DHCPConfiguration' smart constructor.
@@ -4957,9 +4957,9 @@ instance FromXML DHCPConfiguration where
 --
 -- * 'doTags'
 data DHCPOptions = DHCPOptions'
-    { _doDHCPConfigurations :: Maybe [DHCPConfiguration]
-    , _doDHCPOptionsId      :: Maybe Text
-    , _doTags               :: Maybe [Tag]
+    { _doDHCPConfigurations :: !(Maybe [DHCPConfiguration])
+    , _doDHCPOptionsId      :: !(Maybe Text)
+    , _doTags               :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'DHCPOptions' smart constructor.
@@ -5002,9 +5002,9 @@ instance FromXML DHCPOptions where
 --
 -- * 'diDescription'
 data DiskImage = DiskImage'
-    { _diImage       :: Maybe DiskImageDetail
-    , _diVolume      :: Maybe VolumeDetail
-    , _diDescription :: Maybe Text
+    { _diImage       :: !(Maybe DiskImageDetail)
+    , _diVolume      :: !(Maybe VolumeDetail)
+    , _diDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DiskImage' smart constructor.
@@ -5048,10 +5048,10 @@ instance ToQuery DiskImage where
 --
 -- * 'disImportManifestURL'
 data DiskImageDescription = DiskImageDescription'
-    { _disChecksum          :: Maybe Text
-    , _disFormat            :: DiskImageFormat
+    { _disChecksum          :: !(Maybe Text)
+    , _disFormat            :: !DiskImageFormat
     , _disSize              :: !Integer
-    , _disImportManifestURL :: Text
+    , _disImportManifestURL :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DiskImageDescription' smart constructor.
@@ -5103,9 +5103,9 @@ instance FromXML DiskImageDescription where
 --
 -- * 'didImportManifestURL'
 data DiskImageDetail = DiskImageDetail'
-    { _didFormat            :: DiskImageFormat
+    { _didFormat            :: !DiskImageFormat
     , _didBytes             :: !Integer
-    , _didImportManifestURL :: Text
+    , _didImportManifestURL :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DiskImageDetail' smart constructor.
@@ -5150,8 +5150,8 @@ instance ToQuery DiskImageDetail where
 --
 -- * 'divdId'
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
-    { _divdSize :: Maybe Integer
-    , _divdId   :: Text
+    { _divdSize :: !(Maybe Integer)
+    , _divdId   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DiskImageVolumeDescription' smart constructor.
@@ -5193,12 +5193,12 @@ instance FromXML DiskImageVolumeDescription where
 --
 -- * 'ebdSnapshotId'
 data EBSBlockDevice = EBSBlockDevice'
-    { _ebdDeleteOnTermination :: Maybe Bool
-    , _ebdVolumeSize          :: Maybe Int
-    , _ebdIOPS                :: Maybe Int
-    , _ebdEncrypted           :: Maybe Bool
-    , _ebdVolumeType          :: Maybe VolumeType
-    , _ebdSnapshotId          :: Maybe Text
+    { _ebdDeleteOnTermination :: !(Maybe Bool)
+    , _ebdVolumeSize          :: !(Maybe Int)
+    , _ebdIOPS                :: !(Maybe Int)
+    , _ebdEncrypted           :: !(Maybe Bool)
+    , _ebdVolumeType          :: !(Maybe VolumeType)
+    , _ebdSnapshotId          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EBSBlockDevice' smart constructor.
@@ -5298,10 +5298,10 @@ instance ToQuery EBSBlockDevice where
 --
 -- * 'eibdAttachTime'
 data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
-    { _eibdDeleteOnTermination :: Maybe Bool
-    , _eibdStatus              :: Maybe AttachmentStatus
-    , _eibdVolumeId            :: Maybe Text
-    , _eibdAttachTime          :: Maybe ISO8601
+    { _eibdDeleteOnTermination :: !(Maybe Bool)
+    , _eibdStatus              :: !(Maybe AttachmentStatus)
+    , _eibdVolumeId            :: !(Maybe Text)
+    , _eibdAttachTime          :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'EBSInstanceBlockDevice' smart constructor.
@@ -5345,8 +5345,8 @@ instance FromXML EBSInstanceBlockDevice where
 --
 -- * 'eibdsVolumeId'
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
-    { _eibdsDeleteOnTermination :: Maybe Bool
-    , _eibdsVolumeId            :: Maybe Text
+    { _eibdsDeleteOnTermination :: !(Maybe Bool)
+    , _eibdsVolumeId            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EBSInstanceBlockDeviceSpecification' smart constructor.
@@ -5384,9 +5384,9 @@ instance ToQuery EBSInstanceBlockDeviceSpecification
 --
 -- * 'eiEventSubType'
 data EventInformation = EventInformation'
-    { _eiInstanceId       :: Maybe Text
-    , _eiEventDescription :: Maybe Text
-    , _eiEventSubType     :: Maybe Text
+    { _eiInstanceId       :: !(Maybe Text)
+    , _eiEventDescription :: !(Maybe Text)
+    , _eiEventSubType     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EventInformation' smart constructor.
@@ -5478,12 +5478,12 @@ instance FromXML EventInformation where
 --
 -- * 'etStatusMessage'
 data ExportTask = ExportTask'
-    { _etDescription           :: Text
-    , _etExportTaskId          :: Text
-    , _etExportToS3Task        :: ExportToS3Task
-    , _etInstanceExportDetails :: InstanceExportDetails
-    , _etState                 :: ExportTaskState
-    , _etStatusMessage         :: Text
+    { _etDescription           :: !Text
+    , _etExportTaskId          :: !Text
+    , _etExportToS3Task        :: !ExportToS3Task
+    , _etInstanceExportDetails :: !InstanceExportDetails
+    , _etState                 :: !ExportTaskState
+    , _etStatusMessage         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ExportTask' smart constructor.
@@ -5545,10 +5545,10 @@ instance FromXML ExportTask where
 --
 -- * 'etstDiskImageFormat'
 data ExportToS3Task = ExportToS3Task'
-    { _etstS3Key           :: Maybe Text
-    , _etstContainerFormat :: Maybe ContainerFormat
-    , _etstS3Bucket        :: Maybe Text
-    , _etstDiskImageFormat :: Maybe DiskImageFormat
+    { _etstS3Key           :: !(Maybe Text)
+    , _etstContainerFormat :: !(Maybe ContainerFormat)
+    , _etstS3Bucket        :: !(Maybe Text)
+    , _etstDiskImageFormat :: !(Maybe DiskImageFormat)
     } deriving (Eq,Read,Show)
 
 -- | 'ExportToS3Task' smart constructor.
@@ -5601,10 +5601,10 @@ instance FromXML ExportToS3Task where
 --
 -- * 'etstsDiskImageFormat'
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
-    { _etstsContainerFormat :: Maybe ContainerFormat
-    , _etstsS3Prefix        :: Maybe Text
-    , _etstsS3Bucket        :: Maybe Text
-    , _etstsDiskImageFormat :: Maybe DiskImageFormat
+    { _etstsContainerFormat :: !(Maybe ContainerFormat)
+    , _etstsS3Prefix        :: !(Maybe Text)
+    , _etstsS3Bucket        :: !(Maybe Text)
+    , _etstsDiskImageFormat :: !(Maybe DiskImageFormat)
     } deriving (Eq,Read,Show)
 
 -- | 'ExportToS3TaskSpecification' smart constructor.
@@ -5657,8 +5657,8 @@ instance ToQuery ExportToS3TaskSpecification where
 --
 -- * 'filName'
 data Filter = Filter'
-    { _filValues :: Maybe [Text]
-    , _filName   :: Text
+    { _filValues :: !(Maybe [Text])
+    , _filName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Filter' smart constructor.
@@ -5707,15 +5707,15 @@ instance ToQuery Filter where
 --
 -- * 'flFlowLogId'
 data FlowLog = FlowLog'
-    { _flCreationTime             :: Maybe ISO8601
-    , _flResourceId               :: Maybe Text
-    , _flFlowLogStatus            :: Maybe Text
-    , _flTrafficType              :: Maybe TrafficType
-    , _flDeliverLogsStatus        :: Maybe Text
-    , _flDeliverLogsErrorMessage  :: Maybe Text
-    , _flDeliverLogsPermissionARN :: Maybe Text
-    , _flLogGroupName             :: Maybe Text
-    , _flFlowLogId                :: Maybe Text
+    { _flCreationTime             :: !(Maybe ISO8601)
+    , _flResourceId               :: !(Maybe Text)
+    , _flFlowLogStatus            :: !(Maybe Text)
+    , _flTrafficType              :: !(Maybe TrafficType)
+    , _flDeliverLogsStatus        :: !(Maybe Text)
+    , _flDeliverLogsErrorMessage  :: !(Maybe Text)
+    , _flDeliverLogsPermissionARN :: !(Maybe Text)
+    , _flLogGroupName             :: !(Maybe Text)
+    , _flFlowLogId                :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FlowLog' smart constructor.
@@ -5795,8 +5795,8 @@ instance FromXML FlowLog where
 --
 -- * 'giGroupName'
 data GroupIdentifier = GroupIdentifier'
-    { _giGroupId   :: Maybe Text
-    , _giGroupName :: Maybe Text
+    { _giGroupId   :: !(Maybe Text)
+    , _giGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GroupIdentifier' smart constructor.
@@ -5838,9 +5838,9 @@ instance ToQuery GroupIdentifier where
 --
 -- * 'hrEventInformation'
 data HistoryRecord = HistoryRecord'
-    { _hrTimestamp        :: ISO8601
-    , _hrEventType        :: EventType
-    , _hrEventInformation :: EventInformation
+    { _hrTimestamp        :: !ISO8601
+    , _hrEventType        :: !EventType
+    , _hrEventInformation :: !EventInformation
     } deriving (Eq,Read,Show)
 
 -- | 'HistoryRecord' smart constructor.
@@ -5890,8 +5890,8 @@ instance FromXML HistoryRecord where
 --
 -- * 'iapId'
 data IAMInstanceProfile = IAMInstanceProfile'
-    { _iapARN :: Maybe Text
-    , _iapId  :: Maybe Text
+    { _iapARN :: !(Maybe Text)
+    , _iapId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'IAMInstanceProfile' smart constructor.
@@ -5925,8 +5925,8 @@ instance FromXML IAMInstanceProfile where
 --
 -- * 'iapsName'
 data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'
-    { _iapsARN  :: Maybe Text
-    , _iapsName :: Maybe Text
+    { _iapsARN  :: !(Maybe Text)
+    , _iapsName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'IAMInstanceProfileSpecification' smart constructor.
@@ -5966,8 +5966,8 @@ instance ToQuery IAMInstanceProfileSpecification
 --
 -- * 'itcType'
 data ICMPTypeCode = ICMPTypeCode'
-    { _itcCode :: Maybe Int
-    , _itcType :: Maybe Int
+    { _itcCode :: !(Maybe Int)
+    , _itcType :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ICMPTypeCode' smart constructor.
@@ -6013,12 +6013,12 @@ instance ToQuery ICMPTypeCode where
 --
 -- * 'ipIPProtocol'
 data IPPermission = IPPermission'
-    { _ipFromPort         :: Maybe Int
-    , _ipUserIdGroupPairs :: Maybe [UserIdGroupPair]
-    , _ipPrefixListIds    :: Maybe [PrefixListId]
-    , _ipToPort           :: Maybe Int
-    , _ipIPRanges         :: Maybe [IPRange]
-    , _ipIPProtocol       :: Text
+    { _ipFromPort         :: !(Maybe Int)
+    , _ipUserIdGroupPairs :: !(Maybe [UserIdGroupPair])
+    , _ipPrefixListIds    :: !(Maybe [PrefixListId])
+    , _ipToPort           :: !(Maybe Int)
+    , _ipIPRanges         :: !(Maybe [IPRange])
+    , _ipIPProtocol       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'IPPermission' smart constructor.
@@ -6172,29 +6172,29 @@ instance ToQuery IPRange where
 --
 -- * 'imaHypervisor'
 data Image = Image'
-    { _imaPlatform            :: Maybe PlatformValues
-    , _imaImageOwnerAlias     :: Maybe Text
-    , _imaRAMDiskId           :: Maybe Text
-    , _imaKernelId            :: Maybe Text
-    , _imaRootDeviceName      :: Maybe Text
-    , _imaSRIOVNetSupport     :: Maybe Text
-    , _imaName                :: Maybe Text
-    , _imaCreationDate        :: Maybe Text
-    , _imaProductCodes        :: Maybe [ProductCode]
-    , _imaStateReason         :: Maybe StateReason
-    , _imaBlockDeviceMappings :: Maybe [BlockDeviceMapping]
-    , _imaDescription         :: Maybe Text
-    , _imaTags                :: Maybe [Tag]
-    , _imaImageId             :: Text
-    , _imaImageLocation       :: Text
-    , _imaState               :: ImageState
-    , _imaOwnerId             :: Text
+    { _imaPlatform            :: !(Maybe PlatformValues)
+    , _imaImageOwnerAlias     :: !(Maybe Text)
+    , _imaRAMDiskId           :: !(Maybe Text)
+    , _imaKernelId            :: !(Maybe Text)
+    , _imaRootDeviceName      :: !(Maybe Text)
+    , _imaSRIOVNetSupport     :: !(Maybe Text)
+    , _imaName                :: !(Maybe Text)
+    , _imaCreationDate        :: !(Maybe Text)
+    , _imaProductCodes        :: !(Maybe [ProductCode])
+    , _imaStateReason         :: !(Maybe StateReason)
+    , _imaBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _imaDescription         :: !(Maybe Text)
+    , _imaTags                :: !(Maybe [Tag])
+    , _imaImageId             :: !Text
+    , _imaImageLocation       :: !Text
+    , _imaState               :: !ImageState
+    , _imaOwnerId             :: !Text
     , _imaPublic              :: !Bool
-    , _imaArchitecture        :: ArchitectureValues
-    , _imaImageType           :: ImageTypeValues
-    , _imaRootDeviceType      :: DeviceType
-    , _imaVirtualizationType  :: VirtualizationType
-    , _imaHypervisor          :: HypervisorType
+    , _imaArchitecture        :: !ArchitectureValues
+    , _imaImageType           :: !ImageTypeValues
+    , _imaRootDeviceType      :: !DeviceType
+    , _imaVirtualizationType  :: !VirtualizationType
+    , _imaHypervisor          :: !HypervisorType
     } deriving (Eq,Read,Show)
 
 -- | 'Image' smart constructor.
@@ -6370,12 +6370,12 @@ instance FromXML Image where
 --
 -- * 'idcSnapshotId'
 data ImageDiskContainer = ImageDiskContainer'
-    { _idcURL         :: Maybe Text
-    , _idcFormat      :: Maybe Text
-    , _idcDeviceName  :: Maybe Text
-    , _idcUserBucket  :: Maybe UserBucket
-    , _idcDescription :: Maybe Text
-    , _idcSnapshotId  :: Maybe Text
+    { _idcURL         :: !(Maybe Text)
+    , _idcFormat      :: !(Maybe Text)
+    , _idcDeviceName  :: !(Maybe Text)
+    , _idcUserBucket  :: !(Maybe UserBucket)
+    , _idcDescription :: !(Maybe Text)
+    , _idcSnapshotId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ImageDiskContainer' smart constructor.
@@ -6454,17 +6454,17 @@ instance ToQuery ImageDiskContainer where
 --
 -- * 'iitDescription'
 data ImportImageTask = ImportImageTask'
-    { _iitStatus          :: Maybe Text
-    , _iitHypervisor      :: Maybe Text
-    , _iitPlatform        :: Maybe Text
-    , _iitProgress        :: Maybe Text
-    , _iitLicenseType     :: Maybe Text
-    , _iitSnapshotDetails :: Maybe [SnapshotDetail]
-    , _iitStatusMessage   :: Maybe Text
-    , _iitImageId         :: Maybe Text
-    , _iitImportTaskId    :: Maybe Text
-    , _iitArchitecture    :: Maybe Text
-    , _iitDescription     :: Maybe Text
+    { _iitStatus          :: !(Maybe Text)
+    , _iitHypervisor      :: !(Maybe Text)
+    , _iitPlatform        :: !(Maybe Text)
+    , _iitProgress        :: !(Maybe Text)
+    , _iitLicenseType     :: !(Maybe Text)
+    , _iitSnapshotDetails :: !(Maybe [SnapshotDetail])
+    , _iitStatusMessage   :: !(Maybe Text)
+    , _iitImageId         :: !(Maybe Text)
+    , _iitImportTaskId    :: !(Maybe Text)
+    , _iitArchitecture    :: !(Maybe Text)
+    , _iitDescription     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ImportImageTask' smart constructor.
@@ -6575,17 +6575,17 @@ instance FromXML ImportImageTask where
 --
 -- * 'iilsPlacement'
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
-    { _iilsAdditionalInfo                    :: Maybe Text
-    , _iilsGroupNames                        :: Maybe [Text]
-    , _iilsSubnetId                          :: Maybe Text
-    , _iilsGroupIds                          :: Maybe [Text]
-    , _iilsInstanceType                      :: Maybe InstanceType
-    , _iilsUserData                          :: Maybe UserData
-    , _iilsMonitoring                        :: Maybe Bool
-    , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
-    , _iilsPrivateIPAddress                  :: Maybe Text
-    , _iilsArchitecture                      :: Maybe ArchitectureValues
-    , _iilsPlacement                         :: Maybe Placement
+    { _iilsAdditionalInfo                    :: !(Maybe Text)
+    , _iilsGroupNames                        :: !(Maybe [Text])
+    , _iilsSubnetId                          :: !(Maybe Text)
+    , _iilsGroupIds                          :: !(Maybe [Text])
+    , _iilsInstanceType                      :: !(Maybe InstanceType)
+    , _iilsUserData                          :: !(Maybe UserData)
+    , _iilsMonitoring                        :: !(Maybe Bool)
+    , _iilsInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+    , _iilsPrivateIPAddress                  :: !(Maybe Text)
+    , _iilsArchitecture                      :: !(Maybe ArchitectureValues)
+    , _iilsPlacement                         :: !(Maybe Placement)
     } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceLaunchSpecification' smart constructor.
@@ -6688,10 +6688,10 @@ instance ToQuery ImportInstanceLaunchSpecification
 --
 -- * 'iitdVolumes'
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
-    { _iitdInstanceId  :: Maybe Text
-    , _iitdPlatform    :: Maybe PlatformValues
-    , _iitdDescription :: Maybe Text
-    , _iitdVolumes     :: [ImportInstanceVolumeDetailItem]
+    { _iitdInstanceId  :: !(Maybe Text)
+    , _iitdPlatform    :: !(Maybe PlatformValues)
+    , _iitdDescription :: !(Maybe Text)
+    , _iitdVolumes     :: ![ImportInstanceVolumeDetailItem]
     } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceTaskDetails' smart constructor.
@@ -6747,13 +6747,13 @@ instance FromXML ImportInstanceTaskDetails where
 --
 -- * 'iivdiStatus'
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-    { _iivdiStatusMessage    :: Maybe Text
-    , _iivdiDescription      :: Maybe Text
+    { _iivdiStatusMessage    :: !(Maybe Text)
+    , _iivdiDescription      :: !(Maybe Text)
     , _iivdiBytesConverted   :: !Integer
-    , _iivdiAvailabilityZone :: Text
-    , _iivdiImage            :: DiskImageDescription
-    , _iivdiVolume           :: DiskImageVolumeDescription
-    , _iivdiStatus           :: Text
+    , _iivdiAvailabilityZone :: !Text
+    , _iivdiImage            :: !DiskImageDescription
+    , _iivdiVolume           :: !DiskImageVolumeDescription
+    , _iivdiStatus           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ImportInstanceVolumeDetailItem' smart constructor.
@@ -6819,9 +6819,9 @@ instance FromXML ImportInstanceVolumeDetailItem where
 --
 -- * 'istDescription'
 data ImportSnapshotTask = ImportSnapshotTask'
-    { _istSnapshotTaskDetail :: Maybe SnapshotTaskDetail
-    , _istImportTaskId       :: Maybe Text
-    , _istDescription        :: Maybe Text
+    { _istSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
+    , _istImportTaskId       :: !(Maybe Text)
+    , _istDescription        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ImportSnapshotTask' smart constructor.
@@ -6868,11 +6868,11 @@ instance FromXML ImportSnapshotTask where
 --
 -- * 'ivtdVolume'
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
-    { _ivtdDescription      :: Maybe Text
+    { _ivtdDescription      :: !(Maybe Text)
     , _ivtdBytesConverted   :: !Integer
-    , _ivtdAvailabilityZone :: Text
-    , _ivtdImage            :: DiskImageDescription
-    , _ivtdVolume           :: DiskImageVolumeDescription
+    , _ivtdAvailabilityZone :: !Text
+    , _ivtdImage            :: !DiskImageDescription
+    , _ivtdVolume           :: !DiskImageVolumeDescription
     } deriving (Eq,Read,Show)
 
 -- | 'ImportVolumeTaskDetails' smart constructor.
@@ -6994,43 +6994,43 @@ instance FromXML ImportVolumeTaskDetails where
 --
 -- * 'insState'
 data Instance = Instance'
-    { _insPublicDNSName         :: Maybe Text
-    , _insPlatform              :: Maybe PlatformValues
-    , _insSecurityGroups        :: Maybe [GroupIdentifier]
-    , _insClientToken           :: Maybe Text
-    , _insSourceDestCheck       :: Maybe Bool
-    , _insVPCId                 :: Maybe Text
-    , _insNetworkInterfaces     :: Maybe [InstanceNetworkInterface]
-    , _insKeyName               :: Maybe Text
-    , _insRAMDiskId             :: Maybe Text
-    , _insKernelId              :: Maybe Text
-    , _insSubnetId              :: Maybe Text
-    , _insRootDeviceName        :: Maybe Text
-    , _insSRIOVNetSupport       :: Maybe Text
-    , _insStateTransitionReason :: Maybe Text
-    , _insIAMInstanceProfile    :: Maybe IAMInstanceProfile
-    , _insInstanceLifecycle     :: Maybe InstanceLifecycleType
-    , _insPrivateIPAddress      :: Maybe Text
-    , _insProductCodes          :: Maybe [ProductCode]
-    , _insSpotInstanceRequestId :: Maybe Text
-    , _insPrivateDNSName        :: Maybe Text
-    , _insStateReason           :: Maybe StateReason
-    , _insBlockDeviceMappings   :: Maybe [InstanceBlockDeviceMapping]
-    , _insPublicIPAddress       :: Maybe Text
-    , _insTags                  :: Maybe [Tag]
-    , _insInstanceId            :: Text
-    , _insImageId               :: Text
+    { _insPublicDNSName         :: !(Maybe Text)
+    , _insPlatform              :: !(Maybe PlatformValues)
+    , _insSecurityGroups        :: !(Maybe [GroupIdentifier])
+    , _insClientToken           :: !(Maybe Text)
+    , _insSourceDestCheck       :: !(Maybe Bool)
+    , _insVPCId                 :: !(Maybe Text)
+    , _insNetworkInterfaces     :: !(Maybe [InstanceNetworkInterface])
+    , _insKeyName               :: !(Maybe Text)
+    , _insRAMDiskId             :: !(Maybe Text)
+    , _insKernelId              :: !(Maybe Text)
+    , _insSubnetId              :: !(Maybe Text)
+    , _insRootDeviceName        :: !(Maybe Text)
+    , _insSRIOVNetSupport       :: !(Maybe Text)
+    , _insStateTransitionReason :: !(Maybe Text)
+    , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
+    , _insInstanceLifecycle     :: !(Maybe InstanceLifecycleType)
+    , _insPrivateIPAddress      :: !(Maybe Text)
+    , _insProductCodes          :: !(Maybe [ProductCode])
+    , _insSpotInstanceRequestId :: !(Maybe Text)
+    , _insPrivateDNSName        :: !(Maybe Text)
+    , _insStateReason           :: !(Maybe StateReason)
+    , _insBlockDeviceMappings   :: !(Maybe [InstanceBlockDeviceMapping])
+    , _insPublicIPAddress       :: !(Maybe Text)
+    , _insTags                  :: !(Maybe [Tag])
+    , _insInstanceId            :: !Text
+    , _insImageId               :: !Text
     , _insAMILaunchIndex        :: !Int
-    , _insInstanceType          :: InstanceType
-    , _insLaunchTime            :: ISO8601
-    , _insPlacement             :: Placement
-    , _insMonitoring            :: Monitoring
-    , _insArchitecture          :: ArchitectureValues
-    , _insRootDeviceType        :: DeviceType
-    , _insVirtualizationType    :: VirtualizationType
-    , _insHypervisor            :: HypervisorType
+    , _insInstanceType          :: !InstanceType
+    , _insLaunchTime            :: !ISO8601
+    , _insPlacement             :: !Placement
+    , _insMonitoring            :: !Monitoring
+    , _insArchitecture          :: !ArchitectureValues
+    , _insRootDeviceType        :: !DeviceType
+    , _insVirtualizationType    :: !VirtualizationType
+    , _insHypervisor            :: !HypervisorType
     , _insEBSOptimized          :: !Bool
-    , _insState                 :: InstanceState
+    , _insState                 :: !InstanceState
     } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
@@ -7291,8 +7291,8 @@ instance FromXML Instance where
 --
 -- * 'ibdmDeviceName'
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
-    { _ibdmEBS        :: Maybe EBSInstanceBlockDevice
-    , _ibdmDeviceName :: Maybe Text
+    { _ibdmEBS        :: !(Maybe EBSInstanceBlockDevice)
+    , _ibdmDeviceName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceBlockDeviceMapping' smart constructor.
@@ -7332,10 +7332,10 @@ instance FromXML InstanceBlockDeviceMapping where
 --
 -- * 'ibdmsDeviceName'
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
-    { _ibdmsVirtualName :: Maybe Text
-    , _ibdmsNoDevice    :: Maybe Text
-    , _ibdmsEBS         :: Maybe EBSInstanceBlockDeviceSpecification
-    , _ibdmsDeviceName  :: Maybe Text
+    { _ibdmsVirtualName :: !(Maybe Text)
+    , _ibdmsNoDevice    :: !(Maybe Text)
+    , _ibdmsEBS         :: !(Maybe EBSInstanceBlockDeviceSpecification)
+    , _ibdmsDeviceName  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceBlockDeviceMappingSpecification' smart constructor.
@@ -7384,8 +7384,8 @@ instance ToQuery
 --
 -- * 'icInstanceCount'
 data InstanceCount = InstanceCount'
-    { _icState         :: Maybe ListingState
-    , _icInstanceCount :: Maybe Int
+    { _icState         :: !(Maybe ListingState)
+    , _icInstanceCount :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceCount' smart constructor.
@@ -7420,8 +7420,8 @@ instance FromXML InstanceCount where
 --
 -- * 'iedTargetEnvironment'
 data InstanceExportDetails = InstanceExportDetails'
-    { _iedInstanceId        :: Maybe Text
-    , _iedTargetEnvironment :: Maybe ExportEnvironment
+    { _iedInstanceId        :: !(Maybe Text)
+    , _iedTargetEnvironment :: !(Maybe ExportEnvironment)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceExportDetails' smart constructor.
@@ -7455,8 +7455,8 @@ instance FromXML InstanceExportDetails where
 --
 -- * 'imMonitoring'
 data InstanceMonitoring = InstanceMonitoring'
-    { _imInstanceId :: Maybe Text
-    , _imMonitoring :: Maybe Monitoring
+    { _imInstanceId :: !(Maybe Text)
+    , _imMonitoring :: !(Maybe Monitoring)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceMonitoring' smart constructor.
@@ -7514,20 +7514,20 @@ instance FromXML InstanceMonitoring where
 --
 -- * 'iniAssociation'
 data InstanceNetworkInterface = InstanceNetworkInterface'
-    { _iniPrivateIPAddresses :: Maybe [InstancePrivateIPAddress]
-    , _iniStatus             :: Maybe NetworkInterfaceStatus
-    , _iniGroups             :: Maybe [GroupIdentifier]
-    , _iniSourceDestCheck    :: Maybe Bool
-    , _iniVPCId              :: Maybe Text
-    , _iniNetworkInterfaceId :: Maybe Text
-    , _iniSubnetId           :: Maybe Text
-    , _iniAttachment         :: Maybe InstanceNetworkInterfaceAttachment
-    , _iniMACAddress         :: Maybe Text
-    , _iniOwnerId            :: Maybe Text
-    , _iniPrivateIPAddress   :: Maybe Text
-    , _iniPrivateDNSName     :: Maybe Text
-    , _iniDescription        :: Maybe Text
-    , _iniAssociation        :: Maybe InstanceNetworkInterfaceAssociation
+    { _iniPrivateIPAddresses :: !(Maybe [InstancePrivateIPAddress])
+    , _iniStatus             :: !(Maybe NetworkInterfaceStatus)
+    , _iniGroups             :: !(Maybe [GroupIdentifier])
+    , _iniSourceDestCheck    :: !(Maybe Bool)
+    , _iniVPCId              :: !(Maybe Text)
+    , _iniNetworkInterfaceId :: !(Maybe Text)
+    , _iniSubnetId           :: !(Maybe Text)
+    , _iniAttachment         :: !(Maybe InstanceNetworkInterfaceAttachment)
+    , _iniMACAddress         :: !(Maybe Text)
+    , _iniOwnerId            :: !(Maybe Text)
+    , _iniPrivateIPAddress   :: !(Maybe Text)
+    , _iniPrivateDNSName     :: !(Maybe Text)
+    , _iniDescription        :: !(Maybe Text)
+    , _iniAssociation        :: !(Maybe InstanceNetworkInterfaceAssociation)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterface' smart constructor.
@@ -7637,9 +7637,9 @@ instance FromXML InstanceNetworkInterface where
 --
 -- * 'iniaPublicIP'
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
-    { _iniaPublicDNSName :: Maybe Text
-    , _iniaIPOwnerId     :: Maybe Text
-    , _iniaPublicIP      :: Maybe Text
+    { _iniaPublicDNSName :: !(Maybe Text)
+    , _iniaIPOwnerId     :: !(Maybe Text)
+    , _iniaPublicIP      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterfaceAssociation' smart constructor.
@@ -7687,11 +7687,11 @@ instance FromXML InstanceNetworkInterfaceAssociation
 --
 -- * 'iniaDeviceIndex'
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
-    { _iniaDeleteOnTermination :: Maybe Bool
-    , _iniaStatus              :: Maybe AttachmentStatus
-    , _iniaAttachmentId        :: Maybe Text
-    , _iniaAttachTime          :: Maybe ISO8601
-    , _iniaDeviceIndex         :: Maybe Int
+    { _iniaDeleteOnTermination :: !(Maybe Bool)
+    , _iniaStatus              :: !(Maybe AttachmentStatus)
+    , _iniaAttachmentId        :: !(Maybe Text)
+    , _iniaAttachTime          :: !(Maybe ISO8601)
+    , _iniaDeviceIndex         :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterfaceAttachment' smart constructor.
@@ -7762,16 +7762,16 @@ instance FromXML InstanceNetworkInterfaceAttachment
 --
 -- * 'inisDescription'
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
-    { _inisPrivateIPAddresses             :: Maybe [PrivateIPAddressSpecification]
-    , _inisDeleteOnTermination            :: Maybe Bool
-    , _inisGroups                         :: Maybe [Text]
-    , _inisAssociatePublicIPAddress       :: Maybe Bool
-    , _inisNetworkInterfaceId             :: Maybe Text
-    , _inisSubnetId                       :: Maybe Text
-    , _inisPrivateIPAddress               :: Maybe Text
-    , _inisSecondaryPrivateIPAddressCount :: Maybe Int
-    , _inisDeviceIndex                    :: Maybe Int
-    , _inisDescription                    :: Maybe Text
+    { _inisPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
+    , _inisDeleteOnTermination            :: !(Maybe Bool)
+    , _inisGroups                         :: !(Maybe [Text])
+    , _inisAssociatePublicIPAddress       :: !(Maybe Bool)
+    , _inisNetworkInterfaceId             :: !(Maybe Text)
+    , _inisSubnetId                       :: !(Maybe Text)
+    , _inisPrivateIPAddress               :: !(Maybe Text)
+    , _inisSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _inisDeviceIndex                    :: !(Maybe Int)
+    , _inisDescription                    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceNetworkInterfaceSpecification' smart constructor.
@@ -7894,10 +7894,10 @@ instance ToQuery
 --
 -- * 'ipiaAssociation'
 data InstancePrivateIPAddress = InstancePrivateIPAddress'
-    { _ipiaPrimary          :: Maybe Bool
-    , _ipiaPrivateIPAddress :: Maybe Text
-    , _ipiaPrivateDNSName   :: Maybe Text
-    , _ipiaAssociation      :: Maybe InstanceNetworkInterfaceAssociation
+    { _ipiaPrimary          :: !(Maybe Bool)
+    , _ipiaPrivateIPAddress :: !(Maybe Text)
+    , _ipiaPrivateDNSName   :: !(Maybe Text)
+    , _ipiaAssociation      :: !(Maybe InstanceNetworkInterfaceAssociation)
     } deriving (Eq,Read,Show)
 
 -- | 'InstancePrivateIPAddress' smart constructor.
@@ -7945,7 +7945,7 @@ instance FromXML InstancePrivateIPAddress where
 --
 -- * 'isCode'
 data InstanceState = InstanceState'
-    { _isName :: InstanceStateName
+    { _isName :: !InstanceStateName
     , _isCode :: !Int
     } deriving (Eq,Read,Show)
 
@@ -7995,9 +7995,9 @@ instance FromXML InstanceState where
 --
 -- * 'iscPreviousState'
 data InstanceStateChange = InstanceStateChange'
-    { _iscInstanceId    :: Maybe Text
-    , _iscCurrentState  :: Maybe InstanceState
-    , _iscPreviousState :: Maybe InstanceState
+    { _iscInstanceId    :: !(Maybe Text)
+    , _iscCurrentState  :: !(Maybe InstanceState)
+    , _iscPreviousState :: !(Maybe InstanceState)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceStateChange' smart constructor.
@@ -8045,12 +8045,12 @@ instance FromXML InstanceStateChange where
 --
 -- * 'isInstanceState'
 data InstanceStatus = InstanceStatus'
-    { _isInstanceId       :: Maybe Text
-    , _isSystemStatus     :: Maybe InstanceStatusSummary
-    , _isAvailabilityZone :: Maybe Text
-    , _isEvents           :: Maybe [InstanceStatusEvent]
-    , _isInstanceStatus   :: Maybe InstanceStatusSummary
-    , _isInstanceState    :: Maybe InstanceState
+    { _isInstanceId       :: !(Maybe Text)
+    , _isSystemStatus     :: !(Maybe InstanceStatusSummary)
+    , _isAvailabilityZone :: !(Maybe Text)
+    , _isEvents           :: !(Maybe [InstanceStatusEvent])
+    , _isInstanceStatus   :: !(Maybe InstanceStatusSummary)
+    , _isInstanceState    :: !(Maybe InstanceState)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatus' smart constructor.
@@ -8114,9 +8114,9 @@ instance FromXML InstanceStatus where
 --
 -- * 'isdName'
 data InstanceStatusDetails = InstanceStatusDetails'
-    { _isdStatus        :: Maybe StatusType
-    , _isdImpairedSince :: Maybe ISO8601
-    , _isdName          :: Maybe StatusName
+    { _isdStatus        :: !(Maybe StatusType)
+    , _isdImpairedSince :: !(Maybe ISO8601)
+    , _isdName          :: !(Maybe StatusName)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatusDetails' smart constructor.
@@ -8161,10 +8161,10 @@ instance FromXML InstanceStatusDetails where
 --
 -- * 'iseNotAfter'
 data InstanceStatusEvent = InstanceStatusEvent'
-    { _iseNotBefore   :: Maybe ISO8601
-    , _iseCode        :: Maybe EventCode
-    , _iseDescription :: Maybe Text
-    , _iseNotAfter    :: Maybe ISO8601
+    { _iseNotBefore   :: !(Maybe ISO8601)
+    , _iseCode        :: !(Maybe EventCode)
+    , _iseDescription :: !(Maybe Text)
+    , _iseNotAfter    :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatusEvent' smart constructor.
@@ -8214,8 +8214,8 @@ instance FromXML InstanceStatusEvent where
 --
 -- * 'issStatus'
 data InstanceStatusSummary = InstanceStatusSummary'
-    { _issDetails :: Maybe [InstanceStatusDetails]
-    , _issStatus  :: SummaryStatus
+    { _issDetails :: !(Maybe [InstanceStatusDetails])
+    , _issStatus  :: !SummaryStatus
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceStatusSummary' smart constructor.
@@ -8251,9 +8251,9 @@ instance FromXML InstanceStatusSummary where
 --
 -- * 'igInternetGatewayId'
 data InternetGateway = InternetGateway'
-    { _igAttachments       :: Maybe [InternetGatewayAttachment]
-    , _igTags              :: Maybe [Tag]
-    , _igInternetGatewayId :: Text
+    { _igAttachments       :: !(Maybe [InternetGatewayAttachment])
+    , _igTags              :: !(Maybe [Tag])
+    , _igInternetGatewayId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InternetGateway' smart constructor.
@@ -8294,8 +8294,8 @@ instance FromXML InternetGateway where
 --
 -- * 'igaVPCId'
 data InternetGatewayAttachment = InternetGatewayAttachment'
-    { _igaState :: AttachmentStatus
-    , _igaVPCId :: Text
+    { _igaState :: !AttachmentStatus
+    , _igaVPCId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InternetGatewayAttachment' smart constructor.
@@ -8329,8 +8329,8 @@ instance FromXML InternetGatewayAttachment where
 --
 -- * 'kpiKeyName'
 data KeyPairInfo = KeyPairInfo'
-    { _kpiKeyFingerprint :: Maybe Text
-    , _kpiKeyName        :: Maybe Text
+    { _kpiKeyFingerprint :: !(Maybe Text)
+    , _kpiKeyName        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'KeyPairInfo' smart constructor.
@@ -8367,8 +8367,8 @@ instance FromXML KeyPairInfo where
 --
 -- * 'lpUserId'
 data LaunchPermission = LaunchPermission'
-    { _lpGroup  :: Maybe PermissionGroup
-    , _lpUserId :: Maybe Text
+    { _lpGroup  :: !(Maybe PermissionGroup)
+    , _lpUserId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LaunchPermission' smart constructor.
@@ -8407,8 +8407,8 @@ instance ToQuery LaunchPermission where
 --
 -- * 'lpmAdd'
 data LaunchPermissionModifications = LaunchPermissionModifications'
-    { _lpmRemove :: Maybe [LaunchPermission]
-    , _lpmAdd    :: Maybe [LaunchPermission]
+    { _lpmRemove :: !(Maybe [LaunchPermission])
+    , _lpmAdd    :: !(Maybe [LaunchPermission])
     } deriving (Eq,Read,Show)
 
 -- | 'LaunchPermissionModifications' smart constructor.
@@ -8470,21 +8470,21 @@ instance ToQuery LaunchPermissionModifications where
 --
 -- * 'lsPlacement'
 data LaunchSpecification = LaunchSpecification'
-    { _lsSecurityGroups      :: Maybe [GroupIdentifier]
-    , _lsNetworkInterfaces   :: Maybe [InstanceNetworkInterfaceSpecification]
-    , _lsKeyName             :: Maybe Text
-    , _lsRAMDiskId           :: Maybe Text
-    , _lsKernelId            :: Maybe Text
-    , _lsSubnetId            :: Maybe Text
-    , _lsInstanceType        :: Maybe InstanceType
-    , _lsEBSOptimized        :: Maybe Bool
-    , _lsUserData            :: Maybe Text
-    , _lsMonitoring          :: Maybe RunInstancesMonitoringEnabled
-    , _lsIAMInstanceProfile  :: Maybe IAMInstanceProfileSpecification
-    , _lsImageId             :: Maybe Text
-    , _lsBlockDeviceMappings :: Maybe [BlockDeviceMapping]
-    , _lsAddressingType      :: Maybe Text
-    , _lsPlacement           :: Maybe SpotPlacement
+    { _lsSecurityGroups      :: !(Maybe [GroupIdentifier])
+    , _lsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _lsKeyName             :: !(Maybe Text)
+    , _lsRAMDiskId           :: !(Maybe Text)
+    , _lsKernelId            :: !(Maybe Text)
+    , _lsSubnetId            :: !(Maybe Text)
+    , _lsInstanceType        :: !(Maybe InstanceType)
+    , _lsEBSOptimized        :: !(Maybe Bool)
+    , _lsUserData            :: !(Maybe Text)
+    , _lsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
+    , _lsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
+    , _lsImageId             :: !(Maybe Text)
+    , _lsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _lsAddressingType      :: !(Maybe Text)
+    , _lsPlacement           :: !(Maybe SpotPlacement)
     } deriving (Eq,Read,Show)
 
 -- | 'LaunchSpecification' smart constructor.
@@ -8650,8 +8650,8 @@ instance FromXML Monitoring where
 --
 -- * 'masPublicIP'
 data MovingAddressStatus = MovingAddressStatus'
-    { _masMoveStatus :: Maybe MoveStatus
-    , _masPublicIP   :: Maybe Text
+    { _masMoveStatus :: !(Maybe MoveStatus)
+    , _masPublicIP   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'MovingAddressStatus' smart constructor.
@@ -8694,12 +8694,12 @@ instance FromXML MovingAddressStatus where
 --
 -- * 'naTags'
 data NetworkACL = NetworkACL'
-    { _naEntries      :: Maybe [NetworkACLEntry]
-    , _naNetworkACLId :: Maybe Text
-    , _naVPCId        :: Maybe Text
-    , _naAssociations :: Maybe [NetworkACLAssociation]
-    , _naIsDefault    :: Maybe Bool
-    , _naTags         :: Maybe [Tag]
+    { _naEntries      :: !(Maybe [NetworkACLEntry])
+    , _naNetworkACLId :: !(Maybe Text)
+    , _naVPCId        :: !(Maybe Text)
+    , _naAssociations :: !(Maybe [NetworkACLAssociation])
+    , _naIsDefault    :: !(Maybe Bool)
+    , _naTags         :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkACL' smart constructor.
@@ -8760,9 +8760,9 @@ instance FromXML NetworkACL where
 --
 -- * 'naaNetworkACLAssociationId'
 data NetworkACLAssociation = NetworkACLAssociation'
-    { _naaNetworkACLId            :: Maybe Text
-    , _naaSubnetId                :: Maybe Text
-    , _naaNetworkACLAssociationId :: Maybe Text
+    { _naaNetworkACLId            :: !(Maybe Text)
+    , _naaSubnetId                :: !(Maybe Text)
+    , _naaNetworkACLAssociationId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkACLAssociation' smart constructor.
@@ -8812,13 +8812,13 @@ instance FromXML NetworkACLAssociation where
 --
 -- * 'naeEgress'
 data NetworkACLEntry = NetworkACLEntry'
-    { _naeICMPTypeCode :: Maybe ICMPTypeCode
-    , _naeRuleNumber   :: Maybe Int
-    , _naeRuleAction   :: Maybe RuleAction
-    , _naeProtocol     :: Maybe Text
-    , _naePortRange    :: Maybe PortRange
-    , _naeCIDRBlock    :: Maybe Text
-    , _naeEgress       :: Maybe Bool
+    { _naeICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _naeRuleNumber   :: !(Maybe Int)
+    , _naeRuleAction   :: !(Maybe RuleAction)
+    , _naeProtocol     :: !(Maybe Text)
+    , _naePortRange    :: !(Maybe PortRange)
+    , _naeCIDRBlock    :: !(Maybe Text)
+    , _naeEgress       :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkACLEntry' smart constructor.
@@ -8916,24 +8916,24 @@ instance FromXML NetworkACLEntry where
 --
 -- * 'niAssociation'
 data NetworkInterface = NetworkInterface'
-    { _niPrivateIPAddresses :: Maybe [NetworkInterfacePrivateIPAddress]
-    , _niStatus             :: Maybe NetworkInterfaceStatus
-    , _niGroups             :: Maybe [GroupIdentifier]
-    , _niSourceDestCheck    :: Maybe Bool
-    , _niTagSet             :: Maybe [Tag]
-    , _niVPCId              :: Maybe Text
-    , _niRequesterManaged   :: Maybe Bool
-    , _niNetworkInterfaceId :: Maybe Text
-    , _niSubnetId           :: Maybe Text
-    , _niAttachment         :: Maybe NetworkInterfaceAttachment
-    , _niMACAddress         :: Maybe Text
-    , _niOwnerId            :: Maybe Text
-    , _niAvailabilityZone   :: Maybe Text
-    , _niPrivateIPAddress   :: Maybe Text
-    , _niPrivateDNSName     :: Maybe Text
-    , _niRequesterId        :: Maybe Text
-    , _niDescription        :: Maybe Text
-    , _niAssociation        :: Maybe NetworkInterfaceAssociation
+    { _niPrivateIPAddresses :: !(Maybe [NetworkInterfacePrivateIPAddress])
+    , _niStatus             :: !(Maybe NetworkInterfaceStatus)
+    , _niGroups             :: !(Maybe [GroupIdentifier])
+    , _niSourceDestCheck    :: !(Maybe Bool)
+    , _niTagSet             :: !(Maybe [Tag])
+    , _niVPCId              :: !(Maybe Text)
+    , _niRequesterManaged   :: !(Maybe Bool)
+    , _niNetworkInterfaceId :: !(Maybe Text)
+    , _niSubnetId           :: !(Maybe Text)
+    , _niAttachment         :: !(Maybe NetworkInterfaceAttachment)
+    , _niMACAddress         :: !(Maybe Text)
+    , _niOwnerId            :: !(Maybe Text)
+    , _niAvailabilityZone   :: !(Maybe Text)
+    , _niPrivateIPAddress   :: !(Maybe Text)
+    , _niPrivateDNSName     :: !(Maybe Text)
+    , _niRequesterId        :: !(Maybe Text)
+    , _niDescription        :: !(Maybe Text)
+    , _niAssociation        :: !(Maybe NetworkInterfaceAssociation)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterface' smart constructor.
@@ -9071,11 +9071,11 @@ instance FromXML NetworkInterface where
 --
 -- * 'niaPublicIP'
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
-    { _niaAssociationId :: Maybe Text
-    , _niaPublicDNSName :: Maybe Text
-    , _niaAllocationId  :: Maybe Text
-    , _niaIPOwnerId     :: Maybe Text
-    , _niaPublicIP      :: Maybe Text
+    { _niaAssociationId :: !(Maybe Text)
+    , _niaPublicDNSName :: !(Maybe Text)
+    , _niaAllocationId  :: !(Maybe Text)
+    , _niaIPOwnerId     :: !(Maybe Text)
+    , _niaPublicIP      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfaceAssociation' smart constructor.
@@ -9137,13 +9137,13 @@ instance FromXML NetworkInterfaceAssociation where
 --
 -- * 'niaDeviceIndex'
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
-    { _niaInstanceId          :: Maybe Text
-    , _niaDeleteOnTermination :: Maybe Bool
-    , _niaStatus              :: Maybe AttachmentStatus
-    , _niaAttachmentId        :: Maybe Text
-    , _niaInstanceOwnerId     :: Maybe Text
-    , _niaAttachTime          :: Maybe ISO8601
-    , _niaDeviceIndex         :: Maybe Int
+    { _niaInstanceId          :: !(Maybe Text)
+    , _niaDeleteOnTermination :: !(Maybe Bool)
+    , _niaStatus              :: !(Maybe AttachmentStatus)
+    , _niaAttachmentId        :: !(Maybe Text)
+    , _niaInstanceOwnerId     :: !(Maybe Text)
+    , _niaAttachTime          :: !(Maybe ISO8601)
+    , _niaDeviceIndex         :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfaceAttachment' smart constructor.
@@ -9209,8 +9209,8 @@ instance FromXML NetworkInterfaceAttachment where
 --
 -- * 'niacAttachmentId'
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
-    { _niacDeleteOnTermination :: Maybe Bool
-    , _niacAttachmentId        :: Maybe Text
+    { _niacDeleteOnTermination :: !(Maybe Bool)
+    , _niacAttachmentId        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfaceAttachmentChanges' smart constructor.
@@ -9251,10 +9251,10 @@ instance ToQuery NetworkInterfaceAttachmentChanges
 --
 -- * 'nipiaAssociation'
 data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
-    { _nipiaPrimary          :: Maybe Bool
-    , _nipiaPrivateIPAddress :: Maybe Text
-    , _nipiaPrivateDNSName   :: Maybe Text
-    , _nipiaAssociation      :: Maybe NetworkInterfaceAssociation
+    { _nipiaPrimary          :: !(Maybe Bool)
+    , _nipiaPrivateIPAddress :: !(Maybe Text)
+    , _nipiaPrivateDNSName   :: !(Maybe Text)
+    , _nipiaAssociation      :: !(Maybe NetworkInterfaceAssociation)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterfacePrivateIPAddress' smart constructor.
@@ -9301,8 +9301,8 @@ instance FromXML NetworkInterfacePrivateIPAddress
 --
 -- * 'ndcKey'
 data NewDHCPConfiguration = NewDHCPConfiguration'
-    { _ndcValues :: Maybe [Text]
-    , _ndcKey    :: Maybe Text
+    { _ndcValues :: !(Maybe [Text])
+    , _ndcKey    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'NewDHCPConfiguration' smart constructor.
@@ -9339,9 +9339,9 @@ instance ToQuery NewDHCPConfiguration where
 --
 -- * 'plaGroupName'
 data Placement = Placement'
-    { _plaAvailabilityZone :: Maybe Text
-    , _plaTenancy          :: Maybe Tenancy
-    , _plaGroupName        :: Maybe Text
+    { _plaAvailabilityZone :: !(Maybe Text)
+    , _plaTenancy          :: !(Maybe Tenancy)
+    , _plaGroupName        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Placement' smart constructor.
@@ -9392,9 +9392,9 @@ instance ToQuery Placement where
 --
 -- * 'pgGroupName'
 data PlacementGroup = PlacementGroup'
-    { _pgState     :: Maybe PlacementGroupState
-    , _pgStrategy  :: Maybe PlacementStrategy
-    , _pgGroupName :: Maybe Text
+    { _pgState     :: !(Maybe PlacementGroupState)
+    , _pgStrategy  :: !(Maybe PlacementStrategy)
+    , _pgGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PlacementGroup' smart constructor.
@@ -9434,8 +9434,8 @@ instance FromXML PlacementGroup where
 --
 -- * 'prFrom'
 data PortRange = PortRange'
-    { _prTo   :: Maybe Int
-    , _prFrom :: Maybe Int
+    { _prTo   :: !(Maybe Int)
+    , _prFrom :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'PortRange' smart constructor.
@@ -9474,9 +9474,9 @@ instance ToQuery PortRange where
 --
 -- * 'plPrefixListName'
 data PrefixList = PrefixList'
-    { _plCIDRs          :: Maybe [Text]
-    , _plPrefixListId   :: Maybe Text
-    , _plPrefixListName :: Maybe Text
+    { _plCIDRs          :: !(Maybe [Text])
+    , _plPrefixListId   :: !(Maybe Text)
+    , _plPrefixListName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PrefixList' smart constructor.
@@ -9550,10 +9550,10 @@ instance ToQuery PrefixListId where
 --
 -- * 'psPrice'
 data PriceSchedule = PriceSchedule'
-    { _psCurrencyCode :: Maybe CurrencyCodeValues
-    , _psTerm         :: Maybe Integer
-    , _psActive       :: Maybe Bool
-    , _psPrice        :: Maybe Double
+    { _psCurrencyCode :: !(Maybe CurrencyCodeValues)
+    , _psTerm         :: !(Maybe Integer)
+    , _psActive       :: !(Maybe Bool)
+    , _psPrice        :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'PriceSchedule' smart constructor.
@@ -9612,9 +9612,9 @@ instance FromXML PriceSchedule where
 --
 -- * 'pssPrice'
 data PriceScheduleSpecification = PriceScheduleSpecification'
-    { _pssCurrencyCode :: Maybe CurrencyCodeValues
-    , _pssTerm         :: Maybe Integer
-    , _pssPrice        :: Maybe Double
+    { _pssCurrencyCode :: !(Maybe CurrencyCodeValues)
+    , _pssTerm         :: !(Maybe Integer)
+    , _pssPrice        :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'PriceScheduleSpecification' smart constructor.
@@ -9656,8 +9656,8 @@ instance ToQuery PriceScheduleSpecification where
 --
 -- * 'pdPrice'
 data PricingDetail = PricingDetail'
-    { _pdCount :: Maybe Int
-    , _pdPrice :: Maybe Double
+    { _pdCount :: !(Maybe Int)
+    , _pdPrice :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'PricingDetail' smart constructor.
@@ -9691,8 +9691,8 @@ instance FromXML PricingDetail where
 --
 -- * 'piasPrivateIPAddress'
 data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
-    { _piasPrimary          :: Maybe Bool
-    , _piasPrivateIPAddress :: Text
+    { _piasPrimary          :: !(Maybe Bool)
+    , _piasPrivateIPAddress :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PrivateIPAddressSpecification' smart constructor.
@@ -9733,8 +9733,8 @@ instance ToQuery PrivateIPAddressSpecification where
 --
 -- * 'pcProductCodeId'
 data ProductCode = ProductCode'
-    { _pcProductCodeType :: Maybe ProductCodeValues
-    , _pcProductCodeId   :: Maybe Text
+    { _pcProductCodeType :: !(Maybe ProductCodeValues)
+    , _pcProductCodeId   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ProductCode' smart constructor.
@@ -9793,8 +9793,8 @@ instance FromXML PropagatingVGW where
 --
 -- * 'rcAmount'
 data RecurringCharge = RecurringCharge'
-    { _rcFrequency :: Maybe RecurringChargeFrequency
-    , _rcAmount    :: Maybe Double
+    { _rcFrequency :: !(Maybe RecurringChargeFrequency)
+    , _rcAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
@@ -9828,8 +9828,8 @@ instance FromXML RecurringCharge where
 --
 -- * 'riEndpoint'
 data RegionInfo = RegionInfo'
-    { _riRegionName :: Maybe Text
-    , _riEndpoint   :: Maybe Text
+    { _riRegionName :: !(Maybe Text)
+    , _riEndpoint   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RegionInfo' smart constructor.
@@ -9891,22 +9891,22 @@ instance FromXML RegionInfo where
 --
 -- * 'rslsPlacement'
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
-    { _rslsSecurityGroupIds    :: Maybe [Text]
-    , _rslsSecurityGroups      :: Maybe [Text]
-    , _rslsNetworkInterfaces   :: Maybe [InstanceNetworkInterfaceSpecification]
-    , _rslsKeyName             :: Maybe Text
-    , _rslsRAMDiskId           :: Maybe Text
-    , _rslsKernelId            :: Maybe Text
-    , _rslsSubnetId            :: Maybe Text
-    , _rslsInstanceType        :: Maybe InstanceType
-    , _rslsEBSOptimized        :: Maybe Bool
-    , _rslsUserData            :: Maybe Text
-    , _rslsMonitoring          :: Maybe RunInstancesMonitoringEnabled
-    , _rslsIAMInstanceProfile  :: Maybe IAMInstanceProfileSpecification
-    , _rslsImageId             :: Maybe Text
-    , _rslsBlockDeviceMappings :: Maybe [BlockDeviceMapping]
-    , _rslsAddressingType      :: Maybe Text
-    , _rslsPlacement           :: Maybe SpotPlacement
+    { _rslsSecurityGroupIds    :: !(Maybe [Text])
+    , _rslsSecurityGroups      :: !(Maybe [Text])
+    , _rslsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _rslsKeyName             :: !(Maybe Text)
+    , _rslsRAMDiskId           :: !(Maybe Text)
+    , _rslsKernelId            :: !(Maybe Text)
+    , _rslsSubnetId            :: !(Maybe Text)
+    , _rslsInstanceType        :: !(Maybe InstanceType)
+    , _rslsEBSOptimized        :: !(Maybe Bool)
+    , _rslsUserData            :: !(Maybe Text)
+    , _rslsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rslsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
+    , _rslsImageId             :: !(Maybe Text)
+    , _rslsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _rslsAddressingType      :: !(Maybe Text)
+    , _rslsPlacement           :: !(Maybe SpotPlacement)
     } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotLaunchSpecification' smart constructor.
@@ -10040,11 +10040,11 @@ instance ToQuery RequestSpotLaunchSpecification where
 --
 -- * 'resOwnerId'
 data Reservation = Reservation'
-    { _resGroups        :: Maybe [GroupIdentifier]
-    , _resInstances     :: Maybe [Instance]
-    , _resRequesterId   :: Maybe Text
-    , _resReservationId :: Text
-    , _resOwnerId       :: Text
+    { _resGroups        :: !(Maybe [GroupIdentifier])
+    , _resInstances     :: !(Maybe [Instance])
+    , _resRequesterId   :: !(Maybe Text)
+    , _resReservationId :: !Text
+    , _resOwnerId       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Reservation' smart constructor.
@@ -10098,8 +10098,8 @@ instance FromXML Reservation where
 --
 -- * 'rilpCurrencyCode'
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
-    { _rilpAmount       :: Maybe Double
-    , _rilpCurrencyCode :: Maybe CurrencyCodeValues
+    { _rilpAmount       :: !(Maybe Double)
+    , _rilpCurrencyCode :: !(Maybe CurrencyCodeValues)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstanceLimitPrice' smart constructor.
@@ -10164,22 +10164,22 @@ instance ToQuery ReservedInstanceLimitPrice where
 --
 -- * 'riTags'
 data ReservedInstances = ReservedInstances'
-    { _riState               :: Maybe ReservedInstanceState
-    , _riCurrencyCode        :: Maybe CurrencyCodeValues
-    , _riInstanceCount       :: Maybe Int
-    , _riProductDescription  :: Maybe RIProductDescription
-    , _riStart               :: Maybe ISO8601
-    , _riInstanceType        :: Maybe InstanceType
-    , _riAvailabilityZone    :: Maybe Text
-    , _riEnd                 :: Maybe ISO8601
-    , _riOfferingType        :: Maybe OfferingTypeValues
-    , _riUsagePrice          :: Maybe Double
-    , _riRecurringCharges    :: Maybe [RecurringCharge]
-    , _riInstanceTenancy     :: Maybe Tenancy
-    , _riFixedPrice          :: Maybe Double
-    , _riReservedInstancesId :: Maybe Text
-    , _riDuration            :: Maybe Integer
-    , _riTags                :: Maybe [Tag]
+    { _riState               :: !(Maybe ReservedInstanceState)
+    , _riCurrencyCode        :: !(Maybe CurrencyCodeValues)
+    , _riInstanceCount       :: !(Maybe Int)
+    , _riProductDescription  :: !(Maybe RIProductDescription)
+    , _riStart               :: !(Maybe ISO8601)
+    , _riInstanceType        :: !(Maybe InstanceType)
+    , _riAvailabilityZone    :: !(Maybe Text)
+    , _riEnd                 :: !(Maybe ISO8601)
+    , _riOfferingType        :: !(Maybe OfferingTypeValues)
+    , _riUsagePrice          :: !(Maybe Double)
+    , _riRecurringCharges    :: !(Maybe [RecurringCharge])
+    , _riInstanceTenancy     :: !(Maybe Tenancy)
+    , _riFixedPrice          :: !(Maybe Double)
+    , _riReservedInstancesId :: !(Maybe Text)
+    , _riDuration            :: !(Maybe Integer)
+    , _riTags                :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstances' smart constructor.
@@ -10304,10 +10304,10 @@ instance FromXML ReservedInstances where
 --
 -- * 'ricAvailabilityZone'
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
-    { _ricPlatform         :: Maybe Text
-    , _ricInstanceCount    :: Maybe Int
-    , _ricInstanceType     :: Maybe InstanceType
-    , _ricAvailabilityZone :: Maybe Text
+    { _ricPlatform         :: !(Maybe Text)
+    , _ricInstanceCount    :: !(Maybe Int)
+    , _ricInstanceType     :: !(Maybe InstanceType)
+    , _ricAvailabilityZone :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesConfiguration' smart constructor.
@@ -10405,16 +10405,16 @@ instance FromXML ReservedInstancesId where
 --
 -- * 'rilTags'
 data ReservedInstancesListing = ReservedInstancesListing'
-    { _rilStatus                     :: Maybe ListingStatus
-    , _rilClientToken                :: Maybe Text
-    , _rilUpdateDate                 :: Maybe ISO8601
-    , _rilCreateDate                 :: Maybe ISO8601
-    , _rilPriceSchedules             :: Maybe [PriceSchedule]
-    , _rilStatusMessage              :: Maybe Text
-    , _rilReservedInstancesId        :: Maybe Text
-    , _rilInstanceCounts             :: Maybe [InstanceCount]
-    , _rilReservedInstancesListingId :: Maybe Text
-    , _rilTags                       :: Maybe [Tag]
+    { _rilStatus                     :: !(Maybe ListingStatus)
+    , _rilClientToken                :: !(Maybe Text)
+    , _rilUpdateDate                 :: !(Maybe ISO8601)
+    , _rilCreateDate                 :: !(Maybe ISO8601)
+    , _rilPriceSchedules             :: !(Maybe [PriceSchedule])
+    , _rilStatusMessage              :: !(Maybe Text)
+    , _rilReservedInstancesId        :: !(Maybe Text)
+    , _rilInstanceCounts             :: !(Maybe [InstanceCount])
+    , _rilReservedInstancesListingId :: !(Maybe Text)
+    , _rilTags                       :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesListing' smart constructor.
@@ -10513,15 +10513,15 @@ instance FromXML ReservedInstancesListing where
 --
 -- * 'rimReservedInstancesIds'
 data ReservedInstancesModification = ReservedInstancesModification'
-    { _rimModificationResults             :: Maybe [ReservedInstancesModificationResult]
-    , _rimStatus                          :: Maybe Text
-    , _rimClientToken                     :: Maybe Text
-    , _rimUpdateDate                      :: Maybe ISO8601
-    , _rimCreateDate                      :: Maybe ISO8601
-    , _rimEffectiveDate                   :: Maybe ISO8601
-    , _rimStatusMessage                   :: Maybe Text
-    , _rimReservedInstancesModificationId :: Maybe Text
-    , _rimReservedInstancesIds            :: Maybe [ReservedInstancesId]
+    { _rimModificationResults             :: !(Maybe [ReservedInstancesModificationResult])
+    , _rimStatus                          :: !(Maybe Text)
+    , _rimClientToken                     :: !(Maybe Text)
+    , _rimUpdateDate                      :: !(Maybe ISO8601)
+    , _rimCreateDate                      :: !(Maybe ISO8601)
+    , _rimEffectiveDate                   :: !(Maybe ISO8601)
+    , _rimStatusMessage                   :: !(Maybe Text)
+    , _rimReservedInstancesModificationId :: !(Maybe Text)
+    , _rimReservedInstancesIds            :: !(Maybe [ReservedInstancesId])
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesModification' smart constructor.
@@ -10598,8 +10598,8 @@ instance FromXML ReservedInstancesModification where
 --
 -- * 'rimrTargetConfiguration'
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
-    { _rimrReservedInstancesId :: Maybe Text
-    , _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration
+    { _rimrReservedInstancesId :: !(Maybe Text)
+    , _rimrTargetConfiguration :: !(Maybe ReservedInstancesConfiguration)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesModificationResult' smart constructor.
@@ -10660,19 +10660,19 @@ instance FromXML ReservedInstancesModificationResult
 --
 -- * 'rioDuration'
 data ReservedInstancesOffering = ReservedInstancesOffering'
-    { _rioMarketplace                 :: Maybe Bool
-    , _rioCurrencyCode                :: Maybe CurrencyCodeValues
-    , _rioProductDescription          :: Maybe RIProductDescription
-    , _rioInstanceType                :: Maybe InstanceType
-    , _rioAvailabilityZone            :: Maybe Text
-    , _rioPricingDetails              :: Maybe [PricingDetail]
-    , _rioOfferingType                :: Maybe OfferingTypeValues
-    , _rioUsagePrice                  :: Maybe Double
-    , _rioRecurringCharges            :: Maybe [RecurringCharge]
-    , _rioReservedInstancesOfferingId :: Maybe Text
-    , _rioInstanceTenancy             :: Maybe Tenancy
-    , _rioFixedPrice                  :: Maybe Double
-    , _rioDuration                    :: Maybe Integer
+    { _rioMarketplace                 :: !(Maybe Bool)
+    , _rioCurrencyCode                :: !(Maybe CurrencyCodeValues)
+    , _rioProductDescription          :: !(Maybe RIProductDescription)
+    , _rioInstanceType                :: !(Maybe InstanceType)
+    , _rioAvailabilityZone            :: !(Maybe Text)
+    , _rioPricingDetails              :: !(Maybe [PricingDetail])
+    , _rioOfferingType                :: !(Maybe OfferingTypeValues)
+    , _rioUsagePrice                  :: !(Maybe Double)
+    , _rioRecurringCharges            :: !(Maybe [RecurringCharge])
+    , _rioReservedInstancesOfferingId :: !(Maybe Text)
+    , _rioInstanceTenancy             :: !(Maybe Tenancy)
+    , _rioFixedPrice                  :: !(Maybe Double)
+    , _rioDuration                    :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedInstancesOffering' smart constructor.
@@ -10790,15 +10790,15 @@ instance FromXML ReservedInstancesOffering where
 --
 -- * 'rouDestinationCIDRBlock'
 data Route = Route'
-    { _rouInstanceId              :: Maybe Text
-    , _rouOrigin                  :: Maybe RouteOrigin
-    , _rouVPCPeeringConnectionId  :: Maybe Text
-    , _rouState                   :: Maybe RouteState
-    , _rouNetworkInterfaceId      :: Maybe Text
-    , _rouGatewayId               :: Maybe Text
-    , _rouInstanceOwnerId         :: Maybe Text
-    , _rouDestinationPrefixListId :: Maybe Text
-    , _rouDestinationCIDRBlock    :: Maybe Text
+    { _rouInstanceId              :: !(Maybe Text)
+    , _rouOrigin                  :: !(Maybe RouteOrigin)
+    , _rouVPCPeeringConnectionId  :: !(Maybe Text)
+    , _rouState                   :: !(Maybe RouteState)
+    , _rouNetworkInterfaceId      :: !(Maybe Text)
+    , _rouGatewayId               :: !(Maybe Text)
+    , _rouInstanceOwnerId         :: !(Maybe Text)
+    , _rouDestinationPrefixListId :: !(Maybe Text)
+    , _rouDestinationCIDRBlock    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Route' smart constructor.
@@ -10892,12 +10892,12 @@ instance FromXML Route where
 --
 -- * 'rtTags'
 data RouteTable = RouteTable'
-    { _rtRoutes          :: Maybe [Route]
-    , _rtRouteTableId    :: Maybe Text
-    , _rtVPCId           :: Maybe Text
-    , _rtPropagatingVGWs :: Maybe [PropagatingVGW]
-    , _rtAssociations    :: Maybe [RouteTableAssociation]
-    , _rtTags            :: Maybe [Tag]
+    { _rtRoutes          :: !(Maybe [Route])
+    , _rtRouteTableId    :: !(Maybe Text)
+    , _rtVPCId           :: !(Maybe Text)
+    , _rtPropagatingVGWs :: !(Maybe [PropagatingVGW])
+    , _rtAssociations    :: !(Maybe [RouteTableAssociation])
+    , _rtTags            :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'RouteTable' smart constructor.
@@ -10960,10 +10960,10 @@ instance FromXML RouteTable where
 --
 -- * 'rtaSubnetId'
 data RouteTableAssociation = RouteTableAssociation'
-    { _rtaRouteTableId            :: Maybe Text
-    , _rtaRouteTableAssociationId :: Maybe Text
-    , _rtaMain                    :: Maybe Bool
-    , _rtaSubnetId                :: Maybe Text
+    { _rtaRouteTableId            :: !(Maybe Text)
+    , _rtaRouteTableAssociationId :: !(Maybe Text)
+    , _rtaMain                    :: !(Maybe Bool)
+    , _rtaSubnetId                :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RouteTableAssociation' smart constructor.
@@ -11047,11 +11047,11 @@ instance ToQuery RunInstancesMonitoringEnabled where
 --
 -- * 'ssAWSAccessKeyId'
 data S3Storage = S3Storage'
-    { _ssPrefix                :: Maybe Text
-    , _ssUploadPolicy          :: Maybe Base64
-    , _ssBucket                :: Maybe Text
-    , _ssUploadPolicySignature :: Maybe Text
-    , _ssAWSAccessKeyId        :: Maybe Text
+    { _ssPrefix                :: !(Maybe Text)
+    , _ssUploadPolicy          :: !(Maybe Base64)
+    , _ssBucket                :: !(Maybe Text)
+    , _ssUploadPolicySignature :: !(Maybe Text)
+    , _ssAWSAccessKeyId        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'S3Storage' smart constructor.
@@ -11130,14 +11130,14 @@ instance ToQuery S3Storage where
 --
 -- * 'sgDescription'
 data SecurityGroup = SecurityGroup'
-    { _sgVPCId               :: Maybe Text
-    , _sgIPPermissions       :: Maybe [IPPermission]
-    , _sgIPPermissionsEgress :: Maybe [IPPermission]
-    , _sgTags                :: Maybe [Tag]
-    , _sgOwnerId             :: Text
-    , _sgGroupId             :: Text
-    , _sgGroupName           :: Text
-    , _sgDescription         :: Text
+    { _sgVPCId               :: !(Maybe Text)
+    , _sgIPPermissions       :: !(Maybe [IPPermission])
+    , _sgIPPermissionsEgress :: !(Maybe [IPPermission])
+    , _sgTags                :: !(Maybe [Tag])
+    , _sgOwnerId             :: !Text
+    , _sgGroupId             :: !Text
+    , _sgGroupName           :: !Text
+    , _sgDescription         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SecurityGroup' smart constructor.
@@ -11227,17 +11227,17 @@ instance FromXML SecurityGroup where
 --
 -- * 'snaEncrypted'
 data Snapshot = Snapshot'
-    { _snaOwnerAlias  :: Maybe Text
-    , _snaKMSKeyId    :: Maybe Text
-    , _snaTags        :: Maybe [Tag]
-    , _snaSnapshotId  :: Text
-    , _snaOwnerId     :: Text
-    , _snaVolumeId    :: Text
+    { _snaOwnerAlias  :: !(Maybe Text)
+    , _snaKMSKeyId    :: !(Maybe Text)
+    , _snaTags        :: !(Maybe [Tag])
+    , _snaSnapshotId  :: !Text
+    , _snaOwnerId     :: !Text
+    , _snaVolumeId    :: !Text
     , _snaVolumeSize  :: !Int
-    , _snaDescription :: Text
-    , _snaStartTime   :: ISO8601
-    , _snaProgress    :: Text
-    , _snaState       :: SnapshotState
+    , _snaDescription :: !Text
+    , _snaStartTime   :: !ISO8601
+    , _snaProgress    :: !Text
+    , _snaState       :: !SnapshotState
     , _snaEncrypted   :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -11350,16 +11350,16 @@ instance FromXML Snapshot where
 --
 -- * 'sdSnapshotId'
 data SnapshotDetail = SnapshotDetail'
-    { _sdStatus        :: Maybe Text
-    , _sdProgress      :: Maybe Text
-    , _sdURL           :: Maybe Text
-    , _sdFormat        :: Maybe Text
-    , _sdDeviceName    :: Maybe Text
-    , _sdUserBucket    :: Maybe UserBucketDetails
-    , _sdDiskImageSize :: Maybe Double
-    , _sdStatusMessage :: Maybe Text
-    , _sdDescription   :: Maybe Text
-    , _sdSnapshotId    :: Maybe Text
+    { _sdStatus        :: !(Maybe Text)
+    , _sdProgress      :: !(Maybe Text)
+    , _sdURL           :: !(Maybe Text)
+    , _sdFormat        :: !(Maybe Text)
+    , _sdDeviceName    :: !(Maybe Text)
+    , _sdUserBucket    :: !(Maybe UserBucketDetails)
+    , _sdDiskImageSize :: !(Maybe Double)
+    , _sdStatusMessage :: !(Maybe Text)
+    , _sdDescription   :: !(Maybe Text)
+    , _sdSnapshotId    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SnapshotDetail' smart constructor.
@@ -11445,10 +11445,10 @@ instance FromXML SnapshotDetail where
 --
 -- * 'sdcDescription'
 data SnapshotDiskContainer = SnapshotDiskContainer'
-    { _sdcURL         :: Maybe Text
-    , _sdcFormat      :: Maybe Text
-    , _sdcUserBucket  :: Maybe UserBucket
-    , _sdcDescription :: Maybe Text
+    { _sdcURL         :: !(Maybe Text)
+    , _sdcFormat      :: !(Maybe Text)
+    , _sdcUserBucket  :: !(Maybe UserBucket)
+    , _sdcDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SnapshotDiskContainer' smart constructor.
@@ -11511,15 +11511,15 @@ instance ToQuery SnapshotDiskContainer where
 --
 -- * 'stdSnapshotId'
 data SnapshotTaskDetail = SnapshotTaskDetail'
-    { _stdStatus        :: Maybe Text
-    , _stdProgress      :: Maybe Text
-    , _stdURL           :: Maybe Text
-    , _stdFormat        :: Maybe Text
-    , _stdUserBucket    :: Maybe UserBucketDetails
-    , _stdDiskImageSize :: Maybe Double
-    , _stdStatusMessage :: Maybe Text
-    , _stdDescription   :: Maybe Text
-    , _stdSnapshotId    :: Maybe Text
+    { _stdStatus        :: !(Maybe Text)
+    , _stdProgress      :: !(Maybe Text)
+    , _stdURL           :: !(Maybe Text)
+    , _stdFormat        :: !(Maybe Text)
+    , _stdUserBucket    :: !(Maybe UserBucketDetails)
+    , _stdDiskImageSize :: !(Maybe Double)
+    , _stdStatusMessage :: !(Maybe Text)
+    , _stdDescription   :: !(Maybe Text)
+    , _stdSnapshotId    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SnapshotTaskDetail' smart constructor.
@@ -11601,11 +11601,11 @@ instance FromXML SnapshotTaskDetail where
 --
 -- * 'sdsFault'
 data SpotDatafeedSubscription = SpotDatafeedSubscription'
-    { _sdsState   :: Maybe DatafeedSubscriptionState
-    , _sdsPrefix  :: Maybe Text
-    , _sdsBucket  :: Maybe Text
-    , _sdsOwnerId :: Maybe Text
-    , _sdsFault   :: Maybe SpotInstanceStateFault
+    { _sdsState   :: !(Maybe DatafeedSubscriptionState)
+    , _sdsPrefix  :: !(Maybe Text)
+    , _sdsBucket  :: !(Maybe Text)
+    , _sdsOwnerId :: !(Maybe Text)
+    , _sdsFault   :: !(Maybe SpotInstanceStateFault)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotDatafeedSubscription' smart constructor.
@@ -11659,9 +11659,9 @@ instance FromXML SpotDatafeedSubscription where
 --
 -- * 'sfrcSpotFleetRequestConfig'
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
-    { _sfrcSpotFleetRequestId     :: Text
-    , _sfrcSpotFleetRequestState  :: BatchState
-    , _sfrcSpotFleetRequestConfig :: SpotFleetRequestConfigData
+    { _sfrcSpotFleetRequestId     :: !Text
+    , _sfrcSpotFleetRequestState  :: !BatchState
+    , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show)
 
 -- | 'SpotFleetRequestConfig' smart constructor.
@@ -11714,14 +11714,14 @@ instance FromXML SpotFleetRequestConfig where
 --
 -- * 'sfrcdLaunchSpecifications'
 data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
-    { _sfrcdClientToken                      :: Maybe Text
-    , _sfrcdValidUntil                       :: Maybe ISO8601
-    , _sfrcdTerminateInstancesWithExpiration :: Maybe Bool
-    , _sfrcdValidFrom                        :: Maybe ISO8601
-    , _sfrcdSpotPrice                        :: Text
+    { _sfrcdClientToken                      :: !(Maybe Text)
+    , _sfrcdValidUntil                       :: !(Maybe ISO8601)
+    , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
+    , _sfrcdValidFrom                        :: !(Maybe ISO8601)
+    , _sfrcdSpotPrice                        :: !Text
     , _sfrcdTargetCapacity                   :: !Int
-    , _sfrcdIAMFleetRole                     :: Text
-    , _sfrcdLaunchSpecifications             :: List1 LaunchSpecification
+    , _sfrcdIAMFleetRole                     :: !Text
+    , _sfrcdLaunchSpecifications             :: !(List1 LaunchSpecification)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotFleetRequestConfigData' smart constructor.
@@ -11844,22 +11844,22 @@ instance ToQuery SpotFleetRequestConfigData where
 --
 -- * 'sirCreateTime'
 data SpotInstanceRequest = SpotInstanceRequest'
-    { _sirInstanceId               :: Maybe Text
-    , _sirStatus                   :: Maybe SpotInstanceStatus
-    , _sirState                    :: Maybe SpotInstanceState
-    , _sirProductDescription       :: Maybe RIProductDescription
-    , _sirSpotPrice                :: Maybe Text
-    , _sirAvailabilityZoneGroup    :: Maybe Text
-    , _sirLaunchSpecification      :: Maybe LaunchSpecification
-    , _sirLaunchedAvailabilityZone :: Maybe Text
-    , _sirValidUntil               :: Maybe ISO8601
-    , _sirFault                    :: Maybe SpotInstanceStateFault
-    , _sirLaunchGroup              :: Maybe Text
-    , _sirSpotInstanceRequestId    :: Maybe Text
-    , _sirType                     :: Maybe SpotInstanceType
-    , _sirValidFrom                :: Maybe ISO8601
-    , _sirTags                     :: Maybe [Tag]
-    , _sirCreateTime               :: Maybe ISO8601
+    { _sirInstanceId               :: !(Maybe Text)
+    , _sirStatus                   :: !(Maybe SpotInstanceStatus)
+    , _sirState                    :: !(Maybe SpotInstanceState)
+    , _sirProductDescription       :: !(Maybe RIProductDescription)
+    , _sirSpotPrice                :: !(Maybe Text)
+    , _sirAvailabilityZoneGroup    :: !(Maybe Text)
+    , _sirLaunchSpecification      :: !(Maybe LaunchSpecification)
+    , _sirLaunchedAvailabilityZone :: !(Maybe Text)
+    , _sirValidUntil               :: !(Maybe ISO8601)
+    , _sirFault                    :: !(Maybe SpotInstanceStateFault)
+    , _sirLaunchGroup              :: !(Maybe Text)
+    , _sirSpotInstanceRequestId    :: !(Maybe Text)
+    , _sirType                     :: !(Maybe SpotInstanceType)
+    , _sirValidFrom                :: !(Maybe ISO8601)
+    , _sirTags                     :: !(Maybe [Tag])
+    , _sirCreateTime               :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotInstanceRequest' smart constructor.
@@ -11995,8 +11995,8 @@ instance FromXML SpotInstanceRequest where
 --
 -- * 'sisfMessage'
 data SpotInstanceStateFault = SpotInstanceStateFault'
-    { _sisfCode    :: Maybe Text
-    , _sisfMessage :: Maybe Text
+    { _sisfCode    :: !(Maybe Text)
+    , _sisfMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotInstanceStateFault' smart constructor.
@@ -12032,9 +12032,9 @@ instance FromXML SpotInstanceStateFault where
 --
 -- * 'sisMessage'
 data SpotInstanceStatus = SpotInstanceStatus'
-    { _sisUpdateTime :: Maybe ISO8601
-    , _sisCode       :: Maybe Text
-    , _sisMessage    :: Maybe Text
+    { _sisUpdateTime :: !(Maybe ISO8601)
+    , _sisCode       :: !(Maybe Text)
+    , _sisMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotInstanceStatus' smart constructor.
@@ -12075,8 +12075,8 @@ instance FromXML SpotInstanceStatus where
 --
 -- * 'spGroupName'
 data SpotPlacement = SpotPlacement'
-    { _spAvailabilityZone :: Maybe Text
-    , _spGroupName        :: Maybe Text
+    { _spAvailabilityZone :: !(Maybe Text)
+    , _spGroupName        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotPlacement' smart constructor.
@@ -12123,11 +12123,11 @@ instance ToQuery SpotPlacement where
 --
 -- * 'spoTimestamp'
 data SpotPrice = SpotPrice'
-    { _spoProductDescription :: Maybe RIProductDescription
-    , _spoSpotPrice          :: Maybe Text
-    , _spoInstanceType       :: Maybe InstanceType
-    , _spoAvailabilityZone   :: Maybe Text
-    , _spoTimestamp          :: Maybe ISO8601
+    { _spoProductDescription :: !(Maybe RIProductDescription)
+    , _spoSpotPrice          :: !(Maybe Text)
+    , _spoInstanceType       :: !(Maybe InstanceType)
+    , _spoAvailabilityZone   :: !(Maybe Text)
+    , _spoTimestamp          :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'SpotPrice' smart constructor.
@@ -12180,8 +12180,8 @@ instance FromXML SpotPrice where
 --
 -- * 'srMessage'
 data StateReason = StateReason'
-    { _srCode    :: Maybe Text
-    , _srMessage :: Maybe Text
+    { _srCode    :: !(Maybe Text)
+    , _srMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'StateReason' smart constructor.
@@ -12281,15 +12281,15 @@ instance ToQuery Storage where
 --
 -- * 'subVPCId'
 data Subnet = Subnet'
-    { _subTags                    :: Maybe [Tag]
-    , _subAvailabilityZone        :: Text
+    { _subTags                    :: !(Maybe [Tag])
+    , _subAvailabilityZone        :: !Text
     , _subAvailableIPAddressCount :: !Int
-    , _subCIDRBlock               :: Text
+    , _subCIDRBlock               :: !Text
     , _subDefaultForAz            :: !Bool
     , _subMapPublicIPOnLaunch     :: !Bool
-    , _subState                   :: SubnetState
-    , _subSubnetId                :: Text
-    , _subVPCId                   :: Text
+    , _subState                   :: !SubnetState
+    , _subSubnetId                :: !Text
+    , _subVPCId                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
@@ -12368,8 +12368,8 @@ instance FromXML Subnet where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey   :: Text
-    , _tagValue :: Text
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -12415,10 +12415,10 @@ instance ToQuery Tag where
 --
 -- * 'tdValue'
 data TagDescription = TagDescription'
-    { _tdResourceId   :: Text
-    , _tdResourceType :: ResourceType
-    , _tdKey          :: Text
-    , _tdValue        :: Text
+    { _tdResourceId   :: !Text
+    , _tdResourceType :: !ResourceType
+    , _tdKey          :: !Text
+    , _tdValue        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'TagDescription' smart constructor.
@@ -12465,8 +12465,8 @@ instance FromXML TagDescription where
 --
 -- * 'uiError'
 data UnsuccessfulItem = UnsuccessfulItem'
-    { _uiResourceId :: Maybe Text
-    , _uiError      :: UnsuccessfulItemError
+    { _uiResourceId :: !(Maybe Text)
+    , _uiError      :: !UnsuccessfulItemError
     } deriving (Eq,Read,Show)
 
 -- | 'UnsuccessfulItem' smart constructor.
@@ -12502,8 +12502,8 @@ instance FromXML UnsuccessfulItem where
 --
 -- * 'uieMessage'
 data UnsuccessfulItemError = UnsuccessfulItemError'
-    { _uieCode    :: Text
-    , _uieMessage :: Text
+    { _uieCode    :: !Text
+    , _uieMessage :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UnsuccessfulItemError' smart constructor.
@@ -12537,8 +12537,8 @@ instance FromXML UnsuccessfulItemError where
 --
 -- * 'ubS3Bucket'
 data UserBucket = UserBucket'
-    { _ubS3Key    :: Maybe Text
-    , _ubS3Bucket :: Maybe Text
+    { _ubS3Key    :: !(Maybe Text)
+    , _ubS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UserBucket' smart constructor.
@@ -12572,8 +12572,8 @@ instance ToQuery UserBucket where
 --
 -- * 'ubdS3Bucket'
 data UserBucketDetails = UserBucketDetails'
-    { _ubdS3Key    :: Maybe Text
-    , _ubdS3Bucket :: Maybe Text
+    { _ubdS3Key    :: !(Maybe Text)
+    , _ubdS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UserBucketDetails' smart constructor.
@@ -12634,9 +12634,9 @@ instance ToQuery UserData where
 --
 -- * 'uigpGroupName'
 data UserIdGroupPair = UserIdGroupPair'
-    { _uigpUserId    :: Maybe Text
-    , _uigpGroupId   :: Maybe Text
-    , _uigpGroupName :: Maybe Text
+    { _uigpUserId    :: !(Maybe Text)
+    , _uigpGroupId   :: !(Maybe Text)
+    , _uigpGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UserIdGroupPair' smart constructor.
@@ -12690,11 +12690,11 @@ instance ToQuery UserIdGroupPair where
 --
 -- * 'vtStatusMessage'
 data VGWTelemetry = VGWTelemetry'
-    { _vtStatus             :: Maybe TelemetryStatus
-    , _vtOutsideIPAddress   :: Maybe Text
-    , _vtLastStatusChange   :: Maybe ISO8601
-    , _vtAcceptedRouteCount :: Maybe Int
-    , _vtStatusMessage      :: Maybe Text
+    { _vtStatus             :: !(Maybe TelemetryStatus)
+    , _vtOutsideIPAddress   :: !(Maybe Text)
+    , _vtLastStatusChange   :: !(Maybe ISO8601)
+    , _vtAcceptedRouteCount :: !(Maybe Int)
+    , _vtStatusMessage      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VGWTelemetry' smart constructor.
@@ -12757,13 +12757,13 @@ instance FromXML VGWTelemetry where
 --
 -- * 'vpcVPCId'
 data VPC = VPC'
-    { _vpcTags            :: Maybe [Tag]
-    , _vpcCIDRBlock       :: Text
-    , _vpcDHCPOptionsId   :: Text
-    , _vpcInstanceTenancy :: Tenancy
+    { _vpcTags            :: !(Maybe [Tag])
+    , _vpcCIDRBlock       :: !Text
+    , _vpcDHCPOptionsId   :: !Text
+    , _vpcInstanceTenancy :: !Tenancy
     , _vpcIsDefault       :: !Bool
-    , _vpcState           :: VPCState
-    , _vpcVPCId           :: Text
+    , _vpcState           :: !VPCState
+    , _vpcVPCId           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'VPC' smart constructor.
@@ -12828,8 +12828,8 @@ instance FromXML VPC where
 --
 -- * 'vaVPCId'
 data VPCAttachment = VPCAttachment'
-    { _vaState :: Maybe AttachmentStatus
-    , _vaVPCId :: Maybe Text
+    { _vaState :: !(Maybe AttachmentStatus)
+    , _vaVPCId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPCAttachment' smart constructor.
@@ -12865,9 +12865,9 @@ instance FromXML VPCAttachment where
 --
 -- * 'vclClassicLinkEnabled'
 data VPCClassicLink = VPCClassicLink'
-    { _vclVPCId              :: Maybe Text
-    , _vclTags               :: Maybe [Tag]
-    , _vclClassicLinkEnabled :: Maybe Bool
+    { _vclVPCId              :: !(Maybe Text)
+    , _vclTags               :: !(Maybe [Tag])
+    , _vclClassicLinkEnabled :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'VPCClassicLink' smart constructor.
@@ -12917,13 +12917,13 @@ instance FromXML VPCClassicLink where
 --
 -- * 'veRouteTableIds'
 data VPCEndpoint = VPCEndpoint'
-    { _vePolicyDocument    :: Maybe Text
-    , _veState             :: Maybe State
-    , _veVPCId             :: Maybe Text
-    , _veCreationTimestamp :: Maybe ISO8601
-    , _veServiceName       :: Maybe Text
-    , _veVPCEndpointId     :: Maybe Text
-    , _veRouteTableIds     :: Maybe [Text]
+    { _vePolicyDocument    :: !(Maybe Text)
+    , _veState             :: !(Maybe State)
+    , _veVPCId             :: !(Maybe Text)
+    , _veCreationTimestamp :: !(Maybe ISO8601)
+    , _veServiceName       :: !(Maybe Text)
+    , _veVPCEndpointId     :: !(Maybe Text)
+    , _veRouteTableIds     :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'VPCEndpoint' smart constructor.
@@ -12995,12 +12995,12 @@ instance FromXML VPCEndpoint where
 --
 -- * 'vTags'
 data VPCPeeringConnection = VPCPeeringConnection'
-    { _vStatus                 :: Maybe VPCPeeringConnectionStateReason
-    , _vVPCPeeringConnectionId :: Maybe Text
-    , _vAccepterVPCInfo        :: Maybe VPCPeeringConnectionVPCInfo
-    , _vRequesterVPCInfo       :: Maybe VPCPeeringConnectionVPCInfo
-    , _vExpirationTime         :: Maybe ISO8601
-    , _vTags                   :: Maybe [Tag]
+    { _vStatus                 :: !(Maybe VPCPeeringConnectionStateReason)
+    , _vVPCPeeringConnectionId :: !(Maybe Text)
+    , _vAccepterVPCInfo        :: !(Maybe VPCPeeringConnectionVPCInfo)
+    , _vRequesterVPCInfo       :: !(Maybe VPCPeeringConnectionVPCInfo)
+    , _vExpirationTime         :: !(Maybe ISO8601)
+    , _vTags                   :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'VPCPeeringConnection' smart constructor.
@@ -13058,8 +13058,8 @@ instance FromXML VPCPeeringConnection where
 --
 -- * 'vpcsrMessage'
 data VPCPeeringConnectionStateReason = VPCPeeringConnectionStateReason'
-    { _vpcsrCode    :: Maybe Text
-    , _vpcsrMessage :: Maybe Text
+    { _vpcsrCode    :: !(Maybe Text)
+    , _vpcsrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPCPeeringConnectionStateReason' smart constructor.
@@ -13097,9 +13097,9 @@ instance FromXML VPCPeeringConnectionStateReason
 --
 -- * 'vpcviCIDRBlock'
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-    { _vpcviVPCId     :: Maybe Text
-    , _vpcviOwnerId   :: Maybe Text
-    , _vpcviCIDRBlock :: Maybe Text
+    { _vpcviVPCId     :: !(Maybe Text)
+    , _vpcviOwnerId   :: !(Maybe Text)
+    , _vpcviCIDRBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPCPeeringConnectionVPCInfo' smart constructor.
@@ -13155,16 +13155,16 @@ instance FromXML VPCPeeringConnectionVPCInfo where
 --
 -- * 'vcType'
 data VPNConnection = VPNConnection'
-    { _vcRoutes                       :: Maybe [VPNStaticRoute]
-    , _vcVPNGatewayId                 :: Maybe Text
-    , _vcOptions                      :: Maybe VPNConnectionOptions
-    , _vcVGWTelemetry                 :: Maybe [VGWTelemetry]
-    , _vcTags                         :: Maybe [Tag]
-    , _vcVPNConnectionId              :: Text
-    , _vcCustomerGatewayId            :: Text
-    , _vcCustomerGatewayConfiguration :: Text
-    , _vcState                        :: VPNState
-    , _vcType                         :: GatewayType
+    { _vcRoutes                       :: !(Maybe [VPNStaticRoute])
+    , _vcVPNGatewayId                 :: !(Maybe Text)
+    , _vcOptions                      :: !(Maybe VPNConnectionOptions)
+    , _vcVGWTelemetry                 :: !(Maybe [VGWTelemetry])
+    , _vcTags                         :: !(Maybe [Tag])
+    , _vcVPNConnectionId              :: !Text
+    , _vcCustomerGatewayId            :: !Text
+    , _vcCustomerGatewayConfiguration :: !Text
+    , _vcState                        :: !VPNState
+    , _vcType                         :: !GatewayType
     } deriving (Eq,Read,Show)
 
 -- | 'VPNConnection' smart constructor.
@@ -13317,12 +13317,12 @@ instance ToQuery VPNConnectionOptionsSpecification
 --
 -- * 'vgTags'
 data VPNGateway = VPNGateway'
-    { _vgVPCAttachments   :: Maybe [VPCAttachment]
-    , _vgState            :: Maybe VPNState
-    , _vgVPNGatewayId     :: Maybe Text
-    , _vgAvailabilityZone :: Maybe Text
-    , _vgType             :: Maybe GatewayType
-    , _vgTags             :: Maybe [Tag]
+    { _vgVPCAttachments   :: !(Maybe [VPCAttachment])
+    , _vgState            :: !(Maybe VPNState)
+    , _vgVPNGatewayId     :: !(Maybe Text)
+    , _vgAvailabilityZone :: !(Maybe Text)
+    , _vgType             :: !(Maybe GatewayType)
+    , _vgTags             :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'VPNGateway' smart constructor.
@@ -13382,9 +13382,9 @@ instance FromXML VPNGateway where
 --
 -- * 'vsrDestinationCIDRBlock'
 data VPNStaticRoute = VPNStaticRoute'
-    { _vsrState                :: Maybe VPNState
-    , _vsrSource               :: Maybe VPNStaticRouteSource
-    , _vsrDestinationCIDRBlock :: Maybe Text
+    { _vsrState                :: !(Maybe VPNState)
+    , _vsrSource               :: !(Maybe VPNStaticRouteSource)
+    , _vsrDestinationCIDRBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPNStaticRoute' smart constructor.
@@ -13445,18 +13445,18 @@ instance FromXML VPNStaticRoute where
 --
 -- * 'volVolumeType'
 data Volume = Volume'
-    { _volAttachments      :: Maybe [VolumeAttachment]
-    , _volIOPS             :: Maybe Int
-    , _volKMSKeyId         :: Maybe Text
-    , _volTags             :: Maybe [Tag]
-    , _volAvailabilityZone :: Text
-    , _volCreateTime       :: ISO8601
+    { _volAttachments      :: !(Maybe [VolumeAttachment])
+    , _volIOPS             :: !(Maybe Int)
+    , _volKMSKeyId         :: !(Maybe Text)
+    , _volTags             :: !(Maybe [Tag])
+    , _volAvailabilityZone :: !Text
+    , _volCreateTime       :: !ISO8601
     , _volEncrypted        :: !Bool
     , _volSize             :: !Int
-    , _volSnapshotId       :: Text
-    , _volState            :: VolumeState
-    , _volVolumeId         :: Text
-    , _volVolumeType       :: VolumeType
+    , _volSnapshotId       :: !Text
+    , _volState            :: !VolumeState
+    , _volVolumeId         :: !Text
+    , _volVolumeType       :: !VolumeType
     } deriving (Eq,Read,Show)
 
 -- | 'Volume' smart constructor.
@@ -13576,12 +13576,12 @@ instance FromXML Volume where
 --
 -- * 'vAttachTime'
 data VolumeAttachment = VolumeAttachment'
-    { _vInstanceId          :: Maybe Text
-    , _vDeleteOnTermination :: Maybe Bool
-    , _vState               :: Maybe VolumeAttachmentState
-    , _vDevice              :: Maybe Text
-    , _vVolumeId            :: Maybe Text
-    , _vAttachTime          :: Maybe ISO8601
+    { _vInstanceId          :: !(Maybe Text)
+    , _vDeleteOnTermination :: !(Maybe Bool)
+    , _vState               :: !(Maybe VolumeAttachmentState)
+    , _vDevice              :: !(Maybe Text)
+    , _vVolumeId            :: !(Maybe Text)
+    , _vAttachTime          :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeAttachment' smart constructor.
@@ -13670,10 +13670,10 @@ instance ToQuery VolumeDetail where
 --
 -- * 'vsaEventId'
 data VolumeStatusAction = VolumeStatusAction'
-    { _vsaEventType   :: Maybe Text
-    , _vsaCode        :: Maybe Text
-    , _vsaDescription :: Maybe Text
-    , _vsaEventId     :: Maybe Text
+    { _vsaEventType   :: !(Maybe Text)
+    , _vsaCode        :: !(Maybe Text)
+    , _vsaDescription :: !(Maybe Text)
+    , _vsaEventId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusAction' smart constructor.
@@ -13719,8 +13719,8 @@ instance FromXML VolumeStatusAction where
 --
 -- * 'vsdName'
 data VolumeStatusDetails = VolumeStatusDetails'
-    { _vsdStatus :: Maybe Text
-    , _vsdName   :: Maybe VolumeStatusName
+    { _vsdStatus :: !(Maybe Text)
+    , _vsdName   :: !(Maybe VolumeStatusName)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusDetails' smart constructor.
@@ -13760,11 +13760,11 @@ instance FromXML VolumeStatusDetails where
 --
 -- * 'vseEventId'
 data VolumeStatusEvent = VolumeStatusEvent'
-    { _vseNotBefore   :: Maybe ISO8601
-    , _vseEventType   :: Maybe Text
-    , _vseDescription :: Maybe Text
-    , _vseNotAfter    :: Maybe ISO8601
-    , _vseEventId     :: Maybe Text
+    { _vseNotBefore   :: !(Maybe ISO8601)
+    , _vseEventType   :: !(Maybe Text)
+    , _vseDescription :: !(Maybe Text)
+    , _vseNotAfter    :: !(Maybe ISO8601)
+    , _vseEventId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusEvent' smart constructor.
@@ -13816,8 +13816,8 @@ instance FromXML VolumeStatusEvent where
 --
 -- * 'vsiDetails'
 data VolumeStatusInfo = VolumeStatusInfo'
-    { _vsiStatus  :: Maybe VolumeStatusInfoStatus
-    , _vsiDetails :: Maybe [VolumeStatusDetails]
+    { _vsiStatus  :: !(Maybe VolumeStatusInfoStatus)
+    , _vsiDetails :: !(Maybe [VolumeStatusDetails])
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusInfo' smart constructor.
@@ -13857,11 +13857,11 @@ instance FromXML VolumeStatusInfo where
 --
 -- * 'vsiVolumeId'
 data VolumeStatusItem = VolumeStatusItem'
-    { _vsiVolumeStatus     :: Maybe VolumeStatusInfo
-    , _vsiActions          :: Maybe [VolumeStatusAction]
-    , _vsiAvailabilityZone :: Maybe Text
-    , _vsiEvents           :: Maybe [VolumeStatusEvent]
-    , _vsiVolumeId         :: Maybe Text
+    { _vsiVolumeStatus     :: !(Maybe VolumeStatusInfo)
+    , _vsiActions          :: !(Maybe [VolumeStatusAction])
+    , _vsiAvailabilityZone :: !(Maybe Text)
+    , _vsiEvents           :: !(Maybe [VolumeStatusEvent])
+    , _vsiVolumeId         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeStatusItem' smart constructor.

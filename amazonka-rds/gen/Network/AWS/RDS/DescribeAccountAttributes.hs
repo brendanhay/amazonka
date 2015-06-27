@@ -91,7 +91,7 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- * 'daarStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarAccountQuotas :: Maybe [AccountQuota]
+    { _daarAccountQuotas :: !(Maybe [AccountQuota])
     , _daarStatus        :: !Int
     } deriving (Eq,Read,Show)
 

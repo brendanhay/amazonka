@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'caTargetKeyId'
 data CreateAlias = CreateAlias'
-    { _caAliasName   :: Text
-    , _caTargetKeyId :: Text
+    { _caAliasName   :: !Text
+    , _caTargetKeyId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAlias' smart constructor.

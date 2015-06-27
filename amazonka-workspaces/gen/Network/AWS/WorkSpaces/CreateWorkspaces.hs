@@ -109,8 +109,8 @@ instance ToQuery CreateWorkspaces where
 --
 -- * 'cwrStatus'
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
-    { _cwrFailedRequests  :: Maybe [FailedCreateWorkspaceRequest]
-    , _cwrPendingRequests :: Maybe [Workspace]
+    { _cwrFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
+    , _cwrPendingRequests :: !(Maybe [Workspace])
     , _cwrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

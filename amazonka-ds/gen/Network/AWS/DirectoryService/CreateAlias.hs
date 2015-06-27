@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'caAlias'
 data CreateAlias = CreateAlias'
-    { _caDirectoryId :: Text
-    , _caAlias       :: Text
+    { _caDirectoryId :: !Text
+    , _caAlias       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAlias' smart constructor.
@@ -125,8 +125,8 @@ instance ToQuery CreateAlias where
 --
 -- * 'carStatus'
 data CreateAliasResponse = CreateAliasResponse'
-    { _carDirectoryId :: Maybe Text
-    , _carAlias       :: Maybe Text
+    { _carDirectoryId :: !(Maybe Text)
+    , _carAlias       :: !(Maybe Text)
     , _carStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -103,7 +103,7 @@ instance ToQuery DescribeScalingParameters where
 --
 -- * 'dsprStatus'
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-    { _dsprScalingParameters :: ScalingParametersStatus
+    { _dsprScalingParameters :: !ScalingParametersStatus
     , _dsprStatus            :: !Int
     } deriving (Eq,Read,Show)
 

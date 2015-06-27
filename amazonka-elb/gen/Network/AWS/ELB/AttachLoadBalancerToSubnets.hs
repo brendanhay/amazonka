@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'albtsSubnets'
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName :: Text
-    , _albtsSubnets          :: [Text]
+    { _albtsLoadBalancerName :: !Text
+    , _albtsSubnets          :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
@@ -113,7 +113,7 @@ instance ToQuery AttachLoadBalancerToSubnets where
 --
 -- * 'albtsrStatus'
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
-    { _albtsrSubnets :: Maybe [Text]
+    { _albtsrSubnets :: !(Maybe [Text])
     , _albtsrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

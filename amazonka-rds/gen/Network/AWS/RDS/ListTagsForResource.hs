@@ -54,8 +54,8 @@ import           Network.AWS.Response
 --
 -- * 'ltfrResourceName'
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrFilters      :: Maybe [Filter]
-    , _ltfrResourceName :: Text
+    { _ltfrFilters      :: !(Maybe [Filter])
+    , _ltfrResourceName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResource' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery ListTagsForResource where
 --
 -- * 'ltfrrStatus'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrTagList :: Maybe [Tag]
+    { _ltfrrTagList :: !(Maybe [Tag])
     , _ltfrrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

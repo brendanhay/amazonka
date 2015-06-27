@@ -91,21 +91,21 @@ import           Network.AWS.Response
 --
 -- * 'modInstanceId'
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-    { _modAttribute                         :: Maybe InstanceAttributeName
-    , _modGroups                            :: Maybe [Text]
-    , _modSourceDestCheck                   :: Maybe AttributeBooleanValue
-    , _modDisableAPITermination             :: Maybe AttributeBooleanValue
-    , _modRAMDisk                           :: Maybe AttributeValue
-    , _modValue                             :: Maybe Text
-    , _modKernel                            :: Maybe AttributeValue
-    , _modInstanceType                      :: Maybe AttributeValue
-    , _modEBSOptimized                      :: Maybe AttributeBooleanValue
-    , _modUserData                          :: Maybe BlobAttributeValue
-    , _modSRIOVNetSupport                   :: Maybe AttributeValue
-    , _modInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-    , _modBlockDeviceMappings               :: Maybe [InstanceBlockDeviceMappingSpecification]
-    , _modDryRun                            :: Maybe Bool
-    , _modInstanceId                        :: Text
+    { _modAttribute                         :: !(Maybe InstanceAttributeName)
+    , _modGroups                            :: !(Maybe [Text])
+    , _modSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _modDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _modRAMDisk                           :: !(Maybe AttributeValue)
+    , _modValue                             :: !(Maybe Text)
+    , _modKernel                            :: !(Maybe AttributeValue)
+    , _modInstanceType                      :: !(Maybe AttributeValue)
+    , _modEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _modUserData                          :: !(Maybe BlobAttributeValue)
+    , _modSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    , _modInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , _modBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
+    , _modDryRun                            :: !(Maybe Bool)
+    , _modInstanceId                        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyInstanceAttribute' smart constructor.

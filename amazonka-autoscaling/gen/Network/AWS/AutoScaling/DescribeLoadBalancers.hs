@@ -53,9 +53,9 @@ import           Network.AWS.Response
 --
 -- * 'dlbAutoScalingGroupName'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbNextToken            :: Maybe Text
-    , _dlbMaxRecords           :: Maybe Int
-    , _dlbAutoScalingGroupName :: Text
+    { _dlbNextToken            :: !(Maybe Text)
+    , _dlbMaxRecords           :: !(Maybe Int)
+    , _dlbAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancers' smart constructor.
@@ -119,8 +119,8 @@ instance ToQuery DescribeLoadBalancers where
 --
 -- * 'dlbrStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-    { _dlbrLoadBalancers :: Maybe [LoadBalancerState]
-    , _dlbrNextToken     :: Maybe Text
+    { _dlbrLoadBalancers :: !(Maybe [LoadBalancerState])
+    , _dlbrNextToken     :: !(Maybe Text)
     , _dlbrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

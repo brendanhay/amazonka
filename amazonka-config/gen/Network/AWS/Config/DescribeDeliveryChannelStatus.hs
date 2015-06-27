@@ -111,7 +111,7 @@ instance ToQuery DescribeDeliveryChannelStatus where
 --
 -- * 'ddcsrStatus'
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
-    { _ddcsrDeliveryChannelsStatus :: Maybe [DeliveryChannelStatus]
+    { _ddcsrDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
     , _ddcsrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

@@ -67,13 +67,13 @@ import           Network.AWS.Response
 --
 -- * 'rrDestinationCIDRBlock'
 data ReplaceRoute = ReplaceRoute'
-    { _rrInstanceId             :: Maybe Text
-    , _rrVPCPeeringConnectionId :: Maybe Text
-    , _rrNetworkInterfaceId     :: Maybe Text
-    , _rrGatewayId              :: Maybe Text
-    , _rrDryRun                 :: Maybe Bool
-    , _rrRouteTableId           :: Text
-    , _rrDestinationCIDRBlock   :: Text
+    { _rrInstanceId             :: !(Maybe Text)
+    , _rrVPCPeeringConnectionId :: !(Maybe Text)
+    , _rrNetworkInterfaceId     :: !(Maybe Text)
+    , _rrGatewayId              :: !(Maybe Text)
+    , _rrDryRun                 :: !(Maybe Bool)
+    , _rrRouteTableId           :: !Text
+    , _rrDestinationCIDRBlock   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReplaceRoute' smart constructor.

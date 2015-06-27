@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'sigStatus'
 data SignalResource = SignalResource'
-    { _sigStackName         :: Text
-    , _sigLogicalResourceId :: Text
-    , _sigUniqueId          :: Text
-    , _sigStatus            :: ResourceSignalStatus
+    { _sigStackName         :: !Text
+    , _sigLogicalResourceId :: !Text
+    , _sigUniqueId          :: !Text
+    , _sigStatus            :: !ResourceSignalStatus
     } deriving (Eq,Read,Show)
 
 -- | 'SignalResource' smart constructor.

@@ -53,8 +53,8 @@ import           Network.AWS.SDB.Types
 --
 -- * 'bdaItems'
 data BatchDeleteAttributes = BatchDeleteAttributes'
-    { _bdaDomainName :: Text
-    , _bdaItems      :: [DeletableItem]
+    { _bdaDomainName :: !Text
+    , _bdaItems      :: ![DeletableItem]
     } deriving (Eq,Read,Show)
 
 -- | 'BatchDeleteAttributes' smart constructor.

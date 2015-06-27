@@ -103,10 +103,10 @@ instance ToQuery GetBucketWebsite where
 --
 -- * 'gbwrStatus'
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-    { _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _gbwrErrorDocument         :: Maybe ErrorDocument
-    , _gbwrRoutingRules          :: Maybe [RoutingRule]
-    , _gbwrIndexDocument         :: Maybe IndexDocument
+    { _gbwrRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+    , _gbwrErrorDocument         :: !(Maybe ErrorDocument)
+    , _gbwrRoutingRules          :: !(Maybe [RoutingRule])
+    , _gbwrIndexDocument         :: !(Maybe IndexDocument)
     , _gbwrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

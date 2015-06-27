@@ -102,7 +102,7 @@ instance ToQuery DeleteSnapshot where
 --
 -- * 'dsrStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrSnapshotId :: Maybe Text
+    { _dsrSnapshotId :: !(Maybe Text)
     , _dsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

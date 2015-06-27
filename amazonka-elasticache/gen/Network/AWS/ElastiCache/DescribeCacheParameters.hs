@@ -61,10 +61,10 @@ import           Network.AWS.Response
 --
 -- * 'dcpCacheParameterGroupName'
 data DescribeCacheParameters = DescribeCacheParameters'
-    { _dcpMaxRecords              :: Maybe Int
-    , _dcpMarker                  :: Maybe Text
-    , _dcpSource                  :: Maybe Text
-    , _dcpCacheParameterGroupName :: Text
+    { _dcpMaxRecords              :: !(Maybe Int)
+    , _dcpMarker                  :: !(Maybe Text)
+    , _dcpSource                  :: !(Maybe Text)
+    , _dcpCacheParameterGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheParameters' smart constructor.
@@ -160,9 +160,9 @@ instance ToQuery DescribeCacheParameters where
 --
 -- * 'dcprStatus'
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
-    { _dcprCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter]
-    , _dcprParameters                      :: Maybe [Parameter]
-    , _dcprMarker                          :: Maybe Text
+    { _dcprCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
+    , _dcprParameters                      :: !(Maybe [Parameter])
+    , _dcprMarker                          :: !(Maybe Text)
     , _dcprStatus                          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'ddbiMarker'
 data DescribeDBInstances = DescribeDBInstances'
-    { _ddbiFilters              :: Maybe [Filter]
-    , _ddbiDBInstanceIdentifier :: Maybe Text
-    , _ddbiMaxRecords           :: Maybe Int
-    , _ddbiMarker               :: Maybe Text
+    { _ddbiFilters              :: !(Maybe [Filter])
+    , _ddbiDBInstanceIdentifier :: !(Maybe Text)
+    , _ddbiMaxRecords           :: !(Maybe Int)
+    , _ddbiMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBInstances' smart constructor.
@@ -160,8 +160,8 @@ instance ToQuery DescribeDBInstances where
 --
 -- * 'desStatus'
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-    { _desDBInstances :: Maybe [DBInstance]
-    , _desMarker      :: Maybe Text
+    { _desDBInstances :: !(Maybe [DBInstance])
+    , _desMarker      :: !(Maybe Text)
     , _desStatus      :: !Int
     } deriving (Eq,Read,Show)
 

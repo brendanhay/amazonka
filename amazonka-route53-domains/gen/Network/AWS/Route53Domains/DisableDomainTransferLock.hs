@@ -119,7 +119,7 @@ instance ToQuery DisableDomainTransferLock where
 --
 -- * 'ddtlrStatus'
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-    { _ddtlrOperationId :: Text
+    { _ddtlrOperationId :: !Text
     , _ddtlrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

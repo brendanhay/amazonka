@@ -54,7 +54,7 @@ import           Network.AWS.Response
 --
 -- * 'lipMaxResults'
 data ListIdentityPools = ListIdentityPools'
-    { _lipNextToken  :: Maybe Text
+    { _lipNextToken  :: !(Maybe Text)
     , _lipMaxResults :: !Nat
     } deriving (Eq,Read,Show)
 
@@ -120,8 +120,8 @@ instance ToQuery ListIdentityPools where
 --
 -- * 'liprStatus'
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-    { _liprIdentityPools :: Maybe [IdentityPoolShortDescription]
-    , _liprNextToken     :: Maybe Text
+    { _liprIdentityPools :: !(Maybe [IdentityPoolShortDescription])
+    , _liprNextToken     :: !(Maybe Text)
     , _liprStatus        :: !Int
     } deriving (Eq,Read,Show)
 

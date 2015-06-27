@@ -65,12 +65,12 @@ import           Network.AWS.Response
 --
 -- * 'desScheduledActionNames'
 data DescribeScheduledActions = DescribeScheduledActions'
-    { _desStartTime            :: Maybe ISO8601
-    , _desNextToken            :: Maybe Text
-    , _desMaxRecords           :: Maybe Int
-    , _desEndTime              :: Maybe ISO8601
-    , _desAutoScalingGroupName :: Maybe Text
-    , _desScheduledActionNames :: Maybe [Text]
+    { _desStartTime            :: !(Maybe ISO8601)
+    , _desNextToken            :: !(Maybe Text)
+    , _desMaxRecords           :: !(Maybe Int)
+    , _desEndTime              :: !(Maybe ISO8601)
+    , _desAutoScalingGroupName :: !(Maybe Text)
+    , _desScheduledActionNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeScheduledActions' smart constructor.
@@ -172,8 +172,8 @@ instance ToQuery DescribeScheduledActions where
 --
 -- * 'dsarStatus'
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-    { _dsarScheduledUpdateGroupActions :: Maybe [ScheduledUpdateGroupAction]
-    , _dsarNextToken                   :: Maybe Text
+    { _dsarScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
+    , _dsarNextToken                   :: !(Maybe Text)
     , _dsarStatus                      :: !Int
     } deriving (Eq,Read,Show)
 

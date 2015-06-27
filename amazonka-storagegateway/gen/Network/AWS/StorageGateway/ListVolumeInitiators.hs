@@ -107,7 +107,7 @@ instance ToQuery ListVolumeInitiators where
 --
 -- * 'lvirStatus'
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
-    { _lvirInitiators :: Maybe [Text]
+    { _lvirInitiators :: !(Maybe [Text])
     , _lvirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

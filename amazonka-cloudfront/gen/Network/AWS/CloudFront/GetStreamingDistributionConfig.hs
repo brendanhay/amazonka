@@ -102,8 +102,8 @@ instance ToQuery GetStreamingDistributionConfig where
 --
 -- * 'gsdcrStatus'
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
-    { _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-    , _gsdcrETag                        :: Maybe Text
+    { _gsdcrStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
+    , _gsdcrETag                        :: !(Maybe Text)
     , _gsdcrStatus                      :: !Int
     } deriving (Eq,Read,Show)
 

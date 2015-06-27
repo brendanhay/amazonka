@@ -47,8 +47,8 @@ import           Network.AWS.Response
 --
 -- * 'dig1InternetGatewayId'
 data DeleteInternetGateway = DeleteInternetGateway'
-    { _dig1DryRun            :: Maybe Bool
-    , _dig1InternetGatewayId :: Text
+    { _dig1DryRun            :: !(Maybe Bool)
+    , _dig1InternetGatewayId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteInternetGateway' smart constructor.

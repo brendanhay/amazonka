@@ -100,8 +100,8 @@ instance ToQuery GetDocument where
 --
 -- * 'gdrStatus'
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrContent :: Maybe Text
-    , _gdrName    :: Maybe Text
+    { _gdrContent :: !(Maybe Text)
+    , _gdrName    :: !(Maybe Text)
     , _gdrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

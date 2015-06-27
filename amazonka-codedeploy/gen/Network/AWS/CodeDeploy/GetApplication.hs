@@ -102,7 +102,7 @@ instance ToQuery GetApplication where
 --
 -- * 'garStatus'
 data GetApplicationResponse = GetApplicationResponse'
-    { _garApplication :: Maybe ApplicationInfo
+    { _garApplication :: !(Maybe ApplicationInfo)
     , _garStatus      :: !Int
     } deriving (Eq,Read,Show)
 

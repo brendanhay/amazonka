@@ -58,8 +58,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'rtaGatewayARN'
 data RetrieveTapeArchive = RetrieveTapeArchive'
-    { _rtaTapeARN    :: Text
-    , _rtaGatewayARN :: Text
+    { _rtaTapeARN    :: !Text
+    , _rtaGatewayARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RetrieveTapeArchive' smart constructor.
@@ -127,7 +127,7 @@ instance ToQuery RetrieveTapeArchive where
 --
 -- * 'rtarStatus'
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
-    { _rtarTapeARN :: Maybe Text
+    { _rtarTapeARN :: !(Maybe Text)
     , _rtarStatus  :: !Int
     } deriving (Eq,Read,Show)
 

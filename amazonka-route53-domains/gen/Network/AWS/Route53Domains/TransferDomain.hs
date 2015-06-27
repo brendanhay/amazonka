@@ -106,18 +106,18 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'tdTechContact'
 data TransferDomain = TransferDomain'
-    { _tdPrivacyProtectTechContact       :: Maybe Bool
-    , _tdPrivacyProtectRegistrantContact :: Maybe Bool
-    , _tdAutoRenew                       :: Maybe Bool
-    , _tdPrivacyProtectAdminContact      :: Maybe Bool
-    , _tdIDNLangCode                     :: Maybe Text
-    , _tdAuthCode                        :: Maybe (Sensitive Text)
-    , _tdNameservers                     :: Maybe [Nameserver]
-    , _tdDomainName                      :: Text
+    { _tdPrivacyProtectTechContact       :: !(Maybe Bool)
+    , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _tdAutoRenew                       :: !(Maybe Bool)
+    , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
+    , _tdIDNLangCode                     :: !(Maybe Text)
+    , _tdAuthCode                        :: !(Maybe (Sensitive Text))
+    , _tdNameservers                     :: !(Maybe [Nameserver])
+    , _tdDomainName                      :: !Text
     , _tdDurationInYears                 :: !Nat
-    , _tdAdminContact                    :: Sensitive ContactDetail
-    , _tdRegistrantContact               :: Sensitive ContactDetail
-    , _tdTechContact                     :: Sensitive ContactDetail
+    , _tdAdminContact                    :: !(Sensitive ContactDetail)
+    , _tdRegistrantContact               :: !(Sensitive ContactDetail)
+    , _tdTechContact                     :: !(Sensitive ContactDetail)
     } deriving (Eq,Read,Show)
 
 -- | 'TransferDomain' smart constructor.
@@ -338,7 +338,7 @@ instance ToQuery TransferDomain where
 --
 -- * 'tdrStatus'
 data TransferDomainResponse = TransferDomainResponse'
-    { _tdrOperationId :: Text
+    { _tdrOperationId :: !Text
     , _tdrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

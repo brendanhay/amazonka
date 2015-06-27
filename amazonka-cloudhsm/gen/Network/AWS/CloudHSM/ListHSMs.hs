@@ -110,8 +110,8 @@ instance ToQuery ListHSMs where
 --
 -- * 'lisStatus'
 data ListHSMsResponse = ListHSMsResponse'
-    { _lisNextToken :: Maybe Text
-    , _lisHSMList   :: Maybe [Text]
+    { _lisNextToken :: !(Maybe Text)
+    , _lisHSMList   :: !(Maybe [Text])
     , _lisStatus    :: !Int
     } deriving (Eq,Read,Show)
 

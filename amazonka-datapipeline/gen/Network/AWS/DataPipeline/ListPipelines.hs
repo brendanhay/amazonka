@@ -120,9 +120,9 @@ instance ToQuery ListPipelines where
 --
 -- * 'lprStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprHasMoreResults :: Maybe Bool
-    , _lprMarker         :: Maybe Text
-    , _lprPipelineIdList :: [PipelineIdName]
+    { _lprHasMoreResults :: !(Maybe Bool)
+    , _lprMarker         :: !(Maybe Text)
+    , _lprPipelineIdList :: ![PipelineIdName]
     , _lprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

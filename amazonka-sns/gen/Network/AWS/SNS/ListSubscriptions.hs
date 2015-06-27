@@ -112,8 +112,8 @@ instance ToQuery ListSubscriptions where
 --
 -- * 'lsrStatus'
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
-    { _lsrNextToken     :: Maybe Text
-    , _lsrSubscriptions :: Maybe [Subscription]
+    { _lsrNextToken     :: !(Maybe Text)
+    , _lsrSubscriptions :: !(Maybe [Subscription])
     , _lsrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

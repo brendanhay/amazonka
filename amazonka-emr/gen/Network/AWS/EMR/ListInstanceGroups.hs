@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'ligClusterId'
 data ListInstanceGroups = ListInstanceGroups'
-    { _ligMarker    :: Maybe Text
-    , _ligClusterId :: Text
+    { _ligMarker    :: !(Maybe Text)
+    , _ligClusterId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceGroups' smart constructor.
@@ -127,8 +127,8 @@ instance ToQuery ListInstanceGroups where
 --
 -- * 'ligrStatus'
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-    { _ligrMarker         :: Maybe Text
-    , _ligrInstanceGroups :: Maybe [InstanceGroup]
+    { _ligrMarker         :: !(Maybe Text)
+    , _ligrInstanceGroups :: !(Maybe [InstanceGroup])
     , _ligrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -92,21 +92,21 @@ import           Network.AWS.Response
 --
 -- * 'pmaComparisonOperator'
 data PutMetricAlarm = PutMetricAlarm'
-    { _pmaAlarmDescription        :: Maybe Text
-    , _pmaOKActions               :: Maybe [Text]
-    , _pmaActionsEnabled          :: Maybe Bool
-    , _pmaInsufficientDataActions :: Maybe [Text]
-    , _pmaDimensions              :: Maybe [Dimension]
-    , _pmaAlarmActions            :: Maybe [Text]
-    , _pmaUnit                    :: Maybe StandardUnit
-    , _pmaAlarmName               :: Text
-    , _pmaMetricName              :: Text
-    , _pmaNamespace               :: Text
-    , _pmaStatistic               :: Statistic
+    { _pmaAlarmDescription        :: !(Maybe Text)
+    , _pmaOKActions               :: !(Maybe [Text])
+    , _pmaActionsEnabled          :: !(Maybe Bool)
+    , _pmaInsufficientDataActions :: !(Maybe [Text])
+    , _pmaDimensions              :: !(Maybe [Dimension])
+    , _pmaAlarmActions            :: !(Maybe [Text])
+    , _pmaUnit                    :: !(Maybe StandardUnit)
+    , _pmaAlarmName               :: !Text
+    , _pmaMetricName              :: !Text
+    , _pmaNamespace               :: !Text
+    , _pmaStatistic               :: !Statistic
     , _pmaPeriod                  :: !Nat
     , _pmaEvaluationPeriods       :: !Nat
     , _pmaThreshold               :: !Double
-    , _pmaComparisonOperator      :: ComparisonOperator
+    , _pmaComparisonOperator      :: !ComparisonOperator
     } deriving (Eq,Read,Show)
 
 -- | 'PutMetricAlarm' smart constructor.

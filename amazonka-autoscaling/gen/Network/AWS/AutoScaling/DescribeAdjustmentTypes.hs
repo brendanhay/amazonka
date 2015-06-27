@@ -82,7 +82,7 @@ instance ToQuery DescribeAdjustmentTypes where
 --
 -- * 'datrStatus'
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
-    { _datrAdjustmentTypes :: Maybe [AdjustmentType]
+    { _datrAdjustmentTypes :: !(Maybe [AdjustmentType])
     , _datrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

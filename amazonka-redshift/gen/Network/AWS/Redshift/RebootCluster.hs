@@ -100,7 +100,7 @@ instance ToQuery RebootCluster where
 --
 -- * 'rcrStatus'
 data RebootClusterResponse = RebootClusterResponse'
-    { _rcrCluster :: Maybe Cluster
+    { _rcrCluster :: !(Maybe Cluster)
     , _rcrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

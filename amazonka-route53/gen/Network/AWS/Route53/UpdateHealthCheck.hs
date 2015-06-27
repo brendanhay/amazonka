@@ -76,14 +76,14 @@ import           Network.AWS.Route53.Types
 --
 -- * 'uhcHealthCheckId'
 data UpdateHealthCheck = UpdateHealthCheck'
-    { _uhcIPAddress                :: Maybe Text
-    , _uhcFailureThreshold         :: Maybe Nat
-    , _uhcSearchString             :: Maybe Text
-    , _uhcResourcePath             :: Maybe Text
-    , _uhcHealthCheckVersion       :: Maybe Nat
-    , _uhcFullyQualifiedDomainName :: Maybe Text
-    , _uhcPort                     :: Maybe Nat
-    , _uhcHealthCheckId            :: Text
+    { _uhcIPAddress                :: !(Maybe Text)
+    , _uhcFailureThreshold         :: !(Maybe Nat)
+    , _uhcSearchString             :: !(Maybe Text)
+    , _uhcResourcePath             :: !(Maybe Text)
+    , _uhcHealthCheckVersion       :: !(Maybe Nat)
+    , _uhcFullyQualifiedDomainName :: !(Maybe Text)
+    , _uhcPort                     :: !(Maybe Nat)
+    , _uhcHealthCheckId            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateHealthCheck' smart constructor.
@@ -208,7 +208,7 @@ instance ToXML UpdateHealthCheck where
 --
 -- * 'uhcrStatus'
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-    { _uhcrHealthCheck :: HealthCheck
+    { _uhcrHealthCheck :: !HealthCheck
     , _uhcrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

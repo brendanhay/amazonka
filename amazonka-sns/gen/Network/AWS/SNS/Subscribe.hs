@@ -57,9 +57,9 @@ import           Network.AWS.SNS.Types
 --
 -- * 'sProtocol'
 data Subscribe = Subscribe'
-    { _sEndpoint :: Maybe Endpoint
-    , _sTopicARN :: Text
-    , _sProtocol :: Text
+    { _sEndpoint :: !(Maybe Endpoint)
+    , _sTopicARN :: !Text
+    , _sProtocol :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Subscribe' smart constructor.
@@ -140,7 +140,7 @@ instance ToQuery Subscribe where
 --
 -- * 'srStatus'
 data SubscribeResponse = SubscribeResponse'
-    { _srSubscriptionARN :: Maybe Text
+    { _srSubscriptionARN :: !(Maybe Text)
     , _srStatus          :: !Int
     } deriving (Eq,Read,Show)
 

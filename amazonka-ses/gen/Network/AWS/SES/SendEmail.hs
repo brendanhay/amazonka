@@ -86,11 +86,11 @@ import           Network.AWS.SES.Types
 --
 -- * 'seMessage'
 data SendEmail = SendEmail'
-    { _seReturnPath       :: Maybe Text
-    , _seReplyToAddresses :: Maybe [Text]
-    , _seSource           :: Text
-    , _seDestination      :: Destination
-    , _seMessage          :: Message
+    { _seReturnPath       :: !(Maybe Text)
+    , _seReplyToAddresses :: !(Maybe [Text])
+    , _seSource           :: !Text
+    , _seDestination      :: !Destination
+    , _seMessage          :: !Message
     } deriving (Eq,Read,Show)
 
 -- | 'SendEmail' smart constructor.
@@ -178,7 +178,7 @@ instance ToQuery SendEmail where
 --
 -- * 'serStatus'
 data SendEmailResponse = SendEmailResponse'
-    { _serMessageId :: Text
+    { _serMessageId :: !Text
     , _serStatus    :: !Int
     } deriving (Eq,Read,Show)
 

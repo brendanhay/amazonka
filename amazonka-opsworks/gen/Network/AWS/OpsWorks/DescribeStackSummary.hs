@@ -108,7 +108,7 @@ instance ToQuery DescribeStackSummary where
 --
 -- * 'dssrStatus'
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-    { _dssrStackSummary :: Maybe StackSummary
+    { _dssrStackSummary :: !(Maybe StackSummary)
     , _dssrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

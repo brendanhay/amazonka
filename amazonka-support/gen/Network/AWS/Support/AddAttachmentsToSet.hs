@@ -60,8 +60,8 @@ import           Network.AWS.Support.Types
 --
 -- * 'aatsAttachments'
 data AddAttachmentsToSet = AddAttachmentsToSet'
-    { _aatsAttachmentSetId :: Maybe Text
-    , _aatsAttachments     :: [Attachment]
+    { _aatsAttachmentSetId :: !(Maybe Text)
+    , _aatsAttachments     :: ![Attachment]
     } deriving (Eq,Read,Show)
 
 -- | 'AddAttachmentsToSet' smart constructor.
@@ -131,8 +131,8 @@ instance ToQuery AddAttachmentsToSet where
 --
 -- * 'aatsrStatus'
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-    { _aatsrExpiryTime      :: Maybe Text
-    , _aatsrAttachmentSetId :: Maybe Text
+    { _aatsrExpiryTime      :: !(Maybe Text)
+    , _aatsrAttachmentSetId :: !(Maybe Text)
     , _aatsrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

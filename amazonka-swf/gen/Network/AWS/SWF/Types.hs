@@ -1691,7 +1691,7 @@ instance FromJSON WorkflowExecutionTimeoutType where
 -- * 'atcreaActivityId'
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes'
     { _atcreaDecisionTaskCompletedEventId :: !Integer
-    , _atcreaActivityId                   :: Text
+    , _atcreaActivityId                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ActivityTaskCancelRequestedEventAttributes' smart constructor.
@@ -1738,8 +1738,8 @@ instance FromJSON
 --
 -- * 'actStartedEventId'
 data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
-    { _actLatestCancelRequestedEventId :: Maybe Integer
-    , _actDetails                      :: Maybe Text
+    { _actLatestCancelRequestedEventId :: !(Maybe Integer)
+    , _actDetails                      :: !(Maybe Text)
     , _actScheduledEventId             :: !Integer
     , _actStartedEventId               :: !Integer
     } deriving (Eq,Read,Show)
@@ -1801,7 +1801,7 @@ instance FromJSON ActivityTaskCanceledEventAttributes
 --
 -- * 'atceaStartedEventId'
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'
-    { _atceaResult           :: Maybe Text
+    { _atceaResult           :: !(Maybe Text)
     , _atceaScheduledEventId :: !Integer
     , _atceaStartedEventId   :: !Integer
     } deriving (Eq,Read,Show)
@@ -1855,8 +1855,8 @@ instance FromJSON
 --
 -- * 'atfeaStartedEventId'
 data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'
-    { _atfeaReason           :: Maybe Text
-    , _atfeaDetails          :: Maybe Text
+    { _atfeaReason           :: !(Maybe Text)
+    , _atfeaDetails          :: !(Maybe Text)
     , _atfeaScheduledEventId :: !Integer
     , _atfeaStartedEventId   :: !Integer
     } deriving (Eq,Read,Show)
@@ -1930,16 +1930,16 @@ instance FromJSON ActivityTaskFailedEventAttributes
 --
 -- * 'atseaDecisionTaskCompletedEventId'
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'
-    { _atseaControl                      :: Maybe Text
-    , _atseaScheduleToCloseTimeout       :: Maybe Text
-    , _atseaHeartbeatTimeout             :: Maybe Text
-    , _atseaInput                        :: Maybe Text
-    , _atseaTaskPriority                 :: Maybe Text
-    , _atseaScheduleToStartTimeout       :: Maybe Text
-    , _atseaStartToCloseTimeout          :: Maybe Text
-    , _atseaActivityType                 :: ActivityType
-    , _atseaActivityId                   :: Text
-    , _atseaTaskList                     :: TaskList
+    { _atseaControl                      :: !(Maybe Text)
+    , _atseaScheduleToCloseTimeout       :: !(Maybe Text)
+    , _atseaHeartbeatTimeout             :: !(Maybe Text)
+    , _atseaInput                        :: !(Maybe Text)
+    , _atseaTaskPriority                 :: !(Maybe Text)
+    , _atseaScheduleToStartTimeout       :: !(Maybe Text)
+    , _atseaStartToCloseTimeout          :: !(Maybe Text)
+    , _atseaActivityType                 :: !ActivityType
+    , _atseaActivityId                   :: !Text
+    , _atseaTaskList                     :: !TaskList
     , _atseaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -2053,7 +2053,7 @@ instance FromJSON
 --
 -- * 'atseaScheduledEventId'
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'
-    { _atseaIdentity         :: Maybe Text
+    { _atseaIdentity         :: !(Maybe Text)
     , _atseaScheduledEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -2100,8 +2100,8 @@ instance FromJSON ActivityTaskStartedEventAttributes
 --
 -- * 'attoeaStartedEventId'
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
-    { _attoeaDetails          :: Maybe Text
-    , _attoeaTimeoutType      :: ActivityTaskTimeoutType
+    { _attoeaDetails          :: !(Maybe Text)
+    , _attoeaTimeoutType      :: !ActivityTaskTimeoutType
     , _attoeaScheduledEventId :: !Integer
     , _attoeaStartedEventId   :: !Integer
     } deriving (Eq,Read,Show)
@@ -2158,8 +2158,8 @@ instance FromJSON ActivityTaskTimedOutEventAttributes
 --
 -- * 'atVersion'
 data ActivityType = ActivityType'
-    { _atName    :: Text
-    , _atVersion :: Text
+    { _atName    :: !Text
+    , _atVersion :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ActivityType' smart constructor.
@@ -2212,12 +2212,12 @@ instance ToJSON ActivityType where
 --
 -- * 'atcDefaultTaskStartToCloseTimeout'
 data ActivityTypeConfiguration = ActivityTypeConfiguration'
-    { _atcDefaultTaskScheduleToStartTimeout :: Maybe Text
-    , _atcDefaultTaskList                   :: Maybe TaskList
-    , _atcDefaultTaskPriority               :: Maybe Text
-    , _atcDefaultTaskHeartbeatTimeout       :: Maybe Text
-    , _atcDefaultTaskScheduleToCloseTimeout :: Maybe Text
-    , _atcDefaultTaskStartToCloseTimeout    :: Maybe Text
+    { _atcDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
+    , _atcDefaultTaskList                   :: !(Maybe TaskList)
+    , _atcDefaultTaskPriority               :: !(Maybe Text)
+    , _atcDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
+    , _atcDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
+    , _atcDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ActivityTypeConfiguration' smart constructor.
@@ -2330,11 +2330,11 @@ instance FromJSON ActivityTypeConfiguration where
 --
 -- * 'atiCreationDate'
 data ActivityTypeInfo = ActivityTypeInfo'
-    { _atiDeprecationDate :: Maybe POSIX
-    , _atiDescription     :: Maybe Text
-    , _atiActivityType    :: ActivityType
-    , _atiStatus          :: RegistrationStatus
-    , _atiCreationDate    :: POSIX
+    { _atiDeprecationDate :: !(Maybe POSIX)
+    , _atiDescription     :: !(Maybe Text)
+    , _atiActivityType    :: !ActivityType
+    , _atiStatus          :: !RegistrationStatus
+    , _atiCreationDate    :: !POSIX
     } deriving (Eq,Read,Show)
 
 -- | 'ActivityTypeInfo' smart constructor.
@@ -2435,8 +2435,8 @@ instance ToJSON CancelTimerDecisionAttributes where
 --
 -- * 'ctfeaDecisionTaskCompletedEventId'
 data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'
-    { _ctfeaTimerId                      :: Text
-    , _ctfeaCause                        :: CancelTimerFailedCause
+    { _ctfeaTimerId                      :: !Text
+    , _ctfeaCause                        :: !CancelTimerFailedCause
     , _ctfeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -2534,7 +2534,7 @@ instance ToJSON
 --
 -- * 'canDecisionTaskCompletedEventId'
 data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes'
-    { _canCause                        :: CancelWorkflowExecutionFailedCause
+    { _canCause                        :: !CancelWorkflowExecutionFailedCause
     , _canDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -2590,9 +2590,9 @@ instance FromJSON
 --
 -- * 'chiStartedEventId'
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'
-    { _chiDetails           :: Maybe Text
-    , _chiWorkflowExecution :: WorkflowExecution
-    , _chiWorkflowType      :: WorkflowType
+    { _chiDetails           :: !(Maybe Text)
+    , _chiWorkflowExecution :: !WorkflowExecution
+    , _chiWorkflowType      :: !WorkflowType
     , _chiInitiatedEventId  :: !Integer
     , _chiStartedEventId    :: !Integer
     } deriving (Eq,Read,Show)
@@ -2662,9 +2662,9 @@ instance FromJSON
 --
 -- * 'cweceaStartedEventId'
 data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes'
-    { _cweceaResult            :: Maybe Text
-    , _cweceaWorkflowExecution :: WorkflowExecution
-    , _cweceaWorkflowType      :: WorkflowType
+    { _cweceaResult            :: !(Maybe Text)
+    , _cweceaWorkflowExecution :: !WorkflowExecution
+    , _cweceaWorkflowType      :: !WorkflowType
     , _cweceaInitiatedEventId  :: !Integer
     , _cweceaStartedEventId    :: !Integer
     } deriving (Eq,Read,Show)
@@ -2736,10 +2736,10 @@ instance FromJSON
 --
 -- * 'cwefeaStartedEventId'
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'
-    { _cwefeaReason            :: Maybe Text
-    , _cwefeaDetails           :: Maybe Text
-    , _cwefeaWorkflowExecution :: WorkflowExecution
-    , _cwefeaWorkflowType      :: WorkflowType
+    { _cwefeaReason            :: !(Maybe Text)
+    , _cwefeaDetails           :: !(Maybe Text)
+    , _cwefeaWorkflowExecution :: !WorkflowExecution
+    , _cwefeaWorkflowType      :: !WorkflowType
     , _cwefeaInitiatedEventId  :: !Integer
     , _cwefeaStartedEventId    :: !Integer
     } deriving (Eq,Read,Show)
@@ -2811,8 +2811,8 @@ instance FromJSON
 --
 -- * 'cweseaInitiatedEventId'
 data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes'
-    { _cweseaWorkflowExecution :: WorkflowExecution
-    , _cweseaWorkflowType      :: WorkflowType
+    { _cweseaWorkflowExecution :: !WorkflowExecution
+    , _cweseaWorkflowType      :: !WorkflowType
     , _cweseaInitiatedEventId  :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -2864,8 +2864,8 @@ instance FromJSON
 --
 -- * 'cweteaStartedEventId'
 data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes'
-    { _cweteaWorkflowExecution :: WorkflowExecution
-    , _cweteaWorkflowType      :: WorkflowType
+    { _cweteaWorkflowExecution :: !WorkflowExecution
+    , _cweteaWorkflowType      :: !WorkflowType
     , _cweteaInitiatedEventId  :: !Integer
     , _cweteaStartedEventId    :: !Integer
     } deriving (Eq,Read,Show)
@@ -2929,9 +2929,9 @@ instance FromJSON
 --
 -- * 'cwetoeaStartedEventId'
 data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes'
-    { _cwetoeaWorkflowExecution :: WorkflowExecution
-    , _cwetoeaWorkflowType      :: WorkflowType
-    , _cwetoeaTimeoutType       :: WorkflowExecutionTimeoutType
+    { _cwetoeaWorkflowExecution :: !WorkflowExecution
+    , _cwetoeaWorkflowType      :: !WorkflowType
+    , _cwetoeaTimeoutType       :: !WorkflowExecutionTimeoutType
     , _cwetoeaInitiatedEventId  :: !Integer
     , _cwetoeaStartedEventId    :: !Integer
     } deriving (Eq,Read,Show)
@@ -3071,7 +3071,7 @@ instance ToJSON
 --
 -- * 'cwefeaDecisionTaskCompletedEventId'
 data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes'
-    { _cwefeaCause                        :: CompleteWorkflowExecutionFailedCause
+    { _cwefeaCause                        :: !CompleteWorkflowExecutionFailedCause
     , _cwefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -3157,14 +3157,14 @@ instance FromJSON
 --
 -- * 'canwedaChildPolicy'
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'
-    { _canwedaTagList                      :: Maybe [Text]
-    , _canwedaTaskStartToCloseTimeout      :: Maybe Text
-    , _canwedaInput                        :: Maybe Text
-    , _canwedaWorkflowTypeVersion          :: Maybe Text
-    , _canwedaExecutionStartToCloseTimeout :: Maybe Text
-    , _canwedaTaskList                     :: Maybe TaskList
-    , _canwedaTaskPriority                 :: Maybe Text
-    , _canwedaChildPolicy                  :: Maybe ChildPolicy
+    { _canwedaTagList                      :: !(Maybe [Text])
+    , _canwedaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _canwedaInput                        :: !(Maybe Text)
+    , _canwedaWorkflowTypeVersion          :: !(Maybe Text)
+    , _canwedaExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _canwedaTaskList                     :: !(Maybe TaskList)
+    , _canwedaTaskPriority                 :: !(Maybe Text)
+    , _canwedaChildPolicy                  :: !(Maybe ChildPolicy)
     } deriving (Eq,Read,Show)
 
 -- | 'ContinueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
@@ -3293,7 +3293,7 @@ instance ToJSON
 --
 -- * 'canwefeaDecisionTaskCompletedEventId'
 data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes'
-    { _canwefeaCause                        :: ContinueAsNewWorkflowExecutionFailedCause
+    { _canwefeaCause                        :: !ContinueAsNewWorkflowExecutionFailedCause
     , _canwefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -3507,19 +3507,19 @@ instance FromJSON
 --
 -- * 'decDecisionType'
 data Decision = Decision'
-    { _decRequestCancelExternalWorkflowExecutionDecisionAttributes :: Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes
-    , _decScheduleActivityTaskDecisionAttributes                   :: Maybe ScheduleActivityTaskDecisionAttributes
-    , _decSignalExternalWorkflowExecutionDecisionAttributes        :: Maybe SignalExternalWorkflowExecutionDecisionAttributes
-    , _decStartTimerDecisionAttributes                             :: Maybe StartTimerDecisionAttributes
-    , _decRecordMarkerDecisionAttributes                           :: Maybe RecordMarkerDecisionAttributes
-    , _decFailWorkflowExecutionDecisionAttributes                  :: Maybe FailWorkflowExecutionDecisionAttributes
-    , _decStartChildWorkflowExecutionDecisionAttributes            :: Maybe StartChildWorkflowExecutionDecisionAttributes
-    , _decCompleteWorkflowExecutionDecisionAttributes              :: Maybe CompleteWorkflowExecutionDecisionAttributes
-    , _decRequestCancelActivityTaskDecisionAttributes              :: Maybe RequestCancelActivityTaskDecisionAttributes
-    , _decCancelWorkflowExecutionDecisionAttributes                :: Maybe CancelWorkflowExecutionDecisionAttributes
-    , _decCancelTimerDecisionAttributes                            :: Maybe CancelTimerDecisionAttributes
-    , _decContinueAsNewWorkflowExecutionDecisionAttributes         :: Maybe ContinueAsNewWorkflowExecutionDecisionAttributes
-    , _decDecisionType                                             :: DecisionType
+    { _decRequestCancelExternalWorkflowExecutionDecisionAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
+    , _decScheduleActivityTaskDecisionAttributes                   :: !(Maybe ScheduleActivityTaskDecisionAttributes)
+    , _decSignalExternalWorkflowExecutionDecisionAttributes        :: !(Maybe SignalExternalWorkflowExecutionDecisionAttributes)
+    , _decStartTimerDecisionAttributes                             :: !(Maybe StartTimerDecisionAttributes)
+    , _decRecordMarkerDecisionAttributes                           :: !(Maybe RecordMarkerDecisionAttributes)
+    , _decFailWorkflowExecutionDecisionAttributes                  :: !(Maybe FailWorkflowExecutionDecisionAttributes)
+    , _decStartChildWorkflowExecutionDecisionAttributes            :: !(Maybe StartChildWorkflowExecutionDecisionAttributes)
+    , _decCompleteWorkflowExecutionDecisionAttributes              :: !(Maybe CompleteWorkflowExecutionDecisionAttributes)
+    , _decRequestCancelActivityTaskDecisionAttributes              :: !(Maybe RequestCancelActivityTaskDecisionAttributes)
+    , _decCancelWorkflowExecutionDecisionAttributes                :: !(Maybe CancelWorkflowExecutionDecisionAttributes)
+    , _decCancelTimerDecisionAttributes                            :: !(Maybe CancelTimerDecisionAttributes)
+    , _decContinueAsNewWorkflowExecutionDecisionAttributes         :: !(Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
+    , _decDecisionType                                             :: !DecisionType
     } deriving (Eq,Read,Show)
 
 -- | 'Decision' smart constructor.
@@ -3648,7 +3648,7 @@ instance ToJSON Decision where
 --
 -- * 'dtceaStartedEventId'
 data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes'
-    { _dtceaExecutionContext :: Maybe Text
+    { _dtceaExecutionContext :: !(Maybe Text)
     , _dtceaScheduledEventId :: !Integer
     , _dtceaStartedEventId   :: !Integer
     } deriving (Eq,Read,Show)
@@ -3701,9 +3701,9 @@ instance FromJSON
 --
 -- * 'dtseaTaskList'
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes'
-    { _dtseaTaskPriority        :: Maybe Text
-    , _dtseaStartToCloseTimeout :: Maybe Text
-    , _dtseaTaskList            :: TaskList
+    { _dtseaTaskPriority        :: !(Maybe Text)
+    , _dtseaStartToCloseTimeout :: !(Maybe Text)
+    , _dtseaTaskList            :: !TaskList
     } deriving (Eq,Read,Show)
 
 -- | 'DecisionTaskScheduledEventAttributes' smart constructor.
@@ -3758,7 +3758,7 @@ instance FromJSON
 --
 -- * 'dtseaScheduledEventId'
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
-    { _dtseaIdentity         :: Maybe Text
+    { _dtseaIdentity         :: !(Maybe Text)
     , _dtseaScheduledEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -3802,7 +3802,7 @@ instance FromJSON DecisionTaskStartedEventAttributes
 --
 -- * 'dttoeaStartedEventId'
 data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
-    { _dttoeaTimeoutType      :: DecisionTaskTimeoutType
+    { _dttoeaTimeoutType      :: !DecisionTaskTimeoutType
     , _dttoeaScheduledEventId :: !Integer
     , _dttoeaStartedEventId   :: !Integer
     } deriving (Eq,Read,Show)
@@ -3884,9 +3884,9 @@ instance FromJSON DomainConfiguration where
 --
 -- * 'diStatus'
 data DomainInfo = DomainInfo'
-    { _diDescription :: Maybe Text
-    , _diName        :: Text
-    , _diStatus      :: RegistrationStatus
+    { _diDescription :: !(Maybe Text)
+    , _diName        :: !Text
+    , _diStatus      :: !RegistrationStatus
     } deriving (Eq,Read,Show)
 
 -- | 'DomainInfo' smart constructor.
@@ -3939,8 +3939,8 @@ instance FromJSON DomainInfo where
 --
 -- * 'etfOldestDate'
 data ExecutionTimeFilter = ExecutionTimeFilter'
-    { _etfLatestDate :: Maybe POSIX
-    , _etfOldestDate :: POSIX
+    { _etfLatestDate :: !(Maybe POSIX)
+    , _etfOldestDate :: !POSIX
     } deriving (Eq,Read,Show)
 
 -- | 'ExecutionTimeFilter' smart constructor.
@@ -3976,7 +3976,7 @@ instance ToJSON ExecutionTimeFilter where
 --
 -- * 'ewecreaInitiatedEventId'
 data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowExecutionCancelRequestedEventAttributes'
-    { _ewecreaWorkflowExecution :: WorkflowExecution
+    { _ewecreaWorkflowExecution :: !WorkflowExecution
     , _ewecreaInitiatedEventId  :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -4023,7 +4023,7 @@ instance FromJSON
 --
 -- * 'eweseaInitiatedEventId'
 data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutionSignaledEventAttributes'
-    { _eweseaWorkflowExecution :: WorkflowExecution
+    { _eweseaWorkflowExecution :: !WorkflowExecution
     , _eweseaInitiatedEventId  :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -4085,8 +4085,8 @@ instance FromJSON
 --
 -- * 'fwedaDetails'
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes'
-    { _fwedaReason  :: Maybe Text
-    , _fwedaDetails :: Maybe Text
+    { _fwedaReason  :: !(Maybe Text)
+    , _fwedaDetails :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FailWorkflowExecutionDecisionAttributes' smart constructor.
@@ -4122,7 +4122,7 @@ instance ToJSON
 --
 -- * 'fwefeaDecisionTaskCompletedEventId'
 data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEventAttributes'
-    { _fwefeaCause                        :: FailWorkflowExecutionFailedCause
+    { _fwefeaCause                        :: !FailWorkflowExecutionFailedCause
     , _fwefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -4362,55 +4362,55 @@ instance FromJSON
 --
 -- * 'heEventId'
 data HistoryEvent = HistoryEvent'
-    { _heWorkflowExecutionCancelRequestedEventAttributes                :: Maybe WorkflowExecutionCancelRequestedEventAttributes
-    , _heDecisionTaskScheduledEventAttributes                           :: Maybe DecisionTaskScheduledEventAttributes
-    , _heStartTimerFailedEventAttributes                                :: Maybe StartTimerFailedEventAttributes
-    , _heRecordMarkerFailedEventAttributes                              :: Maybe RecordMarkerFailedEventAttributes
-    , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    , _heWorkflowExecutionCompletedEventAttributes                      :: Maybe WorkflowExecutionCompletedEventAttributes
-    , _heActivityTaskScheduledEventAttributes                           :: Maybe ActivityTaskScheduledEventAttributes
-    , _heChildWorkflowExecutionCompletedEventAttributes                 :: Maybe ChildWorkflowExecutionCompletedEventAttributes
-    , _heScheduleActivityTaskFailedEventAttributes                      :: Maybe ScheduleActivityTaskFailedEventAttributes
-    , _heMarkerRecordedEventAttributes                                  :: Maybe MarkerRecordedEventAttributes
-    , _heCompleteWorkflowExecutionFailedEventAttributes                 :: Maybe CompleteWorkflowExecutionFailedEventAttributes
-    , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes    :: Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    , _heTimerCanceledEventAttributes                                   :: Maybe TimerCanceledEventAttributes
-    , _heWorkflowExecutionStartedEventAttributes                        :: Maybe WorkflowExecutionStartedEventAttributes
-    , _heActivityTaskCompletedEventAttributes                           :: Maybe ActivityTaskCompletedEventAttributes
-    , _heChildWorkflowExecutionStartedEventAttributes                   :: Maybe ChildWorkflowExecutionStartedEventAttributes
-    , _heDecisionTaskTimedOutEventAttributes                            :: Maybe DecisionTaskTimedOutEventAttributes
-    , _heCancelTimerFailedEventAttributes                               :: Maybe CancelTimerFailedEventAttributes
-    , _heActivityTaskTimedOutEventAttributes                            :: Maybe ActivityTaskTimedOutEventAttributes
-    , _heActivityTaskCanceledEventAttributes                            :: Maybe ActivityTaskCanceledEventAttributes
-    , _heChildWorkflowExecutionCanceledEventAttributes                  :: Maybe ChildWorkflowExecutionCanceledEventAttributes
-    , _heDecisionTaskStartedEventAttributes                             :: Maybe DecisionTaskStartedEventAttributes
-    , _heCancelWorkflowExecutionFailedEventAttributes                   :: Maybe CancelWorkflowExecutionFailedEventAttributes
-    , _heChildWorkflowExecutionTimedOutEventAttributes                  :: Maybe ChildWorkflowExecutionTimedOutEventAttributes
-    , _heRequestCancelActivityTaskFailedEventAttributes                 :: Maybe RequestCancelActivityTaskFailedEventAttributes
-    , _heWorkflowExecutionTerminatedEventAttributes                     :: Maybe WorkflowExecutionTerminatedEventAttributes
-    , _heStartChildWorkflowExecutionInitiatedEventAttributes            :: Maybe StartChildWorkflowExecutionInitiatedEventAttributes
-    , _heActivityTaskStartedEventAttributes                             :: Maybe ActivityTaskStartedEventAttributes
-    , _heSignalExternalWorkflowExecutionFailedEventAttributes           :: Maybe SignalExternalWorkflowExecutionFailedEventAttributes
-    , _heTimerStartedEventAttributes                                    :: Maybe TimerStartedEventAttributes
-    , _heWorkflowExecutionTimedOutEventAttributes                       :: Maybe WorkflowExecutionTimedOutEventAttributes
-    , _heActivityTaskCancelRequestedEventAttributes                     :: Maybe ActivityTaskCancelRequestedEventAttributes
-    , _heChildWorkflowExecutionTerminatedEventAttributes                :: Maybe ChildWorkflowExecutionTerminatedEventAttributes
-    , _heWorkflowExecutionCanceledEventAttributes                       :: Maybe WorkflowExecutionCanceledEventAttributes
-    , _heWorkflowExecutionSignaledEventAttributes                       :: Maybe WorkflowExecutionSignaledEventAttributes
-    , _heActivityTaskFailedEventAttributes                              :: Maybe ActivityTaskFailedEventAttributes
-    , _heExternalWorkflowExecutionSignaledEventAttributes               :: Maybe ExternalWorkflowExecutionSignaledEventAttributes
-    , _heTimerFiredEventAttributes                                      :: Maybe TimerFiredEventAttributes
-    , _heFailWorkflowExecutionFailedEventAttributes                     :: Maybe FailWorkflowExecutionFailedEventAttributes
-    , _heChildWorkflowExecutionFailedEventAttributes                    :: Maybe ChildWorkflowExecutionFailedEventAttributes
-    , _heDecisionTaskCompletedEventAttributes                           :: Maybe DecisionTaskCompletedEventAttributes
-    , _heStartChildWorkflowExecutionFailedEventAttributes               :: Maybe StartChildWorkflowExecutionFailedEventAttributes
-    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes        :: Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes
-    , _heContinueAsNewWorkflowExecutionFailedEventAttributes            :: Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes
-    , _heWorkflowExecutionFailedEventAttributes                         :: Maybe WorkflowExecutionFailedEventAttributes
-    , _heWorkflowExecutionContinuedAsNewEventAttributes                 :: Maybe WorkflowExecutionContinuedAsNewEventAttributes
-    , _heExternalWorkflowExecutionCancelRequestedEventAttributes        :: Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes
-    , _heEventTimestamp                                                 :: POSIX
-    , _heEventType                                                      :: EventType
+    { _heWorkflowExecutionCancelRequestedEventAttributes                :: !(Maybe WorkflowExecutionCancelRequestedEventAttributes)
+    , _heDecisionTaskScheduledEventAttributes                           :: !(Maybe DecisionTaskScheduledEventAttributes)
+    , _heStartTimerFailedEventAttributes                                :: !(Maybe StartTimerFailedEventAttributes)
+    , _heRecordMarkerFailedEventAttributes                              :: !(Maybe RecordMarkerFailedEventAttributes)
+    , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
+    , _heWorkflowExecutionCompletedEventAttributes                      :: !(Maybe WorkflowExecutionCompletedEventAttributes)
+    , _heActivityTaskScheduledEventAttributes                           :: !(Maybe ActivityTaskScheduledEventAttributes)
+    , _heChildWorkflowExecutionCompletedEventAttributes                 :: !(Maybe ChildWorkflowExecutionCompletedEventAttributes)
+    , _heScheduleActivityTaskFailedEventAttributes                      :: !(Maybe ScheduleActivityTaskFailedEventAttributes)
+    , _heMarkerRecordedEventAttributes                                  :: !(Maybe MarkerRecordedEventAttributes)
+    , _heCompleteWorkflowExecutionFailedEventAttributes                 :: !(Maybe CompleteWorkflowExecutionFailedEventAttributes)
+    , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes    :: !(Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
+    , _heTimerCanceledEventAttributes                                   :: !(Maybe TimerCanceledEventAttributes)
+    , _heWorkflowExecutionStartedEventAttributes                        :: !(Maybe WorkflowExecutionStartedEventAttributes)
+    , _heActivityTaskCompletedEventAttributes                           :: !(Maybe ActivityTaskCompletedEventAttributes)
+    , _heChildWorkflowExecutionStartedEventAttributes                   :: !(Maybe ChildWorkflowExecutionStartedEventAttributes)
+    , _heDecisionTaskTimedOutEventAttributes                            :: !(Maybe DecisionTaskTimedOutEventAttributes)
+    , _heCancelTimerFailedEventAttributes                               :: !(Maybe CancelTimerFailedEventAttributes)
+    , _heActivityTaskTimedOutEventAttributes                            :: !(Maybe ActivityTaskTimedOutEventAttributes)
+    , _heActivityTaskCanceledEventAttributes                            :: !(Maybe ActivityTaskCanceledEventAttributes)
+    , _heChildWorkflowExecutionCanceledEventAttributes                  :: !(Maybe ChildWorkflowExecutionCanceledEventAttributes)
+    , _heDecisionTaskStartedEventAttributes                             :: !(Maybe DecisionTaskStartedEventAttributes)
+    , _heCancelWorkflowExecutionFailedEventAttributes                   :: !(Maybe CancelWorkflowExecutionFailedEventAttributes)
+    , _heChildWorkflowExecutionTimedOutEventAttributes                  :: !(Maybe ChildWorkflowExecutionTimedOutEventAttributes)
+    , _heRequestCancelActivityTaskFailedEventAttributes                 :: !(Maybe RequestCancelActivityTaskFailedEventAttributes)
+    , _heWorkflowExecutionTerminatedEventAttributes                     :: !(Maybe WorkflowExecutionTerminatedEventAttributes)
+    , _heStartChildWorkflowExecutionInitiatedEventAttributes            :: !(Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
+    , _heActivityTaskStartedEventAttributes                             :: !(Maybe ActivityTaskStartedEventAttributes)
+    , _heSignalExternalWorkflowExecutionFailedEventAttributes           :: !(Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
+    , _heTimerStartedEventAttributes                                    :: !(Maybe TimerStartedEventAttributes)
+    , _heWorkflowExecutionTimedOutEventAttributes                       :: !(Maybe WorkflowExecutionTimedOutEventAttributes)
+    , _heActivityTaskCancelRequestedEventAttributes                     :: !(Maybe ActivityTaskCancelRequestedEventAttributes)
+    , _heChildWorkflowExecutionTerminatedEventAttributes                :: !(Maybe ChildWorkflowExecutionTerminatedEventAttributes)
+    , _heWorkflowExecutionCanceledEventAttributes                       :: !(Maybe WorkflowExecutionCanceledEventAttributes)
+    , _heWorkflowExecutionSignaledEventAttributes                       :: !(Maybe WorkflowExecutionSignaledEventAttributes)
+    , _heActivityTaskFailedEventAttributes                              :: !(Maybe ActivityTaskFailedEventAttributes)
+    , _heExternalWorkflowExecutionSignaledEventAttributes               :: !(Maybe ExternalWorkflowExecutionSignaledEventAttributes)
+    , _heTimerFiredEventAttributes                                      :: !(Maybe TimerFiredEventAttributes)
+    , _heFailWorkflowExecutionFailedEventAttributes                     :: !(Maybe FailWorkflowExecutionFailedEventAttributes)
+    , _heChildWorkflowExecutionFailedEventAttributes                    :: !(Maybe ChildWorkflowExecutionFailedEventAttributes)
+    , _heDecisionTaskCompletedEventAttributes                           :: !(Maybe DecisionTaskCompletedEventAttributes)
+    , _heStartChildWorkflowExecutionFailedEventAttributes               :: !(Maybe StartChildWorkflowExecutionFailedEventAttributes)
+    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes        :: !(Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
+    , _heContinueAsNewWorkflowExecutionFailedEventAttributes            :: !(Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
+    , _heWorkflowExecutionFailedEventAttributes                         :: !(Maybe WorkflowExecutionFailedEventAttributes)
+    , _heWorkflowExecutionContinuedAsNewEventAttributes                 :: !(Maybe WorkflowExecutionContinuedAsNewEventAttributes)
+    , _heExternalWorkflowExecutionCancelRequestedEventAttributes        :: !(Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
+    , _heEventTimestamp                                                 :: !POSIX
+    , _heEventType                                                      :: !EventType
     , _heEventId                                                        :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -4880,8 +4880,8 @@ instance FromJSON HistoryEvent where
 --
 -- * 'mreaDecisionTaskCompletedEventId'
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
-    { _mreaDetails                      :: Maybe Text
-    , _mreaMarkerName                   :: Text
+    { _mreaDetails                      :: !(Maybe Text)
+    , _mreaMarkerName                   :: !Text
     , _mreaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -4927,7 +4927,7 @@ instance FromJSON MarkerRecordedEventAttributes where
 --
 -- * 'ptcCount'
 data PendingTaskCount = PendingTaskCount'
-    { _ptcTruncated :: Maybe Bool
+    { _ptcTruncated :: !(Maybe Bool)
     , _ptcCount     :: !Nat
     } deriving (Eq,Read,Show)
 
@@ -4984,8 +4984,8 @@ instance FromJSON PendingTaskCount where
 --
 -- * 'rmdaMarkerName'
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
-    { _rmdaDetails    :: Maybe Text
-    , _rmdaMarkerName :: Text
+    { _rmdaDetails    :: !(Maybe Text)
+    , _rmdaMarkerName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RecordMarkerDecisionAttributes' smart constructor.
@@ -5022,8 +5022,8 @@ instance ToJSON RecordMarkerDecisionAttributes where
 --
 -- * 'rmfeaDecisionTaskCompletedEventId'
 data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes'
-    { _rmfeaMarkerName                   :: Text
-    , _rmfeaCause                        :: RecordMarkerFailedCause
+    { _rmfeaMarkerName                   :: !Text
+    , _rmfeaCause                        :: !RecordMarkerFailedCause
     , _rmfeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -5124,8 +5124,8 @@ instance ToJSON
 --
 -- * 'rcatfeaDecisionTaskCompletedEventId'
 data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskFailedEventAttributes'
-    { _rcatfeaActivityId                   :: Text
-    , _rcatfeaCause                        :: RequestCancelActivityTaskFailedCause
+    { _rcatfeaActivityId                   :: !Text
+    , _rcatfeaCause                        :: !RequestCancelActivityTaskFailedCause
     , _rcatfeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -5202,9 +5202,9 @@ instance FromJSON
 --
 -- * 'rcewedaWorkflowId'
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes'
-    { _rcewedaControl    :: Maybe Text
-    , _rcewedaRunId      :: Maybe Text
-    , _rcewedaWorkflowId :: Text
+    { _rcewedaControl    :: !(Maybe Text)
+    , _rcewedaRunId      :: !(Maybe Text)
+    , _rcewedaWorkflowId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RequestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
@@ -5259,10 +5259,10 @@ instance ToJSON
 --
 -- * 'rcewefeaDecisionTaskCompletedEventId'
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes'
-    { _rcewefeaControl                      :: Maybe Text
-    , _rcewefeaRunId                        :: Maybe Text
-    , _rcewefeaWorkflowId                   :: Text
-    , _rcewefeaCause                        :: RequestCancelExternalWorkflowExecutionFailedCause
+    { _rcewefeaControl                      :: !(Maybe Text)
+    , _rcewefeaRunId                        :: !(Maybe Text)
+    , _rcewefeaWorkflowId                   :: !Text
+    , _rcewefeaCause                        :: !RequestCancelExternalWorkflowExecutionFailedCause
     , _rcewefeaInitiatedEventId             :: !Integer
     , _rcewefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
@@ -5348,9 +5348,9 @@ instance FromJSON
 --
 -- * 'rceweieaDecisionTaskCompletedEventId'
 data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
-    { _rceweieaControl                      :: Maybe Text
-    , _rceweieaRunId                        :: Maybe Text
-    , _rceweieaWorkflowId                   :: Text
+    { _rceweieaControl                      :: !(Maybe Text)
+    , _rceweieaRunId                        :: !(Maybe Text)
+    , _rceweieaWorkflowId                   :: !Text
     , _rceweieaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -5448,16 +5448,16 @@ instance FromJSON
 --
 -- * 'satdaActivityId'
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes'
-    { _satdaControl                :: Maybe Text
-    , _satdaScheduleToCloseTimeout :: Maybe Text
-    , _satdaHeartbeatTimeout       :: Maybe Text
-    , _satdaInput                  :: Maybe Text
-    , _satdaTaskList               :: Maybe TaskList
-    , _satdaTaskPriority           :: Maybe Text
-    , _satdaScheduleToStartTimeout :: Maybe Text
-    , _satdaStartToCloseTimeout    :: Maybe Text
-    , _satdaActivityType           :: ActivityType
-    , _satdaActivityId             :: Text
+    { _satdaControl                :: !(Maybe Text)
+    , _satdaScheduleToCloseTimeout :: !(Maybe Text)
+    , _satdaHeartbeatTimeout       :: !(Maybe Text)
+    , _satdaInput                  :: !(Maybe Text)
+    , _satdaTaskList               :: !(Maybe TaskList)
+    , _satdaTaskPriority           :: !(Maybe Text)
+    , _satdaScheduleToStartTimeout :: !(Maybe Text)
+    , _satdaStartToCloseTimeout    :: !(Maybe Text)
+    , _satdaActivityType           :: !ActivityType
+    , _satdaActivityId             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ScheduleActivityTaskDecisionAttributes' smart constructor.
@@ -5611,9 +5611,9 @@ instance ToJSON
 --
 -- * 'satfeaDecisionTaskCompletedEventId'
 data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEventAttributes'
-    { _satfeaActivityType                 :: ActivityType
-    , _satfeaActivityId                   :: Text
-    , _satfeaCause                        :: ScheduleActivityTaskFailedCause
+    { _satfeaActivityType                 :: !ActivityType
+    , _satfeaActivityId                   :: !Text
+    , _satfeaCause                        :: !ScheduleActivityTaskFailedCause
     , _satfeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -5699,11 +5699,11 @@ instance FromJSON
 --
 -- * 'sewedaSignalName'
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes'
-    { _sewedaControl    :: Maybe Text
-    , _sewedaInput      :: Maybe Text
-    , _sewedaRunId      :: Maybe Text
-    , _sewedaWorkflowId :: Text
-    , _sewedaSignalName :: Text
+    { _sewedaControl    :: !(Maybe Text)
+    , _sewedaInput      :: !(Maybe Text)
+    , _sewedaRunId      :: !(Maybe Text)
+    , _sewedaWorkflowId :: !Text
+    , _sewedaSignalName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SignalExternalWorkflowExecutionDecisionAttributes' smart constructor.
@@ -5770,10 +5770,10 @@ instance ToJSON
 --
 -- * 'sewefeaDecisionTaskCompletedEventId'
 data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkflowExecutionFailedEventAttributes'
-    { _sewefeaControl                      :: Maybe Text
-    , _sewefeaRunId                        :: Maybe Text
-    , _sewefeaWorkflowId                   :: Text
-    , _sewefeaCause                        :: SignalExternalWorkflowExecutionFailedCause
+    { _sewefeaControl                      :: !(Maybe Text)
+    , _sewefeaRunId                        :: !(Maybe Text)
+    , _sewefeaWorkflowId                   :: !Text
+    , _sewefeaCause                        :: !SignalExternalWorkflowExecutionFailedCause
     , _sewefeaInitiatedEventId             :: !Integer
     , _sewefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
@@ -5862,11 +5862,11 @@ instance FromJSON
 --
 -- * 'seweieaDecisionTaskCompletedEventId'
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes'
-    { _seweieaControl                      :: Maybe Text
-    , _seweieaInput                        :: Maybe Text
-    , _seweieaRunId                        :: Maybe Text
-    , _seweieaWorkflowId                   :: Text
-    , _seweieaSignalName                   :: Text
+    { _seweieaControl                      :: !(Maybe Text)
+    , _seweieaInput                        :: !(Maybe Text)
+    , _seweieaRunId                        :: !(Maybe Text)
+    , _seweieaWorkflowId                   :: !Text
+    , _seweieaSignalName                   :: !Text
     , _seweieaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -5977,16 +5977,16 @@ instance FromJSON
 --
 -- * 'scwedaWorkflowId'
 data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes'
-    { _scwedaControl                      :: Maybe Text
-    , _scwedaTagList                      :: Maybe [Text]
-    , _scwedaTaskStartToCloseTimeout      :: Maybe Text
-    , _scwedaInput                        :: Maybe Text
-    , _scwedaExecutionStartToCloseTimeout :: Maybe Text
-    , _scwedaTaskList                     :: Maybe TaskList
-    , _scwedaTaskPriority                 :: Maybe Text
-    , _scwedaChildPolicy                  :: Maybe ChildPolicy
-    , _scwedaWorkflowType                 :: WorkflowType
-    , _scwedaWorkflowId                   :: Text
+    { _scwedaControl                      :: !(Maybe Text)
+    , _scwedaTagList                      :: !(Maybe [Text])
+    , _scwedaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _scwedaInput                        :: !(Maybe Text)
+    , _scwedaExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _scwedaTaskList                     :: !(Maybe TaskList)
+    , _scwedaTaskPriority                 :: !(Maybe Text)
+    , _scwedaChildPolicy                  :: !(Maybe ChildPolicy)
+    , _scwedaWorkflowType                 :: !WorkflowType
+    , _scwedaWorkflowId                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'StartChildWorkflowExecutionDecisionAttributes' smart constructor.
@@ -6152,10 +6152,10 @@ instance ToJSON
 --
 -- * 'scwefeaDecisionTaskCompletedEventId'
 data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecutionFailedEventAttributes'
-    { _scwefeaControl                      :: Maybe Text
-    , _scwefeaWorkflowType                 :: WorkflowType
-    , _scwefeaCause                        :: StartChildWorkflowExecutionFailedCause
-    , _scwefeaWorkflowId                   :: Text
+    { _scwefeaControl                      :: !(Maybe Text)
+    , _scwefeaWorkflowType                 :: !WorkflowType
+    , _scwefeaCause                        :: !StartChildWorkflowExecutionFailedCause
+    , _scwefeaWorkflowId                   :: !Text
     , _scwefeaInitiatedEventId             :: !Integer
     , _scwefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
@@ -6251,17 +6251,17 @@ instance FromJSON
 --
 -- * 'scweieaChildPolicy'
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'
-    { _scweieaControl                      :: Maybe Text
-    , _scweieaTagList                      :: Maybe [Text]
-    , _scweieaTaskStartToCloseTimeout      :: Maybe Text
-    , _scweieaInput                        :: Maybe Text
-    , _scweieaExecutionStartToCloseTimeout :: Maybe Text
-    , _scweieaTaskPriority                 :: Maybe Text
-    , _scweieaWorkflowId                   :: Text
-    , _scweieaWorkflowType                 :: WorkflowType
-    , _scweieaTaskList                     :: TaskList
+    { _scweieaControl                      :: !(Maybe Text)
+    , _scweieaTagList                      :: !(Maybe [Text])
+    , _scweieaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _scweieaInput                        :: !(Maybe Text)
+    , _scweieaExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _scweieaTaskPriority                 :: !(Maybe Text)
+    , _scweieaWorkflowId                   :: !Text
+    , _scweieaWorkflowType                 :: !WorkflowType
+    , _scweieaTaskList                     :: !TaskList
     , _scweieaDecisionTaskCompletedEventId :: !Integer
-    , _scweieaChildPolicy                  :: ChildPolicy
+    , _scweieaChildPolicy                  :: !ChildPolicy
     } deriving (Eq,Read,Show)
 
 -- | 'StartChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
@@ -6408,9 +6408,9 @@ instance FromJSON
 --
 -- * 'stdaStartToFireTimeout'
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
-    { _stdaControl            :: Maybe Text
-    , _stdaTimerId            :: Text
-    , _stdaStartToFireTimeout :: Text
+    { _stdaControl            :: !(Maybe Text)
+    , _stdaTimerId            :: !Text
+    , _stdaStartToFireTimeout :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'StartTimerDecisionAttributes' smart constructor.
@@ -6462,8 +6462,8 @@ instance ToJSON StartTimerDecisionAttributes where
 --
 -- * 'stfeaDecisionTaskCompletedEventId'
 data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes'
-    { _stfeaTimerId                      :: Text
-    , _stfeaCause                        :: StartTimerFailedCause
+    { _stfeaTimerId                      :: !Text
+    , _stfeaCause                        :: !StartTimerFailedCause
     , _stfeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -6575,7 +6575,7 @@ instance ToJSON TaskList where
 --
 -- * 'tceaDecisionTaskCompletedEventId'
 data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
-    { _tceaTimerId                      :: Text
+    { _tceaTimerId                      :: !Text
     , _tceaStartedEventId               :: !Integer
     , _tceaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
@@ -6624,7 +6624,7 @@ instance FromJSON TimerCanceledEventAttributes where
 --
 -- * 'tfeaStartedEventId'
 data TimerFiredEventAttributes = TimerFiredEventAttributes'
-    { _tfeaTimerId        :: Text
+    { _tfeaTimerId        :: !Text
     , _tfeaStartedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -6667,9 +6667,9 @@ instance FromJSON TimerFiredEventAttributes where
 --
 -- * 'tseaDecisionTaskCompletedEventId'
 data TimerStartedEventAttributes = TimerStartedEventAttributes'
-    { _tseaControl                      :: Maybe Text
-    , _tseaTimerId                      :: Text
-    , _tseaStartToFireTimeout           :: Text
+    { _tseaControl                      :: !(Maybe Text)
+    , _tseaTimerId                      :: !Text
+    , _tseaStartToFireTimeout           :: !Text
     , _tseaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -6725,8 +6725,8 @@ instance FromJSON TimerStartedEventAttributes where
 --
 -- * 'weRunId'
 data WorkflowExecution = WorkflowExecution'
-    { _weWorkflowId :: Text
-    , _weRunId      :: Text
+    { _weWorkflowId :: !Text
+    , _weRunId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecution' smart constructor.
@@ -6769,9 +6769,9 @@ instance ToJSON WorkflowExecution where
 --
 -- * 'wecreaCause'
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes'
-    { _wecreaExternalWorkflowExecution :: Maybe WorkflowExecution
-    , _wecreaExternalInitiatedEventId  :: Maybe Integer
-    , _wecreaCause                     :: Maybe WorkflowExecutionCancelRequestedCause
+    { _wecreaExternalWorkflowExecution :: !(Maybe WorkflowExecution)
+    , _wecreaExternalInitiatedEventId  :: !(Maybe Integer)
+    , _wecreaCause                     :: !(Maybe WorkflowExecutionCancelRequestedCause)
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionCancelRequestedEventAttributes' smart constructor.
@@ -6825,7 +6825,7 @@ instance FromJSON
 --
 -- * 'worDecisionTaskCompletedEventId'
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
-    { _worDetails                      :: Maybe Text
+    { _worDetails                      :: !(Maybe Text)
     , _worDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -6869,7 +6869,7 @@ instance FromJSON
 --
 -- * 'weceaDecisionTaskCompletedEventId'
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes'
-    { _weceaResult                       :: Maybe Text
+    { _weceaResult                       :: !(Maybe Text)
     , _weceaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -6923,11 +6923,11 @@ instance FromJSON
 --
 -- * 'wecChildPolicy'
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
-    { _wecTaskPriority                 :: Maybe Text
-    , _wecTaskStartToCloseTimeout      :: Text
-    , _wecExecutionStartToCloseTimeout :: Text
-    , _wecTaskList                     :: TaskList
-    , _wecChildPolicy                  :: ChildPolicy
+    { _wecTaskPriority                 :: !(Maybe Text)
+    , _wecTaskStartToCloseTimeout      :: !Text
+    , _wecExecutionStartToCloseTimeout :: !Text
+    , _wecTaskList                     :: !TaskList
+    , _wecChildPolicy                  :: !ChildPolicy
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionConfiguration' smart constructor.
@@ -7026,16 +7026,16 @@ instance FromJSON WorkflowExecutionConfiguration
 --
 -- * 'wecaneaWorkflowType'
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
-    { _wecaneaTagList                      :: Maybe [Text]
-    , _wecaneaTaskStartToCloseTimeout      :: Maybe Text
-    , _wecaneaInput                        :: Maybe Text
-    , _wecaneaExecutionStartToCloseTimeout :: Maybe Text
-    , _wecaneaTaskPriority                 :: Maybe Text
+    { _wecaneaTagList                      :: !(Maybe [Text])
+    , _wecaneaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _wecaneaInput                        :: !(Maybe Text)
+    , _wecaneaExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _wecaneaTaskPriority                 :: !(Maybe Text)
     , _wecaneaDecisionTaskCompletedEventId :: !Integer
-    , _wecaneaNewExecutionRunId            :: Text
-    , _wecaneaTaskList                     :: TaskList
-    , _wecaneaChildPolicy                  :: ChildPolicy
-    , _wecaneaWorkflowType                 :: WorkflowType
+    , _wecaneaNewExecutionRunId            :: !Text
+    , _wecaneaTaskList                     :: !TaskList
+    , _wecaneaChildPolicy                  :: !ChildPolicy
+    , _wecaneaWorkflowType                 :: !WorkflowType
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionContinuedAsNewEventAttributes' smart constructor.
@@ -7145,7 +7145,7 @@ instance FromJSON
 --
 -- * 'wecCount'
 data WorkflowExecutionCount = WorkflowExecutionCount'
-    { _wecTruncated :: Maybe Bool
+    { _wecTruncated :: !(Maybe Bool)
     , _wecCount     :: !Nat
     } deriving (Eq,Read,Show)
 
@@ -7186,8 +7186,8 @@ instance FromJSON WorkflowExecutionCount where
 --
 -- * 'wefeaDecisionTaskCompletedEventId'
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes'
-    { _wefeaReason                       :: Maybe Text
-    , _wefeaDetails                      :: Maybe Text
+    { _wefeaReason                       :: !(Maybe Text)
+    , _wefeaDetails                      :: !(Maybe Text)
     , _wefeaDecisionTaskCompletedEventId :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -7275,15 +7275,15 @@ instance ToJSON WorkflowExecutionFilter where
 --
 -- * 'weiExecutionStatus'
 data WorkflowExecutionInfo = WorkflowExecutionInfo'
-    { _weiParent          :: Maybe WorkflowExecution
-    , _weiTagList         :: Maybe [Text]
-    , _weiCloseStatus     :: Maybe CloseStatus
-    , _weiCloseTimestamp  :: Maybe POSIX
-    , _weiCancelRequested :: Maybe Bool
-    , _weiExecution       :: WorkflowExecution
-    , _weiWorkflowType    :: WorkflowType
-    , _weiStartTimestamp  :: POSIX
-    , _weiExecutionStatus :: ExecutionStatus
+    { _weiParent          :: !(Maybe WorkflowExecution)
+    , _weiTagList         :: !(Maybe [Text])
+    , _weiCloseStatus     :: !(Maybe CloseStatus)
+    , _weiCloseTimestamp  :: !(Maybe POSIX)
+    , _weiCancelRequested :: !(Maybe Bool)
+    , _weiExecution       :: !WorkflowExecution
+    , _weiWorkflowType    :: !WorkflowType
+    , _weiStartTimestamp  :: !POSIX
+    , _weiExecutionStatus :: !ExecutionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionInfo' smart constructor.
@@ -7378,8 +7378,8 @@ instance FromJSON WorkflowExecutionInfo where
 --
 -- * 'weiExecutionInfos'
 data WorkflowExecutionInfos = WorkflowExecutionInfos'
-    { _weiNextPageToken  :: Maybe Text
-    , _weiExecutionInfos :: [WorkflowExecutionInfo]
+    { _weiNextPageToken  :: !(Maybe Text)
+    , _weiExecutionInfos :: ![WorkflowExecutionInfo]
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionInfos' smart constructor.
@@ -7485,10 +7485,10 @@ instance FromJSON WorkflowExecutionOpenCounts where
 --
 -- * 'worSignalName'
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes'
-    { _worExternalWorkflowExecution :: Maybe WorkflowExecution
-    , _worExternalInitiatedEventId  :: Maybe Integer
-    , _worInput                     :: Maybe Text
-    , _worSignalName                :: Text
+    { _worExternalWorkflowExecution :: !(Maybe WorkflowExecution)
+    , _worExternalInitiatedEventId  :: !(Maybe Integer)
+    , _worInput                     :: !(Maybe Text)
+    , _worSignalName                :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionSignaledEventAttributes' smart constructor.
@@ -7566,17 +7566,17 @@ instance FromJSON
 --
 -- * 'weseaWorkflowType'
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'
-    { _weseaParentInitiatedEventId       :: Maybe Integer
-    , _weseaTagList                      :: Maybe [Text]
-    , _weseaTaskStartToCloseTimeout      :: Maybe Text
-    , _weseaInput                        :: Maybe Text
-    , _weseaExecutionStartToCloseTimeout :: Maybe Text
-    , _weseaTaskPriority                 :: Maybe Text
-    , _weseaParentWorkflowExecution      :: Maybe WorkflowExecution
-    , _weseaContinuedExecutionRunId      :: Maybe Text
-    , _weseaChildPolicy                  :: ChildPolicy
-    , _weseaTaskList                     :: TaskList
-    , _weseaWorkflowType                 :: WorkflowType
+    { _weseaParentInitiatedEventId       :: !(Maybe Integer)
+    , _weseaTagList                      :: !(Maybe [Text])
+    , _weseaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _weseaInput                        :: !(Maybe Text)
+    , _weseaExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _weseaTaskPriority                 :: !(Maybe Text)
+    , _weseaParentWorkflowExecution      :: !(Maybe WorkflowExecution)
+    , _weseaContinuedExecutionRunId      :: !(Maybe Text)
+    , _weseaChildPolicy                  :: !ChildPolicy
+    , _weseaTaskList                     :: !TaskList
+    , _weseaWorkflowType                 :: !WorkflowType
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionStartedEventAttributes' smart constructor.
@@ -7703,10 +7703,10 @@ instance FromJSON
 --
 -- * 'weteaChildPolicy'
 data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEventAttributes'
-    { _weteaCause       :: Maybe WorkflowExecutionTerminatedCause
-    , _weteaReason      :: Maybe Text
-    , _weteaDetails     :: Maybe Text
-    , _weteaChildPolicy :: ChildPolicy
+    { _weteaCause       :: !(Maybe WorkflowExecutionTerminatedCause)
+    , _weteaReason      :: !(Maybe Text)
+    , _weteaDetails     :: !(Maybe Text)
+    , _weteaChildPolicy :: !ChildPolicy
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionTerminatedEventAttributes' smart constructor.
@@ -7770,8 +7770,8 @@ instance FromJSON
 --
 -- * 'wetoeaChildPolicy'
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes'
-    { _wetoeaTimeoutType :: WorkflowExecutionTimeoutType
-    , _wetoeaChildPolicy :: ChildPolicy
+    { _wetoeaTimeoutType :: !WorkflowExecutionTimeoutType
+    , _wetoeaChildPolicy :: !ChildPolicy
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowExecutionTimedOutEventAttributes' smart constructor.
@@ -7820,8 +7820,8 @@ instance FromJSON
 --
 -- * 'wtVersion'
 data WorkflowType = WorkflowType'
-    { _wtName    :: Text
-    , _wtVersion :: Text
+    { _wtName    :: !Text
+    , _wtVersion :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowType' smart constructor.
@@ -7872,11 +7872,11 @@ instance ToJSON WorkflowType where
 --
 -- * 'wtcDefaultTaskStartToCloseTimeout'
 data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
-    { _wtcDefaultChildPolicy                  :: Maybe ChildPolicy
-    , _wtcDefaultTaskList                     :: Maybe TaskList
-    , _wtcDefaultTaskPriority                 :: Maybe Text
-    , _wtcDefaultExecutionStartToCloseTimeout :: Maybe Text
-    , _wtcDefaultTaskStartToCloseTimeout      :: Maybe Text
+    { _wtcDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+    , _wtcDefaultTaskList                     :: !(Maybe TaskList)
+    , _wtcDefaultTaskPriority                 :: !(Maybe Text)
+    , _wtcDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _wtcDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowTypeConfiguration' smart constructor.
@@ -7981,8 +7981,8 @@ instance FromJSON WorkflowTypeConfiguration where
 --
 -- * 'wtfName'
 data WorkflowTypeFilter = WorkflowTypeFilter'
-    { _wtfVersion :: Maybe Text
-    , _wtfName    :: Text
+    { _wtfVersion :: !(Maybe Text)
+    , _wtfName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowTypeFilter' smart constructor.
@@ -8022,11 +8022,11 @@ instance ToJSON WorkflowTypeFilter where
 --
 -- * 'wtiCreationDate'
 data WorkflowTypeInfo = WorkflowTypeInfo'
-    { _wtiDeprecationDate :: Maybe POSIX
-    , _wtiDescription     :: Maybe Text
-    , _wtiWorkflowType    :: WorkflowType
-    , _wtiStatus          :: RegistrationStatus
-    , _wtiCreationDate    :: POSIX
+    { _wtiDeprecationDate :: !(Maybe POSIX)
+    , _wtiDescription     :: !(Maybe Text)
+    , _wtiWorkflowType    :: !WorkflowType
+    , _wtiStatus          :: !RegistrationStatus
+    , _wtiCreationDate    :: !POSIX
     } deriving (Eq,Read,Show)
 
 -- | 'WorkflowTypeInfo' smart constructor.

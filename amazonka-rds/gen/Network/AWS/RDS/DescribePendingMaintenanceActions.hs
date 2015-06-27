@@ -59,10 +59,10 @@ import           Network.AWS.Response
 --
 -- * 'dpmaResourceIdentifier'
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-    { _dpmaFilters            :: Maybe [Filter]
-    , _dpmaMaxRecords         :: Maybe Int
-    , _dpmaMarker             :: Maybe Text
-    , _dpmaResourceIdentifier :: Maybe Text
+    { _dpmaFilters            :: !(Maybe [Filter])
+    , _dpmaMaxRecords         :: !(Maybe Int)
+    , _dpmaMarker             :: !(Maybe Text)
+    , _dpmaResourceIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePendingMaintenanceActions' smart constructor.
@@ -159,8 +159,8 @@ instance ToQuery DescribePendingMaintenanceActions
 --
 -- * 'dpmarStatus'
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
-    { _dpmarPendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions]
-    , _dpmarMarker                    :: Maybe Text
+    { _dpmarPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
+    , _dpmarMarker                    :: !(Maybe Text)
     , _dpmarStatus                    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -68,10 +68,10 @@ import           Network.AWS.Response
 --
 -- * 'docoNodeType'
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
-    { _docoMaxRecords     :: Maybe Int
-    , _docoMarker         :: Maybe Text
-    , _docoClusterVersion :: Maybe Text
-    , _docoNodeType       :: Maybe Text
+    { _docoMaxRecords     :: !(Maybe Int)
+    , _docoMarker         :: !(Maybe Text)
+    , _docoClusterVersion :: !(Maybe Text)
+    , _docoNodeType       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeOrderableClusterOptions' smart constructor.
@@ -176,8 +176,8 @@ instance ToQuery DescribeOrderableClusterOptions
 --
 -- * 'docorStatus'
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
-    { _docorMarker                  :: Maybe Text
-    , _docorOrderableClusterOptions :: Maybe [OrderableClusterOption]
+    { _docorMarker                  :: !(Maybe Text)
+    , _docorOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
     , _docorStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

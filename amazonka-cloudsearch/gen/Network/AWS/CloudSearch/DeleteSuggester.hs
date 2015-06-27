@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'deleSuggesterName'
 data DeleteSuggester = DeleteSuggester'
-    { _deleDomainName    :: Text
-    , _deleSuggesterName :: Text
+    { _deleDomainName    :: !Text
+    , _deleSuggesterName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteSuggester' smart constructor.
@@ -110,7 +110,7 @@ instance ToQuery DeleteSuggester where
 --
 -- * 'deleStatus'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _deleSuggester :: SuggesterStatus
+    { _deleSuggester :: !SuggesterStatus
     , _deleStatus    :: !Int
     } deriving (Eq,Read,Show)
 

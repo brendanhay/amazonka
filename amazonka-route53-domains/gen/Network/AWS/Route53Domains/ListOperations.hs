@@ -54,8 +54,8 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'loMarker'
 data ListOperations = ListOperations'
-    { _loMaxItems :: Maybe Int
-    , _loMarker   :: Maybe Text
+    { _loMaxItems :: !(Maybe Int)
+    , _loMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListOperations' smart constructor.
@@ -145,8 +145,8 @@ instance ToQuery ListOperations where
 --
 -- * 'lorStatus'
 data ListOperationsResponse = ListOperationsResponse'
-    { _lorNextPageMarker :: Maybe Text
-    , _lorOperations     :: [OperationSummary]
+    { _lorNextPageMarker :: !(Maybe Text)
+    , _lorOperations     :: ![OperationSummary]
     , _lorStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -126,7 +126,7 @@ instance ToQuery DecodeAuthorizationMessage where
 --
 -- * 'damrStatus'
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
-    { _damrDecodedMessage :: Maybe Text
+    { _damrDecodedMessage :: !(Maybe Text)
     , _damrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

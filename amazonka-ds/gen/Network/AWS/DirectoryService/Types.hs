@@ -479,8 +479,8 @@ instance FromJSON SnapshotType where
 --
 -- * 'attName'
 data Attribute = Attribute'
-    { _attValue :: Maybe Text
-    , _attName  :: Maybe Text
+    { _attValue :: !(Maybe Text)
+    , _attName  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Attribute' smart constructor.
@@ -521,9 +521,9 @@ instance ToJSON Attribute where
 --
 -- * 'comComputerName'
 data Computer = Computer'
-    { _comComputerId         :: Maybe Text
-    , _comComputerAttributes :: Maybe [Attribute]
-    , _comComputerName       :: Maybe Text
+    { _comComputerId         :: !(Maybe Text)
+    , _comComputerAttributes :: !(Maybe [Attribute])
+    , _comComputerName       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Computer' smart constructor.
@@ -572,10 +572,10 @@ instance FromJSON Computer where
 --
 -- * 'dcsCustomerUserName'
 data DirectoryConnectSettings = DirectoryConnectSettings'
-    { _dcsVPCId            :: Text
-    , _dcsSubnetIds        :: [Text]
-    , _dcsCustomerDNSIPs   :: [Text]
-    , _dcsCustomerUserName :: Text
+    { _dcsVPCId            :: !Text
+    , _dcsSubnetIds        :: ![Text]
+    , _dcsCustomerDNSIPs   :: ![Text]
+    , _dcsCustomerUserName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DirectoryConnectSettings' smart constructor.
@@ -637,12 +637,12 @@ instance ToJSON DirectoryConnectSettings where
 --
 -- * 'dcsdAvailabilityZones'
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-    { _dcsdCustomerUserName  :: Maybe Text
-    , _dcsdSubnetIds         :: Maybe [Text]
-    , _dcsdVPCId             :: Maybe Text
-    , _dcsdConnectIPs        :: Maybe [Text]
-    , _dcsdSecurityGroupId   :: Maybe Text
-    , _dcsdAvailabilityZones :: Maybe [Text]
+    { _dcsdCustomerUserName  :: !(Maybe Text)
+    , _dcsdSubnetIds         :: !(Maybe [Text])
+    , _dcsdVPCId             :: !(Maybe Text)
+    , _dcsdConnectIPs        :: !(Maybe [Text])
+    , _dcsdSecurityGroupId   :: !(Maybe Text)
+    , _dcsdAvailabilityZones :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DirectoryConnectSettingsDescription' smart constructor.
@@ -736,24 +736,24 @@ instance FromJSON DirectoryConnectSettingsDescription
 --
 -- * 'ddDescription'
 data DirectoryDescription = DirectoryDescription'
-    { _ddRadiusStatus             :: Maybe RadiusStatus
-    , _ddDirectoryId              :: Maybe Text
-    , _ddStage                    :: Maybe DirectoryStage
-    , _ddAccessURL                :: Maybe Text
-    , _ddShortName                :: Maybe Text
-    , _ddSize                     :: Maybe DirectorySize
-    , _ddRadiusSettings           :: Maybe RadiusSettings
-    , _ddLaunchTime               :: Maybe POSIX
-    , _ddAlias                    :: Maybe Text
-    , _ddName                     :: Maybe Text
-    , _ddSsoEnabled               :: Maybe Bool
-    , _ddStageLastUpdatedDateTime :: Maybe POSIX
-    , _ddStageReason              :: Maybe Text
-    , _ddDNSIPAddrs               :: Maybe [Text]
-    , _ddVPCSettings              :: Maybe DirectoryVPCSettingsDescription
-    , _ddType                     :: Maybe DirectoryType
-    , _ddConnectSettings          :: Maybe DirectoryConnectSettingsDescription
-    , _ddDescription              :: Maybe Text
+    { _ddRadiusStatus             :: !(Maybe RadiusStatus)
+    , _ddDirectoryId              :: !(Maybe Text)
+    , _ddStage                    :: !(Maybe DirectoryStage)
+    , _ddAccessURL                :: !(Maybe Text)
+    , _ddShortName                :: !(Maybe Text)
+    , _ddSize                     :: !(Maybe DirectorySize)
+    , _ddRadiusSettings           :: !(Maybe RadiusSettings)
+    , _ddLaunchTime               :: !(Maybe POSIX)
+    , _ddAlias                    :: !(Maybe Text)
+    , _ddName                     :: !(Maybe Text)
+    , _ddSsoEnabled               :: !(Maybe Bool)
+    , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
+    , _ddStageReason              :: !(Maybe Text)
+    , _ddDNSIPAddrs               :: !(Maybe [Text])
+    , _ddVPCSettings              :: !(Maybe DirectoryVPCSettingsDescription)
+    , _ddType                     :: !(Maybe DirectoryType)
+    , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
+    , _ddDescription              :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DirectoryDescription' smart constructor.
@@ -904,12 +904,12 @@ instance FromJSON DirectoryDescription where
 --
 -- * 'dlCloudOnlyDirectoriesLimitReached'
 data DirectoryLimits = DirectoryLimits'
-    { _dlConnectedDirectoriesCurrentCount :: Maybe Nat
-    , _dlConnectedDirectoriesLimit        :: Maybe Nat
-    , _dlConnectedDirectoriesLimitReached :: Maybe Bool
-    , _dlCloudOnlyDirectoriesLimit        :: Maybe Nat
-    , _dlCloudOnlyDirectoriesCurrentCount :: Maybe Nat
-    , _dlCloudOnlyDirectoriesLimitReached :: Maybe Bool
+    { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
+    , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
+    , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
+    , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
+    , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
+    , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DirectoryLimits' smart constructor.
@@ -971,8 +971,8 @@ instance FromJSON DirectoryLimits where
 --
 -- * 'dvsSubnetIds'
 data DirectoryVPCSettings = DirectoryVPCSettings'
-    { _dvsVPCId     :: Text
-    , _dvsSubnetIds :: [Text]
+    { _dvsVPCId     :: !Text
+    , _dvsSubnetIds :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'DirectoryVPCSettings' smart constructor.
@@ -1012,10 +1012,10 @@ instance ToJSON DirectoryVPCSettings where
 --
 -- * 'dvsdAvailabilityZones'
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-    { _dvsdSubnetIds         :: Maybe [Text]
-    , _dvsdVPCId             :: Maybe Text
-    , _dvsdSecurityGroupId   :: Maybe Text
-    , _dvsdAvailabilityZones :: Maybe [Text]
+    { _dvsdSubnetIds         :: !(Maybe [Text])
+    , _dvsdVPCId             :: !(Maybe Text)
+    , _dvsdSecurityGroupId   :: !(Maybe Text)
+    , _dvsdAvailabilityZones :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DirectoryVPCSettingsDescription' smart constructor.
@@ -1077,14 +1077,14 @@ instance FromJSON DirectoryVPCSettingsDescription
 --
 -- * 'rsRadiusPort'
 data RadiusSettings = RadiusSettings'
-    { _rsDisplayLabel           :: Maybe Text
-    , _rsRadiusServers          :: Maybe [Text]
-    , _rsRadiusRetries          :: Maybe Nat
-    , _rsAuthenticationProtocol :: Maybe RadiusAuthenticationProtocol
-    , _rsUseSameUsername        :: Maybe Bool
-    , _rsSharedSecret           :: Maybe (Sensitive Text)
-    , _rsRadiusTimeout          :: Maybe Nat
-    , _rsRadiusPort             :: Maybe Nat
+    { _rsDisplayLabel           :: !(Maybe Text)
+    , _rsRadiusServers          :: !(Maybe [Text])
+    , _rsRadiusRetries          :: !(Maybe Nat)
+    , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
+    , _rsUseSameUsername        :: !(Maybe Bool)
+    , _rsSharedSecret           :: !(Maybe (Sensitive Text))
+    , _rsRadiusTimeout          :: !(Maybe Nat)
+    , _rsRadiusPort             :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'RadiusSettings' smart constructor.
@@ -1184,12 +1184,12 @@ instance ToJSON RadiusSettings where
 --
 -- * 'snaSnapshotId'
 data Snapshot = Snapshot'
-    { _snaDirectoryId :: Maybe Text
-    , _snaStatus      :: Maybe SnapshotStatus
-    , _snaStartTime   :: Maybe POSIX
-    , _snaName        :: Maybe Text
-    , _snaType        :: Maybe SnapshotType
-    , _snaSnapshotId  :: Maybe Text
+    { _snaDirectoryId :: !(Maybe Text)
+    , _snaStatus      :: !(Maybe SnapshotStatus)
+    , _snaStartTime   :: !(Maybe POSIX)
+    , _snaName        :: !(Maybe Text)
+    , _snaType        :: !(Maybe SnapshotType)
+    , _snaSnapshotId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Snapshot' smart constructor.
@@ -1251,9 +1251,9 @@ instance FromJSON Snapshot where
 --
 -- * 'slManualSnapshotsLimit'
 data SnapshotLimits = SnapshotLimits'
-    { _slManualSnapshotsLimitReached :: Maybe Bool
-    , _slManualSnapshotsCurrentCount :: Maybe Nat
-    , _slManualSnapshotsLimit        :: Maybe Nat
+    { _slManualSnapshotsLimitReached :: !(Maybe Bool)
+    , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
+    , _slManualSnapshotsLimit        :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'SnapshotLimits' smart constructor.

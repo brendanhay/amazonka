@@ -86,7 +86,7 @@ instance ToQuery ListOpenIDConnectProviders where
 --
 -- * 'loidcprStatus'
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
-    { _loidcprOpenIDConnectProviderList :: Maybe [OpenIDConnectProviderListEntry]
+    { _loidcprOpenIDConnectProviderList :: !(Maybe [OpenIDConnectProviderListEntry])
     , _loidcprStatus                    :: !Int
     } deriving (Eq,Read,Show)
 

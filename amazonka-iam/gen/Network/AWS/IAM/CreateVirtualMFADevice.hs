@@ -65,8 +65,8 @@ import           Network.AWS.Response
 --
 -- * 'cvmdVirtualMFADeviceName'
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
-    { _cvmdPath                 :: Maybe Text
-    , _cvmdVirtualMFADeviceName :: Text
+    { _cvmdPath                 :: !(Maybe Text)
+    , _cvmdVirtualMFADeviceName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVirtualMFADevice' smart constructor.
@@ -128,7 +128,7 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- * 'cvmdrStatus'
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-    { _cvmdrVirtualMFADevice :: VirtualMFADevice
+    { _cvmdrVirtualMFADevice :: !VirtualMFADevice
     , _cvmdrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

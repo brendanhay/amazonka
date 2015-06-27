@@ -69,9 +69,9 @@ import           Network.AWS.Response
 --
 -- * 'prioInstanceCount'
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-    { _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
-    , _prioDryRun                      :: Maybe Bool
-    , _prioReservedInstancesOfferingId :: Text
+    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
+    , _prioDryRun                      :: !(Maybe Bool)
+    , _prioReservedInstancesOfferingId :: !Text
     , _prioInstanceCount               :: !Int
     } deriving (Eq,Read,Show)
 
@@ -148,7 +148,7 @@ instance ToQuery PurchaseReservedInstancesOffering
 --
 -- * 'priorStatus'
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
-    { _priorReservedInstancesId :: Maybe Text
+    { _priorReservedInstancesId :: !(Maybe Text)
     , _priorStatus              :: !Int
     } deriving (Eq,Read,Show)
 

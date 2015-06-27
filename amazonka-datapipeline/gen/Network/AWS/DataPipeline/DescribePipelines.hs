@@ -113,7 +113,7 @@ instance ToQuery DescribePipelines where
 --
 -- * 'dprStatus'
 data DescribePipelinesResponse = DescribePipelinesResponse'
-    { _dprPipelineDescriptionList :: [PipelineDescription]
+    { _dprPipelineDescriptionList :: ![PipelineDescription]
     , _dprStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

@@ -107,8 +107,8 @@ instance ToQuery ResolveCase where
 --
 -- * 'rcrStatus'
 data ResolveCaseResponse = ResolveCaseResponse'
-    { _rcrInitialCaseStatus :: Maybe Text
-    , _rcrFinalCaseStatus   :: Maybe Text
+    { _rcrInitialCaseStatus :: !(Maybe Text)
+    , _rcrFinalCaseStatus   :: !(Maybe Text)
     , _rcrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

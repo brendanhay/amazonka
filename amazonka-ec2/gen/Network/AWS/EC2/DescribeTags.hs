@@ -61,10 +61,10 @@ import           Network.AWS.Response
 --
 -- * 'dtMaxResults'
 data DescribeTags = DescribeTags'
-    { _dtFilters    :: Maybe [Filter]
-    , _dtNextToken  :: Maybe Text
-    , _dtDryRun     :: Maybe Bool
-    , _dtMaxResults :: Maybe Int
+    { _dtFilters    :: !(Maybe [Filter])
+    , _dtNextToken  :: !(Maybe Text)
+    , _dtDryRun     :: !(Maybe Bool)
+    , _dtMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTags' smart constructor.
@@ -157,8 +157,8 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrNextToken :: Maybe Text
-    , _dtrTags      :: Maybe [TagDescription]
+    { _dtrNextToken :: !(Maybe Text)
+    , _dtrTags      :: !(Maybe [TagDescription])
     , _dtrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

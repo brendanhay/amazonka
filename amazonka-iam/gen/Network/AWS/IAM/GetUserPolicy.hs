@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'gupPolicyName'
 data GetUserPolicy = GetUserPolicy'
-    { _gupUserName   :: Text
-    , _gupPolicyName :: Text
+    { _gupUserName   :: !Text
+    , _gupPolicyName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetUserPolicy' smart constructor.
@@ -121,9 +121,9 @@ instance ToQuery GetUserPolicy where
 --
 -- * 'guprStatus'
 data GetUserPolicyResponse = GetUserPolicyResponse'
-    { _guprUserName       :: Text
-    , _guprPolicyName     :: Text
-    , _guprPolicyDocument :: Text
+    { _guprUserName       :: !Text
+    , _guprPolicyName     :: !Text
+    , _guprPolicyDocument :: !Text
     , _guprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

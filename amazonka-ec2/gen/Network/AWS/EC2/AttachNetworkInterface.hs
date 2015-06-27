@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'aniDeviceIndex'
 data AttachNetworkInterface = AttachNetworkInterface'
-    { _aniDryRun             :: Maybe Bool
-    , _aniNetworkInterfaceId :: Text
-    , _aniInstanceId         :: Text
+    { _aniDryRun             :: !(Maybe Bool)
+    , _aniNetworkInterfaceId :: !Text
+    , _aniInstanceId         :: !Text
     , _aniDeviceIndex        :: !Int
     } deriving (Eq,Read,Show)
 
@@ -126,7 +126,7 @@ instance ToQuery AttachNetworkInterface where
 --
 -- * 'anirStatus'
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
-    { _anirAttachmentId :: Maybe Text
+    { _anirAttachmentId :: !(Maybe Text)
     , _anirStatus       :: !Int
     } deriving (Eq,Read,Show)
 

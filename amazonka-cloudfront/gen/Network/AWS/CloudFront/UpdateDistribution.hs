@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'udId'
 data UpdateDistribution = UpdateDistribution'
-    { _udIfMatch            :: Maybe Text
-    , _udDistributionConfig :: DistributionConfig
-    , _udId                 :: Text
+    { _udIfMatch            :: !(Maybe Text)
+    , _udDistributionConfig :: !DistributionConfig
+    , _udId                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDistribution' smart constructor.
@@ -126,8 +126,8 @@ instance ToQuery UpdateDistribution where
 --
 -- * 'udrStatus'
 data UpdateDistributionResponse = UpdateDistributionResponse'
-    { _udrETag         :: Maybe Text
-    , _udrDistribution :: Maybe Distribution
+    { _udrETag         :: !(Maybe Text)
+    , _udrDistribution :: !(Maybe Distribution)
     , _udrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

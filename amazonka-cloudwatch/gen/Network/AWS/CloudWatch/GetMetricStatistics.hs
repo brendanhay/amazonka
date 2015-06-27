@@ -96,14 +96,14 @@ import           Network.AWS.Response
 --
 -- * 'gmsStatistics'
 data GetMetricStatistics = GetMetricStatistics'
-    { _gmsDimensions :: Maybe [Dimension]
-    , _gmsUnit       :: Maybe StandardUnit
-    , _gmsNamespace  :: Text
-    , _gmsMetricName :: Text
-    , _gmsStartTime  :: ISO8601
-    , _gmsEndTime    :: ISO8601
+    { _gmsDimensions :: !(Maybe [Dimension])
+    , _gmsUnit       :: !(Maybe StandardUnit)
+    , _gmsNamespace  :: !Text
+    , _gmsMetricName :: !Text
+    , _gmsStartTime  :: !ISO8601
+    , _gmsEndTime    :: !ISO8601
     , _gmsPeriod     :: !Nat
-    , _gmsStatistics :: List1 Statistic
+    , _gmsStatistics :: !(List1 Statistic)
     } deriving (Eq,Read,Show)
 
 -- | 'GetMetricStatistics' smart constructor.
@@ -208,8 +208,8 @@ instance ToQuery GetMetricStatistics where
 --
 -- * 'gmsrStatus'
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
-    { _gmsrDatapoints :: Maybe [Datapoint]
-    , _gmsrLabel      :: Maybe Text
+    { _gmsrDatapoints :: !(Maybe [Datapoint])
+    , _gmsrLabel      :: !(Maybe Text)
     , _gmsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

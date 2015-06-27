@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'etcTemplateURL'
 data EstimateTemplateCost = EstimateTemplateCost'
-    { _etcParameters   :: Maybe [Parameter]
-    , _etcTemplateBody :: Maybe Text
-    , _etcTemplateURL  :: Maybe Text
+    { _etcParameters   :: !(Maybe [Parameter])
+    , _etcTemplateBody :: !(Maybe Text)
+    , _etcTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EstimateTemplateCost' smart constructor.
@@ -130,7 +130,7 @@ instance ToQuery EstimateTemplateCost where
 --
 -- * 'etcrStatus'
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-    { _etcrURL    :: Maybe Text
+    { _etcrURL    :: !(Maybe Text)
     , _etcrStatus :: !Int
     } deriving (Eq,Read,Show)
 

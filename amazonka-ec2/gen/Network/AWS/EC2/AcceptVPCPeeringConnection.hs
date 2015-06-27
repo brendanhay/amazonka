@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'avpcDryRun'
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId :: Maybe Text
-    , _avpcDryRun                 :: Maybe Bool
+    { _avpcVPCPeeringConnectionId :: !(Maybe Text)
+    , _avpcDryRun                 :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'AcceptVPCPeeringConnection' smart constructor.
@@ -112,7 +112,7 @@ instance ToQuery AcceptVPCPeeringConnection where
 --
 -- * 'avpcrStatus'
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
-    { _avpcrVPCPeeringConnection :: Maybe VPCPeeringConnection
+    { _avpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _avpcrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

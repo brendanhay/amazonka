@@ -71,13 +71,13 @@ import           Network.AWS.Response
 --
 -- * 'msaSnapshotId'
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-    { _msaAttribute              :: Maybe SnapshotAttributeName
-    , _msaUserIds                :: Maybe [Text]
-    , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
-    , _msaGroupNames             :: Maybe [Text]
-    , _msaOperationType          :: Maybe Text
-    , _msaDryRun                 :: Maybe Bool
-    , _msaSnapshotId             :: Text
+    { _msaAttribute              :: !(Maybe SnapshotAttributeName)
+    , _msaUserIds                :: !(Maybe [Text])
+    , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
+    , _msaGroupNames             :: !(Maybe [Text])
+    , _msaOperationType          :: !(Maybe Text)
+    , _msaDryRun                 :: !(Maybe Bool)
+    , _msaSnapshotId             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifySnapshotAttribute' smart constructor.

@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'rsifsSourceIdentifier'
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
-    { _rsifsSubscriptionName :: Text
-    , _rsifsSourceIdentifier :: Text
+    { _rsifsSubscriptionName :: !Text
+    , _rsifsSourceIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
@@ -115,7 +115,7 @@ instance ToQuery
 --
 -- * 'rsifsrStatus'
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
-    { _rsifsrEventSubscription :: Maybe EventSubscription
+    { _rsifsrEventSubscription :: !(Maybe EventSubscription)
     , _rsifsrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

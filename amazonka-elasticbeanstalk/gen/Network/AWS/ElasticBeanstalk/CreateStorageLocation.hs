@@ -83,7 +83,7 @@ instance ToQuery CreateStorageLocation where
 --
 -- * 'cslrStatus'
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
-    { _cslrS3Bucket :: Maybe Text
+    { _cslrS3Bucket :: !(Maybe Text)
     , _cslrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

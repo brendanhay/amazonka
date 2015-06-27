@@ -113,28 +113,28 @@ import           Network.AWS.Response
 --
 -- * 'mdiDBInstanceIdentifier'
 data ModifyDBInstance = ModifyDBInstance'
-    { _mdiDBSecurityGroups           :: Maybe [Text]
-    , _mdiEngineVersion              :: Maybe Text
-    , _mdiAutoMinorVersionUpgrade    :: Maybe Bool
-    , _mdiMasterUserPassword         :: Maybe Text
-    , _mdiIOPS                       :: Maybe Int
-    , _mdiAllowMajorVersionUpgrade   :: Maybe Bool
-    , _mdiNewDBInstanceIdentifier    :: Maybe Text
-    , _mdiTDECredentialPassword      :: Maybe Text
-    , _mdiDBInstanceClass            :: Maybe Text
-    , _mdiPreferredMaintenanceWindow :: Maybe Text
-    , _mdiCACertificateIdentifier    :: Maybe Text
-    , _mdiPreferredBackupWindow      :: Maybe Text
-    , _mdiBackupRetentionPeriod      :: Maybe Int
-    , _mdiDBParameterGroupName       :: Maybe Text
-    , _mdiVPCSecurityGroupIds        :: Maybe [Text]
-    , _mdiMultiAZ                    :: Maybe Bool
-    , _mdiAllocatedStorage           :: Maybe Int
-    , _mdiApplyImmediately           :: Maybe Bool
-    , _mdiTDECredentialARN           :: Maybe Text
-    , _mdiOptionGroupName            :: Maybe Text
-    , _mdiStorageType                :: Maybe Text
-    , _mdiDBInstanceIdentifier       :: Text
+    { _mdiDBSecurityGroups           :: !(Maybe [Text])
+    , _mdiEngineVersion              :: !(Maybe Text)
+    , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mdiMasterUserPassword         :: !(Maybe Text)
+    , _mdiIOPS                       :: !(Maybe Int)
+    , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
+    , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
+    , _mdiTDECredentialPassword      :: !(Maybe Text)
+    , _mdiDBInstanceClass            :: !(Maybe Text)
+    , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
+    , _mdiCACertificateIdentifier    :: !(Maybe Text)
+    , _mdiPreferredBackupWindow      :: !(Maybe Text)
+    , _mdiBackupRetentionPeriod      :: !(Maybe Int)
+    , _mdiDBParameterGroupName       :: !(Maybe Text)
+    , _mdiVPCSecurityGroupIds        :: !(Maybe [Text])
+    , _mdiMultiAZ                    :: !(Maybe Bool)
+    , _mdiAllocatedStorage           :: !(Maybe Int)
+    , _mdiApplyImmediately           :: !(Maybe Bool)
+    , _mdiTDECredentialARN           :: !(Maybe Text)
+    , _mdiOptionGroupName            :: !(Maybe Text)
+    , _mdiStorageType                :: !(Maybe Text)
+    , _mdiDBInstanceIdentifier       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBInstance' smart constructor.
@@ -590,7 +590,7 @@ instance ToQuery ModifyDBInstance where
 --
 -- * 'mdirStatus'
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
-    { _mdirDBInstance :: Maybe DBInstance
+    { _mdirDBInstance :: !(Maybe DBInstance)
     , _mdirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'cctConversionTaskId'
 data CancelConversionTask = CancelConversionTask'
-    { _cctReasonMessage    :: Maybe Text
-    , _cctDryRun           :: Maybe Bool
-    , _cctConversionTaskId :: Text
+    { _cctReasonMessage    :: !(Maybe Text)
+    , _cctDryRun           :: !(Maybe Bool)
+    , _cctConversionTaskId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CancelConversionTask' smart constructor.

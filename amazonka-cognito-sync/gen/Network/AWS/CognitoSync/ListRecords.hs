@@ -81,13 +81,13 @@ import           Network.AWS.Response
 --
 -- * 'lrDatasetName'
 data ListRecords = ListRecords'
-    { _lrLastSyncCount    :: Maybe Integer
-    , _lrNextToken        :: Maybe Text
-    , _lrSyncSessionToken :: Maybe Text
-    , _lrMaxResults       :: Maybe Int
-    , _lrIdentityPoolId   :: Text
-    , _lrIdentityId       :: Text
-    , _lrDatasetName      :: Text
+    { _lrLastSyncCount    :: !(Maybe Integer)
+    , _lrNextToken        :: !(Maybe Text)
+    , _lrSyncSessionToken :: !(Maybe Text)
+    , _lrMaxResults       :: !(Maybe Int)
+    , _lrIdentityPoolId   :: !Text
+    , _lrIdentityId       :: !Text
+    , _lrDatasetName      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListRecords' smart constructor.
@@ -203,15 +203,15 @@ instance ToQuery ListRecords where
 --
 -- * 'lrrStatus'
 data ListRecordsResponse = ListRecordsResponse'
-    { _lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool
-    , _lrrDatasetExists                         :: Maybe Bool
-    , _lrrCount                                 :: Maybe Int
-    , _lrrRecords                               :: Maybe [Record]
-    , _lrrNextToken                             :: Maybe Text
-    , _lrrSyncSessionToken                      :: Maybe Text
-    , _lrrMergedDatasetNames                    :: Maybe [Text]
-    , _lrrLastModifiedBy                        :: Maybe Text
-    , _lrrDatasetSyncCount                      :: Maybe Integer
+    { _lrrDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
+    , _lrrDatasetExists                         :: !(Maybe Bool)
+    , _lrrCount                                 :: !(Maybe Int)
+    , _lrrRecords                               :: !(Maybe [Record])
+    , _lrrNextToken                             :: !(Maybe Text)
+    , _lrrSyncSessionToken                      :: !(Maybe Text)
+    , _lrrMergedDatasetNames                    :: !(Maybe [Text])
+    , _lrrLastModifiedBy                        :: !(Maybe Text)
+    , _lrrDatasetSyncCount                      :: !(Maybe Integer)
     , _lrrStatus                                :: !Int
     } deriving (Eq,Read,Show)
 

@@ -59,10 +59,10 @@ import           Network.AWS.Response
 --
 -- * 'lmDimensions'
 data ListMetrics = ListMetrics'
-    { _lmMetricName :: Maybe Text
-    , _lmNamespace  :: Maybe Text
-    , _lmNextToken  :: Maybe Text
-    , _lmDimensions :: Maybe [DimensionFilter]
+    { _lmMetricName :: !(Maybe Text)
+    , _lmNamespace  :: !(Maybe Text)
+    , _lmNextToken  :: !(Maybe Text)
+    , _lmDimensions :: !(Maybe [DimensionFilter])
     } deriving (Eq,Read,Show)
 
 -- | 'ListMetrics' smart constructor.
@@ -141,8 +141,8 @@ instance ToQuery ListMetrics where
 --
 -- * 'lmrStatus'
 data ListMetricsResponse = ListMetricsResponse'
-    { _lmrMetrics   :: Maybe [Metric]
-    , _lmrNextToken :: Maybe Text
+    { _lmrMetrics   :: !(Maybe [Metric])
+    , _lmrNextToken :: !(Maybe Text)
     , _lmrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

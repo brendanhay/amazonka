@@ -89,14 +89,14 @@ import           Network.AWS.Response
 --
 -- * 'crDestinationCIDRBlock'
 data CreateRoute = CreateRoute'
-    { _crInstanceId             :: Maybe Text
-    , _crVPCPeeringConnectionId :: Maybe Text
-    , _crClientToken            :: Maybe Text
-    , _crNetworkInterfaceId     :: Maybe Text
-    , _crGatewayId              :: Maybe Text
-    , _crDryRun                 :: Maybe Bool
-    , _crRouteTableId           :: Text
-    , _crDestinationCIDRBlock   :: Text
+    { _crInstanceId             :: !(Maybe Text)
+    , _crVPCPeeringConnectionId :: !(Maybe Text)
+    , _crClientToken            :: !(Maybe Text)
+    , _crNetworkInterfaceId     :: !(Maybe Text)
+    , _crGatewayId              :: !(Maybe Text)
+    , _crDryRun                 :: !(Maybe Bool)
+    , _crRouteTableId           :: !Text
+    , _crDestinationCIDRBlock   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateRoute' smart constructor.
@@ -194,8 +194,8 @@ instance ToQuery CreateRoute where
 --
 -- * 'crrStatus'
 data CreateRouteResponse = CreateRouteResponse'
-    { _crrReturn      :: Maybe Bool
-    , _crrClientToken :: Maybe Text
+    { _crrReturn      :: !(Maybe Bool)
+    , _crrClientToken :: !(Maybe Text)
     , _crrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

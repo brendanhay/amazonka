@@ -107,7 +107,7 @@ instance ToQuery DeleteIdentities where
 --
 -- * 'dirStatus'
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
-    { _dirUnprocessedIdentityIds :: Maybe [UnprocessedIdentityId]
+    { _dirUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
     , _dirStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

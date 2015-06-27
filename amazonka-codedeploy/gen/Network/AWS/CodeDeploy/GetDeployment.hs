@@ -102,7 +102,7 @@ instance ToQuery GetDeployment where
 --
 -- * 'gdrStatus'
 data GetDeploymentResponse = GetDeploymentResponse'
-    { _gdrDeploymentInfo :: Maybe DeploymentInfo
+    { _gdrDeploymentInfo :: !(Maybe DeploymentInfo)
     , _gdrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

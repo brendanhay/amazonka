@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'daStackId'
 data DescribeApps = DescribeApps'
-    { _daAppIds  :: Maybe [Text]
-    , _daStackId :: Maybe Text
+    { _daAppIds  :: !(Maybe [Text])
+    , _daStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeApps' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery DescribeApps where
 --
 -- * 'darStatus'
 data DescribeAppsResponse = DescribeAppsResponse'
-    { _darApps   :: Maybe [App]
+    { _darApps   :: !(Maybe [App])
     , _darStatus :: !Int
     } deriving (Eq,Read,Show)
 

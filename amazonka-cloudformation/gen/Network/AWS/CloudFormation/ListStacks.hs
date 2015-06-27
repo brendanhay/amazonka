@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'lsStackStatusFilter'
 data ListStacks = ListStacks'
-    { _lsNextToken         :: Maybe Text
-    , _lsStackStatusFilter :: Maybe [StackStatus]
+    { _lsNextToken         :: !(Maybe Text)
+    , _lsStackStatusFilter :: !(Maybe [StackStatus])
     } deriving (Eq,Read,Show)
 
 -- | 'ListStacks' smart constructor.
@@ -131,8 +131,8 @@ instance ToQuery ListStacks where
 --
 -- * 'lisStatus'
 data ListStacksResponse = ListStacksResponse'
-    { _lisStackSummaries :: Maybe [StackSummary]
-    , _lisNextToken      :: Maybe Text
+    { _lisStackSummaries :: !(Maybe [StackSummary])
+    , _lisNextToken      :: !(Maybe Text)
     , _lisStatus         :: !Int
     } deriving (Eq,Read,Show)
 

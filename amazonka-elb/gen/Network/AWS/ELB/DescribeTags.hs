@@ -94,7 +94,7 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrTagDescriptions :: Maybe [TagDescription]
+    { _dtrTagDescriptions :: !(Maybe [TagDescription])
     , _dtrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -120,11 +120,11 @@ instance ToQuery DescribeMaintenanceStartTime where
 --
 -- * 'dmstrStatus'
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
-    { _dmstrGatewayARN   :: Maybe Text
-    , _dmstrMinuteOfHour :: Maybe Nat
-    , _dmstrHourOfDay    :: Maybe Nat
-    , _dmstrTimezone     :: Maybe Text
-    , _dmstrDayOfWeek    :: Maybe Nat
+    { _dmstrGatewayARN   :: !(Maybe Text)
+    , _dmstrMinuteOfHour :: !(Maybe Nat)
+    , _dmstrHourOfDay    :: !(Maybe Nat)
+    , _dmstrTimezone     :: !(Maybe Text)
+    , _dmstrDayOfWeek    :: !(Maybe Nat)
     , _dmstrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

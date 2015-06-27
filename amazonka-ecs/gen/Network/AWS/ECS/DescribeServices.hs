@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'desServices'
 data DescribeServices = DescribeServices'
-    { _desCluster  :: Maybe Text
-    , _desServices :: [Text]
+    { _desCluster  :: !(Maybe Text)
+    , _desServices :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeServices' smart constructor.
@@ -114,8 +114,8 @@ instance ToQuery DescribeServices where
 --
 -- * 'dStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dFailures :: Maybe [Failure]
-    , _dServices :: Maybe [ContainerService]
+    { _dFailures :: !(Maybe [Failure])
+    , _dServices :: !(Maybe [ContainerService])
     , _dStatus   :: !Int
     } deriving (Eq,Read,Show)
 

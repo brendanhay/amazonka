@@ -212,10 +212,10 @@ instance FromJSON CognitoErrorCode where
 --
 -- * 'creAccessKeyId'
 data Credentials = Credentials'
-    { _creSessionToken :: Maybe Text
-    , _creExpiration   :: Maybe POSIX
-    , _creSecretKey    :: Maybe Text
-    , _creAccessKeyId  :: Maybe Text
+    { _creSessionToken :: !(Maybe Text)
+    , _creExpiration   :: !(Maybe POSIX)
+    , _creSecretKey    :: !(Maybe Text)
+    , _creAccessKeyId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Credentials' smart constructor.
@@ -267,10 +267,10 @@ instance FromJSON Credentials where
 --
 -- * 'idIdentityId'
 data IdentityDescription = IdentityDescription'
-    { _idLastModifiedDate :: Maybe POSIX
-    , _idCreationDate     :: Maybe POSIX
-    , _idLogins           :: Maybe [Text]
-    , _idIdentityId       :: Maybe Text
+    { _idLastModifiedDate :: !(Maybe POSIX)
+    , _idCreationDate     :: !(Maybe POSIX)
+    , _idLogins           :: !(Maybe [Text])
+    , _idIdentityId       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'IdentityDescription' smart constructor.
@@ -327,11 +327,11 @@ instance FromJSON IdentityDescription where
 --
 -- * 'ipAllowUnauthenticatedIdentities'
 data IdentityPool = IdentityPool'
-    { _ipSupportedLoginProviders        :: Maybe (Map Text Text)
-    , _ipDeveloperProviderName          :: Maybe Text
-    , _ipOpenIdConnectProviderARNs      :: Maybe [Text]
-    , _ipIdentityPoolId                 :: Text
-    , _ipIdentityPoolName               :: Text
+    { _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _ipDeveloperProviderName          :: !(Maybe Text)
+    , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _ipIdentityPoolId                 :: !Text
+    , _ipIdentityPoolName               :: !Text
     , _ipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -406,8 +406,8 @@ instance ToJSON IdentityPool where
 --
 -- * 'ipsdIdentityPoolName'
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-    { _ipsdIdentityPoolId   :: Maybe Text
-    , _ipsdIdentityPoolName :: Maybe Text
+    { _ipsdIdentityPoolId   :: !(Maybe Text)
+    , _ipsdIdentityPoolName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'IdentityPoolShortDescription' smart constructor.
@@ -445,8 +445,8 @@ instance FromJSON IdentityPoolShortDescription where
 --
 -- * 'uiiIdentityId'
 data UnprocessedIdentityId = UnprocessedIdentityId'
-    { _uiiErrorCode  :: Maybe CognitoErrorCode
-    , _uiiIdentityId :: Maybe Text
+    { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
+    , _uiiIdentityId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UnprocessedIdentityId' smart constructor.

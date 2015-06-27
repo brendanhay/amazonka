@@ -91,9 +91,9 @@ instance ToQuery GetSendQuota where
 --
 -- * 'gsqrStatus'
 data GetSendQuotaResponse = GetSendQuotaResponse'
-    { _gsqrMaxSendRate     :: Maybe Double
-    , _gsqrSentLast24Hours :: Maybe Double
-    , _gsqrMax24HourSend   :: Maybe Double
+    { _gsqrMaxSendRate     :: !(Maybe Double)
+    , _gsqrSentLast24Hours :: !(Maybe Double)
+    , _gsqrMax24HourSend   :: !(Maybe Double)
     , _gsqrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

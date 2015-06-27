@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'usapAccessPolicies'
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
-    { _usapDomainName     :: Text
-    , _usapAccessPolicies :: Text
+    { _usapDomainName     :: !Text
+    , _usapAccessPolicies :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateServiceAccessPolicies' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery UpdateServiceAccessPolicies where
 --
 -- * 'usaprStatus'
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-    { _usaprAccessPolicies :: AccessPoliciesStatus
+    { _usaprAccessPolicies :: !AccessPoliciesStatus
     , _usaprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

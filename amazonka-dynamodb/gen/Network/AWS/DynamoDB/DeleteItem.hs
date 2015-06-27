@@ -91,16 +91,16 @@ import           Network.AWS.Response
 --
 -- * 'diKey'
 data DeleteItem = DeleteItem'
-    { _diReturnValues                :: Maybe ReturnValue
-    , _diExpressionAttributeNames    :: Maybe (Map Text Text)
-    , _diReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
-    , _diExpressionAttributeValues   :: Maybe (Map Text AttributeValue)
-    , _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    , _diConditionExpression         :: Maybe Text
-    , _diConditionalOperator         :: Maybe ConditionalOperator
-    , _diExpected                    :: Maybe (Map Text ExpectedAttributeValue)
-    , _diTableName                   :: Text
-    , _diKey                         :: Map Text AttributeValue
+    { _diReturnValues                :: !(Maybe ReturnValue)
+    , _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _diConditionExpression         :: !(Maybe Text)
+    , _diConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _diTableName                   :: !Text
+    , _diKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteItem' smart constructor.
@@ -548,9 +548,9 @@ instance ToQuery DeleteItem where
 --
 -- * 'dirStatus'
 data DeleteItemResponse = DeleteItemResponse'
-    { _dirConsumedCapacity      :: Maybe ConsumedCapacity
-    , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    , _dirAttributes            :: Maybe (Map Text AttributeValue)
+    { _dirConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _dirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _dirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _dirStatus                :: !Int
     } deriving (Eq,Read,Show)
 

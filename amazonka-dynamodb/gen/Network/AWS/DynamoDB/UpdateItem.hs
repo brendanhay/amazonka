@@ -92,18 +92,18 @@ import           Network.AWS.Response
 --
 -- * 'uiKey'
 data UpdateItem = UpdateItem'
-    { _uiReturnValues                :: Maybe ReturnValue
-    , _uiExpressionAttributeNames    :: Maybe (Map Text Text)
-    , _uiUpdateExpression            :: Maybe Text
-    , _uiAttributeUpdates            :: Maybe (Map Text AttributeValueUpdate)
-    , _uiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
-    , _uiExpressionAttributeValues   :: Maybe (Map Text AttributeValue)
-    , _uiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    , _uiConditionExpression         :: Maybe Text
-    , _uiConditionalOperator         :: Maybe ConditionalOperator
-    , _uiExpected                    :: Maybe (Map Text ExpectedAttributeValue)
-    , _uiTableName                   :: Text
-    , _uiKey                         :: Map Text AttributeValue
+    { _uiReturnValues                :: !(Maybe ReturnValue)
+    , _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _uiUpdateExpression            :: !(Maybe Text)
+    , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
+    , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _uiConditionExpression         :: !(Maybe Text)
+    , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _uiTableName                   :: !Text
+    , _uiKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateItem' smart constructor.
@@ -753,9 +753,9 @@ instance ToQuery UpdateItem where
 --
 -- * 'uirStatus'
 data UpdateItemResponse = UpdateItemResponse'
-    { _uirConsumedCapacity      :: Maybe ConsumedCapacity
-    , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    , _uirAttributes            :: Maybe (Map Text AttributeValue)
+    { _uirConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _uirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _uirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _uirStatus                :: !Int
     } deriving (Eq,Read,Show)
 

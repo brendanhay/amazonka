@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'drtAssociationId'
 data DisassociateRouteTable = DisassociateRouteTable'
-    { _drtDryRun        :: Maybe Bool
-    , _drtAssociationId :: Text
+    { _drtDryRun        :: !(Maybe Bool)
+    , _drtAssociationId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DisassociateRouteTable' smart constructor.

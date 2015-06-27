@@ -101,7 +101,7 @@ instance ToQuery DescribeApplications where
 --
 -- * 'darStatus'
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
-    { _darApplications :: Maybe [ApplicationDescription]
+    { _darApplications :: !(Maybe [ApplicationDescription])
     , _darStatus       :: !Int
     } deriving (Eq,Read,Show)
 

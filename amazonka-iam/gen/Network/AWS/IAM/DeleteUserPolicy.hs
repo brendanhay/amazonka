@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'dupPolicyName'
 data DeleteUserPolicy = DeleteUserPolicy'
-    { _dupUserName   :: Text
-    , _dupPolicyName :: Text
+    { _dupUserName   :: !Text
+    , _dupPolicyName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteUserPolicy' smart constructor.

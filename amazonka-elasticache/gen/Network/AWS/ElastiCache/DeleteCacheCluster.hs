@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'dccCacheClusterId'
 data DeleteCacheCluster = DeleteCacheCluster'
-    { _dccFinalSnapshotIdentifier :: Maybe Text
-    , _dccCacheClusterId          :: Text
+    { _dccFinalSnapshotIdentifier :: !(Maybe Text)
+    , _dccCacheClusterId          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteCacheCluster' smart constructor.
@@ -115,7 +115,7 @@ instance ToQuery DeleteCacheCluster where
 --
 -- * 'dccrStatus'
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
-    { _dccrCacheCluster :: Maybe CacheCluster
+    { _dccrCacheCluster :: !(Maybe CacheCluster)
     , _dccrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

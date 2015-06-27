@@ -107,7 +107,7 @@ instance ToQuery DescribeKey where
 --
 -- * 'dkrStatus'
 data DescribeKeyResponse = DescribeKeyResponse'
-    { _dkrKeyMetadata :: Maybe KeyMetadata
+    { _dkrKeyMetadata :: !(Maybe KeyMetadata)
     , _dkrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

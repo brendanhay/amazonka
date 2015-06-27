@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'dnaclNetworkACLIds'
 data DescribeNetworkACLs = DescribeNetworkACLs'
-    { _dnaclFilters       :: Maybe [Filter]
-    , _dnaclDryRun        :: Maybe Bool
-    , _dnaclNetworkACLIds :: Maybe [Text]
+    { _dnaclFilters       :: !(Maybe [Filter])
+    , _dnaclDryRun        :: !(Maybe Bool)
+    , _dnaclNetworkACLIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeNetworkACLs' smart constructor.
@@ -177,7 +177,7 @@ instance ToQuery DescribeNetworkACLs where
 --
 -- * 'dnarStatus'
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
-    { _dnarNetworkACLs :: Maybe [NetworkACL]
+    { _dnarNetworkACLs :: !(Maybe [NetworkACL])
     , _dnarStatus      :: !Int
     } deriving (Eq,Read,Show)
 

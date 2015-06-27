@@ -86,9 +86,9 @@ import           Network.AWS.STS.Types
 --
 -- * 'gstSerialNumber'
 data GetSessionToken = GetSessionToken'
-    { _gstTokenCode       :: Maybe Text
-    , _gstDurationSeconds :: Maybe Nat
-    , _gstSerialNumber    :: Maybe Text
+    { _gstTokenCode       :: !(Maybe Text)
+    , _gstDurationSeconds :: !(Maybe Nat)
+    , _gstSerialNumber    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GetSessionToken' smart constructor.
@@ -165,7 +165,7 @@ instance ToQuery GetSessionToken where
 --
 -- * 'gstrStatus'
 data GetSessionTokenResponse = GetSessionTokenResponse'
-    { _gstrCredentials :: Maybe Credentials
+    { _gstrCredentials :: !(Maybe Credentials)
     , _gstrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

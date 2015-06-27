@@ -49,9 +49,9 @@ import           Network.AWS.Response
 --
 -- * 'pkpPolicy'
 data PutKeyPolicy = PutKeyPolicy'
-    { _pkpKeyId      :: Text
-    , _pkpPolicyName :: Text
-    , _pkpPolicy     :: Text
+    { _pkpKeyId      :: !Text
+    , _pkpPolicyName :: !Text
+    , _pkpPolicy     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutKeyPolicy' smart constructor.

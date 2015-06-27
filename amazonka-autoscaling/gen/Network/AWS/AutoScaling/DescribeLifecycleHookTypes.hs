@@ -83,7 +83,7 @@ instance ToQuery DescribeLifecycleHookTypes where
 --
 -- * 'dlhtrStatus'
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
-    { _dlhtrLifecycleHookTypes :: Maybe [Text]
+    { _dlhtrLifecycleHookTypes :: !(Maybe [Text])
     , _dlhtrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

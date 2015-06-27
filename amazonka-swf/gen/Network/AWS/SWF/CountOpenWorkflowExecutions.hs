@@ -87,11 +87,11 @@ import           Network.AWS.SWF.Types
 --
 -- * 'coweStartTimeFilter'
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-    { _coweExecutionFilter :: Maybe WorkflowExecutionFilter
-    , _coweTypeFilter      :: Maybe WorkflowTypeFilter
-    , _coweTagFilter       :: Maybe TagFilter
-    , _coweDomain          :: Text
-    , _coweStartTimeFilter :: ExecutionTimeFilter
+    { _coweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+    , _coweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+    , _coweTagFilter       :: !(Maybe TagFilter)
+    , _coweDomain          :: !Text
+    , _coweStartTimeFilter :: !ExecutionTimeFilter
     } deriving (Eq,Read,Show)
 
 -- | 'CountOpenWorkflowExecutions' smart constructor.

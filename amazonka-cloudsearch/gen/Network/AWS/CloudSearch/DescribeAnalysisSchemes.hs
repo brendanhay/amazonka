@@ -65,9 +65,9 @@ import           Network.AWS.Response
 --
 -- * 'descDomainName'
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
-    { _descDeployed            :: Maybe Bool
-    , _descAnalysisSchemeNames :: Maybe [Text]
-    , _descDomainName          :: Text
+    { _descDeployed            :: !(Maybe Bool)
+    , _descAnalysisSchemeNames :: !(Maybe [Text])
+    , _descDomainName          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
@@ -134,7 +134,7 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- * 'dasrStatus'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
+    { _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
     , _dasrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -107,7 +107,7 @@ instance ToQuery DeleteDataSource where
 --
 -- * 'ddsrStatus'
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
-    { _ddsrDataSourceId :: Maybe Text
+    { _ddsrDataSourceId :: !(Maybe Text)
     , _ddsrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

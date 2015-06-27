@@ -93,7 +93,7 @@ instance ToQuery ListVerifiedEmailAddresses where
 --
 -- * 'lvearStatus'
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
-    { _lvearVerifiedEmailAddresses :: Maybe [Text]
+    { _lvearVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

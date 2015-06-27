@@ -112,24 +112,24 @@ import           Network.AWS.Response
 --
 -- * 'rdifdsDBSnapshotIdentifier'
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsAutoMinorVersionUpgrade :: Maybe Bool
-    , _rdifdsPubliclyAccessible      :: Maybe Bool
-    , _rdifdsDBSubnetGroupName       :: Maybe Text
-    , _rdifdsIOPS                    :: Maybe Int
-    , _rdifdsEngine                  :: Maybe Text
-    , _rdifdsTDECredentialPassword   :: Maybe Text
-    , _rdifdsDBInstanceClass         :: Maybe Text
-    , _rdifdsLicenseModel            :: Maybe Text
-    , _rdifdsAvailabilityZone        :: Maybe Text
-    , _rdifdsMultiAZ                 :: Maybe Bool
-    , _rdifdsTDECredentialARN        :: Maybe Text
-    , _rdifdsOptionGroupName         :: Maybe Text
-    , _rdifdsDBName                  :: Maybe Text
-    , _rdifdsTags                    :: Maybe [Tag]
-    , _rdifdsPort                    :: Maybe Int
-    , _rdifdsStorageType             :: Maybe Text
-    , _rdifdsDBInstanceIdentifier    :: Text
-    , _rdifdsDBSnapshotIdentifier    :: Text
+    { _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _rdifdsPubliclyAccessible      :: !(Maybe Bool)
+    , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
+    , _rdifdsIOPS                    :: !(Maybe Int)
+    , _rdifdsEngine                  :: !(Maybe Text)
+    , _rdifdsTDECredentialPassword   :: !(Maybe Text)
+    , _rdifdsDBInstanceClass         :: !(Maybe Text)
+    , _rdifdsLicenseModel            :: !(Maybe Text)
+    , _rdifdsAvailabilityZone        :: !(Maybe Text)
+    , _rdifdsMultiAZ                 :: !(Maybe Bool)
+    , _rdifdsTDECredentialARN        :: !(Maybe Text)
+    , _rdifdsOptionGroupName         :: !(Maybe Text)
+    , _rdifdsDBName                  :: !(Maybe Text)
+    , _rdifdsTags                    :: !(Maybe [Tag])
+    , _rdifdsPort                    :: !(Maybe Int)
+    , _rdifdsStorageType             :: !(Maybe Text)
+    , _rdifdsDBInstanceIdentifier    :: !Text
+    , _rdifdsDBSnapshotIdentifier    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshot' smart constructor.
@@ -378,7 +378,7 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 --
 -- * 'rdifdsrStatus'
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
-    { _rdifdsrDBInstance :: Maybe DBInstance
+    { _rdifdsrDBInstance :: !(Maybe DBInstance)
     , _rdifdsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

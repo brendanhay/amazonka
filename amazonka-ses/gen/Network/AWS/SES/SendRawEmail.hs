@@ -87,9 +87,9 @@ import           Network.AWS.SES.Types
 --
 -- * 'sreRawMessage'
 data SendRawEmail = SendRawEmail'
-    { _sreDestinations :: Maybe [Text]
-    , _sreSource       :: Maybe Text
-    , _sreRawMessage   :: RawMessage
+    { _sreDestinations :: !(Maybe [Text])
+    , _sreSource       :: !(Maybe Text)
+    , _sreRawMessage   :: !RawMessage
     } deriving (Eq,Read,Show)
 
 -- | 'SendRawEmail' smart constructor.
@@ -173,7 +173,7 @@ instance ToQuery SendRawEmail where
 --
 -- * 'srerStatus'
 data SendRawEmailResponse = SendRawEmailResponse'
-    { _srerMessageId :: Text
+    { _srerMessageId :: !Text
     , _srerStatus    :: !Int
     } deriving (Eq,Read,Show)
 

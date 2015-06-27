@@ -54,9 +54,9 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'ugiGatewayARN'
 data UpdateGatewayInformation = UpdateGatewayInformation'
-    { _ugiGatewayName     :: Maybe Text
-    , _ugiGatewayTimezone :: Maybe Text
-    , _ugiGatewayARN      :: Text
+    { _ugiGatewayName     :: !(Maybe Text)
+    , _ugiGatewayTimezone :: !(Maybe Text)
+    , _ugiGatewayARN      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateGatewayInformation' smart constructor.
@@ -124,7 +124,7 @@ instance ToQuery UpdateGatewayInformation where
 --
 -- * 'ugirStatus'
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
-    { _ugirGatewayARN :: Maybe Text
+    { _ugirGatewayARN :: !(Maybe Text)
     , _ugirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

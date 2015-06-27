@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'delbLayerId'
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
-    { _delbElasticLoadBalancerName :: Text
-    , _delbLayerId                 :: Text
+    { _delbElasticLoadBalancerName :: !Text
+    , _delbLayerId                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DetachElasticLoadBalancer' smart constructor.

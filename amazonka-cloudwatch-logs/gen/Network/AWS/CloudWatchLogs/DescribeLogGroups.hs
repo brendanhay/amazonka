@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'dlgLimit'
 data DescribeLogGroups = DescribeLogGroups'
-    { _dlgNextToken          :: Maybe Text
-    , _dlgLogGroupNamePrefix :: Maybe Text
-    , _dlgLimit              :: Maybe Nat
+    { _dlgNextToken          :: !(Maybe Text)
+    , _dlgLogGroupNamePrefix :: !(Maybe Text)
+    , _dlgLimit              :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogGroups' smart constructor.
@@ -135,8 +135,8 @@ instance ToQuery DescribeLogGroups where
 --
 -- * 'dlgrStatus'
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-    { _dlgrLogGroups :: Maybe [LogGroup]
-    , _dlgrNextToken :: Maybe Text
+    { _dlgrLogGroups :: !(Maybe [LogGroup])
+    , _dlgrNextToken :: !(Maybe Text)
     , _dlgrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

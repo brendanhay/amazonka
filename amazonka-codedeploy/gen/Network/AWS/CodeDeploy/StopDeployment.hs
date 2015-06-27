@@ -101,7 +101,7 @@ instance ToQuery StopDeployment where
 --
 -- * 'sdrStatus'
 data StopDeploymentResponse = StopDeploymentResponse'
-    { _sdrStatusMessage :: Maybe Text
+    { _sdrStatusMessage :: !(Maybe Text)
     , _sdrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

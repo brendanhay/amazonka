@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'delbStackId'
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
-    { _delbLayerIds :: Maybe [Text]
-    , _delbStackId  :: Maybe Text
+    { _delbLayerIds :: !(Maybe [Text])
+    , _delbStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeElasticLoadBalancers' smart constructor.
@@ -124,7 +124,7 @@ instance ToQuery DescribeElasticLoadBalancers where
 --
 -- * 'delbrStatus'
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
-    { _delbrElasticLoadBalancers :: Maybe [ElasticLoadBalancer]
+    { _delbrElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
     , _delbrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

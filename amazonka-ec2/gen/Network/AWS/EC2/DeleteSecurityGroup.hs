@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'dsgDryRun'
 data DeleteSecurityGroup = DeleteSecurityGroup'
-    { _dsgGroupId   :: Maybe Text
-    , _dsgGroupName :: Maybe Text
-    , _dsgDryRun    :: Maybe Bool
+    { _dsgGroupId   :: !(Maybe Text)
+    , _dsgGroupName :: !(Maybe Text)
+    , _dsgDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteSecurityGroup' smart constructor.

@@ -65,10 +65,10 @@ import           Network.AWS.Response
 --
 -- * 'trTopics'
 data TestRole = TestRole'
-    { _trRole         :: Text
-    , _trInputBucket  :: Text
-    , _trOutputBucket :: Text
-    , _trTopics       :: [Text]
+    { _trRole         :: !Text
+    , _trInputBucket  :: !Text
+    , _trOutputBucket :: !Text
+    , _trTopics       :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'TestRole' smart constructor.
@@ -140,8 +140,8 @@ instance ToQuery TestRole where
 --
 -- * 'trrStatus'
 data TestRoleResponse = TestRoleResponse'
-    { _trrSuccess  :: Maybe Text
-    , _trrMessages :: Maybe [Text]
+    { _trrSuccess  :: !(Maybe Text)
+    , _trrMessages :: !(Maybe [Text])
     , _trrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

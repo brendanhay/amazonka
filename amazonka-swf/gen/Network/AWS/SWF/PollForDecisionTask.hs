@@ -111,12 +111,12 @@ import           Network.AWS.SWF.Types
 --
 -- * 'pfdtTaskList'
 data PollForDecisionTask = PollForDecisionTask'
-    { _pfdtNextPageToken   :: Maybe Text
-    , _pfdtReverseOrder    :: Maybe Bool
-    , _pfdtIdentity        :: Maybe Text
-    , _pfdtMaximumPageSize :: Maybe Nat
-    , _pfdtDomain          :: Text
-    , _pfdtTaskList        :: TaskList
+    { _pfdtNextPageToken   :: !(Maybe Text)
+    , _pfdtReverseOrder    :: !(Maybe Bool)
+    , _pfdtIdentity        :: !(Maybe Text)
+    , _pfdtMaximumPageSize :: !(Maybe Nat)
+    , _pfdtDomain          :: !Text
+    , _pfdtTaskList        :: !TaskList
     } deriving (Eq,Read,Show)
 
 -- | 'PollForDecisionTask' smart constructor.
@@ -259,13 +259,13 @@ instance ToQuery PollForDecisionTask where
 --
 -- * 'pfdtrStatus'
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
-    { _pfdtrNextPageToken          :: Maybe Text
-    , _pfdtrPreviousStartedEventId :: Maybe Integer
-    , _pfdtrTaskToken              :: Text
+    { _pfdtrNextPageToken          :: !(Maybe Text)
+    , _pfdtrPreviousStartedEventId :: !(Maybe Integer)
+    , _pfdtrTaskToken              :: !Text
     , _pfdtrStartedEventId         :: !Integer
-    , _pfdtrWorkflowExecution      :: WorkflowExecution
-    , _pfdtrWorkflowType           :: WorkflowType
-    , _pfdtrEvents                 :: [HistoryEvent]
+    , _pfdtrWorkflowExecution      :: !WorkflowExecution
+    , _pfdtrWorkflowType           :: !WorkflowType
+    , _pfdtrEvents                 :: ![HistoryEvent]
     , _pfdtrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

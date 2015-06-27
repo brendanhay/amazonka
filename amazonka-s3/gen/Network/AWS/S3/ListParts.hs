@@ -73,12 +73,12 @@ import           Network.AWS.S3.Types
 --
 -- * 'lpUploadId'
 data ListParts = ListParts'
-    { _lpMaxParts         :: Maybe Int
-    , _lpRequestPayer     :: Maybe RequestPayer
-    , _lpPartNumberMarker :: Maybe Int
-    , _lpBucket           :: BucketName
-    , _lpKey              :: ObjectKey
-    , _lpUploadId         :: Text
+    { _lpMaxParts         :: !(Maybe Int)
+    , _lpRequestPayer     :: !(Maybe RequestPayer)
+    , _lpPartNumberMarker :: !(Maybe Int)
+    , _lpBucket           :: !BucketName
+    , _lpKey              :: !ObjectKey
+    , _lpUploadId         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListParts' smart constructor.
@@ -193,18 +193,18 @@ instance ToQuery ListParts where
 --
 -- * 'lprStatus'
 data ListPartsResponse = ListPartsResponse'
-    { _lprParts                :: Maybe [Part]
-    , _lprRequestCharged       :: Maybe RequestCharged
-    , _lprMaxParts             :: Maybe Int
-    , _lprInitiator            :: Maybe Initiator
-    , _lprBucket               :: Maybe BucketName
-    , _lprNextPartNumberMarker :: Maybe Int
-    , _lprOwner                :: Maybe Owner
-    , _lprKey                  :: Maybe ObjectKey
-    , _lprStorageClass         :: Maybe StorageClass
-    , _lprIsTruncated          :: Maybe Bool
-    , _lprPartNumberMarker     :: Maybe Int
-    , _lprUploadId             :: Maybe Text
+    { _lprParts                :: !(Maybe [Part])
+    , _lprRequestCharged       :: !(Maybe RequestCharged)
+    , _lprMaxParts             :: !(Maybe Int)
+    , _lprInitiator            :: !(Maybe Initiator)
+    , _lprBucket               :: !(Maybe BucketName)
+    , _lprNextPartNumberMarker :: !(Maybe Int)
+    , _lprOwner                :: !(Maybe Owner)
+    , _lprKey                  :: !(Maybe ObjectKey)
+    , _lprStorageClass         :: !(Maybe StorageClass)
+    , _lprIsTruncated          :: !(Maybe Bool)
+    , _lprPartNumberMarker     :: !(Maybe Int)
+    , _lprUploadId             :: !(Maybe Text)
     , _lprStatus               :: !Int
     } deriving (Eq,Read,Show)
 

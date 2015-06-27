@@ -93,17 +93,17 @@ import           Network.AWS.Response
 --
 -- * 'ceEnvironmentName'
 data CreateEnvironment = CreateEnvironment'
-    { _ceCNAMEPrefix       :: Maybe Text
-    , _ceTemplateName      :: Maybe Text
-    , _ceOptionsToRemove   :: Maybe [OptionSpecification]
-    , _ceOptionSettings    :: Maybe [ConfigurationOptionSetting]
-    , _ceVersionLabel      :: Maybe Text
-    , _ceTier              :: Maybe EnvironmentTier
-    , _ceSolutionStackName :: Maybe Text
-    , _ceDescription       :: Maybe Text
-    , _ceTags              :: Maybe [Tag]
-    , _ceApplicationName   :: Text
-    , _ceEnvironmentName   :: Text
+    { _ceCNAMEPrefix       :: !(Maybe Text)
+    , _ceTemplateName      :: !(Maybe Text)
+    , _ceOptionsToRemove   :: !(Maybe [OptionSpecification])
+    , _ceOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _ceVersionLabel      :: !(Maybe Text)
+    , _ceTier              :: !(Maybe EnvironmentTier)
+    , _ceSolutionStackName :: !(Maybe Text)
+    , _ceDescription       :: !(Maybe Text)
+    , _ceTags              :: !(Maybe [Tag])
+    , _ceApplicationName   :: !Text
+    , _ceEnvironmentName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateEnvironment' smart constructor.

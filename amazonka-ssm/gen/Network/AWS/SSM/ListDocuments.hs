@@ -53,9 +53,9 @@ import           Network.AWS.SSM.Types
 --
 -- * 'ldMaxResults'
 data ListDocuments = ListDocuments'
-    { _ldDocumentFilterList :: Maybe (List1 DocumentFilter)
-    , _ldNextToken          :: Maybe Text
-    , _ldMaxResults         :: Maybe Nat
+    { _ldDocumentFilterList :: !(Maybe (List1 DocumentFilter))
+    , _ldNextToken          :: !(Maybe Text)
+    , _ldMaxResults         :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'ListDocuments' smart constructor.
@@ -127,8 +127,8 @@ instance ToQuery ListDocuments where
 --
 -- * 'ldrStatus'
 data ListDocumentsResponse = ListDocumentsResponse'
-    { _ldrDocumentIdentifiers :: Maybe [DocumentIdentifier]
-    , _ldrNextToken           :: Maybe Text
+    { _ldrDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
+    , _ldrNextToken           :: !(Maybe Text)
     , _ldrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

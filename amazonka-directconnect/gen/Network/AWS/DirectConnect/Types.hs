@@ -380,15 +380,15 @@ instance FromJSON VirtualInterfaceState where
 --
 -- * 'conConnectionState'
 data Connection = Connection'
-    { _conVlan            :: Maybe Int
-    , _conLocation        :: Maybe Text
-    , _conConnectionId    :: Maybe Text
-    , _conConnectionName  :: Maybe Text
-    , _conPartnerName     :: Maybe Text
-    , _conBandwidth       :: Maybe Text
-    , _conRegion          :: Maybe Text
-    , _conOwnerAccount    :: Maybe Text
-    , _conConnectionState :: Maybe ConnectionState
+    { _conVlan            :: !(Maybe Int)
+    , _conLocation        :: !(Maybe Text)
+    , _conConnectionId    :: !(Maybe Text)
+    , _conConnectionName  :: !(Maybe Text)
+    , _conPartnerName     :: !(Maybe Text)
+    , _conBandwidth       :: !(Maybe Text)
+    , _conRegion          :: !(Maybe Text)
+    , _conOwnerAccount    :: !(Maybe Text)
+    , _conConnectionState :: !(Maybe ConnectionState)
     } deriving (Eq,Read,Show)
 
 -- | 'Connection' smart constructor.
@@ -518,12 +518,12 @@ instance FromJSON Connections where
 --
 -- * 'intRegion'
 data Interconnect = Interconnect'
-    { _intInterconnectId    :: Maybe Text
-    , _intInterconnectName  :: Maybe Text
-    , _intLocation          :: Maybe Text
-    , _intBandwidth         :: Maybe Text
-    , _intInterconnectState :: Maybe InterconnectState
-    , _intRegion            :: Maybe Text
+    { _intInterconnectId    :: !(Maybe Text)
+    , _intInterconnectName  :: !(Maybe Text)
+    , _intLocation          :: !(Maybe Text)
+    , _intBandwidth         :: !(Maybe Text)
+    , _intInterconnectState :: !(Maybe InterconnectState)
+    , _intRegion            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Interconnect' smart constructor.
@@ -585,8 +585,8 @@ instance FromJSON Interconnect where
 --
 -- * 'locLocationCode'
 data Location = Location'
-    { _locLocationName :: Maybe Text
-    , _locLocationCode :: Maybe Text
+    { _locLocationName :: !(Maybe Text)
+    , _locLocationCode :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Location' smart constructor.
@@ -634,13 +634,13 @@ instance FromJSON Location where
 --
 -- * 'newVirtualGatewayId'
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-    { _newCustomerAddress      :: Maybe Text
-    , _newAmazonAddress        :: Maybe Text
-    , _newAuthKey              :: Maybe Text
-    , _newVirtualInterfaceName :: Text
+    { _newCustomerAddress      :: !(Maybe Text)
+    , _newAmazonAddress        :: !(Maybe Text)
+    , _newAuthKey              :: !(Maybe Text)
+    , _newVirtualInterfaceName :: !Text
     , _newVlan                 :: !Int
     , _newAsn                  :: !Int
-    , _newVirtualGatewayId     :: Text
+    , _newVirtualGatewayId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'NewPrivateVirtualInterface' smart constructor.
@@ -713,10 +713,10 @@ instance ToJSON NewPrivateVirtualInterface where
 --
 -- * 'npviaAsn'
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-    { _npviaCustomerAddress      :: Maybe Text
-    , _npviaAmazonAddress        :: Maybe Text
-    , _npviaAuthKey              :: Maybe Text
-    , _npviaVirtualInterfaceName :: Text
+    { _npviaCustomerAddress      :: !(Maybe Text)
+    , _npviaAmazonAddress        :: !(Maybe Text)
+    , _npviaAuthKey              :: !(Maybe Text)
+    , _npviaVirtualInterfaceName :: !Text
     , _npviaVlan                 :: !Int
     , _npviaAsn                  :: !Int
     } deriving (Eq,Read,Show)
@@ -787,13 +787,13 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 --
 -- * 'npviRouteFilterPrefixes'
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
-    { _npviAuthKey              :: Maybe Text
-    , _npviVirtualInterfaceName :: Text
+    { _npviAuthKey              :: !(Maybe Text)
+    , _npviVirtualInterfaceName :: !Text
     , _npviVlan                 :: !Int
     , _npviAsn                  :: !Int
-    , _npviAmazonAddress        :: Text
-    , _npviCustomerAddress      :: Text
-    , _npviRouteFilterPrefixes  :: [RouteFilterPrefix]
+    , _npviAmazonAddress        :: !Text
+    , _npviCustomerAddress      :: !Text
+    , _npviRouteFilterPrefixes  :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show)
 
 -- | 'NewPublicVirtualInterface' smart constructor.
@@ -868,13 +868,13 @@ instance ToJSON NewPublicVirtualInterface where
 --
 -- * 'nRouteFilterPrefixes'
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-    { _nAuthKey              :: Maybe Text
-    , _nVirtualInterfaceName :: Text
+    { _nAuthKey              :: !(Maybe Text)
+    , _nVirtualInterfaceName :: !Text
     , _nVlan                 :: !Int
     , _nAsn                  :: !Int
-    , _nAmazonAddress        :: Text
-    , _nCustomerAddress      :: Text
-    , _nRouteFilterPrefixes  :: [RouteFilterPrefix]
+    , _nAmazonAddress        :: !Text
+    , _nCustomerAddress      :: !Text
+    , _nRouteFilterPrefixes  :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show)
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
@@ -979,8 +979,8 @@ instance ToJSON RouteFilterPrefix where
 --
 -- * 'vgVirtualGatewayState'
 data VirtualGateway = VirtualGateway'
-    { _vgVirtualGatewayId    :: Maybe Text
-    , _vgVirtualGatewayState :: Maybe Text
+    { _vgVirtualGatewayId    :: !(Maybe Text)
+    , _vgVirtualGatewayState :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VirtualGateway' smart constructor.
@@ -1044,21 +1044,21 @@ instance FromJSON VirtualGateway where
 --
 -- * 'viVirtualInterfaceId'
 data VirtualInterface = VirtualInterface'
-    { _viVirtualGatewayId      :: Maybe Text
-    , _viRouteFilterPrefixes   :: Maybe [RouteFilterPrefix]
-    , _viCustomerAddress       :: Maybe Text
-    , _viVlan                  :: Maybe Int
-    , _viLocation              :: Maybe Text
-    , _viAmazonAddress         :: Maybe Text
-    , _viVirtualInterfaceState :: Maybe VirtualInterfaceState
-    , _viConnectionId          :: Maybe Text
-    , _viAsn                   :: Maybe Int
-    , _viVirtualInterfaceType  :: Maybe Text
-    , _viAuthKey               :: Maybe Text
-    , _viCustomerRouterConfig  :: Maybe Text
-    , _viOwnerAccount          :: Maybe Text
-    , _viVirtualInterfaceName  :: Maybe Text
-    , _viVirtualInterfaceId    :: Maybe Text
+    { _viVirtualGatewayId      :: !(Maybe Text)
+    , _viRouteFilterPrefixes   :: !(Maybe [RouteFilterPrefix])
+    , _viCustomerAddress       :: !(Maybe Text)
+    , _viVlan                  :: !(Maybe Int)
+    , _viLocation              :: !(Maybe Text)
+    , _viAmazonAddress         :: !(Maybe Text)
+    , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+    , _viConnectionId          :: !(Maybe Text)
+    , _viAsn                   :: !(Maybe Int)
+    , _viVirtualInterfaceType  :: !(Maybe Text)
+    , _viAuthKey               :: !(Maybe Text)
+    , _viCustomerRouterConfig  :: !(Maybe Text)
+    , _viOwnerAccount          :: !(Maybe Text)
+    , _viVirtualInterfaceName  :: !(Maybe Text)
+    , _viVirtualInterfaceId    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VirtualInterface' smart constructor.

@@ -132,9 +132,9 @@ import           Network.AWS.Response
 --
 -- * 'bwiRequestItems'
 data BatchWriteItem = BatchWriteItem'
-    { _bwiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
-    , _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    , _bwiRequestItems                :: Map Text (List1 WriteRequest)
+    { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
     } deriving (Eq,Read,Show)
 
 -- | 'BatchWriteItem' smart constructor.
@@ -240,9 +240,9 @@ instance ToQuery BatchWriteItem where
 --
 -- * 'bwirStatus'
 data BatchWriteItemResponse = BatchWriteItemResponse'
-    { _bwirConsumedCapacity      :: Maybe [ConsumedCapacity]
-    , _bwirItemCollectionMetrics :: Maybe (Map Text [ItemCollectionMetrics])
-    , _bwirUnprocessedItems      :: Maybe (Map Text (List1 WriteRequest))
+    { _bwirConsumedCapacity      :: !(Maybe [ConsumedCapacity])
+    , _bwirItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
+    , _bwirUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
     , _bwirStatus                :: !Int
     } deriving (Eq,Read,Show)
 

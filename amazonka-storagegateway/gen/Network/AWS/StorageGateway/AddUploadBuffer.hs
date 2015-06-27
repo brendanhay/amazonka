@@ -55,8 +55,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'aubDiskIds'
 data AddUploadBuffer = AddUploadBuffer'
-    { _aubGatewayARN :: Text
-    , _aubDiskIds    :: [Text]
+    { _aubGatewayARN :: !Text
+    , _aubDiskIds    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'AddUploadBuffer' smart constructor.
@@ -115,7 +115,7 @@ instance ToQuery AddUploadBuffer where
 --
 -- * 'aubrStatus'
 data AddUploadBufferResponse = AddUploadBufferResponse'
-    { _aubrGatewayARN :: Maybe Text
+    { _aubrGatewayARN :: !(Maybe Text)
     , _aubrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

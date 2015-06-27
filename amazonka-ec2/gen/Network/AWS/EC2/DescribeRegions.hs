@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dr1DryRun'
 data DescribeRegions = DescribeRegions'
-    { _dr1RegionNames :: Maybe [Text]
-    , _dr1Filters     :: Maybe [Filter]
-    , _dr1DryRun      :: Maybe Bool
+    { _dr1RegionNames :: !(Maybe [Text])
+    , _dr1Filters     :: !(Maybe [Filter])
+    , _dr1DryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeRegions' smart constructor.
@@ -125,7 +125,7 @@ instance ToQuery DescribeRegions where
 --
 -- * 'drrStatus'
 data DescribeRegionsResponse = DescribeRegionsResponse'
-    { _drrRegions :: Maybe [RegionInfo]
+    { _drrRegions :: !(Maybe [RegionInfo])
     , _drrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

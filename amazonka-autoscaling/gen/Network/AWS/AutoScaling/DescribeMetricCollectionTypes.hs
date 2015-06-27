@@ -95,8 +95,8 @@ instance ToQuery DescribeMetricCollectionTypes where
 --
 -- * 'dmctrStatus'
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-    { _dmctrMetrics       :: Maybe [MetricCollectionType]
-    , _dmctrGranularities :: Maybe [MetricGranularityType]
+    { _dmctrMetrics       :: !(Maybe [MetricCollectionType])
+    , _dmctrGranularities :: !(Maybe [MetricGranularityType])
     , _dmctrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

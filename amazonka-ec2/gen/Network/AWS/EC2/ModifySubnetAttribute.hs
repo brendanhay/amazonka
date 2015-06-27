@@ -46,8 +46,8 @@ import           Network.AWS.Response
 --
 -- * 'msaSubnetId'
 data ModifySubnetAttribute = ModifySubnetAttribute'
-    { _msaMapPublicIPOnLaunch :: Maybe AttributeBooleanValue
-    , _msaSubnetId            :: Text
+    { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
+    , _msaSubnetId            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifySubnetAttribute' smart constructor.

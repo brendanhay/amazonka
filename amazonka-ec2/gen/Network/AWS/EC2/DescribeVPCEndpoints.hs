@@ -59,11 +59,11 @@ import           Network.AWS.Response
 --
 -- * 'dvpceMaxResults'
 data DescribeVPCEndpoints = DescribeVPCEndpoints'
-    { _dvpceFilters        :: Maybe [Filter]
-    , _dvpceNextToken      :: Maybe Text
-    , _dvpceVPCEndpointIds :: Maybe [Text]
-    , _dvpceDryRun         :: Maybe Bool
-    , _dvpceMaxResults     :: Maybe Int
+    { _dvpceFilters        :: !(Maybe [Filter])
+    , _dvpceNextToken      :: !(Maybe Text)
+    , _dvpceVPCEndpointIds :: !(Maybe [Text])
+    , _dvpceDryRun         :: !(Maybe Bool)
+    , _dvpceMaxResults     :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpoints' smart constructor.
@@ -156,8 +156,8 @@ instance ToQuery DescribeVPCEndpoints where
 --
 -- * 'dStatus'
 data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
-    { _dNextToken    :: Maybe Text
-    , _dVPCEndpoints :: Maybe [VPCEndpoint]
+    { _dNextToken    :: !(Maybe Text)
+    , _dVPCEndpoints :: !(Maybe [VPCEndpoint])
     , _dStatus       :: !Int
     } deriving (Eq,Read,Show)
 

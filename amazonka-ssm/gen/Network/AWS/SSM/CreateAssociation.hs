@@ -58,8 +58,8 @@ import           Network.AWS.SSM.Types
 --
 -- * 'caInstanceId'
 data CreateAssociation = CreateAssociation'
-    { _caName       :: Text
-    , _caInstanceId :: Text
+    { _caName       :: !Text
+    , _caInstanceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociation' smart constructor.
@@ -117,7 +117,7 @@ instance ToQuery CreateAssociation where
 --
 -- * 'carStatus'
 data CreateAssociationResponse = CreateAssociationResponse'
-    { _carAssociationDescription :: Maybe AssociationDescription
+    { _carAssociationDescription :: !(Maybe AssociationDescription)
     , _carStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

@@ -48,8 +48,8 @@ import           Network.AWS.Response
 --
 -- * 'dcfoaiId'
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
-    { _dcfoaiIfMatch :: Maybe Text
-    , _dcfoaiId      :: Text
+    { _dcfoaiIfMatch :: !(Maybe Text)
+    , _dcfoaiId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.

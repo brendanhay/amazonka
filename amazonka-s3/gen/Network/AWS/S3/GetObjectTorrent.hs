@@ -53,9 +53,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'gotKey'
 data GetObjectTorrent = GetObjectTorrent'
-    { _gotRequestPayer :: Maybe RequestPayer
-    , _gotBucket       :: BucketName
-    , _gotKey          :: ObjectKey
+    { _gotRequestPayer :: !(Maybe RequestPayer)
+    , _gotBucket       :: !BucketName
+    , _gotKey          :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'GetObjectTorrent' smart constructor.
@@ -113,9 +113,9 @@ instance ToQuery GetObjectTorrent where
 --
 -- * 'gotrBody'
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
-    { _gotrRequestCharged :: Maybe RequestCharged
+    { _gotrRequestCharged :: !(Maybe RequestCharged)
     , _gotrStatus         :: !Int
-    , _gotrBody           :: RsBody
+    , _gotrBody           :: !RsBody
     } deriving (Show)
 
 -- | 'GetObjectTorrentResponse' smart constructor.

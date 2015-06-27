@@ -81,9 +81,9 @@ import           Network.AWS.Response
 --
 -- * 'ccgBGPASN'
 data CreateCustomerGateway = CreateCustomerGateway'
-    { _ccgDryRun   :: Maybe Bool
-    , _ccgType     :: GatewayType
-    , _ccgPublicIP :: Text
+    { _ccgDryRun   :: !(Maybe Bool)
+    , _ccgType     :: !GatewayType
+    , _ccgPublicIP :: !Text
     , _ccgBGPASN   :: !Int
     } deriving (Eq,Read,Show)
 
@@ -153,7 +153,7 @@ instance ToQuery CreateCustomerGateway where
 --
 -- * 'ccgrStatus'
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
-    { _ccgrCustomerGateway :: Maybe CustomerGateway
+    { _ccgrCustomerGateway :: !(Maybe CustomerGateway)
     , _ccgrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

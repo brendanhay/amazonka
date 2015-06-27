@@ -114,7 +114,7 @@ instance ToQuery DeliverConfigSnapshot where
 --
 -- * 'dcsrStatus'
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
-    { _dcsrConfigSnapshotId :: Maybe Text
+    { _dcsrConfigSnapshotId :: !(Maybe Text)
     , _dcsrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

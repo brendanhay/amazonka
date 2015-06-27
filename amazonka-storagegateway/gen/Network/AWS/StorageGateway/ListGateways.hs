@@ -67,8 +67,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'lgLimit'
 data ListGateways = ListGateways'
-    { _lgMarker :: Maybe Text
-    , _lgLimit  :: Maybe Nat
+    { _lgMarker :: !(Maybe Text)
+    , _lgLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'ListGateways' smart constructor.
@@ -136,8 +136,8 @@ instance ToQuery ListGateways where
 --
 -- * 'lgrStatus'
 data ListGatewaysResponse = ListGatewaysResponse'
-    { _lgrMarker   :: Maybe Text
-    , _lgrGateways :: Maybe [GatewayInfo]
+    { _lgrMarker   :: !(Maybe Text)
+    , _lgrGateways :: !(Maybe [GatewayInfo])
     , _lgrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

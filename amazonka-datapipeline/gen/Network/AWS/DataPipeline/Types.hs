@@ -265,9 +265,9 @@ instance ToJSON TaskStatus where
 --
 -- * 'fieKey'
 data Field = Field'
-    { _fieRefValue    :: Maybe Text
-    , _fieStringValue :: Maybe Text
-    , _fieKey         :: Text
+    { _fieRefValue    :: !(Maybe Text)
+    , _fieStringValue :: !(Maybe Text)
+    , _fieKey         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Field' smart constructor.
@@ -322,8 +322,8 @@ instance ToJSON Field where
 --
 -- * 'iiDocument'
 data InstanceIdentity = InstanceIdentity'
-    { _iiSignature :: Maybe Text
-    , _iiDocument  :: Maybe Text
+    { _iiSignature :: !(Maybe Text)
+    , _iiDocument  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceIdentity' smart constructor.
@@ -362,8 +362,8 @@ instance ToJSON InstanceIdentity where
 --
 -- * 'opeType'
 data Operator = Operator'
-    { _opeValues :: Maybe [Text]
-    , _opeType   :: Maybe OperatorType
+    { _opeValues :: !(Maybe [Text])
+    , _opeType   :: !(Maybe OperatorType)
     } deriving (Eq,Read,Show)
 
 -- | 'Operator' smart constructor.
@@ -428,8 +428,8 @@ instance ToJSON Operator where
 --
 -- * 'paStringValue'
 data ParameterAttribute = ParameterAttribute'
-    { _paKey         :: Text
-    , _paStringValue :: Text
+    { _paKey         :: !Text
+    , _paStringValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ParameterAttribute' smart constructor.
@@ -470,8 +470,8 @@ instance ToJSON ParameterAttribute where
 --
 -- * 'poAttributes'
 data ParameterObject = ParameterObject'
-    { _poId         :: Text
-    , _poAttributes :: [ParameterAttribute]
+    { _poId         :: !Text
+    , _poAttributes :: ![ParameterAttribute]
     } deriving (Eq,Read,Show)
 
 -- | 'ParameterObject' smart constructor.
@@ -512,8 +512,8 @@ instance ToJSON ParameterObject where
 --
 -- * 'pvStringValue'
 data ParameterValue = ParameterValue'
-    { _pvId          :: Text
-    , _pvStringValue :: Text
+    { _pvId          :: !Text
+    , _pvStringValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ParameterValue' smart constructor.
@@ -560,11 +560,11 @@ instance ToJSON ParameterValue where
 --
 -- * 'pdFields'
 data PipelineDescription = PipelineDescription'
-    { _pdDescription :: Maybe Text
-    , _pdTags        :: Maybe [Tag]
-    , _pdPipelineId  :: Text
-    , _pdName        :: Text
-    , _pdFields      :: [Field]
+    { _pdDescription :: !(Maybe Text)
+    , _pdTags        :: !(Maybe [Tag])
+    , _pdPipelineId  :: !Text
+    , _pdName        :: !Text
+    , _pdFields      :: ![Field]
     } deriving (Eq,Read,Show)
 
 -- | 'PipelineDescription' smart constructor.
@@ -623,8 +623,8 @@ instance FromJSON PipelineDescription where
 --
 -- * 'pinId'
 data PipelineIdName = PipelineIdName'
-    { _pinName :: Maybe Text
-    , _pinId   :: Maybe Text
+    { _pinName :: !(Maybe Text)
+    , _pinId   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PipelineIdName' smart constructor.
@@ -664,9 +664,9 @@ instance FromJSON PipelineIdName where
 --
 -- * 'pipFields'
 data PipelineObject = PipelineObject'
-    { _pipId     :: Text
-    , _pipName   :: Text
-    , _pipFields :: [Field]
+    { _pipId     :: !Text
+    , _pipName   :: !Text
+    , _pipFields :: ![Field]
     } deriving (Eq,Read,Show)
 
 -- | 'PipelineObject' smart constructor.
@@ -742,8 +742,8 @@ instance ToJSON Query where
 --
 -- * 'selFieldName'
 data Selector = Selector'
-    { _selOperator  :: Maybe Operator
-    , _selFieldName :: Maybe Text
+    { _selOperator  :: !(Maybe Operator)
+    , _selFieldName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Selector' smart constructor.
@@ -785,8 +785,8 @@ instance ToJSON Selector where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey   :: Text
-    , _tagValue :: Text
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -834,10 +834,10 @@ instance ToJSON Tag where
 --
 -- * 'toObjects'
 data TaskObject = TaskObject'
-    { _toPipelineId :: Maybe Text
-    , _toTaskId     :: Maybe Text
-    , _toAttemptId  :: Maybe Text
-    , _toObjects    :: Maybe (Map Text PipelineObject)
+    { _toPipelineId :: !(Maybe Text)
+    , _toTaskId     :: !(Maybe Text)
+    , _toAttemptId  :: !(Maybe Text)
+    , _toObjects    :: !(Maybe (Map Text PipelineObject))
     } deriving (Eq,Read,Show)
 
 -- | 'TaskObject' smart constructor.
@@ -890,8 +890,8 @@ instance FromJSON TaskObject where
 --
 -- * 'veErrors'
 data ValidationError = ValidationError'
-    { _veId     :: Maybe Text
-    , _veErrors :: Maybe [Text]
+    { _veId     :: !(Maybe Text)
+    , _veErrors :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'ValidationError' smart constructor.
@@ -929,8 +929,8 @@ instance FromJSON ValidationError where
 --
 -- * 'vwId'
 data ValidationWarning = ValidationWarning'
-    { _vwWarnings :: Maybe [Text]
-    , _vwId       :: Maybe Text
+    { _vwWarnings :: !(Maybe [Text])
+    , _vwId       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ValidationWarning' smart constructor.

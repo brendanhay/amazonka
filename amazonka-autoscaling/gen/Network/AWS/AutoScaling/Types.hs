@@ -458,16 +458,16 @@ instance FromXML ScalingActivityStatusCode where
 --
 -- * 'actStatusCode'
 data Activity = Activity'
-    { _actProgress             :: Maybe Int
-    , _actStatusMessage        :: Maybe Text
-    , _actDetails              :: Maybe Text
-    , _actEndTime              :: Maybe ISO8601
-    , _actDescription          :: Maybe Text
-    , _actActivityId           :: Text
-    , _actAutoScalingGroupName :: Text
-    , _actCause                :: Text
-    , _actStartTime            :: ISO8601
-    , _actStatusCode           :: ScalingActivityStatusCode
+    { _actProgress             :: !(Maybe Int)
+    , _actStatusMessage        :: !(Maybe Text)
+    , _actDetails              :: !(Maybe Text)
+    , _actEndTime              :: !(Maybe ISO8601)
+    , _actDescription          :: !(Maybe Text)
+    , _actActivityId           :: !Text
+    , _actAutoScalingGroupName :: !Text
+    , _actCause                :: !Text
+    , _actStartTime            :: !ISO8601
+    , _actStatusCode           :: !ScalingActivityStatusCode
     } deriving (Eq,Read,Show)
 
 -- | 'Activity' smart constructor.
@@ -580,8 +580,8 @@ instance FromXML AdjustmentType where
 --
 -- * 'alaAlarmARN'
 data Alarm = Alarm'
-    { _alaAlarmName :: Maybe Text
-    , _alaAlarmARN  :: Maybe Text
+    { _alaAlarmName :: !(Maybe Text)
+    , _alaAlarmARN  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Alarm' smart constructor.
@@ -651,26 +651,26 @@ instance FromXML Alarm where
 --
 -- * 'asgCreatedTime'
 data AutoScalingGroup = AutoScalingGroup'
-    { _asgStatus                  :: Maybe Text
-    , _asgTerminationPolicies     :: Maybe [Text]
-    , _asgHealthCheckGracePeriod  :: Maybe Int
-    , _asgVPCZoneIdentifier       :: Maybe Text
-    , _asgEnabledMetrics          :: Maybe [EnabledMetric]
-    , _asgInstances               :: Maybe [Instance]
-    , _asgAutoScalingGroupARN     :: Maybe Text
-    , _asgSuspendedProcesses      :: Maybe [SuspendedProcess]
-    , _asgPlacementGroup          :: Maybe Text
-    , _asgLoadBalancerNames       :: Maybe [Text]
-    , _asgTags                    :: Maybe [TagDescription]
-    , _asgAutoScalingGroupName    :: Text
-    , _asgLaunchConfigurationName :: Text
+    { _asgStatus                  :: !(Maybe Text)
+    , _asgTerminationPolicies     :: !(Maybe [Text])
+    , _asgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _asgVPCZoneIdentifier       :: !(Maybe Text)
+    , _asgEnabledMetrics          :: !(Maybe [EnabledMetric])
+    , _asgInstances               :: !(Maybe [Instance])
+    , _asgAutoScalingGroupARN     :: !(Maybe Text)
+    , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
+    , _asgPlacementGroup          :: !(Maybe Text)
+    , _asgLoadBalancerNames       :: !(Maybe [Text])
+    , _asgTags                    :: !(Maybe [TagDescription])
+    , _asgAutoScalingGroupName    :: !Text
+    , _asgLaunchConfigurationName :: !Text
     , _asgMinSize                 :: !Int
     , _asgMaxSize                 :: !Int
     , _asgDesiredCapacity         :: !Int
     , _asgDefaultCooldown         :: !Int
-    , _asgAvailabilityZones       :: List1 Text
-    , _asgHealthCheckType         :: Text
-    , _asgCreatedTime             :: ISO8601
+    , _asgAvailabilityZones       :: !(List1 Text)
+    , _asgHealthCheckType         :: !Text
+    , _asgCreatedTime             :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingGroup' smart constructor.
@@ -845,12 +845,12 @@ instance FromXML AutoScalingGroup where
 --
 -- * 'asidLaunchConfigurationName'
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-    { _asidInstanceId              :: Text
-    , _asidAutoScalingGroupName    :: Text
-    , _asidAvailabilityZone        :: Text
-    , _asidLifecycleState          :: Text
-    , _asidHealthStatus            :: Text
-    , _asidLaunchConfigurationName :: Text
+    { _asidInstanceId              :: !Text
+    , _asidAutoScalingGroupName    :: !Text
+    , _asidAvailabilityZone        :: !Text
+    , _asidLifecycleState          :: !Text
+    , _asidHealthStatus            :: !Text
+    , _asidLaunchConfigurationName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingInstanceDetails' smart constructor.
@@ -916,10 +916,10 @@ instance FromXML AutoScalingInstanceDetails where
 --
 -- * 'bdmDeviceName'
 data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: Maybe Text
-    , _bdmNoDevice    :: Maybe Bool
-    , _bdmEBS         :: Maybe EBS
-    , _bdmDeviceName  :: Text
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmNoDevice    :: !(Maybe Bool)
+    , _bdmEBS         :: !(Maybe EBS)
+    , _bdmDeviceName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
@@ -983,11 +983,11 @@ instance ToQuery BlockDeviceMapping where
 --
 -- * 'ebsSnapshotId'
 data EBS = EBS'
-    { _ebsDeleteOnTermination :: Maybe Bool
-    , _ebsVolumeSize          :: Maybe Nat
-    , _ebsIOPS                :: Maybe Nat
-    , _ebsVolumeType          :: Maybe Text
-    , _ebsSnapshotId          :: Maybe Text
+    { _ebsDeleteOnTermination :: !(Maybe Bool)
+    , _ebsVolumeSize          :: !(Maybe Nat)
+    , _ebsIOPS                :: !(Maybe Nat)
+    , _ebsVolumeType          :: !(Maybe Text)
+    , _ebsSnapshotId          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EBS' smart constructor.
@@ -1068,8 +1068,8 @@ instance ToQuery EBS where
 --
 -- * 'emMetric'
 data EnabledMetric = EnabledMetric'
-    { _emGranularity :: Maybe Text
-    , _emMetric      :: Maybe Text
+    { _emGranularity :: !(Maybe Text)
+    , _emMetric      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EnabledMetric' smart constructor.
@@ -1120,8 +1120,8 @@ instance FromXML EnabledMetric where
 --
 -- * 'filName'
 data Filter = Filter'
-    { _filValues :: Maybe [Text]
-    , _filName   :: Text
+    { _filValues :: !(Maybe [Text])
+    , _filName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Filter' smart constructor.
@@ -1164,11 +1164,11 @@ instance ToQuery Filter where
 --
 -- * 'insLaunchConfigurationName'
 data Instance = Instance'
-    { _insInstanceId              :: Text
-    , _insAvailabilityZone        :: Text
-    , _insLifecycleState          :: LifecycleState
-    , _insHealthStatus            :: Text
-    , _insLaunchConfigurationName :: Text
+    { _insInstanceId              :: !Text
+    , _insAvailabilityZone        :: !Text
+    , _insLifecycleState          :: !LifecycleState
+    , _insHealthStatus            :: !Text
+    , _insLaunchConfigurationName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
@@ -1285,25 +1285,25 @@ instance ToQuery InstanceMonitoring where
 --
 -- * 'lcCreatedTime'
 data LaunchConfiguration = LaunchConfiguration'
-    { _lcSecurityGroups               :: Maybe [Text]
-    , _lcAssociatePublicIPAddress     :: Maybe Bool
-    , _lcInstanceMonitoring           :: Maybe InstanceMonitoring
-    , _lcSpotPrice                    :: Maybe Text
-    , _lcKeyName                      :: Maybe Text
-    , _lcClassicLinkVPCSecurityGroups :: Maybe [Text]
-    , _lcRAMDiskId                    :: Maybe Text
-    , _lcKernelId                     :: Maybe Text
-    , _lcEBSOptimized                 :: Maybe Bool
-    , _lcUserData                     :: Maybe Text
-    , _lcClassicLinkVPCId             :: Maybe Text
-    , _lcIAMInstanceProfile           :: Maybe Text
-    , _lcLaunchConfigurationARN       :: Maybe Text
-    , _lcPlacementTenancy             :: Maybe Text
-    , _lcBlockDeviceMappings          :: Maybe [BlockDeviceMapping]
-    , _lcLaunchConfigurationName      :: Text
-    , _lcImageId                      :: Text
-    , _lcInstanceType                 :: Text
-    , _lcCreatedTime                  :: ISO8601
+    { _lcSecurityGroups               :: !(Maybe [Text])
+    , _lcAssociatePublicIPAddress     :: !(Maybe Bool)
+    , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+    , _lcSpotPrice                    :: !(Maybe Text)
+    , _lcKeyName                      :: !(Maybe Text)
+    , _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
+    , _lcRAMDiskId                    :: !(Maybe Text)
+    , _lcKernelId                     :: !(Maybe Text)
+    , _lcEBSOptimized                 :: !(Maybe Bool)
+    , _lcUserData                     :: !(Maybe Text)
+    , _lcClassicLinkVPCId             :: !(Maybe Text)
+    , _lcIAMInstanceProfile           :: !(Maybe Text)
+    , _lcLaunchConfigurationARN       :: !(Maybe Text)
+    , _lcPlacementTenancy             :: !(Maybe Text)
+    , _lcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
+    , _lcLaunchConfigurationName      :: !Text
+    , _lcImageId                      :: !Text
+    , _lcInstanceType                 :: !Text
+    , _lcCreatedTime                  :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'LaunchConfiguration' smart constructor.
@@ -1487,15 +1487,15 @@ instance FromXML LaunchConfiguration where
 --
 -- * 'lhNotificationTargetARN'
 data LifecycleHook = LifecycleHook'
-    { _lhDefaultResult         :: Maybe Text
-    , _lhLifecycleHookName     :: Maybe Text
-    , _lhHeartbeatTimeout      :: Maybe Int
-    , _lhAutoScalingGroupName  :: Maybe Text
-    , _lhNotificationMetadata  :: Maybe Text
-    , _lhGlobalTimeout         :: Maybe Int
-    , _lhRoleARN               :: Maybe Text
-    , _lhLifecycleTransition   :: Maybe Text
-    , _lhNotificationTargetARN :: Maybe Text
+    { _lhDefaultResult         :: !(Maybe Text)
+    , _lhLifecycleHookName     :: !(Maybe Text)
+    , _lhHeartbeatTimeout      :: !(Maybe Int)
+    , _lhAutoScalingGroupName  :: !(Maybe Text)
+    , _lhNotificationMetadata  :: !(Maybe Text)
+    , _lhGlobalTimeout         :: !(Maybe Int)
+    , _lhRoleARN               :: !(Maybe Text)
+    , _lhLifecycleTransition   :: !(Maybe Text)
+    , _lhNotificationTargetARN :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LifecycleHook' smart constructor.
@@ -1593,8 +1593,8 @@ instance FromXML LifecycleHook where
 --
 -- * 'lbsLoadBalancerName'
 data LoadBalancerState = LoadBalancerState'
-    { _lbsState            :: Maybe Text
-    , _lbsLoadBalancerName :: Maybe Text
+    { _lbsState            :: !(Maybe Text)
+    , _lbsLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancerState' smart constructor.
@@ -1714,9 +1714,9 @@ instance FromXML MetricGranularityType where
 --
 -- * 'ncNotificationType'
 data NotificationConfiguration = NotificationConfiguration'
-    { _ncTopicARN             :: Maybe Text
-    , _ncAutoScalingGroupName :: Maybe Text
-    , _ncNotificationType     :: Maybe Text
+    { _ncTopicARN             :: !(Maybe Text)
+    , _ncAutoScalingGroupName :: !(Maybe Text)
+    , _ncNotificationType     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'NotificationConfiguration' smart constructor.
@@ -1826,14 +1826,14 @@ instance FromXML ProcessType where
 --
 -- * 'scaAlarms'
 data ScalingPolicy = ScalingPolicy'
-    { _scaMinAdjustmentStep    :: Maybe Int
-    , _scaPolicyName           :: Maybe Text
-    , _scaAdjustmentType       :: Maybe Text
-    , _scaScalingAdjustment    :: Maybe Int
-    , _scaAutoScalingGroupName :: Maybe Text
-    , _scaCooldown             :: Maybe Int
-    , _scaPolicyARN            :: Maybe Text
-    , _scaAlarms               :: Maybe [Alarm]
+    { _scaMinAdjustmentStep    :: !(Maybe Int)
+    , _scaPolicyName           :: !(Maybe Text)
+    , _scaAdjustmentType       :: !(Maybe Text)
+    , _scaScalingAdjustment    :: !(Maybe Int)
+    , _scaAutoScalingGroupName :: !(Maybe Text)
+    , _scaCooldown             :: !(Maybe Int)
+    , _scaPolicyARN            :: !(Maybe Text)
+    , _scaAlarms               :: !(Maybe [Alarm])
     } deriving (Eq,Read,Show)
 
 -- | 'ScalingPolicy' smart constructor.
@@ -1909,8 +1909,8 @@ instance FromXML ScalingPolicy where
 --
 -- * 'spqAutoScalingGroupName'
 data ScalingProcessQuery = ScalingProcessQuery'
-    { _spqScalingProcesses     :: Maybe [Text]
-    , _spqAutoScalingGroupName :: Text
+    { _spqScalingProcesses     :: !(Maybe [Text])
+    , _spqAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ScalingProcessQuery' smart constructor.
@@ -1980,16 +1980,16 @@ instance ToQuery ScalingProcessQuery where
 --
 -- * 'sugaAutoScalingGroupName'
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
-    { _sugaScheduledActionARN   :: Maybe Text
-    , _sugaTime                 :: Maybe ISO8601
-    , _sugaStartTime            :: Maybe ISO8601
-    , _sugaScheduledActionName  :: Maybe Text
-    , _sugaMaxSize              :: Maybe Int
-    , _sugaDesiredCapacity      :: Maybe Int
-    , _sugaRecurrence           :: Maybe Text
-    , _sugaMinSize              :: Maybe Int
-    , _sugaEndTime              :: Maybe ISO8601
-    , _sugaAutoScalingGroupName :: Maybe Text
+    { _sugaScheduledActionARN   :: !(Maybe Text)
+    , _sugaTime                 :: !(Maybe ISO8601)
+    , _sugaStartTime            :: !(Maybe ISO8601)
+    , _sugaScheduledActionName  :: !(Maybe Text)
+    , _sugaMaxSize              :: !(Maybe Int)
+    , _sugaDesiredCapacity      :: !(Maybe Int)
+    , _sugaRecurrence           :: !(Maybe Text)
+    , _sugaMinSize              :: !(Maybe Int)
+    , _sugaEndTime              :: !(Maybe ISO8601)
+    , _sugaAutoScalingGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ScheduledUpdateGroupAction' smart constructor.
@@ -2077,8 +2077,8 @@ instance FromXML ScheduledUpdateGroupAction where
 --
 -- * 'spSuspensionReason'
 data SuspendedProcess = SuspendedProcess'
-    { _spProcessName      :: Maybe Text
-    , _spSuspensionReason :: Maybe Text
+    { _spProcessName      :: !(Maybe Text)
+    , _spSuspensionReason :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SuspendedProcess' smart constructor.
@@ -2118,11 +2118,11 @@ instance FromXML SuspendedProcess where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey               :: Text
-    , _tagResourceId        :: Text
-    , _tagResourceType      :: Text
+    { _tagKey               :: !Text
+    , _tagResourceId        :: !Text
+    , _tagResourceType      :: !Text
     , _tagPropagateAtLaunch :: !Bool
-    , _tagValue             :: Text
+    , _tagValue             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -2181,11 +2181,11 @@ instance ToQuery Tag where
 --
 -- * 'tdValue'
 data TagDescription = TagDescription'
-    { _tdResourceId        :: Text
-    , _tdResourceType      :: Text
-    , _tdKey               :: Text
+    { _tdResourceId        :: !Text
+    , _tdResourceType      :: !Text
+    , _tdKey               :: !Text
     , _tdPropagateAtLaunch :: !Bool
-    , _tdValue             :: Text
+    , _tdValue             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'TagDescription' smart constructor.

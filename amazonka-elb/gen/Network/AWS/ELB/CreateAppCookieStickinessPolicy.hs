@@ -67,9 +67,9 @@ import           Network.AWS.Response
 --
 -- * 'cacspCookieName'
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
-    { _cacspLoadBalancerName :: Text
-    , _cacspPolicyName       :: Text
-    , _cacspCookieName       :: Text
+    { _cacspLoadBalancerName :: !Text
+    , _cacspPolicyName       :: !Text
+    , _cacspCookieName       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAppCookieStickinessPolicy' smart constructor.

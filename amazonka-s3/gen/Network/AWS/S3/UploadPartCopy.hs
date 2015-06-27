@@ -100,23 +100,23 @@ import           Network.AWS.S3.Types
 --
 -- * 'upcUploadId'
 data UploadPartCopy = UploadPartCopy'
-    { _upcCopySourceIfModifiedSince      :: Maybe RFC822
-    , _upcCopySourceIfUnmodifiedSince    :: Maybe RFC822
-    , _upcCopySourceRange                :: Maybe Text
-    , _upcCopySourceSSECustomerKeyMD5    :: Maybe Text
-    , _upcSSECustomerAlgorithm           :: Maybe Text
-    , _upcCopySourceIfNoneMatch          :: Maybe Text
-    , _upcSSECustomerKey                 :: Maybe (Sensitive Text)
-    , _upcRequestPayer                   :: Maybe RequestPayer
-    , _upcCopySourceIfMatch              :: Maybe Text
-    , _upcSSECustomerKeyMD5              :: Maybe Text
-    , _upcCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
-    , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
-    , _upcBucket                         :: BucketName
-    , _upcCopySource                     :: Text
-    , _upcKey                            :: ObjectKey
+    { _upcCopySourceIfModifiedSince      :: !(Maybe RFC822)
+    , _upcCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _upcCopySourceRange                :: !(Maybe Text)
+    , _upcCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
+    , _upcSSECustomerAlgorithm           :: !(Maybe Text)
+    , _upcCopySourceIfNoneMatch          :: !(Maybe Text)
+    , _upcSSECustomerKey                 :: !(Maybe (Sensitive Text))
+    , _upcRequestPayer                   :: !(Maybe RequestPayer)
+    , _upcCopySourceIfMatch              :: !(Maybe Text)
+    , _upcSSECustomerKeyMD5              :: !(Maybe Text)
+    , _upcCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _upcCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcBucket                         :: !BucketName
+    , _upcCopySource                     :: !Text
+    , _upcKey                            :: !ObjectKey
     , _upcPartNumber                     :: !Int
-    , _upcUploadId                       :: Text
+    , _upcUploadId                       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UploadPartCopy' smart constructor.
@@ -310,13 +310,13 @@ instance ToQuery UploadPartCopy where
 --
 -- * 'upcrStatus'
 data UploadPartCopyResponse = UploadPartCopyResponse'
-    { _upcrRequestCharged       :: Maybe RequestCharged
-    , _upcrCopyPartResult       :: Maybe CopyPartResult
-    , _upcrSSECustomerAlgorithm :: Maybe Text
-    , _upcrCopySourceVersionId  :: Maybe Text
-    , _upcrSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _upcrSSECustomerKeyMD5    :: Maybe Text
-    , _upcrServerSideEncryption :: Maybe ServerSideEncryption
+    { _upcrRequestCharged       :: !(Maybe RequestCharged)
+    , _upcrCopyPartResult       :: !(Maybe CopyPartResult)
+    , _upcrSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcrCopySourceVersionId  :: !(Maybe Text)
+    , _upcrSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _upcrSSECustomerKeyMD5    :: !(Maybe Text)
+    , _upcrServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _upcrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

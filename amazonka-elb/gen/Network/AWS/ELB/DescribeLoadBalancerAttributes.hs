@@ -97,7 +97,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
 --
 -- * 'dlbarStatus'
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
-    { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    { _dlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _dlbarStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

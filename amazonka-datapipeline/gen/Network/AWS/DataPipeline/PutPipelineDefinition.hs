@@ -73,10 +73,10 @@ import           Network.AWS.Response
 --
 -- * 'ppdPipelineObjects'
 data PutPipelineDefinition = PutPipelineDefinition'
-    { _ppdParameterObjects :: Maybe [ParameterObject]
-    , _ppdParameterValues  :: Maybe [ParameterValue]
-    , _ppdPipelineId       :: Text
-    , _ppdPipelineObjects  :: [PipelineObject]
+    { _ppdParameterObjects :: !(Maybe [ParameterObject])
+    , _ppdParameterValues  :: !(Maybe [ParameterValue])
+    , _ppdPipelineId       :: !Text
+    , _ppdPipelineObjects  :: ![PipelineObject]
     } deriving (Eq,Read,Show)
 
 -- | 'PutPipelineDefinition' smart constructor.
@@ -157,8 +157,8 @@ instance ToQuery PutPipelineDefinition where
 --
 -- * 'ppdrStatus'
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-    { _ppdrValidationErrors   :: Maybe [ValidationError]
-    , _ppdrValidationWarnings :: Maybe [ValidationWarning]
+    { _ppdrValidationErrors   :: !(Maybe [ValidationError])
+    , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
     , _ppdrErrored            :: !Bool
     , _ppdrStatus             :: !Int
     } deriving (Eq,Read,Show)

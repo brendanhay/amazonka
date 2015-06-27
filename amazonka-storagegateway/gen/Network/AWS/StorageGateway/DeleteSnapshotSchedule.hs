@@ -109,7 +109,7 @@ instance ToQuery DeleteSnapshotSchedule where
 --
 -- * 'dssr1Status'
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-    { _dssr1VolumeARN :: Maybe Text
+    { _dssr1VolumeARN :: !(Maybe Text)
     , _dssr1Status    :: !Int
     } deriving (Eq,Read,Show)
 

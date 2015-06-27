@@ -81,12 +81,12 @@ import           Network.AWS.Response
 --
 -- * 'cpContainer'
 data CreatePreset = CreatePreset'
-    { _cpVideo       :: Maybe VideoParameters
-    , _cpThumbnails  :: Maybe Thumbnails
-    , _cpAudio       :: Maybe AudioParameters
-    , _cpDescription :: Maybe Text
-    , _cpName        :: Text
-    , _cpContainer   :: Text
+    { _cpVideo       :: !(Maybe VideoParameters)
+    , _cpThumbnails  :: !(Maybe Thumbnails)
+    , _cpAudio       :: !(Maybe AudioParameters)
+    , _cpDescription :: !(Maybe Text)
+    , _cpName        :: !Text
+    , _cpContainer   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePreset' smart constructor.
@@ -168,8 +168,8 @@ instance ToQuery CreatePreset where
 --
 -- * 'cprStatus'
 data CreatePresetResponse = CreatePresetResponse'
-    { _cprWarning :: Maybe Text
-    , _cprPreset  :: Maybe Preset
+    { _cprWarning :: !(Maybe Text)
+    , _cprPreset  :: !(Maybe Preset)
     , _cprStatus  :: !Int
     } deriving (Eq,Read,Show)
 

@@ -93,11 +93,11 @@ import           Network.AWS.Response
 --
 -- * 'lpUploadId'
 data ListParts = ListParts'
-    { _lpMarker    :: Maybe Text
-    , _lpLimit     :: Maybe Text
-    , _lpAccountId :: Text
-    , _lpVaultName :: Text
-    , _lpUploadId  :: Text
+    { _lpMarker    :: !(Maybe Text)
+    , _lpLimit     :: !(Maybe Text)
+    , _lpAccountId :: !Text
+    , _lpVaultName :: !Text
+    , _lpUploadId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListParts' smart constructor.
@@ -195,13 +195,13 @@ instance ToQuery ListParts where
 --
 -- * 'lprStatus'
 data ListPartsResponse = ListPartsResponse'
-    { _lprParts              :: Maybe [PartListElement]
-    , _lprMultipartUploadId  :: Maybe Text
-    , _lprArchiveDescription :: Maybe Text
-    , _lprPartSizeInBytes    :: Maybe Integer
-    , _lprVaultARN           :: Maybe Text
-    , _lprMarker             :: Maybe Text
-    , _lprCreationDate       :: Maybe Text
+    { _lprParts              :: !(Maybe [PartListElement])
+    , _lprMultipartUploadId  :: !(Maybe Text)
+    , _lprArchiveDescription :: !(Maybe Text)
+    , _lprPartSizeInBytes    :: !(Maybe Integer)
+    , _lprVaultARN           :: !(Maybe Text)
+    , _lprMarker             :: !(Maybe Text)
+    , _lprCreationDate       :: !(Maybe Text)
     , _lprStatus             :: !Int
     } deriving (Eq,Read,Show)
 

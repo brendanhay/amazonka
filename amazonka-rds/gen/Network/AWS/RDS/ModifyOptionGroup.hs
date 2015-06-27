@@ -57,10 +57,10 @@ import           Network.AWS.Response
 --
 -- * 'mogOptionGroupName'
 data ModifyOptionGroup = ModifyOptionGroup'
-    { _mogOptionsToInclude :: Maybe [OptionConfiguration]
-    , _mogOptionsToRemove  :: Maybe [Text]
-    , _mogApplyImmediately :: Maybe Bool
-    , _mogOptionGroupName  :: Text
+    { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
+    , _mogOptionsToRemove  :: !(Maybe [Text])
+    , _mogApplyImmediately :: !(Maybe Bool)
+    , _mogOptionGroupName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyOptionGroup' smart constructor.
@@ -137,7 +137,7 @@ instance ToQuery ModifyOptionGroup where
 --
 -- * 'mogrStatus'
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-    { _mogrOptionGroup :: Maybe OptionGroup
+    { _mogrOptionGroup :: !(Maybe OptionGroup)
     , _mogrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

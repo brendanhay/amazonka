@@ -89,7 +89,7 @@ instance ToQuery GetBucketVersioning where
 --
 -- * 'gbvrStatus'
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-    { _gbvrMFADelete :: Maybe MFADeleteStatus
+    { _gbvrMFADelete :: !(Maybe MFADeleteStatus)
     , _gbvrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

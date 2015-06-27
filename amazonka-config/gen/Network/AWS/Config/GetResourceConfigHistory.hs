@@ -77,13 +77,13 @@ import           Network.AWS.Response
 --
 -- * 'grchResourceId'
 data GetResourceConfigHistory = GetResourceConfigHistory'
-    { _grchChronologicalOrder :: Maybe ChronologicalOrder
-    , _grchNextToken          :: Maybe Text
-    , _grchLimit              :: Maybe Nat
-    , _grchLaterTime          :: Maybe POSIX
-    , _grchEarlierTime        :: Maybe POSIX
-    , _grchResourceType       :: ResourceType
-    , _grchResourceId         :: Text
+    { _grchChronologicalOrder :: !(Maybe ChronologicalOrder)
+    , _grchNextToken          :: !(Maybe Text)
+    , _grchLimit              :: !(Maybe Nat)
+    , _grchLaterTime          :: !(Maybe POSIX)
+    , _grchEarlierTime        :: !(Maybe POSIX)
+    , _grchResourceType       :: !ResourceType
+    , _grchResourceId         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetResourceConfigHistory' smart constructor.
@@ -183,8 +183,8 @@ instance ToQuery GetResourceConfigHistory where
 --
 -- * 'grchrStatus'
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
-    { _grchrNextToken          :: Maybe Text
-    , _grchrConfigurationItems :: Maybe [ConfigurationItem]
+    { _grchrNextToken          :: !(Maybe Text)
+    , _grchrConfigurationItems :: !(Maybe [ConfigurationItem])
     , _grchrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

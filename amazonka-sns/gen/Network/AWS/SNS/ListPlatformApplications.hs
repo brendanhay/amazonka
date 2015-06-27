@@ -121,8 +121,8 @@ instance ToQuery ListPlatformApplications where
 --
 -- * 'lparStatus'
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
-    { _lparPlatformApplications :: Maybe [PlatformApplication]
-    , _lparNextToken            :: Maybe Text
+    { _lparPlatformApplications :: !(Maybe [PlatformApplication])
+    , _lparNextToken            :: !(Maybe Text)
     , _lparStatus               :: !Int
     } deriving (Eq,Read,Show)
 

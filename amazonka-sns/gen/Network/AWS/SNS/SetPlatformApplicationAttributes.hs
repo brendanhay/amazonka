@@ -51,8 +51,8 @@ import           Network.AWS.SNS.Types
 --
 -- * 'spaaAttributes'
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
-    { _spaaPlatformApplicationARN :: Text
-    , _spaaAttributes             :: Map Text Text
+    { _spaaPlatformApplicationARN :: !Text
+    , _spaaAttributes             :: !(Map Text Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.

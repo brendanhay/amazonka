@@ -112,7 +112,7 @@ instance ToQuery DeregisterTaskDefinition where
 --
 -- * 'dtdrStatus'
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
-    { _dtdrTaskDefinition :: Maybe TaskDefinition
+    { _dtdrTaskDefinition :: !(Maybe TaskDefinition)
     , _dtdrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

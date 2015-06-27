@@ -67,14 +67,14 @@ import           Network.AWS.S3.Types
 --
 -- * 'cbBucket'
 data CreateBucket = CreateBucket'
-    { _cbGrantReadACP              :: Maybe Text
-    , _cbGrantWriteACP             :: Maybe Text
-    , _cbGrantRead                 :: Maybe Text
-    , _cbGrantFullControl          :: Maybe Text
-    , _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration
-    , _cbGrantWrite                :: Maybe Text
-    , _cbACL                       :: Maybe BucketCannedACL
-    , _cbBucket                    :: BucketName
+    { _cbGrantReadACP              :: !(Maybe Text)
+    , _cbGrantWriteACP             :: !(Maybe Text)
+    , _cbGrantRead                 :: !(Maybe Text)
+    , _cbGrantFullControl          :: !(Maybe Text)
+    , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
+    , _cbGrantWrite                :: !(Maybe Text)
+    , _cbACL                       :: !(Maybe BucketCannedACL)
+    , _cbBucket                    :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'CreateBucket' smart constructor.
@@ -167,7 +167,7 @@ instance ToQuery CreateBucket where
 --
 -- * 'cbrStatus'
 data CreateBucketResponse = CreateBucketResponse'
-    { _cbrLocation :: Maybe Text
+    { _cbrLocation :: !(Maybe Text)
     , _cbrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

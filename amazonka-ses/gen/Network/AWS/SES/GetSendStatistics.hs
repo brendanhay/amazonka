@@ -90,7 +90,7 @@ instance ToQuery GetSendStatistics where
 --
 -- * 'gssrStatus'
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
-    { _gssrSendDataPoints :: Maybe [SendDataPoint]
+    { _gssrSendDataPoints :: !(Maybe [SendDataPoint])
     , _gssrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

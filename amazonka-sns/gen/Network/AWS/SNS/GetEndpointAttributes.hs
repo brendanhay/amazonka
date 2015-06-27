@@ -101,7 +101,7 @@ instance ToQuery GetEndpointAttributes where
 --
 -- * 'gearStatus'
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
-    { _gearAttributes :: Maybe (Map Text Text)
+    { _gearAttributes :: !(Maybe (Map Text Text))
     , _gearStatus     :: !Int
     } deriving (Eq,Read,Show)
 

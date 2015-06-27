@@ -51,9 +51,9 @@ import           Network.AWS.SNS.Types
 --
 -- * 'staAttributeName'
 data SetTopicAttributes = SetTopicAttributes'
-    { _staAttributeValue :: Maybe Text
-    , _staTopicARN       :: Text
-    , _staAttributeName  :: Text
+    { _staAttributeValue :: !(Maybe Text)
+    , _staTopicARN       :: !Text
+    , _staAttributeName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SetTopicAttributes' smart constructor.

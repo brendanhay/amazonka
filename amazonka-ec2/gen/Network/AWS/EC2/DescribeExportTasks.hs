@@ -94,7 +94,7 @@ instance ToQuery DescribeExportTasks where
 --
 -- * 'detrStatus'
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrExportTasks :: Maybe [ExportTask]
+    { _detrExportTasks :: !(Maybe [ExportTask])
     , _detrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

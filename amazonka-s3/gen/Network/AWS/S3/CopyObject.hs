@@ -143,37 +143,37 @@ import           Network.AWS.S3.Types
 --
 -- * 'coKey'
 data CopyObject = CopyObject'
-    { _coCopySourceIfModifiedSince      :: Maybe RFC822
-    , _coCopySourceIfUnmodifiedSince    :: Maybe RFC822
-    , _coCopySourceSSECustomerKeyMD5    :: Maybe Text
-    , _coMetadataDirective              :: Maybe MetadataDirective
-    , _coExpires                        :: Maybe RFC822
-    , _coSSECustomerAlgorithm           :: Maybe Text
-    , _coCopySourceIfNoneMatch          :: Maybe Text
-    , _coGrantReadACP                   :: Maybe Text
-    , _coSSECustomerKey                 :: Maybe (Sensitive Text)
-    , _coRequestPayer                   :: Maybe RequestPayer
-    , _coGrantWriteACP                  :: Maybe Text
-    , _coWebsiteRedirectLocation        :: Maybe Text
-    , _coCopySourceIfMatch              :: Maybe Text
-    , _coGrantRead                      :: Maybe Text
-    , _coStorageClass                   :: Maybe StorageClass
-    , _coContentEncoding                :: Maybe Text
-    , _coSSEKMSKeyId                    :: Maybe (Sensitive Text)
-    , _coGrantFullControl               :: Maybe Text
-    , _coSSECustomerKeyMD5              :: Maybe Text
-    , _coMetadata                       :: Map Text Text
-    , _coCacheControl                   :: Maybe Text
-    , _coContentLanguage                :: Maybe Text
-    , _coACL                            :: Maybe ObjectCannedACL
-    , _coCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
-    , _coContentDisposition             :: Maybe Text
-    , _coCopySourceSSECustomerAlgorithm :: Maybe Text
-    , _coServerSideEncryption           :: Maybe ServerSideEncryption
-    , _coContentType                    :: Maybe Text
-    , _coBucket                         :: BucketName
-    , _coCopySource                     :: Text
-    , _coKey                            :: ObjectKey
+    { _coCopySourceIfModifiedSince      :: !(Maybe RFC822)
+    , _coCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _coCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
+    , _coMetadataDirective              :: !(Maybe MetadataDirective)
+    , _coExpires                        :: !(Maybe RFC822)
+    , _coSSECustomerAlgorithm           :: !(Maybe Text)
+    , _coCopySourceIfNoneMatch          :: !(Maybe Text)
+    , _coGrantReadACP                   :: !(Maybe Text)
+    , _coSSECustomerKey                 :: !(Maybe (Sensitive Text))
+    , _coRequestPayer                   :: !(Maybe RequestPayer)
+    , _coGrantWriteACP                  :: !(Maybe Text)
+    , _coWebsiteRedirectLocation        :: !(Maybe Text)
+    , _coCopySourceIfMatch              :: !(Maybe Text)
+    , _coGrantRead                      :: !(Maybe Text)
+    , _coStorageClass                   :: !(Maybe StorageClass)
+    , _coContentEncoding                :: !(Maybe Text)
+    , _coSSEKMSKeyId                    :: !(Maybe (Sensitive Text))
+    , _coGrantFullControl               :: !(Maybe Text)
+    , _coSSECustomerKeyMD5              :: !(Maybe Text)
+    , _coMetadata                       :: !(Map Text Text)
+    , _coCacheControl                   :: !(Maybe Text)
+    , _coContentLanguage                :: !(Maybe Text)
+    , _coACL                            :: !(Maybe ObjectCannedACL)
+    , _coCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _coContentDisposition             :: !(Maybe Text)
+    , _coCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _coServerSideEncryption           :: !(Maybe ServerSideEncryption)
+    , _coContentType                    :: !(Maybe Text)
+    , _coBucket                         :: !BucketName
+    , _coCopySource                     :: !Text
+    , _coKey                            :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'CopyObject' smart constructor.
@@ -459,14 +459,14 @@ instance ToQuery CopyObject where
 --
 -- * 'corStatus'
 data CopyObjectResponse = CopyObjectResponse'
-    { _corRequestCharged       :: Maybe RequestCharged
-    , _corExpiration           :: Maybe Text
-    , _corSSECustomerAlgorithm :: Maybe Text
-    , _corCopySourceVersionId  :: Maybe Text
-    , _corSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _corSSECustomerKeyMD5    :: Maybe Text
-    , _corServerSideEncryption :: Maybe ServerSideEncryption
-    , _corCopyObjectResult     :: Maybe CopyObjectResult
+    { _corRequestCharged       :: !(Maybe RequestCharged)
+    , _corExpiration           :: !(Maybe Text)
+    , _corSSECustomerAlgorithm :: !(Maybe Text)
+    , _corCopySourceVersionId  :: !(Maybe Text)
+    , _corSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _corSSECustomerKeyMD5    :: !(Maybe Text)
+    , _corServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _corCopyObjectResult     :: !(Maybe CopyObjectResult)
     , _corStatus               :: !Int
     } deriving (Eq,Read,Show)
 

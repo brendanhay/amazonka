@@ -118,10 +118,10 @@ instance ToQuery DescribeUploadBuffer where
 --
 -- * 'dubrStatus'
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-    { _dubrUploadBufferAllocatedInBytes :: Maybe Integer
-    , _dubrGatewayARN                   :: Maybe Text
-    , _dubrDiskIds                      :: Maybe [Text]
-    , _dubrUploadBufferUsedInBytes      :: Maybe Integer
+    { _dubrUploadBufferAllocatedInBytes :: !(Maybe Integer)
+    , _dubrGatewayARN                   :: !(Maybe Text)
+    , _dubrDiskIds                      :: !(Maybe [Text])
+    , _dubrUploadBufferUsedInBytes      :: !(Maybe Integer)
     , _dubrStatus                       :: !Int
     } deriving (Eq,Read,Show)
 

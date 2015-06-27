@@ -55,8 +55,8 @@ import           Network.AWS.SSM.Types
 --
 -- * 'delInstanceId'
 data DeleteAssociation = DeleteAssociation'
-    { _delName       :: Text
-    , _delInstanceId :: Text
+    { _delName       :: !Text
+    , _delInstanceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteAssociation' smart constructor.

@@ -111,8 +111,8 @@ instance ToQuery ListDeploymentConfigs where
 --
 -- * 'ldcrStatus'
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-    { _ldcrNextToken             :: Maybe Text
-    , _ldcrDeploymentConfigsList :: Maybe [Text]
+    { _ldcrNextToken             :: !(Maybe Text)
+    , _ldcrDeploymentConfigsList :: !(Maybe [Text])
     , _ldcrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

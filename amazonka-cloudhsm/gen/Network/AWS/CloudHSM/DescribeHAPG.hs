@@ -134,15 +134,15 @@ instance ToQuery DescribeHAPG where
 --
 -- * 'desStatus'
 data DescribeHAPGResponse = DescribeHAPGResponse'
-    { _desState                   :: Maybe CloudHSMObjectState
-    , _desLastModifiedTimestamp   :: Maybe Text
-    , _desHSMsPendingRegistration :: Maybe [Text]
-    , _desHAPGSerial              :: Maybe Text
-    , _desHSMsPendingDeletion     :: Maybe [Text]
-    , _desHSMsLastActionFailed    :: Maybe [Text]
-    , _desPartitionSerialList     :: Maybe [Text]
-    , _desHAPGARN                 :: Maybe Text
-    , _desLabel                   :: Maybe Text
+    { _desState                   :: !(Maybe CloudHSMObjectState)
+    , _desLastModifiedTimestamp   :: !(Maybe Text)
+    , _desHSMsPendingRegistration :: !(Maybe [Text])
+    , _desHAPGSerial              :: !(Maybe Text)
+    , _desHSMsPendingDeletion     :: !(Maybe [Text])
+    , _desHSMsLastActionFailed    :: !(Maybe [Text])
+    , _desPartitionSerialList     :: !(Maybe [Text])
+    , _desHAPGARN                 :: !(Maybe Text)
+    , _desLabel                   :: !(Maybe Text)
     , _desStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

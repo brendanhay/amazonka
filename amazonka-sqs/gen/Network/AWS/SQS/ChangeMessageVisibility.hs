@@ -82,8 +82,8 @@ import           Network.AWS.SQS.Types
 --
 -- * 'cmvVisibilityTimeout'
 data ChangeMessageVisibility = ChangeMessageVisibility'
-    { _cmvQueueURL          :: Text
-    , _cmvReceiptHandle     :: Text
+    { _cmvQueueURL          :: !Text
+    , _cmvReceiptHandle     :: !Text
     , _cmvVisibilityTimeout :: !Int
     } deriving (Eq,Read,Show)
 

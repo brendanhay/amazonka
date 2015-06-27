@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'csTargetSnapshotName'
 data CopySnapshot = CopySnapshot'
-    { _csSourceSnapshotName :: Text
-    , _csTargetSnapshotName :: Text
+    { _csSourceSnapshotName :: !Text
+    , _csTargetSnapshotName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CopySnapshot' smart constructor.
@@ -103,7 +103,7 @@ instance ToQuery CopySnapshot where
 --
 -- * 'csrStatus'
 data CopySnapshotResponse = CopySnapshotResponse'
-    { _csrSnapshot :: Maybe Snapshot
+    { _csrSnapshot :: !(Maybe Snapshot)
     , _csrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

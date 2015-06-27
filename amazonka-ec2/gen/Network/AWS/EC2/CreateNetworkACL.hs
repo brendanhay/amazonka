@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'cnaVPCId'
 data CreateNetworkACL = CreateNetworkACL'
-    { _cnaDryRun :: Maybe Bool
-    , _cnaVPCId  :: Text
+    { _cnaDryRun :: !(Maybe Bool)
+    , _cnaVPCId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACL' smart constructor.
@@ -109,7 +109,7 @@ instance ToQuery CreateNetworkACL where
 --
 -- * 'cnarStatus'
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
-    { _cnarNetworkACL :: Maybe NetworkACL
+    { _cnarNetworkACL :: !(Maybe NetworkACL)
     , _cnarStatus     :: !Int
     } deriving (Eq,Read,Show)
 

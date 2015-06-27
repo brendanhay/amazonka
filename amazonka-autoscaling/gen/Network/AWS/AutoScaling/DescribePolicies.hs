@@ -57,10 +57,10 @@ import           Network.AWS.Response
 --
 -- * 'descAutoScalingGroupName'
 data DescribePolicies = DescribePolicies'
-    { _descPolicyNames          :: Maybe [Text]
-    , _descNextToken            :: Maybe Text
-    , _descMaxRecords           :: Maybe Int
-    , _descAutoScalingGroupName :: Maybe Text
+    { _descPolicyNames          :: !(Maybe [Text])
+    , _descNextToken            :: !(Maybe Text)
+    , _descMaxRecords           :: !(Maybe Int)
+    , _descAutoScalingGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePolicies' smart constructor.
@@ -140,8 +140,8 @@ instance ToQuery DescribePolicies where
 --
 -- * 'dprStatus'
 data DescribePoliciesResponse = DescribePoliciesResponse'
-    { _dprNextToken       :: Maybe Text
-    , _dprScalingPolicies :: Maybe [ScalingPolicy]
+    { _dprNextToken       :: !(Maybe Text)
+    , _dprScalingPolicies :: !(Maybe [ScalingPolicy])
     , _dprStatus          :: !Int
     } deriving (Eq,Read,Show)
 

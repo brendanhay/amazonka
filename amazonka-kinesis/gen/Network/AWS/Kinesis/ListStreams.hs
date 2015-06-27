@@ -69,8 +69,8 @@ import           Network.AWS.Response
 --
 -- * 'lsExclusiveStartStreamName'
 data ListStreams = ListStreams'
-    { _lsLimit                    :: Maybe Nat
-    , _lsExclusiveStartStreamName :: Maybe Text
+    { _lsLimit                    :: !(Maybe Nat)
+    , _lsExclusiveStartStreamName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListStreams' smart constructor.
@@ -144,7 +144,7 @@ instance ToQuery ListStreams where
 --
 -- * 'lsrStatus'
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrStreamNames    :: [Text]
+    { _lsrStreamNames    :: ![Text]
     , _lsrHasMoreStreams :: !Bool
     , _lsrStatus         :: !Int
     } deriving (Eq,Read,Show)

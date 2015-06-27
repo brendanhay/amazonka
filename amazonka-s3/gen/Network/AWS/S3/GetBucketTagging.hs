@@ -89,7 +89,7 @@ instance ToQuery GetBucketTagging where
 --
 -- * 'gbtrStatus'
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-    { _gbtrTagSet :: [Tag]
+    { _gbtrTagSet :: ![Tag]
     , _gbtrStatus :: !Int
     } deriving (Eq,Read,Show)
 

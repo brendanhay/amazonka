@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'delPolicyName'
 data DeleteGroupPolicy = DeleteGroupPolicy'
-    { _delGroupName  :: Text
-    , _delPolicyName :: Text
+    { _delGroupName  :: !Text
+    , _delPolicyName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteGroupPolicy' smart constructor.

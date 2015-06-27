@@ -79,17 +79,17 @@ import           Network.AWS.Response
 --
 -- * 'uaAppId'
 data UpdateApp = UpdateApp'
-    { _uaSSLConfiguration :: Maybe SSLConfiguration
-    , _uaEnableSSL        :: Maybe Bool
-    , _uaEnvironment      :: Maybe [EnvironmentVariable]
-    , _uaDataSources      :: Maybe [DataSource]
-    , _uaAppSource        :: Maybe Source
-    , _uaName             :: Maybe Text
-    , _uaAttributes       :: Maybe (Map AppAttributesKeys Text)
-    , _uaType             :: Maybe AppType
-    , _uaDomains          :: Maybe [Text]
-    , _uaDescription      :: Maybe Text
-    , _uaAppId            :: Text
+    { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _uaEnableSSL        :: !(Maybe Bool)
+    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _uaDataSources      :: !(Maybe [DataSource])
+    , _uaAppSource        :: !(Maybe Source)
+    , _uaName             :: !(Maybe Text)
+    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _uaType             :: !(Maybe AppType)
+    , _uaDomains          :: !(Maybe [Text])
+    , _uaDescription      :: !(Maybe Text)
+    , _uaAppId            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateApp' smart constructor.

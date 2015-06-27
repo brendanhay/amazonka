@@ -162,8 +162,8 @@ _TopicLimitExceededException =
 --
 -- * 'endEndpointARN'
 data Endpoint = Endpoint'
-    { _endAttributes  :: Maybe (Map Text Text)
-    , _endEndpointARN :: Maybe Text
+    { _endAttributes  :: !(Maybe (Map Text Text))
+    , _endEndpointARN :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
@@ -220,9 +220,9 @@ instance ToQuery Endpoint where
 --
 -- * 'mavDataType'
 data MessageAttributeValue = MessageAttributeValue'
-    { _mavBinaryValue :: Maybe Base64
-    , _mavStringValue :: Maybe Text
-    , _mavDataType    :: Text
+    { _mavBinaryValue :: !(Maybe Base64)
+    , _mavStringValue :: !(Maybe Text)
+    , _mavDataType    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'MessageAttributeValue' smart constructor.
@@ -268,8 +268,8 @@ instance ToQuery MessageAttributeValue where
 --
 -- * 'paAttributes'
 data PlatformApplication = PlatformApplication'
-    { _paPlatformApplicationARN :: Maybe Text
-    , _paAttributes             :: Maybe (Map Text Text)
+    { _paPlatformApplicationARN :: !(Maybe Text)
+    , _paAttributes             :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show)
 
 -- | 'PlatformApplication' smart constructor.
@@ -311,11 +311,11 @@ instance FromXML PlatformApplication where
 --
 -- * 'subSubscriptionARN'
 data Subscription = Subscription'
-    { _subProtocol        :: Maybe Text
-    , _subOwner           :: Maybe Text
-    , _subTopicARN        :: Maybe Text
-    , _subEndpoint        :: Maybe Endpoint
-    , _subSubscriptionARN :: Maybe Text
+    { _subProtocol        :: !(Maybe Text)
+    , _subOwner           :: !(Maybe Text)
+    , _subTopicARN        :: !(Maybe Text)
+    , _subEndpoint        :: !(Maybe Endpoint)
+    , _subSubscriptionARN :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Subscription' smart constructor.

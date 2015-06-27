@@ -85,7 +85,7 @@ instance ToQuery ListSAMLProviders where
 --
 -- * 'lsamlprStatus'
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
-    { _lsamlprSAMLProviderList :: Maybe [SAMLProviderListEntry]
+    { _lsamlprSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
     , _lsamlprStatus           :: !Int
     } deriving (Eq,Read,Show)
 

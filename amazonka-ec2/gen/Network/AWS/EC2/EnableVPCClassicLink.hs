@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'evclVPCId'
 data EnableVPCClassicLink = EnableVPCClassicLink'
-    { _evclDryRun :: Maybe Bool
-    , _evclVPCId  :: Text
+    { _evclDryRun :: !(Maybe Bool)
+    , _evclVPCId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'EnableVPCClassicLink' smart constructor.
@@ -112,7 +112,7 @@ instance ToQuery EnableVPCClassicLink where
 --
 -- * 'evclrStatus'
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
-    { _evclrReturn :: Maybe Bool
+    { _evclrReturn :: !(Maybe Bool)
     , _evclrStatus :: !Int
     } deriving (Eq,Read,Show)
 

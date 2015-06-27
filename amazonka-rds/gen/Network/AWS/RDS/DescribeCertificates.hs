@@ -59,10 +59,10 @@ import           Network.AWS.Response
 --
 -- * 'dcMarker'
 data DescribeCertificates = DescribeCertificates'
-    { _dcFilters               :: Maybe [Filter]
-    , _dcCertificateIdentifier :: Maybe Text
-    , _dcMaxRecords            :: Maybe Int
-    , _dcMarker                :: Maybe Text
+    { _dcFilters               :: !(Maybe [Filter])
+    , _dcCertificateIdentifier :: !(Maybe Text)
+    , _dcMaxRecords            :: !(Maybe Int)
+    , _dcMarker                :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCertificates' smart constructor.
@@ -150,8 +150,8 @@ instance ToQuery DescribeCertificates where
 --
 -- * 'dcrStatus'
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-    { _dcrCertificates :: Maybe [Certificate]
-    , _dcrMarker       :: Maybe Text
+    { _dcrCertificates :: !(Maybe [Certificate])
+    , _dcrMarker       :: !(Maybe Text)
     , _dcrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

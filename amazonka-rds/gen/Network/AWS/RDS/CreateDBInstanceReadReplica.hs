@@ -87,18 +87,18 @@ import           Network.AWS.Response
 --
 -- * 'cdirrSourceDBInstanceIdentifier'
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-    { _cdirrAutoMinorVersionUpgrade    :: Maybe Bool
-    , _cdirrPubliclyAccessible         :: Maybe Bool
-    , _cdirrDBSubnetGroupName          :: Maybe Text
-    , _cdirrIOPS                       :: Maybe Int
-    , _cdirrDBInstanceClass            :: Maybe Text
-    , _cdirrAvailabilityZone           :: Maybe Text
-    , _cdirrOptionGroupName            :: Maybe Text
-    , _cdirrTags                       :: Maybe [Tag]
-    , _cdirrPort                       :: Maybe Int
-    , _cdirrStorageType                :: Maybe Text
-    , _cdirrDBInstanceIdentifier       :: Text
-    , _cdirrSourceDBInstanceIdentifier :: Text
+    { _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdirrPubliclyAccessible         :: !(Maybe Bool)
+    , _cdirrDBSubnetGroupName          :: !(Maybe Text)
+    , _cdirrIOPS                       :: !(Maybe Int)
+    , _cdirrDBInstanceClass            :: !(Maybe Text)
+    , _cdirrAvailabilityZone           :: !(Maybe Text)
+    , _cdirrOptionGroupName            :: !(Maybe Text)
+    , _cdirrTags                       :: !(Maybe [Tag])
+    , _cdirrPort                       :: !(Maybe Int)
+    , _cdirrStorageType                :: !(Maybe Text)
+    , _cdirrDBInstanceIdentifier       :: !Text
+    , _cdirrSourceDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDBInstanceReadReplica' smart constructor.
@@ -294,7 +294,7 @@ instance ToQuery CreateDBInstanceReadReplica where
 --
 -- * 'cdirrrStatus'
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
-    { _cdirrrDBInstance :: Maybe DBInstance
+    { _cdirrrDBInstance :: !(Maybe DBInstance)
     , _cdirrrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

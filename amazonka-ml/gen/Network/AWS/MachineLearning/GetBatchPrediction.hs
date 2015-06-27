@@ -144,17 +144,17 @@ instance ToQuery GetBatchPrediction where
 --
 -- * 'gbprStatus'
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-    { _gbprLastUpdatedAt               :: Maybe POSIX
-    , _gbprCreatedAt                   :: Maybe POSIX
-    , _gbprInputDataLocationS3         :: Maybe Text
-    , _gbprMLModelId                   :: Maybe Text
-    , _gbprBatchPredictionDataSourceId :: Maybe Text
-    , _gbprBatchPredictionId           :: Maybe Text
-    , _gbprName                        :: Maybe Text
-    , _gbprCreatedByIAMUser            :: Maybe Text
-    , _gbprLogURI                      :: Maybe Text
-    , _gbprMessage                     :: Maybe Text
-    , _gbprOutputURI                   :: Maybe Text
+    { _gbprLastUpdatedAt               :: !(Maybe POSIX)
+    , _gbprCreatedAt                   :: !(Maybe POSIX)
+    , _gbprInputDataLocationS3         :: !(Maybe Text)
+    , _gbprMLModelId                   :: !(Maybe Text)
+    , _gbprBatchPredictionDataSourceId :: !(Maybe Text)
+    , _gbprBatchPredictionId           :: !(Maybe Text)
+    , _gbprName                        :: !(Maybe Text)
+    , _gbprCreatedByIAMUser            :: !(Maybe Text)
+    , _gbprLogURI                      :: !(Maybe Text)
+    , _gbprMessage                     :: !(Maybe Text)
+    , _gbprOutputURI                   :: !(Maybe Text)
     , _gbprStatus                      :: !Int
     } deriving (Eq,Read,Show)
 

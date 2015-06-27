@@ -152,17 +152,17 @@ instance ToQuery DescribeResize where
 --
 -- * 'drrStatus'
 data DescribeResizeResponse = DescribeResizeResponse'
-    { _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    , _drrImportTablesNotStarted             :: Maybe [Text]
-    , _drrAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
-    , _drrTargetNumberOfNodes                :: Maybe Int
-    , _drrTargetNodeType                     :: Maybe Text
-    , _drrImportTablesInProgress             :: Maybe [Text]
-    , _drrImportTablesCompleted              :: Maybe [Text]
-    , _drrProgressInMegaBytes                :: Maybe Integer
-    , _drrTotalResizeDataInMegaBytes         :: Maybe Integer
-    , _drrElapsedTimeInSeconds               :: Maybe Integer
-    , _drrTargetClusterType                  :: Maybe Text
+    { _drrEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+    , _drrImportTablesNotStarted             :: !(Maybe [Text])
+    , _drrAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
+    , _drrTargetNumberOfNodes                :: !(Maybe Int)
+    , _drrTargetNodeType                     :: !(Maybe Text)
+    , _drrImportTablesInProgress             :: !(Maybe [Text])
+    , _drrImportTablesCompleted              :: !(Maybe [Text])
+    , _drrProgressInMegaBytes                :: !(Maybe Integer)
+    , _drrTotalResizeDataInMegaBytes         :: !(Maybe Integer)
+    , _drrElapsedTimeInSeconds               :: !(Maybe Integer)
+    , _drrTargetClusterType                  :: !(Maybe Text)
     , _drrStatus                             :: !Int
     } deriving (Eq,Read,Show)
 

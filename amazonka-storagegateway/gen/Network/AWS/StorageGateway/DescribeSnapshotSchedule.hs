@@ -121,11 +121,11 @@ instance ToQuery DescribeSnapshotSchedule where
 --
 -- * 'dssrStatus'
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-    { _dssrVolumeARN         :: Maybe Text
-    , _dssrStartAt           :: Maybe Nat
-    , _dssrRecurrenceInHours :: Maybe Nat
-    , _dssrTimezone          :: Maybe Text
-    , _dssrDescription       :: Maybe Text
+    { _dssrVolumeARN         :: !(Maybe Text)
+    , _dssrStartAt           :: !(Maybe Nat)
+    , _dssrRecurrenceInHours :: !(Maybe Nat)
+    , _dssrTimezone          :: !(Maybe Text)
+    , _dssrDescription       :: !(Maybe Text)
     , _dssrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

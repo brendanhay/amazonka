@@ -98,7 +98,7 @@ instance ToQuery GenerateRandom where
 --
 -- * 'grrStatus'
 data GenerateRandomResponse = GenerateRandomResponse'
-    { _grrPlaintext :: Maybe (Sensitive Base64)
+    { _grrPlaintext :: !(Maybe (Sensitive Base64))
     , _grrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

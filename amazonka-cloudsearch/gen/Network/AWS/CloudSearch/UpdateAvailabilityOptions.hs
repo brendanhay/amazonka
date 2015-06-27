@@ -59,7 +59,7 @@ import           Network.AWS.Response
 --
 -- * 'uaoMultiAZ'
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
-    { _uaoDomainName :: Text
+    { _uaoDomainName :: !Text
     , _uaoMultiAZ    :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -120,7 +120,7 @@ instance ToQuery UpdateAvailabilityOptions where
 --
 -- * 'uaorStatus'
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
-    { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    { _uaorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _uaorStatus              :: !Int
     } deriving (Eq,Read,Show)
 

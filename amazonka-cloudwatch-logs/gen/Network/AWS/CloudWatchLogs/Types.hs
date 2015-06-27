@@ -241,11 +241,11 @@ instance ToJSON OrderBy where
 --
 -- * 'fleEventId'
 data FilteredLogEvent = FilteredLogEvent'
-    { _fleIngestionTime :: Maybe Nat
-    , _fleLogStreamName :: Maybe Text
-    , _fleMessage       :: Maybe Text
-    , _fleTimestamp     :: Maybe Nat
-    , _fleEventId       :: Maybe Text
+    { _fleIngestionTime :: !(Maybe Nat)
+    , _fleLogStreamName :: !(Maybe Text)
+    , _fleMessage       :: !(Maybe Text)
+    , _fleTimestamp     :: !(Maybe Nat)
+    , _fleEventId       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FilteredLogEvent' smart constructor.
@@ -303,7 +303,7 @@ instance FromJSON FilteredLogEvent where
 -- * 'ileMessage'
 data InputLogEvent = InputLogEvent'
     { _ileTimestamp :: !Nat
-    , _ileMessage   :: Text
+    , _ileMessage   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InputLogEvent' smart constructor.
@@ -344,12 +344,12 @@ instance ToJSON InputLogEvent where
 --
 -- * 'lgStoredBytes'
 data LogGroup = LogGroup'
-    { _lgCreationTime      :: Maybe Nat
-    , _lgMetricFilterCount :: Maybe Int
-    , _lgArn               :: Maybe Text
-    , _lgLogGroupName      :: Maybe Text
-    , _lgRetentionInDays   :: Maybe Int
-    , _lgStoredBytes       :: Maybe Nat
+    { _lgCreationTime      :: !(Maybe Nat)
+    , _lgMetricFilterCount :: !(Maybe Int)
+    , _lgArn               :: !(Maybe Text)
+    , _lgLogGroupName      :: !(Maybe Text)
+    , _lgRetentionInDays   :: !(Maybe Int)
+    , _lgStoredBytes       :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'LogGroup' smart constructor.
@@ -422,14 +422,14 @@ instance FromJSON LogGroup where
 --
 -- * 'lsLastEventTimestamp'
 data LogStream = LogStream'
-    { _lsCreationTime        :: Maybe Nat
-    , _lsUploadSequenceToken :: Maybe Text
-    , _lsArn                 :: Maybe Text
-    , _lsFirstEventTimestamp :: Maybe Nat
-    , _lsLogStreamName       :: Maybe Text
-    , _lsStoredBytes         :: Maybe Nat
-    , _lsLastIngestionTime   :: Maybe Nat
-    , _lsLastEventTimestamp  :: Maybe Nat
+    { _lsCreationTime        :: !(Maybe Nat)
+    , _lsUploadSequenceToken :: !(Maybe Text)
+    , _lsArn                 :: !(Maybe Text)
+    , _lsFirstEventTimestamp :: !(Maybe Nat)
+    , _lsLogStreamName       :: !(Maybe Text)
+    , _lsStoredBytes         :: !(Maybe Nat)
+    , _lsLastIngestionTime   :: !(Maybe Nat)
+    , _lsLastEventTimestamp  :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'LogStream' smart constructor.
@@ -508,10 +508,10 @@ instance FromJSON LogStream where
 --
 -- * 'mfMetricTransformations'
 data MetricFilter = MetricFilter'
-    { _mfCreationTime          :: Maybe Nat
-    , _mfFilterName            :: Maybe Text
-    , _mfFilterPattern         :: Maybe Text
-    , _mfMetricTransformations :: Maybe (List1 MetricTransformation)
+    { _mfCreationTime          :: !(Maybe Nat)
+    , _mfFilterName            :: !(Maybe Text)
+    , _mfFilterPattern         :: !(Maybe Text)
+    , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
     } deriving (Eq,Read,Show)
 
 -- | 'MetricFilter' smart constructor.
@@ -559,9 +559,9 @@ instance FromJSON MetricFilter where
 --
 -- * 'mfmrEventNumber'
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-    { _mfmrExtractedValues :: Maybe (Map Text Text)
-    , _mfmrEventMessage    :: Maybe Text
-    , _mfmrEventNumber     :: Maybe Integer
+    { _mfmrExtractedValues :: !(Maybe (Map Text Text))
+    , _mfmrEventMessage    :: !(Maybe Text)
+    , _mfmrEventNumber     :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'MetricFilterMatchRecord' smart constructor.
@@ -604,9 +604,9 @@ instance FromJSON MetricFilterMatchRecord where
 --
 -- * 'mtMetricValue'
 data MetricTransformation = MetricTransformation'
-    { _mtMetricName      :: Text
-    , _mtMetricNamespace :: Text
-    , _mtMetricValue     :: Text
+    { _mtMetricName      :: !Text
+    , _mtMetricNamespace :: !Text
+    , _mtMetricValue     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'MetricTransformation' smart constructor.
@@ -655,9 +655,9 @@ instance ToJSON MetricTransformation where
 --
 -- * 'oleTimestamp'
 data OutputLogEvent = OutputLogEvent'
-    { _oleIngestionTime :: Maybe Nat
-    , _oleMessage       :: Maybe Text
-    , _oleTimestamp     :: Maybe Nat
+    { _oleIngestionTime :: !(Maybe Nat)
+    , _oleMessage       :: !(Maybe Text)
+    , _oleTimestamp     :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'OutputLogEvent' smart constructor.
@@ -699,9 +699,9 @@ instance FromJSON OutputLogEvent where
 --
 -- * 'rleiExpiredLogEventEndIndex'
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
-    { _rleiTooOldLogEventEndIndex   :: Maybe Int
-    , _rleiTooNewLogEventStartIndex :: Maybe Int
-    , _rleiExpiredLogEventEndIndex  :: Maybe Int
+    { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
+    , _rleiTooNewLogEventStartIndex :: !(Maybe Int)
+    , _rleiExpiredLogEventEndIndex  :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'RejectedLogEventsInfo' smart constructor.
@@ -745,8 +745,8 @@ instance FromJSON RejectedLogEventsInfo where
 --
 -- * 'slsSearchedCompletely'
 data SearchedLogStream = SearchedLogStream'
-    { _slsLogStreamName      :: Maybe Text
-    , _slsSearchedCompletely :: Maybe Bool
+    { _slsLogStreamName      :: !(Maybe Text)
+    , _slsSearchedCompletely :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'SearchedLogStream' smart constructor.
@@ -790,12 +790,12 @@ instance FromJSON SearchedLogStream where
 --
 -- * 'sfRoleARN'
 data SubscriptionFilter = SubscriptionFilter'
-    { _sfCreationTime   :: Maybe Nat
-    , _sfFilterName     :: Maybe Text
-    , _sfDestinationARN :: Maybe Text
-    , _sfLogGroupName   :: Maybe Text
-    , _sfFilterPattern  :: Maybe Text
-    , _sfRoleARN        :: Maybe Text
+    { _sfCreationTime   :: !(Maybe Nat)
+    , _sfFilterName     :: !(Maybe Text)
+    , _sfDestinationARN :: !(Maybe Text)
+    , _sfLogGroupName   :: !(Maybe Text)
+    , _sfFilterPattern  :: !(Maybe Text)
+    , _sfRoleARN        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SubscriptionFilter' smart constructor.

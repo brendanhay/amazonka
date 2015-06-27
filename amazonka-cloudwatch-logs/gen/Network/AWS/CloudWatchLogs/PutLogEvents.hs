@@ -73,10 +73,10 @@ import           Network.AWS.Response
 --
 -- * 'pleLogEvents'
 data PutLogEvents = PutLogEvents'
-    { _pleSequenceToken :: Maybe Text
-    , _pleLogGroupName  :: Text
-    , _pleLogStreamName :: Text
-    , _pleLogEvents     :: List1 InputLogEvent
+    { _pleSequenceToken :: !(Maybe Text)
+    , _pleLogGroupName  :: !Text
+    , _pleLogStreamName :: !Text
+    , _pleLogEvents     :: !(List1 InputLogEvent)
     } deriving (Eq,Read,Show)
 
 -- | 'PutLogEvents' smart constructor.
@@ -151,8 +151,8 @@ instance ToQuery PutLogEvents where
 --
 -- * 'plerStatus'
 data PutLogEventsResponse = PutLogEventsResponse'
-    { _plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo
-    , _plerNextSequenceToken     :: Maybe Text
+    { _plerRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
+    , _plerNextSequenceToken     :: !(Maybe Text)
     , _plerStatus                :: !Int
     } deriving (Eq,Read,Show)
 

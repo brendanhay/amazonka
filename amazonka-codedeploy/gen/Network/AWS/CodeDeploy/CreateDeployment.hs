@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'cdApplicationName'
 data CreateDeployment = CreateDeployment'
-    { _cdDeploymentConfigName          :: Maybe Text
-    , _cdRevision                      :: Maybe RevisionLocation
-    , _cdDescription                   :: Maybe Text
-    , _cdIgnoreApplicationStopFailures :: Maybe Bool
-    , _cdDeploymentGroupName           :: Maybe Text
-    , _cdApplicationName               :: Text
+    { _cdDeploymentConfigName          :: !(Maybe Text)
+    , _cdRevision                      :: !(Maybe RevisionLocation)
+    , _cdDescription                   :: !(Maybe Text)
+    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
+    , _cdDeploymentGroupName           :: !(Maybe Text)
+    , _cdApplicationName               :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDeployment' smart constructor.
@@ -171,7 +171,7 @@ instance ToQuery CreateDeployment where
 --
 -- * 'cdrStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
-    { _cdrDeploymentId :: Maybe Text
+    { _cdrDeploymentId :: !(Maybe Text)
     , _cdrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

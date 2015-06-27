@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'creDescription'
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
-    { _creTags                     :: Maybe [Tag]
-    , _creClusterSecurityGroupName :: Text
-    , _creDescription              :: Text
+    { _creTags                     :: !(Maybe [Tag])
+    , _creClusterSecurityGroupName :: !Text
+    , _creDescription              :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery CreateClusterSecurityGroup where
 --
 -- * 'creStatus'
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
-    { _creClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _creClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _creStatus               :: !Int
     } deriving (Eq,Read,Show)
 

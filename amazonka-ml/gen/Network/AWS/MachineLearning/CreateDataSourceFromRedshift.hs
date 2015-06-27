@@ -91,11 +91,11 @@ import           Network.AWS.Response
 --
 -- * 'cdsfrRoleARN'
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-    { _cdsfrDataSourceName    :: Maybe Text
-    , _cdsfrComputeStatistics :: Maybe Bool
-    , _cdsfrDataSourceId      :: Text
-    , _cdsfrDataSpec          :: RedshiftDataSpec
-    , _cdsfrRoleARN           :: Text
+    { _cdsfrDataSourceName    :: !(Maybe Text)
+    , _cdsfrComputeStatistics :: !(Maybe Bool)
+    , _cdsfrDataSourceId      :: !Text
+    , _cdsfrDataSpec          :: !RedshiftDataSpec
+    , _cdsfrRoleARN           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRedshift' smart constructor.
@@ -223,7 +223,7 @@ instance ToQuery CreateDataSourceFromRedshift where
 --
 -- * 'cdsfrrStatus'
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
-    { _cdsfrrDataSourceId :: Maybe Text
+    { _cdsfrrDataSourceId :: !(Maybe Text)
     , _cdsfrrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

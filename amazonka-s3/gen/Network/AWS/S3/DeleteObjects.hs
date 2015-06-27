@@ -58,10 +58,10 @@ import           Network.AWS.S3.Types
 --
 -- * 'delDelete'
 data DeleteObjects = DeleteObjects'
-    { _delMFA          :: Maybe Text
-    , _delRequestPayer :: Maybe RequestPayer
-    , _delBucket       :: BucketName
-    , _delDelete       :: Delete
+    { _delMFA          :: !(Maybe Text)
+    , _delRequestPayer :: !(Maybe RequestPayer)
+    , _delBucket       :: !BucketName
+    , _delDelete       :: !Delete
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteObjects' smart constructor.
@@ -136,9 +136,9 @@ instance ToQuery DeleteObjects where
 --
 -- * 'delStatus'
 data DeleteObjectsResponse = DeleteObjectsResponse'
-    { _delRequestCharged :: Maybe RequestCharged
-    , _delDeleted        :: Maybe [DeletedObject]
-    , _delErrors         :: Maybe [S3ServiceError]
+    { _delRequestCharged :: !(Maybe RequestCharged)
+    , _delDeleted        :: !(Maybe [DeletedObject])
+    , _delErrors         :: !(Maybe [S3ServiceError])
     , _delStatus         :: !Int
     } deriving (Eq,Read,Show)
 

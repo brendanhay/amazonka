@@ -57,10 +57,10 @@ import           Network.AWS.Response
 --
 -- * 'copTargetOptionGroupDescription'
 data CopyOptionGroup = CopyOptionGroup'
-    { _copTags                         :: Maybe [Tag]
-    , _copSourceOptionGroupIdentifier  :: Text
-    , _copTargetOptionGroupIdentifier  :: Text
-    , _copTargetOptionGroupDescription :: Text
+    { _copTags                         :: !(Maybe [Tag])
+    , _copSourceOptionGroupIdentifier  :: !Text
+    , _copTargetOptionGroupIdentifier  :: !Text
+    , _copTargetOptionGroupDescription :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CopyOptionGroup' smart constructor.
@@ -145,7 +145,7 @@ instance ToQuery CopyOptionGroup where
 --
 -- * 'cogrStatus'
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
-    { _cogrOptionGroup :: Maybe OptionGroup
+    { _cogrOptionGroup :: !(Maybe OptionGroup)
     , _cogrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

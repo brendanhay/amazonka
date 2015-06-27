@@ -99,8 +99,8 @@ instance ToQuery GetStreamingDistribution where
 --
 -- * 'gsdrStatus'
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
-    { _gsdrETag                  :: Maybe Text
-    , _gsdrStreamingDistribution :: Maybe StreamingDistribution
+    { _gsdrETag                  :: !(Maybe Text)
+    , _gsdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _gsdrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

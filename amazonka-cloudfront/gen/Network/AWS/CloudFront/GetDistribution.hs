@@ -96,8 +96,8 @@ instance ToQuery GetDistribution where
 --
 -- * 'gdrStatus'
 data GetDistributionResponse = GetDistributionResponse'
-    { _gdrETag         :: Maybe Text
-    , _gdrDistribution :: Maybe Distribution
+    { _gdrETag         :: !(Maybe Text)
+    , _gdrDistribution :: !(Maybe Distribution)
     , _gdrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

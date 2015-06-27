@@ -57,9 +57,9 @@ import           Network.AWS.Route53.Types
 --
 -- * 'gglContinentCode'
 data GetGeoLocation = GetGeoLocation'
-    { _gglSubdivisionCode :: Maybe Text
-    , _gglCountryCode     :: Maybe Text
-    , _gglContinentCode   :: Maybe Text
+    { _gglSubdivisionCode :: !(Maybe Text)
+    , _gglCountryCode     :: !(Maybe Text)
+    , _gglContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GetGeoLocation' smart constructor.
@@ -131,7 +131,7 @@ instance ToQuery GetGeoLocation where
 --
 -- * 'gglrStatus'
 data GetGeoLocationResponse = GetGeoLocationResponse'
-    { _gglrGeoLocationDetails :: GeoLocationDetails
+    { _gglrGeoLocationDetails :: !GeoLocationDetails
     , _gglrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

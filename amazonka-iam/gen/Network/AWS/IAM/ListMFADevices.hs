@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'lmdMarker'
 data ListMFADevices = ListMFADevices'
-    { _lmdUserName :: Maybe Text
-    , _lmdMaxItems :: Maybe Nat
-    , _lmdMarker   :: Maybe Text
+    { _lmdUserName :: !(Maybe Text)
+    , _lmdMaxItems :: !(Maybe Nat)
+    , _lmdMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListMFADevices' smart constructor.
@@ -142,9 +142,9 @@ instance ToQuery ListMFADevices where
 --
 -- * 'lmdrStatus'
 data ListMFADevicesResponse = ListMFADevicesResponse'
-    { _lmdrMarker      :: Maybe Text
-    , _lmdrIsTruncated :: Maybe Bool
-    , _lmdrMFADevices  :: [MFADevice]
+    { _lmdrMarker      :: !(Maybe Text)
+    , _lmdrIsTruncated :: !(Maybe Bool)
+    , _lmdrMFADevices  :: ![MFADevice]
     , _lmdrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

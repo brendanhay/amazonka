@@ -79,9 +79,9 @@ import           Network.AWS.SWF.Types
 --
 -- * 'rcweWorkflowId'
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
-    { _rcweRunId      :: Maybe Text
-    , _rcweDomain     :: Text
-    , _rcweWorkflowId :: Text
+    { _rcweRunId      :: !(Maybe Text)
+    , _rcweDomain     :: !Text
+    , _rcweWorkflowId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RequestCancelWorkflowExecution' smart constructor.

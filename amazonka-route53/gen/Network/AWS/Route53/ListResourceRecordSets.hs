@@ -107,11 +107,11 @@ import           Network.AWS.Route53.Types
 --
 -- * 'lrrsHostedZoneId'
 data ListResourceRecordSets = ListResourceRecordSets'
-    { _lrrsStartRecordName       :: Maybe Text
-    , _lrrsStartRecordType       :: Maybe RecordType
-    , _lrrsStartRecordIdentifier :: Maybe Text
-    , _lrrsMaxItems              :: Maybe Text
-    , _lrrsHostedZoneId          :: Text
+    { _lrrsStartRecordName       :: !(Maybe Text)
+    , _lrrsStartRecordType       :: !(Maybe RecordType)
+    , _lrrsStartRecordIdentifier :: !(Maybe Text)
+    , _lrrsMaxItems              :: !(Maybe Text)
+    , _lrrsHostedZoneId          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListResourceRecordSets' smart constructor.
@@ -234,12 +234,12 @@ instance ToQuery ListResourceRecordSets where
 --
 -- * 'lrrsrStatus'
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
-    { _lrrsrNextRecordType       :: Maybe RecordType
-    , _lrrsrNextRecordName       :: Maybe Text
-    , _lrrsrNextRecordIdentifier :: Maybe Text
-    , _lrrsrResourceRecordSets   :: [ResourceRecordSet]
+    { _lrrsrNextRecordType       :: !(Maybe RecordType)
+    , _lrrsrNextRecordName       :: !(Maybe Text)
+    , _lrrsrNextRecordIdentifier :: !(Maybe Text)
+    , _lrrsrResourceRecordSets   :: ![ResourceRecordSet]
     , _lrrsrIsTruncated          :: !Bool
-    , _lrrsrMaxItems             :: Text
+    , _lrrsrMaxItems             :: !Text
     , _lrrsrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

@@ -70,9 +70,9 @@ import           Network.AWS.Response
 --
 -- * 'diaAttribute'
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-    { _diaDryRun     :: Maybe Bool
-    , _diaInstanceId :: Text
-    , _diaAttribute  :: InstanceAttributeName
+    { _diaDryRun     :: !(Maybe Bool)
+    , _diaInstanceId :: !Text
+    , _diaAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceAttribute' smart constructor.
@@ -176,20 +176,20 @@ instance ToQuery DescribeInstanceAttribute where
 --
 -- * 'desStatus'
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-    { _desInstanceId                        :: Maybe Text
-    , _desGroups                            :: Maybe [GroupIdentifier]
-    , _desSourceDestCheck                   :: Maybe AttributeBooleanValue
-    , _desDisableAPITermination             :: Maybe AttributeBooleanValue
-    , _desRAMDiskId                         :: Maybe AttributeValue
-    , _desKernelId                          :: Maybe AttributeValue
-    , _desInstanceType                      :: Maybe AttributeValue
-    , _desRootDeviceName                    :: Maybe AttributeValue
-    , _desEBSOptimized                      :: Maybe AttributeBooleanValue
-    , _desUserData                          :: Maybe AttributeValue
-    , _desSRIOVNetSupport                   :: Maybe AttributeValue
-    , _desInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-    , _desProductCodes                      :: Maybe [ProductCode]
-    , _desBlockDeviceMappings               :: Maybe [InstanceBlockDeviceMapping]
+    { _desInstanceId                        :: !(Maybe Text)
+    , _desGroups                            :: !(Maybe [GroupIdentifier])
+    , _desSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _desDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _desRAMDiskId                         :: !(Maybe AttributeValue)
+    , _desKernelId                          :: !(Maybe AttributeValue)
+    , _desInstanceType                      :: !(Maybe AttributeValue)
+    , _desRootDeviceName                    :: !(Maybe AttributeValue)
+    , _desEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _desUserData                          :: !(Maybe AttributeValue)
+    , _desSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    , _desInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , _desProductCodes                      :: !(Maybe [ProductCode])
+    , _desBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
     , _desStatus                            :: !Int
     } deriving (Eq,Read,Show)
 

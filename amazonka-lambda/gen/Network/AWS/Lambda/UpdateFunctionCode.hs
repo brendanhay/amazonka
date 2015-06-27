@@ -71,11 +71,11 @@ import           Network.AWS.Response
 --
 -- * 'updFunctionName'
 data UpdateFunctionCode = UpdateFunctionCode'
-    { _updS3ObjectVersion :: Maybe Text
-    , _updS3Key           :: Maybe Text
-    , _updZipFile         :: Maybe Base64
-    , _updS3Bucket        :: Maybe Text
-    , _updFunctionName    :: Text
+    { _updS3ObjectVersion :: !(Maybe Text)
+    , _updS3Key           :: !(Maybe Text)
+    , _updZipFile         :: !(Maybe Base64)
+    , _updS3Bucket        :: !(Maybe Text)
+    , _updFunctionName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateFunctionCode' smart constructor.

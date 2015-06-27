@@ -102,7 +102,7 @@ instance ToQuery GetChange where
 --
 -- * 'gcrStatus'
 data GetChangeResponse = GetChangeResponse'
-    { _gcrChangeInfo :: ChangeInfo
+    { _gcrChangeInfo :: !ChangeInfo
     , _gcrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

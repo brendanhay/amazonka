@@ -85,15 +85,15 @@ import           Network.AWS.Response
 --
 -- * 'cnaeCIDRBlock'
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
-    { _cnaeICMPTypeCode :: Maybe ICMPTypeCode
-    , _cnaePortRange    :: Maybe PortRange
-    , _cnaeDryRun       :: Maybe Bool
-    , _cnaeNetworkACLId :: Text
+    { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _cnaePortRange    :: !(Maybe PortRange)
+    , _cnaeDryRun       :: !(Maybe Bool)
+    , _cnaeNetworkACLId :: !Text
     , _cnaeRuleNumber   :: !Int
-    , _cnaeProtocol     :: Text
-    , _cnaeRuleAction   :: RuleAction
+    , _cnaeProtocol     :: !Text
+    , _cnaeRuleAction   :: !RuleAction
     , _cnaeEgress       :: !Bool
-    , _cnaeCIDRBlock    :: Text
+    , _cnaeCIDRBlock    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkACLEntry' smart constructor.

@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'drdiStackId'
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
-    { _drdiRDSDBInstanceARNs :: Maybe [Text]
-    , _drdiStackId           :: Text
+    { _drdiRDSDBInstanceARNs :: !(Maybe [Text])
+    , _drdiStackId           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeRDSDBInstances' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery DescribeRDSDBInstances where
 --
 -- * 'drdirStatus'
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
-    { _drdirRDSDBInstances :: Maybe [RDSDBInstance]
+    { _drdirRDSDBInstances :: !(Maybe [RDSDBInstance])
     , _drdirStatus         :: !Int
     } deriving (Eq,Read,Show)
 

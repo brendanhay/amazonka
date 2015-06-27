@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'asaAccountWithRestoreAccess'
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
-    { _asaSnapshotClusterIdentifier :: Maybe Text
-    , _asaSnapshotIdentifier        :: Text
-    , _asaAccountWithRestoreAccess  :: Text
+    { _asaSnapshotClusterIdentifier :: !(Maybe Text)
+    , _asaSnapshotIdentifier        :: !Text
+    , _asaAccountWithRestoreAccess  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSnapshotAccess' smart constructor.
@@ -126,7 +126,7 @@ instance ToQuery AuthorizeSnapshotAccess where
 --
 -- * 'asarStatus'
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
-    { _asarSnapshot :: Maybe Snapshot
+    { _asarSnapshot :: !(Maybe Snapshot)
     , _asarStatus   :: !Int
     } deriving (Eq,Read,Show)
 

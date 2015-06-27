@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'ggpPolicyName'
 data GetGroupPolicy = GetGroupPolicy'
-    { _ggpGroupName  :: Text
-    , _ggpPolicyName :: Text
+    { _ggpGroupName  :: !Text
+    , _ggpPolicyName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetGroupPolicy' smart constructor.
@@ -121,9 +121,9 @@ instance ToQuery GetGroupPolicy where
 --
 -- * 'ggprStatus'
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-    { _ggprGroupName      :: Text
-    , _ggprPolicyName     :: Text
-    , _ggprPolicyDocument :: Text
+    { _ggprGroupName      :: !Text
+    , _ggprPolicyName     :: !Text
+    , _ggprPolicyDocument :: !Text
     , _ggprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

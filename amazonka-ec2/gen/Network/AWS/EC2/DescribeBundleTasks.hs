@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'dbtDryRun'
 data DescribeBundleTasks = DescribeBundleTasks'
-    { _dbtBundleIds :: Maybe [Text]
-    , _dbtFilters   :: Maybe [Filter]
-    , _dbtDryRun    :: Maybe Bool
+    { _dbtBundleIds :: !(Maybe [Text])
+    , _dbtFilters   :: !(Maybe [Filter])
+    , _dbtDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeBundleTasks' smart constructor.
@@ -147,7 +147,7 @@ instance ToQuery DescribeBundleTasks where
 --
 -- * 'dbtrStatus'
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
-    { _dbtrBundleTasks :: Maybe [BundleTask]
+    { _dbtrBundleTasks :: !(Maybe [BundleTask])
     , _dbtrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -75,12 +75,12 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'ccscsivClientToken'
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-    { _ccscsivSnapshotId         :: Maybe Text
-    , _ccscsivGatewayARN         :: Text
+    { _ccscsivSnapshotId         :: !(Maybe Text)
+    , _ccscsivGatewayARN         :: !Text
     , _ccscsivVolumeSizeInBytes  :: !Integer
-    , _ccscsivTargetName         :: Text
-    , _ccscsivNetworkInterfaceId :: Text
-    , _ccscsivClientToken        :: Text
+    , _ccscsivTargetName         :: !Text
+    , _ccscsivNetworkInterfaceId :: !Text
+    , _ccscsivClientToken        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateCachediSCSIVolume' smart constructor.
@@ -167,8 +167,8 @@ instance ToQuery CreateCachediSCSIVolume where
 --
 -- * 'ccscsivrStatus'
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
-    { _ccscsivrTargetARN :: Maybe Text
-    , _ccscsivrVolumeARN :: Maybe Text
+    { _ccscsivrTargetARN :: !(Maybe Text)
+    , _ccscsivrVolumeARN :: !(Maybe Text)
     , _ccscsivrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

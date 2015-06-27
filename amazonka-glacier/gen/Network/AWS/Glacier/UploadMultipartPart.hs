@@ -111,12 +111,12 @@ import           Network.AWS.Response
 --
 -- * 'umpBody'
 data UploadMultipartPart = UploadMultipartPart'
-    { _umpChecksum  :: Maybe Text
-    , _umpRange     :: Maybe Text
-    , _umpAccountId :: Text
-    , _umpVaultName :: Text
-    , _umpUploadId  :: Text
-    , _umpBody      :: RqBody
+    { _umpChecksum  :: !(Maybe Text)
+    , _umpRange     :: !(Maybe Text)
+    , _umpAccountId :: !Text
+    , _umpVaultName :: !Text
+    , _umpUploadId  :: !Text
+    , _umpBody      :: !RqBody
     } deriving (Show)
 
 -- | 'UploadMultipartPart' smart constructor.
@@ -203,7 +203,7 @@ instance ToQuery UploadMultipartPart where
 --
 -- * 'umprStatus'
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
-    { _umprChecksum :: Maybe Text
+    { _umprChecksum :: !(Maybe Text)
     , _umprStatus   :: !Int
     } deriving (Eq,Read,Show)
 

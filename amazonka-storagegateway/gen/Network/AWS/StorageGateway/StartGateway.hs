@@ -114,7 +114,7 @@ instance ToQuery StartGateway where
 --
 -- * 'staStatus'
 data StartGatewayResponse = StartGatewayResponse'
-    { _staGatewayARN :: Maybe Text
+    { _staGatewayARN :: !(Maybe Text)
     , _staStatus     :: !Int
     } deriving (Eq,Read,Show)
 

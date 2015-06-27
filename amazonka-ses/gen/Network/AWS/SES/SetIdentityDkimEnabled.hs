@@ -67,7 +67,7 @@ import           Network.AWS.SES.Types
 --
 -- * 'sideDkimEnabled'
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
-    { _sideIdentity    :: Text
+    { _sideIdentity    :: !Text
     , _sideDkimEnabled :: !Bool
     } deriving (Eq,Read,Show)
 

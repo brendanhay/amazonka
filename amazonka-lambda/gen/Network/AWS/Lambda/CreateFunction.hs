@@ -81,14 +81,14 @@ import           Network.AWS.Response
 --
 -- * 'cfCode'
 data CreateFunction = CreateFunction'
-    { _cfMemorySize   :: Maybe Nat
-    , _cfTimeout      :: Maybe Nat
-    , _cfDescription  :: Maybe Text
-    , _cfFunctionName :: Text
-    , _cfRuntime      :: Runtime
-    , _cfRole         :: Text
-    , _cfHandler      :: Text
-    , _cfCode         :: FunctionCode
+    { _cfMemorySize   :: !(Maybe Nat)
+    , _cfTimeout      :: !(Maybe Nat)
+    , _cfDescription  :: !(Maybe Text)
+    , _cfFunctionName :: !Text
+    , _cfRuntime      :: !Runtime
+    , _cfRole         :: !Text
+    , _cfHandler      :: !Text
+    , _cfCode         :: !FunctionCode
     } deriving (Eq,Read,Show)
 
 -- | 'CreateFunction' smart constructor.

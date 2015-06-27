@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'daAllocationIds'
 data DescribeAddresses = DescribeAddresses'
-    { _daPublicIPs     :: Maybe [Text]
-    , _daFilters       :: Maybe [Filter]
-    , _daDryRun        :: Maybe Bool
-    , _daAllocationIds :: Maybe [Text]
+    { _daPublicIPs     :: !(Maybe [Text])
+    , _daFilters       :: !(Maybe [Filter])
+    , _daDryRun        :: !(Maybe Bool)
+    , _daAllocationIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAddresses' smart constructor.
@@ -156,7 +156,7 @@ instance ToQuery DescribeAddresses where
 --
 -- * 'darStatus'
 data DescribeAddressesResponse = DescribeAddressesResponse'
-    { _darAddresses :: Maybe [Address]
+    { _darAddresses :: !(Maybe [Address])
     , _darStatus    :: !Int
     } deriving (Eq,Read,Show)
 

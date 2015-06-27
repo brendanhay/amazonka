@@ -107,9 +107,9 @@ instance ToQuery CreateStreamingDistribution where
 --
 -- * 'csdrStatus'
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-    { _csdrETag                  :: Maybe Text
-    , _csdrLocation              :: Maybe Text
-    , _csdrStreamingDistribution :: Maybe StreamingDistribution
+    { _csdrETag                  :: !(Maybe Text)
+    , _csdrLocation              :: !(Maybe Text)
+    , _csdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _csdrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

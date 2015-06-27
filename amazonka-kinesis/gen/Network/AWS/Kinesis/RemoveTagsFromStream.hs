@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'rtfsTagKeys'
 data RemoveTagsFromStream = RemoveTagsFromStream'
-    { _rtfsStreamName :: Text
-    , _rtfsTagKeys    :: List1 Text
+    { _rtfsStreamName :: !Text
+    , _rtfsTagKeys    :: !(List1 Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromStream' smart constructor.

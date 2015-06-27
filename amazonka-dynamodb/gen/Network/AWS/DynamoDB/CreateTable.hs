@@ -80,12 +80,12 @@ import           Network.AWS.Response
 --
 -- * 'ctProvisionedThroughput'
 data CreateTable = CreateTable'
-    { _ctGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndex]
-    , _ctLocalSecondaryIndexes  :: Maybe [LocalSecondaryIndex]
-    , _ctAttributeDefinitions   :: [AttributeDefinition]
-    , _ctTableName              :: Text
-    , _ctKeySchema              :: List1 KeySchemaElement
-    , _ctProvisionedThroughput  :: ProvisionedThroughput
+    { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
+    , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+    , _ctAttributeDefinitions   :: ![AttributeDefinition]
+    , _ctTableName              :: !Text
+    , _ctKeySchema              :: !(List1 KeySchemaElement)
+    , _ctProvisionedThroughput  :: !ProvisionedThroughput
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTable' smart constructor.
@@ -268,7 +268,7 @@ instance ToQuery CreateTable where
 --
 -- * 'ctrStatus'
 data CreateTableResponse = CreateTableResponse'
-    { _ctrTableDescription :: Maybe TableDescription
+    { _ctrTableDescription :: !(Maybe TableDescription)
     , _ctrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

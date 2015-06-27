@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'clcCertificate'
 data CreateLunaClient = CreateLunaClient'
-    { _clcLabel       :: Maybe Text
-    , _clcCertificate :: Text
+    { _clcLabel       :: !(Maybe Text)
+    , _clcCertificate :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLunaClient' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery CreateLunaClient where
 --
 -- * 'clcrStatus'
 data CreateLunaClientResponse = CreateLunaClientResponse'
-    { _clcrClientARN :: Maybe Text
+    { _clcrClientARN :: !(Maybe Text)
     , _clcrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

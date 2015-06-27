@@ -78,8 +78,8 @@ import           Network.AWS.Response
 --
 -- * 'udDocuments'
 data UploadDocuments = UploadDocuments'
-    { _udContentType :: ContentType
-    , _udDocuments   :: RqBody
+    { _udContentType :: !ContentType
+    , _udDocuments   :: !RqBody
     } deriving (Show)
 
 -- | 'UploadDocuments' smart constructor.
@@ -144,9 +144,9 @@ instance ToQuery UploadDocuments where
 --
 -- * 'udrStatus'
 data UploadDocumentsResponse = UploadDocumentsResponse'
-    { _udrAdds     :: Maybe Integer
-    , _udrWarnings :: Maybe [DocumentServiceWarning]
-    , _udrDeletes  :: Maybe Integer
+    { _udrAdds     :: !(Maybe Integer)
+    , _udrWarnings :: !(Maybe [DocumentServiceWarning])
+    , _udrDeletes  :: !(Maybe Integer)
     , _udrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

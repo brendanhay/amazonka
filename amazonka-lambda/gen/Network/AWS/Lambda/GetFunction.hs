@@ -112,8 +112,8 @@ instance ToQuery GetFunction where
 --
 -- * 'gfrStatus'
 data GetFunctionResponse = GetFunctionResponse'
-    { _gfrCode          :: Maybe FunctionCodeLocation
-    , _gfrConfiguration :: Maybe FunctionConfiguration
+    { _gfrCode          :: !(Maybe FunctionCodeLocation)
+    , _gfrConfiguration :: !(Maybe FunctionConfiguration)
     , _gfrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

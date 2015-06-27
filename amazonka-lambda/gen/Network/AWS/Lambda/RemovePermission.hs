@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'rpStatementId'
 data RemovePermission = RemovePermission'
-    { _rpFunctionName :: Text
-    , _rpStatementId  :: Text
+    { _rpFunctionName :: !Text
+    , _rpStatementId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RemovePermission' smart constructor.

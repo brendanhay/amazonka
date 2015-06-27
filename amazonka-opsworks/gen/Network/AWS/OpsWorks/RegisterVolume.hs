@@ -59,8 +59,8 @@ import           Network.AWS.Response
 --
 -- * 'rvStackId'
 data RegisterVolume = RegisterVolume'
-    { _rvEC2VolumeId :: Maybe Text
-    , _rvStackId     :: Text
+    { _rvEC2VolumeId :: !(Maybe Text)
+    , _rvStackId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterVolume' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery RegisterVolume where
 --
 -- * 'rvrStatus'
 data RegisterVolumeResponse = RegisterVolumeResponse'
-    { _rvrVolumeId :: Maybe Text
+    { _rvrVolumeId :: !(Maybe Text)
     , _rvrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

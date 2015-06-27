@@ -108,7 +108,7 @@ instance ToQuery DescribeSeverityLevels where
 --
 -- * 'dslrStatus'
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
-    { _dslrSeverityLevels :: Maybe [SeverityLevel]
+    { _dslrSeverityLevels :: !(Maybe [SeverityLevel])
     , _dslrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

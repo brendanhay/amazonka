@@ -109,8 +109,8 @@ instance ToQuery ListLunaClients where
 --
 -- * 'llcrStatus'
 data ListLunaClientsResponse = ListLunaClientsResponse'
-    { _llcrNextToken  :: Maybe Text
-    , _llcrClientList :: [Text]
+    { _llcrNextToken  :: !(Maybe Text)
+    , _llcrClientList :: ![Text]
     , _llcrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

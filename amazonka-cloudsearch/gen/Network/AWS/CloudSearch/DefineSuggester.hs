@@ -59,8 +59,8 @@ import           Network.AWS.Response
 --
 -- * 'dSuggester'
 data DefineSuggester = DefineSuggester'
-    { _dDomainName :: Text
-    , _dSuggester  :: Suggester
+    { _dDomainName :: !Text
+    , _dSuggester  :: !Suggester
     } deriving (Eq,Read,Show)
 
 -- | 'DefineSuggester' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery DefineSuggester where
 --
 -- * 'dsrStatus'
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrSuggester :: SuggesterStatus
+    { _dsrSuggester :: !SuggesterStatus
     , _dsrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -49,8 +49,8 @@ import           Network.AWS.Response
 --
 -- * 'dsService'
 data DeleteService = DeleteService'
-    { _dsCluster :: Maybe Text
-    , _dsService :: Text
+    { _dsCluster :: !(Maybe Text)
+    , _dsService :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteService' smart constructor.
@@ -108,7 +108,7 @@ instance ToQuery DeleteService where
 --
 -- * 'dsrStatus'
 data DeleteServiceResponse = DeleteServiceResponse'
-    { _dsrService :: Maybe ContainerService
+    { _dsrService :: !(Maybe ContainerService)
     , _dsrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

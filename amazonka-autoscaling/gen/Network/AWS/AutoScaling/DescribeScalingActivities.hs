@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'dsa1ActivityIds'
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _dsa1NextToken            :: Maybe Text
-    , _dsa1MaxRecords           :: Maybe Int
-    , _dsa1AutoScalingGroupName :: Maybe Text
-    , _dsa1ActivityIds          :: Maybe [Text]
+    { _dsa1NextToken            :: !(Maybe Text)
+    , _dsa1MaxRecords           :: !(Maybe Int)
+    , _dsa1AutoScalingGroupName :: !(Maybe Text)
+    , _dsa1ActivityIds          :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeScalingActivities' smart constructor.
@@ -147,8 +147,8 @@ instance ToQuery DescribeScalingActivities where
 --
 -- * 'dStatus'
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dNextToken  :: Maybe Text
-    , _dActivities :: [Activity]
+    { _dNextToken  :: !(Maybe Text)
+    , _dActivities :: ![Activity]
     , _dStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'dedpCacheParameterGroupFamily'
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpMaxRecords                :: Maybe Int
-    , _dedpMarker                    :: Maybe Text
-    , _dedpCacheParameterGroupFamily :: Text
+    { _dedpMaxRecords                :: !(Maybe Int)
+    , _dedpMarker                    :: !(Maybe Text)
+    , _dedpCacheParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
@@ -144,7 +144,7 @@ instance ToQuery DescribeEngineDefaultParameters
 --
 -- * 'dedprStatus'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprEngineDefaults :: EngineDefaults
+    { _dedprEngineDefaults :: !EngineDefaults
     , _dedprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

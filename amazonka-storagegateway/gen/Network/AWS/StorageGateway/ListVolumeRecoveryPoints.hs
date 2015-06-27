@@ -111,8 +111,8 @@ instance ToQuery ListVolumeRecoveryPoints where
 --
 -- * 'lvrprStatus'
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-    { _lvrprVolumeRecoveryPointInfos :: Maybe [VolumeRecoveryPointInfo]
-    , _lvrprGatewayARN               :: Maybe Text
+    { _lvrprVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
+    , _lvrprGatewayARN               :: !(Maybe Text)
     , _lvrprStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

@@ -51,8 +51,8 @@ import           Network.AWS.SNS.Types
 --
 -- * 'seaAttributes'
 data SetEndpointAttributes = SetEndpointAttributes'
-    { _seaEndpointARN :: Text
-    , _seaAttributes  :: Map Text Text
+    { _seaEndpointARN :: !Text
+    , _seaAttributes  :: !(Map Text Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SetEndpointAttributes' smart constructor.

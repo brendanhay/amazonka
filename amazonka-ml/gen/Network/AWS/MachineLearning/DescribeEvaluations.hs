@@ -79,17 +79,17 @@ import           Network.AWS.Response
 --
 -- * 'deLE'
 data DescribeEvaluations = DescribeEvaluations'
-    { _deEQ             :: Maybe Text
-    , _deGE             :: Maybe Text
-    , _dePrefix         :: Maybe Text
-    , _deGT             :: Maybe Text
-    , _deNE             :: Maybe Text
-    , _deNextToken      :: Maybe Text
-    , _deSortOrder      :: Maybe SortOrder
-    , _deLimit          :: Maybe Nat
-    , _deLT             :: Maybe Text
-    , _deFilterVariable :: Maybe EvaluationFilterVariable
-    , _deLE             :: Maybe Text
+    { _deEQ             :: !(Maybe Text)
+    , _deGE             :: !(Maybe Text)
+    , _dePrefix         :: !(Maybe Text)
+    , _deGT             :: !(Maybe Text)
+    , _deNE             :: !(Maybe Text)
+    , _deNextToken      :: !(Maybe Text)
+    , _deSortOrder      :: !(Maybe SortOrder)
+    , _deLimit          :: !(Maybe Nat)
+    , _deLT             :: !(Maybe Text)
+    , _deFilterVariable :: !(Maybe EvaluationFilterVariable)
+    , _deLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvaluations' smart constructor.
@@ -257,8 +257,8 @@ instance ToQuery DescribeEvaluations where
 --
 -- * 'der1Status'
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-    { _der1Results   :: Maybe [Evaluation]
-    , _der1NextToken :: Maybe Text
+    { _der1Results   :: !(Maybe [Evaluation])
+    , _der1NextToken :: !(Maybe Text)
     , _der1Status    :: !Int
     } deriving (Eq,Read,Show)
 

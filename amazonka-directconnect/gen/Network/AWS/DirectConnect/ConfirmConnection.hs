@@ -105,7 +105,7 @@ instance ToQuery ConfirmConnection where
 --
 -- * 'ccrStatus'
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
-    { _ccrConnectionState :: Maybe ConnectionState
+    { _ccrConnectionState :: !(Maybe ConnectionState)
     , _ccrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

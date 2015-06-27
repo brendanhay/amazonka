@@ -105,12 +105,12 @@ import           Network.AWS.SQS.Types
 --
 -- * 'rmQueueURL'
 data ReceiveMessage = ReceiveMessage'
-    { _rmVisibilityTimeout     :: Maybe Int
-    , _rmMessageAttributeNames :: Maybe [Text]
-    , _rmWaitTimeSeconds       :: Maybe Int
-    , _rmAttributeNames        :: Maybe [QueueAttributeName]
-    , _rmMaxNumberOfMessages   :: Maybe Int
-    , _rmQueueURL              :: Text
+    { _rmVisibilityTimeout     :: !(Maybe Int)
+    , _rmMessageAttributeNames :: !(Maybe [Text])
+    , _rmWaitTimeSeconds       :: !(Maybe Int)
+    , _rmAttributeNames        :: !(Maybe [QueueAttributeName])
+    , _rmMaxNumberOfMessages   :: !(Maybe Int)
+    , _rmQueueURL              :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReceiveMessage' smart constructor.
@@ -225,7 +225,7 @@ instance ToQuery ReceiveMessage where
 --
 -- * 'rmrStatus'
 data ReceiveMessageResponse = ReceiveMessageResponse'
-    { _rmrMessages :: Maybe [Message]
+    { _rmrMessages :: !(Maybe [Message])
     , _rmrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

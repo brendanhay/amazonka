@@ -70,8 +70,8 @@ import           Network.AWS.Response
 --
 -- * 'mdpgParameters'
 data ModifyDBParameterGroup = ModifyDBParameterGroup'
-    { _mdpgDBParameterGroupName :: Text
-    , _mdpgParameters           :: [Parameter]
+    { _mdpgDBParameterGroupName :: !Text
+    , _mdpgParameters           :: ![Parameter]
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBParameterGroup' smart constructor.

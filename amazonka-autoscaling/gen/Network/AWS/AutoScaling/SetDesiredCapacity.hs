@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'sdcDesiredCapacity'
 data SetDesiredCapacity = SetDesiredCapacity'
-    { _sdcHonorCooldown        :: Maybe Bool
-    , _sdcAutoScalingGroupName :: Text
+    { _sdcHonorCooldown        :: !(Maybe Bool)
+    , _sdcAutoScalingGroupName :: !Text
     , _sdcDesiredCapacity      :: !Int
     } deriving (Eq,Read,Show)
 

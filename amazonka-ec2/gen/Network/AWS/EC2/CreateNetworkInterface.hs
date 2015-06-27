@@ -68,13 +68,13 @@ import           Network.AWS.Response
 --
 -- * 'cniSubnetId'
 data CreateNetworkInterface = CreateNetworkInterface'
-    { _cniPrivateIPAddresses             :: Maybe [PrivateIPAddressSpecification]
-    , _cniGroups                         :: Maybe [Text]
-    , _cniPrivateIPAddress               :: Maybe Text
-    , _cniSecondaryPrivateIPAddressCount :: Maybe Int
-    , _cniDryRun                         :: Maybe Bool
-    , _cniDescription                    :: Maybe Text
-    , _cniSubnetId                       :: Text
+    { _cniPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
+    , _cniGroups                         :: !(Maybe [Text])
+    , _cniPrivateIPAddress               :: !(Maybe Text)
+    , _cniSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _cniDryRun                         :: !(Maybe Bool)
+    , _cniDescription                    :: !(Maybe Text)
+    , _cniSubnetId                       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateNetworkInterface' smart constructor.
@@ -176,7 +176,7 @@ instance ToQuery CreateNetworkInterface where
 --
 -- * 'cnirStatus'
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
-    { _cnirNetworkInterface :: Maybe NetworkInterface
+    { _cnirNetworkInterface :: !(Maybe NetworkInterface)
     , _cnirStatus           :: !Int
     } deriving (Eq,Read,Show)
 

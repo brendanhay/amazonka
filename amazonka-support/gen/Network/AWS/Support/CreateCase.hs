@@ -112,15 +112,15 @@ import           Network.AWS.Support.Types
 --
 -- * 'ccCommunicationBody'
 data CreateCase = CreateCase'
-    { _ccSeverityCode      :: Maybe Text
-    , _ccIssueType         :: Maybe Text
-    , _ccCcEmailAddresses  :: Maybe [Text]
-    , _ccLanguage          :: Maybe Text
-    , _ccCategoryCode      :: Maybe Text
-    , _ccServiceCode       :: Maybe Text
-    , _ccAttachmentSetId   :: Maybe Text
-    , _ccSubject           :: Text
-    , _ccCommunicationBody :: Text
+    { _ccSeverityCode      :: !(Maybe Text)
+    , _ccIssueType         :: !(Maybe Text)
+    , _ccCcEmailAddresses  :: !(Maybe [Text])
+    , _ccLanguage          :: !(Maybe Text)
+    , _ccCategoryCode      :: !(Maybe Text)
+    , _ccServiceCode       :: !(Maybe Text)
+    , _ccAttachmentSetId   :: !(Maybe Text)
+    , _ccSubject           :: !Text
+    , _ccCommunicationBody :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateCase' smart constructor.
@@ -236,7 +236,7 @@ instance ToQuery CreateCase where
 --
 -- * 'ccrStatus'
 data CreateCaseResponse = CreateCaseResponse'
-    { _ccrCaseId :: Maybe Text
+    { _ccrCaseId :: !(Maybe Text)
     , _ccrStatus :: !Int
     } deriving (Eq,Read,Show)
 

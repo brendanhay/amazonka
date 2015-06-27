@@ -62,9 +62,9 @@ import           Network.AWS.Response
 --
 -- * 'rrtaRouteTableId'
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
-    { _rrtaDryRun        :: Maybe Bool
-    , _rrtaAssociationId :: Text
-    , _rrtaRouteTableId  :: Text
+    { _rrtaDryRun        :: !(Maybe Bool)
+    , _rrtaAssociationId :: !Text
+    , _rrtaRouteTableId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
@@ -127,7 +127,7 @@ instance ToQuery ReplaceRouteTableAssociation where
 --
 -- * 'rrtarStatus'
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
-    { _rrtarNewAssociationId :: Maybe Text
+    { _rrtarNewAssociationId :: !(Maybe Text)
     , _rrtarStatus           :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dvpcaVPCId'
 data DescribeVPCAttribute = DescribeVPCAttribute'
-    { _dvpcaAttribute :: Maybe VPCAttributeName
-    , _dvpcaDryRun    :: Maybe Bool
-    , _dvpcaVPCId     :: Text
+    { _dvpcaAttribute :: !(Maybe VPCAttributeName)
+    , _dvpcaDryRun    :: !(Maybe Bool)
+    , _dvpcaVPCId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCAttribute' smart constructor.
@@ -124,9 +124,9 @@ instance ToQuery DescribeVPCAttribute where
 --
 -- * 'dvpcarStatus'
 data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
-    { _dvpcarEnableDNSHostnames :: Maybe AttributeBooleanValue
-    , _dvpcarEnableDNSSupport   :: Maybe AttributeBooleanValue
-    , _dvpcarVPCId              :: Maybe Text
+    { _dvpcarEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
+    , _dvpcarEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
+    , _dvpcarVPCId              :: !(Maybe Text)
     , _dvpcarStatus             :: !Int
     } deriving (Eq,Read,Show)
 

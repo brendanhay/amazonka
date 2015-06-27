@@ -67,8 +67,8 @@ import           Network.AWS.SQS.Types
 --
 -- * 'dmReceiptHandle'
 data DeleteMessage = DeleteMessage'
-    { _dmQueueURL      :: Text
-    , _dmReceiptHandle :: Text
+    { _dmQueueURL      :: !Text
+    , _dmReceiptHandle :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteMessage' smart constructor.

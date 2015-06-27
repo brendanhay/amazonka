@@ -61,9 +61,9 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'dtaTapeARNs'
 data DescribeTapeArchives = DescribeTapeArchives'
-    { _dtaMarker   :: Maybe Text
-    , _dtaLimit    :: Maybe Nat
-    , _dtaTapeARNs :: Maybe [Text]
+    { _dtaMarker   :: !(Maybe Text)
+    , _dtaLimit    :: !(Maybe Nat)
+    , _dtaTapeARNs :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeArchives' smart constructor.
@@ -144,8 +144,8 @@ instance ToQuery DescribeTapeArchives where
 --
 -- * 'dtarStatus'
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
-    { _dtarTapeArchives :: Maybe [TapeArchive]
-    , _dtarMarker       :: Maybe Text
+    { _dtarTapeArchives :: !(Maybe [TapeArchive])
+    , _dtarMarker       :: !(Maybe Text)
     , _dtarStatus       :: !Int
     } deriving (Eq,Read,Show)
 

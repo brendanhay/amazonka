@@ -93,11 +93,11 @@ import           Network.AWS.Response
 --
 -- * 'gdkKeyId'
 data GenerateDataKey = GenerateDataKey'
-    { _gdkKeySpec           :: Maybe DataKeySpec
-    , _gdkEncryptionContext :: Maybe (Map Text Text)
-    , _gdkNumberOfBytes     :: Maybe Nat
-    , _gdkGrantTokens       :: Maybe [Text]
-    , _gdkKeyId             :: Text
+    { _gdkKeySpec           :: !(Maybe DataKeySpec)
+    , _gdkEncryptionContext :: !(Maybe (Map Text Text))
+    , _gdkNumberOfBytes     :: !(Maybe Nat)
+    , _gdkGrantTokens       :: !(Maybe [Text])
+    , _gdkKeyId             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GenerateDataKey' smart constructor.
@@ -196,9 +196,9 @@ instance ToQuery GenerateDataKey where
 --
 -- * 'gdkrStatus'
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrKeyId          :: Maybe Text
-    , _gdkrPlaintext      :: Maybe (Sensitive Base64)
-    , _gdkrCiphertextBlob :: Maybe Base64
+    { _gdkrKeyId          :: !(Maybe Text)
+    , _gdkrPlaintext      :: !(Maybe (Sensitive Base64))
+    , _gdkrCiphertextBlob :: !(Maybe Base64)
     , _gdkrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

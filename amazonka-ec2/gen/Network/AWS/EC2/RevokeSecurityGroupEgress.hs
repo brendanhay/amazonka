@@ -77,15 +77,15 @@ import           Network.AWS.Response
 --
 -- * 'rsgeGroupId'
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-    { _rsgeFromPort                   :: Maybe Int
-    , _rsgeIPPermissions              :: Maybe [IPPermission]
-    , _rsgeIPProtocol                 :: Maybe Text
-    , _rsgeToPort                     :: Maybe Int
-    , _rsgeCIDRIP                     :: Maybe Text
-    , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
-    , _rsgeSourceSecurityGroupName    :: Maybe Text
-    , _rsgeDryRun                     :: Maybe Bool
-    , _rsgeGroupId                    :: Text
+    { _rsgeFromPort                   :: !(Maybe Int)
+    , _rsgeIPPermissions              :: !(Maybe [IPPermission])
+    , _rsgeIPProtocol                 :: !(Maybe Text)
+    , _rsgeToPort                     :: !(Maybe Int)
+    , _rsgeCIDRIP                     :: !(Maybe Text)
+    , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
+    , _rsgeDryRun                     :: !(Maybe Bool)
+    , _rsgeGroupId                    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeSecurityGroupEgress' smart constructor.

@@ -71,11 +71,11 @@ import           Network.AWS.Response
 --
 -- * 'lefpPolicyARN'
 data ListEntitiesForPolicy = ListEntitiesForPolicy'
-    { _lefpPathPrefix   :: Maybe Text
-    , _lefpEntityFilter :: Maybe EntityType
-    , _lefpMaxItems     :: Maybe Nat
-    , _lefpMarker       :: Maybe Text
-    , _lefpPolicyARN    :: Text
+    { _lefpPathPrefix   :: !(Maybe Text)
+    , _lefpEntityFilter :: !(Maybe EntityType)
+    , _lefpMaxItems     :: !(Maybe Nat)
+    , _lefpMarker       :: !(Maybe Text)
+    , _lefpPolicyARN    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListEntitiesForPolicy' smart constructor.
@@ -178,11 +178,11 @@ instance ToQuery ListEntitiesForPolicy where
 --
 -- * 'lefprStatus'
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
-    { _lefprPolicyGroups :: Maybe [PolicyGroup]
-    , _lefprPolicyRoles  :: Maybe [PolicyRole]
-    , _lefprPolicyUsers  :: Maybe [PolicyUser]
-    , _lefprMarker       :: Maybe Text
-    , _lefprIsTruncated  :: Maybe Bool
+    { _lefprPolicyGroups :: !(Maybe [PolicyGroup])
+    , _lefprPolicyRoles  :: !(Maybe [PolicyRole])
+    , _lefprPolicyUsers  :: !(Maybe [PolicyUser])
+    , _lefprMarker       :: !(Maybe Text)
+    , _lefprIsTruncated  :: !(Maybe Bool)
     , _lefprStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -720,8 +720,8 @@ instance FromJSON TableStatus where
 --
 -- * 'adAttributeType'
 data AttributeDefinition = AttributeDefinition'
-    { _adAttributeName :: Text
-    , _adAttributeType :: ScalarAttributeType
+    { _adAttributeName :: !Text
+    , _adAttributeType :: !ScalarAttributeType
     } deriving (Eq,Read,Show)
 
 -- | 'AttributeDefinition' smart constructor.
@@ -786,16 +786,16 @@ instance ToJSON AttributeDefinition where
 --
 -- * 'avBOOL'
 data AttributeValue = AttributeValue'
-    { _avL    :: Maybe [AttributeValue]
-    , _avM    :: Maybe (Map Text AttributeValue)
-    , _avNS   :: Maybe [Text]
-    , _avNULL :: Maybe Bool
-    , _avN    :: Maybe Text
-    , _avBS   :: Maybe [Base64]
-    , _avB    :: Maybe Base64
-    , _avSS   :: Maybe [Text]
-    , _avS    :: Maybe Text
-    , _avBOOL :: Maybe Bool
+    { _avL    :: !(Maybe [AttributeValue])
+    , _avM    :: !(Maybe (Map Text AttributeValue))
+    , _avNS   :: !(Maybe [Text])
+    , _avNULL :: !(Maybe Bool)
+    , _avN    :: !(Maybe Text)
+    , _avBS   :: !(Maybe [Base64])
+    , _avB    :: !(Maybe Base64)
+    , _avSS   :: !(Maybe [Text])
+    , _avS    :: !(Maybe Text)
+    , _avBOOL :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'AttributeValue' smart constructor.
@@ -897,8 +897,8 @@ instance ToJSON AttributeValue where
 --
 -- * 'avuAction'
 data AttributeValueUpdate = AttributeValueUpdate'
-    { _avuValue  :: Maybe AttributeValue
-    , _avuAction :: Maybe AttributeAction
+    { _avuValue  :: !(Maybe AttributeValue)
+    , _avuAction :: !(Maybe AttributeAction)
     } deriving (Eq,Read,Show)
 
 -- | 'AttributeValueUpdate' smart constructor.
@@ -1045,8 +1045,8 @@ instance FromJSON Capacity where
 --
 -- * 'conComparisonOperator'
 data Condition = Condition'
-    { _conAttributeValueList :: Maybe [AttributeValue]
-    , _conComparisonOperator :: ComparisonOperator
+    { _conAttributeValueList :: !(Maybe [AttributeValue])
+    , _conComparisonOperator :: !ComparisonOperator
     } deriving (Eq,Read,Show)
 
 -- | 'Condition' smart constructor.
@@ -1254,11 +1254,11 @@ instance ToJSON Condition where
 --
 -- * 'ccTableName'
 data ConsumedCapacity = ConsumedCapacity'
-    { _ccCapacityUnits          :: Maybe Double
-    , _ccGlobalSecondaryIndexes :: Maybe (Map Text Capacity)
-    , _ccLocalSecondaryIndexes  :: Maybe (Map Text Capacity)
-    , _ccTable                  :: Maybe Capacity
-    , _ccTableName              :: Maybe Text
+    { _ccCapacityUnits          :: !(Maybe Double)
+    , _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
+    , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
+    , _ccTable                  :: !(Maybe Capacity)
+    , _ccTableName              :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ConsumedCapacity' smart constructor.
@@ -1321,10 +1321,10 @@ instance FromJSON ConsumedCapacity where
 --
 -- * 'cgsiaProvisionedThroughput'
 data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
-    { _cgsiaIndexName             :: Text
-    , _cgsiaKeySchema             :: List1 KeySchemaElement
-    , _cgsiaProjection            :: Projection
-    , _cgsiaProvisionedThroughput :: ProvisionedThroughput
+    { _cgsiaIndexName             :: !Text
+    , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
+    , _cgsiaProjection            :: !Projection
+    , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
     } deriving (Eq,Read,Show)
 
 -- | 'CreateGlobalSecondaryIndexAction' smart constructor.
@@ -1459,10 +1459,10 @@ instance ToJSON DeleteRequest where
 --
 -- * 'eavComparisonOperator'
 data ExpectedAttributeValue = ExpectedAttributeValue'
-    { _eavAttributeValueList :: Maybe [AttributeValue]
-    , _eavExists             :: Maybe Bool
-    , _eavValue              :: Maybe AttributeValue
-    , _eavComparisonOperator :: Maybe ComparisonOperator
+    { _eavAttributeValueList :: !(Maybe [AttributeValue])
+    , _eavExists             :: !(Maybe Bool)
+    , _eavValue              :: !(Maybe AttributeValue)
+    , _eavComparisonOperator :: !(Maybe ComparisonOperator)
     } deriving (Eq,Read,Show)
 
 -- | 'ExpectedAttributeValue' smart constructor.
@@ -1701,10 +1701,10 @@ instance ToJSON ExpectedAttributeValue where
 --
 -- * 'gsiProvisionedThroughput'
 data GlobalSecondaryIndex = GlobalSecondaryIndex'
-    { _gsiIndexName             :: Text
-    , _gsiKeySchema             :: List1 KeySchemaElement
-    , _gsiProjection            :: Projection
-    , _gsiProvisionedThroughput :: ProvisionedThroughput
+    { _gsiIndexName             :: !Text
+    , _gsiKeySchema             :: !(List1 KeySchemaElement)
+    , _gsiProjection            :: !Projection
+    , _gsiProvisionedThroughput :: !ProvisionedThroughput
     } deriving (Eq,Read,Show)
 
 -- | 'GlobalSecondaryIndex' smart constructor.
@@ -1765,14 +1765,14 @@ instance ToJSON GlobalSecondaryIndex where
 --
 -- * 'gsidIndexName'
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
-    { _gsidBackfilling           :: Maybe Bool
-    , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-    , _gsidIndexStatus           :: Maybe IndexStatus
-    , _gsidIndexSizeBytes        :: Maybe Integer
-    , _gsidKeySchema             :: Maybe (List1 KeySchemaElement)
-    , _gsidProjection            :: Maybe Projection
-    , _gsidItemCount             :: Maybe Integer
-    , _gsidIndexName             :: Maybe Text
+    { _gsidBackfilling           :: !(Maybe Bool)
+    , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
+    , _gsidIndexStatus           :: !(Maybe IndexStatus)
+    , _gsidIndexSizeBytes        :: !(Maybe Integer)
+    , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
+    , _gsidProjection            :: !(Maybe Projection)
+    , _gsidItemCount             :: !(Maybe Integer)
+    , _gsidIndexName             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GlobalSecondaryIndexDescription' smart constructor.
@@ -1879,9 +1879,9 @@ instance FromJSON GlobalSecondaryIndexDescription
 --
 -- * 'gsiuUpdate'
 data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
-    { _gsiuCreate :: Maybe CreateGlobalSecondaryIndexAction
-    , _gsiuDelete :: Maybe DeleteGlobalSecondaryIndexAction
-    , _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
+    { _gsiuCreate :: !(Maybe CreateGlobalSecondaryIndexAction)
+    , _gsiuDelete :: !(Maybe DeleteGlobalSecondaryIndexAction)
+    , _gsiuUpdate :: !(Maybe UpdateGlobalSecondaryIndexAction)
     } deriving (Eq,Read,Show)
 
 -- | 'GlobalSecondaryIndexUpdate' smart constructor.
@@ -1937,8 +1937,8 @@ instance ToJSON GlobalSecondaryIndexUpdate where
 --
 -- * 'icmSizeEstimateRangeGB'
 data ItemCollectionMetrics = ItemCollectionMetrics'
-    { _icmItemCollectionKey   :: Maybe (Map Text AttributeValue)
-    , _icmSizeEstimateRangeGB :: Maybe [Double]
+    { _icmItemCollectionKey   :: !(Maybe (Map Text AttributeValue))
+    , _icmSizeEstimateRangeGB :: !(Maybe [Double])
     } deriving (Eq,Read,Show)
 
 -- | 'ItemCollectionMetrics' smart constructor.
@@ -1992,8 +1992,8 @@ instance FromJSON ItemCollectionMetrics where
 --
 -- * 'kseKeyType'
 data KeySchemaElement = KeySchemaElement'
-    { _kseAttributeName :: Text
-    , _kseKeyType       :: KeyType
+    { _kseAttributeName :: !Text
+    , _kseKeyType       :: !KeyType
     } deriving (Eq,Read,Show)
 
 -- | 'KeySchemaElement' smart constructor.
@@ -2048,11 +2048,11 @@ instance ToJSON KeySchemaElement where
 --
 -- * 'kaaKeys'
 data KeysAndAttributes = KeysAndAttributes'
-    { _kaaProjectionExpression     :: Maybe Text
-    , _kaaConsistentRead           :: Maybe Bool
-    , _kaaExpressionAttributeNames :: Maybe (Map Text Text)
-    , _kaaAttributesToGet          :: Maybe (List1 Text)
-    , _kaaKeys                     :: List1 (Map Text AttributeValue)
+    { _kaaProjectionExpression     :: !(Maybe Text)
+    , _kaaConsistentRead           :: !(Maybe Bool)
+    , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _kaaAttributesToGet          :: !(Maybe (List1 Text))
+    , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
     } deriving (Eq,Read,Show)
 
 -- | 'KeysAndAttributes' smart constructor.
@@ -2174,9 +2174,9 @@ instance ToJSON KeysAndAttributes where
 --
 -- * 'lsiProjection'
 data LocalSecondaryIndex = LocalSecondaryIndex'
-    { _lsiIndexName  :: Text
-    , _lsiKeySchema  :: List1 KeySchemaElement
-    , _lsiProjection :: Projection
+    { _lsiIndexName  :: !Text
+    , _lsiKeySchema  :: !(List1 KeySchemaElement)
+    , _lsiProjection :: !Projection
     } deriving (Eq,Read,Show)
 
 -- | 'LocalSecondaryIndex' smart constructor.
@@ -2225,11 +2225,11 @@ instance ToJSON LocalSecondaryIndex where
 --
 -- * 'lsidIndexName'
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
-    { _lsidIndexSizeBytes :: Maybe Integer
-    , _lsidKeySchema      :: Maybe (List1 KeySchemaElement)
-    , _lsidProjection     :: Maybe Projection
-    , _lsidItemCount      :: Maybe Integer
-    , _lsidIndexName      :: Maybe Text
+    { _lsidIndexSizeBytes :: !(Maybe Integer)
+    , _lsidKeySchema      :: !(Maybe (List1 KeySchemaElement))
+    , _lsidProjection     :: !(Maybe Projection)
+    , _lsidItemCount      :: !(Maybe Integer)
+    , _lsidIndexName      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LocalSecondaryIndexDescription' smart constructor.
@@ -2291,8 +2291,8 @@ instance FromJSON LocalSecondaryIndexDescription
 --
 -- * 'proNonKeyAttributes'
 data Projection = Projection'
-    { _proProjectionType   :: Maybe ProjectionType
-    , _proNonKeyAttributes :: Maybe (List1 Text)
+    { _proProjectionType   :: !(Maybe ProjectionType)
+    , _proNonKeyAttributes :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show)
 
 -- | 'Projection' smart constructor.
@@ -2407,11 +2407,11 @@ instance ToJSON ProvisionedThroughput where
 --
 -- * 'ptdLastIncreaseDateTime'
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
-    { _ptdReadCapacityUnits      :: Maybe Nat
-    , _ptdLastDecreaseDateTime   :: Maybe POSIX
-    , _ptdWriteCapacityUnits     :: Maybe Nat
-    , _ptdNumberOfDecreasesToday :: Maybe Nat
-    , _ptdLastIncreaseDateTime   :: Maybe POSIX
+    { _ptdReadCapacityUnits      :: !(Maybe Nat)
+    , _ptdLastDecreaseDateTime   :: !(Maybe POSIX)
+    , _ptdWriteCapacityUnits     :: !(Maybe Nat)
+    , _ptdNumberOfDecreasesToday :: !(Maybe Nat)
+    , _ptdLastIncreaseDateTime   :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'ProvisionedThroughputDescription' smart constructor.
@@ -2529,16 +2529,16 @@ instance ToJSON PutRequest where
 --
 -- * 'tdTableName'
 data TableDescription = TableDescription'
-    { _tdProvisionedThroughput  :: Maybe ProvisionedThroughputDescription
-    , _tdAttributeDefinitions   :: Maybe [AttributeDefinition]
-    , _tdTableSizeBytes         :: Maybe Integer
-    , _tdTableStatus            :: Maybe TableStatus
-    , _tdKeySchema              :: Maybe (List1 KeySchemaElement)
-    , _tdGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndexDescription]
-    , _tdLocalSecondaryIndexes  :: Maybe [LocalSecondaryIndexDescription]
-    , _tdCreationDateTime       :: Maybe POSIX
-    , _tdItemCount              :: Maybe Integer
-    , _tdTableName              :: Maybe Text
+    { _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
+    , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
+    , _tdTableSizeBytes         :: !(Maybe Integer)
+    , _tdTableStatus            :: !(Maybe TableStatus)
+    , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
+    , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
+    , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
+    , _tdCreationDateTime       :: !(Maybe POSIX)
+    , _tdItemCount              :: !(Maybe Integer)
+    , _tdTableName              :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TableDescription' smart constructor.
@@ -2767,8 +2767,8 @@ instance FromJSON TableDescription where
 --
 -- * 'ugsiaProvisionedThroughput'
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
-    { _ugsiaIndexName             :: Text
-    , _ugsiaProvisionedThroughput :: ProvisionedThroughput
+    { _ugsiaIndexName             :: !Text
+    , _ugsiaProvisionedThroughput :: !ProvisionedThroughput
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateGlobalSecondaryIndexAction' smart constructor.
@@ -2808,8 +2808,8 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 --
 -- * 'wrDeleteRequest'
 data WriteRequest = WriteRequest'
-    { _wrPutRequest    :: Maybe PutRequest
-    , _wrDeleteRequest :: Maybe DeleteRequest
+    { _wrPutRequest    :: !(Maybe PutRequest)
+    , _wrDeleteRequest :: !(Maybe DeleteRequest)
     } deriving (Eq,Read,Show)
 
 -- | 'WriteRequest' smart constructor.

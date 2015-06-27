@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'ldMarker'
 data ListDistributions = ListDistributions'
-    { _ldMaxItems :: Maybe Text
-    , _ldMarker   :: Maybe Text
+    { _ldMaxItems :: !(Maybe Text)
+    , _ldMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListDistributions' smart constructor.
@@ -106,7 +106,7 @@ instance ToQuery ListDistributions where
 --
 -- * 'ldrStatus'
 data ListDistributionsResponse = ListDistributionsResponse'
-    { _ldrDistributionList :: DistributionList
+    { _ldrDistributionList :: !DistributionList
     , _ldrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

@@ -87,7 +87,7 @@ instance ToQuery ListAvailableZones where
 --
 -- * 'lazrStatus'
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
-    { _lazrAZList :: Maybe [Text]
+    { _lazrAZList :: !(Maybe [Text])
     , _lazrStatus :: !Int
     } deriving (Eq,Read,Show)
 

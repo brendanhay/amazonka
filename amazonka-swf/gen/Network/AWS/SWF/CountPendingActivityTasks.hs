@@ -72,8 +72,8 @@ import           Network.AWS.SWF.Types
 --
 -- * 'cpatTaskList'
 data CountPendingActivityTasks = CountPendingActivityTasks'
-    { _cpatDomain   :: Text
-    , _cpatTaskList :: TaskList
+    { _cpatDomain   :: !Text
+    , _cpatTaskList :: !TaskList
     } deriving (Eq,Read,Show)
 
 -- | 'CountPendingActivityTasks' smart constructor.

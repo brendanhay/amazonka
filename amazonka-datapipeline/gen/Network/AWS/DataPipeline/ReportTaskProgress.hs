@@ -62,8 +62,8 @@ import           Network.AWS.Response
 --
 -- * 'rtpTaskId'
 data ReportTaskProgress = ReportTaskProgress'
-    { _rtpFields :: Maybe [Field]
-    , _rtpTaskId :: Text
+    { _rtpFields :: !(Maybe [Field])
+    , _rtpTaskId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskProgress' smart constructor.

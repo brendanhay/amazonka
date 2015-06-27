@@ -88,8 +88,8 @@ instance ToQuery DescribeAccountLimits where
 --
 -- * 'dalrStatus'
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-    { _dalrMaxNumberOfLaunchConfigurations :: Maybe Int
-    , _dalrMaxNumberOfAutoScalingGroups    :: Maybe Int
+    { _dalrMaxNumberOfLaunchConfigurations :: !(Maybe Int)
+    , _dalrMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
     , _dalrStatus                          :: !Int
     } deriving (Eq,Read,Show)
 

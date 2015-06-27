@@ -107,7 +107,7 @@ instance ToQuery DeleteHostedZone where
 --
 -- * 'dhzrStatus'
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-    { _dhzrChangeInfo :: ChangeInfo
+    { _dhzrChangeInfo :: !ChangeInfo
     , _dhzrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

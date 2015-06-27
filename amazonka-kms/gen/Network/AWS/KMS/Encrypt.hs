@@ -77,10 +77,10 @@ import           Network.AWS.Response
 --
 -- * 'encPlaintext'
 data Encrypt = Encrypt'
-    { _encEncryptionContext :: Maybe (Map Text Text)
-    , _encGrantTokens       :: Maybe [Text]
-    , _encKeyId             :: Text
-    , _encPlaintext         :: Sensitive Base64
+    { _encEncryptionContext :: !(Maybe (Map Text Text))
+    , _encGrantTokens       :: !(Maybe [Text])
+    , _encKeyId             :: !Text
+    , _encPlaintext         :: !(Sensitive Base64)
     } deriving (Eq,Read,Show)
 
 -- | 'Encrypt' smart constructor.
@@ -166,8 +166,8 @@ instance ToQuery Encrypt where
 --
 -- * 'erStatus'
 data EncryptResponse = EncryptResponse'
-    { _erKeyId          :: Maybe Text
-    , _erCiphertextBlob :: Maybe Base64
+    { _erKeyId          :: !(Maybe Text)
+    , _erCiphertextBlob :: !(Maybe Base64)
     , _erStatus         :: !Int
     } deriving (Eq,Read,Show)
 

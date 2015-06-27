@@ -108,7 +108,7 @@ instance ToQuery GetPlatformApplicationAttributes
 --
 -- * 'gpaarStatus'
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
-    { _gpaarAttributes :: Maybe (Map Text Text)
+    { _gpaarAttributes :: !(Maybe (Map Text Text))
     , _gpaarStatus     :: !Int
     } deriving (Eq,Read,Show)
 

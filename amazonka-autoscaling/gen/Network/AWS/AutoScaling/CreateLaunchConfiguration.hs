@@ -102,24 +102,24 @@ import           Network.AWS.Response
 --
 -- * 'clcLaunchConfigurationName'
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
-    { _clcInstanceId                   :: Maybe Text
-    , _clcSecurityGroups               :: Maybe [Text]
-    , _clcAssociatePublicIPAddress     :: Maybe Bool
-    , _clcInstanceMonitoring           :: Maybe InstanceMonitoring
-    , _clcSpotPrice                    :: Maybe Text
-    , _clcKeyName                      :: Maybe Text
-    , _clcClassicLinkVPCSecurityGroups :: Maybe [Text]
-    , _clcRAMDiskId                    :: Maybe Text
-    , _clcKernelId                     :: Maybe Text
-    , _clcInstanceType                 :: Maybe Text
-    , _clcEBSOptimized                 :: Maybe Bool
-    , _clcUserData                     :: Maybe Text
-    , _clcClassicLinkVPCId             :: Maybe Text
-    , _clcIAMInstanceProfile           :: Maybe Text
-    , _clcImageId                      :: Maybe Text
-    , _clcPlacementTenancy             :: Maybe Text
-    , _clcBlockDeviceMappings          :: Maybe [BlockDeviceMapping]
-    , _clcLaunchConfigurationName      :: Text
+    { _clcInstanceId                   :: !(Maybe Text)
+    , _clcSecurityGroups               :: !(Maybe [Text])
+    , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
+    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+    , _clcSpotPrice                    :: !(Maybe Text)
+    , _clcKeyName                      :: !(Maybe Text)
+    , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
+    , _clcRAMDiskId                    :: !(Maybe Text)
+    , _clcKernelId                     :: !(Maybe Text)
+    , _clcInstanceType                 :: !(Maybe Text)
+    , _clcEBSOptimized                 :: !(Maybe Bool)
+    , _clcUserData                     :: !(Maybe Text)
+    , _clcClassicLinkVPCId             :: !(Maybe Text)
+    , _clcIAMInstanceProfile           :: !(Maybe Text)
+    , _clcImageId                      :: !(Maybe Text)
+    , _clcPlacementTenancy             :: !(Maybe Text)
+    , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
+    , _clcLaunchConfigurationName      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLaunchConfiguration' smart constructor.

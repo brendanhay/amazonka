@@ -48,8 +48,8 @@ import           Network.AWS.Response
 --
 -- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
-    { _uaNewApplicationName :: Maybe Text
-    , _uaApplicationName    :: Maybe Text
+    { _uaNewApplicationName :: !(Maybe Text)
+    , _uaApplicationName    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateApplication' smart constructor.

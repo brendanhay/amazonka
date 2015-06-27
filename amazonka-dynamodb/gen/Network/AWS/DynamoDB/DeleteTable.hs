@@ -116,7 +116,7 @@ instance ToQuery DeleteTable where
 --
 -- * 'dtrStatus'
 data DeleteTableResponse = DeleteTableResponse'
-    { _dtrTableDescription :: Maybe TableDescription
+    { _dtrTableDescription :: !(Maybe TableDescription)
     , _dtrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

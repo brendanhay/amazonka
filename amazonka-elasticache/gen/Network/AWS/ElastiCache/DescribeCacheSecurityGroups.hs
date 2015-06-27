@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'dcsg1Marker'
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
-    { _dcsg1CacheSecurityGroupName :: Maybe Text
-    , _dcsg1MaxRecords             :: Maybe Int
-    , _dcsg1Marker                 :: Maybe Text
+    { _dcsg1CacheSecurityGroupName :: !(Maybe Text)
+    , _dcsg1MaxRecords             :: !(Maybe Int)
+    , _dcsg1Marker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSecurityGroups' smart constructor.
@@ -144,8 +144,8 @@ instance ToQuery DescribeCacheSecurityGroups where
 --
 -- * 'dcsgr1Status'
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
-    { _dcsgr1CacheSecurityGroups :: Maybe [CacheSecurityGroup]
-    , _dcsgr1Marker              :: Maybe Text
+    { _dcsgr1CacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
+    , _dcsgr1Marker              :: !(Maybe Text)
     , _dcsgr1Status              :: !Int
     } deriving (Eq,Read,Show)
 

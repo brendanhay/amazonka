@@ -87,11 +87,11 @@ import           Network.AWS.Route53.Types
 --
 -- * 'chzCallerReference'
 data CreateHostedZone = CreateHostedZone'
-    { _chzDelegationSetId  :: Maybe Text
-    , _chzHostedZoneConfig :: Maybe HostedZoneConfig
-    , _chzVPC              :: Maybe VPC
-    , _chzName             :: Text
-    , _chzCallerReference  :: Text
+    { _chzDelegationSetId  :: !(Maybe Text)
+    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
+    , _chzVPC              :: !(Maybe VPC)
+    , _chzName             :: !Text
+    , _chzCallerReference  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHostedZone' smart constructor.
@@ -200,11 +200,11 @@ instance ToXML CreateHostedZone where
 --
 -- * 'chzrStatus'
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
-    { _chzrVPC           :: Maybe VPC
-    , _chzrHostedZone    :: HostedZone
-    , _chzrChangeInfo    :: ChangeInfo
-    , _chzrDelegationSet :: DelegationSet
-    , _chzrLocation      :: Text
+    { _chzrVPC           :: !(Maybe VPC)
+    , _chzrHostedZone    :: !HostedZone
+    , _chzrChangeInfo    :: !ChangeInfo
+    , _chzrDelegationSet :: !DelegationSet
+    , _chzrLocation      :: !Text
     , _chzrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

@@ -90,16 +90,16 @@ import           Network.AWS.Response
 --
 -- * 'asgiDryRun'
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-    { _asgiFromPort                   :: Maybe Int
-    , _asgiIPPermissions              :: Maybe [IPPermission]
-    , _asgiIPProtocol                 :: Maybe Text
-    , _asgiGroupId                    :: Maybe Text
-    , _asgiToPort                     :: Maybe Int
-    , _asgiCIDRIP                     :: Maybe Text
-    , _asgiGroupName                  :: Maybe Text
-    , _asgiSourceSecurityGroupOwnerId :: Maybe Text
-    , _asgiSourceSecurityGroupName    :: Maybe Text
-    , _asgiDryRun                     :: Maybe Bool
+    { _asgiFromPort                   :: !(Maybe Int)
+    , _asgiIPPermissions              :: !(Maybe [IPPermission])
+    , _asgiIPProtocol                 :: !(Maybe Text)
+    , _asgiGroupId                    :: !(Maybe Text)
+    , _asgiToPort                     :: !(Maybe Int)
+    , _asgiCIDRIP                     :: !(Maybe Text)
+    , _asgiGroupName                  :: !(Maybe Text)
+    , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _asgiSourceSecurityGroupName    :: !(Maybe Text)
+    , _asgiDryRun                     :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeSecurityGroupIngress' smart constructor.

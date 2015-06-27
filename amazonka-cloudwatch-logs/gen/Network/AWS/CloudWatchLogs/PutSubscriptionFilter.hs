@@ -63,11 +63,11 @@ import           Network.AWS.Response
 --
 -- * 'psfRoleARN'
 data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfLogGroupName   :: Text
-    , _psfFilterName     :: Text
-    , _psfFilterPattern  :: Text
-    , _psfDestinationARN :: Text
-    , _psfRoleARN        :: Text
+    { _psfLogGroupName   :: !Text
+    , _psfFilterName     :: !Text
+    , _psfFilterPattern  :: !Text
+    , _psfDestinationARN :: !Text
+    , _psfRoleARN        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutSubscriptionFilter' smart constructor.

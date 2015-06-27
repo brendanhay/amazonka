@@ -87,8 +87,8 @@ import           Network.AWS.Response
 --
 -- * 'cdoDHCPConfigurations'
 data CreateDHCPOptions = CreateDHCPOptions'
-    { _cdoDryRun             :: Maybe Bool
-    , _cdoDHCPConfigurations :: [NewDHCPConfiguration]
+    { _cdoDryRun             :: !(Maybe Bool)
+    , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDHCPOptions' smart constructor.
@@ -142,7 +142,7 @@ instance ToQuery CreateDHCPOptions where
 --
 -- * 'cdorStatus'
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
-    { _cdorDHCPOptions :: Maybe DHCPOptions
+    { _cdorDHCPOptions :: !(Maybe DHCPOptions)
     , _cdorStatus      :: !Int
     } deriving (Eq,Read,Show)
 

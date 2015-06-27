@@ -81,10 +81,10 @@ import           Network.AWS.Response
 --
 -- * 'creaCIDRBlock'
 data CreateSubnet = CreateSubnet'
-    { _creaAvailabilityZone :: Maybe Text
-    , _creaDryRun           :: Maybe Bool
-    , _creaVPCId            :: Text
-    , _creaCIDRBlock        :: Text
+    { _creaAvailabilityZone :: !(Maybe Text)
+    , _creaDryRun           :: !(Maybe Bool)
+    , _creaVPCId            :: !Text
+    , _creaCIDRBlock        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSubnet' smart constructor.
@@ -152,7 +152,7 @@ instance ToQuery CreateSubnet where
 --
 -- * 'creStatus'
 data CreateSubnetResponse = CreateSubnetResponse'
-    { _creSubnet :: Maybe Subnet
+    { _creSubnet :: !(Maybe Subnet)
     , _creStatus :: !Int
     } deriving (Eq,Read,Show)
 

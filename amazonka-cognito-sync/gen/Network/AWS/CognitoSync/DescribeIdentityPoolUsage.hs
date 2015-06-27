@@ -105,7 +105,7 @@ instance ToQuery DescribeIdentityPoolUsage where
 --
 -- * 'dipurStatus'
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
-    { _dipurIdentityPoolUsage :: Maybe IdentityPoolUsage
+    { _dipurIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
     , _dipurStatus            :: !Int
     } deriving (Eq,Read,Show)
 

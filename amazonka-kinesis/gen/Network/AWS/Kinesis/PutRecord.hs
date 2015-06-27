@@ -102,11 +102,11 @@ import           Network.AWS.Response
 --
 -- * 'prPartitionKey'
 data PutRecord = PutRecord'
-    { _prExplicitHashKey           :: Maybe Text
-    , _prSequenceNumberForOrdering :: Maybe Text
-    , _prStreamName                :: Text
-    , _prData                      :: Base64
-    , _prPartitionKey              :: Text
+    { _prExplicitHashKey           :: !(Maybe Text)
+    , _prSequenceNumberForOrdering :: !(Maybe Text)
+    , _prStreamName                :: !Text
+    , _prData                      :: !Base64
+    , _prPartitionKey              :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutRecord' smart constructor.
@@ -203,8 +203,8 @@ instance ToQuery PutRecord where
 --
 -- * 'prrStatus'
 data PutRecordResponse = PutRecordResponse'
-    { _prrShardId        :: Text
-    , _prrSequenceNumber :: Text
+    { _prrShardId        :: !Text
+    , _prrSequenceNumber :: !Text
     , _prrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

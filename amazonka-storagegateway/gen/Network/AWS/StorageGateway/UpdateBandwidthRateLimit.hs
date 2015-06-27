@@ -68,9 +68,9 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'ubrlGatewayARN'
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-    { _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
-    , _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
-    , _ubrlGatewayARN                           :: Text
+    { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+    , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+    , _ubrlGatewayARN                           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateBandwidthRateLimit' smart constructor.
@@ -141,7 +141,7 @@ instance ToQuery UpdateBandwidthRateLimit where
 --
 -- * 'ubrlrStatus'
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
-    { _ubrlrGatewayARN :: Maybe Text
+    { _ubrlrGatewayARN :: !(Maybe Text)
     , _ubrlrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

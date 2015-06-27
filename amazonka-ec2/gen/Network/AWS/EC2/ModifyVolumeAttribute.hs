@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'mvaVolumeId'
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
-    { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
-    , _mvaDryRun       :: Maybe Bool
-    , _mvaVolumeId     :: Text
+    { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
+    , _mvaDryRun       :: !(Maybe Bool)
+    , _mvaVolumeId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyVolumeAttribute' smart constructor.

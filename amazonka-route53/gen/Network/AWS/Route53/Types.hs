@@ -679,8 +679,8 @@ instance ToXML VPCRegion where
 --
 -- * 'atEvaluateTargetHealth'
 data AliasTarget = AliasTarget'
-    { _atHostedZoneId         :: Text
-    , _atDNSName              :: Text
+    { _atHostedZoneId         :: !Text
+    , _atDNSName              :: !Text
     , _atEvaluateTargetHealth :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -752,8 +752,8 @@ instance ToXML AliasTarget where
 --
 -- * 'chaResourceRecordSet'
 data Change = Change'
-    { _chaAction            :: ChangeAction
-    , _chaResourceRecordSet :: ResourceRecordSet
+    { _chaAction            :: !ChangeAction
+    , _chaResourceRecordSet :: !ResourceRecordSet
     } deriving (Eq,Read,Show)
 
 -- | 'Change' smart constructor.
@@ -791,8 +791,8 @@ instance ToXML Change where
 --
 -- * 'cbChanges'
 data ChangeBatch = ChangeBatch'
-    { _cbComment :: Maybe Text
-    , _cbChanges :: List1 Change
+    { _cbComment :: !(Maybe Text)
+    , _cbChanges :: !(List1 Change)
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeBatch' smart constructor.
@@ -837,10 +837,10 @@ instance ToXML ChangeBatch where
 --
 -- * 'ciSubmittedAt'
 data ChangeInfo = ChangeInfo'
-    { _ciComment     :: Maybe Text
-    , _ciId          :: Text
-    , _ciStatus      :: ChangeStatus
-    , _ciSubmittedAt :: ISO8601
+    { _ciComment     :: !(Maybe Text)
+    , _ciId          :: !Text
+    , _ciStatus      :: !ChangeStatus
+    , _ciSubmittedAt :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeInfo' smart constructor.
@@ -899,9 +899,9 @@ instance FromXML ChangeInfo where
 --
 -- * 'dsNameServers'
 data DelegationSet = DelegationSet'
-    { _dsId              :: Maybe Text
-    , _dsCallerReference :: Maybe Text
-    , _dsNameServers     :: List1 Text
+    { _dsId              :: !(Maybe Text)
+    , _dsCallerReference :: !(Maybe Text)
+    , _dsNameServers     :: !(List1 Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DelegationSet' smart constructor.
@@ -947,9 +947,9 @@ instance FromXML DelegationSet where
 --
 -- * 'glContinentCode'
 data GeoLocation = GeoLocation'
-    { _glSubdivisionCode :: Maybe Text
-    , _glCountryCode     :: Maybe Text
-    , _glContinentCode   :: Maybe Text
+    { _glSubdivisionCode :: !(Maybe Text)
+    , _glCountryCode     :: !(Maybe Text)
+    , _glContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GeoLocation' smart constructor.
@@ -1019,12 +1019,12 @@ instance ToXML GeoLocation where
 --
 -- * 'gldContinentName'
 data GeoLocationDetails = GeoLocationDetails'
-    { _gldSubdivisionName :: Maybe Text
-    , _gldSubdivisionCode :: Maybe Text
-    , _gldCountryName     :: Maybe Text
-    , _gldCountryCode     :: Maybe Text
-    , _gldContinentCode   :: Maybe Text
-    , _gldContinentName   :: Maybe Text
+    { _gldSubdivisionName :: !(Maybe Text)
+    , _gldSubdivisionCode :: !(Maybe Text)
+    , _gldCountryName     :: !(Maybe Text)
+    , _gldCountryCode     :: !(Maybe Text)
+    , _gldContinentCode   :: !(Maybe Text)
+    , _gldContinentName   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GeoLocationDetails' smart constructor.
@@ -1098,9 +1098,9 @@ instance FromXML GeoLocationDetails where
 --
 -- * 'hcHealthCheckVersion'
 data HealthCheck = HealthCheck'
-    { _hcId                 :: Text
-    , _hcCallerReference    :: Text
-    , _hcHealthCheckConfig  :: HealthCheckConfig
+    { _hcId                 :: !Text
+    , _hcCallerReference    :: !Text
+    , _hcHealthCheckConfig  :: !HealthCheckConfig
     , _hcHealthCheckVersion :: !Nat
     } deriving (Eq,Read,Show)
 
@@ -1161,14 +1161,14 @@ instance FromXML HealthCheck where
 --
 -- * 'hccType'
 data HealthCheckConfig = HealthCheckConfig'
-    { _hccIPAddress                :: Maybe Text
-    , _hccFailureThreshold         :: Maybe Nat
-    , _hccSearchString             :: Maybe Text
-    , _hccResourcePath             :: Maybe Text
-    , _hccFullyQualifiedDomainName :: Maybe Text
-    , _hccRequestInterval          :: Maybe Nat
-    , _hccPort                     :: Maybe Nat
-    , _hccType                     :: HealthCheckType
+    { _hccIPAddress                :: !(Maybe Text)
+    , _hccFailureThreshold         :: !(Maybe Nat)
+    , _hccSearchString             :: !(Maybe Text)
+    , _hccResourcePath             :: !(Maybe Text)
+    , _hccFullyQualifiedDomainName :: !(Maybe Text)
+    , _hccRequestInterval          :: !(Maybe Nat)
+    , _hccPort                     :: !(Maybe Nat)
+    , _hccType                     :: !HealthCheckType
     } deriving (Eq,Read,Show)
 
 -- | 'HealthCheckConfig' smart constructor.
@@ -1269,8 +1269,8 @@ instance ToXML HealthCheckConfig where
 --
 -- * 'hcoStatusReport'
 data HealthCheckObservation = HealthCheckObservation'
-    { _hcoIPAddress    :: Maybe Text
-    , _hcoStatusReport :: Maybe StatusReport
+    { _hcoIPAddress    :: !(Maybe Text)
+    , _hcoStatusReport :: !(Maybe StatusReport)
     } deriving (Eq,Read,Show)
 
 -- | 'HealthCheckObservation' smart constructor.
@@ -1312,11 +1312,11 @@ instance FromXML HealthCheckObservation where
 --
 -- * 'hzCallerReference'
 data HostedZone = HostedZone'
-    { _hzConfig                 :: Maybe HostedZoneConfig
-    , _hzResourceRecordSetCount :: Maybe Integer
-    , _hzId                     :: Text
-    , _hzName                   :: Text
-    , _hzCallerReference        :: Text
+    { _hzConfig                 :: !(Maybe HostedZoneConfig)
+    , _hzResourceRecordSetCount :: !(Maybe Integer)
+    , _hzId                     :: !Text
+    , _hzName                   :: !Text
+    , _hzCallerReference        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'HostedZone' smart constructor.
@@ -1378,8 +1378,8 @@ instance FromXML HostedZone where
 --
 -- * 'hzcComment'
 data HostedZoneConfig = HostedZoneConfig'
-    { _hzcPrivateZone :: Maybe Bool
-    , _hzcComment     :: Maybe Text
+    { _hzcPrivateZone :: !(Maybe Bool)
+    , _hzcComment     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'HostedZoneConfig' smart constructor.
@@ -1471,17 +1471,17 @@ instance ToXML ResourceRecord where
 --
 -- * 'rrsResourceRecords'
 data ResourceRecordSet = ResourceRecordSet'
-    { _rrsTTL             :: Maybe Nat
-    , _rrsAliasTarget     :: Maybe AliasTarget
-    , _rrsWeight          :: Maybe Nat
-    , _rrsSetIdentifier   :: Maybe Text
-    , _rrsFailover        :: Maybe Failover
-    , _rrsHealthCheckId   :: Maybe Text
-    , _rrsRegion          :: Maybe Region
-    , _rrsGeoLocation     :: Maybe GeoLocation
-    , _rrsName            :: Text
-    , _rrsType            :: RecordType
-    , _rrsResourceRecords :: List1 ResourceRecord
+    { _rrsTTL             :: !(Maybe Nat)
+    , _rrsAliasTarget     :: !(Maybe AliasTarget)
+    , _rrsWeight          :: !(Maybe Nat)
+    , _rrsSetIdentifier   :: !(Maybe Text)
+    , _rrsFailover        :: !(Maybe Failover)
+    , _rrsHealthCheckId   :: !(Maybe Text)
+    , _rrsRegion          :: !(Maybe Region)
+    , _rrsGeoLocation     :: !(Maybe GeoLocation)
+    , _rrsName            :: !Text
+    , _rrsType            :: !RecordType
+    , _rrsResourceRecords :: !(List1 ResourceRecord)
     } deriving (Eq,Read,Show)
 
 -- | 'ResourceRecordSet' smart constructor.
@@ -1616,9 +1616,9 @@ instance ToXML ResourceRecordSet where
 --
 -- * 'rtsTags'
 data ResourceTagSet = ResourceTagSet'
-    { _rtsResourceId   :: Maybe Text
-    , _rtsResourceType :: Maybe TagResourceType
-    , _rtsTags         :: Maybe (List1 Tag)
+    { _rtsResourceId   :: !(Maybe Text)
+    , _rtsResourceType :: !(Maybe TagResourceType)
+    , _rtsTags         :: !(Maybe (List1 Tag))
     } deriving (Eq,Read,Show)
 
 -- | 'ResourceTagSet' smart constructor.
@@ -1664,8 +1664,8 @@ instance FromXML ResourceTagSet where
 --
 -- * 'srCheckedTime'
 data StatusReport = StatusReport'
-    { _srStatus      :: Maybe Text
-    , _srCheckedTime :: Maybe ISO8601
+    { _srStatus      :: !(Maybe Text)
+    , _srCheckedTime :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'StatusReport' smart constructor.
@@ -1703,8 +1703,8 @@ instance FromXML StatusReport where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -1739,8 +1739,8 @@ instance ToXML Tag where
 --
 -- * 'vpcVPCId'
 data VPC = VPC'
-    { _vpcVPCRegion :: Maybe VPCRegion
-    , _vpcVPCId     :: Maybe Text
+    { _vpcVPCRegion :: !(Maybe VPCRegion)
+    , _vpcVPCId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPC' smart constructor.

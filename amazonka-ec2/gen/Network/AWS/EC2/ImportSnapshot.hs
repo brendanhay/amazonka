@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'isClientData'
 data ImportSnapshot = ImportSnapshot'
-    { _isDiskContainer :: Maybe SnapshotDiskContainer
-    , _isClientToken   :: Maybe Text
-    , _isRoleName      :: Maybe Text
-    , _isDryRun        :: Maybe Bool
-    , _isDescription   :: Maybe Text
-    , _isClientData    :: Maybe ClientData
+    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
+    , _isClientToken   :: !(Maybe Text)
+    , _isRoleName      :: !(Maybe Text)
+    , _isDryRun        :: !(Maybe Bool)
+    , _isDescription   :: !(Maybe Text)
+    , _isClientData    :: !(Maybe ClientData)
     } deriving (Eq,Read,Show)
 
 -- | 'ImportSnapshot' smart constructor.
@@ -153,9 +153,9 @@ instance ToQuery ImportSnapshot where
 --
 -- * 'isrStatus'
 data ImportSnapshotResponse = ImportSnapshotResponse'
-    { _isrSnapshotTaskDetail :: Maybe SnapshotTaskDetail
-    , _isrImportTaskId       :: Maybe Text
-    , _isrDescription        :: Maybe Text
+    { _isrSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
+    , _isrImportTaskId       :: !(Maybe Text)
+    , _isrDescription        :: !(Maybe Text)
     , _isrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

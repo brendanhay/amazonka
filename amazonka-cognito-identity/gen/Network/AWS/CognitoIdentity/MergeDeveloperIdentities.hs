@@ -66,10 +66,10 @@ import           Network.AWS.Response
 --
 -- * 'mdiIdentityPoolId'
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier      :: Text
-    , _mdiDestinationUserIdentifier :: Text
-    , _mdiDeveloperProviderName     :: Text
-    , _mdiIdentityPoolId            :: Text
+    { _mdiSourceUserIdentifier      :: !Text
+    , _mdiDestinationUserIdentifier :: !Text
+    , _mdiDeveloperProviderName     :: !Text
+    , _mdiIdentityPoolId            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'MergeDeveloperIdentities' smart constructor.
@@ -151,7 +151,7 @@ instance ToQuery MergeDeveloperIdentities where
 --
 -- * 'mdirStatus'
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
-    { _mdirIdentityId :: Maybe Text
+    { _mdirIdentityId :: !(Maybe Text)
     , _mdirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

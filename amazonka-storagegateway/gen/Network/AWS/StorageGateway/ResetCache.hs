@@ -109,7 +109,7 @@ instance ToQuery ResetCache where
 --
 -- * 'rcrStatus'
 data ResetCacheResponse = ResetCacheResponse'
-    { _rcrGatewayARN :: Maybe Text
+    { _rcrGatewayARN :: !(Maybe Text)
     , _rcrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

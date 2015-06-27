@@ -75,13 +75,13 @@ import           Network.AWS.Response
 --
 -- * 'gleLogStreamName'
 data GetLogEvents = GetLogEvents'
-    { _gleStartTime     :: Maybe Nat
-    , _gleStartFromHead :: Maybe Bool
-    , _gleNextToken     :: Maybe Text
-    , _gleEndTime       :: Maybe Nat
-    , _gleLimit         :: Maybe Nat
-    , _gleLogGroupName  :: Text
-    , _gleLogStreamName :: Text
+    { _gleStartTime     :: !(Maybe Nat)
+    , _gleStartFromHead :: !(Maybe Bool)
+    , _gleNextToken     :: !(Maybe Text)
+    , _gleEndTime       :: !(Maybe Nat)
+    , _gleLimit         :: !(Maybe Nat)
+    , _gleLogGroupName  :: !Text
+    , _gleLogStreamName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetLogEvents' smart constructor.
@@ -181,9 +181,9 @@ instance ToQuery GetLogEvents where
 --
 -- * 'glerStatus'
 data GetLogEventsResponse = GetLogEventsResponse'
-    { _glerNextBackwardToken :: Maybe Text
-    , _glerNextForwardToken  :: Maybe Text
-    , _glerEvents            :: Maybe [OutputLogEvent]
+    { _glerNextBackwardToken :: !(Maybe Text)
+    , _glerNextForwardToken  :: !(Maybe Text)
+    , _glerEvents            :: !(Maybe [OutputLogEvent])
     , _glerStatus            :: !Int
     } deriving (Eq,Read,Show)
 

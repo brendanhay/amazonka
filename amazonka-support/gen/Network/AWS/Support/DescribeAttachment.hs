@@ -107,7 +107,7 @@ instance ToQuery DescribeAttachment where
 --
 -- * 'darStatus'
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
-    { _darAttachment :: Maybe Attachment
+    { _darAttachment :: !(Maybe Attachment)
     , _darStatus     :: !Int
     } deriving (Eq,Read,Show)
 

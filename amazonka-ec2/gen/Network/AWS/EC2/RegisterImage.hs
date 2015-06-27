@@ -97,17 +97,17 @@ import           Network.AWS.Response
 --
 -- * 'riName'
 data RegisterImage = RegisterImage'
-    { _riVirtualizationType  :: Maybe Text
-    , _riImageLocation       :: Maybe Text
-    , _riRAMDiskId           :: Maybe Text
-    , _riKernelId            :: Maybe Text
-    , _riRootDeviceName      :: Maybe Text
-    , _riSRIOVNetSupport     :: Maybe Text
-    , _riArchitecture        :: Maybe ArchitectureValues
-    , _riBlockDeviceMappings :: Maybe [BlockDeviceMapping]
-    , _riDryRun              :: Maybe Bool
-    , _riDescription         :: Maybe Text
-    , _riName                :: Text
+    { _riVirtualizationType  :: !(Maybe Text)
+    , _riImageLocation       :: !(Maybe Text)
+    , _riRAMDiskId           :: !(Maybe Text)
+    , _riKernelId            :: !(Maybe Text)
+    , _riRootDeviceName      :: !(Maybe Text)
+    , _riSRIOVNetSupport     :: !(Maybe Text)
+    , _riArchitecture        :: !(Maybe ArchitectureValues)
+    , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _riDryRun              :: !(Maybe Bool)
+    , _riDescription         :: !(Maybe Text)
+    , _riName                :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterImage' smart constructor.
@@ -232,7 +232,7 @@ instance ToQuery RegisterImage where
 --
 -- * 'rirStatus'
 data RegisterImageResponse = RegisterImageResponse'
-    { _rirImageId :: Maybe Text
+    { _rirImageId :: !(Maybe Text)
     , _rirStatus  :: !Int
     } deriving (Eq,Read,Show)
 

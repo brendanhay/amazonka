@@ -113,7 +113,7 @@ instance ToQuery
 --
 -- * 'dtacrsrStatus'
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-    { _dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]
+    { _dtacrsrStatuses :: ![TrustedAdvisorCheckRefreshStatus]
     , _dtacrsrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

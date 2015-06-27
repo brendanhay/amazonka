@@ -283,9 +283,9 @@ instance FromJSON StatusCode where
 --
 -- * 'acoLocation'
 data ArchiveCreationOutput = ArchiveCreationOutput'
-    { _acoArchiveId :: Maybe Text
-    , _acoChecksum  :: Maybe Text
-    , _acoLocation  :: Maybe Text
+    { _acoArchiveId :: !(Maybe Text)
+    , _acoChecksum  :: !(Maybe Text)
+    , _acoLocation  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ArchiveCreationOutput' smart constructor.
@@ -363,8 +363,8 @@ instance ToJSON DataRetrievalPolicy where
 --
 -- * 'drrBytesPerHour'
 data DataRetrievalRule = DataRetrievalRule'
-    { _drrStrategy     :: Maybe Text
-    , _drrBytesPerHour :: Maybe Integer
+    { _drrStrategy     :: !(Maybe Text)
+    , _drrBytesPerHour :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'DataRetrievalRule' smart constructor.
@@ -420,12 +420,12 @@ instance ToJSON DataRetrievalRule where
 --
 -- * 'dvoNumberOfArchives'
 data DescribeVaultOutput = DescribeVaultOutput'
-    { _dvoVaultName         :: Maybe Text
-    , _dvoSizeInBytes       :: Maybe Integer
-    , _dvoLastInventoryDate :: Maybe Text
-    , _dvoVaultARN          :: Maybe Text
-    , _dvoCreationDate      :: Maybe Text
-    , _dvoNumberOfArchives  :: Maybe Integer
+    { _dvoVaultName         :: !(Maybe Text)
+    , _dvoSizeInBytes       :: !(Maybe Integer)
+    , _dvoLastInventoryDate :: !(Maybe Text)
+    , _dvoVaultARN          :: !(Maybe Text)
+    , _dvoCreationDate      :: !(Maybe Text)
+    , _dvoNumberOfArchives  :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVaultOutput' smart constructor.
@@ -522,23 +522,23 @@ instance FromJSON DescribeVaultOutput where
 --
 -- * 'gjdInventorySizeInBytes'
 data GlacierJobDescription = GlacierJobDescription'
-    { _gjdArchiveId                    :: Maybe Text
-    , _gjdSHA256TreeHash               :: Maybe Text
-    , _gjdJobId                        :: Maybe Text
-    , _gjdRetrievalByteRange           :: Maybe Text
-    , _gjdInventoryRetrievalParameters :: Maybe InventoryRetrievalJobDescription
-    , _gjdAction                       :: Maybe ActionCode
-    , _gjdJobDescription               :: Maybe Text
-    , _gjdSNSTopic                     :: Maybe Text
-    , _gjdVaultARN                     :: Maybe Text
-    , _gjdStatusMessage                :: Maybe Text
-    , _gjdArchiveSHA256TreeHash        :: Maybe Text
-    , _gjdCreationDate                 :: Maybe Text
-    , _gjdCompleted                    :: Maybe Bool
-    , _gjdCompletionDate               :: Maybe Text
-    , _gjdArchiveSizeInBytes           :: Maybe Integer
-    , _gjdStatusCode                   :: Maybe StatusCode
-    , _gjdInventorySizeInBytes         :: Maybe Integer
+    { _gjdArchiveId                    :: !(Maybe Text)
+    , _gjdSHA256TreeHash               :: !(Maybe Text)
+    , _gjdJobId                        :: !(Maybe Text)
+    , _gjdRetrievalByteRange           :: !(Maybe Text)
+    , _gjdInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobDescription)
+    , _gjdAction                       :: !(Maybe ActionCode)
+    , _gjdJobDescription               :: !(Maybe Text)
+    , _gjdSNSTopic                     :: !(Maybe Text)
+    , _gjdVaultARN                     :: !(Maybe Text)
+    , _gjdStatusMessage                :: !(Maybe Text)
+    , _gjdArchiveSHA256TreeHash        :: !(Maybe Text)
+    , _gjdCreationDate                 :: !(Maybe Text)
+    , _gjdCompleted                    :: !(Maybe Bool)
+    , _gjdCompletionDate               :: !(Maybe Text)
+    , _gjdArchiveSizeInBytes           :: !(Maybe Integer)
+    , _gjdStatusCode                   :: !(Maybe StatusCode)
+    , _gjdInventorySizeInBytes         :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'GlacierJobDescription' smart constructor.
@@ -704,11 +704,11 @@ instance FromJSON GlacierJobDescription where
 --
 -- * 'irjdLimit'
 data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
-    { _irjdFormat    :: Maybe Text
-    , _irjdEndDate   :: Maybe Text
-    , _irjdStartDate :: Maybe Text
-    , _irjdMarker    :: Maybe Text
-    , _irjdLimit     :: Maybe Text
+    { _irjdFormat    :: !(Maybe Text)
+    , _irjdEndDate   :: !(Maybe Text)
+    , _irjdStartDate :: !(Maybe Text)
+    , _irjdMarker    :: !(Maybe Text)
+    , _irjdLimit     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InventoryRetrievalJobDescription' smart constructor.
@@ -780,10 +780,10 @@ instance FromJSON InventoryRetrievalJobDescription
 --
 -- * 'irjiLimit'
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
-    { _irjiEndDate   :: Maybe Text
-    , _irjiStartDate :: Maybe Text
-    , _irjiMarker    :: Maybe Text
-    , _irjiLimit     :: Maybe Text
+    { _irjiEndDate   :: !(Maybe Text)
+    , _irjiStartDate :: !(Maybe Text)
+    , _irjiMarker    :: !(Maybe Text)
+    , _irjiLimit     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InventoryRetrievalJobInput' smart constructor.
@@ -848,13 +848,13 @@ instance ToJSON InventoryRetrievalJobInput where
 --
 -- * 'jpDescription'
 data JobParameters = JobParameters'
-    { _jpArchiveId                    :: Maybe Text
-    , _jpRetrievalByteRange           :: Maybe Text
-    , _jpFormat                       :: Maybe Text
-    , _jpInventoryRetrievalParameters :: Maybe InventoryRetrievalJobInput
-    , _jpSNSTopic                     :: Maybe Text
-    , _jpType                         :: Maybe Text
-    , _jpDescription                  :: Maybe Text
+    { _jpArchiveId                    :: !(Maybe Text)
+    , _jpRetrievalByteRange           :: !(Maybe Text)
+    , _jpFormat                       :: !(Maybe Text)
+    , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
+    , _jpSNSTopic                     :: !(Maybe Text)
+    , _jpType                         :: !(Maybe Text)
+    , _jpDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'JobParameters' smart constructor.
@@ -942,8 +942,8 @@ instance ToJSON JobParameters where
 --
 -- * 'pleRangeInBytes'
 data PartListElement = PartListElement'
-    { _pleSHA256TreeHash :: Maybe Text
-    , _pleRangeInBytes   :: Maybe Text
+    { _pleSHA256TreeHash :: !(Maybe Text)
+    , _pleRangeInBytes   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PartListElement' smart constructor.
@@ -986,11 +986,11 @@ instance FromJSON PartListElement where
 --
 -- * 'uleCreationDate'
 data UploadListElement = UploadListElement'
-    { _uleMultipartUploadId  :: Maybe Text
-    , _uleArchiveDescription :: Maybe Text
-    , _ulePartSizeInBytes    :: Maybe Integer
-    , _uleVaultARN           :: Maybe Text
-    , _uleCreationDate       :: Maybe Text
+    { _uleMultipartUploadId  :: !(Maybe Text)
+    , _uleArchiveDescription :: !(Maybe Text)
+    , _ulePartSizeInBytes    :: !(Maybe Integer)
+    , _uleVaultARN           :: !(Maybe Text)
+    , _uleCreationDate       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UploadListElement' smart constructor.
@@ -1079,8 +1079,8 @@ instance ToJSON VaultAccessPolicy where
 --
 -- * 'vncEvents'
 data VaultNotificationConfig = VaultNotificationConfig'
-    { _vncSNSTopic :: Maybe Text
-    , _vncEvents   :: Maybe [Text]
+    { _vncSNSTopic :: !(Maybe Text)
+    , _vncEvents   :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'VaultNotificationConfig' smart constructor.

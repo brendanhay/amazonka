@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'uspScalingParameters'
 data UpdateScalingParameters = UpdateScalingParameters'
-    { _uspDomainName        :: Text
-    , _uspScalingParameters :: ScalingParameters
+    { _uspDomainName        :: !Text
+    , _uspScalingParameters :: !ScalingParameters
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateScalingParameters' smart constructor.
@@ -118,7 +118,7 @@ instance ToQuery UpdateScalingParameters where
 --
 -- * 'usprStatus'
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-    { _usprScalingParameters :: ScalingParametersStatus
+    { _usprScalingParameters :: !ScalingParametersStatus
     , _usprStatus            :: !Int
     } deriving (Eq,Read,Show)
 

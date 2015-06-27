@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'dctTemplateName'
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
-    { _dctApplicationName :: Text
-    , _dctTemplateName    :: Text
+    { _dctApplicationName :: !Text
+    , _dctTemplateName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteConfigurationTemplate' smart constructor.

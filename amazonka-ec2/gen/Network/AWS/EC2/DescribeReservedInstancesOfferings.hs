@@ -95,20 +95,20 @@ import           Network.AWS.Response
 --
 -- * 'drioMaxInstanceCount'
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
-    { _drioMaxDuration                  :: Maybe Integer
-    , _drioProductDescription           :: Maybe RIProductDescription
-    , _drioIncludeMarketplace           :: Maybe Bool
-    , _drioFilters                      :: Maybe [Filter]
-    , _drioInstanceType                 :: Maybe InstanceType
-    , _drioNextToken                    :: Maybe Text
-    , _drioMinDuration                  :: Maybe Integer
-    , _drioAvailabilityZone             :: Maybe Text
-    , _drioOfferingType                 :: Maybe OfferingTypeValues
-    , _drioReservedInstancesOfferingIds :: Maybe [Text]
-    , _drioInstanceTenancy              :: Maybe Tenancy
-    , _drioDryRun                       :: Maybe Bool
-    , _drioMaxResults                   :: Maybe Int
-    , _drioMaxInstanceCount             :: Maybe Int
+    { _drioMaxDuration                  :: !(Maybe Integer)
+    , _drioProductDescription           :: !(Maybe RIProductDescription)
+    , _drioIncludeMarketplace           :: !(Maybe Bool)
+    , _drioFilters                      :: !(Maybe [Filter])
+    , _drioInstanceType                 :: !(Maybe InstanceType)
+    , _drioNextToken                    :: !(Maybe Text)
+    , _drioMinDuration                  :: !(Maybe Integer)
+    , _drioAvailabilityZone             :: !(Maybe Text)
+    , _drioOfferingType                 :: !(Maybe OfferingTypeValues)
+    , _drioReservedInstancesOfferingIds :: !(Maybe [Text])
+    , _drioInstanceTenancy              :: !(Maybe Tenancy)
+    , _drioDryRun                       :: !(Maybe Bool)
+    , _drioMaxResults                   :: !(Maybe Int)
+    , _drioMaxInstanceCount             :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesOfferings' smart constructor.
@@ -313,8 +313,8 @@ instance ToQuery DescribeReservedInstancesOfferings
 --
 -- * 'driorStatus'
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
-    { _driorNextToken                  :: Maybe Text
-    , _driorReservedInstancesOfferings :: Maybe [ReservedInstancesOffering]
+    { _driorNextToken                  :: !(Maybe Text)
+    , _driorReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
     , _driorStatus                     :: !Int
     } deriving (Eq,Read,Show)
 

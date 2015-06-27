@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'dciContainerInstances'
 data DescribeContainerInstances = DescribeContainerInstances'
-    { _dciCluster            :: Maybe Text
-    , _dciContainerInstances :: [Text]
+    { _dciCluster            :: !(Maybe Text)
+    , _dciContainerInstances :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeContainerInstances' smart constructor.
@@ -120,8 +120,8 @@ instance ToQuery DescribeContainerInstances where
 --
 -- * 'desStatus'
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-    { _desFailures           :: Maybe [Failure]
-    , _desContainerInstances :: Maybe [ContainerInstance]
+    { _desFailures           :: !(Maybe [Failure])
+    , _desContainerInstances :: !(Maybe [ContainerInstance])
     , _desStatus             :: !Int
     } deriving (Eq,Read,Show)
 

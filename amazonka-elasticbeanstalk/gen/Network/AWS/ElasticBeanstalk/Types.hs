@@ -581,12 +581,12 @@ instance FromXML ValidationSeverity where
 --
 -- * 'adDescription'
 data ApplicationDescription = ApplicationDescription'
-    { _adDateUpdated            :: Maybe ISO8601
-    , _adVersions               :: Maybe [Text]
-    , _adDateCreated            :: Maybe ISO8601
-    , _adApplicationName        :: Maybe Text
-    , _adConfigurationTemplates :: Maybe [Text]
-    , _adDescription            :: Maybe Text
+    { _adDateUpdated            :: !(Maybe ISO8601)
+    , _adVersions               :: !(Maybe [Text])
+    , _adDateCreated            :: !(Maybe ISO8601)
+    , _adApplicationName        :: !(Maybe Text)
+    , _adConfigurationTemplates :: !(Maybe [Text])
+    , _adDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ApplicationDescription' smart constructor.
@@ -684,12 +684,12 @@ instance FromXML ApplicationDescriptionMessage where
 --
 -- * 'avdDescription'
 data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdDateUpdated     :: Maybe ISO8601
-    , _avdSourceBundle    :: Maybe S3Location
-    , _avdVersionLabel    :: Maybe Text
-    , _avdDateCreated     :: Maybe ISO8601
-    , _avdApplicationName :: Maybe Text
-    , _avdDescription     :: Maybe Text
+    { _avdDateUpdated     :: !(Maybe ISO8601)
+    , _avdSourceBundle    :: !(Maybe S3Location)
+    , _avdVersionLabel    :: !(Maybe Text)
+    , _avdDateCreated     :: !(Maybe ISO8601)
+    , _avdApplicationName :: !(Maybe Text)
+    , _avdDescription     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ApplicationVersionDescription' smart constructor.
@@ -818,17 +818,17 @@ instance FromXML AutoScalingGroup where
 --
 -- * 'codMinValue'
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
-    { _codMaxValue       :: Maybe Int
-    , _codRegex          :: Maybe OptionRestrictionRegex
-    , _codUserDefined    :: Maybe Bool
-    , _codMaxLength      :: Maybe Int
-    , _codValueOptions   :: Maybe [Text]
-    , _codNamespace      :: Maybe Text
-    , _codName           :: Maybe Text
-    , _codChangeSeverity :: Maybe Text
-    , _codDefaultValue   :: Maybe Text
-    , _codValueType      :: Maybe ConfigurationOptionValueType
-    , _codMinValue       :: Maybe Int
+    { _codMaxValue       :: !(Maybe Int)
+    , _codRegex          :: !(Maybe OptionRestrictionRegex)
+    , _codUserDefined    :: !(Maybe Bool)
+    , _codMaxLength      :: !(Maybe Int)
+    , _codValueOptions   :: !(Maybe [Text])
+    , _codNamespace      :: !(Maybe Text)
+    , _codName           :: !(Maybe Text)
+    , _codChangeSeverity :: !(Maybe Text)
+    , _codDefaultValue   :: !(Maybe Text)
+    , _codValueType      :: !(Maybe ConfigurationOptionValueType)
+    , _codMinValue       :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationOptionDescription' smart constructor.
@@ -986,10 +986,10 @@ instance FromXML ConfigurationOptionDescription where
 --
 -- * 'cosNamespace'
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
-    { _cosOptionName   :: Maybe Text
-    , _cosResourceName :: Maybe Text
-    , _cosValue        :: Maybe Text
-    , _cosNamespace    :: Maybe Text
+    { _cosOptionName   :: !(Maybe Text)
+    , _cosResourceName :: !(Maybe Text)
+    , _cosValue        :: !(Maybe Text)
+    , _cosNamespace    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationOptionSetting' smart constructor.
@@ -1056,15 +1056,15 @@ instance ToQuery ConfigurationOptionSetting where
 --
 -- * 'csdDescription'
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
-    { _csdTemplateName      :: Maybe Text
-    , _csdOptionSettings    :: Maybe [ConfigurationOptionSetting]
-    , _csdDateUpdated       :: Maybe ISO8601
-    , _csdDateCreated       :: Maybe ISO8601
-    , _csdEnvironmentName   :: Maybe Text
-    , _csdApplicationName   :: Maybe Text
-    , _csdDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
-    , _csdSolutionStackName :: Maybe Text
-    , _csdDescription       :: Maybe Text
+    { _csdTemplateName      :: !(Maybe Text)
+    , _csdOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _csdDateUpdated       :: !(Maybe ISO8601)
+    , _csdDateCreated       :: !(Maybe ISO8601)
+    , _csdEnvironmentName   :: !(Maybe Text)
+    , _csdApplicationName   :: !(Maybe Text)
+    , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
+    , _csdSolutionStackName :: !(Maybe Text)
+    , _csdDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ConfigurationSettingsDescription' smart constructor.
@@ -1195,22 +1195,22 @@ instance FromXML ConfigurationSettingsDescription
 --
 -- * 'envDescription'
 data EnvironmentDescription = EnvironmentDescription'
-    { _envCNAME                        :: Maybe Text
-    , _envStatus                       :: Maybe EnvironmentStatus
-    , _envTemplateName                 :: Maybe Text
-    , _envAbortableOperationInProgress :: Maybe Bool
-    , _envEndpointURL                  :: Maybe Text
-    , _envDateUpdated                  :: Maybe ISO8601
-    , _envResources                    :: Maybe EnvironmentResourcesDescription
-    , _envHealth                       :: Maybe EnvironmentHealth
-    , _envVersionLabel                 :: Maybe Text
-    , _envDateCreated                  :: Maybe ISO8601
-    , _envTier                         :: Maybe EnvironmentTier
-    , _envEnvironmentName              :: Maybe Text
-    , _envApplicationName              :: Maybe Text
-    , _envEnvironmentId                :: Maybe Text
-    , _envSolutionStackName            :: Maybe Text
-    , _envDescription                  :: Maybe Text
+    { _envCNAME                        :: !(Maybe Text)
+    , _envStatus                       :: !(Maybe EnvironmentStatus)
+    , _envTemplateName                 :: !(Maybe Text)
+    , _envAbortableOperationInProgress :: !(Maybe Bool)
+    , _envEndpointURL                  :: !(Maybe Text)
+    , _envDateUpdated                  :: !(Maybe ISO8601)
+    , _envResources                    :: !(Maybe EnvironmentResourcesDescription)
+    , _envHealth                       :: !(Maybe EnvironmentHealth)
+    , _envVersionLabel                 :: !(Maybe Text)
+    , _envDateCreated                  :: !(Maybe ISO8601)
+    , _envTier                         :: !(Maybe EnvironmentTier)
+    , _envEnvironmentName              :: !(Maybe Text)
+    , _envApplicationName              :: !(Maybe Text)
+    , _envEnvironmentId                :: !(Maybe Text)
+    , _envSolutionStackName            :: !(Maybe Text)
+    , _envDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentDescription' smart constructor.
@@ -1368,10 +1368,10 @@ instance FromXML EnvironmentDescription where
 --
 -- * 'eidMessage'
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
-    { _eidSampleTimestamp :: Maybe ISO8601
-    , _eidEC2InstanceId   :: Maybe Text
-    , _eidInfoType        :: Maybe EnvironmentInfoType
-    , _eidMessage         :: Maybe Text
+    { _eidSampleTimestamp :: !(Maybe ISO8601)
+    , _eidEC2InstanceId   :: !(Maybe Text)
+    , _eidInfoType        :: !(Maybe EnvironmentInfoType)
+    , _eidMessage         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentInfoDescription' smart constructor.
@@ -1428,13 +1428,13 @@ instance FromXML EnvironmentInfoDescription where
 --
 -- * 'erdAutoScalingGroups'
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
-    { _erdQueues               :: Maybe [Queue]
-    , _erdTriggers             :: Maybe [Trigger]
-    , _erdLoadBalancers        :: Maybe [LoadBalancer]
-    , _erdInstances            :: Maybe [Instance]
-    , _erdEnvironmentName      :: Maybe Text
-    , _erdLaunchConfigurations :: Maybe [LaunchConfiguration]
-    , _erdAutoScalingGroups    :: Maybe [AutoScalingGroup]
+    { _erdQueues               :: !(Maybe [Queue])
+    , _erdTriggers             :: !(Maybe [Trigger])
+    , _erdLoadBalancers        :: !(Maybe [LoadBalancer])
+    , _erdInstances            :: !(Maybe [Instance])
+    , _erdEnvironmentName      :: !(Maybe Text)
+    , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
+    , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
     } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentResourceDescription' smart constructor.
@@ -1541,9 +1541,9 @@ instance FromXML EnvironmentResourcesDescription
 --
 -- * 'etType'
 data EnvironmentTier = EnvironmentTier'
-    { _etName    :: Maybe Text
-    , _etVersion :: Maybe Text
-    , _etType    :: Maybe Text
+    { _etName    :: !(Maybe Text)
+    , _etVersion :: !(Maybe Text)
+    , _etType    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentTier' smart constructor.
@@ -1601,14 +1601,14 @@ instance ToQuery EnvironmentTier where
 --
 -- * 'edMessage'
 data EventDescription = EventDescription'
-    { _edRequestId       :: Maybe Text
-    , _edTemplateName    :: Maybe Text
-    , _edSeverity        :: Maybe EventSeverity
-    , _edVersionLabel    :: Maybe Text
-    , _edEnvironmentName :: Maybe Text
-    , _edApplicationName :: Maybe Text
-    , _edEventDate       :: Maybe ISO8601
-    , _edMessage         :: Maybe Text
+    { _edRequestId       :: !(Maybe Text)
+    , _edTemplateName    :: !(Maybe Text)
+    , _edSeverity        :: !(Maybe EventSeverity)
+    , _edVersionLabel    :: !(Maybe Text)
+    , _edEnvironmentName :: !(Maybe Text)
+    , _edApplicationName :: !(Maybe Text)
+    , _edEventDate       :: !(Maybe ISO8601)
+    , _edMessage         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EventDescription' smart constructor.
@@ -1729,8 +1729,8 @@ instance FromXML LaunchConfiguration where
 --
 -- * 'lisPort'
 data Listener = Listener'
-    { _lisProtocol :: Maybe Text
-    , _lisPort     :: Maybe Int
+    { _lisProtocol :: !(Maybe Text)
+    , _lisPort     :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Listener' smart constructor.
@@ -1790,9 +1790,9 @@ instance FromXML LoadBalancer where
 --
 -- * 'lbdListeners'
 data LoadBalancerDescription = LoadBalancerDescription'
-    { _lbdLoadBalancerName :: Maybe Text
-    , _lbdDomain           :: Maybe Text
-    , _lbdListeners        :: Maybe [Listener]
+    { _lbdLoadBalancerName :: !(Maybe Text)
+    , _lbdDomain           :: !(Maybe Text)
+    , _lbdListeners        :: !(Maybe [Listener])
     } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancerDescription' smart constructor.
@@ -1834,8 +1834,8 @@ instance FromXML LoadBalancerDescription where
 --
 -- * 'orrLabel'
 data OptionRestrictionRegex = OptionRestrictionRegex'
-    { _orrPattern :: Maybe Text
-    , _orrLabel   :: Maybe Text
+    { _orrPattern :: !(Maybe Text)
+    , _orrLabel   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionRestrictionRegex' smart constructor.
@@ -1872,9 +1872,9 @@ instance FromXML OptionRestrictionRegex where
 --
 -- * 'osNamespace'
 data OptionSpecification = OptionSpecification'
-    { _osOptionName   :: Maybe Text
-    , _osResourceName :: Maybe Text
-    , _osNamespace    :: Maybe Text
+    { _osOptionName   :: !(Maybe Text)
+    , _osResourceName :: !(Maybe Text)
+    , _osNamespace    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionSpecification' smart constructor.
@@ -1915,8 +1915,8 @@ instance ToQuery OptionSpecification where
 --
 -- * 'queName'
 data Queue = Queue'
-    { _queURL  :: Maybe Text
-    , _queName :: Maybe Text
+    { _queURL  :: !(Maybe Text)
+    , _queName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Queue' smart constructor.
@@ -1949,8 +1949,8 @@ instance FromXML Queue where
 --
 -- * 'slS3Bucket'
 data S3Location = S3Location'
-    { _slS3Key    :: Maybe Text
-    , _slS3Bucket :: Maybe Text
+    { _slS3Key    :: !(Maybe Text)
+    , _slS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'S3Location' smart constructor.
@@ -1989,8 +1989,8 @@ instance ToQuery S3Location where
 --
 -- * 'ssdSolutionStackName'
 data SolutionStackDescription = SolutionStackDescription'
-    { _ssdPermittedFileTypes :: Maybe [Text]
-    , _ssdSolutionStackName  :: Maybe Text
+    { _ssdPermittedFileTypes :: !(Maybe [Text])
+    , _ssdSolutionStackName  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SolutionStackDescription' smart constructor.
@@ -2026,8 +2026,8 @@ instance FromXML SolutionStackDescription where
 --
 -- * 'scApplicationName'
 data SourceConfiguration = SourceConfiguration'
-    { _scTemplateName    :: Maybe Text
-    , _scApplicationName :: Maybe Text
+    { _scTemplateName    :: !(Maybe Text)
+    , _scApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SourceConfiguration' smart constructor.
@@ -2062,8 +2062,8 @@ instance ToQuery SourceConfiguration where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -2125,10 +2125,10 @@ instance FromXML Trigger where
 --
 -- * 'vmMessage'
 data ValidationMessage = ValidationMessage'
-    { _vmOptionName :: Maybe Text
-    , _vmSeverity   :: Maybe ValidationSeverity
-    , _vmNamespace  :: Maybe Text
-    , _vmMessage    :: Maybe Text
+    { _vmOptionName :: !(Maybe Text)
+    , _vmSeverity   :: !(Maybe ValidationSeverity)
+    , _vmNamespace  :: !(Maybe Text)
+    , _vmMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ValidationMessage' smart constructor.

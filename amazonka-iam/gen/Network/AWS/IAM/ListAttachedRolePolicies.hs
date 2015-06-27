@@ -69,10 +69,10 @@ import           Network.AWS.Response
 --
 -- * 'larpRoleName'
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
-    { _larpPathPrefix :: Maybe Text
-    , _larpMaxItems   :: Maybe Nat
-    , _larpMarker     :: Maybe Text
-    , _larpRoleName   :: Text
+    { _larpPathPrefix :: !(Maybe Text)
+    , _larpMaxItems   :: !(Maybe Nat)
+    , _larpMarker     :: !(Maybe Text)
+    , _larpRoleName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedRolePolicies' smart constructor.
@@ -156,9 +156,9 @@ instance ToQuery ListAttachedRolePolicies where
 --
 -- * 'larprStatus'
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
-    { _larprAttachedPolicies :: Maybe [AttachedPolicy]
-    , _larprMarker           :: Maybe Text
-    , _larprIsTruncated      :: Maybe Bool
+    { _larprAttachedPolicies :: !(Maybe [AttachedPolicy])
+    , _larprMarker           :: !(Maybe Text)
+    , _larprIsTruncated      :: !(Maybe Bool)
     , _larprStatus           :: !Int
     } deriving (Eq,Read,Show)
 

@@ -73,12 +73,12 @@ import           Network.AWS.SNS.Types
 --
 -- * 'pubMessage'
 data Publish = Publish'
-    { _pubMessageAttributes :: Maybe (Map Text MessageAttributeValue)
-    , _pubTargetARN         :: Maybe Text
-    , _pubSubject           :: Maybe Text
-    , _pubTopicARN          :: Maybe Text
-    , _pubMessageStructure  :: Maybe Text
-    , _pubMessage           :: Text
+    { _pubMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _pubTargetARN         :: !(Maybe Text)
+    , _pubSubject           :: !(Maybe Text)
+    , _pubTopicARN          :: !(Maybe Text)
+    , _pubMessageStructure  :: !(Maybe Text)
+    , _pubMessage           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Publish' smart constructor.
@@ -211,7 +211,7 @@ instance ToQuery Publish where
 --
 -- * 'prStatus'
 data PublishResponse = PublishResponse'
-    { _prMessageId :: Maybe Text
+    { _prMessageId :: !(Maybe Text)
     , _prStatus    :: !Int
     } deriving (Eq,Read,Show)
 

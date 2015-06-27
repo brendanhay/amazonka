@@ -98,11 +98,11 @@ import           Network.AWS.Response
 --
 -- * 'dvsMaxResults'
 data DescribeVolumeStatus = DescribeVolumeStatus'
-    { _dvsFilters    :: Maybe [Filter]
-    , _dvsVolumeIds  :: Maybe [Text]
-    , _dvsNextToken  :: Maybe Text
-    , _dvsDryRun     :: Maybe Bool
-    , _dvsMaxResults :: Maybe Int
+    { _dvsFilters    :: !(Maybe [Filter])
+    , _dvsVolumeIds  :: !(Maybe [Text])
+    , _dvsNextToken  :: !(Maybe Text)
+    , _dvsDryRun     :: !(Maybe Bool)
+    , _dvsMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeStatus' smart constructor.
@@ -230,8 +230,8 @@ instance ToQuery DescribeVolumeStatus where
 --
 -- * 'dvsrStatus'
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
-    { _dvsrNextToken      :: Maybe Text
-    , _dvsrVolumeStatuses :: Maybe [VolumeStatusItem]
+    { _dvsrNextToken      :: !(Maybe Text)
+    , _dvsrVolumeStatuses :: !(Maybe [VolumeStatusItem])
     , _dvsrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

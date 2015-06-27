@@ -53,8 +53,8 @@ import           Network.AWS.SQS.Types
 --
 -- * 'sqaAttributes'
 data SetQueueAttributes = SetQueueAttributes'
-    { _sqaQueueURL   :: Text
-    , _sqaAttributes :: Map QueueAttributeName Text
+    { _sqaQueueURL   :: !Text
+    , _sqaAttributes :: !(Map QueueAttributeName Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SetQueueAttributes' smart constructor.

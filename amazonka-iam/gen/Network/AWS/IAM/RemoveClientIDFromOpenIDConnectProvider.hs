@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'rcidfoidcpClientID'
 data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider'
-    { _rcidfoidcpOpenIDConnectProviderARN :: Text
-    , _rcidfoidcpClientID                 :: Text
+    { _rcidfoidcpOpenIDConnectProviderARN :: !Text
+    , _rcidfoidcpClientID                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' smart constructor.

@@ -109,19 +109,19 @@ import           Network.AWS.Response
 --
 -- * 'seaQuery'
 data Search = Search'
-    { _seaExpr         :: Maybe Text
-    , _seaCursor       :: Maybe Text
-    , _seaFilterQuery  :: Maybe Text
-    , _seaReturn       :: Maybe Text
-    , _seaQueryOptions :: Maybe Text
-    , _seaQueryParser  :: Maybe QueryParser
-    , _seaSize         :: Maybe Integer
-    , _seaStart        :: Maybe Integer
-    , _seaHighlight    :: Maybe Text
-    , _seaSort         :: Maybe Text
-    , _seaFacet        :: Maybe Text
-    , _seaPartial      :: Maybe Bool
-    , _seaQuery        :: Text
+    { _seaExpr         :: !(Maybe Text)
+    , _seaCursor       :: !(Maybe Text)
+    , _seaFilterQuery  :: !(Maybe Text)
+    , _seaReturn       :: !(Maybe Text)
+    , _seaQueryOptions :: !(Maybe Text)
+    , _seaQueryParser  :: !(Maybe QueryParser)
+    , _seaSize         :: !(Maybe Integer)
+    , _seaStart        :: !(Maybe Integer)
+    , _seaHighlight    :: !(Maybe Text)
+    , _seaSort         :: !(Maybe Text)
+    , _seaFacet        :: !(Maybe Text)
+    , _seaPartial      :: !(Maybe Bool)
+    , _seaQuery        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Search' smart constructor.
@@ -526,8 +526,8 @@ instance ToQuery Search where
 --
 -- * 'seaStatus'
 data SearchResponse = SearchResponse'
-    { _seaFacets :: Maybe (Map Text BucketInfo)
-    , _seaHits   :: Maybe Hits
+    { _seaFacets :: !(Maybe (Map Text BucketInfo))
+    , _seaHits   :: !(Maybe Hits)
     , _seaStatus :: !Int
     } deriving (Eq,Read,Show)
 

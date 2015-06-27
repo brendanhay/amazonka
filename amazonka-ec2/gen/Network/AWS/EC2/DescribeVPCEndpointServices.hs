@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'dvesMaxResults'
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
-    { _dvesNextToken  :: Maybe Text
-    , _dvesDryRun     :: Maybe Bool
-    , _dvesMaxResults :: Maybe Int
+    { _dvesNextToken  :: !(Maybe Text)
+    , _dvesDryRun     :: !(Maybe Bool)
+    , _dvesMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCEndpointServices' smart constructor.
@@ -127,8 +127,8 @@ instance ToQuery DescribeVPCEndpointServices where
 --
 -- * 'dvesrStatus'
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
-    { _dvesrServiceNames :: Maybe [Text]
-    , _dvesrNextToken    :: Maybe Text
+    { _dvesrServiceNames :: !(Maybe [Text])
+    , _dvesrNextToken    :: !(Maybe Text)
     , _dvesrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

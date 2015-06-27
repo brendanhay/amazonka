@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'ucaContainerInstance'
 data UpdateContainerAgent = UpdateContainerAgent'
-    { _ucaCluster           :: Maybe Text
-    , _ucaContainerInstance :: Text
+    { _ucaCluster           :: !(Maybe Text)
+    , _ucaContainerInstance :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateContainerAgent' smart constructor.
@@ -115,7 +115,7 @@ instance ToQuery UpdateContainerAgent where
 --
 -- * 'ucarStatus'
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
-    { _ucarContainerInstance :: Maybe ContainerInstance
+    { _ucarContainerInstance :: !(Maybe ContainerInstance)
     , _ucarStatus            :: !Int
     } deriving (Eq,Read,Show)
 

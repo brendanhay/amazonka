@@ -1162,37 +1162,37 @@ instance FromXML AvailabilityZone where
 --
 -- * 'cluClusterNodes'
 data Cluster = Cluster'
-    { _cluRestoreStatus                    :: Maybe RestoreStatus
-    , _cluClusterSnapshotCopyStatus        :: Maybe ClusterSnapshotCopyStatus
-    , _cluClusterRevisionNumber            :: Maybe Text
-    , _cluMasterUsername                   :: Maybe Text
-    , _cluPubliclyAccessible               :: Maybe Bool
-    , _cluVPCId                            :: Maybe Text
-    , _cluClusterSecurityGroups            :: Maybe [ClusterSecurityGroupMembership]
-    , _cluAutomatedSnapshotRetentionPeriod :: Maybe Int
-    , _cluEncrypted                        :: Maybe Bool
-    , _cluClusterIdentifier                :: Maybe Text
-    , _cluNumberOfNodes                    :: Maybe Int
-    , _cluClusterSubnetGroupName           :: Maybe Text
-    , _cluPreferredMaintenanceWindow       :: Maybe Text
-    , _cluModifyStatus                     :: Maybe Text
-    , _cluClusterPublicKey                 :: Maybe Text
-    , _cluClusterParameterGroups           :: Maybe [ClusterParameterGroupStatus]
-    , _cluAvailabilityZone                 :: Maybe Text
-    , _cluVPCSecurityGroups                :: Maybe [VPCSecurityGroupMembership]
-    , _cluKMSKeyId                         :: Maybe Text
-    , _cluHSMStatus                        :: Maybe HSMStatus
-    , _cluElasticIPStatus                  :: Maybe ElasticIPStatus
-    , _cluClusterVersion                   :: Maybe Text
-    , _cluNodeType                         :: Maybe Text
-    , _cluEndpoint                         :: Maybe Endpoint
-    , _cluClusterCreateTime                :: Maybe ISO8601
-    , _cluAllowVersionUpgrade              :: Maybe Bool
-    , _cluPendingModifiedValues            :: Maybe PendingModifiedValues
-    , _cluClusterStatus                    :: Maybe Text
-    , _cluDBName                           :: Maybe Text
-    , _cluTags                             :: Maybe [Tag]
-    , _cluClusterNodes                     :: Maybe [ClusterNode]
+    { _cluRestoreStatus                    :: !(Maybe RestoreStatus)
+    , _cluClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
+    , _cluClusterRevisionNumber            :: !(Maybe Text)
+    , _cluMasterUsername                   :: !(Maybe Text)
+    , _cluPubliclyAccessible               :: !(Maybe Bool)
+    , _cluVPCId                            :: !(Maybe Text)
+    , _cluClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
+    , _cluAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _cluEncrypted                        :: !(Maybe Bool)
+    , _cluClusterIdentifier                :: !(Maybe Text)
+    , _cluNumberOfNodes                    :: !(Maybe Int)
+    , _cluClusterSubnetGroupName           :: !(Maybe Text)
+    , _cluPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _cluModifyStatus                     :: !(Maybe Text)
+    , _cluClusterPublicKey                 :: !(Maybe Text)
+    , _cluClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
+    , _cluAvailabilityZone                 :: !(Maybe Text)
+    , _cluVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
+    , _cluKMSKeyId                         :: !(Maybe Text)
+    , _cluHSMStatus                        :: !(Maybe HSMStatus)
+    , _cluElasticIPStatus                  :: !(Maybe ElasticIPStatus)
+    , _cluClusterVersion                   :: !(Maybe Text)
+    , _cluNodeType                         :: !(Maybe Text)
+    , _cluEndpoint                         :: !(Maybe Endpoint)
+    , _cluClusterCreateTime                :: !(Maybe ISO8601)
+    , _cluAllowVersionUpgrade              :: !(Maybe Bool)
+    , _cluPendingModifiedValues            :: !(Maybe PendingModifiedValues)
+    , _cluClusterStatus                    :: !(Maybe Text)
+    , _cluDBName                           :: !(Maybe Text)
+    , _cluTags                             :: !(Maybe [Tag])
+    , _cluClusterNodes                     :: !(Maybe [ClusterNode])
     } deriving (Eq,Read,Show)
 
 -- | 'Cluster' smart constructor.
@@ -1439,9 +1439,9 @@ instance FromXML Cluster where
 --
 -- * 'cnPublicIPAddress'
 data ClusterNode = ClusterNode'
-    { _cnNodeRole         :: Maybe Text
-    , _cnPrivateIPAddress :: Maybe Text
-    , _cnPublicIPAddress  :: Maybe Text
+    { _cnNodeRole         :: !(Maybe Text)
+    , _cnPrivateIPAddress :: !(Maybe Text)
+    , _cnPublicIPAddress  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterNode' smart constructor.
@@ -1485,10 +1485,10 @@ instance FromXML ClusterNode where
 --
 -- * 'cpgTags'
 data ClusterParameterGroup = ClusterParameterGroup'
-    { _cpgParameterGroupFamily :: Maybe Text
-    , _cpgDescription          :: Maybe Text
-    , _cpgParameterGroupName   :: Maybe Text
-    , _cpgTags                 :: Maybe [Tag]
+    { _cpgParameterGroupFamily :: !(Maybe Text)
+    , _cpgDescription          :: !(Maybe Text)
+    , _cpgParameterGroupName   :: !(Maybe Text)
+    , _cpgTags                 :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroup' smart constructor.
@@ -1540,8 +1540,8 @@ instance FromXML ClusterParameterGroup where
 --
 -- * 'cpgnmParameterGroupName'
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-    { _cpgnmParameterGroupStatus :: Maybe Text
-    , _cpgnmParameterGroupName   :: Maybe Text
+    { _cpgnmParameterGroupStatus :: !(Maybe Text)
+    , _cpgnmParameterGroupName   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroupNameMessage' smart constructor.
@@ -1581,9 +1581,9 @@ instance FromXML ClusterParameterGroupNameMessage
 --
 -- * 'cpgsParameterGroupName'
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-    { _cpgsClusterParameterStatusList :: Maybe [ClusterParameterStatus]
-    , _cpgsParameterApplyStatus       :: Maybe Text
-    , _cpgsParameterGroupName         :: Maybe Text
+    { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
+    , _cpgsParameterApplyStatus       :: !(Maybe Text)
+    , _cpgsParameterGroupName         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterGroupStatus' smart constructor.
@@ -1631,9 +1631,9 @@ instance FromXML ClusterParameterGroupStatus where
 --
 -- * 'cpsParameterApplyStatus'
 data ClusterParameterStatus = ClusterParameterStatus'
-    { _cpsParameterApplyErrorDescription :: Maybe Text
-    , _cpsParameterName                  :: Maybe Text
-    , _cpsParameterApplyStatus           :: Maybe Text
+    { _cpsParameterApplyErrorDescription :: !(Maybe Text)
+    , _cpsParameterName                  :: !(Maybe Text)
+    , _cpsParameterApplyStatus           :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterParameterStatus' smart constructor.
@@ -1698,11 +1698,11 @@ instance FromXML ClusterParameterStatus where
 --
 -- * 'cTags'
 data ClusterSecurityGroup = ClusterSecurityGroup'
-    { _cClusterSecurityGroupName :: Maybe Text
-    , _cIPRanges                 :: Maybe [IPRange]
-    , _cEC2SecurityGroups        :: Maybe [EC2SecurityGroup]
-    , _cDescription              :: Maybe Text
-    , _cTags                     :: Maybe [Tag]
+    { _cClusterSecurityGroupName :: !(Maybe Text)
+    , _cIPRanges                 :: !(Maybe [IPRange])
+    , _cEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
+    , _cDescription              :: !(Maybe Text)
+    , _cTags                     :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterSecurityGroup' smart constructor.
@@ -1763,8 +1763,8 @@ instance FromXML ClusterSecurityGroup where
 --
 -- * 'csgmClusterSecurityGroupName'
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-    { _csgmStatus                   :: Maybe Text
-    , _csgmClusterSecurityGroupName :: Maybe Text
+    { _csgmStatus                   :: !(Maybe Text)
+    , _csgmClusterSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterSecurityGroupMembership' smart constructor.
@@ -1802,9 +1802,9 @@ instance FromXML ClusterSecurityGroupMembership where
 --
 -- * 'cscsSnapshotCopyGrantName'
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod       :: Maybe Integer
-    , _cscsDestinationRegion     :: Maybe Text
-    , _cscsSnapshotCopyGrantName :: Maybe Text
+    { _cscsRetentionPeriod       :: !(Maybe Integer)
+    , _cscsDestinationRegion     :: !(Maybe Text)
+    , _cscsSnapshotCopyGrantName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterSnapshotCopyStatus' smart constructor.
@@ -1855,12 +1855,12 @@ instance FromXML ClusterSnapshotCopyStatus where
 --
 -- * 'csgTags'
 data ClusterSubnetGroup = ClusterSubnetGroup'
-    { _csgVPCId                  :: Maybe Text
-    , _csgSubnets                :: Maybe [Subnet]
-    , _csgClusterSubnetGroupName :: Maybe Text
-    , _csgSubnetGroupStatus      :: Maybe Text
-    , _csgDescription            :: Maybe Text
-    , _csgTags                   :: Maybe [Tag]
+    { _csgVPCId                  :: !(Maybe Text)
+    , _csgSubnets                :: !(Maybe [Subnet])
+    , _csgClusterSubnetGroupName :: !(Maybe Text)
+    , _csgSubnetGroupStatus      :: !(Maybe Text)
+    , _csgDescription            :: !(Maybe Text)
+    , _csgTags                   :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterSubnetGroup' smart constructor.
@@ -1926,9 +1926,9 @@ instance FromXML ClusterSubnetGroup where
 --
 -- * 'cvDescription'
 data ClusterVersion = ClusterVersion'
-    { _cvClusterParameterGroupFamily :: Maybe Text
-    , _cvClusterVersion              :: Maybe Text
-    , _cvDescription                 :: Maybe Text
+    { _cvClusterParameterGroupFamily :: !(Maybe Text)
+    , _cvClusterVersion              :: !(Maybe Text)
+    , _cvDescription                 :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ClusterVersion' smart constructor.
@@ -1971,9 +1971,9 @@ instance FromXML ClusterVersion where
 --
 -- * 'dcpParameterGroupFamily'
 data DefaultClusterParameters = DefaultClusterParameters'
-    { _dcpParameters           :: Maybe [Parameter]
-    , _dcpMarker               :: Maybe Text
-    , _dcpParameterGroupFamily :: Maybe Text
+    { _dcpParameters           :: !(Maybe [Parameter])
+    , _dcpMarker               :: !(Maybe Text)
+    , _dcpParameterGroupFamily :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DefaultClusterParameters' smart constructor.
@@ -2025,10 +2025,10 @@ instance FromXML DefaultClusterParameters where
 --
 -- * 'esgTags'
 data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: Maybe Text
-    , _esgEC2SecurityGroupOwnerId :: Maybe Text
-    , _esgEC2SecurityGroupName    :: Maybe Text
-    , _esgTags                    :: Maybe [Tag]
+    { _esgStatus                  :: !(Maybe Text)
+    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _esgEC2SecurityGroupName    :: !(Maybe Text)
+    , _esgTags                    :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'EC2SecurityGroup' smart constructor.
@@ -2078,8 +2078,8 @@ instance FromXML EC2SecurityGroup where
 --
 -- * 'eisElasticIP'
 data ElasticIPStatus = ElasticIPStatus'
-    { _eisStatus    :: Maybe Text
-    , _eisElasticIP :: Maybe Text
+    { _eisStatus    :: !(Maybe Text)
+    , _eisElasticIP :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ElasticIPStatus' smart constructor.
@@ -2113,8 +2113,8 @@ instance FromXML ElasticIPStatus where
 --
 -- * 'endPort'
 data Endpoint = Endpoint'
-    { _endAddress :: Maybe Text
-    , _endPort    :: Maybe Int
+    { _endAddress :: !(Maybe Text)
+    , _endPort    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
@@ -2157,13 +2157,13 @@ instance FromXML Endpoint where
 --
 -- * 'eveEventId'
 data Event = Event'
-    { _eveSourceType       :: Maybe SourceType
-    , _eveSeverity         :: Maybe Text
-    , _eveSourceIdentifier :: Maybe Text
-    , _eveDate             :: Maybe ISO8601
-    , _eveEventCategories  :: Maybe [Text]
-    , _eveMessage          :: Maybe Text
-    , _eveEventId          :: Maybe Text
+    { _eveSourceType       :: !(Maybe SourceType)
+    , _eveSeverity         :: !(Maybe Text)
+    , _eveSourceIdentifier :: !(Maybe Text)
+    , _eveDate             :: !(Maybe ISO8601)
+    , _eveEventCategories  :: !(Maybe [Text])
+    , _eveMessage          :: !(Maybe Text)
+    , _eveEventId          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
@@ -2231,8 +2231,8 @@ instance FromXML Event where
 --
 -- * 'ecmEvents'
 data EventCategoriesMap = EventCategoriesMap'
-    { _ecmSourceType :: Maybe Text
-    , _ecmEvents     :: Maybe [EventInfoMap]
+    { _ecmSourceType :: !(Maybe Text)
+    , _ecmEvents     :: !(Maybe [EventInfoMap])
     } deriving (Eq,Read,Show)
 
 -- | 'EventCategoriesMap' smart constructor.
@@ -2271,10 +2271,10 @@ instance FromXML EventCategoriesMap where
 --
 -- * 'eimEventId'
 data EventInfoMap = EventInfoMap'
-    { _eimEventDescription :: Maybe Text
-    , _eimSeverity         :: Maybe Text
-    , _eimEventCategories  :: Maybe [Text]
-    , _eimEventId          :: Maybe Text
+    { _eimEventDescription :: !(Maybe Text)
+    , _eimSeverity         :: !(Maybe Text)
+    , _eimEventCategories  :: !(Maybe [Text])
+    , _eimEventId          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EventInfoMap' smart constructor.
@@ -2339,17 +2339,17 @@ instance FromXML EventInfoMap where
 --
 -- * 'esTags'
 data EventSubscription = EventSubscription'
-    { _esCustomerAWSId            :: Maybe Text
-    , _esStatus                   :: Maybe Text
-    , _esCustSubscriptionId       :: Maybe Text
-    , _esSNSTopicARN              :: Maybe Text
-    , _esEnabled                  :: Maybe Bool
-    , _esSourceType               :: Maybe Text
-    , _esSeverity                 :: Maybe Text
-    , _esSubscriptionCreationTime :: Maybe ISO8601
-    , _esEventCategoriesList      :: Maybe [Text]
-    , _esSourceIdsList            :: Maybe [Text]
-    , _esTags                     :: Maybe [Tag]
+    { _esCustomerAWSId            :: !(Maybe Text)
+    , _esStatus                   :: !(Maybe Text)
+    , _esCustSubscriptionId       :: !(Maybe Text)
+    , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEnabled                  :: !(Maybe Bool)
+    , _esSourceType               :: !(Maybe Text)
+    , _esSeverity                 :: !(Maybe Text)
+    , _esSubscriptionCreationTime :: !(Maybe ISO8601)
+    , _esEventCategoriesList      :: !(Maybe [Text])
+    , _esSourceIdsList            :: !(Maybe [Text])
+    , _esTags                     :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'EventSubscription' smart constructor.
@@ -2468,9 +2468,9 @@ instance FromXML EventSubscription where
 --
 -- * 'hccTags'
 data HSMClientCertificate = HSMClientCertificate'
-    { _hccHSMClientCertificateIdentifier :: Maybe Text
-    , _hccHSMClientCertificatePublicKey  :: Maybe Text
-    , _hccTags                           :: Maybe [Tag]
+    { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
+    , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
+    , _hccTags                           :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'HSMClientCertificate' smart constructor.
@@ -2522,11 +2522,11 @@ instance FromXML HSMClientCertificate where
 --
 -- * 'hcTags'
 data HSMConfiguration = HSMConfiguration'
-    { _hcHSMConfigurationIdentifier :: Maybe Text
-    , _hcHSMPartitionName           :: Maybe Text
-    , _hcDescription                :: Maybe Text
-    , _hcHSMIPAddress               :: Maybe Text
-    , _hcTags                       :: Maybe [Tag]
+    { _hcHSMConfigurationIdentifier :: !(Maybe Text)
+    , _hcHSMPartitionName           :: !(Maybe Text)
+    , _hcDescription                :: !(Maybe Text)
+    , _hcHSMIPAddress               :: !(Maybe Text)
+    , _hcTags                       :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'HSMConfiguration' smart constructor.
@@ -2585,9 +2585,9 @@ instance FromXML HSMConfiguration where
 --
 -- * 'hsHSMClientCertificateIdentifier'
 data HSMStatus = HSMStatus'
-    { _hsStatus                         :: Maybe Text
-    , _hsHSMConfigurationIdentifier     :: Maybe Text
-    , _hsHSMClientCertificateIdentifier :: Maybe Text
+    { _hsStatus                         :: !(Maybe Text)
+    , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
+    , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'HSMStatus' smart constructor.
@@ -2636,9 +2636,9 @@ instance FromXML HSMStatus where
 --
 -- * 'irTags'
 data IPRange = IPRange'
-    { _irStatus :: Maybe Text
-    , _irCIDRIP :: Maybe Text
-    , _irTags   :: Maybe [Tag]
+    { _irStatus :: !(Maybe Text)
+    , _irCIDRIP :: !(Maybe Text)
+    , _irTags   :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'IPRange' smart constructor.
@@ -2687,12 +2687,12 @@ instance FromXML IPRange where
 --
 -- * 'lsLastFailureMessage'
 data LoggingStatus = LoggingStatus'
-    { _lsLastSuccessfulDeliveryTime :: Maybe ISO8601
-    , _lsLastFailureTime            :: Maybe ISO8601
-    , _lsS3KeyPrefix                :: Maybe Text
-    , _lsBucketName                 :: Maybe Text
-    , _lsLoggingEnabled             :: Maybe Bool
-    , _lsLastFailureMessage         :: Maybe Text
+    { _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
+    , _lsLastFailureTime            :: !(Maybe ISO8601)
+    , _lsS3KeyPrefix                :: !(Maybe Text)
+    , _lsBucketName                 :: !(Maybe Text)
+    , _lsLoggingEnabled             :: !(Maybe Bool)
+    , _lsLastFailureMessage         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LoggingStatus' smart constructor.
@@ -2755,10 +2755,10 @@ instance FromXML LoggingStatus where
 --
 -- * 'ocoNodeType'
 data OrderableClusterOption = OrderableClusterOption'
-    { _ocoAvailabilityZones :: Maybe [AvailabilityZone]
-    , _ocoClusterType       :: Maybe Text
-    , _ocoClusterVersion    :: Maybe Text
-    , _ocoNodeType          :: Maybe Text
+    { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
+    , _ocoClusterType       :: !(Maybe Text)
+    , _ocoClusterVersion    :: !(Maybe Text)
+    , _ocoNodeType          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OrderableClusterOption' smart constructor.
@@ -2820,15 +2820,15 @@ instance FromXML OrderableClusterOption where
 --
 -- * 'parDescription'
 data Parameter = Parameter'
-    { _parApplyType            :: Maybe ParameterApplyType
-    , _parParameterValue       :: Maybe Text
-    , _parMinimumEngineVersion :: Maybe Text
-    , _parSource               :: Maybe Text
-    , _parIsModifiable         :: Maybe Bool
-    , _parAllowedValues        :: Maybe Text
-    , _parDataType             :: Maybe Text
-    , _parParameterName        :: Maybe Text
-    , _parDescription          :: Maybe Text
+    { _parApplyType            :: !(Maybe ParameterApplyType)
+    , _parParameterValue       :: !(Maybe Text)
+    , _parMinimumEngineVersion :: !(Maybe Text)
+    , _parSource               :: !(Maybe Text)
+    , _parIsModifiable         :: !(Maybe Bool)
+    , _parAllowedValues        :: !(Maybe Text)
+    , _parDataType             :: !(Maybe Text)
+    , _parParameterName        :: !(Maybe Text)
+    , _parDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
@@ -2931,13 +2931,13 @@ instance ToQuery Parameter where
 --
 -- * 'pmvNodeType'
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvMasterUserPassword               :: Maybe Text
-    , _pmvAutomatedSnapshotRetentionPeriod :: Maybe Int
-    , _pmvClusterIdentifier                :: Maybe Text
-    , _pmvNumberOfNodes                    :: Maybe Int
-    , _pmvClusterType                      :: Maybe Text
-    , _pmvClusterVersion                   :: Maybe Text
-    , _pmvNodeType                         :: Maybe Text
+    { _pmvMasterUserPassword               :: !(Maybe Text)
+    , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _pmvClusterIdentifier                :: !(Maybe Text)
+    , _pmvNumberOfNodes                    :: !(Maybe Int)
+    , _pmvClusterType                      :: !(Maybe Text)
+    , _pmvClusterVersion                   :: !(Maybe Text)
+    , _pmvNodeType                         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PendingModifiedValues' smart constructor.
@@ -3004,8 +3004,8 @@ instance FromXML PendingModifiedValues where
 --
 -- * 'rcRecurringChargeAmount'
 data RecurringCharge = RecurringCharge'
-    { _rcRecurringChargeFrequency :: Maybe Text
-    , _rcRecurringChargeAmount    :: Maybe Double
+    { _rcRecurringChargeFrequency :: !(Maybe Text)
+    , _rcRecurringChargeAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
@@ -3063,18 +3063,18 @@ instance FromXML RecurringCharge where
 --
 -- * 'rnDuration'
 data ReservedNode = ReservedNode'
-    { _rnState                  :: Maybe Text
-    , _rnCurrencyCode           :: Maybe Text
-    , _rnStartTime              :: Maybe ISO8601
-    , _rnNodeCount              :: Maybe Int
-    , _rnReservedNodeOfferingId :: Maybe Text
-    , _rnReservedNodeId         :: Maybe Text
-    , _rnOfferingType           :: Maybe Text
-    , _rnUsagePrice             :: Maybe Double
-    , _rnNodeType               :: Maybe Text
-    , _rnRecurringCharges       :: Maybe [RecurringCharge]
-    , _rnFixedPrice             :: Maybe Double
-    , _rnDuration               :: Maybe Int
+    { _rnState                  :: !(Maybe Text)
+    , _rnCurrencyCode           :: !(Maybe Text)
+    , _rnStartTime              :: !(Maybe ISO8601)
+    , _rnNodeCount              :: !(Maybe Int)
+    , _rnReservedNodeOfferingId :: !(Maybe Text)
+    , _rnReservedNodeId         :: !(Maybe Text)
+    , _rnOfferingType           :: !(Maybe Text)
+    , _rnUsagePrice             :: !(Maybe Double)
+    , _rnNodeType               :: !(Maybe Text)
+    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
+    , _rnFixedPrice             :: !(Maybe Double)
+    , _rnDuration               :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedNode' smart constructor.
@@ -3192,14 +3192,14 @@ instance FromXML ReservedNode where
 --
 -- * 'rnoDuration'
 data ReservedNodeOffering = ReservedNodeOffering'
-    { _rnoCurrencyCode           :: Maybe Text
-    , _rnoReservedNodeOfferingId :: Maybe Text
-    , _rnoOfferingType           :: Maybe Text
-    , _rnoUsagePrice             :: Maybe Double
-    , _rnoNodeType               :: Maybe Text
-    , _rnoRecurringCharges       :: Maybe [RecurringCharge]
-    , _rnoFixedPrice             :: Maybe Double
-    , _rnoDuration               :: Maybe Int
+    { _rnoCurrencyCode           :: !(Maybe Text)
+    , _rnoReservedNodeOfferingId :: !(Maybe Text)
+    , _rnoOfferingType           :: !(Maybe Text)
+    , _rnoUsagePrice             :: !(Maybe Double)
+    , _rnoNodeType               :: !(Maybe Text)
+    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
+    , _rnoFixedPrice             :: !(Maybe Double)
+    , _rnoDuration               :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedNodeOffering' smart constructor.
@@ -3286,12 +3286,12 @@ instance FromXML ReservedNodeOffering where
 --
 -- * 'rsSnapshotSizeInMegaBytes'
 data RestoreStatus = RestoreStatus'
-    { _rsEstimatedTimeToCompletionInSeconds     :: Maybe Integer
-    , _rsStatus                                 :: Maybe Text
-    , _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double
-    , _rsProgressInMegaBytes                    :: Maybe Integer
-    , _rsElapsedTimeInSeconds                   :: Maybe Integer
-    , _rsSnapshotSizeInMegaBytes                :: Maybe Integer
+    { _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
+    , _rsStatus                                 :: !(Maybe Text)
+    , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
+    , _rsProgressInMegaBytes                    :: !(Maybe Integer)
+    , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
+    , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreStatus' smart constructor.
@@ -3407,34 +3407,34 @@ instance FromXML RestoreStatus where
 --
 -- * 'snaPort'
 data Snapshot = Snapshot'
-    { _snaRestorableNodeTypes                    :: Maybe [Text]
-    , _snaStatus                                 :: Maybe Text
-    , _snaAccountsWithRestoreAccess              :: Maybe [AccountWithRestoreAccess]
-    , _snaSnapshotIdentifier                     :: Maybe Text
-    , _snaEncryptedWithHSM                       :: Maybe Bool
-    , _snaMasterUsername                         :: Maybe Text
-    , _snaSourceRegion                           :: Maybe Text
-    , _snaVPCId                                  :: Maybe Text
-    , _snaBackupProgressInMegaBytes              :: Maybe Double
-    , _snaEncrypted                              :: Maybe Bool
-    , _snaClusterIdentifier                      :: Maybe Text
-    , _snaNumberOfNodes                          :: Maybe Int
-    , _snaSnapshotType                           :: Maybe Text
-    , _snaAvailabilityZone                       :: Maybe Text
-    , _snaKMSKeyId                               :: Maybe Text
-    , _snaCurrentBackupRateInMegaBytesPerSecond  :: Maybe Double
-    , _snaSnapshotCreateTime                     :: Maybe ISO8601
-    , _snaClusterVersion                         :: Maybe Text
-    , _snaOwnerAccount                           :: Maybe Text
-    , _snaNodeType                               :: Maybe Text
-    , _snaClusterCreateTime                      :: Maybe ISO8601
-    , _snaElapsedTimeInSeconds                   :: Maybe Integer
-    , _snaEstimatedSecondsToCompletion           :: Maybe Integer
-    , _snaTotalBackupSizeInMegaBytes             :: Maybe Double
-    , _snaDBName                                 :: Maybe Text
-    , _snaTags                                   :: Maybe [Tag]
-    , _snaActualIncrementalBackupSizeInMegaBytes :: Maybe Double
-    , _snaPort                                   :: Maybe Int
+    { _snaRestorableNodeTypes                    :: !(Maybe [Text])
+    , _snaStatus                                 :: !(Maybe Text)
+    , _snaAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
+    , _snaSnapshotIdentifier                     :: !(Maybe Text)
+    , _snaEncryptedWithHSM                       :: !(Maybe Bool)
+    , _snaMasterUsername                         :: !(Maybe Text)
+    , _snaSourceRegion                           :: !(Maybe Text)
+    , _snaVPCId                                  :: !(Maybe Text)
+    , _snaBackupProgressInMegaBytes              :: !(Maybe Double)
+    , _snaEncrypted                              :: !(Maybe Bool)
+    , _snaClusterIdentifier                      :: !(Maybe Text)
+    , _snaNumberOfNodes                          :: !(Maybe Int)
+    , _snaSnapshotType                           :: !(Maybe Text)
+    , _snaAvailabilityZone                       :: !(Maybe Text)
+    , _snaKMSKeyId                               :: !(Maybe Text)
+    , _snaCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
+    , _snaSnapshotCreateTime                     :: !(Maybe ISO8601)
+    , _snaClusterVersion                         :: !(Maybe Text)
+    , _snaOwnerAccount                           :: !(Maybe Text)
+    , _snaNodeType                               :: !(Maybe Text)
+    , _snaClusterCreateTime                      :: !(Maybe ISO8601)
+    , _snaElapsedTimeInSeconds                   :: !(Maybe Integer)
+    , _snaEstimatedSecondsToCompletion           :: !(Maybe Integer)
+    , _snaTotalBackupSizeInMegaBytes             :: !(Maybe Double)
+    , _snaDBName                                 :: !(Maybe Text)
+    , _snaTags                                   :: !(Maybe [Tag])
+    , _snaActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
+    , _snaPort                                   :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Snapshot' smart constructor.
@@ -3664,9 +3664,9 @@ instance FromXML Snapshot where
 --
 -- * 'scgTags'
 data SnapshotCopyGrant = SnapshotCopyGrant'
-    { _scgKMSKeyId              :: Maybe Text
-    , _scgSnapshotCopyGrantName :: Maybe Text
-    , _scgTags                  :: Maybe [Tag]
+    { _scgKMSKeyId              :: !(Maybe Text)
+    , _scgSnapshotCopyGrantName :: !(Maybe Text)
+    , _scgTags                  :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'SnapshotCopyGrant' smart constructor.
@@ -3712,9 +3712,9 @@ instance FromXML SnapshotCopyGrant where
 --
 -- * 'subSubnetAvailabilityZone'
 data Subnet = Subnet'
-    { _subSubnetStatus           :: Maybe Text
-    , _subSubnetIdentifier       :: Maybe Text
-    , _subSubnetAvailabilityZone :: Maybe AvailabilityZone
+    { _subSubnetStatus           :: !(Maybe Text)
+    , _subSubnetIdentifier       :: !(Maybe Text)
+    , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
@@ -3754,8 +3754,8 @@ instance FromXML Subnet where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -3794,9 +3794,9 @@ instance ToQuery Tag where
 --
 -- * 'trResourceName'
 data TaggedResource = TaggedResource'
-    { _trResourceType :: Maybe Text
-    , _trTag          :: Maybe Tag
-    , _trResourceName :: Maybe Text
+    { _trResourceType :: !(Maybe Text)
+    , _trTag          :: !(Maybe Tag)
+    , _trResourceName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TaggedResource' smart constructor.
@@ -3853,8 +3853,8 @@ instance FromXML TaggedResource where
 --
 -- * 'vsgmVPCSecurityGroupId'
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-    { _vsgmStatus             :: Maybe Text
-    , _vsgmVPCSecurityGroupId :: Maybe Text
+    { _vsgmStatus             :: !(Maybe Text)
+    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPCSecurityGroupMembership' smart constructor.

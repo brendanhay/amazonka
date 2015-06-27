@@ -51,9 +51,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'pblBucketLoggingStatus'
 data PutBucketLogging = PutBucketLogging'
-    { _pblContentMD5          :: Maybe Text
-    , _pblBucket              :: BucketName
-    , _pblBucketLoggingStatus :: BucketLoggingStatus
+    { _pblContentMD5          :: !(Maybe Text)
+    , _pblBucket              :: !BucketName
+    , _pblBucketLoggingStatus :: !BucketLoggingStatus
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketLogging' smart constructor.

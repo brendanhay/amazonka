@@ -46,8 +46,8 @@ import           Network.AWS.Response
 --
 -- * 'delFilterName'
 data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
-    { _delLogGroupName :: Text
-    , _delFilterName   :: Text
+    { _delLogGroupName :: !Text
+    , _delFilterName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteSubscriptionFilter' smart constructor.

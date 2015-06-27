@@ -51,9 +51,9 @@ import           Network.AWS.Response
 --
 -- * 'resAttribute'
 data ResetImageAttribute = ResetImageAttribute'
-    { _resDryRun    :: Maybe Bool
-    , _resImageId   :: Text
-    , _resAttribute :: ResetImageAttributeName
+    { _resDryRun    :: !(Maybe Bool)
+    , _resImageId   :: !Text
+    , _resAttribute :: !ResetImageAttributeName
     } deriving (Eq,Read,Show)
 
 -- | 'ResetImageAttribute' smart constructor.

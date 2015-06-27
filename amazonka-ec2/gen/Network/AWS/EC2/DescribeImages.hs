@@ -64,11 +64,11 @@ import           Network.AWS.Response
 --
 -- * 'di2DryRun'
 data DescribeImages = DescribeImages'
-    { _di2Owners          :: Maybe [Text]
-    , _di2ExecutableUsers :: Maybe [Text]
-    , _di2Filters         :: Maybe [Filter]
-    , _di2ImageIds        :: Maybe [Text]
-    , _di2DryRun          :: Maybe Bool
+    { _di2Owners          :: !(Maybe [Text])
+    , _di2ExecutableUsers :: !(Maybe [Text])
+    , _di2Filters         :: !(Maybe [Filter])
+    , _di2ImageIds        :: !(Maybe [Text])
+    , _di2DryRun          :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImages' smart constructor.
@@ -229,7 +229,7 @@ instance ToQuery DescribeImages where
 --
 -- * 'descStatus'
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _descImages :: Maybe [Image]
+    { _descImages :: !(Maybe [Image])
     , _descStatus :: !Int
     } deriving (Eq,Read,Show)
 

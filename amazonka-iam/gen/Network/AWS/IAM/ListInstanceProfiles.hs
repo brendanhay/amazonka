@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'lipMarker'
 data ListInstanceProfiles = ListInstanceProfiles'
-    { _lipPathPrefix :: Maybe Text
-    , _lipMaxItems   :: Maybe Nat
-    , _lipMarker     :: Maybe Text
+    { _lipPathPrefix :: !(Maybe Text)
+    , _lipMaxItems   :: !(Maybe Nat)
+    , _lipMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfiles' smart constructor.
@@ -148,9 +148,9 @@ instance ToQuery ListInstanceProfiles where
 --
 -- * 'liprStatus'
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-    { _liprMarker           :: Maybe Text
-    , _liprIsTruncated      :: Maybe Bool
-    , _liprInstanceProfiles :: [InstanceProfile]
+    { _liprMarker           :: !(Maybe Text)
+    , _liprIsTruncated      :: !(Maybe Bool)
+    , _liprInstanceProfiles :: ![InstanceProfile]
     , _liprStatus           :: !Int
     } deriving (Eq,Read,Show)
 

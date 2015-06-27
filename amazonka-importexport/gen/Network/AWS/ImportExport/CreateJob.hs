@@ -70,10 +70,10 @@ import           Network.AWS.Response
 --
 -- * 'cjValidateOnly'
 data CreateJob = CreateJob'
-    { _cjAPIVersion       :: Maybe Text
-    , _cjManifestAddendum :: Maybe Text
-    , _cjJobType          :: JobType
-    , _cjManifest         :: Text
+    { _cjAPIVersion       :: !(Maybe Text)
+    , _cjManifestAddendum :: !(Maybe Text)
+    , _cjJobType          :: !JobType
+    , _cjManifest         :: !Text
     , _cjValidateOnly     :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -162,12 +162,12 @@ instance ToQuery CreateJob where
 --
 -- * 'cjrStatus'
 data CreateJobResponse = CreateJobResponse'
-    { _cjrSignature             :: Maybe Text
-    , _cjrJobType               :: Maybe JobType
-    , _cjrJobId                 :: Maybe Text
-    , _cjrSignatureFileContents :: Maybe Text
-    , _cjrWarningMessage        :: Maybe Text
-    , _cjrArtifactList          :: Maybe [Artifact]
+    { _cjrSignature             :: !(Maybe Text)
+    , _cjrJobType               :: !(Maybe JobType)
+    , _cjrJobId                 :: !(Maybe Text)
+    , _cjrSignatureFileContents :: !(Maybe Text)
+    , _cjrWarningMessage        :: !(Maybe Text)
+    , _cjrArtifactList          :: !(Maybe [Artifact])
     , _cjrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

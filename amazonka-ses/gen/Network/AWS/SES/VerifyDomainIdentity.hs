@@ -99,7 +99,7 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- * 'vdirStatus'
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-    { _vdirVerificationToken :: Text
+    { _vdirVerificationToken :: !Text
     , _vdirStatus            :: !Int
     } deriving (Eq,Read,Show)
 

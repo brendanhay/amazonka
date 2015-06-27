@@ -95,7 +95,7 @@ instance ToQuery GetServerCertificate where
 --
 -- * 'gscrStatus'
 data GetServerCertificateResponse = GetServerCertificateResponse'
-    { _gscrServerCertificate :: ServerCertificate
+    { _gscrServerCertificate :: !ServerCertificate
     , _gscrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

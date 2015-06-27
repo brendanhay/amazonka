@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'asitsSourceIdentifier'
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
-    { _asitsSubscriptionName :: Text
-    , _asitsSourceIdentifier :: Text
+    { _asitsSubscriptionName :: !Text
+    , _asitsSourceIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AddSourceIdentifierToSubscription' smart constructor.
@@ -125,7 +125,7 @@ instance ToQuery AddSourceIdentifierToSubscription
 --
 -- * 'asitsrStatus'
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
-    { _asitsrEventSubscription :: Maybe EventSubscription
+    { _asitsrEventSubscription :: !(Maybe EventSubscription)
     , _asitsrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

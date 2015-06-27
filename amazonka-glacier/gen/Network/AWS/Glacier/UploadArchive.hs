@@ -101,11 +101,11 @@ import           Network.AWS.Response
 --
 -- * 'uaBody'
 data UploadArchive = UploadArchive'
-    { _uaChecksum           :: Maybe Text
-    , _uaArchiveDescription :: Maybe Text
-    , _uaVaultName          :: Text
-    , _uaAccountId          :: Text
-    , _uaBody               :: RqBody
+    { _uaChecksum           :: !(Maybe Text)
+    , _uaArchiveDescription :: !(Maybe Text)
+    , _uaVaultName          :: !Text
+    , _uaAccountId          :: !Text
+    , _uaBody               :: !RqBody
     } deriving (Show)
 
 -- | 'UploadArchive' smart constructor.

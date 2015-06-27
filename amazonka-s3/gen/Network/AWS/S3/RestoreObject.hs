@@ -58,11 +58,11 @@ import           Network.AWS.S3.Types
 --
 -- * 'roKey'
 data RestoreObject = RestoreObject'
-    { _roVersionId      :: Maybe ObjectVersionId
-    , _roRequestPayer   :: Maybe RequestPayer
-    , _roRestoreRequest :: Maybe RestoreRequest
-    , _roBucket         :: BucketName
-    , _roKey            :: ObjectKey
+    { _roVersionId      :: !(Maybe ObjectVersionId)
+    , _roRequestPayer   :: !(Maybe RequestPayer)
+    , _roRestoreRequest :: !(Maybe RestoreRequest)
+    , _roBucket         :: !BucketName
+    , _roKey            :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreObject' smart constructor.
@@ -134,7 +134,7 @@ instance ToQuery RestoreObject where
 --
 -- * 'rorStatus'
 data RestoreObjectResponse = RestoreObjectResponse'
-    { _rorRequestCharged :: Maybe RequestCharged
+    { _rorRequestCharged :: !(Maybe RequestCharged)
     , _rorStatus         :: !Int
     } deriving (Eq,Read,Show)
 

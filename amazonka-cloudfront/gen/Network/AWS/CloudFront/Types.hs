@@ -996,7 +996,7 @@ instance ToXML ViewerProtocolPolicy where
 --
 -- * 'atsQuantity'
 data ActiveTrustedSigners = ActiveTrustedSigners'
-    { _atsItems    :: Maybe [Signer]
+    { _atsItems    :: !(Maybe [Signer])
     , _atsEnabled  :: !Bool
     , _atsQuantity :: !Int
     } deriving (Eq,Read,Show)
@@ -1046,7 +1046,7 @@ instance FromXML ActiveTrustedSigners where
 --
 -- * 'aliQuantity'
 data Aliases = Aliases'
-    { _aliItems    :: Maybe [Text]
+    { _aliItems    :: !(Maybe [Text])
     , _aliQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -1100,9 +1100,9 @@ instance ToXML Aliases where
 --
 -- * 'amItems'
 data AllowedMethods = AllowedMethods'
-    { _amCachedMethods :: Maybe CachedMethods
+    { _amCachedMethods :: !(Maybe CachedMethods)
     , _amQuantity      :: !Int
-    , _amItems         :: [Method]
+    , _amItems         :: ![Method]
     } deriving (Eq,Read,Show)
 
 -- | 'AllowedMethods' smart constructor.
@@ -1184,15 +1184,15 @@ instance ToXML AllowedMethods where
 --
 -- * 'cbMinTTL'
 data CacheBehavior = CacheBehavior'
-    { _cbAllowedMethods       :: Maybe AllowedMethods
-    , _cbMaxTTL               :: Maybe Integer
-    , _cbSmoothStreaming      :: Maybe Bool
-    , _cbDefaultTTL           :: Maybe Integer
-    , _cbPathPattern          :: Text
-    , _cbTargetOriginId       :: Text
-    , _cbForwardedValues      :: ForwardedValues
-    , _cbTrustedSigners       :: TrustedSigners
-    , _cbViewerProtocolPolicy :: ViewerProtocolPolicy
+    { _cbAllowedMethods       :: !(Maybe AllowedMethods)
+    , _cbMaxTTL               :: !(Maybe Integer)
+    , _cbSmoothStreaming      :: !(Maybe Bool)
+    , _cbDefaultTTL           :: !(Maybe Integer)
+    , _cbPathPattern          :: !Text
+    , _cbTargetOriginId       :: !Text
+    , _cbForwardedValues      :: !ForwardedValues
+    , _cbTrustedSigners       :: !TrustedSigners
+    , _cbViewerProtocolPolicy :: !ViewerProtocolPolicy
     , _cbMinTTL               :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -1334,7 +1334,7 @@ instance ToXML CacheBehavior where
 --
 -- * 'cbQuantity'
 data CacheBehaviors = CacheBehaviors'
-    { _cbItems    :: Maybe [CacheBehavior]
+    { _cbItems    :: !(Maybe [CacheBehavior])
     , _cbQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -1386,7 +1386,7 @@ instance ToXML CacheBehaviors where
 -- * 'cmItems'
 data CachedMethods = CachedMethods'
     { _cmQuantity :: !Int
-    , _cmItems    :: [Method]
+    , _cmItems    :: ![Method]
     } deriving (Eq,Read,Show)
 
 -- | 'CachedMethods' smart constructor.
@@ -1433,9 +1433,9 @@ instance ToXML CachedMethods where
 --
 -- * 'cfoaiS3CanonicalUserId'
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
-    { _cfoaiCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
-    , _cfoaiId                                   :: Text
-    , _cfoaiS3CanonicalUserId                    :: Text
+    { _cfoaiCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
+    , _cfoaiId                                   :: !Text
+    , _cfoaiS3CanonicalUserId                    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentity' smart constructor.
@@ -1478,8 +1478,8 @@ instance FromXML CloudFrontOriginAccessIdentity where
 --
 -- * 'cfoaicComment'
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
-    { _cfoaicCallerReference :: Text
-    , _cfoaicComment         :: Text
+    { _cfoaicCallerReference :: !Text
+    , _cfoaicComment         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentityConfig' smart constructor.
@@ -1540,9 +1540,9 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 --
 -- * 'cfoailQuantity'
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
-    { _cfoailItems       :: Maybe [CloudFrontOriginAccessIdentitySummary]
-    , _cfoailNextMarker  :: Maybe Text
-    , _cfoailMarker      :: Text
+    { _cfoailItems       :: !(Maybe [CloudFrontOriginAccessIdentitySummary])
+    , _cfoailNextMarker  :: !(Maybe Text)
+    , _cfoailMarker      :: !Text
     , _cfoailMaxItems    :: !Int
     , _cfoailIsTruncated :: !Bool
     , _cfoailQuantity    :: !Int
@@ -1618,9 +1618,9 @@ instance FromXML CloudFrontOriginAccessIdentityList
 --
 -- * 'cfoaisComment'
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary'
-    { _cfoaisId                :: Text
-    , _cfoaisS3CanonicalUserId :: Text
-    , _cfoaisComment           :: Text
+    { _cfoaisId                :: !Text
+    , _cfoaisS3CanonicalUserId :: !Text
+    , _cfoaisComment           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CloudFrontOriginAccessIdentitySummary' smart constructor.
@@ -1666,7 +1666,7 @@ instance FromXML
 --
 -- * 'cnQuantity'
 data CookieNames = CookieNames'
-    { _cnItems    :: Maybe [Text]
+    { _cnItems    :: !(Maybe [Text])
     , _cnQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -1711,8 +1711,8 @@ instance ToXML CookieNames where
 --
 -- * 'cpForward'
 data CookiePreference = CookiePreference'
-    { _cpWhitelistedNames :: Maybe CookieNames
-    , _cpForward          :: ItemSelection
+    { _cpWhitelistedNames :: !(Maybe CookieNames)
+    , _cpForward          :: !ItemSelection
     } deriving (Eq,Read,Show)
 
 -- | 'CookiePreference' smart constructor.
@@ -1772,9 +1772,9 @@ instance ToXML CookiePreference where
 --
 -- * 'cerErrorCode'
 data CustomErrorResponse = CustomErrorResponse'
-    { _cerResponsePagePath   :: Maybe Text
-    , _cerResponseCode       :: Maybe Text
-    , _cerErrorCachingMinTTL :: Maybe Integer
+    { _cerResponsePagePath   :: !(Maybe Text)
+    , _cerResponseCode       :: !(Maybe Text)
+    , _cerErrorCachingMinTTL :: !(Maybe Integer)
     , _cerErrorCode          :: !Int
     } deriving (Eq,Read,Show)
 
@@ -1841,7 +1841,7 @@ instance ToXML CustomErrorResponse where
 --
 -- * 'cerQuantity'
 data CustomErrorResponses = CustomErrorResponses'
-    { _cerItems    :: Maybe [CustomErrorResponse]
+    { _cerItems    :: !(Maybe [CustomErrorResponse])
     , _cerQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -1891,7 +1891,7 @@ instance ToXML CustomErrorResponses where
 data CustomOriginConfig = CustomOriginConfig'
     { _cocHTTPPort             :: !Int
     , _cocHTTPSPort            :: !Int
-    , _cocOriginProtocolPolicy :: OriginProtocolPolicy
+    , _cocOriginProtocolPolicy :: !OriginProtocolPolicy
     } deriving (Eq,Read,Show)
 
 -- | 'CustomOriginConfig' smart constructor.
@@ -1955,14 +1955,14 @@ instance ToXML CustomOriginConfig where
 --
 -- * 'dcbMinTTL'
 data DefaultCacheBehavior = DefaultCacheBehavior'
-    { _dcbAllowedMethods       :: Maybe AllowedMethods
-    , _dcbMaxTTL               :: Maybe Integer
-    , _dcbSmoothStreaming      :: Maybe Bool
-    , _dcbDefaultTTL           :: Maybe Integer
-    , _dcbTargetOriginId       :: Text
-    , _dcbForwardedValues      :: ForwardedValues
-    , _dcbTrustedSigners       :: TrustedSigners
-    , _dcbViewerProtocolPolicy :: ViewerProtocolPolicy
+    { _dcbAllowedMethods       :: !(Maybe AllowedMethods)
+    , _dcbMaxTTL               :: !(Maybe Integer)
+    , _dcbSmoothStreaming      :: !(Maybe Bool)
+    , _dcbDefaultTTL           :: !(Maybe Integer)
+    , _dcbTargetOriginId       :: !Text
+    , _dcbForwardedValues      :: !ForwardedValues
+    , _dcbTrustedSigners       :: !TrustedSigners
+    , _dcbViewerProtocolPolicy :: !ViewerProtocolPolicy
     , _dcbMinTTL               :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -2100,13 +2100,13 @@ instance ToXML DefaultCacheBehavior where
 --
 -- * 'disDistributionConfig'
 data Distribution = Distribution'
-    { _disId                            :: Text
-    , _disStatus                        :: Text
-    , _disLastModifiedTime              :: ISO8601
+    { _disId                            :: !Text
+    , _disStatus                        :: !Text
+    , _disLastModifiedTime              :: !ISO8601
     , _disInProgressInvalidationBatches :: !Int
-    , _disDomainName                    :: Text
-    , _disActiveTrustedSigners          :: ActiveTrustedSigners
-    , _disDistributionConfig            :: DistributionConfig
+    , _disDomainName                    :: !Text
+    , _disActiveTrustedSigners          :: !ActiveTrustedSigners
+    , _disDistributionConfig            :: !DistributionConfig
     } deriving (Eq,Read,Show)
 
 -- | 'Distribution' smart constructor.
@@ -2203,18 +2203,18 @@ instance FromXML Distribution where
 --
 -- * 'dcEnabled'
 data DistributionConfig = DistributionConfig'
-    { _dcDefaultRootObject    :: Maybe Text
-    , _dcAliases              :: Maybe Aliases
-    , _dcCustomErrorResponses :: Maybe CustomErrorResponses
-    , _dcPriceClass           :: Maybe PriceClass
-    , _dcViewerCertificate    :: Maybe ViewerCertificate
-    , _dcRestrictions         :: Maybe Restrictions
-    , _dcCacheBehaviors       :: Maybe CacheBehaviors
-    , _dcLogging              :: Maybe LoggingConfig
-    , _dcCallerReference      :: Text
-    , _dcOrigins              :: Origins
-    , _dcDefaultCacheBehavior :: DefaultCacheBehavior
-    , _dcComment              :: Text
+    { _dcDefaultRootObject    :: !(Maybe Text)
+    , _dcAliases              :: !(Maybe Aliases)
+    , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
+    , _dcPriceClass           :: !(Maybe PriceClass)
+    , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
+    , _dcRestrictions         :: !(Maybe Restrictions)
+    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
+    , _dcLogging              :: !(Maybe LoggingConfig)
+    , _dcCallerReference      :: !Text
+    , _dcOrigins              :: !Origins
+    , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
+    , _dcComment              :: !Text
     , _dcEnabled              :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -2366,9 +2366,9 @@ instance ToXML DistributionConfig where
 --
 -- * 'dlQuantity'
 data DistributionList = DistributionList'
-    { _dlItems       :: Maybe [DistributionSummary]
-    , _dlNextMarker  :: Maybe Text
-    , _dlMarker      :: Text
+    { _dlItems       :: !(Maybe [DistributionSummary])
+    , _dlNextMarker  :: !(Maybe Text)
+    , _dlMarker      :: !Text
     , _dlMaxItems    :: !Int
     , _dlIsTruncated :: !Bool
     , _dlQuantity    :: !Int
@@ -2462,20 +2462,20 @@ instance FromXML DistributionList where
 --
 -- * 'dsRestrictions'
 data DistributionSummary = DistributionSummary'
-    { _dsId                   :: Text
-    , _dsStatus               :: Text
-    , _dsLastModifiedTime     :: ISO8601
-    , _dsDomainName           :: Text
-    , _dsAliases              :: Aliases
-    , _dsOrigins              :: Origins
-    , _dsDefaultCacheBehavior :: DefaultCacheBehavior
-    , _dsCacheBehaviors       :: CacheBehaviors
-    , _dsCustomErrorResponses :: CustomErrorResponses
-    , _dsComment              :: Text
-    , _dsPriceClass           :: PriceClass
+    { _dsId                   :: !Text
+    , _dsStatus               :: !Text
+    , _dsLastModifiedTime     :: !ISO8601
+    , _dsDomainName           :: !Text
+    , _dsAliases              :: !Aliases
+    , _dsOrigins              :: !Origins
+    , _dsDefaultCacheBehavior :: !DefaultCacheBehavior
+    , _dsCacheBehaviors       :: !CacheBehaviors
+    , _dsCustomErrorResponses :: !CustomErrorResponses
+    , _dsComment              :: !Text
+    , _dsPriceClass           :: !PriceClass
     , _dsEnabled              :: !Bool
-    , _dsViewerCertificate    :: ViewerCertificate
-    , _dsRestrictions         :: Restrictions
+    , _dsViewerCertificate    :: !ViewerCertificate
+    , _dsRestrictions         :: !Restrictions
     } deriving (Eq,Read,Show)
 
 -- | 'DistributionSummary' smart constructor.
@@ -2593,9 +2593,9 @@ instance FromXML DistributionSummary where
 --
 -- * 'fvCookies'
 data ForwardedValues = ForwardedValues'
-    { _fvHeaders     :: Maybe Headers
+    { _fvHeaders     :: !(Maybe Headers)
     , _fvQueryString :: !Bool
-    , _fvCookies     :: CookiePreference
+    , _fvCookies     :: !CookiePreference
     } deriving (Eq,Read,Show)
 
 -- | 'ForwardedValues' smart constructor.
@@ -2652,8 +2652,8 @@ instance ToXML ForwardedValues where
 --
 -- * 'grQuantity'
 data GeoRestriction = GeoRestriction'
-    { _grItems           :: Maybe [Text]
-    , _grRestrictionType :: GeoRestrictionType
+    { _grItems           :: !(Maybe [Text])
+    , _grRestrictionType :: !GeoRestrictionType
     , _grQuantity        :: !Int
     } deriving (Eq,Read,Show)
 
@@ -2729,7 +2729,7 @@ instance ToXML GeoRestriction where
 --
 -- * 'heaQuantity'
 data Headers = Headers'
-    { _heaItems    :: Maybe [Text]
+    { _heaItems    :: !(Maybe [Text])
     , _heaQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -2784,10 +2784,10 @@ instance ToXML Headers where
 --
 -- * 'invInvalidationBatch'
 data Invalidation = Invalidation'
-    { _invId                :: Text
-    , _invStatus            :: Text
-    , _invCreateTime        :: ISO8601
-    , _invInvalidationBatch :: InvalidationBatch
+    { _invId                :: !Text
+    , _invStatus            :: !Text
+    , _invCreateTime        :: !ISO8601
+    , _invInvalidationBatch :: !InvalidationBatch
     } deriving (Eq,Read,Show)
 
 -- | 'Invalidation' smart constructor.
@@ -2835,8 +2835,8 @@ instance FromXML Invalidation where
 --
 -- * 'ibCallerReference'
 data InvalidationBatch = InvalidationBatch'
-    { _ibPaths           :: Paths
-    , _ibCallerReference :: Text
+    { _ibPaths           :: !Paths
+    , _ibCallerReference :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InvalidationBatch' smart constructor.
@@ -2899,9 +2899,9 @@ instance ToXML InvalidationBatch where
 --
 -- * 'ilQuantity'
 data InvalidationList = InvalidationList'
-    { _ilItems       :: Maybe [InvalidationSummary]
-    , _ilNextMarker  :: Maybe Text
-    , _ilMarker      :: Text
+    { _ilItems       :: !(Maybe [InvalidationSummary])
+    , _ilNextMarker  :: !(Maybe Text)
+    , _ilMarker      :: !Text
     , _ilMaxItems    :: !Int
     , _ilIsTruncated :: !Bool
     , _ilQuantity    :: !Int
@@ -2973,9 +2973,9 @@ instance FromXML InvalidationList where
 --
 -- * 'isStatus'
 data InvalidationSummary = InvalidationSummary'
-    { _isId         :: Text
-    , _isCreateTime :: ISO8601
-    , _isStatus     :: Text
+    { _isId         :: !Text
+    , _isCreateTime :: !ISO8601
+    , _isStatus     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InvalidationSummary' smart constructor.
@@ -3016,7 +3016,7 @@ instance FromXML InvalidationSummary where
 --
 -- * 'kpiQuantity'
 data KeyPairIds = KeyPairIds'
-    { _kpiItems    :: Maybe [Text]
+    { _kpiItems    :: !(Maybe [Text])
     , _kpiQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -3061,8 +3061,8 @@ instance FromXML KeyPairIds where
 data LoggingConfig = LoggingConfig'
     { _lcEnabled        :: !Bool
     , _lcIncludeCookies :: !Bool
-    , _lcBucket         :: Text
-    , _lcPrefix         :: Text
+    , _lcBucket         :: !Text
+    , _lcPrefix         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'LoggingConfig' smart constructor.
@@ -3138,11 +3138,11 @@ instance ToXML LoggingConfig where
 --
 -- * 'oriDomainName'
 data Origin = Origin'
-    { _oriCustomOriginConfig :: Maybe CustomOriginConfig
-    , _oriS3OriginConfig     :: Maybe S3OriginConfig
-    , _oriOriginPath         :: Maybe Text
-    , _oriId                 :: Text
-    , _oriDomainName         :: Text
+    { _oriCustomOriginConfig :: !(Maybe CustomOriginConfig)
+    , _oriS3OriginConfig     :: !(Maybe S3OriginConfig)
+    , _oriOriginPath         :: !(Maybe Text)
+    , _oriId                 :: !Text
+    , _oriDomainName         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Origin' smart constructor.
@@ -3218,7 +3218,7 @@ instance ToXML Origin where
 --
 -- * 'oriQuantity'
 data Origins = Origins'
-    { _oriItems    :: Maybe (List1 Origin)
+    { _oriItems    :: !(Maybe (List1 Origin))
     , _oriQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -3262,7 +3262,7 @@ instance ToXML Origins where
 --
 -- * 'patQuantity'
 data Paths = Paths'
-    { _patItems    :: Maybe [Text]
+    { _patItems    :: !(Maybe [Text])
     , _patQuantity :: !Int
     } deriving (Eq,Read,Show)
 
@@ -3338,8 +3338,8 @@ instance ToXML Restrictions where
 --
 -- * 'soOriginAccessIdentity'
 data S3Origin = S3Origin'
-    { _soDomainName           :: Text
-    , _soOriginAccessIdentity :: Text
+    { _soDomainName           :: !Text
+    , _soOriginAccessIdentity :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'S3Origin' smart constructor.
@@ -3425,8 +3425,8 @@ instance ToXML S3OriginConfig where
 --
 -- * 'sigKeyPairIds'
 data Signer = Signer'
-    { _sigAWSAccountNumber :: Maybe Text
-    , _sigKeyPairIds       :: Maybe KeyPairIds
+    { _sigAWSAccountNumber :: !(Maybe Text)
+    , _sigKeyPairIds       :: !(Maybe KeyPairIds)
     } deriving (Eq,Read,Show)
 
 -- | 'Signer' smart constructor.
@@ -3472,12 +3472,12 @@ instance FromXML Signer where
 --
 -- * 'sdStreamingDistributionConfig'
 data StreamingDistribution = StreamingDistribution'
-    { _sdLastModifiedTime            :: Maybe ISO8601
-    , _sdId                          :: Text
-    , _sdStatus                      :: Text
-    , _sdDomainName                  :: Text
-    , _sdActiveTrustedSigners        :: ActiveTrustedSigners
-    , _sdStreamingDistributionConfig :: StreamingDistributionConfig
+    { _sdLastModifiedTime            :: !(Maybe ISO8601)
+    , _sdId                          :: !Text
+    , _sdStatus                      :: !Text
+    , _sdDomainName                  :: !Text
+    , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
+    , _sdStreamingDistributionConfig :: !StreamingDistributionConfig
     } deriving (Eq,Read,Show)
 
 -- | 'StreamingDistribution' smart constructor.
@@ -3559,13 +3559,13 @@ instance FromXML StreamingDistribution where
 --
 -- * 'sdcEnabled'
 data StreamingDistributionConfig = StreamingDistributionConfig'
-    { _sdcAliases         :: Maybe Aliases
-    , _sdcPriceClass      :: Maybe PriceClass
-    , _sdcLogging         :: Maybe StreamingLoggingConfig
-    , _sdcCallerReference :: Text
-    , _sdcS3Origin        :: S3Origin
-    , _sdcComment         :: Text
-    , _sdcTrustedSigners  :: TrustedSigners
+    { _sdcAliases         :: !(Maybe Aliases)
+    , _sdcPriceClass      :: !(Maybe PriceClass)
+    , _sdcLogging         :: !(Maybe StreamingLoggingConfig)
+    , _sdcCallerReference :: !Text
+    , _sdcS3Origin        :: !S3Origin
+    , _sdcComment         :: !Text
+    , _sdcTrustedSigners  :: !TrustedSigners
     , _sdcEnabled         :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -3681,9 +3681,9 @@ instance ToXML StreamingDistributionConfig where
 --
 -- * 'sdlQuantity'
 data StreamingDistributionList = StreamingDistributionList'
-    { _sdlItems       :: Maybe [StreamingDistributionSummary]
-    , _sdlNextMarker  :: Maybe Text
-    , _sdlMarker      :: Text
+    { _sdlItems       :: !(Maybe [StreamingDistributionSummary])
+    , _sdlNextMarker  :: !(Maybe Text)
+    , _sdlMarker      :: !Text
     , _sdlMaxItems    :: !Int
     , _sdlIsTruncated :: !Bool
     , _sdlQuantity    :: !Int
@@ -3770,15 +3770,15 @@ instance FromXML StreamingDistributionList where
 --
 -- * 'sdsEnabled'
 data StreamingDistributionSummary = StreamingDistributionSummary'
-    { _sdsId               :: Text
-    , _sdsStatus           :: Text
-    , _sdsLastModifiedTime :: ISO8601
-    , _sdsDomainName       :: Text
-    , _sdsS3Origin         :: S3Origin
-    , _sdsAliases          :: Aliases
-    , _sdsTrustedSigners   :: TrustedSigners
-    , _sdsComment          :: Text
-    , _sdsPriceClass       :: PriceClass
+    { _sdsId               :: !Text
+    , _sdsStatus           :: !Text
+    , _sdsLastModifiedTime :: !ISO8601
+    , _sdsDomainName       :: !Text
+    , _sdsS3Origin         :: !S3Origin
+    , _sdsAliases          :: !Aliases
+    , _sdsTrustedSigners   :: !TrustedSigners
+    , _sdsComment          :: !Text
+    , _sdsPriceClass       :: !PriceClass
     , _sdsEnabled          :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -3882,8 +3882,8 @@ instance FromXML StreamingDistributionSummary where
 -- * 'slcPrefix'
 data StreamingLoggingConfig = StreamingLoggingConfig'
     { _slcEnabled :: !Bool
-    , _slcBucket  :: Text
-    , _slcPrefix  :: Text
+    , _slcBucket  :: !Text
+    , _slcPrefix  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'StreamingLoggingConfig' smart constructor.
@@ -3952,7 +3952,7 @@ instance ToXML StreamingLoggingConfig where
 --
 -- * 'tsQuantity'
 data TrustedSigners = TrustedSigners'
-    { _tsItems    :: Maybe [Text]
+    { _tsItems    :: !(Maybe [Text])
     , _tsEnabled  :: !Bool
     , _tsQuantity :: !Int
     } deriving (Eq,Read,Show)
@@ -4010,10 +4010,10 @@ instance ToXML TrustedSigners where
 --
 -- * 'vcCloudFrontDefaultCertificate'
 data ViewerCertificate = ViewerCertificate'
-    { _vcSSLSupportMethod             :: Maybe SSLSupportMethod
-    , _vcMinimumProtocolVersion       :: Maybe MinimumProtocolVersion
-    , _vcIAMCertificateId             :: Maybe Text
-    , _vcCloudFrontDefaultCertificate :: Maybe Bool
+    { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
+    , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
+    , _vcIAMCertificateId             :: !(Maybe Text)
+    , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'ViewerCertificate' smart constructor.

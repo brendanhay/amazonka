@@ -66,10 +66,10 @@ import           Network.AWS.Response
 --
 -- * 'ujValidateOnly'
 data UpdateJob = UpdateJob'
-    { _ujAPIVersion   :: Maybe Text
-    , _ujJobId        :: Text
-    , _ujManifest     :: Text
-    , _ujJobType      :: JobType
+    { _ujAPIVersion   :: !(Maybe Text)
+    , _ujJobId        :: !Text
+    , _ujManifest     :: !Text
+    , _ujJobType      :: !JobType
     , _ujValidateOnly :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -147,9 +147,9 @@ instance ToQuery UpdateJob where
 --
 -- * 'ujrStatus'
 data UpdateJobResponse = UpdateJobResponse'
-    { _ujrSuccess        :: Maybe Bool
-    , _ujrWarningMessage :: Maybe Text
-    , _ujrArtifactList   :: Maybe [Artifact]
+    { _ujrSuccess        :: !(Maybe Bool)
+    , _ujrWarningMessage :: !(Maybe Text)
+    , _ujrArtifactList   :: !(Maybe [Artifact])
     , _ujrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

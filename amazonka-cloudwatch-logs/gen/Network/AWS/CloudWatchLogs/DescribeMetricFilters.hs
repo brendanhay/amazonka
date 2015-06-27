@@ -63,10 +63,10 @@ import           Network.AWS.Response
 --
 -- * 'dmfLogGroupName'
 data DescribeMetricFilters = DescribeMetricFilters'
-    { _dmfFilterNamePrefix :: Maybe Text
-    , _dmfNextToken        :: Maybe Text
-    , _dmfLimit            :: Maybe Nat
-    , _dmfLogGroupName     :: Text
+    { _dmfFilterNamePrefix :: !(Maybe Text)
+    , _dmfNextToken        :: !(Maybe Text)
+    , _dmfLimit            :: !(Maybe Nat)
+    , _dmfLogGroupName     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMetricFilters' smart constructor.
@@ -146,8 +146,8 @@ instance ToQuery DescribeMetricFilters where
 --
 -- * 'dmfrStatus'
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-    { _dmfrNextToken     :: Maybe Text
-    , _dmfrMetricFilters :: Maybe [MetricFilter]
+    { _dmfrNextToken     :: !(Maybe Text)
+    , _dmfrMetricFilters :: !(Maybe [MetricFilter])
     , _dmfrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

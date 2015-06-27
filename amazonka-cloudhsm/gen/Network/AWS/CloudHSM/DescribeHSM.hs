@@ -71,8 +71,8 @@ import           Network.AWS.Response
 --
 -- * 'desHSMARN'
 data DescribeHSM = DescribeHSM'
-    { _desHSMSerialNumber :: Maybe Text
-    , _desHSMARN          :: Maybe Text
+    { _desHSMSerialNumber :: !(Maybe Text)
+    , _desHSMARN          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSM' smart constructor.
@@ -192,26 +192,26 @@ instance ToQuery DescribeHSM where
 --
 -- * 'dhsmrStatus'
 data DescribeHSMResponse = DescribeHSMResponse'
-    { _dhsmrIAMRoleARN            :: Maybe Text
-    , _dhsmrEniId                 :: Maybe Text
-    , _dhsmrSubscriptionEndDate   :: Maybe Text
-    , _dhsmrVPCId                 :: Maybe Text
-    , _dhsmrSSHKeyLastUpdated     :: Maybe Text
-    , _dhsmrServerCertURI         :: Maybe Text
-    , _dhsmrSubscriptionType      :: Maybe SubscriptionType
-    , _dhsmrStatusDetails         :: Maybe Text
-    , _dhsmrSSHPublicKey          :: Maybe Text
-    , _dhsmrSubnetId              :: Maybe Text
-    , _dhsmrPartitions            :: Maybe [Text]
-    , _dhsmrAvailabilityZone      :: Maybe Text
-    , _dhsmrSubscriptionStartDate :: Maybe Text
-    , _dhsmrServerCertLastUpdated :: Maybe Text
-    , _dhsmrSoftwareVersion       :: Maybe Text
-    , _dhsmrSerialNumber          :: Maybe Text
-    , _dhsmrVendorName            :: Maybe Text
-    , _dhsmrHSMARN                :: Maybe Text
-    , _dhsmrEniIP                 :: Maybe Text
-    , _dhsmrHSMType               :: Maybe Text
+    { _dhsmrIAMRoleARN            :: !(Maybe Text)
+    , _dhsmrEniId                 :: !(Maybe Text)
+    , _dhsmrSubscriptionEndDate   :: !(Maybe Text)
+    , _dhsmrVPCId                 :: !(Maybe Text)
+    , _dhsmrSSHKeyLastUpdated     :: !(Maybe Text)
+    , _dhsmrServerCertURI         :: !(Maybe Text)
+    , _dhsmrSubscriptionType      :: !(Maybe SubscriptionType)
+    , _dhsmrStatusDetails         :: !(Maybe Text)
+    , _dhsmrSSHPublicKey          :: !(Maybe Text)
+    , _dhsmrSubnetId              :: !(Maybe Text)
+    , _dhsmrPartitions            :: !(Maybe [Text])
+    , _dhsmrAvailabilityZone      :: !(Maybe Text)
+    , _dhsmrSubscriptionStartDate :: !(Maybe Text)
+    , _dhsmrServerCertLastUpdated :: !(Maybe Text)
+    , _dhsmrSoftwareVersion       :: !(Maybe Text)
+    , _dhsmrSerialNumber          :: !(Maybe Text)
+    , _dhsmrVendorName            :: !(Maybe Text)
+    , _dhsmrHSMARN                :: !(Maybe Text)
+    , _dhsmrEniIP                 :: !(Maybe Text)
+    , _dhsmrHSMType               :: !(Maybe Text)
     , _dhsmrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

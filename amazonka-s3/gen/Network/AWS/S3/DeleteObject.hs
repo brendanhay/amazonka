@@ -62,11 +62,11 @@ import           Network.AWS.S3.Types
 --
 -- * 'doKey'
 data DeleteObject = DeleteObject'
-    { _doVersionId    :: Maybe ObjectVersionId
-    , _doMFA          :: Maybe Text
-    , _doRequestPayer :: Maybe RequestPayer
-    , _doBucket       :: BucketName
-    , _doKey          :: ObjectKey
+    { _doVersionId    :: !(Maybe ObjectVersionId)
+    , _doMFA          :: !(Maybe Text)
+    , _doRequestPayer :: !(Maybe RequestPayer)
+    , _doBucket       :: !BucketName
+    , _doKey          :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteObject' smart constructor.
@@ -140,9 +140,9 @@ instance ToQuery DeleteObject where
 --
 -- * 'dorStatus'
 data DeleteObjectResponse = DeleteObjectResponse'
-    { _dorVersionId      :: Maybe ObjectVersionId
-    , _dorRequestCharged :: Maybe RequestCharged
-    , _dorDeleteMarker   :: Maybe Bool
+    { _dorVersionId      :: !(Maybe ObjectVersionId)
+    , _dorRequestCharged :: !(Maybe RequestCharged)
+    , _dorDeleteMarker   :: !(Maybe Bool)
     , _dorStatus         :: !Int
     } deriving (Eq,Read,Show)
 

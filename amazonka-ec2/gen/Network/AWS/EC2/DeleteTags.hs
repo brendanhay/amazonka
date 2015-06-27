@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'delResources'
 data DeleteTags = DeleteTags'
-    { _delDryRun    :: Maybe Bool
-    , _delTags      :: Maybe [Tag]
-    , _delResources :: [Text]
+    { _delDryRun    :: !(Maybe Bool)
+    , _delTags      :: !(Maybe [Tag])
+    , _delResources :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteTags' smart constructor.

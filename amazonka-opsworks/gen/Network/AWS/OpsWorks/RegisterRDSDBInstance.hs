@@ -58,10 +58,10 @@ import           Network.AWS.Response
 --
 -- * 'rrdiDBPassword'
 data RegisterRDSDBInstance = RegisterRDSDBInstance'
-    { _rrdiStackId          :: Text
-    , _rrdiRDSDBInstanceARN :: Text
-    , _rrdiDBUser           :: Text
-    , _rrdiDBPassword       :: Text
+    { _rrdiStackId          :: !Text
+    , _rrdiRDSDBInstanceARN :: !Text
+    , _rrdiDBUser           :: !Text
+    , _rrdiDBPassword       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterRDSDBInstance' smart constructor.

@@ -89,9 +89,9 @@ import           Network.AWS.SWF.Types
 --
 -- * 'pfatTaskList'
 data PollForActivityTask = PollForActivityTask'
-    { _pfatIdentity :: Maybe Text
-    , _pfatDomain   :: Text
-    , _pfatTaskList :: TaskList
+    { _pfatIdentity :: !(Maybe Text)
+    , _pfatDomain   :: !Text
+    , _pfatTaskList :: !TaskList
     } deriving (Eq,Read,Show)
 
 -- | 'PollForActivityTask' smart constructor.
@@ -181,12 +181,12 @@ instance ToQuery PollForActivityTask where
 --
 -- * 'pfatrStatus'
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
-    { _pfatrInput             :: Maybe Text
-    , _pfatrTaskToken         :: Text
-    , _pfatrActivityId        :: Text
+    { _pfatrInput             :: !(Maybe Text)
+    , _pfatrTaskToken         :: !Text
+    , _pfatrActivityId        :: !Text
     , _pfatrStartedEventId    :: !Integer
-    , _pfatrWorkflowExecution :: WorkflowExecution
-    , _pfatrActivityType      :: ActivityType
+    , _pfatrWorkflowExecution :: !WorkflowExecution
+    , _pfatrActivityType      :: !ActivityType
     , _pfatrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

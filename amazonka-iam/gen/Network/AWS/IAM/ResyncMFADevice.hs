@@ -57,10 +57,10 @@ import           Network.AWS.Response
 --
 -- * 'rmdAuthenticationCode2'
 data ResyncMFADevice = ResyncMFADevice'
-    { _rmdUserName            :: Text
-    , _rmdSerialNumber        :: Text
-    , _rmdAuthenticationCode1 :: Text
-    , _rmdAuthenticationCode2 :: Text
+    { _rmdUserName            :: !Text
+    , _rmdSerialNumber        :: !Text
+    , _rmdAuthenticationCode1 :: !Text
+    , _rmdAuthenticationCode2 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ResyncMFADevice' smart constructor.

@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'liDistributionId'
 data ListInvalidations = ListInvalidations'
-    { _liMaxItems       :: Maybe Text
-    , _liMarker         :: Maybe Text
-    , _liDistributionId :: Text
+    { _liMaxItems       :: !(Maybe Text)
+    , _liMarker         :: !(Maybe Text)
+    , _liDistributionId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListInvalidations' smart constructor.
@@ -121,7 +121,7 @@ instance ToQuery ListInvalidations where
 --
 -- * 'lirStatus'
 data ListInvalidationsResponse = ListInvalidationsResponse'
-    { _lirInvalidationList :: InvalidationList
+    { _lirInvalidationList :: !InvalidationList
     , _lirStatus           :: !Int
     } deriving (Eq,Read,Show)
 

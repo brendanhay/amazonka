@@ -58,10 +58,10 @@ import           Network.AWS.Response
 --
 -- * 'stscTask'
 data SubmitTaskStateChange = SubmitTaskStateChange'
-    { _stscStatus  :: Maybe Text
-    , _stscCluster :: Maybe Text
-    , _stscReason  :: Maybe Text
-    , _stscTask    :: Maybe Text
+    { _stscStatus  :: !(Maybe Text)
+    , _stscCluster :: !(Maybe Text)
+    , _stscReason  :: !(Maybe Text)
+    , _stscTask    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SubmitTaskStateChange' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery SubmitTaskStateChange where
 --
 -- * 'stscrStatus'
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
-    { _stscrAcknowledgment :: Maybe Text
+    { _stscrAcknowledgment :: !(Maybe Text)
     , _stscrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

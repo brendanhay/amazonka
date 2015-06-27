@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'ljMaxJobs'
 data ListJobs = ListJobs'
-    { _ljAPIVersion :: Maybe Text
-    , _ljMarker     :: Maybe Text
-    , _ljMaxJobs    :: Maybe Int
+    { _ljAPIVersion :: !(Maybe Text)
+    , _ljMarker     :: !(Maybe Text)
+    , _ljMaxJobs    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListJobs' smart constructor.
@@ -135,8 +135,8 @@ instance ToQuery ListJobs where
 --
 -- * 'ljrStatus'
 data ListJobsResponse = ListJobsResponse'
-    { _ljrJobs        :: Maybe [Job]
-    , _ljrIsTruncated :: Maybe Bool
+    { _ljrJobs        :: !(Maybe [Job])
+    , _ljrIsTruncated :: !(Maybe Bool)
     , _ljrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -78,9 +78,9 @@ import           Network.AWS.Response
 --
 -- * 'lvAccountId'
 data ListVaults = ListVaults'
-    { _lvMarker    :: Maybe Text
-    , _lvLimit     :: Maybe Text
-    , _lvAccountId :: Text
+    { _lvMarker    :: !(Maybe Text)
+    , _lvLimit     :: !(Maybe Text)
+    , _lvAccountId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListVaults' smart constructor.
@@ -147,8 +147,8 @@ instance ToQuery ListVaults where
 --
 -- * 'lvrStatus'
 data ListVaultsResponse = ListVaultsResponse'
-    { _lvrMarker    :: Maybe Text
-    , _lvrVaultList :: Maybe [DescribeVaultOutput]
+    { _lvrMarker    :: !(Maybe Text)
+    , _lvrVaultList :: !(Maybe [DescribeVaultOutput])
     , _lvrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'lipfrRoleName'
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
-    { _lipfrMaxItems :: Maybe Nat
-    , _lipfrMarker   :: Maybe Text
-    , _lipfrRoleName :: Text
+    { _lipfrMaxItems :: !(Maybe Nat)
+    , _lipfrMarker   :: !(Maybe Text)
+    , _lipfrRoleName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
@@ -147,9 +147,9 @@ instance ToQuery ListInstanceProfilesForRole where
 --
 -- * 'lipfrrStatus'
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
-    { _lipfrrMarker           :: Maybe Text
-    , _lipfrrIsTruncated      :: Maybe Bool
-    , _lipfrrInstanceProfiles :: [InstanceProfile]
+    { _lipfrrMarker           :: !(Maybe Text)
+    , _lipfrrIsTruncated      :: !(Maybe Bool)
+    , _lipfrrInstanceProfiles :: ![InstanceProfile]
     , _lipfrrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

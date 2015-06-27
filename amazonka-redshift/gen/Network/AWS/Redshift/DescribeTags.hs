@@ -85,12 +85,12 @@ import           Network.AWS.Response
 --
 -- * 'dtMarker'
 data DescribeTags = DescribeTags'
-    { _dtResourceType :: Maybe Text
-    , _dtTagValues    :: Maybe [Text]
-    , _dtResourceName :: Maybe Text
-    , _dtTagKeys      :: Maybe [Text]
-    , _dtMaxRecords   :: Maybe Int
-    , _dtMarker       :: Maybe Text
+    { _dtResourceType :: !(Maybe Text)
+    , _dtTagValues    :: !(Maybe [Text])
+    , _dtResourceName :: !(Maybe Text)
+    , _dtTagKeys      :: !(Maybe [Text])
+    , _dtMaxRecords   :: !(Maybe Int)
+    , _dtMarker       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTags' smart constructor.
@@ -210,8 +210,8 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrMarker          :: Maybe Text
-    , _dtrTaggedResources :: Maybe [TaggedResource]
+    { _dtrMarker          :: !(Maybe Text)
+    , _dtrTaggedResources :: !(Maybe [TaggedResource])
     , _dtrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

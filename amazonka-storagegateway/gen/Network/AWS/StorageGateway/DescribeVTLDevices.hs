@@ -64,10 +64,10 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'dvtldGatewayARN'
 data DescribeVTLDevices = DescribeVTLDevices'
-    { _dvtldMarker        :: Maybe Text
-    , _dvtldLimit         :: Maybe Nat
-    , _dvtldVTLDeviceARNs :: Maybe [Text]
-    , _dvtldGatewayARN    :: Text
+    { _dvtldMarker        :: !(Maybe Text)
+    , _dvtldLimit         :: !(Maybe Nat)
+    , _dvtldVTLDeviceARNs :: !(Maybe [Text])
+    , _dvtldGatewayARN    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVTLDevices' smart constructor.
@@ -161,9 +161,9 @@ instance ToQuery DescribeVTLDevices where
 --
 -- * 'dvtldrStatus'
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-    { _dvtldrGatewayARN :: Maybe Text
-    , _dvtldrVTLDevices :: Maybe [VTLDevice]
-    , _dvtldrMarker     :: Maybe Text
+    { _dvtldrGatewayARN :: !(Maybe Text)
+    , _dvtldrVTLDevices :: !(Maybe [VTLDevice])
+    , _dvtldrMarker     :: !(Maybe Text)
     , _dvtldrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

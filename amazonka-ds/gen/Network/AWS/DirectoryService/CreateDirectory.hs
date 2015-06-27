@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'creSize'
 data CreateDirectory = CreateDirectory'
-    { _creShortName   :: Maybe Text
-    , _creVPCSettings :: Maybe DirectoryVPCSettings
-    , _creDescription :: Maybe Text
-    , _creName        :: Text
-    , _crePassword    :: Sensitive Text
-    , _creSize        :: DirectorySize
+    { _creShortName   :: !(Maybe Text)
+    , _creVPCSettings :: !(Maybe DirectoryVPCSettings)
+    , _creDescription :: !(Maybe Text)
+    , _creName        :: !Text
+    , _crePassword    :: !(Sensitive Text)
+    , _creSize        :: !DirectorySize
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDirectory' smart constructor.
@@ -154,7 +154,7 @@ instance ToQuery CreateDirectory where
 --
 -- * 'creStatus'
 data CreateDirectoryResponse = CreateDirectoryResponse'
-    { _creDirectoryId :: Maybe Text
+    { _creDirectoryId :: !(Maybe Text)
     , _creStatus      :: !Int
     } deriving (Eq,Read,Show)
 

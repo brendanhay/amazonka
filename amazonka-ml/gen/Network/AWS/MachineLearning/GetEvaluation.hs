@@ -144,17 +144,17 @@ instance ToQuery GetEvaluation where
 --
 -- * 'gerStatus'
 data GetEvaluationResponse = GetEvaluationResponse'
-    { _gerPerformanceMetrics     :: Maybe PerformanceMetrics
-    , _gerLastUpdatedAt          :: Maybe POSIX
-    , _gerCreatedAt              :: Maybe POSIX
-    , _gerInputDataLocationS3    :: Maybe Text
-    , _gerMLModelId              :: Maybe Text
-    , _gerName                   :: Maybe Text
-    , _gerCreatedByIAMUser       :: Maybe Text
-    , _gerLogURI                 :: Maybe Text
-    , _gerMessage                :: Maybe Text
-    , _gerEvaluationId           :: Maybe Text
-    , _gerEvaluationDataSourceId :: Maybe Text
+    { _gerPerformanceMetrics     :: !(Maybe PerformanceMetrics)
+    , _gerLastUpdatedAt          :: !(Maybe POSIX)
+    , _gerCreatedAt              :: !(Maybe POSIX)
+    , _gerInputDataLocationS3    :: !(Maybe Text)
+    , _gerMLModelId              :: !(Maybe Text)
+    , _gerName                   :: !(Maybe Text)
+    , _gerCreatedByIAMUser       :: !(Maybe Text)
+    , _gerLogURI                 :: !(Maybe Text)
+    , _gerMessage                :: !(Maybe Text)
+    , _gerEvaluationId           :: !(Maybe Text)
+    , _gerEvaluationDataSourceId :: !(Maybe Text)
     , _gerStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

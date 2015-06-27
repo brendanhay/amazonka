@@ -109,8 +109,8 @@ instance ToQuery DeleteRealtimeEndpoint where
 --
 -- * 'drerStatus'
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
-    { _drerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo
-    , _drerMLModelId            :: Maybe Text
+    { _drerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
+    , _drerMLModelId            :: !(Maybe Text)
     , _drerStatus               :: !Int
     } deriving (Eq,Read,Show)
 

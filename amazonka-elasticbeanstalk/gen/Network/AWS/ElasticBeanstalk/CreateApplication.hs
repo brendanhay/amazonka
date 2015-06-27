@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'caApplicationName'
 data CreateApplication = CreateApplication'
-    { _caDescription     :: Maybe Text
-    , _caApplicationName :: Text
+    { _caDescription     :: !(Maybe Text)
+    , _caApplicationName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateApplication' smart constructor.

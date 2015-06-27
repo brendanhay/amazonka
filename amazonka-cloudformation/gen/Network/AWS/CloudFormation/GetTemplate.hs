@@ -108,7 +108,7 @@ instance ToQuery GetTemplate where
 --
 -- * 'gtrStatus'
 data GetTemplateResponse = GetTemplateResponse'
-    { _gtrTemplateBody :: Maybe Text
+    { _gtrTemplateBody :: !(Maybe Text)
     , _gtrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

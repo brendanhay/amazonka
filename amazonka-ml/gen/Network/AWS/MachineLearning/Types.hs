@@ -718,17 +718,17 @@ instance ToJSON SortOrder where
 --
 -- * 'bpOutputURI'
 data BatchPrediction = BatchPrediction'
-    { _bpStatus                      :: Maybe EntityStatus
-    , _bpLastUpdatedAt               :: Maybe POSIX
-    , _bpCreatedAt                   :: Maybe POSIX
-    , _bpInputDataLocationS3         :: Maybe Text
-    , _bpMLModelId                   :: Maybe Text
-    , _bpBatchPredictionDataSourceId :: Maybe Text
-    , _bpBatchPredictionId           :: Maybe Text
-    , _bpName                        :: Maybe Text
-    , _bpCreatedByIAMUser            :: Maybe Text
-    , _bpMessage                     :: Maybe Text
-    , _bpOutputURI                   :: Maybe Text
+    { _bpStatus                      :: !(Maybe EntityStatus)
+    , _bpLastUpdatedAt               :: !(Maybe POSIX)
+    , _bpCreatedAt                   :: !(Maybe POSIX)
+    , _bpInputDataLocationS3         :: !(Maybe Text)
+    , _bpMLModelId                   :: !(Maybe Text)
+    , _bpBatchPredictionDataSourceId :: !(Maybe Text)
+    , _bpBatchPredictionId           :: !(Maybe Text)
+    , _bpName                        :: !(Maybe Text)
+    , _bpCreatedByIAMUser            :: !(Maybe Text)
+    , _bpMessage                     :: !(Maybe Text)
+    , _bpOutputURI                   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'BatchPrediction' smart constructor.
@@ -869,21 +869,21 @@ instance FromJSON BatchPrediction where
 --
 -- * 'dsDataRearrangement'
 data DataSource = DataSource'
-    { _dsStatus            :: Maybe EntityStatus
-    , _dsNumberOfFiles     :: Maybe Integer
-    , _dsLastUpdatedAt     :: Maybe POSIX
-    , _dsCreatedAt         :: Maybe POSIX
-    , _dsRDSMetadata       :: Maybe RDSMetadata
-    , _dsDataSourceId      :: Maybe Text
-    , _dsDataSizeInBytes   :: Maybe Integer
-    , _dsName              :: Maybe Text
-    , _dsCreatedByIAMUser  :: Maybe Text
-    , _dsDataLocationS3    :: Maybe Text
-    , _dsComputeStatistics :: Maybe Bool
-    , _dsMessage           :: Maybe Text
-    , _dsRedshiftMetadata  :: Maybe RedshiftMetadata
-    , _dsRoleARN           :: Maybe Text
-    , _dsDataRearrangement :: Maybe Text
+    { _dsStatus            :: !(Maybe EntityStatus)
+    , _dsNumberOfFiles     :: !(Maybe Integer)
+    , _dsLastUpdatedAt     :: !(Maybe POSIX)
+    , _dsCreatedAt         :: !(Maybe POSIX)
+    , _dsRDSMetadata       :: !(Maybe RDSMetadata)
+    , _dsDataSourceId      :: !(Maybe Text)
+    , _dsDataSizeInBytes   :: !(Maybe Integer)
+    , _dsName              :: !(Maybe Text)
+    , _dsCreatedByIAMUser  :: !(Maybe Text)
+    , _dsDataLocationS3    :: !(Maybe Text)
+    , _dsComputeStatistics :: !(Maybe Bool)
+    , _dsMessage           :: !(Maybe Text)
+    , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
+    , _dsRoleARN           :: !(Maybe Text)
+    , _dsDataRearrangement :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DataSource' smart constructor.
@@ -1036,17 +1036,17 @@ instance FromJSON DataSource where
 --
 -- * 'evaEvaluationDataSourceId'
 data Evaluation = Evaluation'
-    { _evaStatus                 :: Maybe EntityStatus
-    , _evaPerformanceMetrics     :: Maybe PerformanceMetrics
-    , _evaLastUpdatedAt          :: Maybe POSIX
-    , _evaCreatedAt              :: Maybe POSIX
-    , _evaInputDataLocationS3    :: Maybe Text
-    , _evaMLModelId              :: Maybe Text
-    , _evaName                   :: Maybe Text
-    , _evaCreatedByIAMUser       :: Maybe Text
-    , _evaMessage                :: Maybe Text
-    , _evaEvaluationId           :: Maybe Text
-    , _evaEvaluationDataSourceId :: Maybe Text
+    { _evaStatus                 :: !(Maybe EntityStatus)
+    , _evaPerformanceMetrics     :: !(Maybe PerformanceMetrics)
+    , _evaLastUpdatedAt          :: !(Maybe POSIX)
+    , _evaCreatedAt              :: !(Maybe POSIX)
+    , _evaInputDataLocationS3    :: !(Maybe Text)
+    , _evaMLModelId              :: !(Maybe Text)
+    , _evaName                   :: !(Maybe Text)
+    , _evaCreatedByIAMUser       :: !(Maybe Text)
+    , _evaMessage                :: !(Maybe Text)
+    , _evaEvaluationId           :: !(Maybe Text)
+    , _evaEvaluationDataSourceId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Evaluation' smart constructor.
@@ -1197,22 +1197,22 @@ instance FromJSON Evaluation where
 --
 -- * 'mlmMLModelType'
 data MLModel = MLModel'
-    { _mlmStatus                      :: Maybe EntityStatus
-    , _mlmTrainingParameters          :: Maybe (Map Text Text)
-    , _mlmLastUpdatedAt               :: Maybe POSIX
-    , _mlmCreatedAt                   :: Maybe POSIX
-    , _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX
-    , _mlmInputDataLocationS3         :: Maybe Text
-    , _mlmSizeInBytes                 :: Maybe Integer
-    , _mlmMLModelId                   :: Maybe Text
-    , _mlmScoreThreshold              :: Maybe Double
-    , _mlmName                        :: Maybe Text
-    , _mlmAlgorithm                   :: Maybe Algorithm
-    , _mlmCreatedByIAMUser            :: Maybe Text
-    , _mlmEndpointInfo                :: Maybe RealtimeEndpointInfo
-    , _mlmTrainingDataSourceId        :: Maybe Text
-    , _mlmMessage                     :: Maybe Text
-    , _mlmMLModelType                 :: Maybe MLModelType
+    { _mlmStatus                      :: !(Maybe EntityStatus)
+    , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
+    , _mlmLastUpdatedAt               :: !(Maybe POSIX)
+    , _mlmCreatedAt                   :: !(Maybe POSIX)
+    , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+    , _mlmInputDataLocationS3         :: !(Maybe Text)
+    , _mlmSizeInBytes                 :: !(Maybe Integer)
+    , _mlmMLModelId                   :: !(Maybe Text)
+    , _mlmScoreThreshold              :: !(Maybe Double)
+    , _mlmName                        :: !(Maybe Text)
+    , _mlmAlgorithm                   :: !(Maybe Algorithm)
+    , _mlmCreatedByIAMUser            :: !(Maybe Text)
+    , _mlmEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+    , _mlmTrainingDataSourceId        :: !(Maybe Text)
+    , _mlmMessage                     :: !(Maybe Text)
+    , _mlmMLModelType                 :: !(Maybe MLModelType)
     } deriving (Eq,Read,Show)
 
 -- | 'MLModel' smart constructor.
@@ -1458,10 +1458,10 @@ instance FromJSON PerformanceMetrics where
 --
 -- * 'preDetails'
 data Prediction = Prediction'
-    { _prePredictedValue  :: Maybe Double
-    , _prePredictedLabel  :: Maybe Text
-    , _prePredictedScores :: Maybe (Map Text Double)
-    , _preDetails         :: Maybe (Map DetailsAttributes Text)
+    { _prePredictedValue  :: !(Maybe Double)
+    , _prePredictedLabel  :: !(Maybe Text)
+    , _prePredictedScores :: !(Maybe (Map Text Double))
+    , _preDetails         :: !(Maybe (Map DetailsAttributes Text))
     } deriving (Eq,Read,Show)
 
 -- | 'Prediction' smart constructor.
@@ -1528,17 +1528,17 @@ instance FromJSON Prediction where
 --
 -- * 'rdsdsSecurityGroupIds'
 data RDSDataSpec = RDSDataSpec'
-    { _rdsdsDataSchemaURI       :: Maybe Text
-    , _rdsdsDataSchema          :: Maybe Text
-    , _rdsdsDataRearrangement   :: Maybe Text
-    , _rdsdsDatabaseInformation :: RDSDatabase
-    , _rdsdsSelectSqlQuery      :: Text
-    , _rdsdsDatabaseCredentials :: RDSDatabaseCredentials
-    , _rdsdsS3StagingLocation   :: Text
-    , _rdsdsResourceRole        :: Text
-    , _rdsdsServiceRole         :: Text
-    , _rdsdsSubnetId            :: Text
-    , _rdsdsSecurityGroupIds    :: [Text]
+    { _rdsdsDataSchemaURI       :: !(Maybe Text)
+    , _rdsdsDataSchema          :: !(Maybe Text)
+    , _rdsdsDataRearrangement   :: !(Maybe Text)
+    , _rdsdsDatabaseInformation :: !RDSDatabase
+    , _rdsdsSelectSqlQuery      :: !Text
+    , _rdsdsDatabaseCredentials :: !RDSDatabaseCredentials
+    , _rdsdsS3StagingLocation   :: !Text
+    , _rdsdsResourceRole        :: !Text
+    , _rdsdsServiceRole         :: !Text
+    , _rdsdsSubnetId            :: !Text
+    , _rdsdsSecurityGroupIds    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'RDSDataSpec' smart constructor.
@@ -1649,8 +1649,8 @@ instance ToJSON RDSDataSpec where
 --
 -- * 'rdsDatabaseName'
 data RDSDatabase = RDSDatabase'
-    { _rdsInstanceIdentifier :: Text
-    , _rdsDatabaseName       :: Text
+    { _rdsInstanceIdentifier :: !Text
+    , _rdsDatabaseName       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RDSDatabase' smart constructor.
@@ -1693,8 +1693,8 @@ instance ToJSON RDSDatabase where
 --
 -- * 'rdsPassword'
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-    { _rdsUsername :: Text
-    , _rdsPassword :: Text
+    { _rdsUsername :: !Text
+    , _rdsPassword :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RDSDatabaseCredentials' smart constructor.
@@ -1737,12 +1737,12 @@ instance ToJSON RDSDatabaseCredentials where
 --
 -- * 'rmServiceRole'
 data RDSMetadata = RDSMetadata'
-    { _rmSelectSqlQuery   :: Maybe Text
-    , _rmDataPipelineId   :: Maybe Text
-    , _rmDatabase         :: Maybe RDSDatabase
-    , _rmDatabaseUserName :: Maybe Text
-    , _rmResourceRole     :: Maybe Text
-    , _rmServiceRole      :: Maybe Text
+    { _rmSelectSqlQuery   :: !(Maybe Text)
+    , _rmDataPipelineId   :: !(Maybe Text)
+    , _rmDatabase         :: !(Maybe RDSDatabase)
+    , _rmDatabaseUserName :: !(Maybe Text)
+    , _rmResourceRole     :: !(Maybe Text)
+    , _rmServiceRole      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RDSMetadata' smart constructor.
@@ -1817,10 +1817,10 @@ instance FromJSON RDSMetadata where
 --
 -- * 'reiPeakRequestsPerSecond'
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
-    { _reiCreatedAt             :: Maybe POSIX
-    , _reiEndpointURL           :: Maybe Text
-    , _reiEndpointStatus        :: Maybe RealtimeEndpointStatus
-    , _reiPeakRequestsPerSecond :: Maybe Int
+    { _reiCreatedAt             :: !(Maybe POSIX)
+    , _reiEndpointURL           :: !(Maybe Text)
+    , _reiEndpointStatus        :: !(Maybe RealtimeEndpointStatus)
+    , _reiPeakRequestsPerSecond :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'RealtimeEndpointInfo' smart constructor.
@@ -1891,13 +1891,13 @@ instance FromJSON RealtimeEndpointInfo where
 --
 -- * 'redS3StagingLocation'
 data RedshiftDataSpec = RedshiftDataSpec'
-    { _redDataSchemaURI       :: Maybe Text
-    , _redDataSchema          :: Maybe Text
-    , _redDataRearrangement   :: Maybe Text
-    , _redDatabaseInformation :: RedshiftDatabase
-    , _redSelectSqlQuery      :: Text
-    , _redDatabaseCredentials :: RedshiftDatabaseCredentials
-    , _redS3StagingLocation   :: Text
+    { _redDataSchemaURI       :: !(Maybe Text)
+    , _redDataSchema          :: !(Maybe Text)
+    , _redDataRearrangement   :: !(Maybe Text)
+    , _redDatabaseInformation :: !RedshiftDatabase
+    , _redSelectSqlQuery      :: !Text
+    , _redDatabaseCredentials :: !RedshiftDatabaseCredentials
+    , _redS3StagingLocation   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RedshiftDataSpec' smart constructor.
@@ -1967,8 +1967,8 @@ instance ToJSON RedshiftDataSpec where
 --
 -- * 'rdClusterIdentifier'
 data RedshiftDatabase = RedshiftDatabase'
-    { _rdDatabaseName      :: Text
-    , _rdClusterIdentifier :: Text
+    { _rdDatabaseName      :: !Text
+    , _rdClusterIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RedshiftDatabase' smart constructor.
@@ -2011,8 +2011,8 @@ instance ToJSON RedshiftDatabase where
 --
 -- * 'rdcPassword'
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
-    { _rdcUsername :: Text
-    , _rdcPassword :: Text
+    { _rdcUsername :: !Text
+    , _rdcPassword :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RedshiftDatabaseCredentials' smart constructor.
@@ -2049,9 +2049,9 @@ instance ToJSON RedshiftDatabaseCredentials where
 --
 -- * 'rDatabaseUserName'
 data RedshiftMetadata = RedshiftMetadata'
-    { _rSelectSqlQuery   :: Maybe Text
-    , _rRedshiftDatabase :: Maybe RedshiftDatabase
-    , _rDatabaseUserName :: Maybe Text
+    { _rSelectSqlQuery   :: !(Maybe Text)
+    , _rRedshiftDatabase :: !(Maybe RedshiftDatabase)
+    , _rDatabaseUserName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RedshiftMetadata' smart constructor.
@@ -2099,10 +2099,10 @@ instance FromJSON RedshiftMetadata where
 --
 -- * 'sdsDataLocationS3'
 data S3DataSpec = S3DataSpec'
-    { _sdsDataSchema           :: Maybe Text
-    , _sdsDataSchemaLocationS3 :: Maybe Text
-    , _sdsDataRearrangement    :: Maybe Text
-    , _sdsDataLocationS3       :: Text
+    { _sdsDataSchema           :: !(Maybe Text)
+    , _sdsDataSchemaLocationS3 :: !(Maybe Text)
+    , _sdsDataRearrangement    :: !(Maybe Text)
+    , _sdsDataLocationS3       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'S3DataSpec' smart constructor.

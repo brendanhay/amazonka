@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'ccpgDescription'
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
-    { _ccpgCacheParameterGroupName   :: Text
-    , _ccpgCacheParameterGroupFamily :: Text
-    , _ccpgDescription               :: Text
+    { _ccpgCacheParameterGroupName   :: !Text
+    , _ccpgCacheParameterGroupFamily :: !Text
+    , _ccpgDescription               :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateCacheParameterGroup' smart constructor.
@@ -123,7 +123,7 @@ instance ToQuery CreateCacheParameterGroup where
 --
 -- * 'ccpgrStatus'
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
-    { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
+    { _ccpgrCacheParameterGroup :: !(Maybe CacheParameterGroup)
     , _ccpgrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

@@ -59,8 +59,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'rtrpGatewayARN'
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN    :: Text
-    , _rtrpGatewayARN :: Text
+    { _rtrpTapeARN    :: !Text
+    , _rtrpGatewayARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RetrieveTapeRecoveryPoint' smart constructor.
@@ -123,7 +123,7 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 --
 -- * 'rtrprStatus'
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
-    { _rtrprTapeARN :: Maybe Text
+    { _rtrprTapeARN :: !(Maybe Text)
     , _rtrprStatus  :: !Int
     } deriving (Eq,Read,Show)
 

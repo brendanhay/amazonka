@@ -63,10 +63,10 @@ import           Network.AWS.Response
 --
 -- * 'dsfLogGroupName'
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-    { _dsfFilterNamePrefix :: Maybe Text
-    , _dsfNextToken        :: Maybe Text
-    , _dsfLimit            :: Maybe Nat
-    , _dsfLogGroupName     :: Text
+    { _dsfFilterNamePrefix :: !(Maybe Text)
+    , _dsfNextToken        :: !(Maybe Text)
+    , _dsfLimit            :: !(Maybe Nat)
+    , _dsfLogGroupName     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
@@ -143,8 +143,8 @@ instance ToQuery DescribeSubscriptionFilters where
 --
 -- * 'dsfrStatus'
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
-    { _dsfrSubscriptionFilters :: Maybe [SubscriptionFilter]
-    , _dsfrNextToken           :: Maybe Text
+    { _dsfrSubscriptionFilters :: !(Maybe [SubscriptionFilter])
+    , _dsfrNextToken           :: !(Maybe Text)
     , _dsfrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

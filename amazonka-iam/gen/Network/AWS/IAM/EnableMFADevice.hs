@@ -54,10 +54,10 @@ import           Network.AWS.Response
 --
 -- * 'emdAuthenticationCode2'
 data EnableMFADevice = EnableMFADevice'
-    { _emdUserName            :: Text
-    , _emdSerialNumber        :: Text
-    , _emdAuthenticationCode1 :: Text
-    , _emdAuthenticationCode2 :: Text
+    { _emdUserName            :: !Text
+    , _emdSerialNumber        :: !Text
+    , _emdAuthenticationCode1 :: !Text
+    , _emdAuthenticationCode2 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'EnableMFADevice' smart constructor.

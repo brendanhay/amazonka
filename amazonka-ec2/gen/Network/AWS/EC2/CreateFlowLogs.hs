@@ -72,12 +72,12 @@ import           Network.AWS.Response
 --
 -- * 'cflDeliverLogsPermissionARN'
 data CreateFlowLogs = CreateFlowLogs'
-    { _cflClientToken              :: Maybe Text
-    , _cflResourceIds              :: [Text]
-    , _cflResourceType             :: FlowLogsResourceType
-    , _cflTrafficType              :: TrafficType
-    , _cflLogGroupName             :: Text
-    , _cflDeliverLogsPermissionARN :: Text
+    { _cflClientToken              :: !(Maybe Text)
+    , _cflResourceIds              :: ![Text]
+    , _cflResourceType             :: !FlowLogsResourceType
+    , _cflTrafficType              :: !TrafficType
+    , _cflLogGroupName             :: !Text
+    , _cflDeliverLogsPermissionARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateFlowLogs' smart constructor.
@@ -163,9 +163,9 @@ instance ToQuery CreateFlowLogs where
 --
 -- * 'cflrStatus'
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
-    { _cflrUnsuccessful :: Maybe [UnsuccessfulItem]
-    , _cflrClientToken  :: Maybe Text
-    , _cflrFlowLogIds   :: Maybe [Text]
+    { _cflrUnsuccessful :: !(Maybe [UnsuccessfulItem])
+    , _cflrClientToken  :: !(Maybe Text)
+    , _cflrFlowLogIds   :: !(Maybe [Text])
     , _cflrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

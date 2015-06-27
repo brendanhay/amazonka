@@ -105,16 +105,16 @@ import           Network.AWS.SWF.Types
 --
 -- * 'staWorkflowType'
 data StartWorkflowExecution = StartWorkflowExecution'
-    { _staTagList                      :: Maybe [Text]
-    , _staTaskStartToCloseTimeout      :: Maybe Text
-    , _staInput                        :: Maybe Text
-    , _staExecutionStartToCloseTimeout :: Maybe Text
-    , _staTaskList                     :: Maybe TaskList
-    , _staTaskPriority                 :: Maybe Text
-    , _staChildPolicy                  :: Maybe ChildPolicy
-    , _staDomain                       :: Text
-    , _staWorkflowId                   :: Text
-    , _staWorkflowType                 :: WorkflowType
+    { _staTagList                      :: !(Maybe [Text])
+    , _staTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _staInput                        :: !(Maybe Text)
+    , _staExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _staTaskList                     :: !(Maybe TaskList)
+    , _staTaskPriority                 :: !(Maybe Text)
+    , _staChildPolicy                  :: !(Maybe ChildPolicy)
+    , _staDomain                       :: !Text
+    , _staWorkflowId                   :: !Text
+    , _staWorkflowType                 :: !WorkflowType
     } deriving (Eq,Read,Show)
 
 -- | 'StartWorkflowExecution' smart constructor.
@@ -305,7 +305,7 @@ instance ToQuery StartWorkflowExecution where
 --
 -- * 'swerStatus'
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
-    { _swerRunId  :: Maybe Text
+    { _swerRunId  :: !(Maybe Text)
     , _swerStatus :: !Int
     } deriving (Eq,Read,Show)
 

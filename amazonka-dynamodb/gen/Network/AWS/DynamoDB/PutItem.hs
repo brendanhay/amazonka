@@ -104,16 +104,16 @@ import           Network.AWS.Response
 --
 -- * 'piItem'
 data PutItem = PutItem'
-    { _piReturnValues                :: Maybe ReturnValue
-    , _piExpressionAttributeNames    :: Maybe (Map Text Text)
-    , _piReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
-    , _piExpressionAttributeValues   :: Maybe (Map Text AttributeValue)
-    , _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    , _piConditionExpression         :: Maybe Text
-    , _piConditionalOperator         :: Maybe ConditionalOperator
-    , _piExpected                    :: Maybe (Map Text ExpectedAttributeValue)
-    , _piTableName                   :: Text
-    , _piItem                        :: Map Text AttributeValue
+    { _piReturnValues                :: !(Maybe ReturnValue)
+    , _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _piConditionExpression         :: !(Maybe Text)
+    , _piConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _piTableName                   :: !Text
+    , _piItem                        :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show)
 
 -- | 'PutItem' smart constructor.
@@ -573,9 +573,9 @@ instance ToQuery PutItem where
 --
 -- * 'pirStatus'
 data PutItemResponse = PutItemResponse'
-    { _pirConsumedCapacity      :: Maybe ConsumedCapacity
-    , _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    , _pirAttributes            :: Maybe (Map Text AttributeValue)
+    { _pirConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _pirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _pirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _pirStatus                :: !Int
     } deriving (Eq,Read,Show)
 

@@ -66,9 +66,9 @@ import           Network.AWS.SDB.Types
 --
 -- * 'selSelectExpression'
 data Select = Select'
-    { _selConsistentRead   :: Maybe Bool
-    , _selNextToken        :: Maybe Text
-    , _selSelectExpression :: Text
+    { _selConsistentRead   :: !(Maybe Bool)
+    , _selNextToken        :: !(Maybe Text)
+    , _selSelectExpression :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Select' smart constructor.
@@ -140,8 +140,8 @@ instance ToQuery Select where
 --
 -- * 'srStatus'
 data SelectResponse = SelectResponse'
-    { _srItems     :: Maybe [Item]
-    , _srNextToken :: Maybe Text
+    { _srItems     :: !(Maybe [Item])
+    , _srNextToken :: !(Maybe Text)
     , _srStatus    :: !Int
     } deriving (Eq,Read,Show)
 

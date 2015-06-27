@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'lciMaxResults'
 data ListContainerInstances = ListContainerInstances'
-    { _lciCluster    :: Maybe Text
-    , _lciNextToken  :: Maybe Text
-    , _lciMaxResults :: Maybe Int
+    { _lciCluster    :: !(Maybe Text)
+    , _lciNextToken  :: !(Maybe Text)
+    , _lciMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListContainerInstances' smart constructor.
@@ -147,8 +147,8 @@ instance ToQuery ListContainerInstances where
 --
 -- * 'lcirStatus'
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
-    { _lcirContainerInstanceARNs :: Maybe [Text]
-    , _lcirNextToken             :: Maybe Text
+    { _lcirContainerInstanceARNs :: !(Maybe [Text])
+    , _lcirNextToken             :: !(Maybe Text)
     , _lcirStatus                :: !Int
     } deriving (Eq,Read,Show)
 

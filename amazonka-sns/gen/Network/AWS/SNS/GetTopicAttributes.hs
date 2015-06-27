@@ -99,7 +99,7 @@ instance ToQuery GetTopicAttributes where
 --
 -- * 'gtarStatus'
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
-    { _gtarAttributes :: Maybe (Map Text Text)
+    { _gtarAttributes :: !(Maybe (Map Text Text))
     , _gtarStatus     :: !Int
     } deriving (Eq,Read,Show)
 

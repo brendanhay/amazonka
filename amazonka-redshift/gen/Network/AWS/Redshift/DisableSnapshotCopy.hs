@@ -104,7 +104,7 @@ instance ToQuery DisableSnapshotCopy where
 --
 -- * 'dscrStatus'
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-    { _dscrCluster :: Maybe Cluster
+    { _dscrCluster :: !(Maybe Cluster)
     , _dscrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

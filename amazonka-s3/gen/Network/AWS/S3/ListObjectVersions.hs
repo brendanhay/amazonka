@@ -77,13 +77,13 @@ import           Network.AWS.S3.Types
 --
 -- * 'lovBucket'
 data ListObjectVersions = ListObjectVersions'
-    { _lovKeyMarker       :: Maybe Text
-    , _lovPrefix          :: Maybe Text
-    , _lovEncodingType    :: Maybe EncodingType
-    , _lovVersionIdMarker :: Maybe Text
-    , _lovMaxKeys         :: Maybe Int
-    , _lovDelimiter       :: Maybe Char
-    , _lovBucket          :: BucketName
+    { _lovKeyMarker       :: !(Maybe Text)
+    , _lovPrefix          :: !(Maybe Text)
+    , _lovEncodingType    :: !(Maybe EncodingType)
+    , _lovVersionIdMarker :: !(Maybe Text)
+    , _lovMaxKeys         :: !(Maybe Int)
+    , _lovDelimiter       :: !(Maybe Char)
+    , _lovBucket          :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'ListObjectVersions' smart constructor.
@@ -210,19 +210,19 @@ instance ToQuery ListObjectVersions where
 --
 -- * 'lovrStatus'
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
-    { _lovrNextVersionIdMarker :: Maybe Text
-    , _lovrKeyMarker           :: Maybe Text
-    , _lovrPrefix              :: Maybe Text
-    , _lovrDeleteMarkers       :: Maybe [DeleteMarkerEntry]
-    , _lovrEncodingType        :: Maybe EncodingType
-    , _lovrCommonPrefixes      :: Maybe [CommonPrefix]
-    , _lovrVersions            :: Maybe [ObjectVersion]
-    , _lovrName                :: Maybe BucketName
-    , _lovrNextKeyMarker       :: Maybe Text
-    , _lovrVersionIdMarker     :: Maybe Text
-    , _lovrMaxKeys             :: Maybe Int
-    , _lovrIsTruncated         :: Maybe Bool
-    , _lovrDelimiter           :: Maybe Char
+    { _lovrNextVersionIdMarker :: !(Maybe Text)
+    , _lovrKeyMarker           :: !(Maybe Text)
+    , _lovrPrefix              :: !(Maybe Text)
+    , _lovrDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
+    , _lovrEncodingType        :: !(Maybe EncodingType)
+    , _lovrCommonPrefixes      :: !(Maybe [CommonPrefix])
+    , _lovrVersions            :: !(Maybe [ObjectVersion])
+    , _lovrName                :: !(Maybe BucketName)
+    , _lovrNextKeyMarker       :: !(Maybe Text)
+    , _lovrVersionIdMarker     :: !(Maybe Text)
+    , _lovrMaxKeys             :: !(Maybe Int)
+    , _lovrIsTruncated         :: !(Maybe Bool)
+    , _lovrDelimiter           :: !(Maybe Char)
     , _lovrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

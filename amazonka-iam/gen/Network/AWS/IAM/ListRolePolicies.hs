@@ -66,9 +66,9 @@ import           Network.AWS.Response
 --
 -- * 'lrpRoleName'
 data ListRolePolicies = ListRolePolicies'
-    { _lrpMaxItems :: Maybe Nat
-    , _lrpMarker   :: Maybe Text
-    , _lrpRoleName :: Text
+    { _lrpMaxItems :: !(Maybe Nat)
+    , _lrpMarker   :: !(Maybe Text)
+    , _lrpRoleName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListRolePolicies' smart constructor.
@@ -147,9 +147,9 @@ instance ToQuery ListRolePolicies where
 --
 -- * 'lrprStatus'
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-    { _lrprMarker      :: Maybe Text
-    , _lrprIsTruncated :: Maybe Bool
-    , _lrprPolicyNames :: [Text]
+    { _lrprMarker      :: !(Maybe Text)
+    , _lrprIsTruncated :: !(Maybe Bool)
+    , _lrprPolicyNames :: ![Text]
     , _lrprStatus      :: !Int
     } deriving (Eq,Read,Show)
 

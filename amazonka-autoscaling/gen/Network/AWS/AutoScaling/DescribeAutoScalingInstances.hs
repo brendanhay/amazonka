@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dasiMaxRecords'
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-    { _dasiNextToken   :: Maybe Text
-    , _dasiInstanceIds :: Maybe [Text]
-    , _dasiMaxRecords  :: Maybe Int
+    { _dasiNextToken   :: !(Maybe Text)
+    , _dasiInstanceIds :: !(Maybe [Text])
+    , _dasiMaxRecords  :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingInstances' smart constructor.
@@ -134,8 +134,8 @@ instance ToQuery DescribeAutoScalingInstances where
 --
 -- * 'dasirStatus'
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
-    { _dasirNextToken            :: Maybe Text
-    , _dasirAutoScalingInstances :: Maybe [AutoScalingInstanceDetails]
+    { _dasirNextToken            :: !(Maybe Text)
+    , _dasirAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
     , _dasirStatus               :: !Int
     } deriving (Eq,Read,Show)
 

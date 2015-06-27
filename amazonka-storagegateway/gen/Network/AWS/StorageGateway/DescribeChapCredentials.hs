@@ -109,7 +109,7 @@ instance ToQuery DescribeChapCredentials where
 --
 -- * 'dccrStatus'
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
-    { _dccrChapCredentials :: Maybe [ChapInfo]
+    { _dccrChapCredentials :: !(Maybe [ChapInfo])
     , _dccrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'lgfuUserName'
 data ListGroupsForUser = ListGroupsForUser'
-    { _lgfuMaxItems :: Maybe Nat
-    , _lgfuMarker   :: Maybe Text
-    , _lgfuUserName :: Text
+    { _lgfuMaxItems :: !(Maybe Nat)
+    , _lgfuMarker   :: !(Maybe Text)
+    , _lgfuUserName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListGroupsForUser' smart constructor.
@@ -138,9 +138,9 @@ instance ToQuery ListGroupsForUser where
 --
 -- * 'lgfurStatus'
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-    { _lgfurMarker      :: Maybe Text
-    , _lgfurIsTruncated :: Maybe Bool
-    , _lgfurGroups      :: [Group]
+    { _lgfurMarker      :: !(Maybe Text)
+    , _lgfurIsTruncated :: !(Maybe Bool)
+    , _lgfurGroups      :: ![Group]
     , _lgfurStatus      :: !Int
     } deriving (Eq,Read,Show)
 

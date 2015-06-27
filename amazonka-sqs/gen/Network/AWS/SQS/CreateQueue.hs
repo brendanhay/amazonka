@@ -77,8 +77,8 @@ import           Network.AWS.SQS.Types
 --
 -- * 'cqQueueName'
 data CreateQueue = CreateQueue'
-    { _cqAttributes :: Maybe (Map QueueAttributeName Text)
-    , _cqQueueName  :: Text
+    { _cqAttributes :: !(Maybe (Map QueueAttributeName Text))
+    , _cqQueueName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateQueue' smart constructor.
@@ -160,7 +160,7 @@ instance ToQuery CreateQueue where
 --
 -- * 'cqrStatus'
 data CreateQueueResponse = CreateQueueResponse'
-    { _cqrQueueURL :: Maybe Text
+    { _cqrQueueURL :: !(Maybe Text)
     , _cqrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

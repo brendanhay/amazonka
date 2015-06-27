@@ -76,13 +76,13 @@ import           Network.AWS.S3.Types
 --
 -- * 'lmuBucket'
 data ListMultipartUploads = ListMultipartUploads'
-    { _lmuKeyMarker      :: Maybe Text
-    , _lmuPrefix         :: Maybe Text
-    , _lmuEncodingType   :: Maybe EncodingType
-    , _lmuMaxUploads     :: Maybe Int
-    , _lmuUploadIdMarker :: Maybe Text
-    , _lmuDelimiter      :: Maybe Char
-    , _lmuBucket         :: BucketName
+    { _lmuKeyMarker      :: !(Maybe Text)
+    , _lmuPrefix         :: !(Maybe Text)
+    , _lmuEncodingType   :: !(Maybe EncodingType)
+    , _lmuMaxUploads     :: !(Maybe Int)
+    , _lmuUploadIdMarker :: !(Maybe Text)
+    , _lmuDelimiter      :: !(Maybe Char)
+    , _lmuBucket         :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'ListMultipartUploads' smart constructor.
@@ -211,18 +211,18 @@ instance ToQuery ListMultipartUploads where
 --
 -- * 'lmurStatus'
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-    { _lmurKeyMarker          :: Maybe Text
-    , _lmurPrefix             :: Maybe Text
-    , _lmurEncodingType       :: Maybe EncodingType
-    , _lmurCommonPrefixes     :: Maybe [CommonPrefix]
-    , _lmurBucket             :: Maybe BucketName
-    , _lmurMaxUploads         :: Maybe Int
-    , _lmurUploadIdMarker     :: Maybe Text
-    , _lmurNextKeyMarker      :: Maybe Text
-    , _lmurUploads            :: Maybe [MultipartUpload]
-    , _lmurIsTruncated        :: Maybe Bool
-    , _lmurNextUploadIdMarker :: Maybe Text
-    , _lmurDelimiter          :: Maybe Char
+    { _lmurKeyMarker          :: !(Maybe Text)
+    , _lmurPrefix             :: !(Maybe Text)
+    , _lmurEncodingType       :: !(Maybe EncodingType)
+    , _lmurCommonPrefixes     :: !(Maybe [CommonPrefix])
+    , _lmurBucket             :: !(Maybe BucketName)
+    , _lmurMaxUploads         :: !(Maybe Int)
+    , _lmurUploadIdMarker     :: !(Maybe Text)
+    , _lmurNextKeyMarker      :: !(Maybe Text)
+    , _lmurUploads            :: !(Maybe [MultipartUpload])
+    , _lmurIsTruncated        :: !(Maybe Bool)
+    , _lmurNextUploadIdMarker :: !(Maybe Text)
+    , _lmurDelimiter          :: !(Maybe Char)
     , _lmurStatus             :: !Int
     } deriving (Eq,Read,Show)
 

@@ -119,8 +119,8 @@ instance ToQuery DescribeStackProvisioningParameters
 --
 -- * 'dspprStatus'
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
-    { _dspprAgentInstallerURL :: Maybe Text
-    , _dspprParameters        :: Maybe (Map Text Text)
+    { _dspprAgentInstallerURL :: !(Maybe Text)
+    , _dspprParameters        :: !(Maybe (Map Text Text))
     , _dspprStatus            :: !Int
     } deriving (Eq,Read,Show)
 

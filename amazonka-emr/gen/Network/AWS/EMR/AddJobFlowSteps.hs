@@ -75,8 +75,8 @@ import           Network.AWS.Response
 --
 -- * 'ajfsSteps'
 data AddJobFlowSteps = AddJobFlowSteps'
-    { _ajfsJobFlowId :: Text
-    , _ajfsSteps     :: [StepConfig]
+    { _ajfsJobFlowId :: !Text
+    , _ajfsSteps     :: ![StepConfig]
     } deriving (Eq,Read,Show)
 
 -- | 'AddJobFlowSteps' smart constructor.
@@ -137,7 +137,7 @@ instance ToQuery AddJobFlowSteps where
 --
 -- * 'ajfsrStatus'
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-    { _ajfsrStepIds :: Maybe [Text]
+    { _ajfsrStepIds :: !(Maybe [Text])
     , _ajfsrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

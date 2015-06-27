@@ -99,7 +99,7 @@ instance ToQuery GetInstanceProfile where
 --
 -- * 'giprStatus'
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprInstanceProfile :: InstanceProfile
+    { _giprInstanceProfile :: !InstanceProfile
     , _giprStatus          :: !Int
     } deriving (Eq,Read,Show)
 

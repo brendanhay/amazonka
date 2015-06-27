@@ -49,8 +49,8 @@ import           Network.AWS.Response
 --
 -- * 'rtfopiInstanceNames'
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
-    { _rtfopiTags          :: [Tag]
-    , _rtfopiInstanceNames :: [Text]
+    { _rtfopiTags          :: ![Tag]
+    , _rtfopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveTagsFromOnPremisesInstances' smart constructor.

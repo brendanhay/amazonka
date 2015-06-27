@@ -105,16 +105,16 @@ import           Network.AWS.SWF.Types
 --
 -- * 'lcweDomain'
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
-    { _lcweNextPageToken     :: Maybe Text
-    , _lcweCloseStatusFilter :: Maybe CloseStatusFilter
-    , _lcweExecutionFilter   :: Maybe WorkflowExecutionFilter
-    , _lcweTypeFilter        :: Maybe WorkflowTypeFilter
-    , _lcweCloseTimeFilter   :: Maybe ExecutionTimeFilter
-    , _lcweReverseOrder      :: Maybe Bool
-    , _lcweTagFilter         :: Maybe TagFilter
-    , _lcweStartTimeFilter   :: Maybe ExecutionTimeFilter
-    , _lcweMaximumPageSize   :: Maybe Nat
-    , _lcweDomain            :: Text
+    { _lcweNextPageToken     :: !(Maybe Text)
+    , _lcweCloseStatusFilter :: !(Maybe CloseStatusFilter)
+    , _lcweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
+    , _lcweTypeFilter        :: !(Maybe WorkflowTypeFilter)
+    , _lcweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
+    , _lcweReverseOrder      :: !(Maybe Bool)
+    , _lcweTagFilter         :: !(Maybe TagFilter)
+    , _lcweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
+    , _lcweMaximumPageSize   :: !(Maybe Nat)
+    , _lcweDomain            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListClosedWorkflowExecutions' smart constructor.

@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'decFilters'
 data DescribeEventCategories = DescribeEventCategories'
-    { _decSourceType :: Maybe Text
-    , _decFilters    :: Maybe [Filter]
+    { _decSourceType :: !(Maybe Text)
+    , _decFilters    :: !(Maybe [Filter])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventCategories' smart constructor.
@@ -117,7 +117,7 @@ instance ToQuery DescribeEventCategories where
 --
 -- * 'decrStatus'
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrEventCategoriesMapList :: Maybe [EventCategoriesMap]
+    { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
     , _decrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

@@ -66,11 +66,11 @@ import           Network.AWS.S3.Types
 --
 -- * 'comUploadId'
 data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _comRequestPayer    :: Maybe RequestPayer
-    , _comMultipartUpload :: Maybe CompletedMultipartUpload
-    , _comBucket          :: BucketName
-    , _comKey             :: ObjectKey
-    , _comUploadId        :: Text
+    { _comRequestPayer    :: !(Maybe RequestPayer)
+    , _comMultipartUpload :: !(Maybe CompletedMultipartUpload)
+    , _comBucket          :: !BucketName
+    , _comKey             :: !ObjectKey
+    , _comUploadId        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CompleteMultipartUpload' smart constructor.
@@ -168,15 +168,15 @@ instance ToQuery CompleteMultipartUpload where
 --
 -- * 'cStatus'
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-    { _cVersionId            :: Maybe ObjectVersionId
-    , _cETag                 :: Maybe ETag
-    , _cRequestCharged       :: Maybe RequestCharged
-    , _cLocation             :: Maybe Text
-    , _cExpiration           :: Maybe Text
-    , _cBucket               :: Maybe BucketName
-    , _cKey                  :: Maybe ObjectKey
-    , _cSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _cServerSideEncryption :: Maybe ServerSideEncryption
+    { _cVersionId            :: !(Maybe ObjectVersionId)
+    , _cETag                 :: !(Maybe ETag)
+    , _cRequestCharged       :: !(Maybe RequestCharged)
+    , _cLocation             :: !(Maybe Text)
+    , _cExpiration           :: !(Maybe Text)
+    , _cBucket               :: !(Maybe BucketName)
+    , _cKey                  :: !(Maybe ObjectKey)
+    , _cSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _cServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cStatus               :: !Int
     } deriving (Eq,Read,Show)
 

@@ -79,17 +79,17 @@ import           Network.AWS.Response
 --
 -- * 'ddsLE'
 data DescribeDataSources = DescribeDataSources'
-    { _ddsEQ             :: Maybe Text
-    , _ddsGE             :: Maybe Text
-    , _ddsPrefix         :: Maybe Text
-    , _ddsGT             :: Maybe Text
-    , _ddsNE             :: Maybe Text
-    , _ddsNextToken      :: Maybe Text
-    , _ddsSortOrder      :: Maybe SortOrder
-    , _ddsLimit          :: Maybe Nat
-    , _ddsLT             :: Maybe Text
-    , _ddsFilterVariable :: Maybe DataSourceFilterVariable
-    , _ddsLE             :: Maybe Text
+    { _ddsEQ             :: !(Maybe Text)
+    , _ddsGE             :: !(Maybe Text)
+    , _ddsPrefix         :: !(Maybe Text)
+    , _ddsGT             :: !(Maybe Text)
+    , _ddsNE             :: !(Maybe Text)
+    , _ddsNextToken      :: !(Maybe Text)
+    , _ddsSortOrder      :: !(Maybe SortOrder)
+    , _ddsLimit          :: !(Maybe Nat)
+    , _ddsLT             :: !(Maybe Text)
+    , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
+    , _ddsLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDataSources' smart constructor.
@@ -253,8 +253,8 @@ instance ToQuery DescribeDataSources where
 --
 -- * 'dStatus'
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-    { _dResults   :: Maybe [DataSource]
-    , _dNextToken :: Maybe Text
+    { _dResults   :: !(Maybe [DataSource])
+    , _dNextToken :: !(Maybe Text)
     , _dStatus    :: !Int
     } deriving (Eq,Read,Show)
 

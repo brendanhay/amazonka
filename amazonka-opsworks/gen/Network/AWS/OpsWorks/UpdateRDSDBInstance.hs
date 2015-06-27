@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'urdiRDSDBInstanceARN'
 data UpdateRDSDBInstance = UpdateRDSDBInstance'
-    { _urdiDBUser           :: Maybe Text
-    , _urdiDBPassword       :: Maybe Text
-    , _urdiRDSDBInstanceARN :: Text
+    { _urdiDBUser           :: !(Maybe Text)
+    , _urdiDBPassword       :: !(Maybe Text)
+    , _urdiRDSDBInstanceARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateRDSDBInstance' smart constructor.

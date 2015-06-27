@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'gvapVaultName'
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-    { _gvapAccountId :: Text
-    , _gvapVaultName :: Text
+    { _gvapAccountId :: !Text
+    , _gvapVaultName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetVaultAccessPolicy' smart constructor.
@@ -114,7 +114,7 @@ instance ToQuery GetVaultAccessPolicy where
 --
 -- * 'gvaprStatus'
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-    { _gvaprPolicy :: Maybe VaultAccessPolicy
+    { _gvaprPolicy :: !(Maybe VaultAccessPolicy)
     , _gvaprStatus :: !Int
     } deriving (Eq,Read,Show)
 

@@ -108,10 +108,10 @@ import           Network.AWS.Response
 --
 -- * 'gjoJobId'
 data GetJobOutput = GetJobOutput'
-    { _gjoRange     :: Maybe Text
-    , _gjoAccountId :: Text
-    , _gjoVaultName :: Text
-    , _gjoJobId     :: Text
+    { _gjoRange     :: !(Maybe Text)
+    , _gjoAccountId :: !Text
+    , _gjoVaultName :: !Text
+    , _gjoJobId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetJobOutput' smart constructor.
@@ -197,13 +197,13 @@ instance ToQuery GetJobOutput where
 --
 -- * 'gjorBody'
 data GetJobOutputResponse = GetJobOutputResponse'
-    { _gjorChecksum           :: Maybe Text
-    , _gjorAcceptRanges       :: Maybe Text
-    , _gjorArchiveDescription :: Maybe Text
-    , _gjorContentRange       :: Maybe Text
-    , _gjorContentType        :: Maybe Text
+    { _gjorChecksum           :: !(Maybe Text)
+    , _gjorAcceptRanges       :: !(Maybe Text)
+    , _gjorArchiveDescription :: !(Maybe Text)
+    , _gjorContentRange       :: !(Maybe Text)
+    , _gjorContentType        :: !(Maybe Text)
     , _gjorStatus             :: !Int
-    , _gjorBody               :: RsBody
+    , _gjorBody               :: !RsBody
     } deriving (Show)
 
 -- | 'GetJobOutputResponse' smart constructor.

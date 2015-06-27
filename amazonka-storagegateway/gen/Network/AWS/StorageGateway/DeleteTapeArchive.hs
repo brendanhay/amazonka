@@ -103,7 +103,7 @@ instance ToQuery DeleteTapeArchive where
 --
 -- * 'dtar1Status'
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
-    { _dtar1TapeARN :: Maybe Text
+    { _dtar1TapeARN :: !(Maybe Text)
     , _dtar1Status  :: !Int
     } deriving (Eq,Read,Show)
 

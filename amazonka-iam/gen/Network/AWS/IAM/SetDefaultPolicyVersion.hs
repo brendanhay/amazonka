@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'sdpvVersionId'
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-    { _sdpvPolicyARN :: Text
-    , _sdpvVersionId :: Text
+    { _sdpvPolicyARN :: !Text
+    , _sdpvVersionId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SetDefaultPolicyVersion' smart constructor.

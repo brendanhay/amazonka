@@ -117,7 +117,7 @@ instance ToQuery EnableDomainTransferLock where
 --
 -- * 'edtlrStatus'
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
-    { _edtlrOperationId :: Text
+    { _edtlrOperationId :: !Text
     , _edtlrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

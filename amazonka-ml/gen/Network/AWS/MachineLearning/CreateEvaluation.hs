@@ -72,10 +72,10 @@ import           Network.AWS.Response
 --
 -- * 'ceEvaluationDataSourceId'
 data CreateEvaluation = CreateEvaluation'
-    { _ceEvaluationName         :: Maybe Text
-    , _ceEvaluationId           :: Text
-    , _ceMLModelId              :: Text
-    , _ceEvaluationDataSourceId :: Text
+    { _ceEvaluationName         :: !(Maybe Text)
+    , _ceEvaluationId           :: !Text
+    , _ceMLModelId              :: !Text
+    , _ceEvaluationDataSourceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateEvaluation' smart constructor.
@@ -157,7 +157,7 @@ instance ToQuery CreateEvaluation where
 --
 -- * 'cerStatus'
 data CreateEvaluationResponse = CreateEvaluationResponse'
-    { _cerEvaluationId :: Maybe Text
+    { _cerEvaluationId :: !(Maybe Text)
     , _cerStatus       :: !Int
     } deriving (Eq,Read,Show)
 

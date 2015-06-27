@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'rsfSpotFleetRequestConfig'
 data RequestSpotFleet = RequestSpotFleet'
-    { _rsfDryRun                 :: Maybe Bool
-    , _rsfSpotFleetRequestConfig :: SpotFleetRequestConfigData
+    { _rsfDryRun                 :: !(Maybe Bool)
+    , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotFleet' smart constructor.
@@ -113,7 +113,7 @@ instance ToQuery RequestSpotFleet where
 --
 -- * 'rsfrStatus'
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrSpotFleetRequestId :: Text
+    { _rsfrSpotFleetRequestId :: !Text
     , _rsfrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

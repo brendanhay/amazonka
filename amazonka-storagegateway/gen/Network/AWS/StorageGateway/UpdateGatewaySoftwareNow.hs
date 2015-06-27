@@ -118,7 +118,7 @@ instance ToQuery UpdateGatewaySoftwareNow where
 --
 -- * 'ugsnrStatus'
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-    { _ugsnrGatewayARN :: Maybe Text
+    { _ugsnrGatewayARN :: !(Maybe Text)
     , _ugsnrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

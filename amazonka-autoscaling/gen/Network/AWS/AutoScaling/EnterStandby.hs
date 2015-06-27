@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'esShouldDecrementDesiredCapacity'
 data EnterStandby = EnterStandby'
-    { _esInstanceIds                    :: Maybe [Text]
-    , _esAutoScalingGroupName           :: Text
+    { _esInstanceIds                    :: !(Maybe [Text])
+    , _esAutoScalingGroupName           :: !Text
     , _esShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -123,7 +123,7 @@ instance ToQuery EnterStandby where
 --
 -- * 'esrStatus'
 data EnterStandbyResponse = EnterStandbyResponse'
-    { _esrActivities :: Maybe [Activity]
+    { _esrActivities :: !(Maybe [Activity])
     , _esrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

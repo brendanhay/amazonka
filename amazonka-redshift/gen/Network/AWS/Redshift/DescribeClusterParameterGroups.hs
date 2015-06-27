@@ -80,11 +80,11 @@ import           Network.AWS.Response
 --
 -- * 'dcpgParameterGroupName'
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
-    { _dcpgTagValues          :: Maybe [Text]
-    , _dcpgTagKeys            :: Maybe [Text]
-    , _dcpgMaxRecords         :: Maybe Int
-    , _dcpgMarker             :: Maybe Text
-    , _dcpgParameterGroupName :: Maybe Text
+    { _dcpgTagValues          :: !(Maybe [Text])
+    , _dcpgTagKeys            :: !(Maybe [Text])
+    , _dcpgMaxRecords         :: !(Maybe Int)
+    , _dcpgMarker             :: !(Maybe Text)
+    , _dcpgParameterGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParameterGroups' smart constructor.
@@ -203,8 +203,8 @@ instance ToQuery DescribeClusterParameterGroups where
 --
 -- * 'dcpgrStatus'
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
-    { _dcpgrMarker          :: Maybe Text
-    , _dcpgrParameterGroups :: Maybe [ClusterParameterGroup]
+    { _dcpgrMarker          :: !(Maybe Text)
+    , _dcpgrParameterGroups :: !(Maybe [ClusterParameterGroup])
     , _dcpgrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -116,7 +116,7 @@ instance ToQuery TerminateWorkspaces where
 --
 -- * 'twrStatus'
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
-    { _twrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]
+    { _twrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _twrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

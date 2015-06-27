@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'dif1IndexFieldName'
 data DeleteIndexField = DeleteIndexField'
-    { _dif1DomainName     :: Text
-    , _dif1IndexFieldName :: Text
+    { _dif1DomainName     :: !Text
+    , _dif1IndexFieldName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteIndexField' smart constructor.
@@ -111,7 +111,7 @@ instance ToQuery DeleteIndexField where
 --
 -- * 'difrStatus'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _difrIndexField :: IndexFieldStatus
+    { _difrIndexField :: !IndexFieldStatus
     , _difrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -80,8 +80,8 @@ import           Network.AWS.SQS.Types
 --
 -- * 'smbEntries'
 data SendMessageBatch = SendMessageBatch'
-    { _smbQueueURL :: Text
-    , _smbEntries  :: [SendMessageBatchRequestEntry]
+    { _smbQueueURL :: !Text
+    , _smbEntries  :: ![SendMessageBatchRequestEntry]
     } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatch' smart constructor.
@@ -141,8 +141,8 @@ instance ToQuery SendMessageBatch where
 --
 -- * 'smbrStatus'
 data SendMessageBatchResponse = SendMessageBatchResponse'
-    { _smbrSuccessful :: [SendMessageBatchResultEntry]
-    , _smbrFailed     :: [BatchResultErrorEntry]
+    { _smbrSuccessful :: ![SendMessageBatchResultEntry]
+    , _smbrFailed     :: ![BatchResultErrorEntry]
     , _smbrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

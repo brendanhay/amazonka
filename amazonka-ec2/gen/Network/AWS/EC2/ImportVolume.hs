@@ -63,11 +63,11 @@ import           Network.AWS.Response
 --
 -- * 'ivVolume'
 data ImportVolume = ImportVolume'
-    { _ivDryRun           :: Maybe Bool
-    , _ivDescription      :: Maybe Text
-    , _ivAvailabilityZone :: Text
-    , _ivImage            :: DiskImageDetail
-    , _ivVolume           :: VolumeDetail
+    { _ivDryRun           :: !(Maybe Bool)
+    , _ivDescription      :: !(Maybe Text)
+    , _ivAvailabilityZone :: !Text
+    , _ivImage            :: !DiskImageDetail
+    , _ivVolume           :: !VolumeDetail
     } deriving (Eq,Read,Show)
 
 -- | 'ImportVolume' smart constructor.
@@ -138,7 +138,7 @@ instance ToQuery ImportVolume where
 --
 -- * 'ivrStatus'
 data ImportVolumeResponse = ImportVolumeResponse'
-    { _ivrConversionTask :: Maybe ConversionTask
+    { _ivrConversionTask :: !(Maybe ConversionTask)
     , _ivrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

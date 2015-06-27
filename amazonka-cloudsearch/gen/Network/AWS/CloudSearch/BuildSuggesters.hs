@@ -101,7 +101,7 @@ instance ToQuery BuildSuggesters where
 --
 -- * 'bsrStatus'
 data BuildSuggestersResponse = BuildSuggestersResponse'
-    { _bsrFieldNames :: Maybe [Text]
+    { _bsrFieldNames :: !(Maybe [Text])
     , _bsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

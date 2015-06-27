@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'csfrTerminateInstances'
 data CancelSpotFleetRequests = CancelSpotFleetRequests'
-    { _csfrDryRun              :: Maybe Bool
-    , _csfrSpotFleetRequestIds :: [Text]
+    { _csfrDryRun              :: !(Maybe Bool)
+    , _csfrSpotFleetRequestIds :: ![Text]
     , _csfrTerminateInstances  :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -126,8 +126,8 @@ instance ToQuery CancelSpotFleetRequests where
 --
 -- * 'csfrrStatus'
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
-    { _csfrrSuccessfulFleetRequests   :: Maybe [CancelSpotFleetRequestsSuccessItem]
-    , _csfrrUnsuccessfulFleetRequests :: Maybe [CancelSpotFleetRequestsErrorItem]
+    { _csfrrSuccessfulFleetRequests   :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
+    , _csfrrUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
     , _csfrrStatus                    :: !Int
     } deriving (Eq,Read,Show)
 

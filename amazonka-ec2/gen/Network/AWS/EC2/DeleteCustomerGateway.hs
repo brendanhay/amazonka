@@ -47,8 +47,8 @@ import           Network.AWS.Response
 --
 -- * 'dcg1CustomerGatewayId'
 data DeleteCustomerGateway = DeleteCustomerGateway'
-    { _dcg1DryRun            :: Maybe Bool
-    , _dcg1CustomerGatewayId :: Text
+    { _dcg1DryRun            :: !(Maybe Bool)
+    , _dcg1CustomerGatewayId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteCustomerGateway' smart constructor.

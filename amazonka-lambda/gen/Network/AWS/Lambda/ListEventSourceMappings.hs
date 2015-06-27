@@ -66,10 +66,10 @@ import           Network.AWS.Response
 --
 -- * 'lesmFunctionName'
 data ListEventSourceMappings = ListEventSourceMappings'
-    { _lesmEventSourceARN :: Maybe Text
-    , _lesmMaxItems       :: Maybe Nat
-    , _lesmMarker         :: Maybe Text
-    , _lesmFunctionName   :: Maybe Text
+    { _lesmEventSourceARN :: !(Maybe Text)
+    , _lesmMaxItems       :: !(Maybe Nat)
+    , _lesmMarker         :: !(Maybe Text)
+    , _lesmFunctionName   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListEventSourceMappings' smart constructor.
@@ -156,8 +156,8 @@ instance ToQuery ListEventSourceMappings where
 --
 -- * 'lesmrStatus'
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
-    { _lesmrEventSourceMappings :: Maybe [EventSourceMappingConfiguration]
-    , _lesmrNextMarker          :: Maybe Text
+    { _lesmrEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
+    , _lesmrNextMarker          :: !(Maybe Text)
     , _lesmrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

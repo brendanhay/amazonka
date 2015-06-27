@@ -54,8 +54,8 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'cdaDomainName'
 data CheckDomainAvailability = CheckDomainAvailability'
-    { _cdaIDNLangCode :: Maybe Text
-    , _cdaDomainName  :: Text
+    { _cdaIDNLangCode :: !(Maybe Text)
+    , _cdaDomainName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CheckDomainAvailability' smart constructor.
@@ -127,7 +127,7 @@ instance ToQuery CheckDomainAvailability where
 --
 -- * 'cdarStatus'
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-    { _cdarAvailability :: DomainAvailability
+    { _cdarAvailability :: !DomainAvailability
     , _cdarStatus       :: !Int
     } deriving (Eq,Read,Show)
 

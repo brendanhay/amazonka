@@ -53,8 +53,8 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'utfdDomainName'
 data UpdateTagsForDomain = UpdateTagsForDomain'
-    { _utfdTagsToUpdate :: Maybe [Tag]
-    , _utfdDomainName   :: Text
+    { _utfdTagsToUpdate :: !(Maybe [Tag])
+    , _utfdDomainName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateTagsForDomain' smart constructor.

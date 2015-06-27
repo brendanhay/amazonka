@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'ltLimit'
 data ListTables = ListTables'
-    { _ltExclusiveStartTableName :: Maybe Text
-    , _ltLimit                   :: Maybe Nat
+    { _ltExclusiveStartTableName :: !(Maybe Text)
+    , _ltLimit                   :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'ListTables' smart constructor.
@@ -133,8 +133,8 @@ instance ToQuery ListTables where
 --
 -- * 'ltrStatus'
 data ListTablesResponse = ListTablesResponse'
-    { _ltrLastEvaluatedTableName :: Maybe Text
-    , _ltrTableNames             :: Maybe [Text]
+    { _ltrLastEvaluatedTableName :: !(Maybe Text)
+    , _ltrTableNames             :: !(Maybe [Text])
     , _ltrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

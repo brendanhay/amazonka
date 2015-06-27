@@ -48,7 +48,7 @@ import           Network.AWS.Response
 --
 -- * 'prpRetentionInDays'
 data PutRetentionPolicy = PutRetentionPolicy'
-    { _prpLogGroupName    :: Text
+    { _prpLogGroupName    :: !Text
     , _prpRetentionInDays :: !Int
     } deriving (Eq,Read,Show)
 

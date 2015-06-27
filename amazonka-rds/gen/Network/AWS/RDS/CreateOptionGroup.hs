@@ -60,11 +60,11 @@ import           Network.AWS.Response
 --
 -- * 'cogOptionGroupDescription'
 data CreateOptionGroup = CreateOptionGroup'
-    { _cogTags                   :: Maybe [Tag]
-    , _cogOptionGroupName        :: Text
-    , _cogEngineName             :: Text
-    , _cogMajorEngineVersion     :: Text
-    , _cogOptionGroupDescription :: Text
+    { _cogTags                   :: !(Maybe [Tag])
+    , _cogOptionGroupName        :: !Text
+    , _cogEngineName             :: !Text
+    , _cogMajorEngineVersion     :: !Text
+    , _cogOptionGroupDescription :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateOptionGroup' smart constructor.
@@ -144,7 +144,7 @@ instance ToQuery CreateOptionGroup where
 --
 -- * 'creaStatus'
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
-    { _creaOptionGroup :: Maybe OptionGroup
+    { _creaOptionGroup :: !(Maybe OptionGroup)
     , _creaStatus      :: !Int
     } deriving (Eq,Read,Show)
 

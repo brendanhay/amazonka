@@ -93,19 +93,19 @@ import           Network.AWS.Response
 --
 -- * 'casgMaxSize'
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
-    { _casgInstanceId              :: Maybe Text
-    , _casgTerminationPolicies     :: Maybe [Text]
-    , _casgHealthCheckGracePeriod  :: Maybe Int
-    , _casgVPCZoneIdentifier       :: Maybe Text
-    , _casgDefaultCooldown         :: Maybe Int
-    , _casgDesiredCapacity         :: Maybe Int
-    , _casgAvailabilityZones       :: Maybe (List1 Text)
-    , _casgHealthCheckType         :: Maybe Text
-    , _casgLaunchConfigurationName :: Maybe Text
-    , _casgPlacementGroup          :: Maybe Text
-    , _casgLoadBalancerNames       :: Maybe [Text]
-    , _casgTags                    :: Maybe [Tag]
-    , _casgAutoScalingGroupName    :: Text
+    { _casgInstanceId              :: !(Maybe Text)
+    , _casgTerminationPolicies     :: !(Maybe [Text])
+    , _casgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _casgVPCZoneIdentifier       :: !(Maybe Text)
+    , _casgDefaultCooldown         :: !(Maybe Int)
+    , _casgDesiredCapacity         :: !(Maybe Int)
+    , _casgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _casgHealthCheckType         :: !(Maybe Text)
+    , _casgLaunchConfigurationName :: !(Maybe Text)
+    , _casgPlacementGroup          :: !(Maybe Text)
+    , _casgLoadBalancerNames       :: !(Maybe [Text])
+    , _casgTags                    :: !(Maybe [Tag])
+    , _casgAutoScalingGroupName    :: !Text
     , _casgMinSize                 :: !Int
     , _casgMaxSize                 :: !Int
     } deriving (Eq,Read,Show)

@@ -62,8 +62,8 @@ import           Network.AWS.Support.Types
 --
 -- * 'dsLanguage'
 data DescribeServices = DescribeServices'
-    { _dsServiceCodeList :: Maybe [Text]
-    , _dsLanguage        :: Maybe Text
+    { _dsServiceCodeList :: !(Maybe [Text])
+    , _dsLanguage        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeServices' smart constructor.
@@ -128,7 +128,7 @@ instance ToQuery DescribeServices where
 --
 -- * 'dsrStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dsrServices :: Maybe [SupportService]
+    { _dsrServices :: !(Maybe [SupportService])
     , _dsrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

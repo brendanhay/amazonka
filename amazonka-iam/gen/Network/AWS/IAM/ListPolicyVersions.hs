@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'lpvPolicyARN'
 data ListPolicyVersions = ListPolicyVersions'
-    { _lpvMaxItems  :: Maybe Nat
-    , _lpvMarker    :: Maybe Text
-    , _lpvPolicyARN :: Text
+    { _lpvMaxItems  :: !(Maybe Nat)
+    , _lpvMarker    :: !(Maybe Text)
+    , _lpvPolicyARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListPolicyVersions' smart constructor.
@@ -135,9 +135,9 @@ instance ToQuery ListPolicyVersions where
 --
 -- * 'lpvrStatus'
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrVersions    :: Maybe [PolicyVersion]
-    , _lpvrMarker      :: Maybe Text
-    , _lpvrIsTruncated :: Maybe Bool
+    { _lpvrVersions    :: !(Maybe [PolicyVersion])
+    , _lpvrMarker      :: !(Maybe Text)
+    , _lpvrIsTruncated :: !(Maybe Bool)
     , _lpvrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

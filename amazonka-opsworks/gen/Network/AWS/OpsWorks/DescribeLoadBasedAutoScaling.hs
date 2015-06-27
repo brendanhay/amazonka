@@ -112,7 +112,7 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 --
 -- * 'dlbasrStatus'
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
-    { _dlbasrLoadBasedAutoScalingConfigurations :: Maybe [LoadBasedAutoScalingConfiguration]
+    { _dlbasrLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
     , _dlbasrStatus                             :: !Int
     } deriving (Eq,Read,Show)
 

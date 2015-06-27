@@ -65,12 +65,12 @@ import           Network.AWS.Response
 --
 -- * 'ddsMarker'
 data DescribeDBSnapshots = DescribeDBSnapshots'
-    { _ddsFilters              :: Maybe [Filter]
-    , _ddsDBSnapshotIdentifier :: Maybe Text
-    , _ddsSnapshotType         :: Maybe Text
-    , _ddsDBInstanceIdentifier :: Maybe Text
-    , _ddsMaxRecords           :: Maybe Int
-    , _ddsMarker               :: Maybe Text
+    { _ddsFilters              :: !(Maybe [Filter])
+    , _ddsDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddsSnapshotType         :: !(Maybe Text)
+    , _ddsDBInstanceIdentifier :: !(Maybe Text)
+    , _ddsMaxRecords           :: !(Maybe Int)
+    , _ddsMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSnapshots' smart constructor.
@@ -192,8 +192,8 @@ instance ToQuery DescribeDBSnapshots where
 --
 -- * 'ddsrStatus'
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-    { _ddsrMarker      :: Maybe Text
-    , _ddsrDBSnapshots :: Maybe [DBSnapshot]
+    { _ddsrMarker      :: !(Maybe Text)
+    , _ddsrDBSnapshots :: !(Maybe [DBSnapshot])
     , _ddsrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -48,8 +48,8 @@ import           Network.AWS.Response
 --
 -- * 'ddId'
 data DeleteDistribution = DeleteDistribution'
-    { _ddIfMatch :: Maybe Text
-    , _ddId      :: Text
+    { _ddIfMatch :: !(Maybe Text)
+    , _ddId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDistribution' smart constructor.

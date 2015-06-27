@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'liMaxResults'
 data ListIdentities = ListIdentities'
-    { _liHideDisabled   :: Maybe Bool
-    , _liNextToken      :: Maybe Text
-    , _liIdentityPoolId :: Text
+    { _liHideDisabled   :: !(Maybe Bool)
+    , _liNextToken      :: !(Maybe Text)
+    , _liIdentityPoolId :: !Text
     , _liMaxResults     :: !Nat
     } deriving (Eq,Read,Show)
 
@@ -145,9 +145,9 @@ instance ToQuery ListIdentities where
 --
 -- * 'lirStatus'
 data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirIdentityPoolId :: Maybe Text
-    , _lirNextToken      :: Maybe Text
-    , _lirIdentities     :: Maybe [IdentityDescription]
+    { _lirIdentityPoolId :: !(Maybe Text)
+    , _lirNextToken      :: !(Maybe Text)
+    , _lirIdentities     :: !(Maybe [IdentityDescription])
     , _lirStatus         :: !Int
     } deriving (Eq,Read,Show)
 

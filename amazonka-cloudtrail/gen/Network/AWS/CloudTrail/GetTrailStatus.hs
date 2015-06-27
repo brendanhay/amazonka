@@ -138,15 +138,15 @@ instance ToQuery GetTrailStatus where
 --
 -- * 'gtsrStatus'
 data GetTrailStatusResponse = GetTrailStatusResponse'
-    { _gtsrLatestDeliveryError               :: Maybe Text
-    , _gtsrStartLoggingTime                  :: Maybe POSIX
-    , _gtsrLatestNotificationError           :: Maybe Text
-    , _gtsrIsLogging                         :: Maybe Bool
-    , _gtsrLatestDeliveryTime                :: Maybe POSIX
-    , _gtsrLatestCloudWatchLogsDeliveryTime  :: Maybe POSIX
-    , _gtsrLatestCloudWatchLogsDeliveryError :: Maybe Text
-    , _gtsrLatestNotificationTime            :: Maybe POSIX
-    , _gtsrStopLoggingTime                   :: Maybe POSIX
+    { _gtsrLatestDeliveryError               :: !(Maybe Text)
+    , _gtsrStartLoggingTime                  :: !(Maybe POSIX)
+    , _gtsrLatestNotificationError           :: !(Maybe Text)
+    , _gtsrIsLogging                         :: !(Maybe Bool)
+    , _gtsrLatestDeliveryTime                :: !(Maybe POSIX)
+    , _gtsrLatestCloudWatchLogsDeliveryTime  :: !(Maybe POSIX)
+    , _gtsrLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
+    , _gtsrLatestNotificationTime            :: !(Maybe POSIX)
+    , _gtsrStopLoggingTime                   :: !(Maybe POSIX)
     , _gtsrStatus                            :: !Int
     } deriving (Eq,Read,Show)
 

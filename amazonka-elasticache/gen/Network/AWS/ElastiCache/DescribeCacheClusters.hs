@@ -82,10 +82,10 @@ import           Network.AWS.Response
 --
 -- * 'desShowCacheNodeInfo'
 data DescribeCacheClusters = DescribeCacheClusters'
-    { _desCacheClusterId    :: Maybe Text
-    , _desMaxRecords        :: Maybe Int
-    , _desMarker            :: Maybe Text
-    , _desShowCacheNodeInfo :: Maybe Bool
+    { _desCacheClusterId    :: !(Maybe Text)
+    , _desMaxRecords        :: !(Maybe Int)
+    , _desMarker            :: !(Maybe Text)
+    , _desShowCacheNodeInfo :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheClusters' smart constructor.
@@ -174,8 +174,8 @@ instance ToQuery DescribeCacheClusters where
 --
 -- * 'dStatus'
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-    { _dCacheClusters :: Maybe [CacheCluster]
-    , _dMarker        :: Maybe Text
+    { _dCacheClusters :: !(Maybe [CacheCluster])
+    , _dMarker        :: !(Maybe Text)
     , _dStatus        :: !Int
     } deriving (Eq,Read,Show)
 

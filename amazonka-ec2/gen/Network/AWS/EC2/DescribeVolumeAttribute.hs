@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'dvaVolumeId'
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
-    { _dvaAttribute :: Maybe VolumeAttributeName
-    , _dvaDryRun    :: Maybe Bool
-    , _dvaVolumeId  :: Text
+    { _dvaAttribute :: !(Maybe VolumeAttributeName)
+    , _dvaDryRun    :: !(Maybe Bool)
+    , _dvaVolumeId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVolumeAttribute' smart constructor.
@@ -128,9 +128,9 @@ instance ToQuery DescribeVolumeAttribute where
 --
 -- * 'dvarStatus'
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarProductCodes :: Maybe [ProductCode]
-    , _dvarVolumeId     :: Maybe Text
-    , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
+    { _dvarProductCodes :: !(Maybe [ProductCode])
+    , _dvarVolumeId     :: !(Maybe Text)
+    , _dvarAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _dvarStatus       :: !Int
     } deriving (Eq,Read,Show)
 

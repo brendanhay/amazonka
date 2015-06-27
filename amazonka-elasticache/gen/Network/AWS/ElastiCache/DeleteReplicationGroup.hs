@@ -62,9 +62,9 @@ import           Network.AWS.Response
 --
 -- * 'drgReplicationGroupId'
 data DeleteReplicationGroup = DeleteReplicationGroup'
-    { _drgFinalSnapshotIdentifier :: Maybe Text
-    , _drgRetainPrimaryCluster    :: Maybe Bool
-    , _drgReplicationGroupId      :: Text
+    { _drgFinalSnapshotIdentifier :: !(Maybe Text)
+    , _drgRetainPrimaryCluster    :: !(Maybe Bool)
+    , _drgReplicationGroupId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteReplicationGroup' smart constructor.
@@ -129,7 +129,7 @@ instance ToQuery DeleteReplicationGroup where
 --
 -- * 'delStatus'
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
-    { _delReplicationGroup :: Maybe ReplicationGroup
+    { _delReplicationGroup :: !(Maybe ReplicationGroup)
     , _delStatus           :: !Int
     } deriving (Eq,Read,Show)
 

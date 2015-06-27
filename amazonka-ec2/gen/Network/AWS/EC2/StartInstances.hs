@@ -72,9 +72,9 @@ import           Network.AWS.Response
 --
 -- * 'staInstanceIds'
 data StartInstances = StartInstances'
-    { _staAdditionalInfo :: Maybe Text
-    , _staDryRun         :: Maybe Bool
-    , _staInstanceIds    :: [Text]
+    { _staAdditionalInfo :: !(Maybe Text)
+    , _staDryRun         :: !(Maybe Bool)
+    , _staInstanceIds    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'StartInstances' smart constructor.
@@ -135,7 +135,7 @@ instance ToQuery StartInstances where
 --
 -- * 'staStatus'
 data StartInstancesResponse = StartInstancesResponse'
-    { _staStartingInstances :: Maybe [InstanceStateChange]
+    { _staStartingInstances :: !(Maybe [InstanceStateChange])
     , _staStatus            :: !Int
     } deriving (Eq,Read,Show)
 

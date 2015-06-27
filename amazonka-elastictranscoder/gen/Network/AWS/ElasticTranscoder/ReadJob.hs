@@ -93,7 +93,7 @@ instance ToQuery ReadJob where
 --
 -- * 'rjrStatus'
 data ReadJobResponse = ReadJobResponse'
-    { _rjrJob    :: Job'
+    { _rjrJob    :: !Job'
     , _rjrStatus :: !Int
     } deriving (Eq,Read,Show)
 

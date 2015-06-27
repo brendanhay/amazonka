@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'cdsTargetDBSnapshotIdentifier'
 data CopyDBSnapshot = CopyDBSnapshot'
-    { _cdsTags                       :: Maybe [Tag]
-    , _cdsSourceDBSnapshotIdentifier :: Text
-    , _cdsTargetDBSnapshotIdentifier :: Text
+    { _cdsTags                       :: !(Maybe [Tag])
+    , _cdsSourceDBSnapshotIdentifier :: !Text
+    , _cdsTargetDBSnapshotIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CopyDBSnapshot' smart constructor.
@@ -139,7 +139,7 @@ instance ToQuery CopyDBSnapshot where
 --
 -- * 'cdsrStatus'
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
-    { _cdsrDBSnapshot :: Maybe DBSnapshot
+    { _cdsrDBSnapshot :: !(Maybe DBSnapshot)
     , _cdsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

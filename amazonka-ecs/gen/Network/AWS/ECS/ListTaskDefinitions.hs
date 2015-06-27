@@ -62,11 +62,11 @@ import           Network.AWS.Response
 --
 -- * 'ltdMaxResults'
 data ListTaskDefinitions = ListTaskDefinitions'
-    { _ltdStatus       :: Maybe TaskDefinitionStatus
-    , _ltdFamilyPrefix :: Maybe Text
-    , _ltdNextToken    :: Maybe Text
-    , _ltdSort         :: Maybe SortOrder
-    , _ltdMaxResults   :: Maybe Int
+    { _ltdStatus       :: !(Maybe TaskDefinitionStatus)
+    , _ltdFamilyPrefix :: !(Maybe Text)
+    , _ltdNextToken    :: !(Maybe Text)
+    , _ltdSort         :: !(Maybe SortOrder)
+    , _ltdMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitions' smart constructor.
@@ -178,8 +178,8 @@ instance ToQuery ListTaskDefinitions where
 --
 -- * 'ltdrStatus'
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
-    { _ltdrTaskDefinitionARNs :: Maybe [Text]
-    , _ltdrNextToken          :: Maybe Text
+    { _ltdrTaskDefinitionARNs :: !(Maybe [Text])
+    , _ltdrNextToken          :: !(Maybe Text)
     , _ltdrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'delAutoScalingGroupName'
 data DeleteLifecycleHook = DeleteLifecycleHook'
-    { _delLifecycleHookName    :: Text
-    , _delAutoScalingGroupName :: Text
+    { _delLifecycleHookName    :: !Text
+    , _delAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteLifecycleHook' smart constructor.

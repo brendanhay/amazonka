@@ -67,9 +67,9 @@ import           Network.AWS.Response
 --
 -- * 'decCiphertextBlob'
 data Decrypt = Decrypt'
-    { _decEncryptionContext :: Maybe (Map Text Text)
-    , _decGrantTokens       :: Maybe [Text]
-    , _decCiphertextBlob    :: Base64
+    { _decEncryptionContext :: !(Maybe (Map Text Text))
+    , _decGrantTokens       :: !(Maybe [Text])
+    , _decCiphertextBlob    :: !Base64
     } deriving (Eq,Read,Show)
 
 -- | 'Decrypt' smart constructor.
@@ -140,8 +140,8 @@ instance ToQuery Decrypt where
 --
 -- * 'drStatus'
 data DecryptResponse = DecryptResponse'
-    { _drKeyId     :: Maybe Text
-    , _drPlaintext :: Maybe (Sensitive Base64)
+    { _drKeyId     :: !(Maybe Text)
+    , _drPlaintext :: !(Maybe (Sensitive Base64))
     , _drStatus    :: !Int
     } deriving (Eq,Read,Show)
 

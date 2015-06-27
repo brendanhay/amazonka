@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dctDryRun'
 data DescribeConversionTasks = DescribeConversionTasks'
-    { _dctConversionTaskIds :: Maybe [Text]
-    , _dctFilters           :: Maybe [Filter]
-    , _dctDryRun            :: Maybe Bool
+    { _dctConversionTaskIds :: !(Maybe [Text])
+    , _dctFilters           :: !(Maybe [Filter])
+    , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeConversionTasks' smart constructor.
@@ -121,7 +121,7 @@ instance ToQuery DescribeConversionTasks where
 --
 -- * 'dctrStatus'
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
-    { _dctrConversionTasks :: Maybe [ConversionTask]
+    { _dctrConversionTasks :: !(Maybe [ConversionTask])
     , _dctrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

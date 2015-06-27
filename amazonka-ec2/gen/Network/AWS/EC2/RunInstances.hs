@@ -150,27 +150,27 @@ import           Network.AWS.Response
 --
 -- * 'runMaxCount'
 data RunInstances = RunInstances'
-    { _runSecurityGroupIds                  :: Maybe [Text]
-    , _runAdditionalInfo                    :: Maybe Text
-    , _runSecurityGroups                    :: Maybe [Text]
-    , _runClientToken                       :: Maybe Text
-    , _runDisableAPITermination             :: Maybe Bool
-    , _runNetworkInterfaces                 :: Maybe [InstanceNetworkInterfaceSpecification]
-    , _runKeyName                           :: Maybe Text
-    , _runRAMDiskId                         :: Maybe Text
-    , _runKernelId                          :: Maybe Text
-    , _runSubnetId                          :: Maybe Text
-    , _runInstanceType                      :: Maybe InstanceType
-    , _runEBSOptimized                      :: Maybe Bool
-    , _runUserData                          :: Maybe Text
-    , _runMonitoring                        :: Maybe RunInstancesMonitoringEnabled
-    , _runIAMInstanceProfile                :: Maybe IAMInstanceProfileSpecification
-    , _runInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
-    , _runPrivateIPAddress                  :: Maybe Text
-    , _runBlockDeviceMappings               :: Maybe [BlockDeviceMapping]
-    , _runDryRun                            :: Maybe Bool
-    , _runPlacement                         :: Maybe Placement
-    , _runImageId                           :: Text
+    { _runSecurityGroupIds                  :: !(Maybe [Text])
+    , _runAdditionalInfo                    :: !(Maybe Text)
+    , _runSecurityGroups                    :: !(Maybe [Text])
+    , _runClientToken                       :: !(Maybe Text)
+    , _runDisableAPITermination             :: !(Maybe Bool)
+    , _runNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _runKeyName                           :: !(Maybe Text)
+    , _runRAMDiskId                         :: !(Maybe Text)
+    , _runKernelId                          :: !(Maybe Text)
+    , _runSubnetId                          :: !(Maybe Text)
+    , _runInstanceType                      :: !(Maybe InstanceType)
+    , _runEBSOptimized                      :: !(Maybe Bool)
+    , _runUserData                          :: !(Maybe Text)
+    , _runMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
+    , _runIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
+    , _runInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+    , _runPrivateIPAddress                  :: !(Maybe Text)
+    , _runBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
+    , _runDryRun                            :: !(Maybe Bool)
+    , _runPlacement                         :: !(Maybe Placement)
+    , _runImageId                           :: !Text
     , _runMinCount                          :: !Int
     , _runMaxCount                          :: !Int
     } deriving (Eq,Read,Show)

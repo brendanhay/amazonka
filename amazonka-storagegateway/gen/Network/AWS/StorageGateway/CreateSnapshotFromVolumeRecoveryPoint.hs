@@ -70,8 +70,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'csfvrpSnapshotDescription'
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN           :: Text
-    , _csfvrpSnapshotDescription :: Text
+    { _csfvrpVolumeARN           :: !Text
+    , _csfvrpSnapshotDescription :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPoint' smart constructor.
@@ -144,9 +144,9 @@ instance ToQuery
 --
 -- * 'csfvrprStatus'
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprVolumeRecoveryPointTime :: Maybe Text
-    , _csfvrprVolumeARN               :: Maybe Text
-    , _csfvrprSnapshotId              :: Maybe Text
+    { _csfvrprVolumeRecoveryPointTime :: !(Maybe Text)
+    , _csfvrprVolumeARN               :: !(Maybe Text)
+    , _csfvrprSnapshotId              :: !(Maybe Text)
     , _csfvrprStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

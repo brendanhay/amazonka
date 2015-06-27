@@ -72,13 +72,13 @@ import           Network.AWS.Response
 --
 -- * 'deDuration'
 data DescribeEvents = DescribeEvents'
-    { _deStartTime        :: Maybe ISO8601
-    , _deSourceType       :: Maybe SourceType
-    , _deSourceIdentifier :: Maybe Text
-    , _deMaxRecords       :: Maybe Int
-    , _deEndTime          :: Maybe ISO8601
-    , _deMarker           :: Maybe Text
-    , _deDuration         :: Maybe Int
+    { _deStartTime        :: !(Maybe ISO8601)
+    , _deSourceType       :: !(Maybe SourceType)
+    , _deSourceIdentifier :: !(Maybe Text)
+    , _deMaxRecords       :: !(Maybe Int)
+    , _deEndTime          :: !(Maybe ISO8601)
+    , _deMarker           :: !(Maybe Text)
+    , _deDuration         :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvents' smart constructor.
@@ -224,8 +224,8 @@ instance ToQuery DescribeEvents where
 --
 -- * 'derStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _derEvents :: Maybe [Event]
-    , _derMarker :: Maybe Text
+    { _derEvents :: !(Maybe [Event])
+    , _derMarker :: !(Maybe Text)
     , _derStatus :: !Int
     } deriving (Eq,Read,Show)
 

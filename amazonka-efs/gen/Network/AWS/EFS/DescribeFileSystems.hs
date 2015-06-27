@@ -84,10 +84,10 @@ import           Network.AWS.Response
 --
 -- * 'dfsMarker'
 data DescribeFileSystems = DescribeFileSystems'
-    { _dfsFileSystemId  :: Maybe Text
-    , _dfsMaxItems      :: Maybe Nat
-    , _dfsCreationToken :: Maybe Text
-    , _dfsMarker        :: Maybe Text
+    { _dfsFileSystemId  :: !(Maybe Text)
+    , _dfsMaxItems      :: !(Maybe Nat)
+    , _dfsCreationToken :: !(Maybe Text)
+    , _dfsMarker        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeFileSystems' smart constructor.
@@ -163,9 +163,9 @@ instance ToQuery DescribeFileSystems where
 --
 -- * 'dfsrStatus'
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-    { _dfsrFileSystems :: Maybe [FileSystemDescription]
-    , _dfsrMarker      :: Maybe Text
-    , _dfsrNextMarker  :: Maybe Text
+    { _dfsrFileSystems :: !(Maybe [FileSystemDescription])
+    , _dfsrMarker      :: !(Maybe Text)
+    , _dfsrNextMarker  :: !(Maybe Text)
     , _dfsrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

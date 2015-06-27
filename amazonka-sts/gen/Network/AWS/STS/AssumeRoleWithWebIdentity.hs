@@ -142,12 +142,12 @@ import           Network.AWS.STS.Types
 --
 -- * 'arwwiWebIdentityToken'
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
-    { _arwwiProviderId       :: Maybe Text
-    , _arwwiDurationSeconds  :: Maybe Nat
-    , _arwwiPolicy           :: Maybe Text
-    , _arwwiRoleARN          :: Text
-    , _arwwiRoleSessionName  :: Text
-    , _arwwiWebIdentityToken :: Text
+    { _arwwiProviderId       :: !(Maybe Text)
+    , _arwwiDurationSeconds  :: !(Maybe Nat)
+    , _arwwiPolicy           :: !(Maybe Text)
+    , _arwwiRoleARN          :: !Text
+    , _arwwiRoleSessionName  :: !Text
+    , _arwwiWebIdentityToken :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithWebIdentity' smart constructor.
@@ -273,12 +273,12 @@ instance ToQuery AssumeRoleWithWebIdentity where
 --
 -- * 'arwwirStatus'
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
-    { _arwwirAudience                    :: Maybe Text
-    , _arwwirSubjectFromWebIdentityToken :: Maybe Text
-    , _arwwirPackedPolicySize            :: Maybe Nat
-    , _arwwirCredentials                 :: Maybe Credentials
-    , _arwwirAssumedRoleUser             :: Maybe AssumedRoleUser
-    , _arwwirProvider                    :: Maybe Text
+    { _arwwirAudience                    :: !(Maybe Text)
+    , _arwwirSubjectFromWebIdentityToken :: !(Maybe Text)
+    , _arwwirPackedPolicySize            :: !(Maybe Nat)
+    , _arwwirCredentials                 :: !(Maybe Credentials)
+    , _arwwirAssumedRoleUser             :: !(Maybe AssumedRoleUser)
+    , _arwwirProvider                    :: !(Maybe Text)
     , _arwwirStatus                      :: !Int
     } deriving (Eq,Read,Show)
 

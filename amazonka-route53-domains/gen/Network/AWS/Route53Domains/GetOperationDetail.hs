@@ -128,11 +128,11 @@ instance ToQuery GetOperationDetail where
 --
 -- * 'godrStatus'
 data GetOperationDetailResponse = GetOperationDetailResponse'
-    { _godrSubmittedDate :: Maybe POSIX
-    , _godrDomainName    :: Maybe Text
-    , _godrOperationId   :: Maybe Text
-    , _godrType          :: Maybe OperationType
-    , _godrMessage       :: Maybe Text
+    { _godrSubmittedDate :: !(Maybe POSIX)
+    , _godrDomainName    :: !(Maybe Text)
+    , _godrOperationId   :: !(Maybe Text)
+    , _godrType          :: !(Maybe OperationType)
+    , _godrMessage       :: !(Maybe Text)
     , _godrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

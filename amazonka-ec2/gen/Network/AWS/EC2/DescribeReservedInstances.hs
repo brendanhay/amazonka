@@ -59,10 +59,10 @@ import           Network.AWS.Response
 --
 -- * 'driDryRun'
 data DescribeReservedInstances = DescribeReservedInstances'
-    { _driFilters              :: Maybe [Filter]
-    , _driOfferingType         :: Maybe OfferingTypeValues
-    , _driReservedInstancesIds :: Maybe [Text]
-    , _driDryRun               :: Maybe Bool
+    { _driFilters              :: !(Maybe [Filter])
+    , _driOfferingType         :: !(Maybe OfferingTypeValues)
+    , _driReservedInstancesIds :: !(Maybe [Text])
+    , _driDryRun               :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstances' smart constructor.
@@ -191,7 +191,7 @@ instance ToQuery DescribeReservedInstances where
 --
 -- * 'drirStatus'
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
-    { _drirReservedInstances :: Maybe [ReservedInstances]
+    { _drirReservedInstances :: !(Maybe [ReservedInstances])
     , _drirStatus            :: !Int
     } deriving (Eq,Read,Show)
 

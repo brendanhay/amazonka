@@ -101,7 +101,7 @@ instance ToQuery DeleteDomain where
 --
 -- * 'ddrStatus'
 data DeleteDomainResponse = DeleteDomainResponse'
-    { _ddrDomainStatus :: Maybe DomainStatus
+    { _ddrDomainStatus :: !(Maybe DomainStatus)
     , _ddrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

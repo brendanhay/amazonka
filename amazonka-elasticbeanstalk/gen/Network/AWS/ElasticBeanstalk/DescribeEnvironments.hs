@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'desIncludeDeleted'
 data DescribeEnvironments = DescribeEnvironments'
-    { _desEnvironmentIds        :: Maybe [Text]
-    , _desEnvironmentNames      :: Maybe [Text]
-    , _desVersionLabel          :: Maybe Text
-    , _desIncludedDeletedBackTo :: Maybe ISO8601
-    , _desApplicationName       :: Maybe Text
-    , _desIncludeDeleted        :: Maybe Bool
+    { _desEnvironmentIds        :: !(Maybe [Text])
+    , _desEnvironmentNames      :: !(Maybe [Text])
+    , _desVersionLabel          :: !(Maybe Text)
+    , _desIncludedDeletedBackTo :: !(Maybe ISO8601)
+    , _desApplicationName       :: !(Maybe Text)
+    , _desIncludeDeleted        :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEnvironments' smart constructor.
@@ -162,7 +162,7 @@ instance ToQuery DescribeEnvironments where
 --
 -- * 'desStatus'
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
-    { _desEnvironments :: Maybe [EnvironmentDescription]
+    { _desEnvironments :: !(Maybe [EnvironmentDescription])
     , _desStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'upsStatus'
 data UpdatePipelineStatus = UpdatePipelineStatus'
-    { _upsId     :: Text
-    , _upsStatus :: Text
+    { _upsId     :: !Text
+    , _upsStatus :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipelineStatus' smart constructor.
@@ -118,7 +118,7 @@ instance ToQuery UpdatePipelineStatus where
 --
 -- * 'upsrStatus'
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-    { _upsrPipeline :: Maybe Pipeline
+    { _upsrPipeline :: !(Maybe Pipeline)
     , _upsrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

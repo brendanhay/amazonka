@@ -100,7 +100,7 @@ instance ToQuery GetUser where
 --
 -- * 'gurStatus'
 data GetUserResponse = GetUserResponse'
-    { _gurUser   :: User
+    { _gurUser   :: !User
     , _gurStatus :: !Int
     } deriving (Eq,Read,Show)
 

@@ -96,7 +96,7 @@ instance ToQuery GetHealthCheck where
 --
 -- * 'ghcrStatus'
 data GetHealthCheckResponse = GetHealthCheckResponse'
-    { _ghcrHealthCheck :: HealthCheck
+    { _ghcrHealthCheck :: !HealthCheck
     , _ghcrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

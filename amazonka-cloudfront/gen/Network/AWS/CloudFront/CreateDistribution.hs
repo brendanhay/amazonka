@@ -107,9 +107,9 @@ instance ToQuery CreateDistribution where
 --
 -- * 'cdrStatus'
 data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrETag         :: Maybe Text
-    , _cdrDistribution :: Maybe Distribution
-    , _cdrLocation     :: Maybe Text
+    { _cdrETag         :: !(Maybe Text)
+    , _cdrDistribution :: !(Maybe Distribution)
+    , _cdrLocation     :: !(Maybe Text)
     , _cdrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

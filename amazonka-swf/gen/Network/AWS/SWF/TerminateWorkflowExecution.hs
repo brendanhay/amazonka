@@ -91,12 +91,12 @@ import           Network.AWS.SWF.Types
 --
 -- * 'tweWorkflowId'
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-    { _tweRunId       :: Maybe Text
-    , _tweReason      :: Maybe Text
-    , _tweDetails     :: Maybe Text
-    , _tweChildPolicy :: Maybe ChildPolicy
-    , _tweDomain      :: Text
-    , _tweWorkflowId  :: Text
+    { _tweRunId       :: !(Maybe Text)
+    , _tweReason      :: !(Maybe Text)
+    , _tweDetails     :: !(Maybe Text)
+    , _tweChildPolicy :: !(Maybe ChildPolicy)
+    , _tweDomain      :: !Text
+    , _tweWorkflowId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'TerminateWorkflowExecution' smart constructor.

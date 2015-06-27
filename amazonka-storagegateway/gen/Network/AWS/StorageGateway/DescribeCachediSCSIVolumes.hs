@@ -108,7 +108,7 @@ instance ToQuery DescribeCachediSCSIVolumes where
 --
 -- * 'dcscsivrStatus'
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
-    { _dcscsivrCachediSCSIVolumes :: Maybe [CachediSCSIVolume]
+    { _dcscsivrCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
     , _dcscsivrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

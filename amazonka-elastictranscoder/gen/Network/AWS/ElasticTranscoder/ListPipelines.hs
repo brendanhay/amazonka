@@ -54,8 +54,8 @@ import           Network.AWS.Response
 --
 -- * 'lpPageToken'
 data ListPipelines = ListPipelines'
-    { _lpAscending :: Maybe Text
-    , _lpPageToken :: Maybe Text
+    { _lpAscending :: !(Maybe Text)
+    , _lpPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListPipelines' smart constructor.
@@ -121,8 +121,8 @@ instance ToQuery ListPipelines where
 --
 -- * 'lprStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprNextPageToken :: Maybe Text
-    , _lprPipelines     :: Maybe [Pipeline]
+    { _lprNextPageToken :: !(Maybe Text)
+    , _lprPipelines     :: !(Maybe [Pipeline])
     , _lprStatus        :: !Int
     } deriving (Eq,Read,Show)
 

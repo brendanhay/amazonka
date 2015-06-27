@@ -76,10 +76,10 @@ import           Network.AWS.Route53.Types
 --
 -- * 'lglStartContinentCode'
 data ListGeoLocations = ListGeoLocations'
-    { _lglStartSubdivisionCode :: Maybe Text
-    , _lglMaxItems             :: Maybe Text
-    , _lglStartCountryCode     :: Maybe Text
-    , _lglStartContinentCode   :: Maybe Text
+    { _lglStartSubdivisionCode :: !(Maybe Text)
+    , _lglMaxItems             :: !(Maybe Text)
+    , _lglStartCountryCode     :: !(Maybe Text)
+    , _lglStartContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListGeoLocations' smart constructor.
@@ -176,12 +176,12 @@ instance ToQuery ListGeoLocations where
 --
 -- * 'lglrStatus'
 data ListGeoLocationsResponse = ListGeoLocationsResponse'
-    { _lglrNextContinentCode      :: Maybe Text
-    , _lglrNextCountryCode        :: Maybe Text
-    , _lglrNextSubdivisionCode    :: Maybe Text
-    , _lglrGeoLocationDetailsList :: [GeoLocationDetails]
+    { _lglrNextContinentCode      :: !(Maybe Text)
+    , _lglrNextCountryCode        :: !(Maybe Text)
+    , _lglrNextSubdivisionCode    :: !(Maybe Text)
+    , _lglrGeoLocationDetailsList :: ![GeoLocationDetails]
     , _lglrIsTruncated            :: !Bool
-    , _lglrMaxItems               :: Text
+    , _lglrMaxItems               :: !Text
     , _lglrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

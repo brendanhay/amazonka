@@ -48,8 +48,8 @@ import           Network.AWS.Response
 --
 -- * 'drt1RouteTableId'
 data DeleteRouteTable = DeleteRouteTable'
-    { _drt1DryRun       :: Maybe Bool
-    , _drt1RouteTableId :: Text
+    { _drt1DryRun       :: !(Maybe Bool)
+    , _drt1RouteTableId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteRouteTable' smart constructor.

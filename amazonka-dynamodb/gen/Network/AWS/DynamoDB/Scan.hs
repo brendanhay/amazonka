@@ -112,21 +112,21 @@ import           Network.AWS.Response
 --
 -- * 'scaTableName'
 data Scan = Scan'
-    { _scaProjectionExpression      :: Maybe Text
-    , _scaScanFilter                :: Maybe (Map Text Condition)
-    , _scaTotalSegments             :: Maybe Nat
-    , _scaFilterExpression          :: Maybe Text
-    , _scaExpressionAttributeNames  :: Maybe (Map Text Text)
-    , _scaAttributesToGet           :: Maybe (List1 Text)
-    , _scaReturnConsumedCapacity    :: Maybe ReturnConsumedCapacity
-    , _scaExpressionAttributeValues :: Maybe (Map Text AttributeValue)
-    , _scaLimit                     :: Maybe Nat
-    , _scaSelect                    :: Maybe Select
-    , _scaSegment                   :: Maybe Nat
-    , _scaConditionalOperator       :: Maybe ConditionalOperator
-    , _scaExclusiveStartKey         :: Maybe (Map Text AttributeValue)
-    , _scaIndexName                 :: Maybe Text
-    , _scaTableName                 :: Text
+    { _scaProjectionExpression      :: !(Maybe Text)
+    , _scaScanFilter                :: !(Maybe (Map Text Condition))
+    , _scaTotalSegments             :: !(Maybe Nat)
+    , _scaFilterExpression          :: !(Maybe Text)
+    , _scaExpressionAttributeNames  :: !(Maybe (Map Text Text))
+    , _scaAttributesToGet           :: !(Maybe (List1 Text))
+    , _scaReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+    , _scaExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _scaLimit                     :: !(Maybe Nat)
+    , _scaSelect                    :: !(Maybe Select)
+    , _scaSegment                   :: !(Maybe Nat)
+    , _scaConditionalOperator       :: !(Maybe ConditionalOperator)
+    , _scaExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+    , _scaIndexName                 :: !(Maybe Text)
+    , _scaTableName                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Scan' smart constructor.
@@ -509,11 +509,11 @@ instance ToQuery Scan where
 --
 -- * 'srStatus'
 data ScanResponse = ScanResponse'
-    { _srLastEvaluatedKey :: Maybe (Map Text AttributeValue)
-    , _srCount            :: Maybe Int
-    , _srScannedCount     :: Maybe Int
-    , _srItems            :: Maybe [Map Text AttributeValue]
-    , _srConsumedCapacity :: Maybe ConsumedCapacity
+    { _srLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
+    , _srCount            :: !(Maybe Int)
+    , _srScannedCount     :: !(Maybe Int)
+    , _srItems            :: !(Maybe [Map Text AttributeValue])
+    , _srConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _srStatus           :: !Int
     } deriving (Eq,Read,Show)
 

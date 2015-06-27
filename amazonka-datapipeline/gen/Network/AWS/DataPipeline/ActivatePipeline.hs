@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'apPipelineId'
 data ActivatePipeline = ActivatePipeline'
-    { _apStartTimestamp  :: Maybe POSIX
-    , _apParameterValues :: Maybe [ParameterValue]
-    , _apPipelineId      :: Text
+    { _apStartTimestamp  :: !(Maybe POSIX)
+    , _apParameterValues :: !(Maybe [ParameterValue])
+    , _apPipelineId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ActivatePipeline' smart constructor.

@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'lsMaxResults'
 data ListServices = ListServices'
-    { _lsCluster    :: Maybe Text
-    , _lsNextToken  :: Maybe Text
-    , _lsMaxResults :: Maybe Int
+    { _lsCluster    :: !(Maybe Text)
+    , _lsNextToken  :: !(Maybe Text)
+    , _lsMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListServices' smart constructor.
@@ -145,8 +145,8 @@ instance ToQuery ListServices where
 --
 -- * 'lsrStatus'
 data ListServicesResponse = ListServicesResponse'
-    { _lsrServiceARNs :: Maybe [Text]
-    , _lsrNextToken   :: Maybe Text
+    { _lsrServiceARNs :: !(Maybe [Text])
+    , _lsrNextToken   :: !(Maybe Text)
     , _lsrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

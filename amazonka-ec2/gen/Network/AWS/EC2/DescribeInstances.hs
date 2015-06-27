@@ -70,11 +70,11 @@ import           Network.AWS.Response
 --
 -- * 'di1MaxResults'
 data DescribeInstances = DescribeInstances'
-    { _di1Filters     :: Maybe [Filter]
-    , _di1NextToken   :: Maybe Text
-    , _di1InstanceIds :: Maybe [Text]
-    , _di1DryRun      :: Maybe Bool
-    , _di1MaxResults  :: Maybe Int
+    { _di1Filters     :: !(Maybe [Filter])
+    , _di1NextToken   :: !(Maybe Text)
+    , _di1InstanceIds :: !(Maybe [Text])
+    , _di1DryRun      :: !(Maybe Bool)
+    , _di1MaxResults  :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstances' smart constructor.
@@ -408,8 +408,8 @@ instance ToQuery DescribeInstances where
 --
 -- * 'dirStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirNextToken    :: Maybe Text
-    , _dirReservations :: Maybe [Reservation]
+    { _dirNextToken    :: !(Maybe Text)
+    , _dirReservations :: !(Maybe [Reservation])
     , _dirStatus       :: !Int
     } deriving (Eq,Read,Show)
 

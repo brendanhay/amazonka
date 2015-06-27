@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'uscStatus'
 data UpdateSigningCertificate = UpdateSigningCertificate'
-    { _uscUserName      :: Maybe Text
-    , _uscCertificateId :: Text
-    , _uscStatus        :: StatusType
+    { _uscUserName      :: !(Maybe Text)
+    , _uscCertificateId :: !Text
+    , _uscStatus        :: !StatusType
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateSigningCertificate' smart constructor.

@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'detVPCId'
 data DetachVPNGateway = DetachVPNGateway'
-    { _detDryRun       :: Maybe Bool
-    , _detVPNGatewayId :: Text
-    , _detVPCId        :: Text
+    { _detDryRun       :: !(Maybe Bool)
+    , _detVPNGatewayId :: !Text
+    , _detVPCId        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DetachVPNGateway' smart constructor.

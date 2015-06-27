@@ -69,8 +69,8 @@ import           Network.AWS.Response
 --
 -- * 'gsJobId'
 data GetStatus = GetStatus'
-    { _gsAPIVersion :: Maybe Text
-    , _gsJobId      :: Text
+    { _gsAPIVersion :: !(Maybe Text)
+    , _gsJobId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetStatus' smart constructor.
@@ -170,22 +170,22 @@ instance ToQuery GetStatus where
 --
 -- * 'gsrStatus'
 data GetStatusResponse = GetStatusResponse'
-    { _gsrCarrier               :: Maybe Text
-    , _gsrSignature             :: Maybe Text
-    , _gsrTrackingNumber        :: Maybe Text
-    , _gsrJobType               :: Maybe JobType
-    , _gsrJobId                 :: Maybe Text
-    , _gsrSignatureFileContents :: Maybe Text
-    , _gsrErrorCount            :: Maybe Int
-    , _gsrCurrentManifest       :: Maybe Text
-    , _gsrArtifactList          :: Maybe [Artifact]
-    , _gsrLogBucket             :: Maybe Text
-    , _gsrCreationDate          :: Maybe ISO8601
-    , _gsrProgressCode          :: Maybe Text
-    , _gsrLocationCode          :: Maybe Text
-    , _gsrLogKey                :: Maybe Text
-    , _gsrProgressMessage       :: Maybe Text
-    , _gsrLocationMessage       :: Maybe Text
+    { _gsrCarrier               :: !(Maybe Text)
+    , _gsrSignature             :: !(Maybe Text)
+    , _gsrTrackingNumber        :: !(Maybe Text)
+    , _gsrJobType               :: !(Maybe JobType)
+    , _gsrJobId                 :: !(Maybe Text)
+    , _gsrSignatureFileContents :: !(Maybe Text)
+    , _gsrErrorCount            :: !(Maybe Int)
+    , _gsrCurrentManifest       :: !(Maybe Text)
+    , _gsrArtifactList          :: !(Maybe [Artifact])
+    , _gsrLogBucket             :: !(Maybe Text)
+    , _gsrCreationDate          :: !(Maybe ISO8601)
+    , _gsrProgressCode          :: !(Maybe Text)
+    , _gsrLocationCode          :: !(Maybe Text)
+    , _gsrLogKey                :: !(Maybe Text)
+    , _gsrProgressMessage       :: !(Maybe Text)
+    , _gsrLocationMessage       :: !(Maybe Text)
     , _gsrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

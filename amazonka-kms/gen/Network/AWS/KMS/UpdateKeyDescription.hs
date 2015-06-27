@@ -46,8 +46,8 @@ import           Network.AWS.Response
 --
 -- * 'ukdDescription'
 data UpdateKeyDescription = UpdateKeyDescription'
-    { _ukdKeyId       :: Text
-    , _ukdDescription :: Text
+    { _ukdKeyId       :: !Text
+    , _ukdDescription :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateKeyDescription' smart constructor.

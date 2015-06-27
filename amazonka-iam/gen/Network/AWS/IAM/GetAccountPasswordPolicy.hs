@@ -84,7 +84,7 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- * 'gapprStatus'
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprPasswordPolicy :: PasswordPolicy
+    { _gapprPasswordPolicy :: !PasswordPolicy
     , _gapprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -105,7 +105,7 @@ instance ToQuery GetKeyRotationStatus where
 --
 -- * 'gkrsrStatus'
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
-    { _gkrsrKeyRotationEnabled :: Maybe Bool
+    { _gkrsrKeyRotationEnabled :: !(Maybe Bool)
     , _gkrsrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

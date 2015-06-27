@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'dnaeEgress'
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-    { _dnaeDryRun       :: Maybe Bool
-    , _dnaeNetworkACLId :: Text
+    { _dnaeDryRun       :: !(Maybe Bool)
+    , _dnaeNetworkACLId :: !Text
     , _dnaeRuleNumber   :: !Int
     , _dnaeEgress       :: !Bool
     } deriving (Eq,Read,Show)

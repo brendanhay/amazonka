@@ -102,7 +102,7 @@ instance ToQuery GetSnapshotLimits where
 --
 -- * 'gslrStatus'
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
-    { _gslrSnapshotLimits :: Maybe SnapshotLimits
+    { _gslrSnapshotLimits :: !(Maybe SnapshotLimits)
     , _gslrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'dpgGroupName'
 data DeletePlacementGroup = DeletePlacementGroup'
-    { _dpgDryRun    :: Maybe Bool
-    , _dpgGroupName :: Text
+    { _dpgDryRun    :: !(Maybe Bool)
+    , _dpgGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeletePlacementGroup' smart constructor.

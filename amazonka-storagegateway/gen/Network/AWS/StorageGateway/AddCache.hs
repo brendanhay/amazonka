@@ -56,8 +56,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'acDiskIds'
 data AddCache = AddCache'
-    { _acGatewayARN :: Text
-    , _acDiskIds    :: [Text]
+    { _acGatewayARN :: !Text
+    , _acDiskIds    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'AddCache' smart constructor.
@@ -115,7 +115,7 @@ instance ToQuery AddCache where
 --
 -- * 'acrStatus'
 data AddCacheResponse = AddCacheResponse'
-    { _acrGatewayARN :: Maybe Text
+    { _acrGatewayARN :: !(Maybe Text)
     , _acrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

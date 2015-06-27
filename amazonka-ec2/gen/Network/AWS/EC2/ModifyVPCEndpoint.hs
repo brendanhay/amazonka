@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'mveVPCEndpointId'
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-    { _mvePolicyDocument      :: Maybe Text
-    , _mveRemoveRouteTableIds :: Maybe [Text]
-    , _mveResetPolicy         :: Maybe Bool
-    , _mveAddRouteTableIds    :: Maybe [Text]
-    , _mveDryRun              :: Maybe Bool
-    , _mveVPCEndpointId       :: Text
+    { _mvePolicyDocument      :: !(Maybe Text)
+    , _mveRemoveRouteTableIds :: !(Maybe [Text])
+    , _mveResetPolicy         :: !(Maybe Bool)
+    , _mveAddRouteTableIds    :: !(Maybe [Text])
+    , _mveDryRun              :: !(Maybe Bool)
+    , _mveVPCEndpointId       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyVPCEndpoint' smart constructor.
@@ -150,7 +150,7 @@ instance ToQuery ModifyVPCEndpoint where
 --
 -- * 'mverStatus'
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-    { _mverReturn :: Maybe Bool
+    { _mverReturn :: !(Maybe Bool)
     , _mverStatus :: !Int
     } deriving (Eq,Read,Show)
 

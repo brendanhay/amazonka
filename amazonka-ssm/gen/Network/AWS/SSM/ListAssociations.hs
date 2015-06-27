@@ -54,9 +54,9 @@ import           Network.AWS.SSM.Types
 --
 -- * 'laAssociationFilterList'
 data ListAssociations = ListAssociations'
-    { _laNextToken             :: Maybe Text
-    , _laMaxResults            :: Maybe Nat
-    , _laAssociationFilterList :: List1 AssociationFilter
+    { _laNextToken             :: !(Maybe Text)
+    , _laMaxResults            :: !(Maybe Nat)
+    , _laAssociationFilterList :: !(List1 AssociationFilter)
     } deriving (Eq,Read,Show)
 
 -- | 'ListAssociations' smart constructor.
@@ -128,8 +128,8 @@ instance ToQuery ListAssociations where
 --
 -- * 'larStatus'
 data ListAssociationsResponse = ListAssociationsResponse'
-    { _larNextToken    :: Maybe Text
-    , _larAssociations :: Maybe [Association]
+    { _larNextToken    :: !(Maybe Text)
+    , _larAssociations :: !(Maybe [Association])
     , _larStatus       :: !Int
     } deriving (Eq,Read,Show)
 

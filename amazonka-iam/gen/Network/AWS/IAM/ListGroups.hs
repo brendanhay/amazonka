@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'lgMarker'
 data ListGroups = ListGroups'
-    { _lgPathPrefix :: Maybe Text
-    , _lgMaxItems   :: Maybe Nat
-    , _lgMarker     :: Maybe Text
+    { _lgPathPrefix :: !(Maybe Text)
+    , _lgMaxItems   :: !(Maybe Nat)
+    , _lgMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListGroups' smart constructor.
@@ -142,9 +142,9 @@ instance ToQuery ListGroups where
 --
 -- * 'lgrStatus'
 data ListGroupsResponse = ListGroupsResponse'
-    { _lgrMarker      :: Maybe Text
-    , _lgrIsTruncated :: Maybe Bool
-    , _lgrGroups      :: [Group]
+    { _lgrMarker      :: !(Maybe Text)
+    , _lgrIsTruncated :: !(Maybe Bool)
+    , _lgrGroups      :: ![Group]
     , _lgrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

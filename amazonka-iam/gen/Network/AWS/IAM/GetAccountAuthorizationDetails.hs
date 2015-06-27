@@ -63,9 +63,9 @@ import           Network.AWS.Response
 --
 -- * 'gaadFilter'
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-    { _gaadMaxItems :: Maybe Nat
-    , _gaadMarker   :: Maybe Text
-    , _gaadFilter   :: Maybe [EntityType]
+    { _gaadMaxItems :: !(Maybe Nat)
+    , _gaadMarker   :: !(Maybe Text)
+    , _gaadFilter   :: !(Maybe [EntityType])
     } deriving (Eq,Read,Show)
 
 -- | 'GetAccountAuthorizationDetails' smart constructor.
@@ -160,12 +160,12 @@ instance ToQuery GetAccountAuthorizationDetails where
 --
 -- * 'gaadrStatus'
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-    { _gaadrRoleDetailList  :: Maybe [RoleDetail]
-    , _gaadrGroupDetailList :: Maybe [GroupDetail]
-    , _gaadrUserDetailList  :: Maybe [UserDetail]
-    , _gaadrMarker          :: Maybe Text
-    , _gaadrIsTruncated     :: Maybe Bool
-    , _gaadrPolicies        :: Maybe [ManagedPolicyDetail]
+    { _gaadrRoleDetailList  :: !(Maybe [RoleDetail])
+    , _gaadrGroupDetailList :: !(Maybe [GroupDetail])
+    , _gaadrUserDetailList  :: !(Maybe [UserDetail])
+    , _gaadrMarker          :: !(Maybe Text)
+    , _gaadrIsTruncated     :: !(Maybe Bool)
+    , _gaadrPolicies        :: !(Maybe [ManagedPolicyDetail])
     , _gaadrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

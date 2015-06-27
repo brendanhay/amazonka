@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'mmtsgMountTargetId'
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups :: Maybe [Text]
-    , _mmtsgMountTargetId  :: Text
+    { _mmtsgSecurityGroups :: !(Maybe [Text])
+    , _mmtsgMountTargetId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.

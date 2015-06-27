@@ -77,11 +77,11 @@ import           Network.AWS.Response
 --
 -- * 'dcMarker'
 data DescribeClusters = DescribeClusters'
-    { _dcTagValues         :: Maybe [Text]
-    , _dcTagKeys           :: Maybe [Text]
-    , _dcClusterIdentifier :: Maybe Text
-    , _dcMaxRecords        :: Maybe Int
-    , _dcMarker            :: Maybe Text
+    { _dcTagValues         :: !(Maybe [Text])
+    , _dcTagKeys           :: !(Maybe [Text])
+    , _dcClusterIdentifier :: !(Maybe Text)
+    , _dcMaxRecords        :: !(Maybe Int)
+    , _dcMarker            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusters' smart constructor.
@@ -193,8 +193,8 @@ instance ToQuery DescribeClusters where
 --
 -- * 'dcrStatus'
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrMarker   :: Maybe Text
-    , _dcrClusters :: Maybe [Cluster]
+    { _dcrMarker   :: !(Maybe Text)
+    , _dcrClusters :: !(Maybe [Cluster])
     , _dcrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

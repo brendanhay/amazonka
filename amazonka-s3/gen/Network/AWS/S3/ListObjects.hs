@@ -73,12 +73,12 @@ import           Network.AWS.S3.Types
 --
 -- * 'loBucket'
 data ListObjects = ListObjects'
-    { _loPrefix       :: Maybe Text
-    , _loEncodingType :: Maybe EncodingType
-    , _loMarker       :: Maybe Text
-    , _loMaxKeys      :: Maybe Int
-    , _loDelimiter    :: Maybe Char
-    , _loBucket       :: BucketName
+    { _loPrefix       :: !(Maybe Text)
+    , _loEncodingType :: !(Maybe EncodingType)
+    , _loMarker       :: !(Maybe Text)
+    , _loMaxKeys      :: !(Maybe Int)
+    , _loDelimiter    :: !(Maybe Char)
+    , _loBucket       :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'ListObjects' smart constructor.
@@ -194,16 +194,16 @@ instance ToQuery ListObjects where
 --
 -- * 'lorStatus'
 data ListObjectsResponse = ListObjectsResponse'
-    { _lorContents       :: Maybe [Object]
-    , _lorPrefix         :: Maybe Text
-    , _lorEncodingType   :: Maybe EncodingType
-    , _lorCommonPrefixes :: Maybe [CommonPrefix]
-    , _lorName           :: Maybe BucketName
-    , _lorMarker         :: Maybe Text
-    , _lorNextMarker     :: Maybe Text
-    , _lorMaxKeys        :: Maybe Int
-    , _lorIsTruncated    :: Maybe Bool
-    , _lorDelimiter      :: Maybe Char
+    { _lorContents       :: !(Maybe [Object])
+    , _lorPrefix         :: !(Maybe Text)
+    , _lorEncodingType   :: !(Maybe EncodingType)
+    , _lorCommonPrefixes :: !(Maybe [CommonPrefix])
+    , _lorName           :: !(Maybe BucketName)
+    , _lorMarker         :: !(Maybe Text)
+    , _lorNextMarker     :: !(Maybe Text)
+    , _lorMaxKeys        :: !(Maybe Int)
+    , _lorIsTruncated    :: !(Maybe Bool)
+    , _lorDelimiter      :: !(Maybe Char)
     , _lorStatus         :: !Int
     } deriving (Eq,Read,Show)
 

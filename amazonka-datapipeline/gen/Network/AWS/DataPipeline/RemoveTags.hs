@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'rtTagKeys'
 data RemoveTags = RemoveTags'
-    { _rtPipelineId :: Text
-    , _rtTagKeys    :: [Text]
+    { _rtPipelineId :: !Text
+    , _rtTagKeys    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveTags' smart constructor.

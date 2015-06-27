@@ -72,11 +72,11 @@ import           Network.AWS.Support.Types
 --
 -- * 'dCaseId'
 data DescribeCommunications = DescribeCommunications'
-    { _dAfterTime  :: Maybe Text
-    , _dNextToken  :: Maybe Text
-    , _dBeforeTime :: Maybe Text
-    , _dMaxResults :: Maybe Nat
-    , _dCaseId     :: Text
+    { _dAfterTime  :: !(Maybe Text)
+    , _dNextToken  :: !(Maybe Text)
+    , _dBeforeTime :: !(Maybe Text)
+    , _dMaxResults :: !(Maybe Nat)
+    , _dCaseId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommunications' smart constructor.
@@ -171,8 +171,8 @@ instance ToQuery DescribeCommunications where
 --
 -- * 'dcrStatus'
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
-    { _dcrNextToken      :: Maybe Text
-    , _dcrCommunications :: Maybe [Communication]
+    { _dcrNextToken      :: !(Maybe Text)
+    , _dcrCommunications :: !(Maybe [Communication])
     , _dcrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

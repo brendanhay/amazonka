@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'dpStackId'
 data DescribePermissions = DescribePermissions'
-    { _dpIAMUserARN :: Maybe Text
-    , _dpStackId    :: Maybe Text
+    { _dpIAMUserARN :: !(Maybe Text)
+    , _dpStackId    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePermissions' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery DescribePermissions where
 --
 -- * 'dprStatus'
 data DescribePermissionsResponse = DescribePermissionsResponse'
-    { _dprPermissions :: Maybe [Permission]
+    { _dprPermissions :: !(Maybe [Permission])
     , _dprStatus      :: !Int
     } deriving (Eq,Read,Show)
 

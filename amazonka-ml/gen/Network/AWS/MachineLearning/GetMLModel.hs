@@ -68,8 +68,8 @@ import           Network.AWS.Response
 --
 -- * 'gmlmMLModelId'
 data GetMLModel = GetMLModel'
-    { _gmlmVerbose   :: Maybe Bool
-    , _gmlmMLModelId :: Text
+    { _gmlmVerbose   :: !(Maybe Bool)
+    , _gmlmMLModelId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetMLModel' smart constructor.
@@ -183,23 +183,23 @@ instance ToQuery GetMLModel where
 --
 -- * 'gmlmrStatus'
 data GetMLModelResponse = GetMLModelResponse'
-    { _gmlmrTrainingParameters          :: Maybe (Map Text Text)
-    , _gmlmrLastUpdatedAt               :: Maybe POSIX
-    , _gmlmrCreatedAt                   :: Maybe POSIX
-    , _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX
-    , _gmlmrRecipe                      :: Maybe Text
-    , _gmlmrInputDataLocationS3         :: Maybe Text
-    , _gmlmrSizeInBytes                 :: Maybe Integer
-    , _gmlmrMLModelId                   :: Maybe Text
-    , _gmlmrSchema                      :: Maybe Text
-    , _gmlmrScoreThreshold              :: Maybe Double
-    , _gmlmrName                        :: Maybe Text
-    , _gmlmrCreatedByIAMUser            :: Maybe Text
-    , _gmlmrLogURI                      :: Maybe Text
-    , _gmlmrEndpointInfo                :: Maybe RealtimeEndpointInfo
-    , _gmlmrTrainingDataSourceId        :: Maybe Text
-    , _gmlmrMessage                     :: Maybe Text
-    , _gmlmrMLModelType                 :: Maybe MLModelType
+    { _gmlmrTrainingParameters          :: !(Maybe (Map Text Text))
+    , _gmlmrLastUpdatedAt               :: !(Maybe POSIX)
+    , _gmlmrCreatedAt                   :: !(Maybe POSIX)
+    , _gmlmrScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+    , _gmlmrRecipe                      :: !(Maybe Text)
+    , _gmlmrInputDataLocationS3         :: !(Maybe Text)
+    , _gmlmrSizeInBytes                 :: !(Maybe Integer)
+    , _gmlmrMLModelId                   :: !(Maybe Text)
+    , _gmlmrSchema                      :: !(Maybe Text)
+    , _gmlmrScoreThreshold              :: !(Maybe Double)
+    , _gmlmrName                        :: !(Maybe Text)
+    , _gmlmrCreatedByIAMUser            :: !(Maybe Text)
+    , _gmlmrLogURI                      :: !(Maybe Text)
+    , _gmlmrEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+    , _gmlmrTrainingDataSourceId        :: !(Maybe Text)
+    , _gmlmrMessage                     :: !(Maybe Text)
+    , _gmlmrMLModelType                 :: !(Maybe MLModelType)
     , _gmlmrStatus                      :: !Int
     } deriving (Eq,Read,Show)
 

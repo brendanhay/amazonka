@@ -58,10 +58,10 @@ import           Network.AWS.Response
 --
 -- * 'desMaxResults'
 data DescribeFlowLogs = DescribeFlowLogs'
-    { _desNextToken  :: Maybe Text
-    , _desFilter     :: Maybe [Filter]
-    , _desFlowLogIds :: Maybe [Text]
-    , _desMaxResults :: Maybe Int
+    { _desNextToken  :: !(Maybe Text)
+    , _desFilter     :: !(Maybe [Filter])
+    , _desFlowLogIds :: !(Maybe [Text])
+    , _desMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeFlowLogs' smart constructor.
@@ -144,8 +144,8 @@ instance ToQuery DescribeFlowLogs where
 --
 -- * 'dflr1Status'
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-    { _dflr1NextToken :: Maybe Text
-    , _dflr1FlowLogs  :: Maybe [FlowLog]
+    { _dflr1NextToken :: !(Maybe Text)
+    , _dflr1FlowLogs  :: !(Maybe [FlowLog])
     , _dflr1Status    :: !Int
     } deriving (Eq,Read,Show)
 

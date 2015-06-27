@@ -68,8 +68,8 @@ import           Network.AWS.Response
 --
 -- * 'uplCertificateBody'
 data UploadSigningCertificate = UploadSigningCertificate'
-    { _uplUserName        :: Maybe Text
-    , _uplCertificateBody :: Text
+    { _uplUserName        :: !(Maybe Text)
+    , _uplCertificateBody :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UploadSigningCertificate' smart constructor.
@@ -124,7 +124,7 @@ instance ToQuery UploadSigningCertificate where
 --
 -- * 'uscrStatus'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _uscrCertificate :: SigningCertificate
+    { _uscrCertificate :: !SigningCertificate
     , _uscrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -67,12 +67,12 @@ import           Network.AWS.Response
 --
 -- * 'creDesiredCount'
 data CreateService = CreateService'
-    { _creCluster        :: Maybe Text
-    , _creClientToken    :: Maybe Text
-    , _creLoadBalancers  :: Maybe [LoadBalancer]
-    , _creRole           :: Maybe Text
-    , _creServiceName    :: Text
-    , _creTaskDefinition :: Text
+    { _creCluster        :: !(Maybe Text)
+    , _creClientToken    :: !(Maybe Text)
+    , _creLoadBalancers  :: !(Maybe [LoadBalancer])
+    , _creRole           :: !(Maybe Text)
+    , _creServiceName    :: !Text
+    , _creTaskDefinition :: !Text
     , _creDesiredCount   :: !Int
     } deriving (Eq,Read,Show)
 
@@ -173,7 +173,7 @@ instance ToQuery CreateService where
 --
 -- * 'csrStatus'
 data CreateServiceResponse = CreateServiceResponse'
-    { _csrService :: Maybe ContainerService
+    { _csrService :: !(Maybe ContainerService)
     , _csrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

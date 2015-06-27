@@ -118,7 +118,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
 --
 -- * 'dcrsrStatus'
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
-    { _dcrsrConfigurationRecordersStatus :: Maybe [ConfigurationRecorderStatus]
+    { _dcrsrConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
     , _dcrsrStatus                       :: !Int
     } deriving (Eq,Read,Show)
 

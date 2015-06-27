@@ -75,11 +75,11 @@ import           Network.AWS.Response
 --
 -- * 'dMarker'
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
-    { _dTagValues              :: Maybe [Text]
-    , _dTagKeys                :: Maybe [Text]
-    , _dClusterSubnetGroupName :: Maybe Text
-    , _dMaxRecords             :: Maybe Int
-    , _dMarker                 :: Maybe Text
+    { _dTagValues              :: !(Maybe [Text])
+    , _dTagKeys                :: !(Maybe [Text])
+    , _dClusterSubnetGroupName :: !(Maybe Text)
+    , _dMaxRecords             :: !(Maybe Int)
+    , _dMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSubnetGroups' smart constructor.
@@ -190,8 +190,8 @@ instance ToQuery DescribeClusterSubnetGroups where
 --
 -- * 'dcsgrStatus'
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
-    { _dcsgrClusterSubnetGroups :: Maybe [ClusterSubnetGroup]
-    , _dcsgrMarker              :: Maybe Text
+    { _dcsgrClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
+    , _dcsgrMarker              :: !(Maybe Text)
     , _dcsgrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

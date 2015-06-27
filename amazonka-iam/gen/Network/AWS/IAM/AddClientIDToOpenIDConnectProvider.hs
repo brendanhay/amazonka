@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'acidtoidcpClientID'
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider'
-    { _acidtoidcpOpenIDConnectProviderARN :: Text
-    , _acidtoidcpClientID                 :: Text
+    { _acidtoidcpOpenIDConnectProviderARN :: !Text
+    , _acidtoidcpClientID                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AddClientIDToOpenIDConnectProvider' smart constructor.

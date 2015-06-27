@@ -64,9 +64,9 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- * 'dwbNextToken'
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
-    { _dwbBundleIds :: Maybe (List1 Text)
-    , _dwbOwner     :: Maybe Text
-    , _dwbNextToken :: Maybe Text
+    { _dwbBundleIds :: !(Maybe (List1 Text))
+    , _dwbOwner     :: !(Maybe Text)
+    , _dwbNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceBundles' smart constructor.
@@ -146,8 +146,8 @@ instance ToQuery DescribeWorkspaceBundles where
 --
 -- * 'dwbrStatus'
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
-    { _dwbrBundles   :: Maybe [WorkspaceBundle]
-    , _dwbrNextToken :: Maybe Text
+    { _dwbrBundles   :: !(Maybe [WorkspaceBundle])
+    , _dwbrNextToken :: !(Maybe Text)
     , _dwbrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

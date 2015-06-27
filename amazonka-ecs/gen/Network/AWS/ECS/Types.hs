@@ -517,13 +517,13 @@ instance FromJSON TransportProtocol where
 --
 -- * 'cluActiveServicesCount'
 data Cluster = Cluster'
-    { _cluStatus                            :: Maybe Text
-    , _cluClusterARN                        :: Maybe Text
-    , _cluRunningTasksCount                 :: Maybe Int
-    , _cluRegisteredContainerInstancesCount :: Maybe Int
-    , _cluPendingTasksCount                 :: Maybe Int
-    , _cluClusterName                       :: Maybe Text
-    , _cluActiveServicesCount               :: Maybe Int
+    { _cluStatus                            :: !(Maybe Text)
+    , _cluClusterARN                        :: !(Maybe Text)
+    , _cluRunningTasksCount                 :: !(Maybe Int)
+    , _cluRegisteredContainerInstancesCount :: !(Maybe Int)
+    , _cluPendingTasksCount                 :: !(Maybe Int)
+    , _cluClusterName                       :: !(Maybe Text)
+    , _cluActiveServicesCount               :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Cluster' smart constructor.
@@ -604,13 +604,13 @@ instance FromJSON Cluster where
 --
 -- * 'conExitCode'
 data Container = Container'
-    { _conNetworkBindings :: Maybe [NetworkBinding]
-    , _conContainerARN    :: Maybe Text
-    , _conTaskARN         :: Maybe Text
-    , _conLastStatus      :: Maybe Text
-    , _conReason          :: Maybe Text
-    , _conName            :: Maybe Text
-    , _conExitCode        :: Maybe Int
+    { _conNetworkBindings :: !(Maybe [NetworkBinding])
+    , _conContainerARN    :: !(Maybe Text)
+    , _conTaskARN         :: !(Maybe Text)
+    , _conLastStatus      :: !(Maybe Text)
+    , _conReason          :: !(Maybe Text)
+    , _conName            :: !(Maybe Text)
+    , _conExitCode        :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Container' smart constructor.
@@ -699,18 +699,18 @@ instance FromJSON Container where
 --
 -- * 'cdCpu'
 data ContainerDefinition = ContainerDefinition'
-    { _cdImage        :: Maybe Text
-    , _cdCommand      :: Maybe [Text]
-    , _cdVolumesFrom  :: Maybe [VolumeFrom]
-    , _cdEnvironment  :: Maybe [KeyValuePair]
-    , _cdEntryPoint   :: Maybe [Text]
-    , _cdPortMappings :: Maybe [PortMapping]
-    , _cdMemory       :: Maybe Int
-    , _cdName         :: Maybe Text
-    , _cdMountPoints  :: Maybe [MountPoint]
-    , _cdLinks        :: Maybe [Text]
-    , _cdEssential    :: Maybe Bool
-    , _cdCpu          :: Maybe Int
+    { _cdImage        :: !(Maybe Text)
+    , _cdCommand      :: !(Maybe [Text])
+    , _cdVolumesFrom  :: !(Maybe [VolumeFrom])
+    , _cdEnvironment  :: !(Maybe [KeyValuePair])
+    , _cdEntryPoint   :: !(Maybe [Text])
+    , _cdPortMappings :: !(Maybe [PortMapping])
+    , _cdMemory       :: !(Maybe Int)
+    , _cdName         :: !(Maybe Text)
+    , _cdMountPoints  :: !(Maybe [MountPoint])
+    , _cdLinks        :: !(Maybe [Text])
+    , _cdEssential    :: !(Maybe Bool)
+    , _cdCpu          :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ContainerDefinition' smart constructor.
@@ -897,16 +897,16 @@ instance ToJSON ContainerDefinition where
 --
 -- * 'ciRegisteredResources'
 data ContainerInstance = ContainerInstance'
-    { _ciStatus               :: Maybe Text
-    , _ciRunningTasksCount    :: Maybe Int
-    , _ciRemainingResources   :: Maybe [Resource]
-    , _ciEc2InstanceId        :: Maybe Text
-    , _ciContainerInstanceARN :: Maybe Text
-    , _ciAgentConnected       :: Maybe Bool
-    , _ciVersionInfo          :: Maybe VersionInfo
-    , _ciAgentUpdateStatus    :: Maybe AgentUpdateStatus
-    , _ciPendingTasksCount    :: Maybe Int
-    , _ciRegisteredResources  :: Maybe [Resource]
+    { _ciStatus               :: !(Maybe Text)
+    , _ciRunningTasksCount    :: !(Maybe Int)
+    , _ciRemainingResources   :: !(Maybe [Resource])
+    , _ciEc2InstanceId        :: !(Maybe Text)
+    , _ciContainerInstanceARN :: !(Maybe Text)
+    , _ciAgentConnected       :: !(Maybe Bool)
+    , _ciVersionInfo          :: !(Maybe VersionInfo)
+    , _ciAgentUpdateStatus    :: !(Maybe AgentUpdateStatus)
+    , _ciPendingTasksCount    :: !(Maybe Int)
+    , _ciRegisteredResources  :: !(Maybe [Resource])
     } deriving (Eq,Read,Show)
 
 -- | 'ContainerInstance' smart constructor.
@@ -1009,9 +1009,9 @@ instance FromJSON ContainerInstance where
 --
 -- * 'coName'
 data ContainerOverride = ContainerOverride'
-    { _coCommand     :: Maybe [Text]
-    , _coEnvironment :: Maybe [KeyValuePair]
-    , _coName        :: Maybe Text
+    { _coCommand     :: !(Maybe [Text])
+    , _coEnvironment :: !(Maybe [KeyValuePair])
+    , _coName        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ContainerOverride' smart constructor.
@@ -1082,18 +1082,18 @@ instance ToJSON ContainerOverride where
 --
 -- * 'csRoleARN'
 data ContainerService = ContainerService'
-    { _csStatus         :: Maybe Text
-    , _csRunningCount   :: Maybe Int
-    , _csClusterARN     :: Maybe Text
-    , _csDesiredCount   :: Maybe Int
-    , _csLoadBalancers  :: Maybe [LoadBalancer]
-    , _csPendingCount   :: Maybe Int
-    , _csEvents         :: Maybe [ServiceEvent]
-    , _csServiceName    :: Maybe Text
-    , _csDeployments    :: Maybe [Deployment]
-    , _csTaskDefinition :: Maybe Text
-    , _csServiceARN     :: Maybe Text
-    , _csRoleARN        :: Maybe Text
+    { _csStatus         :: !(Maybe Text)
+    , _csRunningCount   :: !(Maybe Int)
+    , _csClusterARN     :: !(Maybe Text)
+    , _csDesiredCount   :: !(Maybe Int)
+    , _csLoadBalancers  :: !(Maybe [LoadBalancer])
+    , _csPendingCount   :: !(Maybe Int)
+    , _csEvents         :: !(Maybe [ServiceEvent])
+    , _csServiceName    :: !(Maybe Text)
+    , _csDeployments    :: !(Maybe [Deployment])
+    , _csTaskDefinition :: !(Maybe Text)
+    , _csServiceARN     :: !(Maybe Text)
+    , _csRoleARN        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ContainerService' smart constructor.
@@ -1214,14 +1214,14 @@ instance FromJSON ContainerService where
 --
 -- * 'depUpdatedAt'
 data Deployment = Deployment'
-    { _depStatus         :: Maybe Text
-    , _depRunningCount   :: Maybe Int
-    , _depCreatedAt      :: Maybe POSIX
-    , _depDesiredCount   :: Maybe Int
-    , _depPendingCount   :: Maybe Int
-    , _depId             :: Maybe Text
-    , _depTaskDefinition :: Maybe Text
-    , _depUpdatedAt      :: Maybe POSIX
+    { _depStatus         :: !(Maybe Text)
+    , _depRunningCount   :: !(Maybe Int)
+    , _depCreatedAt      :: !(Maybe POSIX)
+    , _depDesiredCount   :: !(Maybe Int)
+    , _depPendingCount   :: !(Maybe Int)
+    , _depId             :: !(Maybe Text)
+    , _depTaskDefinition :: !(Maybe Text)
+    , _depUpdatedAt      :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'Deployment' smart constructor.
@@ -1297,8 +1297,8 @@ instance FromJSON Deployment where
 --
 -- * 'faiReason'
 data Failure = Failure'
-    { _faiArn    :: Maybe Text
-    , _faiReason :: Maybe Text
+    { _faiArn    :: !(Maybe Text)
+    , _faiReason :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Failure' smart constructor.
@@ -1365,8 +1365,8 @@ instance ToJSON HostVolumeProperties where
 --
 -- * 'kvpName'
 data KeyValuePair = KeyValuePair'
-    { _kvpValue :: Maybe Text
-    , _kvpName  :: Maybe Text
+    { _kvpValue :: !(Maybe Text)
+    , _kvpName  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'KeyValuePair' smart constructor.
@@ -1407,9 +1407,9 @@ instance ToJSON KeyValuePair where
 --
 -- * 'lbContainerPort'
 data LoadBalancer = LoadBalancer'
-    { _lbLoadBalancerName :: Maybe Text
-    , _lbContainerName    :: Maybe Text
-    , _lbContainerPort    :: Maybe Int
+    { _lbLoadBalancerName :: !(Maybe Text)
+    , _lbContainerName    :: !(Maybe Text)
+    , _lbContainerPort    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'LoadBalancer' smart constructor.
@@ -1462,9 +1462,9 @@ instance ToJSON LoadBalancer where
 --
 -- * 'mpReadOnly'
 data MountPoint = MountPoint'
-    { _mpContainerPath :: Maybe Text
-    , _mpSourceVolume  :: Maybe Text
-    , _mpReadOnly      :: Maybe Bool
+    { _mpContainerPath :: !(Maybe Text)
+    , _mpSourceVolume  :: !(Maybe Text)
+    , _mpReadOnly      :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'MountPoint' smart constructor.
@@ -1517,10 +1517,10 @@ instance ToJSON MountPoint where
 --
 -- * 'nbContainerPort'
 data NetworkBinding = NetworkBinding'
-    { _nbBindIP        :: Maybe Text
-    , _nbProtocol      :: Maybe TransportProtocol
-    , _nbHostPort      :: Maybe Int
-    , _nbContainerPort :: Maybe Int
+    { _nbBindIP        :: !(Maybe Text)
+    , _nbProtocol      :: !(Maybe TransportProtocol)
+    , _nbHostPort      :: !(Maybe Int)
+    , _nbContainerPort :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkBinding' smart constructor.
@@ -1580,9 +1580,9 @@ instance ToJSON NetworkBinding where
 --
 -- * 'pmContainerPort'
 data PortMapping = PortMapping'
-    { _pmProtocol      :: Maybe TransportProtocol
-    , _pmHostPort      :: Maybe Int
-    , _pmContainerPort :: Maybe Int
+    { _pmProtocol      :: !(Maybe TransportProtocol)
+    , _pmHostPort      :: !(Maybe Int)
+    , _pmContainerPort :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'PortMapping' smart constructor.
@@ -1666,12 +1666,12 @@ instance ToJSON PortMapping where
 --
 -- * 'resType'
 data Resource = Resource'
-    { _resStringSetValue :: Maybe [Text]
-    , _resIntegerValue   :: Maybe Int
-    , _resDoubleValue    :: Maybe Double
-    , _resLongValue      :: Maybe Integer
-    , _resName           :: Maybe Text
-    , _resType           :: Maybe Text
+    { _resStringSetValue :: !(Maybe [Text])
+    , _resIntegerValue   :: !(Maybe Int)
+    , _resDoubleValue    :: !(Maybe Double)
+    , _resLongValue      :: !(Maybe Integer)
+    , _resName           :: !(Maybe Text)
+    , _resType           :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Resource' smart constructor.
@@ -1747,9 +1747,9 @@ instance ToJSON Resource where
 --
 -- * 'seMessage'
 data ServiceEvent = ServiceEvent'
-    { _seCreatedAt :: Maybe POSIX
-    , _seId        :: Maybe Text
-    , _seMessage   :: Maybe Text
+    { _seCreatedAt :: !(Maybe POSIX)
+    , _seId        :: !(Maybe Text)
+    , _seMessage   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ServiceEvent' smart constructor.
@@ -1803,15 +1803,15 @@ instance FromJSON ServiceEvent where
 --
 -- * 'tasTaskDefinitionARN'
 data Task = Task'
-    { _tasDesiredStatus        :: Maybe Text
-    , _tasClusterARN           :: Maybe Text
-    , _tasOverrides            :: Maybe TaskOverride
-    , _tasTaskARN              :: Maybe Text
-    , _tasContainerInstanceARN :: Maybe Text
-    , _tasLastStatus           :: Maybe Text
-    , _tasContainers           :: Maybe [Container]
-    , _tasStartedBy            :: Maybe Text
-    , _tasTaskDefinitionARN    :: Maybe Text
+    { _tasDesiredStatus        :: !(Maybe Text)
+    , _tasClusterARN           :: !(Maybe Text)
+    , _tasOverrides            :: !(Maybe TaskOverride)
+    , _tasTaskARN              :: !(Maybe Text)
+    , _tasContainerInstanceARN :: !(Maybe Text)
+    , _tasLastStatus           :: !(Maybe Text)
+    , _tasContainers           :: !(Maybe [Container])
+    , _tasStartedBy            :: !(Maybe Text)
+    , _tasTaskDefinitionARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Task' smart constructor.
@@ -1900,12 +1900,12 @@ instance FromJSON Task where
 --
 -- * 'tdVolumes'
 data TaskDefinition = TaskDefinition'
-    { _tdStatus               :: Maybe TaskDefinitionStatus
-    , _tdFamily               :: Maybe Text
-    , _tdContainerDefinitions :: Maybe [ContainerDefinition]
-    , _tdTaskDefinitionARN    :: Maybe Text
-    , _tdRevision             :: Maybe Int
-    , _tdVolumes              :: Maybe [Volume]
+    { _tdStatus               :: !(Maybe TaskDefinitionStatus)
+    , _tdFamily               :: !(Maybe Text)
+    , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
+    , _tdTaskDefinitionARN    :: !(Maybe Text)
+    , _tdRevision             :: !(Maybe Int)
+    , _tdVolumes              :: !(Maybe [Volume])
     } deriving (Eq,Read,Show)
 
 -- | 'TaskDefinition' smart constructor.
@@ -2014,9 +2014,9 @@ instance ToJSON TaskOverride where
 --
 -- * 'viDockerVersion'
 data VersionInfo = VersionInfo'
-    { _viAgentVersion  :: Maybe Text
-    , _viAgentHash     :: Maybe Text
-    , _viDockerVersion :: Maybe Text
+    { _viAgentVersion  :: !(Maybe Text)
+    , _viAgentHash     :: !(Maybe Text)
+    , _viDockerVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VersionInfo' smart constructor.
@@ -2065,8 +2065,8 @@ instance ToJSON VersionInfo where
 --
 -- * 'volHost'
 data Volume = Volume'
-    { _volName :: Maybe Text
-    , _volHost :: Maybe HostVolumeProperties
+    { _volName :: !(Maybe Text)
+    , _volHost :: !(Maybe HostVolumeProperties)
     } deriving (Eq,Read,Show)
 
 -- | 'Volume' smart constructor.
@@ -2106,8 +2106,8 @@ instance ToJSON Volume where
 --
 -- * 'vfReadOnly'
 data VolumeFrom = VolumeFrom'
-    { _vfSourceContainer :: Maybe Text
-    , _vfReadOnly        :: Maybe Bool
+    { _vfSourceContainer :: !(Maybe Text)
+    , _vfReadOnly        :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeFrom' smart constructor.

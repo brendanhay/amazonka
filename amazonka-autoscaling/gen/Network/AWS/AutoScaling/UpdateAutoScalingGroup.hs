@@ -102,18 +102,18 @@ import           Network.AWS.Response
 --
 -- * 'uasgAutoScalingGroupName'
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies     :: Maybe [Text]
-    , _uasgHealthCheckGracePeriod  :: Maybe Int
-    , _uasgVPCZoneIdentifier       :: Maybe Text
-    , _uasgDefaultCooldown         :: Maybe Int
-    , _uasgMaxSize                 :: Maybe Int
-    , _uasgDesiredCapacity         :: Maybe Int
-    , _uasgAvailabilityZones       :: Maybe (List1 Text)
-    , _uasgMinSize                 :: Maybe Int
-    , _uasgHealthCheckType         :: Maybe Text
-    , _uasgLaunchConfigurationName :: Maybe Text
-    , _uasgPlacementGroup          :: Maybe Text
-    , _uasgAutoScalingGroupName    :: Text
+    { _uasgTerminationPolicies     :: !(Maybe [Text])
+    , _uasgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _uasgVPCZoneIdentifier       :: !(Maybe Text)
+    , _uasgDefaultCooldown         :: !(Maybe Int)
+    , _uasgMaxSize                 :: !(Maybe Int)
+    , _uasgDesiredCapacity         :: !(Maybe Int)
+    , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _uasgMinSize                 :: !(Maybe Int)
+    , _uasgHealthCheckType         :: !(Maybe Text)
+    , _uasgLaunchConfigurationName :: !(Maybe Text)
+    , _uasgPlacementGroup          :: !(Maybe Text)
+    , _uasgAutoScalingGroupName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateAutoScalingGroup' smart constructor.

@@ -66,10 +66,10 @@ import           Network.AWS.Support.Types
 --
 -- * 'actcCommunicationBody'
 data AddCommunicationToCase = AddCommunicationToCase'
-    { _actcCaseId            :: Maybe Text
-    , _actcCcEmailAddresses  :: Maybe [Text]
-    , _actcAttachmentSetId   :: Maybe Text
-    , _actcCommunicationBody :: Text
+    { _actcCaseId            :: !(Maybe Text)
+    , _actcCcEmailAddresses  :: !(Maybe [Text])
+    , _actcAttachmentSetId   :: !(Maybe Text)
+    , _actcCommunicationBody :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AddCommunicationToCase' smart constructor.
@@ -147,7 +147,7 @@ instance ToQuery AddCommunicationToCase where
 --
 -- * 'actcrStatus'
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
-    { _actcrResult :: Maybe Bool
+    { _actcrResult :: !(Maybe Bool)
     , _actcrStatus :: !Int
     } deriving (Eq,Read,Show)
 

@@ -215,10 +215,10 @@ _NumberDomainBytesExceeded =
 --
 -- * 'attValue'
 data Attribute = Attribute'
-    { _attAlternateValueEncoding :: Maybe Text
-    , _attAlternateNameEncoding  :: Maybe Text
-    , _attName                   :: Text
-    , _attValue                  :: Text
+    { _attAlternateValueEncoding :: !(Maybe Text)
+    , _attAlternateNameEncoding  :: !(Maybe Text)
+    , _attName                   :: !Text
+    , _attValue                  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Attribute' smart constructor.
@@ -271,8 +271,8 @@ instance ToQuery Attribute where
 --
 -- * 'diName'
 data DeletableItem = DeletableItem'
-    { _diAttributes :: Maybe [Attribute]
-    , _diName       :: Text
+    { _diAttributes :: !(Maybe [Attribute])
+    , _diName       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeletableItem' smart constructor.
@@ -309,9 +309,9 @@ instance ToQuery DeletableItem where
 --
 -- * 'iteAttributes'
 data Item = Item'
-    { _iteAlternateNameEncoding :: Maybe Text
-    , _iteName                  :: Text
-    , _iteAttributes            :: [Attribute]
+    { _iteAlternateNameEncoding :: !(Maybe Text)
+    , _iteName                  :: !Text
+    , _iteAttributes            :: ![Attribute]
     } deriving (Eq,Read,Show)
 
 -- | 'Item' smart constructor.
@@ -353,9 +353,9 @@ instance FromXML Item where
 --
 -- * 'raValue'
 data ReplaceableAttribute = ReplaceableAttribute'
-    { _raReplace :: Maybe Bool
-    , _raName    :: Text
-    , _raValue   :: Text
+    { _raReplace :: !(Maybe Bool)
+    , _raName    :: !Text
+    , _raValue   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReplaceableAttribute' smart constructor.
@@ -396,8 +396,8 @@ instance ToQuery ReplaceableAttribute where
 --
 -- * 'riAttributes'
 data ReplaceableItem = ReplaceableItem'
-    { _riName       :: Text
-    , _riAttributes :: [ReplaceableAttribute]
+    { _riName       :: !Text
+    , _riAttributes :: ![ReplaceableAttribute]
     } deriving (Eq,Read,Show)
 
 -- | 'ReplaceableItem' smart constructor.
@@ -438,9 +438,9 @@ instance ToQuery ReplaceableItem where
 --
 -- * 'ucName'
 data UpdateCondition = UpdateCondition'
-    { _ucExists :: Maybe Bool
-    , _ucValue  :: Maybe Text
-    , _ucName   :: Maybe Text
+    { _ucExists :: !(Maybe Bool)
+    , _ucValue  :: !(Maybe Text)
+    , _ucName   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateCondition' smart constructor.

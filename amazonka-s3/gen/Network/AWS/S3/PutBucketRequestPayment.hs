@@ -54,9 +54,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'pbrpRequestPaymentConfiguration'
 data PutBucketRequestPayment = PutBucketRequestPayment'
-    { _pbrpContentMD5                  :: Maybe Text
-    , _pbrpBucket                      :: BucketName
-    , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
+    { _pbrpContentMD5                  :: !(Maybe Text)
+    , _pbrpBucket                      :: !BucketName
+    , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketRequestPayment' smart constructor.

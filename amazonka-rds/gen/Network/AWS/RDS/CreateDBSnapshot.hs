@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'creDBInstanceIdentifier'
 data CreateDBSnapshot = CreateDBSnapshot'
-    { _creTags                 :: Maybe [Tag]
-    , _creDBSnapshotIdentifier :: Text
-    , _creDBInstanceIdentifier :: Text
+    { _creTags                 :: !(Maybe [Tag])
+    , _creDBSnapshotIdentifier :: !Text
+    , _creDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDBSnapshot' smart constructor.
@@ -130,7 +130,7 @@ instance ToQuery CreateDBSnapshot where
 --
 -- * 'creStatus'
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-    { _creDBSnapshot :: Maybe DBSnapshot
+    { _creDBSnapshot :: !(Maybe DBSnapshot)
     , _creStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -96,22 +96,22 @@ import           Network.AWS.Response
 --
 -- * 'mccCacheClusterId'
 data ModifyCacheCluster = ModifyCacheCluster'
-    { _mccEngineVersion              :: Maybe Text
-    , _mccSecurityGroupIds           :: Maybe [Text]
-    , _mccAutoMinorVersionUpgrade    :: Maybe Bool
-    , _mccCacheParameterGroupName    :: Maybe Text
-    , _mccNewAvailabilityZones       :: Maybe [Text]
-    , _mccSnapshotWindow             :: Maybe Text
-    , _mccPreferredMaintenanceWindow :: Maybe Text
-    , _mccCacheNodeIdsToRemove       :: Maybe [Text]
-    , _mccSnapshotRetentionLimit     :: Maybe Int
-    , _mccAZMode                     :: Maybe AZMode
-    , _mccNotificationTopicStatus    :: Maybe Text
-    , _mccApplyImmediately           :: Maybe Bool
-    , _mccNotificationTopicARN       :: Maybe Text
-    , _mccNumCacheNodes              :: Maybe Int
-    , _mccCacheSecurityGroupNames    :: Maybe [Text]
-    , _mccCacheClusterId             :: Text
+    { _mccEngineVersion              :: !(Maybe Text)
+    , _mccSecurityGroupIds           :: !(Maybe [Text])
+    , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mccCacheParameterGroupName    :: !(Maybe Text)
+    , _mccNewAvailabilityZones       :: !(Maybe [Text])
+    , _mccSnapshotWindow             :: !(Maybe Text)
+    , _mccPreferredMaintenanceWindow :: !(Maybe Text)
+    , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
+    , _mccSnapshotRetentionLimit     :: !(Maybe Int)
+    , _mccAZMode                     :: !(Maybe AZMode)
+    , _mccNotificationTopicStatus    :: !(Maybe Text)
+    , _mccApplyImmediately           :: !(Maybe Bool)
+    , _mccNotificationTopicARN       :: !(Maybe Text)
+    , _mccNumCacheNodes              :: !(Maybe Int)
+    , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
+    , _mccCacheClusterId             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheCluster' smart constructor.
@@ -428,7 +428,7 @@ instance ToQuery ModifyCacheCluster where
 --
 -- * 'mccrStatus'
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
-    { _mccrCacheCluster :: Maybe CacheCluster
+    { _mccrCacheCluster :: !(Maybe CacheCluster)
     , _mccrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

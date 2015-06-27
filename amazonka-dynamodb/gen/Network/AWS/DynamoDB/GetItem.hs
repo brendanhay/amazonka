@@ -74,13 +74,13 @@ import           Network.AWS.Response
 --
 -- * 'giKey'
 data GetItem = GetItem'
-    { _giProjectionExpression     :: Maybe Text
-    , _giConsistentRead           :: Maybe Bool
-    , _giExpressionAttributeNames :: Maybe (Map Text Text)
-    , _giAttributesToGet          :: Maybe (List1 Text)
-    , _giReturnConsumedCapacity   :: Maybe ReturnConsumedCapacity
-    , _giTableName                :: Text
-    , _giKey                      :: Map Text AttributeValue
+    { _giProjectionExpression     :: !(Maybe Text)
+    , _giConsistentRead           :: !(Maybe Bool)
+    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _giAttributesToGet          :: !(Maybe (List1 Text))
+    , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
+    , _giTableName                :: !Text
+    , _giKey                      :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show)
 
 -- | 'GetItem' smart constructor.
@@ -244,8 +244,8 @@ instance ToQuery GetItem where
 --
 -- * 'girStatus'
 data GetItemResponse = GetItemResponse'
-    { _girConsumedCapacity :: Maybe ConsumedCapacity
-    , _girItem             :: Maybe (Map Text AttributeValue)
+    { _girConsumedCapacity :: !(Maybe ConsumedCapacity)
+    , _girItem             :: !(Maybe (Map Text AttributeValue))
     , _girStatus           :: !Int
     } deriving (Eq,Read,Show)
 

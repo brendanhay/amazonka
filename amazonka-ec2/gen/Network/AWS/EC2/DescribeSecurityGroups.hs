@@ -62,10 +62,10 @@ import           Network.AWS.Response
 --
 -- * 'dsg1DryRun'
 data DescribeSecurityGroups = DescribeSecurityGroups'
-    { _dsg1GroupNames :: Maybe [Text]
-    , _dsg1Filters    :: Maybe [Filter]
-    , _dsg1GroupIds   :: Maybe [Text]
-    , _dsg1DryRun     :: Maybe Bool
+    { _dsg1GroupNames :: !(Maybe [Text])
+    , _dsg1Filters    :: !(Maybe [Filter])
+    , _dsg1GroupIds   :: !(Maybe [Text])
+    , _dsg1DryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSecurityGroups' smart constructor.
@@ -183,7 +183,7 @@ instance ToQuery DescribeSecurityGroups where
 --
 -- * 'dsgrStatus'
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
-    { _dsgrSecurityGroups :: Maybe [SecurityGroup]
+    { _dsgrSecurityGroups :: !(Maybe [SecurityGroup])
     , _dsgrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

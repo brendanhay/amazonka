@@ -53,9 +53,9 @@ import           Network.AWS.Response
 --
 -- * 'slbpolPolicyNames'
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
-    { _slbpolLoadBalancerName :: Text
+    { _slbpolLoadBalancerName :: !Text
     , _slbpolLoadBalancerPort :: !Int
-    , _slbpolPolicyNames      :: [Text]
+    , _slbpolPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.

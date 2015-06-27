@@ -94,22 +94,22 @@ import           Network.AWS.Response
 --
 -- * 'mrgReplicationGroupId'
 data ModifyReplicationGroup = ModifyReplicationGroup'
-    { _mrgAutomaticFailoverEnabled    :: Maybe Bool
-    , _mrgEngineVersion               :: Maybe Text
-    , _mrgSnapshottingClusterId       :: Maybe Text
-    , _mrgSecurityGroupIds            :: Maybe [Text]
-    , _mrgAutoMinorVersionUpgrade     :: Maybe Bool
-    , _mrgReplicationGroupDescription :: Maybe Text
-    , _mrgCacheParameterGroupName     :: Maybe Text
-    , _mrgSnapshotWindow              :: Maybe Text
-    , _mrgPrimaryClusterId            :: Maybe Text
-    , _mrgPreferredMaintenanceWindow  :: Maybe Text
-    , _mrgSnapshotRetentionLimit      :: Maybe Int
-    , _mrgNotificationTopicStatus     :: Maybe Text
-    , _mrgApplyImmediately            :: Maybe Bool
-    , _mrgNotificationTopicARN        :: Maybe Text
-    , _mrgCacheSecurityGroupNames     :: Maybe [Text]
-    , _mrgReplicationGroupId          :: Text
+    { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
+    , _mrgEngineVersion               :: !(Maybe Text)
+    , _mrgSnapshottingClusterId       :: !(Maybe Text)
+    , _mrgSecurityGroupIds            :: !(Maybe [Text])
+    , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+    , _mrgReplicationGroupDescription :: !(Maybe Text)
+    , _mrgCacheParameterGroupName     :: !(Maybe Text)
+    , _mrgSnapshotWindow              :: !(Maybe Text)
+    , _mrgPrimaryClusterId            :: !(Maybe Text)
+    , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
+    , _mrgNotificationTopicStatus     :: !(Maybe Text)
+    , _mrgApplyImmediately            :: !(Maybe Bool)
+    , _mrgNotificationTopicARN        :: !(Maybe Text)
+    , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
+    , _mrgReplicationGroupId          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyReplicationGroup' smart constructor.
@@ -331,7 +331,7 @@ instance ToQuery ModifyReplicationGroup where
 --
 -- * 'mrgrStatus'
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
-    { _mrgrReplicationGroup :: Maybe ReplicationGroup
+    { _mrgrReplicationGroup :: !(Maybe ReplicationGroup)
     , _mrgrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

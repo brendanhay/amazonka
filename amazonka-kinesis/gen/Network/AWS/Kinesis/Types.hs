@@ -234,8 +234,8 @@ instance FromJSON StreamStatus where
 --
 -- * 'hkrEndingHashKey'
 data HashKeyRange = HashKeyRange'
-    { _hkrStartingHashKey :: Text
-    , _hkrEndingHashKey   :: Text
+    { _hkrStartingHashKey :: !Text
+    , _hkrEndingHashKey   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'HashKeyRange' smart constructor.
@@ -273,9 +273,9 @@ instance FromJSON HashKeyRange where
 --
 -- * 'prrePartitionKey'
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
-    { _prreExplicitHashKey :: Maybe Text
-    , _prreData            :: Base64
-    , _prrePartitionKey    :: Text
+    { _prreExplicitHashKey :: !(Maybe Text)
+    , _prreData            :: !Base64
+    , _prrePartitionKey    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsRequestEntry' smart constructor.
@@ -335,10 +335,10 @@ instance ToJSON PutRecordsRequestEntry where
 --
 -- * 'prreShardId'
 data PutRecordsResultEntry = PutRecordsResultEntry'
-    { _prreSequenceNumber :: Maybe Text
-    , _prreErrorCode      :: Maybe Text
-    , _prreErrorMessage   :: Maybe Text
-    , _prreShardId        :: Maybe Text
+    { _prreSequenceNumber :: !(Maybe Text)
+    , _prreErrorCode      :: !(Maybe Text)
+    , _prreErrorMessage   :: !(Maybe Text)
+    , _prreShardId        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PutRecordsResultEntry' smart constructor.
@@ -394,9 +394,9 @@ instance FromJSON PutRecordsResultEntry where
 --
 -- * 'recPartitionKey'
 data Record = Record'
-    { _recSequenceNumber :: Text
-    , _recData           :: Base64
-    , _recPartitionKey   :: Text
+    { _recSequenceNumber :: !Text
+    , _recData           :: !Base64
+    , _recPartitionKey   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Record' smart constructor.
@@ -441,8 +441,8 @@ instance FromJSON Record where
 --
 -- * 'snrStartingSequenceNumber'
 data SequenceNumberRange = SequenceNumberRange'
-    { _snrEndingSequenceNumber   :: Maybe Text
-    , _snrStartingSequenceNumber :: Text
+    { _snrEndingSequenceNumber   :: !(Maybe Text)
+    , _snrStartingSequenceNumber :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SequenceNumberRange' smart constructor.
@@ -486,11 +486,11 @@ instance FromJSON SequenceNumberRange where
 --
 -- * 'shaSequenceNumberRange'
 data Shard = Shard'
-    { _shaAdjacentParentShardId :: Maybe Text
-    , _shaParentShardId         :: Maybe Text
-    , _shaShardId               :: Text
-    , _shaHashKeyRange          :: HashKeyRange
-    , _shaSequenceNumberRange   :: SequenceNumberRange
+    { _shaAdjacentParentShardId :: !(Maybe Text)
+    , _shaParentShardId         :: !(Maybe Text)
+    , _shaShardId               :: !Text
+    , _shaHashKeyRange          :: !HashKeyRange
+    , _shaSequenceNumberRange   :: !SequenceNumberRange
     } deriving (Eq,Read,Show)
 
 -- | 'Shard' smart constructor.
@@ -552,10 +552,10 @@ instance FromJSON Shard where
 --
 -- * 'sdHasMoreShards'
 data StreamDescription = StreamDescription'
-    { _sdStreamName    :: Text
-    , _sdStreamARN     :: Text
-    , _sdStreamStatus  :: StreamStatus
-    , _sdShards        :: [Shard]
+    { _sdStreamName    :: !Text
+    , _sdStreamARN     :: !Text
+    , _sdStreamStatus  :: !StreamStatus
+    , _sdShards        :: ![Shard]
     , _sdHasMoreShards :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -623,8 +623,8 @@ instance FromJSON StreamDescription where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.

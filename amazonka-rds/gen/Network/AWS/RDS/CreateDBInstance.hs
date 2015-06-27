@@ -135,36 +135,36 @@ import           Network.AWS.Response
 --
 -- * 'cdiMasterUserPassword'
 data CreateDBInstance = CreateDBInstance'
-    { _cdiDBSecurityGroups           :: Maybe [Text]
-    , _cdiEngineVersion              :: Maybe Text
-    , _cdiStorageEncrypted           :: Maybe Bool
-    , _cdiAutoMinorVersionUpgrade    :: Maybe Bool
-    , _cdiPubliclyAccessible         :: Maybe Bool
-    , _cdiDBSubnetGroupName          :: Maybe Text
-    , _cdiIOPS                       :: Maybe Int
-    , _cdiTDECredentialPassword      :: Maybe Text
-    , _cdiLicenseModel               :: Maybe Text
-    , _cdiPreferredMaintenanceWindow :: Maybe Text
-    , _cdiCharacterSetName           :: Maybe Text
-    , _cdiPreferredBackupWindow      :: Maybe Text
-    , _cdiAvailabilityZone           :: Maybe Text
-    , _cdiBackupRetentionPeriod      :: Maybe Int
-    , _cdiKMSKeyId                   :: Maybe Text
-    , _cdiDBParameterGroupName       :: Maybe Text
-    , _cdiVPCSecurityGroupIds        :: Maybe [Text]
-    , _cdiMultiAZ                    :: Maybe Bool
-    , _cdiTDECredentialARN           :: Maybe Text
-    , _cdiOptionGroupName            :: Maybe Text
-    , _cdiDBName                     :: Maybe Text
-    , _cdiTags                       :: Maybe [Tag]
-    , _cdiPort                       :: Maybe Int
-    , _cdiStorageType                :: Maybe Text
-    , _cdiDBInstanceIdentifier       :: Text
+    { _cdiDBSecurityGroups           :: !(Maybe [Text])
+    , _cdiEngineVersion              :: !(Maybe Text)
+    , _cdiStorageEncrypted           :: !(Maybe Bool)
+    , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdiPubliclyAccessible         :: !(Maybe Bool)
+    , _cdiDBSubnetGroupName          :: !(Maybe Text)
+    , _cdiIOPS                       :: !(Maybe Int)
+    , _cdiTDECredentialPassword      :: !(Maybe Text)
+    , _cdiLicenseModel               :: !(Maybe Text)
+    , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
+    , _cdiCharacterSetName           :: !(Maybe Text)
+    , _cdiPreferredBackupWindow      :: !(Maybe Text)
+    , _cdiAvailabilityZone           :: !(Maybe Text)
+    , _cdiBackupRetentionPeriod      :: !(Maybe Int)
+    , _cdiKMSKeyId                   :: !(Maybe Text)
+    , _cdiDBParameterGroupName       :: !(Maybe Text)
+    , _cdiVPCSecurityGroupIds        :: !(Maybe [Text])
+    , _cdiMultiAZ                    :: !(Maybe Bool)
+    , _cdiTDECredentialARN           :: !(Maybe Text)
+    , _cdiOptionGroupName            :: !(Maybe Text)
+    , _cdiDBName                     :: !(Maybe Text)
+    , _cdiTags                       :: !(Maybe [Tag])
+    , _cdiPort                       :: !(Maybe Int)
+    , _cdiStorageType                :: !(Maybe Text)
+    , _cdiDBInstanceIdentifier       :: !Text
     , _cdiAllocatedStorage           :: !Int
-    , _cdiDBInstanceClass            :: Text
-    , _cdiEngine                     :: Text
-    , _cdiMasterUsername             :: Text
-    , _cdiMasterUserPassword         :: Text
+    , _cdiDBInstanceClass            :: !Text
+    , _cdiEngine                     :: !Text
+    , _cdiMasterUsername             :: !Text
+    , _cdiMasterUserPassword         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDBInstance' smart constructor.
@@ -835,7 +835,7 @@ instance ToQuery CreateDBInstance where
 --
 -- * 'cdirStatus'
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
-    { _cdirDBInstance :: Maybe DBInstance
+    { _cdirDBInstance :: !(Maybe DBInstance)
     , _cdirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

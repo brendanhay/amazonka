@@ -106,9 +106,9 @@ instance ToQuery GetSAMLProvider where
 --
 -- * 'gsamlprStatus'
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-    { _gsamlprCreateDate           :: Maybe ISO8601
-    , _gsamlprValidUntil           :: Maybe ISO8601
-    , _gsamlprSAMLMetadataDocument :: Maybe Text
+    { _gsamlprCreateDate           :: !(Maybe ISO8601)
+    , _gsamlprValidUntil           :: !(Maybe ISO8601)
+    , _gsamlprSAMLMetadataDocument :: !(Maybe Text)
     , _gsamlprStatus               :: !Int
     } deriving (Eq,Read,Show)
 

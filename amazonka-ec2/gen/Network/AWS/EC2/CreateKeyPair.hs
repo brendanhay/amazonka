@@ -65,8 +65,8 @@ import           Network.AWS.Response
 --
 -- * 'ckpKeyName'
 data CreateKeyPair = CreateKeyPair'
-    { _ckpDryRun  :: Maybe Bool
-    , _ckpKeyName :: Text
+    { _ckpDryRun  :: !(Maybe Bool)
+    , _ckpKeyName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateKeyPair' smart constructor.
@@ -129,9 +129,9 @@ instance ToQuery CreateKeyPair where
 --
 -- * 'ckprStatus'
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprKeyName        :: Text
-    , _ckprKeyFingerprint :: Text
-    , _ckprKeyMaterial    :: Text
+    { _ckprKeyName        :: !Text
+    , _ckprKeyFingerprint :: !Text
+    , _ckprKeyMaterial    :: !Text
     , _ckprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

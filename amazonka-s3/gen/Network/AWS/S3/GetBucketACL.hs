@@ -94,8 +94,8 @@ instance ToQuery GetBucketACL where
 --
 -- * 'gbarStatus'
 data GetBucketACLResponse = GetBucketACLResponse'
-    { _gbarGrants :: Maybe [Grant]
-    , _gbarOwner  :: Maybe Owner
+    { _gbarGrants :: !(Maybe [Grant])
+    , _gbarOwner  :: !(Maybe Owner)
     , _gbarStatus :: !Int
     } deriving (Eq,Read,Show)
 

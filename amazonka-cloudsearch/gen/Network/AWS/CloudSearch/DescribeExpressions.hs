@@ -64,9 +64,9 @@ import           Network.AWS.Response
 --
 -- * 'deDomainName'
 data DescribeExpressions = DescribeExpressions'
-    { _deDeployed        :: Maybe Bool
-    , _deExpressionNames :: Maybe [Text]
-    , _deDomainName      :: Text
+    { _deDeployed        :: !(Maybe Bool)
+    , _deExpressionNames :: !(Maybe [Text])
+    , _deDomainName      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeExpressions' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery DescribeExpressions where
 --
 -- * 'desStatus'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _desExpressions :: [ExpressionStatus]
+    { _desExpressions :: ![ExpressionStatus]
     , _desStatus      :: !Int
     } deriving (Eq,Read,Show)
 

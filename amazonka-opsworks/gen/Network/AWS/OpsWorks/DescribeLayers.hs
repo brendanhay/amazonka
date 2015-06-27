@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'dlStackId'
 data DescribeLayers = DescribeLayers'
-    { _dlLayerIds :: Maybe [Text]
-    , _dlStackId  :: Maybe Text
+    { _dlLayerIds :: !(Maybe [Text])
+    , _dlStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLayers' smart constructor.
@@ -119,7 +119,7 @@ instance ToQuery DescribeLayers where
 --
 -- * 'dlrStatus'
 data DescribeLayersResponse = DescribeLayersResponse'
-    { _dlrLayers :: Maybe [Layer]
+    { _dlrLayers :: !(Maybe [Layer])
     , _dlrStatus :: !Int
     } deriving (Eq,Read,Show)
 

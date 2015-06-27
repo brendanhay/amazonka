@@ -57,10 +57,10 @@ import           Network.AWS.Response
 --
 -- * 'prdioReservedDBInstancesOfferingId'
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount               :: Maybe Int
-    , _prdioReservedDBInstanceId          :: Maybe Text
-    , _prdioTags                          :: Maybe [Tag]
-    , _prdioReservedDBInstancesOfferingId :: Text
+    { _prdioDBInstanceCount               :: !(Maybe Int)
+    , _prdioReservedDBInstanceId          :: !(Maybe Text)
+    , _prdioTags                          :: !(Maybe [Tag])
+    , _prdioReservedDBInstancesOfferingId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
@@ -138,7 +138,7 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 --
 -- * 'prdiorStatus'
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorReservedDBInstance :: Maybe ReservedDBInstance
+    { _prdiorReservedDBInstance :: !(Maybe ReservedDBInstance)
     , _prdiorStatus             :: !Int
     } deriving (Eq,Read,Show)
 

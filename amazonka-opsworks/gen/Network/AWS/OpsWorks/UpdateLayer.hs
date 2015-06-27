@@ -91,21 +91,21 @@ import           Network.AWS.Response
 --
 -- * 'ulLayerId'
 data UpdateLayer = UpdateLayer'
-    { _ulCustomInstanceProfileARN    :: Maybe Text
-    , _ulInstallUpdatesOnBoot        :: Maybe Bool
-    , _ulCustomSecurityGroupIds      :: Maybe [Text]
-    , _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
-    , _ulShortname                   :: Maybe Text
-    , _ulCustomRecipes               :: Maybe Recipes
-    , _ulVolumeConfigurations        :: Maybe [VolumeConfiguration]
-    , _ulEnableAutoHealing           :: Maybe Bool
-    , _ulPackages                    :: Maybe [Text]
-    , _ulName                        :: Maybe Text
-    , _ulAttributes                  :: Maybe (Map LayerAttributesKeys Text)
-    , _ulAutoAssignPublicIPs         :: Maybe Bool
-    , _ulUseEBSOptimizedInstances    :: Maybe Bool
-    , _ulAutoAssignElasticIPs        :: Maybe Bool
-    , _ulLayerId                     :: Text
+    { _ulCustomInstanceProfileARN    :: !(Maybe Text)
+    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _ulShortname                   :: !(Maybe Text)
+    , _ulCustomRecipes               :: !(Maybe Recipes)
+    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _ulEnableAutoHealing           :: !(Maybe Bool)
+    , _ulPackages                    :: !(Maybe [Text])
+    , _ulName                        :: !(Maybe Text)
+    , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _ulLayerId                     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateLayer' smart constructor.

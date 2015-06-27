@@ -112,8 +112,8 @@ instance ToQuery CreateAssociationBatch where
 --
 -- * 'cabrStatus'
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-    { _cabrSuccessful :: Maybe [AssociationDescription]
-    , _cabrFailed     :: Maybe [FailedCreateAssociation]
+    { _cabrSuccessful :: !(Maybe [AssociationDescription])
+    , _cabrFailed     :: !(Maybe [FailedCreateAssociation])
     , _cabrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

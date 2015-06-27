@@ -61,10 +61,10 @@ import           Network.AWS.Response
 --
 -- * 'ddbsgDBSecurityGroupName'
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
-    { _ddbsgFilters             :: Maybe [Filter]
-    , _ddbsgMaxRecords          :: Maybe Int
-    , _ddbsgMarker              :: Maybe Text
-    , _ddbsgDBSecurityGroupName :: Maybe Text
+    { _ddbsgFilters             :: !(Maybe [Filter])
+    , _ddbsgMaxRecords          :: !(Maybe Int)
+    , _ddbsgMarker              :: !(Maybe Text)
+    , _ddbsgDBSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBSecurityGroups' smart constructor.
@@ -155,8 +155,8 @@ instance ToQuery DescribeDBSecurityGroups where
 --
 -- * 'ddbsgrStatus'
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
-    { _ddbsgrDBSecurityGroups :: Maybe [DBSecurityGroup]
-    , _ddbsgrMarker           :: Maybe Text
+    { _ddbsgrDBSecurityGroups :: !(Maybe [DBSecurityGroup])
+    , _ddbsgrMarker           :: !(Maybe Text)
     , _ddbsgrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

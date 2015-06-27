@@ -89,10 +89,10 @@ import           Network.AWS.Response
 --
 -- * 'avDevice'
 data AttachVolume = AttachVolume'
-    { _avDryRun     :: Maybe Bool
-    , _avVolumeId   :: Text
-    , _avInstanceId :: Text
-    , _avDevice     :: Text
+    { _avDryRun     :: !(Maybe Bool)
+    , _avVolumeId   :: !Text
+    , _avInstanceId :: !Text
+    , _avDevice     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AttachVolume' smart constructor.

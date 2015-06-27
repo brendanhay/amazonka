@@ -69,10 +69,10 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'uccInitiatorName'
 data UpdateChapCredentials = UpdateChapCredentials'
-    { _uccSecretToAuthenticateTarget    :: Maybe Text
-    , _uccTargetARN                     :: Text
-    , _uccSecretToAuthenticateInitiator :: Text
-    , _uccInitiatorName                 :: Text
+    { _uccSecretToAuthenticateTarget    :: !(Maybe Text)
+    , _uccTargetARN                     :: !Text
+    , _uccSecretToAuthenticateInitiator :: !Text
+    , _uccInitiatorName                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateChapCredentials' smart constructor.
@@ -161,8 +161,8 @@ instance ToQuery UpdateChapCredentials where
 --
 -- * 'uccrStatus'
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
-    { _uccrTargetARN     :: Maybe Text
-    , _uccrInitiatorName :: Maybe Text
+    { _uccrTargetARN     :: !(Maybe Text)
+    , _uccrInitiatorName :: !(Maybe Text)
     , _uccrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

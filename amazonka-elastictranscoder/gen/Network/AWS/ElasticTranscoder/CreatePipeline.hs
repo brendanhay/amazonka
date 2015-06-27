@@ -71,14 +71,14 @@ import           Network.AWS.Response
 --
 -- * 'creRole'
 data CreatePipeline = CreatePipeline'
-    { _creContentConfig   :: Maybe PipelineOutputConfig
-    , _creOutputBucket    :: Maybe Text
-    , _creAWSKMSKeyARN    :: Maybe Text
-    , _creThumbnailConfig :: Maybe PipelineOutputConfig
-    , _creNotifications   :: Maybe Notifications
-    , _creName            :: Text
-    , _creInputBucket     :: Text
-    , _creRole            :: Text
+    { _creContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _creOutputBucket    :: !(Maybe Text)
+    , _creAWSKMSKeyARN    :: !(Maybe Text)
+    , _creThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _creNotifications   :: !(Maybe Notifications)
+    , _creName            :: !Text
+    , _creInputBucket     :: !Text
+    , _creRole            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePipeline' smart constructor.
@@ -335,8 +335,8 @@ instance ToQuery CreatePipeline where
 --
 -- * 'creStatus'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _creWarnings :: Maybe [Warning]
-    , _crePipeline :: Maybe Pipeline
+    { _creWarnings :: !(Maybe [Warning])
+    , _crePipeline :: !(Maybe Pipeline)
     , _creStatus   :: !Int
     } deriving (Eq,Read,Show)
 

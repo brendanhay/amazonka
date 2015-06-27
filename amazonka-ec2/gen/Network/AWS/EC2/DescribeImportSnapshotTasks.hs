@@ -59,11 +59,11 @@ import           Network.AWS.Response
 --
 -- * 'distMaxResults'
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-    { _distFilters       :: Maybe [Filter]
-    , _distImportTaskIds :: Maybe [Text]
-    , _distNextToken     :: Maybe Text
-    , _distDryRun        :: Maybe Bool
-    , _distMaxResults    :: Maybe Int
+    { _distFilters       :: !(Maybe [Filter])
+    , _distImportTaskIds :: !(Maybe [Text])
+    , _distNextToken     :: !(Maybe Text)
+    , _distDryRun        :: !(Maybe Bool)
+    , _distMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
@@ -141,8 +141,8 @@ instance ToQuery DescribeImportSnapshotTasks where
 --
 -- * 'distrStatus'
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-    { _distrNextToken           :: Maybe Text
-    , _distrImportSnapshotTasks :: Maybe [ImportSnapshotTask]
+    { _distrNextToken           :: !(Maybe Text)
+    , _distrImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
     , _distrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'cpiInstanceId'
 data ConfirmProductInstance = ConfirmProductInstance'
-    { _cpiDryRun      :: Maybe Bool
-    , _cpiProductCode :: Text
-    , _cpiInstanceId  :: Text
+    { _cpiDryRun      :: !(Maybe Bool)
+    , _cpiProductCode :: !Text
+    , _cpiInstanceId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ConfirmProductInstance' smart constructor.
@@ -119,7 +119,7 @@ instance ToQuery ConfirmProductInstance where
 --
 -- * 'cpirStatus'
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-    { _cpirOwnerId :: Maybe Text
+    { _cpirOwnerId :: !(Maybe Text)
     , _cpirStatus  :: !Int
     } deriving (Eq,Read,Show)
 

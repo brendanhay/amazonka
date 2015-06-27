@@ -86,18 +86,18 @@ import           Network.AWS.Response
 --
 -- * 'caType'
 data CreateApp = CreateApp'
-    { _caSSLConfiguration :: Maybe SSLConfiguration
-    , _caShortname        :: Maybe Text
-    , _caEnableSSL        :: Maybe Bool
-    , _caEnvironment      :: Maybe [EnvironmentVariable]
-    , _caDataSources      :: Maybe [DataSource]
-    , _caAppSource        :: Maybe Source
-    , _caAttributes       :: Maybe (Map AppAttributesKeys Text)
-    , _caDomains          :: Maybe [Text]
-    , _caDescription      :: Maybe Text
-    , _caStackId          :: Text
-    , _caName             :: Text
-    , _caType             :: AppType
+    { _caSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _caShortname        :: !(Maybe Text)
+    , _caEnableSSL        :: !(Maybe Bool)
+    , _caEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _caDataSources      :: !(Maybe [DataSource])
+    , _caAppSource        :: !(Maybe Source)
+    , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _caDomains          :: !(Maybe [Text])
+    , _caDescription      :: !(Maybe Text)
+    , _caStackId          :: !Text
+    , _caName             :: !Text
+    , _caType             :: !AppType
     } deriving (Eq,Read,Show)
 
 -- | 'CreateApp' smart constructor.
@@ -237,7 +237,7 @@ instance ToQuery CreateApp where
 --
 -- * 'carStatus'
 data CreateAppResponse = CreateAppResponse'
-    { _carAppId  :: Maybe Text
+    { _carAppId  :: !(Maybe Text)
     , _carStatus :: !Int
     } deriving (Eq,Read,Show)
 

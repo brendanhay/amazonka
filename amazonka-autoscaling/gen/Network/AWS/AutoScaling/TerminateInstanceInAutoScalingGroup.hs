@@ -53,7 +53,7 @@ import           Network.AWS.Response
 --
 -- * 'tiiasgShouldDecrementDesiredCapacity'
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId                     :: Text
+    { _tiiasgInstanceId                     :: !Text
     , _tiiasgShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -116,7 +116,7 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 --
 -- * 'tiiasgrStatus'
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrActivity :: Maybe Activity
+    { _tiiasgrActivity :: !(Maybe Activity)
     , _tiiasgrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

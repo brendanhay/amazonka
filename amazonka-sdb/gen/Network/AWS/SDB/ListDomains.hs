@@ -57,8 +57,8 @@ import           Network.AWS.SDB.Types
 --
 -- * 'ldNextToken'
 data ListDomains = ListDomains'
-    { _ldMaxNumberOfDomains :: Maybe Int
-    , _ldNextToken          :: Maybe Text
+    { _ldMaxNumberOfDomains :: !(Maybe Int)
+    , _ldNextToken          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListDomains' smart constructor.
@@ -122,8 +122,8 @@ instance ToQuery ListDomains where
 --
 -- * 'ldrStatus'
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrDomainNames :: Maybe [Text]
-    , _ldrNextToken   :: Maybe Text
+    { _ldrDomainNames :: !(Maybe [Text])
+    , _ldrNextToken   :: !(Maybe Text)
     , _ldrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

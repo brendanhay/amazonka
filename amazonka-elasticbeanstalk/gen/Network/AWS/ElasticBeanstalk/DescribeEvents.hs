@@ -84,17 +84,17 @@ import           Network.AWS.Response
 --
 -- * 'deEnvironmentId'
 data DescribeEvents = DescribeEvents'
-    { _deRequestId       :: Maybe Text
-    , _deTemplateName    :: Maybe Text
-    , _deStartTime       :: Maybe ISO8601
-    , _deSeverity        :: Maybe EventSeverity
-    , _deNextToken       :: Maybe Text
-    , _deVersionLabel    :: Maybe Text
-    , _deMaxRecords      :: Maybe Nat
-    , _deEnvironmentName :: Maybe Text
-    , _deEndTime         :: Maybe ISO8601
-    , _deApplicationName :: Maybe Text
-    , _deEnvironmentId   :: Maybe Text
+    { _deRequestId       :: !(Maybe Text)
+    , _deTemplateName    :: !(Maybe Text)
+    , _deStartTime       :: !(Maybe ISO8601)
+    , _deSeverity        :: !(Maybe EventSeverity)
+    , _deNextToken       :: !(Maybe Text)
+    , _deVersionLabel    :: !(Maybe Text)
+    , _deMaxRecords      :: !(Maybe Nat)
+    , _deEnvironmentName :: !(Maybe Text)
+    , _deEndTime         :: !(Maybe ISO8601)
+    , _deApplicationName :: !(Maybe Text)
+    , _deEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEvents' smart constructor.
@@ -224,8 +224,8 @@ instance ToQuery DescribeEvents where
 --
 -- * 'derStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _derNextToken :: Maybe Text
-    , _derEvents    :: Maybe [EventDescription]
+    { _derNextToken :: !(Maybe Text)
+    , _derEvents    :: !(Maybe [EventDescription])
     , _derStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -90,17 +90,17 @@ import           Network.AWS.Response
 --
 -- * 'usStackName'
 data UpdateStack = UpdateStack'
-    { _usUsePreviousTemplate         :: Maybe Bool
-    , _usNotificationARNs            :: Maybe [Text]
-    , _usStackPolicyBody             :: Maybe Text
-    , _usStackPolicyDuringUpdateBody :: Maybe Text
-    , _usStackPolicyDuringUpdateURL  :: Maybe Text
-    , _usParameters                  :: Maybe [Parameter]
-    , _usStackPolicyURL              :: Maybe Text
-    , _usTemplateBody                :: Maybe Text
-    , _usTemplateURL                 :: Maybe Text
-    , _usCapabilities                :: Maybe [Capability]
-    , _usStackName                   :: Text
+    { _usUsePreviousTemplate         :: !(Maybe Bool)
+    , _usNotificationARNs            :: !(Maybe [Text])
+    , _usStackPolicyBody             :: !(Maybe Text)
+    , _usStackPolicyDuringUpdateBody :: !(Maybe Text)
+    , _usStackPolicyDuringUpdateURL  :: !(Maybe Text)
+    , _usParameters                  :: !(Maybe [Parameter])
+    , _usStackPolicyURL              :: !(Maybe Text)
+    , _usTemplateBody                :: !(Maybe Text)
+    , _usTemplateURL                 :: !(Maybe Text)
+    , _usCapabilities                :: !(Maybe [Capability])
+    , _usStackName                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateStack' smart constructor.
@@ -277,7 +277,7 @@ instance ToQuery UpdateStack where
 --
 -- * 'usrStatus'
 data UpdateStackResponse = UpdateStackResponse'
-    { _usrStackId :: Maybe Text
+    { _usrStackId :: !(Maybe Text)
     , _usrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

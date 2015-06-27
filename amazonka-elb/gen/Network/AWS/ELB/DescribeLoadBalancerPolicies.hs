@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'dlbpLoadBalancerName'
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames      :: Maybe [Text]
-    , _dlbpLoadBalancerName :: Maybe Text
+    { _dlbpPolicyNames      :: !(Maybe [Text])
+    , _dlbpLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancerPolicies' smart constructor.
@@ -116,7 +116,7 @@ instance ToQuery DescribeLoadBalancerPolicies where
 --
 -- * 'dlbprStatus'
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
-    { _dlbprPolicyDescriptions :: Maybe [PolicyDescription]
+    { _dlbprPolicyDescriptions :: !(Maybe [PolicyDescription])
     , _dlbprStatus             :: !Int
     } deriving (Eq,Read,Show)
 

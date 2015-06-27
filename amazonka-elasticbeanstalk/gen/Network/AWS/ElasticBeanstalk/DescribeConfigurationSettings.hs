@@ -67,9 +67,9 @@ import           Network.AWS.Response
 --
 -- * 'dcsApplicationName'
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-    { _dcsTemplateName    :: Maybe Text
-    , _dcsEnvironmentName :: Maybe Text
-    , _dcsApplicationName :: Text
+    { _dcsTemplateName    :: !(Maybe Text)
+    , _dcsEnvironmentName :: !(Maybe Text)
+    , _dcsApplicationName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
@@ -148,7 +148,7 @@ instance ToQuery DescribeConfigurationSettings where
 --
 -- * 'dcsrStatus'
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
-    { _dcsrConfigurationSettings :: Maybe [ConfigurationSettingsDescription]
+    { _dcsrConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
     , _dcsrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

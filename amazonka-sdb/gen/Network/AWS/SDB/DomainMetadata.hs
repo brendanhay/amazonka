@@ -118,13 +118,13 @@ instance ToQuery DomainMetadata where
 --
 -- * 'dmrStatus'
 data DomainMetadataResponse = DomainMetadataResponse'
-    { _dmrItemNamesSizeBytes       :: Maybe Integer
-    , _dmrAttributeNameCount       :: Maybe Int
-    , _dmrAttributeValuesSizeBytes :: Maybe Integer
-    , _dmrAttributeValueCount      :: Maybe Int
-    , _dmrAttributeNamesSizeBytes  :: Maybe Integer
-    , _dmrTimestamp                :: Maybe Int
-    , _dmrItemCount                :: Maybe Int
+    { _dmrItemNamesSizeBytes       :: !(Maybe Integer)
+    , _dmrAttributeNameCount       :: !(Maybe Int)
+    , _dmrAttributeValuesSizeBytes :: !(Maybe Integer)
+    , _dmrAttributeValueCount      :: !(Maybe Int)
+    , _dmrAttributeNamesSizeBytes  :: !(Maybe Integer)
+    , _dmrTimestamp                :: !(Maybe Int)
+    , _dmrItemCount                :: !(Maybe Int)
     , _dmrStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

@@ -77,11 +77,11 @@ import           Network.AWS.Response
 --
 -- * 'uctTemplateName'
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
-    { _uctOptionsToRemove :: Maybe [OptionSpecification]
-    , _uctOptionSettings  :: Maybe [ConfigurationOptionSetting]
-    , _uctDescription     :: Maybe Text
-    , _uctApplicationName :: Text
-    , _uctTemplateName    :: Text
+    { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
+    , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
+    , _uctDescription     :: !(Maybe Text)
+    , _uctApplicationName :: !Text
+    , _uctTemplateName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateConfigurationTemplate' smart constructor.

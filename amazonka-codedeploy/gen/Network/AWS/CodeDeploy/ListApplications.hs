@@ -110,8 +110,8 @@ instance ToQuery ListApplications where
 --
 -- * 'larStatus'
 data ListApplicationsResponse = ListApplicationsResponse'
-    { _larNextToken    :: Maybe Text
-    , _larApplications :: Maybe [Text]
+    { _larNextToken    :: !(Maybe Text)
+    , _larApplications :: !(Maybe [Text])
     , _larStatus       :: !Int
     } deriving (Eq,Read,Show)
 

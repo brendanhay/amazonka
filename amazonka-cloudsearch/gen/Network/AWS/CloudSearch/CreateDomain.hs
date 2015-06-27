@@ -102,7 +102,7 @@ instance ToQuery CreateDomain where
 --
 -- * 'cdrStatus'
 data CreateDomainResponse = CreateDomainResponse'
-    { _cdrDomainStatus :: Maybe DomainStatus
+    { _cdrDomainStatus :: !(Maybe DomainStatus)
     , _cdrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'rpAutoScalingGroupName'
 data ResumeProcesses = ResumeProcesses'
-    { _rpScalingProcesses     :: Maybe [Text]
-    , _rpAutoScalingGroupName :: Text
+    { _rpScalingProcesses     :: !(Maybe [Text])
+    , _rpAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ResumeProcesses' smart constructor.

@@ -66,12 +66,12 @@ import           Network.AWS.Response
 --
 -- * 'dcevMarker'
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
-    { _dcevCacheParameterGroupFamily :: Maybe Text
-    , _dcevEngineVersion             :: Maybe Text
-    , _dcevDefaultOnly               :: Maybe Bool
-    , _dcevEngine                    :: Maybe Text
-    , _dcevMaxRecords                :: Maybe Int
-    , _dcevMarker                    :: Maybe Text
+    { _dcevCacheParameterGroupFamily :: !(Maybe Text)
+    , _dcevEngineVersion             :: !(Maybe Text)
+    , _dcevDefaultOnly               :: !(Maybe Bool)
+    , _dcevEngine                    :: !(Maybe Text)
+    , _dcevMaxRecords                :: !(Maybe Int)
+    , _dcevMarker                    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheEngineVersions' smart constructor.
@@ -183,8 +183,8 @@ instance ToQuery DescribeCacheEngineVersions where
 --
 -- * 'dcevrStatus'
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
-    { _dcevrCacheEngineVersions :: Maybe [CacheEngineVersion]
-    , _dcevrMarker              :: Maybe Text
+    { _dcevrCacheEngineVersions :: !(Maybe [CacheEngineVersion])
+    , _dcevrMarker              :: !(Maybe Text)
     , _dcevrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

@@ -72,11 +72,11 @@ import           Network.AWS.Response
 --
 -- * 'reDestinationKeyId'
 data ReEncrypt = ReEncrypt'
-    { _reDestinationEncryptionContext :: Maybe (Map Text Text)
-    , _reSourceEncryptionContext      :: Maybe (Map Text Text)
-    , _reGrantTokens                  :: Maybe [Text]
-    , _reCiphertextBlob               :: Base64
-    , _reDestinationKeyId             :: Text
+    { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
+    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
+    , _reGrantTokens                  :: !(Maybe [Text])
+    , _reCiphertextBlob               :: !Base64
+    , _reDestinationKeyId             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReEncrypt' smart constructor.
@@ -173,9 +173,9 @@ instance ToQuery ReEncrypt where
 --
 -- * 'rerStatus'
 data ReEncryptResponse = ReEncryptResponse'
-    { _rerSourceKeyId    :: Maybe Text
-    , _rerKeyId          :: Maybe Text
-    , _rerCiphertextBlob :: Maybe Base64
+    { _rerSourceKeyId    :: !(Maybe Text)
+    , _rerKeyId          :: !(Maybe Text)
+    , _rerCiphertextBlob :: !(Maybe Base64)
     , _rerStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -62,11 +62,11 @@ import           Network.AWS.Response
 --
 -- * 'spIAMUserARN'
 data SetPermission = SetPermission'
-    { _spAllowSudo  :: Maybe Bool
-    , _spLevel      :: Maybe Text
-    , _spAllowSSH   :: Maybe Bool
-    , _spStackId    :: Text
-    , _spIAMUserARN :: Text
+    { _spAllowSudo  :: !(Maybe Bool)
+    , _spLevel      :: !(Maybe Text)
+    , _spAllowSSH   :: !(Maybe Bool)
+    , _spStackId    :: !Text
+    , _spIAMUserARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SetPermission' smart constructor.

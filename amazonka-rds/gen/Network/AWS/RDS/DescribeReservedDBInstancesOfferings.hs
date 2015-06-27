@@ -74,15 +74,15 @@ import           Network.AWS.Response
 --
 -- * 'drdioDuration'
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'
-    { _drdioProductDescription            :: Maybe Text
-    , _drdioFilters                       :: Maybe [Filter]
-    , _drdioDBInstanceClass               :: Maybe Text
-    , _drdioMaxRecords                    :: Maybe Int
-    , _drdioMultiAZ                       :: Maybe Bool
-    , _drdioMarker                        :: Maybe Text
-    , _drdioReservedDBInstancesOfferingId :: Maybe Text
-    , _drdioOfferingType                  :: Maybe Text
-    , _drdioDuration                      :: Maybe Text
+    { _drdioProductDescription            :: !(Maybe Text)
+    , _drdioFilters                       :: !(Maybe [Filter])
+    , _drdioDBInstanceClass               :: !(Maybe Text)
+    , _drdioMaxRecords                    :: !(Maybe Int)
+    , _drdioMultiAZ                       :: !(Maybe Bool)
+    , _drdioMarker                        :: !(Maybe Text)
+    , _drdioReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _drdioOfferingType                  :: !(Maybe Text)
+    , _drdioDuration                      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstancesOfferings' smart constructor.
@@ -224,8 +224,8 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 --
 -- * 'drdiorStatus'
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
-    { _drdiorMarker                       :: Maybe Text
-    , _drdiorReservedDBInstancesOfferings :: Maybe [ReservedDBInstancesOffering]
+    { _drdiorMarker                       :: !(Maybe Text)
+    , _drdiorReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
     , _drdiorStatus                       :: !Int
     } deriving (Eq,Read,Show)
 

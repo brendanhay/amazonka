@@ -64,9 +64,9 @@ import           Network.AWS.Route53.Types
 --
 -- * 'dvfhzVPC'
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
-    { _dvfhzComment      :: Maybe Text
-    , _dvfhzHostedZoneId :: Text
-    , _dvfhzVPC          :: VPC
+    { _dvfhzComment      :: !(Maybe Text)
+    , _dvfhzHostedZoneId :: !Text
+    , _dvfhzVPC          :: !VPC
     } deriving (Eq,Read,Show)
 
 -- | 'DisassociateVPCFromHostedZone' smart constructor.
@@ -139,7 +139,7 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- * 'dvfhzrStatus'
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrChangeInfo :: ChangeInfo
+    { _dvfhzrChangeInfo :: !ChangeInfo
     , _dvfhzrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

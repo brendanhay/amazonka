@@ -154,8 +154,8 @@ _IDPRejectedClaimException =
 --
 -- * 'aruARN'
 data AssumedRoleUser = AssumedRoleUser'
-    { _aruAssumedRoleId :: Text
-    , _aruARN           :: Text
+    { _aruAssumedRoleId :: !Text
+    , _aruARN           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssumedRoleUser' smart constructor.
@@ -199,10 +199,10 @@ instance FromXML AssumedRoleUser where
 --
 -- * 'creExpiration'
 data Credentials = Credentials'
-    { _creAccessKeyId     :: Text
-    , _creSecretAccessKey :: Text
-    , _creSessionToken    :: Text
-    , _creExpiration      :: ISO8601
+    { _creAccessKeyId     :: !Text
+    , _creSecretAccessKey :: !Text
+    , _creSessionToken    :: !Text
+    , _creExpiration      :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'Credentials' smart constructor.
@@ -250,8 +250,8 @@ instance FromXML Credentials where
 --
 -- * 'fuARN'
 data FederatedUser = FederatedUser'
-    { _fuFederatedUserId :: Text
-    , _fuARN             :: Text
+    { _fuFederatedUserId :: !Text
+    , _fuARN             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'FederatedUser' smart constructor.

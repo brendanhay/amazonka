@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'udiDeveloperUserIdentifier'
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
-    { _udiIdentityId              :: Text
-    , _udiIdentityPoolId          :: Text
-    , _udiDeveloperProviderName   :: Text
-    , _udiDeveloperUserIdentifier :: Text
+    { _udiIdentityId              :: !Text
+    , _udiIdentityPoolId          :: !Text
+    , _udiDeveloperProviderName   :: !Text
+    , _udiDeveloperUserIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UnlinkDeveloperIdentity' smart constructor.

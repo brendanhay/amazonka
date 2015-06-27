@@ -62,8 +62,8 @@ import           Network.AWS.SNS.Types
 --
 -- * 'lebpaPlatformApplicationARN'
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
-    { _lebpaNextToken              :: Maybe Text
-    , _lebpaPlatformApplicationARN :: Text
+    { _lebpaNextToken              :: !(Maybe Text)
+    , _lebpaPlatformApplicationARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListEndpointsByPlatformApplication' smart constructor.
@@ -140,8 +140,8 @@ instance ToQuery ListEndpointsByPlatformApplication
 --
 -- * 'lebparStatus'
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-    { _lebparNextToken :: Maybe Text
-    , _lebparEndpoints :: Maybe [Endpoint]
+    { _lebparNextToken :: !(Maybe Text)
+    , _lebparEndpoints :: !(Maybe [Endpoint])
     , _lebparStatus    :: !Int
     } deriving (Eq,Read,Show)
 

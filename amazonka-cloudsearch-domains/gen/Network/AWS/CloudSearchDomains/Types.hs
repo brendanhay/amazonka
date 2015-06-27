@@ -199,8 +199,8 @@ instance ToJSON QueryParser where
 --
 -- * 'bucCount'
 data Bucket = Bucket'
-    { _bucValue :: Maybe Text
-    , _bucCount :: Maybe Integer
+    { _bucValue :: !(Maybe Text)
+    , _bucCount :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'Bucket' smart constructor.
@@ -296,10 +296,10 @@ instance FromJSON DocumentServiceWarning where
 --
 -- * 'hitFields'
 data Hit = Hit'
-    { _hitExprs      :: Maybe (Map Text Text)
-    , _hitId         :: Maybe Text
-    , _hitHighlights :: Maybe (Map Text Text)
-    , _hitFields     :: Maybe (Map Text [Text])
+    { _hitExprs      :: !(Maybe (Map Text Text))
+    , _hitId         :: !(Maybe Text)
+    , _hitHighlights :: !(Maybe (Map Text Text))
+    , _hitFields     :: !(Maybe (Map Text [Text]))
     } deriving (Eq,Read,Show)
 
 -- | 'Hit' smart constructor.
@@ -352,10 +352,10 @@ instance FromJSON Hit where
 --
 -- * 'hitFound'
 data Hits = Hits'
-    { _hitCursor :: Maybe Text
-    , _hitHit    :: Maybe [Hit]
-    , _hitStart  :: Maybe Integer
-    , _hitFound  :: Maybe Integer
+    { _hitCursor :: !(Maybe Text)
+    , _hitHit    :: !(Maybe [Hit])
+    , _hitStart  :: !(Maybe Integer)
+    , _hitFound  :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'Hits' smart constructor.
@@ -405,8 +405,8 @@ instance FromJSON Hits where
 --
 -- * 'ssTimems'
 data SearchStatus = SearchStatus'
-    { _ssRid    :: Maybe Text
-    , _ssTimems :: Maybe Integer
+    { _ssRid    :: !(Maybe Text)
+    , _ssTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'SearchStatus' smart constructor.
@@ -444,9 +444,9 @@ instance FromJSON SearchStatus where
 --
 -- * 'smQuery'
 data SuggestModel = SuggestModel'
-    { _smFound       :: Maybe Integer
-    , _smSuggestions :: Maybe [SuggestionMatch]
-    , _smQuery       :: Maybe Text
+    { _smFound       :: !(Maybe Integer)
+    , _smSuggestions :: !(Maybe [SuggestionMatch])
+    , _smQuery       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SuggestModel' smart constructor.
@@ -489,8 +489,8 @@ instance FromJSON SuggestModel where
 --
 -- * 'sugTimems'
 data SuggestStatus = SuggestStatus'
-    { _sugRid    :: Maybe Text
-    , _sugTimems :: Maybe Integer
+    { _sugRid    :: !(Maybe Text)
+    , _sugTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'SuggestStatus' smart constructor.
@@ -529,9 +529,9 @@ instance FromJSON SuggestStatus where
 --
 -- * 'smId'
 data SuggestionMatch = SuggestionMatch'
-    { _smSuggestion :: Maybe Text
-    , _smScore      :: Maybe Integer
-    , _smId         :: Maybe Text
+    { _smSuggestion :: !(Maybe Text)
+    , _smScore      :: !(Maybe Integer)
+    , _smId         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SuggestionMatch' smart constructor.

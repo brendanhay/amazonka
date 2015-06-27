@@ -95,7 +95,7 @@ instance ToQuery DeleteEventSubscription where
 --
 -- * 'delStatus'
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-    { _delEventSubscription :: Maybe EventSubscription
+    { _delEventSubscription :: !(Maybe EventSubscription)
     , _delStatus            :: !Int
     } deriving (Eq,Read,Show)
 

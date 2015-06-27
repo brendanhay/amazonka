@@ -71,12 +71,12 @@ import           Network.AWS.Response
 --
 -- * 'desLogGroupName'
 data DescribeLogStreams = DescribeLogStreams'
-    { _desOrderBy             :: Maybe OrderBy
-    , _desDescending          :: Maybe Bool
-    , _desNextToken           :: Maybe Text
-    , _desLogStreamNamePrefix :: Maybe Text
-    , _desLimit               :: Maybe Nat
-    , _desLogGroupName        :: Text
+    { _desOrderBy             :: !(Maybe OrderBy)
+    , _desDescending          :: !(Maybe Bool)
+    , _desNextToken           :: !(Maybe Text)
+    , _desLogStreamNamePrefix :: !(Maybe Text)
+    , _desLimit               :: !(Maybe Nat)
+    , _desLogGroupName        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLogStreams' smart constructor.
@@ -173,8 +173,8 @@ instance ToQuery DescribeLogStreams where
 --
 -- * 'dlsrStatus'
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-    { _dlsrNextToken  :: Maybe Text
-    , _dlsrLogStreams :: Maybe [LogStream]
+    { _dlsrNextToken  :: !(Maybe Text)
+    , _dlsrLogStreams :: !(Maybe [LogStream])
     , _dlsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

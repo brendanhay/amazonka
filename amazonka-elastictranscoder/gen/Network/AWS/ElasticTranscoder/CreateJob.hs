@@ -73,13 +73,13 @@ import           Network.AWS.Response
 --
 -- * 'cjInput'
 data CreateJob = CreateJob'
-    { _cjOutputs         :: Maybe [CreateJobOutput]
-    , _cjUserMetadata    :: Maybe (Map Text Text)
-    , _cjOutput          :: Maybe CreateJobOutput
-    , _cjPlaylists       :: Maybe [CreateJobPlaylist]
-    , _cjOutputKeyPrefix :: Maybe Text
-    , _cjPipelineId      :: Text
-    , _cjInput           :: JobInput
+    { _cjOutputs         :: !(Maybe [CreateJobOutput])
+    , _cjUserMetadata    :: !(Maybe (Map Text Text))
+    , _cjOutput          :: !(Maybe CreateJobOutput)
+    , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
+    , _cjOutputKeyPrefix :: !(Maybe Text)
+    , _cjPipelineId      :: !Text
+    , _cjInput           :: !JobInput
     } deriving (Eq,Read,Show)
 
 -- | 'CreateJob' smart constructor.
@@ -178,7 +178,7 @@ instance ToQuery CreateJob where
 --
 -- * 'cjrStatus'
 data CreateJobResponse = CreateJobResponse'
-    { _cjrJob    :: Maybe Job'
+    { _cjrJob    :: !(Maybe Job')
     , _cjrStatus :: !Int
     } deriving (Eq,Read,Show)
 

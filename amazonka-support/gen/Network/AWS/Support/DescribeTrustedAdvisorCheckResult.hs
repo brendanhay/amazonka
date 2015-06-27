@@ -65,8 +65,8 @@ import           Network.AWS.Support.Types
 --
 -- * 'dtacrCheckId'
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-    { _dtacrLanguage :: Maybe Text
-    , _dtacrCheckId  :: Text
+    { _dtacrLanguage :: !(Maybe Text)
+    , _dtacrCheckId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
@@ -137,7 +137,7 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 --
 -- * 'dtacrrStatus'
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
+    { _dtacrrResult :: !(Maybe TrustedAdvisorCheckResult)
     , _dtacrrStatus :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dlbLoadBalancerNames'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbMarker            :: Maybe Text
-    , _dlbPageSize          :: Maybe Nat
-    , _dlbLoadBalancerNames :: Maybe [Text]
+    { _dlbMarker            :: !(Maybe Text)
+    , _dlbPageSize          :: !(Maybe Nat)
+    , _dlbLoadBalancerNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeLoadBalancers' smart constructor.
@@ -130,8 +130,8 @@ instance ToQuery DescribeLoadBalancers where
 --
 -- * 'dlbrStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-    { _dlbrLoadBalancerDescriptions :: Maybe [LoadBalancerDescription]
-    , _dlbrNextMarker               :: Maybe Text
+    { _dlbrLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
+    , _dlbrNextMarker               :: !(Maybe Text)
     , _dlbrStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

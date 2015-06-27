@@ -64,11 +64,11 @@ import           Network.AWS.Response
 --
 -- * 'rdsgiDBSecurityGroupName'
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
-    { _rdsgiEC2SecurityGroupOwnerId :: Maybe Text
-    , _rdsgiEC2SecurityGroupName    :: Maybe Text
-    , _rdsgiCIDRIP                  :: Maybe Text
-    , _rdsgiEC2SecurityGroupId      :: Maybe Text
-    , _rdsgiDBSecurityGroupName     :: Text
+    { _rdsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _rdsgiEC2SecurityGroupName    :: !(Maybe Text)
+    , _rdsgiCIDRIP                  :: !(Maybe Text)
+    , _rdsgiEC2SecurityGroupId      :: !(Maybe Text)
+    , _rdsgiDBSecurityGroupName     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeDBSecurityGroupIngress' smart constructor.
@@ -154,7 +154,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 --
 -- * 'rdsgirStatus'
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
-    { _rdsgirDBSecurityGroup :: Maybe DBSecurityGroup
+    { _rdsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _rdsgirStatus          :: !Int
     } deriving (Eq,Read,Show)
 

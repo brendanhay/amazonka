@@ -68,9 +68,9 @@ import           Network.AWS.Response
 --
 -- * 'ddLimit'
 data DescribeDirectories = DescribeDirectories'
-    { _ddNextToken    :: Maybe Text
-    , _ddDirectoryIds :: Maybe [Text]
-    , _ddLimit        :: Maybe Nat
+    { _ddNextToken    :: !(Maybe Text)
+    , _ddDirectoryIds :: !(Maybe [Text])
+    , _ddLimit        :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDirectories' smart constructor.
@@ -149,8 +149,8 @@ instance ToQuery DescribeDirectories where
 --
 -- * 'ddrStatus'
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-    { _ddrDirectoryDescriptions :: Maybe [DirectoryDescription]
-    , _ddrNextToken             :: Maybe Text
+    { _ddrDirectoryDescriptions :: !(Maybe [DirectoryDescription])
+    , _ddrNextToken             :: !(Maybe Text)
     , _ddrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

@@ -53,9 +53,9 @@ import           Network.AWS.Response
 --
 -- * 'emcGranularity'
 data EnableMetricsCollection = EnableMetricsCollection'
-    { _emcMetrics              :: Maybe [Text]
-    , _emcAutoScalingGroupName :: Text
-    , _emcGranularity          :: Text
+    { _emcMetrics              :: !(Maybe [Text])
+    , _emcAutoScalingGroupName :: !Text
+    , _emcGranularity          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'EnableMetricsCollection' smart constructor.

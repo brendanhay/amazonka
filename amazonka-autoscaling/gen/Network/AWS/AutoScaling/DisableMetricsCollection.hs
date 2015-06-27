@@ -47,8 +47,8 @@ import           Network.AWS.Response
 --
 -- * 'dmcAutoScalingGroupName'
 data DisableMetricsCollection = DisableMetricsCollection'
-    { _dmcMetrics              :: Maybe [Text]
-    , _dmcAutoScalingGroupName :: Text
+    { _dmcMetrics              :: !(Maybe [Text])
+    , _dmcAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DisableMetricsCollection' smart constructor.

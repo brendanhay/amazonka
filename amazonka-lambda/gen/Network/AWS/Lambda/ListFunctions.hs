@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'lfMarker'
 data ListFunctions = ListFunctions'
-    { _lfMaxItems :: Maybe Nat
-    , _lfMarker   :: Maybe Text
+    { _lfMaxItems :: !(Maybe Nat)
+    , _lfMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListFunctions' smart constructor.
@@ -122,8 +122,8 @@ instance ToQuery ListFunctions where
 --
 -- * 'lfrStatus'
 data ListFunctionsResponse = ListFunctionsResponse'
-    { _lfrNextMarker :: Maybe Text
-    , _lfrFunctions  :: Maybe [FunctionConfiguration]
+    { _lfrNextMarker :: !(Maybe Text)
+    , _lfrFunctions  :: !(Maybe [FunctionConfiguration])
     , _lfrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

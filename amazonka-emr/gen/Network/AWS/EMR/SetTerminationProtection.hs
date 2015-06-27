@@ -67,7 +67,7 @@ import           Network.AWS.Response
 --
 -- * 'stpTerminationProtected'
 data SetTerminationProtection = SetTerminationProtection'
-    { _stpJobFlowIds           :: [Text]
+    { _stpJobFlowIds           :: ![Text]
     , _stpTerminationProtected :: !Bool
     } deriving (Eq,Read,Show)
 

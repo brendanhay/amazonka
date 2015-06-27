@@ -75,8 +75,8 @@ import           Network.AWS.SWF.Types
 --
 -- * 'datActivityType'
 data DescribeActivityType = DescribeActivityType'
-    { _datDomain       :: Text
-    , _datActivityType :: ActivityType
+    { _datDomain       :: !Text
+    , _datActivityType :: !ActivityType
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeActivityType' smart constructor.
@@ -143,8 +143,8 @@ instance ToQuery DescribeActivityType where
 --
 -- * 'datrStatus'
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrTypeInfo      :: ActivityTypeInfo
-    , _datrConfiguration :: ActivityTypeConfiguration
+    { _datrTypeInfo      :: !ActivityTypeInfo
+    , _datrConfiguration :: !ActivityTypeConfiguration
     , _datrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

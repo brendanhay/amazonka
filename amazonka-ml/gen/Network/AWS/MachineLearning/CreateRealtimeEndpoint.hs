@@ -114,8 +114,8 @@ instance ToQuery CreateRealtimeEndpoint where
 --
 -- * 'crerStatus'
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
-    { _crerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo
-    , _crerMLModelId            :: Maybe Text
+    { _crerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
+    , _crerMLModelId            :: !(Maybe Text)
     , _crerStatus               :: !Int
     } deriving (Eq,Read,Show)
 

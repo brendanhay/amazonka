@@ -356,11 +356,11 @@ instance FromJSON ComputeType where
 --
 -- * 'dwcpDefaultOu'
 data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
-    { _dwcpCustomSecurityGroupId           :: Maybe Text
-    , _dwcpUserEnabledAsLocalAdministrator :: Maybe Bool
-    , _dwcpEnableWorkDocs                  :: Maybe Bool
-    , _dwcpEnableInternetAccess            :: Maybe Bool
-    , _dwcpDefaultOu                       :: Maybe Text
+    { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
+    , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
+    , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
+    , _dwcpEnableInternetAccess            :: !(Maybe Bool)
+    , _dwcpDefaultOu                       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DefaultWorkspaceCreationProperties' smart constructor.
@@ -421,9 +421,9 @@ instance FromJSON DefaultWorkspaceCreationProperties
 --
 -- * 'fcwrErrorMessage'
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-    { _fcwrWorkspaceRequest :: Maybe WorkspaceRequest
-    , _fcwrErrorCode        :: Maybe Text
-    , _fcwrErrorMessage     :: Maybe Text
+    { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
+    , _fcwrErrorCode        :: !(Maybe Text)
+    , _fcwrErrorMessage     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FailedCreateWorkspaceRequest' smart constructor.
@@ -470,9 +470,9 @@ instance FromJSON FailedCreateWorkspaceRequest where
 --
 -- * 'fwcrErrorMessage'
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
-    { _fwcrErrorCode    :: Maybe Text
-    , _fwcrWorkspaceId  :: Maybe Text
-    , _fwcrErrorMessage :: Maybe Text
+    { _fwcrErrorCode    :: !(Maybe Text)
+    , _fwcrWorkspaceId  :: !(Maybe Text)
+    , _fwcrErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FailedWorkspaceChangeRequest' smart constructor.
@@ -636,15 +636,15 @@ instance FromJSON UserStorage where
 --
 -- * 'worErrorMessage'
 data Workspace = Workspace'
-    { _worDirectoryId  :: Maybe Text
-    , _worIPAddress    :: Maybe Text
-    , _worState        :: Maybe WorkspaceState
-    , _worUserName     :: Maybe Text
-    , _worSubnetId     :: Maybe Text
-    , _worBundleId     :: Maybe Text
-    , _worErrorCode    :: Maybe Text
-    , _worWorkspaceId  :: Maybe Text
-    , _worErrorMessage :: Maybe Text
+    { _worDirectoryId  :: !(Maybe Text)
+    , _worIPAddress    :: !(Maybe Text)
+    , _worState        :: !(Maybe WorkspaceState)
+    , _worUserName     :: !(Maybe Text)
+    , _worSubnetId     :: !(Maybe Text)
+    , _worBundleId     :: !(Maybe Text)
+    , _worErrorCode    :: !(Maybe Text)
+    , _worWorkspaceId  :: !(Maybe Text)
+    , _worErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Workspace' smart constructor.
@@ -732,12 +732,12 @@ instance FromJSON Workspace where
 --
 -- * 'wbDescription'
 data WorkspaceBundle = WorkspaceBundle'
-    { _wbOwner       :: Maybe Text
-    , _wbBundleId    :: Maybe Text
-    , _wbName        :: Maybe Text
-    , _wbComputeType :: Maybe ComputeType
-    , _wbUserStorage :: Maybe UserStorage
-    , _wbDescription :: Maybe Text
+    { _wbOwner       :: !(Maybe Text)
+    , _wbBundleId    :: !(Maybe Text)
+    , _wbName        :: !(Maybe Text)
+    , _wbComputeType :: !(Maybe ComputeType)
+    , _wbUserStorage :: !(Maybe UserStorage)
+    , _wbDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'WorkspaceBundle' smart constructor.
@@ -820,18 +820,18 @@ instance FromJSON WorkspaceBundle where
 --
 -- * 'wdDirectoryName'
 data WorkspaceDirectory = WorkspaceDirectory'
-    { _wdRegistrationCode            :: Maybe Text
-    , _wdIAMRoleId                   :: Maybe Text
-    , _wdDirectoryId                 :: Maybe Text
-    , _wdState                       :: Maybe WorkspaceDirectoryState
-    , _wdCustomerUserName            :: Maybe Text
-    , _wdSubnetIds                   :: Maybe [Text]
-    , _wdAlias                       :: Maybe Text
-    , _wdDirectoryType               :: Maybe WorkspaceDirectoryType
-    , _wdWorkspaceSecurityGroupId    :: Maybe Text
-    , _wdWorkspaceCreationProperties :: Maybe DefaultWorkspaceCreationProperties
-    , _wdDNSIPAddresses              :: Maybe [Text]
-    , _wdDirectoryName               :: Maybe Text
+    { _wdRegistrationCode            :: !(Maybe Text)
+    , _wdIAMRoleId                   :: !(Maybe Text)
+    , _wdDirectoryId                 :: !(Maybe Text)
+    , _wdState                       :: !(Maybe WorkspaceDirectoryState)
+    , _wdCustomerUserName            :: !(Maybe Text)
+    , _wdSubnetIds                   :: !(Maybe [Text])
+    , _wdAlias                       :: !(Maybe Text)
+    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
+    , _wdWorkspaceSecurityGroupId    :: !(Maybe Text)
+    , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
+    , _wdDNSIPAddresses              :: !(Maybe [Text])
+    , _wdDirectoryName               :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'WorkspaceDirectory' smart constructor.
@@ -936,9 +936,9 @@ instance FromJSON WorkspaceDirectory where
 --
 -- * 'wrBundleId'
 data WorkspaceRequest = WorkspaceRequest'
-    { _wrDirectoryId :: Text
-    , _wrUserName    :: Text
-    , _wrBundleId    :: Text
+    { _wrDirectoryId :: !Text
+    , _wrUserName    :: !Text
+    , _wrBundleId    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'WorkspaceRequest' smart constructor.

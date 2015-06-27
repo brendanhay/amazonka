@@ -64,11 +64,11 @@ import           Network.AWS.Response
 --
 -- * 'qoSphere'
 data QueryObjects = QueryObjects'
-    { _qoQuery      :: Maybe Query
-    , _qoMarker     :: Maybe Text
-    , _qoLimit      :: Maybe Int
-    , _qoPipelineId :: Text
-    , _qoSphere     :: Text
+    { _qoQuery      :: !(Maybe Query)
+    , _qoMarker     :: !(Maybe Text)
+    , _qoLimit      :: !(Maybe Int)
+    , _qoPipelineId :: !Text
+    , _qoSphere     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'QueryObjects' smart constructor.
@@ -164,9 +164,9 @@ instance ToQuery QueryObjects where
 --
 -- * 'qorStatus'
 data QueryObjectsResponse = QueryObjectsResponse'
-    { _qorHasMoreResults :: Maybe Bool
-    , _qorIds            :: Maybe [Text]
-    , _qorMarker         :: Maybe Text
+    { _qorHasMoreResults :: !(Maybe Bool)
+    , _qorIds            :: !(Maybe [Text])
+    , _qorMarker         :: !(Maybe Text)
     , _qorStatus         :: !Int
     } deriving (Eq,Read,Show)
 

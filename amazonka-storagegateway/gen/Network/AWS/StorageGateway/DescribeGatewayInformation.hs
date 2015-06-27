@@ -134,14 +134,14 @@ instance ToQuery DescribeGatewayInformation where
 --
 -- * 'dgirStatus'
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-    { _dgirGatewayState               :: Maybe Text
-    , _dgirGatewayARN                 :: Maybe Text
-    , _dgirGatewayNetworkInterfaces   :: Maybe [NetworkInterface]
-    , _dgirNextUpdateAvailabilityDate :: Maybe Text
-    , _dgirLastSoftwareUpdate         :: Maybe Text
-    , _dgirGatewayId                  :: Maybe Text
-    , _dgirGatewayType                :: Maybe Text
-    , _dgirGatewayTimezone            :: Maybe Text
+    { _dgirGatewayState               :: !(Maybe Text)
+    , _dgirGatewayARN                 :: !(Maybe Text)
+    , _dgirGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
+    , _dgirNextUpdateAvailabilityDate :: !(Maybe Text)
+    , _dgirLastSoftwareUpdate         :: !(Maybe Text)
+    , _dgirGatewayId                  :: !(Maybe Text)
+    , _dgirGatewayType                :: !(Maybe Text)
+    , _dgirGatewayTimezone            :: !(Maybe Text)
     , _dgirStatus                     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'dsaAttribute'
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-    { _dsaDryRun     :: Maybe Bool
-    , _dsaSnapshotId :: Text
-    , _dsaAttribute  :: SnapshotAttributeName
+    { _dsaDryRun     :: !(Maybe Bool)
+    , _dsaSnapshotId :: !Text
+    , _dsaAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotAttribute' smart constructor.
@@ -130,9 +130,9 @@ instance ToQuery DescribeSnapshotAttribute where
 --
 -- * 'dsarStatus'
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-    { _dsarCreateVolumePermissions :: Maybe [CreateVolumePermission]
-    , _dsarProductCodes            :: Maybe [ProductCode]
-    , _dsarSnapshotId              :: Maybe Text
+    { _dsarCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
+    , _dsarProductCodes            :: !(Maybe [ProductCode])
+    , _dsarSnapshotId              :: !(Maybe Text)
     , _dsarStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

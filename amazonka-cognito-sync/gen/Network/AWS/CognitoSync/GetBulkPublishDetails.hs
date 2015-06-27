@@ -125,11 +125,11 @@ instance ToQuery GetBulkPublishDetails where
 --
 -- * 'gbpdrStatus'
 data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
-    { _gbpdrBulkPublishStartTime    :: Maybe POSIX
-    , _gbpdrIdentityPoolId          :: Maybe Text
-    , _gbpdrBulkPublishCompleteTime :: Maybe POSIX
-    , _gbpdrFailureMessage          :: Maybe Text
-    , _gbpdrBulkPublishStatus       :: Maybe BulkPublishStatus
+    { _gbpdrBulkPublishStartTime    :: !(Maybe POSIX)
+    , _gbpdrIdentityPoolId          :: !(Maybe Text)
+    , _gbpdrBulkPublishCompleteTime :: !(Maybe POSIX)
+    , _gbpdrFailureMessage          :: !(Maybe Text)
+    , _gbpdrBulkPublishStatus       :: !(Maybe BulkPublishStatus)
     , _gbpdrStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

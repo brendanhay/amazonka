@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'mhHSMARN'
 data ModifyHSM = ModifyHSM'
-    { _mhIAMRoleARN :: Maybe Text
-    , _mhSubnetId   :: Maybe Text
-    , _mhSyslogIP   :: Maybe Text
-    , _mhExternalId :: Maybe Text
-    , _mhEniIP      :: Maybe Text
-    , _mhHSMARN     :: Text
+    { _mhIAMRoleARN :: !(Maybe Text)
+    , _mhSubnetId   :: !(Maybe Text)
+    , _mhSyslogIP   :: !(Maybe Text)
+    , _mhExternalId :: !(Maybe Text)
+    , _mhEniIP      :: !(Maybe Text)
+    , _mhHSMARN     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyHSM' smart constructor.
@@ -151,7 +151,7 @@ instance ToQuery ModifyHSM where
 --
 -- * 'modStatus'
 data ModifyHSMResponse = ModifyHSMResponse'
-    { _modHSMARN :: Maybe Text
+    { _modHSMARN :: !(Maybe Text)
     , _modStatus :: !Int
     } deriving (Eq,Read,Show)
 

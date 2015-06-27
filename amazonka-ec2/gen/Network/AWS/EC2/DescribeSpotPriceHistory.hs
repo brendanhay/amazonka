@@ -84,15 +84,15 @@ import           Network.AWS.Response
 --
 -- * 'dsphMaxResults'
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-    { _dsphInstanceTypes       :: Maybe [InstanceType]
-    , _dsphStartTime           :: Maybe ISO8601
-    , _dsphFilters             :: Maybe [Filter]
-    , _dsphNextToken           :: Maybe Text
-    , _dsphAvailabilityZone    :: Maybe Text
-    , _dsphEndTime             :: Maybe ISO8601
-    , _dsphProductDescriptions :: Maybe [Text]
-    , _dsphDryRun              :: Maybe Bool
-    , _dsphMaxResults          :: Maybe Int
+    { _dsphInstanceTypes       :: !(Maybe [InstanceType])
+    , _dsphStartTime           :: !(Maybe ISO8601)
+    , _dsphFilters             :: !(Maybe [Filter])
+    , _dsphNextToken           :: !(Maybe Text)
+    , _dsphAvailabilityZone    :: !(Maybe Text)
+    , _dsphEndTime             :: !(Maybe ISO8601)
+    , _dsphProductDescriptions :: !(Maybe [Text])
+    , _dsphDryRun              :: !(Maybe Bool)
+    , _dsphMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotPriceHistory' smart constructor.
@@ -231,8 +231,8 @@ instance ToQuery DescribeSpotPriceHistory where
 --
 -- * 'dsphrStatus'
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-    { _dsphrNextToken        :: Maybe Text
-    , _dsphrSpotPriceHistory :: Maybe [SpotPrice]
+    { _dsphrNextToken        :: !(Maybe Text)
+    , _dsphrSpotPriceHistory :: !(Maybe [SpotPrice])
     , _dsphrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

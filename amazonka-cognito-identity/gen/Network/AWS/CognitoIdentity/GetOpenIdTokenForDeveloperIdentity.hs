@@ -74,10 +74,10 @@ import           Network.AWS.Response
 --
 -- * 'goitfdiLogins'
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdiTokenDuration  :: Maybe Nat
-    , _goitfdiIdentityId     :: Maybe Text
-    , _goitfdiIdentityPoolId :: Text
-    , _goitfdiLogins         :: Map Text Text
+    { _goitfdiTokenDuration  :: !(Maybe Nat)
+    , _goitfdiIdentityId     :: !(Maybe Text)
+    , _goitfdiIdentityPoolId :: !Text
+    , _goitfdiLogins         :: !(Map Text Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
@@ -178,8 +178,8 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 --
 -- * 'goitfdirStatus'
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-    { _goitfdirToken      :: Maybe Text
-    , _goitfdirIdentityId :: Maybe Text
+    { _goitfdirToken      :: !(Maybe Text)
+    , _goitfdirIdentityId :: !(Maybe Text)
     , _goitfdirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

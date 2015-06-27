@@ -64,11 +64,11 @@ import           Network.AWS.Response
 --
 -- * 'cavVersionLabel'
 data CreateApplicationVersion = CreateApplicationVersion'
-    { _cavSourceBundle          :: Maybe S3Location
-    , _cavAutoCreateApplication :: Maybe Bool
-    , _cavDescription           :: Maybe Text
-    , _cavApplicationName       :: Text
-    , _cavVersionLabel          :: Text
+    { _cavSourceBundle          :: !(Maybe S3Location)
+    , _cavAutoCreateApplication :: !(Maybe Bool)
+    , _cavDescription           :: !(Maybe Text)
+    , _cavApplicationName       :: !Text
+    , _cavVersionLabel          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateApplicationVersion' smart constructor.

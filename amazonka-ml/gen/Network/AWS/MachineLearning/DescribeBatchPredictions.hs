@@ -79,17 +79,17 @@ import           Network.AWS.Response
 --
 -- * 'dbpLE'
 data DescribeBatchPredictions = DescribeBatchPredictions'
-    { _dbpEQ             :: Maybe Text
-    , _dbpGE             :: Maybe Text
-    , _dbpPrefix         :: Maybe Text
-    , _dbpGT             :: Maybe Text
-    , _dbpNE             :: Maybe Text
-    , _dbpNextToken      :: Maybe Text
-    , _dbpSortOrder      :: Maybe SortOrder
-    , _dbpLimit          :: Maybe Nat
-    , _dbpLT             :: Maybe Text
-    , _dbpFilterVariable :: Maybe BatchPredictionFilterVariable
-    , _dbpLE             :: Maybe Text
+    { _dbpEQ             :: !(Maybe Text)
+    , _dbpGE             :: !(Maybe Text)
+    , _dbpPrefix         :: !(Maybe Text)
+    , _dbpGT             :: !(Maybe Text)
+    , _dbpNE             :: !(Maybe Text)
+    , _dbpNextToken      :: !(Maybe Text)
+    , _dbpSortOrder      :: !(Maybe SortOrder)
+    , _dbpLimit          :: !(Maybe Nat)
+    , _dbpLT             :: !(Maybe Text)
+    , _dbpFilterVariable :: !(Maybe BatchPredictionFilterVariable)
+    , _dbpLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeBatchPredictions' smart constructor.
@@ -259,8 +259,8 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- * 'desStatus'
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-    { _desResults   :: Maybe [BatchPrediction]
-    , _desNextToken :: Maybe Text
+    { _desResults   :: !(Maybe [BatchPrediction])
+    , _desNextToken :: !(Maybe Text)
     , _desStatus    :: !Int
     } deriving (Eq,Read,Show)
 

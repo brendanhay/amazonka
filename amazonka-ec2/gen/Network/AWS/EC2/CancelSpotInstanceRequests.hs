@@ -60,8 +60,8 @@ import           Network.AWS.Response
 --
 -- * 'csirSpotInstanceRequestIds'
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-    { _csirDryRun                 :: Maybe Bool
-    , _csirSpotInstanceRequestIds :: [Text]
+    { _csirDryRun                 :: !(Maybe Bool)
+    , _csirSpotInstanceRequestIds :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
@@ -121,7 +121,7 @@ instance ToQuery CancelSpotInstanceRequests where
 --
 -- * 'csirrStatus'
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-    { _csirrCancelledSpotInstanceRequests :: Maybe [CancelledSpotInstanceRequest]
+    { _csirrCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
     , _csirrStatus                        :: !Int
     } deriving (Eq,Read,Show)
 

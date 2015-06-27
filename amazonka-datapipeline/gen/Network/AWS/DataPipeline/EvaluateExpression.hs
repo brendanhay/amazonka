@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'eeExpression'
 data EvaluateExpression = EvaluateExpression'
-    { _eePipelineId :: Text
-    , _eeObjectId   :: Text
-    , _eeExpression :: Text
+    { _eePipelineId :: !Text
+    , _eeObjectId   :: !Text
+    , _eeExpression :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'EvaluateExpression' smart constructor.
@@ -126,7 +126,7 @@ instance ToQuery EvaluateExpression where
 --
 -- * 'eerStatus'
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eerEvaluatedExpression :: Text
+    { _eerEvaluatedExpression :: !Text
     , _eerStatus              :: !Int
     } deriving (Eq,Read,Show)
 

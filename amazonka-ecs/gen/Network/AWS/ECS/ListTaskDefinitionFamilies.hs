@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'ltdfMaxResults'
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
-    { _ltdfFamilyPrefix :: Maybe Text
-    , _ltdfNextToken    :: Maybe Text
-    , _ltdfMaxResults   :: Maybe Int
+    { _ltdfFamilyPrefix :: !(Maybe Text)
+    , _ltdfNextToken    :: !(Maybe Text)
+    , _ltdfMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListTaskDefinitionFamilies' smart constructor.
@@ -150,8 +150,8 @@ instance ToQuery ListTaskDefinitionFamilies where
 --
 -- * 'ltdfrStatus'
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
-    { _ltdfrFamilies  :: Maybe [Text]
-    , _ltdfrNextToken :: Maybe Text
+    { _ltdfrFamilies  :: !(Maybe [Text])
+    , _ltdfrNextToken :: !(Maybe Text)
     , _ltdfrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

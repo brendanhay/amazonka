@@ -406,9 +406,9 @@ instance FromXML StackStatus where
 --
 -- * 'outDescription'
 data Output = Output'
-    { _outOutputValue :: Maybe Text
-    , _outOutputKey   :: Maybe Text
-    , _outDescription :: Maybe Text
+    { _outOutputValue :: !(Maybe Text)
+    , _outOutputKey   :: !(Maybe Text)
+    , _outDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Output' smart constructor.
@@ -450,9 +450,9 @@ instance FromXML Output where
 --
 -- * 'parUsePreviousValue'
 data Parameter = Parameter'
-    { _parParameterValue   :: Maybe Text
-    , _parParameterKey     :: Maybe Text
-    , _parUsePreviousValue :: Maybe Bool
+    { _parParameterValue   :: !(Maybe Text)
+    , _parParameterKey     :: !(Maybe Text)
+    , _parUsePreviousValue :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
@@ -541,12 +541,12 @@ instance FromXML ParameterConstraints where
 --
 -- * 'pdDescription'
 data ParameterDeclaration = ParameterDeclaration'
-    { _pdParameterKey         :: Maybe Text
-    , _pdParameterType        :: Maybe Text
-    , _pdParameterConstraints :: Maybe ParameterConstraints
-    , _pdDefaultValue         :: Maybe Text
-    , _pdNoEcho               :: Maybe Bool
-    , _pdDescription          :: Maybe Text
+    { _pdParameterKey         :: !(Maybe Text)
+    , _pdParameterType        :: !(Maybe Text)
+    , _pdParameterConstraints :: !(Maybe ParameterConstraints)
+    , _pdDefaultValue         :: !(Maybe Text)
+    , _pdNoEcho               :: !(Maybe Bool)
+    , _pdDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ParameterDeclaration' smart constructor.
@@ -629,20 +629,20 @@ instance FromXML ParameterDeclaration where
 --
 -- * 'staStackStatus'
 data Stack = Stack'
-    { _staDisableRollback   :: Maybe Bool
-    , _staLastUpdatedTime   :: Maybe ISO8601
-    , _staNotificationARNs  :: Maybe [Text]
-    , _staStackStatusReason :: Maybe Text
-    , _staOutputs           :: Maybe [Output]
-    , _staParameters        :: Maybe [Parameter]
-    , _staStackId           :: Maybe Text
-    , _staCapabilities      :: Maybe [Capability]
-    , _staDescription       :: Maybe Text
-    , _staTags              :: Maybe [Tag]
-    , _staTimeoutInMinutes  :: Maybe Nat
-    , _staStackName         :: Text
-    , _staCreationTime      :: ISO8601
-    , _staStackStatus       :: StackStatus
+    { _staDisableRollback   :: !(Maybe Bool)
+    , _staLastUpdatedTime   :: !(Maybe ISO8601)
+    , _staNotificationARNs  :: !(Maybe [Text])
+    , _staStackStatusReason :: !(Maybe Text)
+    , _staOutputs           :: !(Maybe [Output])
+    , _staParameters        :: !(Maybe [Parameter])
+    , _staStackId           :: !(Maybe Text)
+    , _staCapabilities      :: !(Maybe [Capability])
+    , _staDescription       :: !(Maybe Text)
+    , _staTags              :: !(Maybe [Tag])
+    , _staTimeoutInMinutes  :: !(Maybe Nat)
+    , _staStackName         :: !Text
+    , _staCreationTime      :: !ISO8601
+    , _staStackStatus       :: !StackStatus
     } deriving (Eq,Read,Show)
 
 -- | 'Stack' smart constructor.
@@ -779,16 +779,16 @@ instance FromXML Stack where
 --
 -- * 'seTimestamp'
 data StackEvent = StackEvent'
-    { _seLogicalResourceId    :: Maybe Text
-    , _seResourceStatusReason :: Maybe Text
-    , _seResourceType         :: Maybe Text
-    , _sePhysicalResourceId   :: Maybe Text
-    , _seResourceProperties   :: Maybe Text
-    , _seResourceStatus       :: Maybe ResourceStatus
-    , _seStackId              :: Text
-    , _seEventId              :: Text
-    , _seStackName            :: Text
-    , _seTimestamp            :: ISO8601
+    { _seLogicalResourceId    :: !(Maybe Text)
+    , _seResourceStatusReason :: !(Maybe Text)
+    , _seResourceType         :: !(Maybe Text)
+    , _sePhysicalResourceId   :: !(Maybe Text)
+    , _seResourceProperties   :: !(Maybe Text)
+    , _seResourceStatus       :: !(Maybe ResourceStatus)
+    , _seStackId              :: !Text
+    , _seEventId              :: !Text
+    , _seStackName            :: !Text
+    , _seTimestamp            :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'StackEvent' smart constructor.
@@ -888,15 +888,15 @@ instance FromXML StackEvent where
 --
 -- * 'srResourceStatus'
 data StackResource = StackResource'
-    { _srResourceStatusReason :: Maybe Text
-    , _srPhysicalResourceId   :: Maybe Text
-    , _srStackId              :: Maybe Text
-    , _srDescription          :: Maybe Text
-    , _srStackName            :: Maybe Text
-    , _srLogicalResourceId    :: Text
-    , _srResourceType         :: Text
-    , _srTimestamp            :: ISO8601
-    , _srResourceStatus       :: ResourceStatus
+    { _srResourceStatusReason :: !(Maybe Text)
+    , _srPhysicalResourceId   :: !(Maybe Text)
+    , _srStackId              :: !(Maybe Text)
+    , _srDescription          :: !(Maybe Text)
+    , _srStackName            :: !(Maybe Text)
+    , _srLogicalResourceId    :: !Text
+    , _srResourceType         :: !Text
+    , _srTimestamp            :: !ISO8601
+    , _srResourceStatus       :: !ResourceStatus
     } deriving (Eq,Read,Show)
 
 -- | 'StackResource' smart constructor.
@@ -992,16 +992,16 @@ instance FromXML StackResource where
 --
 -- * 'srdResourceStatus'
 data StackResourceDetail = StackResourceDetail'
-    { _srdResourceStatusReason :: Maybe Text
-    , _srdPhysicalResourceId   :: Maybe Text
-    , _srdMetadata             :: Maybe Text
-    , _srdStackId              :: Maybe Text
-    , _srdDescription          :: Maybe Text
-    , _srdStackName            :: Maybe Text
-    , _srdLogicalResourceId    :: Text
-    , _srdResourceType         :: Text
-    , _srdLastUpdatedTimestamp :: ISO8601
-    , _srdResourceStatus       :: ResourceStatus
+    { _srdResourceStatusReason :: !(Maybe Text)
+    , _srdPhysicalResourceId   :: !(Maybe Text)
+    , _srdMetadata             :: !(Maybe Text)
+    , _srdStackId              :: !(Maybe Text)
+    , _srdDescription          :: !(Maybe Text)
+    , _srdStackName            :: !(Maybe Text)
+    , _srdLogicalResourceId    :: !Text
+    , _srdResourceType         :: !Text
+    , _srdLastUpdatedTimestamp :: !ISO8601
+    , _srdResourceStatus       :: !ResourceStatus
     } deriving (Eq,Read,Show)
 
 -- | 'StackResourceDetail' smart constructor.
@@ -1098,12 +1098,12 @@ instance FromXML StackResourceDetail where
 --
 -- * 'srsResourceStatus'
 data StackResourceSummary = StackResourceSummary'
-    { _srsResourceStatusReason :: Maybe Text
-    , _srsPhysicalResourceId   :: Maybe Text
-    , _srsLogicalResourceId    :: Text
-    , _srsResourceType         :: Text
-    , _srsLastUpdatedTimestamp :: ISO8601
-    , _srsResourceStatus       :: ResourceStatus
+    { _srsResourceStatusReason :: !(Maybe Text)
+    , _srsPhysicalResourceId   :: !(Maybe Text)
+    , _srsLogicalResourceId    :: !Text
+    , _srsResourceType         :: !Text
+    , _srsLastUpdatedTimestamp :: !ISO8601
+    , _srsResourceStatus       :: !ResourceStatus
     } deriving (Eq,Read,Show)
 
 -- | 'StackResourceSummary' smart constructor.
@@ -1177,14 +1177,14 @@ instance FromXML StackResourceSummary where
 --
 -- * 'ssStackStatus'
 data StackSummary = StackSummary'
-    { _ssLastUpdatedTime     :: Maybe ISO8601
-    , _ssTemplateDescription :: Maybe Text
-    , _ssStackStatusReason   :: Maybe Text
-    , _ssDeletionTime        :: Maybe ISO8601
-    , _ssStackId             :: Maybe Text
-    , _ssStackName           :: Text
-    , _ssCreationTime        :: ISO8601
-    , _ssStackStatus         :: StackStatus
+    { _ssLastUpdatedTime     :: !(Maybe ISO8601)
+    , _ssTemplateDescription :: !(Maybe Text)
+    , _ssStackStatusReason   :: !(Maybe Text)
+    , _ssDeletionTime        :: !(Maybe ISO8601)
+    , _ssStackId             :: !(Maybe Text)
+    , _ssStackName           :: !Text
+    , _ssCreationTime        :: !ISO8601
+    , _ssStackStatus         :: !StackStatus
     } deriving (Eq,Read,Show)
 
 -- | 'StackSummary' smart constructor.
@@ -1258,8 +1258,8 @@ instance FromXML StackSummary where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -1303,10 +1303,10 @@ instance ToQuery Tag where
 --
 -- * 'tpDescription'
 data TemplateParameter = TemplateParameter'
-    { _tpParameterKey :: Maybe Text
-    , _tpDefaultValue :: Maybe Text
-    , _tpNoEcho       :: Maybe Bool
-    , _tpDescription  :: Maybe Text
+    { _tpParameterKey :: !(Maybe Text)
+    , _tpDefaultValue :: !(Maybe Text)
+    , _tpNoEcho       :: !(Maybe Bool)
+    , _tpDescription  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TemplateParameter' smart constructor.

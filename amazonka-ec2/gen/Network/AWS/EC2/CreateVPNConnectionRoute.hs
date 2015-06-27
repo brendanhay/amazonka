@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'cvcrDestinationCIDRBlock'
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
-    { _cvcrVPNConnectionId      :: Text
-    , _cvcrDestinationCIDRBlock :: Text
+    { _cvcrVPNConnectionId      :: !Text
+    , _cvcrDestinationCIDRBlock :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNConnectionRoute' smart constructor.

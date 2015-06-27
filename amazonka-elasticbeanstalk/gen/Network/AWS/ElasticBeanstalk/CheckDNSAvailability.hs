@@ -100,8 +100,8 @@ instance ToQuery CheckDNSAvailability where
 --
 -- * 'cdarStatus'
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
-    { _cdarFullyQualifiedCNAME :: Maybe Text
-    , _cdarAvailable           :: Maybe Bool
+    { _cdarFullyQualifiedCNAME :: !(Maybe Text)
+    , _cdarAvailable           :: !(Maybe Bool)
     , _cdarStatus              :: !Int
     } deriving (Eq,Read,Show)
 

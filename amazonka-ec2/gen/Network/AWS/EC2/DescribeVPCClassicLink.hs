@@ -52,9 +52,9 @@ import           Network.AWS.Response
 --
 -- * 'dvclDryRun'
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
-    { _dvclFilters :: Maybe [Filter]
-    , _dvclVPCIds  :: Maybe [Text]
-    , _dvclDryRun  :: Maybe Bool
+    { _dvclFilters :: !(Maybe [Filter])
+    , _dvclVPCIds  :: !(Maybe [Text])
+    , _dvclDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCClassicLink' smart constructor.
@@ -135,7 +135,7 @@ instance ToQuery DescribeVPCClassicLink where
 --
 -- * 'dvclrStatus'
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
-    { _dvclrVPCs   :: Maybe [VPCClassicLink]
+    { _dvclrVPCs   :: !(Maybe [VPCClassicLink])
     , _dvclrStatus :: !Int
     } deriving (Eq,Read,Show)
 

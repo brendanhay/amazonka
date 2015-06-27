@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'ucfoaiId'
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoaiIfMatch                              :: Maybe Text
-    , _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    , _ucfoaiId                                   :: Text
+    { _ucfoaiIfMatch                              :: !(Maybe Text)
+    , _ucfoaiCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
+    , _ucfoaiId                                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
@@ -133,8 +133,8 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 --
 -- * 'ucfoairStatus'
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairETag                           :: Maybe Text
-    , _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    { _ucfoairETag                           :: !(Maybe Text)
+    , _ucfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _ucfoairStatus                         :: !Int
     } deriving (Eq,Read,Show)
 

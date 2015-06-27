@@ -335,9 +335,9 @@ instance FromJSON StreamingStatus where
 --
 -- * 'csRoleARN'
 data CognitoStreams = CognitoStreams'
-    { _csStreamingStatus :: Maybe StreamingStatus
-    , _csStreamName      :: Maybe Text
-    , _csRoleARN         :: Maybe Text
+    { _csStreamingStatus :: !(Maybe StreamingStatus)
+    , _csStreamName      :: !(Maybe Text)
+    , _csRoleARN         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CognitoStreams' smart constructor.
@@ -408,13 +408,13 @@ instance ToJSON CognitoStreams where
 --
 -- * 'datIdentityId'
 data Dataset = Dataset'
-    { _datLastModifiedDate :: Maybe POSIX
-    , _datNumRecords       :: Maybe Integer
-    , _datDataStorage      :: Maybe Integer
-    , _datDatasetName      :: Maybe Text
-    , _datCreationDate     :: Maybe POSIX
-    , _datLastModifiedBy   :: Maybe Text
-    , _datIdentityId       :: Maybe Text
+    { _datLastModifiedDate :: !(Maybe POSIX)
+    , _datNumRecords       :: !(Maybe Integer)
+    , _datDataStorage      :: !(Maybe Integer)
+    , _datDatasetName      :: !(Maybe Text)
+    , _datCreationDate     :: !(Maybe POSIX)
+    , _datLastModifiedBy   :: !(Maybe Text)
+    , _datIdentityId       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Dataset' smart constructor.
@@ -487,10 +487,10 @@ instance FromJSON Dataset where
 --
 -- * 'ipuSyncSessionsCount'
 data IdentityPoolUsage = IdentityPoolUsage'
-    { _ipuLastModifiedDate  :: Maybe POSIX
-    , _ipuIdentityPoolId    :: Maybe Text
-    , _ipuDataStorage       :: Maybe Integer
-    , _ipuSyncSessionsCount :: Maybe Integer
+    { _ipuLastModifiedDate  :: !(Maybe POSIX)
+    , _ipuIdentityPoolId    :: !(Maybe Text)
+    , _ipuDataStorage       :: !(Maybe Integer)
+    , _ipuSyncSessionsCount :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'IdentityPoolUsage' smart constructor.
@@ -547,11 +547,11 @@ instance FromJSON IdentityPoolUsage where
 --
 -- * 'iuIdentityId'
 data IdentityUsage = IdentityUsage'
-    { _iuLastModifiedDate :: Maybe POSIX
-    , _iuIdentityPoolId   :: Maybe Text
-    , _iuDatasetCount     :: Maybe Int
-    , _iuDataStorage      :: Maybe Integer
-    , _iuIdentityId       :: Maybe Text
+    { _iuLastModifiedDate :: !(Maybe POSIX)
+    , _iuIdentityPoolId   :: !(Maybe Text)
+    , _iuDatasetCount     :: !(Maybe Int)
+    , _iuDataStorage      :: !(Maybe Integer)
+    , _iuIdentityId       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'IdentityUsage' smart constructor.
@@ -610,8 +610,8 @@ instance FromJSON IdentityUsage where
 --
 -- * 'psRoleARN'
 data PushSync = PushSync'
-    { _psApplicationARNs :: Maybe [Text]
-    , _psRoleARN         :: Maybe Text
+    { _psApplicationARNs :: !(Maybe [Text])
+    , _psRoleARN         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PushSync' smart constructor.
@@ -663,12 +663,12 @@ instance ToJSON PushSync where
 --
 -- * 'recLastModifiedBy'
 data Record = Record'
-    { _recSyncCount              :: Maybe Integer
-    , _recLastModifiedDate       :: Maybe POSIX
-    , _recDeviceLastModifiedDate :: Maybe POSIX
-    , _recValue                  :: Maybe Text
-    , _recKey                    :: Maybe Text
-    , _recLastModifiedBy         :: Maybe Text
+    { _recSyncCount              :: !(Maybe Integer)
+    , _recLastModifiedDate       :: !(Maybe POSIX)
+    , _recDeviceLastModifiedDate :: !(Maybe POSIX)
+    , _recValue                  :: !(Maybe Text)
+    , _recKey                    :: !(Maybe Text)
+    , _recLastModifiedBy         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Record' smart constructor.
@@ -734,10 +734,10 @@ instance FromJSON Record where
 --
 -- * 'rpSyncCount'
 data RecordPatch = RecordPatch'
-    { _rpDeviceLastModifiedDate :: Maybe POSIX
-    , _rpValue                  :: Maybe Text
-    , _rpOp                     :: Operation
-    , _rpKey                    :: Text
+    { _rpDeviceLastModifiedDate :: !(Maybe POSIX)
+    , _rpValue                  :: !(Maybe Text)
+    , _rpOp                     :: !Operation
+    , _rpKey                    :: !Text
     , _rpSyncCount              :: !Integer
     } deriving (Eq,Read,Show)
 

@@ -83,16 +83,16 @@ import           Network.AWS.Response
 --
 -- * 'impDiskContainers'
 data ImportImage = ImportImage'
-    { _impHypervisor     :: Maybe Text
-    , _impPlatform       :: Maybe Text
-    , _impClientToken    :: Maybe Text
-    , _impLicenseType    :: Maybe Text
-    , _impRoleName       :: Maybe Text
-    , _impArchitecture   :: Maybe Text
-    , _impDryRun         :: Maybe Bool
-    , _impDescription    :: Maybe Text
-    , _impClientData     :: Maybe ClientData
-    , _impDiskContainers :: Maybe [ImageDiskContainer]
+    { _impHypervisor     :: !(Maybe Text)
+    , _impPlatform       :: !(Maybe Text)
+    , _impClientToken    :: !(Maybe Text)
+    , _impLicenseType    :: !(Maybe Text)
+    , _impRoleName       :: !(Maybe Text)
+    , _impArchitecture   :: !(Maybe Text)
+    , _impDryRun         :: !(Maybe Bool)
+    , _impDescription    :: !(Maybe Text)
+    , _impClientData     :: !(Maybe ClientData)
+    , _impDiskContainers :: !(Maybe [ImageDiskContainer])
     } deriving (Eq,Read,Show)
 
 -- | 'ImportImage' smart constructor.
@@ -237,16 +237,16 @@ instance ToQuery ImportImage where
 --
 -- * 'iStatus'
 data ImportImageResponse = ImportImageResponse'
-    { _iHypervisor      :: Maybe Text
-    , _iPlatform        :: Maybe Text
-    , _iProgress        :: Maybe Text
-    , _iLicenseType     :: Maybe Text
-    , _iSnapshotDetails :: Maybe [SnapshotDetail]
-    , _iStatusMessage   :: Maybe Text
-    , _iImageId         :: Maybe Text
-    , _iImportTaskId    :: Maybe Text
-    , _iArchitecture    :: Maybe Text
-    , _iDescription     :: Maybe Text
+    { _iHypervisor      :: !(Maybe Text)
+    , _iPlatform        :: !(Maybe Text)
+    , _iProgress        :: !(Maybe Text)
+    , _iLicenseType     :: !(Maybe Text)
+    , _iSnapshotDetails :: !(Maybe [SnapshotDetail])
+    , _iStatusMessage   :: !(Maybe Text)
+    , _iImageId         :: !(Maybe Text)
+    , _iImportTaskId    :: !(Maybe Text)
+    , _iArchitecture    :: !(Maybe Text)
+    , _iDescription     :: !(Maybe Text)
     , _iStatus          :: !Int
     } deriving (Eq,Read,Show)
 

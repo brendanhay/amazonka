@@ -52,9 +52,9 @@ import           Network.AWS.Response
 --
 -- * 'dv1DryRun'
 data DescribeVPCs = DescribeVPCs'
-    { _dv1Filters :: Maybe [Filter]
-    , _dv1VPCIds  :: Maybe [Text]
-    , _dv1DryRun  :: Maybe Bool
+    { _dv1Filters :: !(Maybe [Filter])
+    , _dv1VPCIds  :: !(Maybe [Text])
+    , _dv1DryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPCs' smart constructor.
@@ -145,7 +145,7 @@ instance ToQuery DescribeVPCs where
 --
 -- * 'dvrStatus'
 data DescribeVPCsResponse = DescribeVPCsResponse'
-    { _dvrVPCs   :: Maybe [VPC]
+    { _dvrVPCs   :: !(Maybe [VPC])
     , _dvrStatus :: !Int
     } deriving (Eq,Read,Show)
 

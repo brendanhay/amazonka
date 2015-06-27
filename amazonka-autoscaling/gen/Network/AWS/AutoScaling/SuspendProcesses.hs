@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'spAutoScalingGroupName'
 data SuspendProcesses = SuspendProcesses'
-    { _spScalingProcesses     :: Maybe [Text]
-    , _spAutoScalingGroupName :: Text
+    { _spScalingProcesses     :: !(Maybe [Text])
+    , _spAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SuspendProcesses' smart constructor.

@@ -125,7 +125,7 @@ instance ToQuery ShutdownGateway where
 --
 -- * 'sgrStatus'
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-    { _sgrGatewayARN :: Maybe Text
+    { _sgrGatewayARN :: !(Maybe Text)
     , _sgrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

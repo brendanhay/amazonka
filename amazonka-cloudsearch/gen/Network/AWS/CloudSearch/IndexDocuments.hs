@@ -101,7 +101,7 @@ instance ToQuery IndexDocuments where
 --
 -- * 'idrStatus'
 data IndexDocumentsResponse = IndexDocumentsResponse'
-    { _idrFieldNames :: Maybe [Text]
+    { _idrFieldNames :: !(Maybe [Text])
     , _idrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

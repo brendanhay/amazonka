@@ -56,8 +56,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'dInitiatorName'
 data DeleteChapCredentials = DeleteChapCredentials'
-    { _dTargetARN     :: Text
-    , _dInitiatorName :: Text
+    { _dTargetARN     :: !Text
+    , _dInitiatorName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteChapCredentials' smart constructor.
@@ -124,8 +124,8 @@ instance ToQuery DeleteChapCredentials where
 --
 -- * 'delStatus'
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-    { _delTargetARN     :: Maybe Text
-    , _delInitiatorName :: Maybe Text
+    { _delTargetARN     :: !(Maybe Text)
+    , _delInitiatorName :: !(Maybe Text)
     , _delStatus        :: !Int
     } deriving (Eq,Read,Show)
 

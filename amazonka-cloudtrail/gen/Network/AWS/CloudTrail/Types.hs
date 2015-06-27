@@ -257,12 +257,12 @@ instance ToJSON LookupAttributeKey where
 --
 -- * 'eveEventId'
 data Event = Event'
-    { _eveUsername        :: Maybe Text
-    , _eveEventTime       :: Maybe POSIX
-    , _eveResources       :: Maybe [Resource]
-    , _eveCloudTrailEvent :: Maybe Text
-    , _eveEventName       :: Maybe Text
-    , _eveEventId         :: Maybe Text
+    { _eveUsername        :: !(Maybe Text)
+    , _eveEventTime       :: !(Maybe POSIX)
+    , _eveResources       :: !(Maybe [Resource])
+    , _eveCloudTrailEvent :: !(Maybe Text)
+    , _eveEventName       :: !(Maybe Text)
+    , _eveEventId         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
@@ -323,8 +323,8 @@ instance FromJSON Event where
 --
 -- * 'laAttributeValue'
 data LookupAttribute = LookupAttribute'
-    { _laAttributeKey   :: LookupAttributeKey
-    , _laAttributeValue :: Text
+    { _laAttributeKey   :: !LookupAttributeKey
+    , _laAttributeValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'LookupAttribute' smart constructor.
@@ -359,8 +359,8 @@ instance ToJSON LookupAttribute where
 --
 -- * 'resResourceName'
 data Resource = Resource'
-    { _resResourceType :: Maybe Text
-    , _resResourceName :: Maybe Text
+    { _resResourceType :: !(Maybe Text)
+    , _resResourceName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Resource' smart constructor.
@@ -414,13 +414,13 @@ instance FromJSON Resource where
 --
 -- * 'traS3BucketName'
 data Trail = Trail'
-    { _traS3KeyPrefix                :: Maybe Text
-    , _traSNSTopicName               :: Maybe Text
-    , _traCloudWatchLogsLogGroupARN  :: Maybe Text
-    , _traName                       :: Maybe Text
-    , _traIncludeGlobalServiceEvents :: Maybe Bool
-    , _traCloudWatchLogsRoleARN      :: Maybe Text
-    , _traS3BucketName               :: Maybe Text
+    { _traS3KeyPrefix                :: !(Maybe Text)
+    , _traSNSTopicName               :: !(Maybe Text)
+    , _traCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _traName                       :: !(Maybe Text)
+    , _traIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _traCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _traS3BucketName               :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Trail' smart constructor.

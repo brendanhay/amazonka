@@ -1136,20 +1136,20 @@ instance FromJSON OperationType where
 --
 -- * 'cdContactType'
 data ContactDetail = ContactDetail'
-    { _cdOrganizationName :: Maybe Text
-    , _cdEmail            :: Maybe Text
-    , _cdFax              :: Maybe Text
-    , _cdState            :: Maybe Text
-    , _cdLastName         :: Maybe Text
-    , _cdExtraParams      :: Maybe [ExtraParam]
-    , _cdZipCode          :: Maybe Text
-    , _cdAddressLine1     :: Maybe Text
-    , _cdCity             :: Maybe Text
-    , _cdPhoneNumber      :: Maybe Text
-    , _cdAddressLine2     :: Maybe Text
-    , _cdFirstName        :: Maybe Text
-    , _cdCountryCode      :: Maybe CountryCode
-    , _cdContactType      :: Maybe ContactType
+    { _cdOrganizationName :: !(Maybe Text)
+    , _cdEmail            :: !(Maybe Text)
+    , _cdFax              :: !(Maybe Text)
+    , _cdState            :: !(Maybe Text)
+    , _cdLastName         :: !(Maybe Text)
+    , _cdExtraParams      :: !(Maybe [ExtraParam])
+    , _cdZipCode          :: !(Maybe Text)
+    , _cdAddressLine1     :: !(Maybe Text)
+    , _cdCity             :: !(Maybe Text)
+    , _cdPhoneNumber      :: !(Maybe Text)
+    , _cdAddressLine2     :: !(Maybe Text)
+    , _cdFirstName        :: !(Maybe Text)
+    , _cdCountryCode      :: !(Maybe CountryCode)
+    , _cdContactType      :: !(Maybe ContactType)
     } deriving (Eq,Read,Show)
 
 -- | 'ContactDetail' smart constructor.
@@ -1424,10 +1424,10 @@ instance ToJSON ContactDetail where
 --
 -- * 'dsDomainName'
 data DomainSummary = DomainSummary'
-    { _dsExpiry       :: Maybe POSIX
-    , _dsTransferLock :: Maybe Bool
-    , _dsAutoRenew    :: Maybe Bool
-    , _dsDomainName   :: Text
+    { _dsExpiry       :: !(Maybe POSIX)
+    , _dsTransferLock :: !(Maybe Bool)
+    , _dsAutoRenew    :: !(Maybe Bool)
+    , _dsDomainName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DomainSummary' smart constructor.
@@ -1488,8 +1488,8 @@ instance FromJSON DomainSummary where
 --
 -- * 'epValue'
 data ExtraParam = ExtraParam'
-    { _epName  :: ExtraParamName
-    , _epValue :: Text
+    { _epName  :: !ExtraParamName
+    , _epValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ExtraParam' smart constructor.
@@ -1554,8 +1554,8 @@ instance ToJSON ExtraParam where
 --
 -- * 'namName'
 data Nameserver = Nameserver'
-    { _namGlueIPs :: Maybe [Text]
-    , _namName    :: Text
+    { _namGlueIPs :: !(Maybe [Text])
+    , _namName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Nameserver' smart constructor.
@@ -1616,10 +1616,10 @@ instance ToJSON Nameserver where
 --
 -- * 'osSubmittedDate'
 data OperationSummary = OperationSummary'
-    { _osOperationId   :: Text
-    , _osStatus        :: OperationStatus
-    , _osType          :: OperationType
-    , _osSubmittedDate :: POSIX
+    { _osOperationId   :: !Text
+    , _osStatus        :: !OperationStatus
+    , _osType          :: !OperationType
+    , _osSubmittedDate :: !POSIX
     } deriving (Eq,Read,Show)
 
 -- | 'OperationSummary' smart constructor.
@@ -1677,8 +1677,8 @@ instance FromJSON OperationSummary where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.

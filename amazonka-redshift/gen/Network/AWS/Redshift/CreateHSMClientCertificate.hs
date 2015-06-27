@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'chccHSMClientCertificateIdentifier'
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
-    { _chccTags                           :: Maybe [Tag]
-    , _chccHSMClientCertificateIdentifier :: Text
+    { _chccTags                           :: !(Maybe [Tag])
+    , _chccHSMClientCertificateIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMClientCertificate' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery CreateHSMClientCertificate where
 --
 -- * 'chccrStatus'
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
-    { _chccrHSMClientCertificate :: Maybe HSMClientCertificate
+    { _chccrHSMClientCertificate :: !(Maybe HSMClientCertificate)
     , _chccrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

@@ -95,14 +95,14 @@ import           Network.AWS.Response
 --
 -- * 'cAvailabilityZone'
 data CreateVolume = CreateVolume'
-    { _cSize             :: Maybe Int
-    , _cIOPS             :: Maybe Int
-    , _cEncrypted        :: Maybe Bool
-    , _cKMSKeyId         :: Maybe Text
-    , _cVolumeType       :: Maybe VolumeType
-    , _cDryRun           :: Maybe Bool
-    , _cSnapshotId       :: Maybe Text
-    , _cAvailabilityZone :: Text
+    { _cSize             :: !(Maybe Int)
+    , _cIOPS             :: !(Maybe Int)
+    , _cEncrypted        :: !(Maybe Bool)
+    , _cKMSKeyId         :: !(Maybe Text)
+    , _cVolumeType       :: !(Maybe VolumeType)
+    , _cDryRun           :: !(Maybe Bool)
+    , _cSnapshotId       :: !(Maybe Text)
+    , _cAvailabilityZone :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVolume' smart constructor.

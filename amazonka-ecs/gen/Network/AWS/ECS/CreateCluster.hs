@@ -103,7 +103,7 @@ instance ToQuery CreateCluster where
 --
 -- * 'ccrStatus'
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrCluster :: Maybe Cluster
+    { _ccrCluster :: !(Maybe Cluster)
     , _ccrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

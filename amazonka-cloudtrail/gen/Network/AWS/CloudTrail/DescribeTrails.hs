@@ -105,7 +105,7 @@ instance ToQuery DescribeTrails where
 --
 -- * 'dtrStatus'
 data DescribeTrailsResponse = DescribeTrailsResponse'
-    { _dtrTrailList :: Maybe [Trail]
+    { _dtrTrailList :: !(Maybe [Trail])
     , _dtrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -66,8 +66,8 @@ import           Network.AWS.SQS.Types
 --
 -- * 'cmvbEntries'
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
-    { _cmvbQueueURL :: Text
-    , _cmvbEntries  :: [ChangeMessageVisibilityBatchRequestEntry]
+    { _cmvbQueueURL :: !Text
+    , _cmvbEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatch' smart constructor.
@@ -135,8 +135,8 @@ instance ToQuery ChangeMessageVisibilityBatch where
 --
 -- * 'cmvbrStatus'
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
-    { _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
-    , _cmvbrFailed     :: [BatchResultErrorEntry]
+    { _cmvbrSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
+    , _cmvbrFailed     :: ![BatchResultErrorEntry]
     , _cmvbrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'attsTags'
 data AddTagsToStream = AddTagsToStream'
-    { _attsStreamName :: Text
-    , _attsTags       :: Map Text Text
+    { _attsStreamName :: !Text
+    , _attsTags       :: !(Map Text Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AddTagsToStream' smart constructor.

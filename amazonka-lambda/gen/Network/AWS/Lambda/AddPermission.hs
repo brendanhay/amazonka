@@ -72,12 +72,12 @@ import           Network.AWS.Response
 --
 -- * 'apPrincipal'
 data AddPermission = AddPermission'
-    { _apSourceAccount :: Maybe Text
-    , _apSourceARN     :: Maybe Text
-    , _apFunctionName  :: Text
-    , _apStatementId   :: Text
-    , _apAction        :: Text
-    , _apPrincipal     :: Text
+    { _apSourceAccount :: !(Maybe Text)
+    , _apSourceARN     :: !(Maybe Text)
+    , _apFunctionName  :: !Text
+    , _apStatementId   :: !Text
+    , _apAction        :: !Text
+    , _apPrincipal     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AddPermission' smart constructor.
@@ -186,7 +186,7 @@ instance ToQuery AddPermission where
 --
 -- * 'aprStatus'
 data AddPermissionResponse = AddPermissionResponse'
-    { _aprStatement :: Maybe Text
+    { _aprStatement :: !(Maybe Text)
     , _aprStatus    :: !Int
     } deriving (Eq,Read,Show)
 

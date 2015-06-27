@@ -52,9 +52,9 @@ import           Network.AWS.Response
 --
 -- * 'aigVPCId'
 data AttachInternetGateway = AttachInternetGateway'
-    { _aigDryRun            :: Maybe Bool
-    , _aigInternetGatewayId :: Text
-    , _aigVPCId             :: Text
+    { _aigDryRun            :: !(Maybe Bool)
+    , _aigInternetGatewayId :: !Text
+    , _aigVPCId             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AttachInternetGateway' smart constructor.

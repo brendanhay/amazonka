@@ -99,9 +99,9 @@ import           Network.AWS.Response
 --
 -- * 'ssNewStartingHashKey'
 data SplitShard = SplitShard'
-    { _ssStreamName         :: Text
-    , _ssShardToSplit       :: Text
-    , _ssNewStartingHashKey :: Text
+    { _ssStreamName         :: !Text
+    , _ssShardToSplit       :: !Text
+    , _ssNewStartingHashKey :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SplitShard' smart constructor.

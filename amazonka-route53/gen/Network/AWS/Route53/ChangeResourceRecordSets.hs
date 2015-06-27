@@ -81,8 +81,8 @@ import           Network.AWS.Route53.Types
 --
 -- * 'crrsChangeBatch'
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
-    { _crrsHostedZoneId :: Text
-    , _crrsChangeBatch  :: ChangeBatch
+    { _crrsHostedZoneId :: !Text
+    , _crrsChangeBatch  :: !ChangeBatch
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
@@ -145,7 +145,7 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- * 'crrsrStatus'
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-    { _crrsrChangeInfo :: ChangeInfo
+    { _crrsrChangeInfo :: !ChangeInfo
     , _crrsrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

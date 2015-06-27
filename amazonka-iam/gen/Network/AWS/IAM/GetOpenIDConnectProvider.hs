@@ -113,10 +113,10 @@ instance ToQuery GetOpenIDConnectProvider where
 --
 -- * 'goidcprStatus'
 data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
-    { _goidcprCreateDate     :: Maybe ISO8601
-    , _goidcprURL            :: Maybe Text
-    , _goidcprThumbprintList :: Maybe [Text]
-    , _goidcprClientIDList   :: Maybe [Text]
+    { _goidcprCreateDate     :: !(Maybe ISO8601)
+    , _goidcprURL            :: !(Maybe Text)
+    , _goidcprThumbprintList :: !(Maybe [Text])
+    , _goidcprClientIDList   :: !(Maybe [Text])
     , _goidcprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -65,11 +65,11 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'ctTapeBarcodePrefix'
 data CreateTapes = CreateTapes'
-    { _ctGatewayARN        :: Text
+    { _ctGatewayARN        :: !Text
     , _ctTapeSizeInBytes   :: !Integer
-    , _ctClientToken       :: Text
+    , _ctClientToken       :: !Text
     , _ctNumTapesToCreate  :: !Nat
-    , _ctTapeBarcodePrefix :: Text
+    , _ctTapeBarcodePrefix :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTapes' smart constructor.
@@ -161,7 +161,7 @@ instance ToQuery CreateTapes where
 --
 -- * 'ctrStatus'
 data CreateTapesResponse = CreateTapesResponse'
-    { _ctrTapeARNs :: Maybe [Text]
+    { _ctrTapeARNs :: !(Maybe [Text])
     , _ctrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

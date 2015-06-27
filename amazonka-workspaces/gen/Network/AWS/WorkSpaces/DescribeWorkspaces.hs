@@ -72,12 +72,12 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- * 'dwLimit'
 data DescribeWorkspaces = DescribeWorkspaces'
-    { _dwDirectoryId  :: Maybe Text
-    , _dwWorkspaceIds :: Maybe (List1 Text)
-    , _dwUserName     :: Maybe Text
-    , _dwBundleId     :: Maybe Text
-    , _dwNextToken    :: Maybe Text
-    , _dwLimit        :: Maybe Nat
+    { _dwDirectoryId  :: !(Maybe Text)
+    , _dwWorkspaceIds :: !(Maybe (List1 Text))
+    , _dwUserName     :: !(Maybe Text)
+    , _dwBundleId     :: !(Maybe Text)
+    , _dwNextToken    :: !(Maybe Text)
+    , _dwLimit        :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaces' smart constructor.
@@ -179,8 +179,8 @@ instance ToQuery DescribeWorkspaces where
 --
 -- * 'dwrStatus'
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
-    { _dwrNextToken  :: Maybe Text
-    , _dwrWorkspaces :: Maybe [Workspace]
+    { _dwrNextToken  :: !(Maybe Text)
+    , _dwrWorkspaces :: !(Maybe [Workspace])
     , _dwrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

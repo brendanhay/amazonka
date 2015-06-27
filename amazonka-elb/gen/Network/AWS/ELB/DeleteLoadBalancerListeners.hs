@@ -48,8 +48,8 @@ import           Network.AWS.Response
 --
 -- * 'dlblLoadBalancerPorts'
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName  :: Text
-    , _dlblLoadBalancerPorts :: [Int]
+    { _dlblLoadBalancerName  :: !Text
+    , _dlblLoadBalancerPorts :: ![Int]
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.

@@ -58,10 +58,10 @@ import           Network.AWS.Response
 --
 -- * 'cpUniqueId'
 data CreatePipeline = CreatePipeline'
-    { _cpDescription :: Maybe Text
-    , _cpTags        :: Maybe [Tag]
-    , _cpName        :: Text
-    , _cpUniqueId    :: Text
+    { _cpDescription :: !(Maybe Text)
+    , _cpTags        :: !(Maybe [Tag])
+    , _cpName        :: !Text
+    , _cpUniqueId    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreatePipeline' smart constructor.
@@ -147,7 +147,7 @@ instance ToQuery CreatePipeline where
 --
 -- * 'cprStatus'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprPipelineId :: Text
+    { _cprPipelineId :: !Text
     , _cprStatus     :: !Int
     } deriving (Eq,Read,Show)
 

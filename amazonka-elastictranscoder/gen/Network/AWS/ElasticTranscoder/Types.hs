@@ -444,13 +444,13 @@ _LimitExceededException =
 --
 -- * 'artMaxWidth'
 data Artwork = Artwork'
-    { _artSizingPolicy   :: Maybe Text
-    , _artMaxHeight      :: Maybe Text
-    , _artAlbumArtFormat :: Maybe Text
-    , _artInputKey       :: Maybe Text
-    , _artPaddingPolicy  :: Maybe Text
-    , _artEncryption     :: Maybe Encryption
-    , _artMaxWidth       :: Maybe Text
+    { _artSizingPolicy   :: !(Maybe Text)
+    , _artMaxHeight      :: !(Maybe Text)
+    , _artAlbumArtFormat :: !(Maybe Text)
+    , _artInputKey       :: !(Maybe Text)
+    , _artPaddingPolicy  :: !(Maybe Text)
+    , _artEncryption     :: !(Maybe Encryption)
+    , _artMaxWidth       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Artwork' smart constructor.
@@ -572,10 +572,10 @@ instance ToJSON Artwork where
 --
 -- * 'acoBitOrder'
 data AudioCodecOptions = AudioCodecOptions'
-    { _acoBitDepth :: Maybe Text
-    , _acoSigned   :: Maybe Text
-    , _acoProfile  :: Maybe Text
-    , _acoBitOrder :: Maybe Text
+    { _acoBitDepth :: !(Maybe Text)
+    , _acoSigned   :: !(Maybe Text)
+    , _acoProfile  :: !(Maybe Text)
+    , _acoBitOrder :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AudioCodecOptions' smart constructor.
@@ -677,12 +677,12 @@ instance ToJSON AudioCodecOptions where
 --
 -- * 'apCodecOptions'
 data AudioParameters = AudioParameters'
-    { _apChannels         :: Maybe Text
-    , _apCodec            :: Maybe Text
-    , _apAudioPackingMode :: Maybe Text
-    , _apSampleRate       :: Maybe Text
-    , _apBitRate          :: Maybe Text
-    , _apCodecOptions     :: Maybe AudioCodecOptions
+    { _apChannels         :: !(Maybe Text)
+    , _apCodec            :: !(Maybe Text)
+    , _apAudioPackingMode :: !(Maybe Text)
+    , _apSampleRate       :: !(Maybe Text)
+    , _apBitRate          :: !(Maybe Text)
+    , _apCodecOptions     :: !(Maybe AudioCodecOptions)
     } deriving (Eq,Read,Show)
 
 -- | 'AudioParameters' smart constructor.
@@ -879,9 +879,9 @@ instance ToJSON AudioParameters where
 --
 -- * 'cfEncryption'
 data CaptionFormat = CaptionFormat'
-    { _cfPattern    :: Maybe Text
-    , _cfFormat     :: Maybe Text
-    , _cfEncryption :: Maybe Encryption
+    { _cfPattern    :: !(Maybe Text)
+    , _cfFormat     :: !(Maybe Text)
+    , _cfEncryption :: !(Maybe Encryption)
     } deriving (Eq,Read,Show)
 
 -- | 'CaptionFormat' smart constructor.
@@ -979,11 +979,11 @@ instance ToJSON CaptionFormat where
 --
 -- * 'csLabel'
 data CaptionSource = CaptionSource'
-    { _csTimeOffset :: Maybe Text
-    , _csKey        :: Maybe Text
-    , _csEncryption :: Maybe Encryption
-    , _csLanguage   :: Maybe Text
-    , _csLabel      :: Maybe Text
+    { _csTimeOffset :: !(Maybe Text)
+    , _csKey        :: !(Maybe Text)
+    , _csEncryption :: !(Maybe Encryption)
+    , _csLanguage   :: !(Maybe Text)
+    , _csLabel      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CaptionSource' smart constructor.
@@ -1062,9 +1062,9 @@ instance ToJSON CaptionSource where
 --
 -- * 'capCaptionFormats'
 data Captions = Captions'
-    { _capMergePolicy    :: Maybe Text
-    , _capCaptionSources :: Maybe [CaptionSource]
-    , _capCaptionFormats :: Maybe [CaptionFormat]
+    { _capMergePolicy    :: !(Maybe Text)
+    , _capCaptionSources :: !(Maybe [CaptionSource])
+    , _capCaptionFormats :: !(Maybe [CaptionFormat])
     } deriving (Eq,Read,Show)
 
 -- | 'Captions' smart constructor.
@@ -1185,17 +1185,17 @@ instance ToJSON Clip where
 --
 -- * 'cjoRotate'
 data CreateJobOutput = CreateJobOutput'
-    { _cjoThumbnailPattern    :: Maybe Text
-    , _cjoCaptions            :: Maybe Captions
-    , _cjoPresetId            :: Maybe Text
-    , _cjoComposition         :: Maybe [Clip]
-    , _cjoAlbumArt            :: Maybe JobAlbumArt
-    , _cjoWatermarks          :: Maybe [JobWatermark]
-    , _cjoKey                 :: Maybe Text
-    , _cjoEncryption          :: Maybe Encryption
-    , _cjoSegmentDuration     :: Maybe Text
-    , _cjoThumbnailEncryption :: Maybe Encryption
-    , _cjoRotate              :: Maybe Text
+    { _cjoThumbnailPattern    :: !(Maybe Text)
+    , _cjoCaptions            :: !(Maybe Captions)
+    , _cjoPresetId            :: !(Maybe Text)
+    , _cjoComposition         :: !(Maybe [Clip])
+    , _cjoAlbumArt            :: !(Maybe JobAlbumArt)
+    , _cjoWatermarks          :: !(Maybe [JobWatermark])
+    , _cjoKey                 :: !(Maybe Text)
+    , _cjoEncryption          :: !(Maybe Encryption)
+    , _cjoSegmentDuration     :: !(Maybe Text)
+    , _cjoThumbnailEncryption :: !(Maybe Encryption)
+    , _cjoRotate              :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CreateJobOutput' smart constructor.
@@ -1413,11 +1413,11 @@ instance ToJSON CreateJobOutput where
 --
 -- * 'cjpHlsContentProtection'
 data CreateJobPlaylist = CreateJobPlaylist'
-    { _cjpPlayReadyDrm         :: Maybe PlayReadyDrm
-    , _cjpOutputKeys           :: Maybe [Text]
-    , _cjpFormat               :: Maybe Text
-    , _cjpName                 :: Maybe Text
-    , _cjpHlsContentProtection :: Maybe HlsContentProtection
+    { _cjpPlayReadyDrm         :: !(Maybe PlayReadyDrm)
+    , _cjpOutputKeys           :: !(Maybe [Text])
+    , _cjpFormat               :: !(Maybe Text)
+    , _cjpName                 :: !(Maybe Text)
+    , _cjpHlsContentProtection :: !(Maybe HlsContentProtection)
     } deriving (Eq,Read,Show)
 
 -- | 'CreateJobPlaylist' smart constructor.
@@ -1527,11 +1527,11 @@ instance ToJSON CreateJobPlaylist where
 --
 -- * 'dpDurationMillis'
 data DetectedProperties = DetectedProperties'
-    { _dpHeight         :: Maybe Int
-    , _dpFrameRate      :: Maybe Text
-    , _dpFileSize       :: Maybe Integer
-    , _dpWidth          :: Maybe Int
-    , _dpDurationMillis :: Maybe Integer
+    { _dpHeight         :: !(Maybe Int)
+    , _dpFrameRate      :: !(Maybe Text)
+    , _dpFileSize       :: !(Maybe Integer)
+    , _dpWidth          :: !(Maybe Int)
+    , _dpDurationMillis :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'DetectedProperties' smart constructor.
@@ -1600,10 +1600,10 @@ instance ToJSON DetectedProperties where
 --
 -- * 'encInitializationVector'
 data Encryption = Encryption'
-    { _encKeyMD5               :: Maybe Text
-    , _encMode                 :: Maybe Text
-    , _encKey                  :: Maybe Text
-    , _encInitializationVector :: Maybe Text
+    { _encKeyMD5               :: !(Maybe Text)
+    , _encMode                 :: !(Maybe Text)
+    , _encKey                  :: !(Maybe Text)
+    , _encInitializationVector :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Encryption' smart constructor.
@@ -1717,12 +1717,12 @@ instance ToJSON Encryption where
 --
 -- * 'hcpInitializationVector'
 data HlsContentProtection = HlsContentProtection'
-    { _hcpKeyMD5                :: Maybe Text
-    , _hcpKeyStoragePolicy      :: Maybe Text
-    , _hcpKey                   :: Maybe Text
-    , _hcpMethod                :: Maybe Text
-    , _hcpLicenseAcquisitionURL :: Maybe Text
-    , _hcpInitializationVector  :: Maybe Text
+    { _hcpKeyMD5                :: !(Maybe Text)
+    , _hcpKeyStoragePolicy      :: !(Maybe Text)
+    , _hcpKey                   :: !(Maybe Text)
+    , _hcpMethod                :: !(Maybe Text)
+    , _hcpLicenseAcquisitionURL :: !(Maybe Text)
+    , _hcpInitializationVector  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'HlsContentProtection' smart constructor.
@@ -1840,17 +1840,17 @@ instance ToJSON HlsContentProtection where
 --
 -- * 'jOutputKeyPrefix'
 data Job' = Job''
-    { _jStatus          :: Maybe Text
-    , _jPipelineId      :: Maybe Text
-    , _jARN             :: Maybe Text
-    , _jInput           :: Maybe JobInput
-    , _jOutputs         :: Maybe [JobOutput]
-    , _jUserMetadata    :: Maybe (Map Text Text)
-    , _jOutput          :: Maybe JobOutput
-    , _jId              :: Maybe Text
-    , _jPlaylists       :: Maybe [Playlist]
-    , _jTiming          :: Maybe Timing
-    , _jOutputKeyPrefix :: Maybe Text
+    { _jStatus          :: !(Maybe Text)
+    , _jPipelineId      :: !(Maybe Text)
+    , _jARN             :: !(Maybe Text)
+    , _jInput           :: !(Maybe JobInput)
+    , _jOutputs         :: !(Maybe [JobOutput])
+    , _jUserMetadata    :: !(Maybe (Map Text Text))
+    , _jOutput          :: !(Maybe JobOutput)
+    , _jId              :: !(Maybe Text)
+    , _jPlaylists       :: !(Maybe [Playlist])
+    , _jTiming          :: !(Maybe Timing)
+    , _jOutputKeyPrefix :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Job'' smart constructor.
@@ -1989,8 +1989,8 @@ instance FromJSON Job' where
 --
 -- * 'jaaArtwork'
 data JobAlbumArt = JobAlbumArt'
-    { _jaaMergePolicy :: Maybe Text
-    , _jaaArtwork     :: Maybe [Artwork]
+    { _jaaMergePolicy :: !(Maybe Text)
+    , _jaaArtwork     :: !(Maybe [Artwork])
     } deriving (Eq,Read,Show)
 
 -- | 'JobAlbumArt' smart constructor.
@@ -2059,14 +2059,14 @@ instance ToJSON JobAlbumArt where
 --
 -- * 'jiInterlaced'
 data JobInput = JobInput'
-    { _jiFrameRate          :: Maybe Text
-    , _jiResolution         :: Maybe Text
-    , _jiAspectRatio        :: Maybe Text
-    , _jiKey                :: Maybe Text
-    , _jiDetectedProperties :: Maybe DetectedProperties
-    , _jiEncryption         :: Maybe Encryption
-    , _jiContainer          :: Maybe Text
-    , _jiInterlaced         :: Maybe Text
+    { _jiFrameRate          :: !(Maybe Text)
+    , _jiResolution         :: !(Maybe Text)
+    , _jiAspectRatio        :: !(Maybe Text)
+    , _jiKey                :: !(Maybe Text)
+    , _jiDetectedProperties :: !(Maybe DetectedProperties)
+    , _jiEncryption         :: !(Maybe Encryption)
+    , _jiContainer          :: !(Maybe Text)
+    , _jiInterlaced         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'JobInput' smart constructor.
@@ -2231,27 +2231,27 @@ instance ToJSON JobInput where
 --
 -- * 'joRotate'
 data JobOutput = JobOutput'
-    { _joAppliedColorSpaceConversion :: Maybe Text
-    , _joStatus                      :: Maybe Text
-    , _joThumbnailPattern            :: Maybe Text
-    , _joHeight                      :: Maybe Int
-    , _joFrameRate                   :: Maybe Text
-    , _joCaptions                    :: Maybe Captions
-    , _joPresetId                    :: Maybe Text
-    , _joComposition                 :: Maybe [Clip]
-    , _joAlbumArt                    :: Maybe JobAlbumArt
-    , _joFileSize                    :: Maybe Integer
-    , _joWatermarks                  :: Maybe [JobWatermark]
-    , _joWidth                       :: Maybe Int
-    , _joKey                         :: Maybe Text
-    , _joEncryption                  :: Maybe Encryption
-    , _joId                          :: Maybe Text
-    , _joSegmentDuration             :: Maybe Text
-    , _joStatusDetail                :: Maybe Text
-    , _joDurationMillis              :: Maybe Integer
-    , _joThumbnailEncryption         :: Maybe Encryption
-    , _joDuration                    :: Maybe Integer
-    , _joRotate                      :: Maybe Text
+    { _joAppliedColorSpaceConversion :: !(Maybe Text)
+    , _joStatus                      :: !(Maybe Text)
+    , _joThumbnailPattern            :: !(Maybe Text)
+    , _joHeight                      :: !(Maybe Int)
+    , _joFrameRate                   :: !(Maybe Text)
+    , _joCaptions                    :: !(Maybe Captions)
+    , _joPresetId                    :: !(Maybe Text)
+    , _joComposition                 :: !(Maybe [Clip])
+    , _joAlbumArt                    :: !(Maybe JobAlbumArt)
+    , _joFileSize                    :: !(Maybe Integer)
+    , _joWatermarks                  :: !(Maybe [JobWatermark])
+    , _joWidth                       :: !(Maybe Int)
+    , _joKey                         :: !(Maybe Text)
+    , _joEncryption                  :: !(Maybe Encryption)
+    , _joId                          :: !(Maybe Text)
+    , _joSegmentDuration             :: !(Maybe Text)
+    , _joStatusDetail                :: !(Maybe Text)
+    , _joDurationMillis              :: !(Maybe Integer)
+    , _joThumbnailEncryption         :: !(Maybe Encryption)
+    , _joDuration                    :: !(Maybe Integer)
+    , _joRotate                      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'JobOutput' smart constructor.
@@ -2564,9 +2564,9 @@ instance FromJSON JobOutput where
 --
 -- * 'jwEncryption'
 data JobWatermark = JobWatermark'
-    { _jwPresetWatermarkId :: Maybe Text
-    , _jwInputKey          :: Maybe Text
-    , _jwEncryption        :: Maybe Encryption
+    { _jwPresetWatermarkId :: !(Maybe Text)
+    , _jwInputKey          :: !(Maybe Text)
+    , _jwEncryption        :: !(Maybe Encryption)
     } deriving (Eq,Read,Show)
 
 -- | 'JobWatermark' smart constructor.
@@ -2634,10 +2634,10 @@ instance ToJSON JobWatermark where
 --
 -- * 'notProgressing'
 data Notifications = Notifications'
-    { _notError       :: Maybe Text
-    , _notWarning     :: Maybe Text
-    , _notCompleted   :: Maybe Text
-    , _notProgressing :: Maybe Text
+    { _notError       :: !(Maybe Text)
+    , _notWarning     :: !(Maybe Text)
+    , _notCompleted   :: !(Maybe Text)
+    , _notProgressing :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Notifications' smart constructor.
@@ -2698,9 +2698,9 @@ instance ToJSON Notifications where
 --
 -- * 'perGrantee'
 data Permission = Permission'
-    { _perAccess      :: Maybe [Text]
-    , _perGranteeType :: Maybe Text
-    , _perGrantee     :: Maybe Text
+    { _perAccess      :: !(Maybe [Text])
+    , _perGranteeType :: !(Maybe Text)
+    , _perGrantee     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Permission' smart constructor.
@@ -2789,17 +2789,17 @@ instance ToJSON Permission where
 --
 -- * 'pipNotifications'
 data Pipeline = Pipeline'
-    { _pipStatus          :: Maybe Text
-    , _pipARN             :: Maybe Text
-    , _pipInputBucket     :: Maybe Text
-    , _pipContentConfig   :: Maybe PipelineOutputConfig
-    , _pipOutputBucket    :: Maybe Text
-    , _pipRole            :: Maybe Text
-    , _pipName            :: Maybe Text
-    , _pipAWSKMSKeyARN    :: Maybe Text
-    , _pipId              :: Maybe Text
-    , _pipThumbnailConfig :: Maybe PipelineOutputConfig
-    , _pipNotifications   :: Maybe Notifications
+    { _pipStatus          :: !(Maybe Text)
+    , _pipARN             :: !(Maybe Text)
+    , _pipInputBucket     :: !(Maybe Text)
+    , _pipContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _pipOutputBucket    :: !(Maybe Text)
+    , _pipRole            :: !(Maybe Text)
+    , _pipName            :: !(Maybe Text)
+    , _pipAWSKMSKeyARN    :: !(Maybe Text)
+    , _pipId              :: !(Maybe Text)
+    , _pipThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _pipNotifications   :: !(Maybe Notifications)
     } deriving (Eq,Read,Show)
 
 -- | 'Pipeline' smart constructor.
@@ -2997,9 +2997,9 @@ instance FromJSON Pipeline where
 --
 -- * 'pocPermissions'
 data PipelineOutputConfig = PipelineOutputConfig'
-    { _pocBucket       :: Maybe Text
-    , _pocStorageClass :: Maybe Text
-    , _pocPermissions  :: Maybe [Permission]
+    { _pocBucket       :: !(Maybe Text)
+    , _pocStorageClass :: !(Maybe Text)
+    , _pocPermissions  :: !(Maybe [Permission])
     } deriving (Eq,Read,Show)
 
 -- | 'PipelineOutputConfig' smart constructor.
@@ -3093,12 +3093,12 @@ instance ToJSON PipelineOutputConfig where
 --
 -- * 'prdInitializationVector'
 data PlayReadyDrm = PlayReadyDrm'
-    { _prdKeyId                 :: Maybe Text
-    , _prdKeyMD5                :: Maybe Text
-    , _prdFormat                :: Maybe Text
-    , _prdKey                   :: Maybe Text
-    , _prdLicenseAcquisitionURL :: Maybe Text
-    , _prdInitializationVector  :: Maybe Text
+    { _prdKeyId                 :: !(Maybe Text)
+    , _prdKeyMD5                :: !(Maybe Text)
+    , _prdFormat                :: !(Maybe Text)
+    , _prdKey                   :: !(Maybe Text)
+    , _prdLicenseAcquisitionURL :: !(Maybe Text)
+    , _prdInitializationVector  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PlayReadyDrm' smart constructor.
@@ -3208,13 +3208,13 @@ instance ToJSON PlayReadyDrm where
 --
 -- * 'plaStatusDetail'
 data Playlist = Playlist'
-    { _plaPlayReadyDrm         :: Maybe PlayReadyDrm
-    , _plaStatus               :: Maybe Text
-    , _plaOutputKeys           :: Maybe [Text]
-    , _plaFormat               :: Maybe Text
-    , _plaName                 :: Maybe Text
-    , _plaHlsContentProtection :: Maybe HlsContentProtection
-    , _plaStatusDetail         :: Maybe Text
+    { _plaPlayReadyDrm         :: !(Maybe PlayReadyDrm)
+    , _plaStatus               :: !(Maybe Text)
+    , _plaOutputKeys           :: !(Maybe [Text])
+    , _plaFormat               :: !(Maybe Text)
+    , _plaName                 :: !(Maybe Text)
+    , _plaHlsContentProtection :: !(Maybe HlsContentProtection)
+    , _plaStatusDetail         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Playlist' smart constructor.
@@ -3350,15 +3350,15 @@ instance FromJSON Playlist where
 --
 -- * 'preDescription'
 data Preset = Preset'
-    { _preARN         :: Maybe Text
-    , _preVideo       :: Maybe VideoParameters
-    , _preName        :: Maybe Text
-    , _preThumbnails  :: Maybe Thumbnails
-    , _preContainer   :: Maybe Text
-    , _preId          :: Maybe Text
-    , _preType        :: Maybe Text
-    , _preAudio       :: Maybe AudioParameters
-    , _preDescription :: Maybe Text
+    { _preARN         :: !(Maybe Text)
+    , _preVideo       :: !(Maybe VideoParameters)
+    , _preName        :: !(Maybe Text)
+    , _preThumbnails  :: !(Maybe Thumbnails)
+    , _preContainer   :: !(Maybe Text)
+    , _preId          :: !(Maybe Text)
+    , _preType        :: !(Maybe Text)
+    , _preAudio       :: !(Maybe AudioParameters)
+    , _preDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Preset' smart constructor.
@@ -3472,16 +3472,16 @@ instance FromJSON Preset where
 --
 -- * 'pwTarget'
 data PresetWatermark = PresetWatermark'
-    { _pwVerticalAlign    :: Maybe Text
-    , _pwSizingPolicy     :: Maybe Text
-    , _pwMaxHeight        :: Maybe Text
-    , _pwHorizontalOffset :: Maybe Text
-    , _pwOpacity          :: Maybe Text
-    , _pwVerticalOffset   :: Maybe Text
-    , _pwMaxWidth         :: Maybe Text
-    , _pwId               :: Maybe Text
-    , _pwHorizontalAlign  :: Maybe Text
-    , _pwTarget           :: Maybe Text
+    { _pwVerticalAlign    :: !(Maybe Text)
+    , _pwSizingPolicy     :: !(Maybe Text)
+    , _pwMaxHeight        :: !(Maybe Text)
+    , _pwHorizontalOffset :: !(Maybe Text)
+    , _pwOpacity          :: !(Maybe Text)
+    , _pwVerticalOffset   :: !(Maybe Text)
+    , _pwMaxWidth         :: !(Maybe Text)
+    , _pwId               :: !(Maybe Text)
+    , _pwHorizontalAlign  :: !(Maybe Text)
+    , _pwTarget           :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PresetWatermark' smart constructor.
@@ -3701,14 +3701,14 @@ instance ToJSON PresetWatermark where
 --
 -- * 'thuMaxWidth'
 data Thumbnails = Thumbnails'
-    { _thuSizingPolicy  :: Maybe Text
-    , _thuFormat        :: Maybe Text
-    , _thuMaxHeight     :: Maybe Text
-    , _thuResolution    :: Maybe Text
-    , _thuPaddingPolicy :: Maybe Text
-    , _thuAspectRatio   :: Maybe Text
-    , _thuInterval      :: Maybe Text
-    , _thuMaxWidth      :: Maybe Text
+    { _thuSizingPolicy  :: !(Maybe Text)
+    , _thuFormat        :: !(Maybe Text)
+    , _thuMaxHeight     :: !(Maybe Text)
+    , _thuResolution    :: !(Maybe Text)
+    , _thuPaddingPolicy :: !(Maybe Text)
+    , _thuAspectRatio   :: !(Maybe Text)
+    , _thuInterval      :: !(Maybe Text)
+    , _thuMaxWidth      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Thumbnails' smart constructor.
@@ -3849,8 +3849,8 @@ instance ToJSON Thumbnails where
 --
 -- * 'tsDuration'
 data TimeSpan = TimeSpan'
-    { _tsStartTime :: Maybe Text
-    , _tsDuration  :: Maybe Text
+    { _tsStartTime :: !(Maybe Text)
+    , _tsDuration  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TimeSpan' smart constructor.
@@ -3904,9 +3904,9 @@ instance ToJSON TimeSpan where
 --
 -- * 'timStartTimeMillis'
 data Timing = Timing'
-    { _timSubmitTimeMillis :: Maybe Integer
-    , _timFinishTimeMillis :: Maybe Integer
-    , _timStartTimeMillis  :: Maybe Integer
+    { _timSubmitTimeMillis :: !(Maybe Integer)
+    , _timFinishTimeMillis :: !(Maybe Integer)
+    , _timStartTimeMillis  :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'Timing' smart constructor.
@@ -3976,21 +3976,21 @@ instance FromJSON Timing where
 --
 -- * 'vpCodecOptions'
 data VideoParameters = VideoParameters'
-    { _vpKeyframesMaxDist   :: Maybe Text
-    , _vpFrameRate          :: Maybe Text
-    , _vpSizingPolicy       :: Maybe Text
-    , _vpMaxFrameRate       :: Maybe Text
-    , _vpMaxHeight          :: Maybe Text
-    , _vpDisplayAspectRatio :: Maybe Text
-    , _vpWatermarks         :: Maybe [PresetWatermark]
-    , _vpCodec              :: Maybe Text
-    , _vpResolution         :: Maybe Text
-    , _vpPaddingPolicy      :: Maybe Text
-    , _vpAspectRatio        :: Maybe Text
-    , _vpMaxWidth           :: Maybe Text
-    , _vpBitRate            :: Maybe Text
-    , _vpFixedGOP           :: Maybe Text
-    , _vpCodecOptions       :: Maybe (Map Text Text)
+    { _vpKeyframesMaxDist   :: !(Maybe Text)
+    , _vpFrameRate          :: !(Maybe Text)
+    , _vpSizingPolicy       :: !(Maybe Text)
+    , _vpMaxFrameRate       :: !(Maybe Text)
+    , _vpMaxHeight          :: !(Maybe Text)
+    , _vpDisplayAspectRatio :: !(Maybe Text)
+    , _vpWatermarks         :: !(Maybe [PresetWatermark])
+    , _vpCodec              :: !(Maybe Text)
+    , _vpResolution         :: !(Maybe Text)
+    , _vpPaddingPolicy      :: !(Maybe Text)
+    , _vpAspectRatio        :: !(Maybe Text)
+    , _vpMaxWidth           :: !(Maybe Text)
+    , _vpBitRate            :: !(Maybe Text)
+    , _vpFixedGOP           :: !(Maybe Text)
+    , _vpCodecOptions       :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show)
 
 -- | 'VideoParameters' smart constructor.
@@ -4461,8 +4461,8 @@ instance ToJSON VideoParameters where
 --
 -- * 'warMessage'
 data Warning = Warning'
-    { _warCode    :: Maybe Text
-    , _warMessage :: Maybe Text
+    { _warCode    :: !(Maybe Text)
+    , _warMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Warning' smart constructor.

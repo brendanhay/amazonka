@@ -62,11 +62,11 @@ import           Network.AWS.Response
 --
 -- * 'rciTotalResources'
 data RegisterContainerInstance = RegisterContainerInstance'
-    { _rciInstanceIdentityDocumentSignature :: Maybe Text
-    , _rciCluster                           :: Maybe Text
-    , _rciInstanceIdentityDocument          :: Maybe Text
-    , _rciVersionInfo                       :: Maybe VersionInfo
-    , _rciTotalResources                    :: Maybe [Resource]
+    { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
+    , _rciCluster                           :: !(Maybe Text)
+    , _rciInstanceIdentityDocument          :: !(Maybe Text)
+    , _rciVersionInfo                       :: !(Maybe VersionInfo)
+    , _rciTotalResources                    :: !(Maybe [Resource])
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterContainerInstance' smart constructor.
@@ -155,7 +155,7 @@ instance ToQuery RegisterContainerInstance where
 --
 -- * 'rcirStatus'
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
-    { _rcirContainerInstance :: Maybe ContainerInstance
+    { _rcirContainerInstance :: !(Maybe ContainerInstance)
     , _rcirStatus            :: !Int
     } deriving (Eq,Read,Show)
 

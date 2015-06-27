@@ -106,7 +106,7 @@ instance ToQuery ListTagsForDomain where
 --
 -- * 'ltfdrStatus'
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-    { _ltfdrTagList :: [Tag]
+    { _ltfdrTagList :: ![Tag]
     , _ltfdrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

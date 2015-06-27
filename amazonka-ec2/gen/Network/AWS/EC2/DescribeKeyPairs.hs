@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'dkp1DryRun'
 data DescribeKeyPairs = DescribeKeyPairs'
-    { _dkp1Filters  :: Maybe [Filter]
-    , _dkp1KeyNames :: Maybe [Text]
-    , _dkp1DryRun   :: Maybe Bool
+    { _dkp1Filters  :: !(Maybe [Filter])
+    , _dkp1KeyNames :: !(Maybe [Text])
+    , _dkp1DryRun   :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeKeyPairs' smart constructor.
@@ -126,7 +126,7 @@ instance ToQuery DescribeKeyPairs where
 --
 -- * 'dkprStatus'
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
-    { _dkprKeyPairs :: Maybe [KeyPairInfo]
+    { _dkprKeyPairs :: !(Maybe [KeyPairInfo])
     , _dkprStatus   :: !Int
     } deriving (Eq,Read,Show)
 

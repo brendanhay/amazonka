@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'citDryRun'
 data CancelImportTask = CancelImportTask'
-    { _citCancelReason :: Maybe Text
-    , _citImportTaskId :: Maybe Text
-    , _citDryRun       :: Maybe Bool
+    { _citCancelReason :: !(Maybe Text)
+    , _citImportTaskId :: !(Maybe Text)
+    , _citDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'CancelImportTask' smart constructor.
@@ -122,9 +122,9 @@ instance ToQuery CancelImportTask where
 --
 -- * 'citrStatus'
 data CancelImportTaskResponse = CancelImportTaskResponse'
-    { _citrState         :: Maybe Text
-    , _citrImportTaskId  :: Maybe Text
-    , _citrPreviousState :: Maybe Text
+    { _citrState         :: !(Maybe Text)
+    , _citrImportTaskId  :: !(Maybe Text)
+    , _citrPreviousState :: !(Maybe Text)
     , _citrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

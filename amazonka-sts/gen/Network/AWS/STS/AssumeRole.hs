@@ -143,13 +143,13 @@ import           Network.AWS.STS.Types
 --
 -- * 'arRoleSessionName'
 data AssumeRole = AssumeRole'
-    { _arTokenCode       :: Maybe Text
-    , _arDurationSeconds :: Maybe Nat
-    , _arExternalId      :: Maybe Text
-    , _arPolicy          :: Maybe Text
-    , _arSerialNumber    :: Maybe Text
-    , _arRoleARN         :: Text
-    , _arRoleSessionName :: Text
+    { _arTokenCode       :: !(Maybe Text)
+    , _arDurationSeconds :: !(Maybe Nat)
+    , _arExternalId      :: !(Maybe Text)
+    , _arPolicy          :: !(Maybe Text)
+    , _arSerialNumber    :: !(Maybe Text)
+    , _arRoleARN         :: !Text
+    , _arRoleSessionName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssumeRole' smart constructor.
@@ -270,9 +270,9 @@ instance ToQuery AssumeRole where
 --
 -- * 'arrStatus'
 data AssumeRoleResponse = AssumeRoleResponse'
-    { _arrPackedPolicySize :: Maybe Nat
-    , _arrCredentials      :: Maybe Credentials
-    , _arrAssumedRoleUser  :: Maybe AssumedRoleUser
+    { _arrPackedPolicySize :: !(Maybe Nat)
+    , _arrCredentials      :: !(Maybe Credentials)
+    , _arrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

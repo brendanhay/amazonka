@@ -125,10 +125,10 @@ instance ToQuery DescribeWorkingStorage where
 --
 -- * 'dwsrStatus'
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-    { _dwsrGatewayARN                     :: Maybe Text
-    , _dwsrDiskIds                        :: Maybe [Text]
-    , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
-    , _dwsrWorkingStorageUsedInBytes      :: Maybe Integer
+    { _dwsrGatewayARN                     :: !(Maybe Text)
+    , _dwsrDiskIds                        :: !(Maybe [Text])
+    , _dwsrWorkingStorageAllocatedInBytes :: !(Maybe Integer)
+    , _dwsrWorkingStorageUsedInBytes      :: !(Maybe Integer)
     , _dwsrStatus                         :: !Int
     } deriving (Eq,Read,Show)
 

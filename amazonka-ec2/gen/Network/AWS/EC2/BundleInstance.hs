@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'biStorage'
 data BundleInstance = BundleInstance'
-    { _biDryRun     :: Maybe Bool
-    , _biInstanceId :: Text
-    , _biStorage    :: Storage
+    { _biDryRun     :: !(Maybe Bool)
+    , _biInstanceId :: !Text
+    , _biStorage    :: !Storage
     } deriving (Eq,Read,Show)
 
 -- | 'BundleInstance' smart constructor.
@@ -131,7 +131,7 @@ instance ToQuery BundleInstance where
 --
 -- * 'birStatus'
 data BundleInstanceResponse = BundleInstanceResponse'
-    { _birBundleTask :: Maybe BundleTask
+    { _birBundleTask :: !(Maybe BundleTask)
     , _birStatus     :: !Int
     } deriving (Eq,Read,Show)
 

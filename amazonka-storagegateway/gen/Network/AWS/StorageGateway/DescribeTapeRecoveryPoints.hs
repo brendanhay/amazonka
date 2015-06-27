@@ -63,9 +63,9 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'dtrpGatewayARN'
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-    { _dtrpMarker     :: Maybe Text
-    , _dtrpLimit      :: Maybe Nat
-    , _dtrpGatewayARN :: Text
+    { _dtrpMarker     :: !(Maybe Text)
+    , _dtrpLimit      :: !(Maybe Nat)
+    , _dtrpGatewayARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapeRecoveryPoints' smart constructor.
@@ -148,9 +148,9 @@ instance ToQuery DescribeTapeRecoveryPoints where
 --
 -- * 'dtrprStatus'
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-    { _dtrprTapeRecoveryPointInfos :: Maybe [TapeRecoveryPointInfo]
-    , _dtrprGatewayARN             :: Maybe Text
-    , _dtrprMarker                 :: Maybe Text
+    { _dtrprTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
+    , _dtrprGatewayARN             :: !(Maybe Text)
+    , _dtrprMarker                 :: !(Maybe Text)
     , _dtrprStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

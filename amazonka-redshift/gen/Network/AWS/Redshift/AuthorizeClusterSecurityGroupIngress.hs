@@ -75,10 +75,10 @@ import           Network.AWS.Response
 --
 -- * 'acsgiClusterSecurityGroupName'
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-    { _acsgiEC2SecurityGroupOwnerId  :: Maybe Text
-    , _acsgiEC2SecurityGroupName     :: Maybe Text
-    , _acsgiCIDRIP                   :: Maybe Text
-    , _acsgiClusterSecurityGroupName :: Text
+    { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
+    , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
+    , _acsgiCIDRIP                   :: !(Maybe Text)
+    , _acsgiClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
@@ -157,7 +157,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 --
 -- * 'acsgirStatus'
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
-    { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _acsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _acsgirStatus               :: !Int
     } deriving (Eq,Read,Show)
 

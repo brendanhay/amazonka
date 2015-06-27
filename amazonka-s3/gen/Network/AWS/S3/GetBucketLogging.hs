@@ -89,7 +89,7 @@ instance ToQuery GetBucketLogging where
 --
 -- * 'getStatus'
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-    { _getLoggingEnabled :: Maybe LoggingEnabled
+    { _getLoggingEnabled :: !(Maybe LoggingEnabled)
     , _getStatus         :: !Int
     } deriving (Eq,Read,Show)
 

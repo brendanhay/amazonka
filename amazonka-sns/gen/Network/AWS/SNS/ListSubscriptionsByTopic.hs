@@ -57,8 +57,8 @@ import           Network.AWS.SNS.Types
 --
 -- * 'lsbtTopicARN'
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
-    { _lsbtNextToken :: Maybe Text
-    , _lsbtTopicARN  :: Text
+    { _lsbtNextToken :: !(Maybe Text)
+    , _lsbtTopicARN  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListSubscriptionsByTopic' smart constructor.
@@ -125,8 +125,8 @@ instance ToQuery ListSubscriptionsByTopic where
 --
 -- * 'lsbtrStatus'
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
-    { _lsbtrNextToken     :: Maybe Text
-    , _lsbtrSubscriptions :: Maybe [Subscription]
+    { _lsbtrNextToken     :: !(Maybe Text)
+    , _lsbtrSubscriptions :: !(Maybe [Subscription])
     , _lsbtrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

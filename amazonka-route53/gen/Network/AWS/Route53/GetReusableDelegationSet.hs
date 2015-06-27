@@ -97,7 +97,7 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- * 'grdsrStatus'
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-    { _grdsrDelegationSet :: DelegationSet
+    { _grdsrDelegationSet :: !DelegationSet
     , _grdsrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

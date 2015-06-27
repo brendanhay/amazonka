@@ -76,8 +76,8 @@ import           Network.AWS.SWF.Types
 --
 -- * 'depWorkflowType'
 data DeprecateWorkflowType = DeprecateWorkflowType'
-    { _depDomain       :: Text
-    , _depWorkflowType :: WorkflowType
+    { _depDomain       :: !Text
+    , _depWorkflowType :: !WorkflowType
     } deriving (Eq,Read,Show)
 
 -- | 'DeprecateWorkflowType' smart constructor.

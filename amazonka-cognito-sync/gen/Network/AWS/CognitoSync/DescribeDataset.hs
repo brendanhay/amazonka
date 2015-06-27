@@ -62,9 +62,9 @@ import           Network.AWS.Response
 --
 -- * 'ddDatasetName'
 data DescribeDataset = DescribeDataset'
-    { _ddIdentityPoolId :: Text
-    , _ddIdentityId     :: Text
-    , _ddDatasetName    :: Text
+    { _ddIdentityPoolId :: !Text
+    , _ddIdentityId     :: !Text
+    , _ddDatasetName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDataset' smart constructor.
@@ -130,7 +130,7 @@ instance ToQuery DescribeDataset where
 --
 -- * 'ddrStatus'
 data DescribeDatasetResponse = DescribeDatasetResponse'
-    { _ddrDataset :: Maybe Dataset
+    { _ddrDataset :: !(Maybe Dataset)
     , _ddrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

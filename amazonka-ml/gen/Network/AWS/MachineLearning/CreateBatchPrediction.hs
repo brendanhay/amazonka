@@ -72,11 +72,11 @@ import           Network.AWS.Response
 --
 -- * 'cbpOutputURI'
 data CreateBatchPrediction = CreateBatchPrediction'
-    { _cbpBatchPredictionName         :: Maybe Text
-    , _cbpBatchPredictionId           :: Text
-    , _cbpMLModelId                   :: Text
-    , _cbpBatchPredictionDataSourceId :: Text
-    , _cbpOutputURI                   :: Text
+    { _cbpBatchPredictionName         :: !(Maybe Text)
+    , _cbpBatchPredictionId           :: !Text
+    , _cbpMLModelId                   :: !Text
+    , _cbpBatchPredictionDataSourceId :: !Text
+    , _cbpOutputURI                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateBatchPrediction' smart constructor.
@@ -172,7 +172,7 @@ instance ToQuery CreateBatchPrediction where
 --
 -- * 'cbprStatus'
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
-    { _cbprBatchPredictionId :: Maybe Text
+    { _cbprBatchPredictionId :: !(Maybe Text)
     , _cbprStatus            :: !Int
     } deriving (Eq,Read,Show)
 

@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'prePredictEndpoint'
 data Predict = Predict'
-    { _preMLModelId       :: Text
-    , _preRecord          :: Map Text Text
-    , _prePredictEndpoint :: Text
+    { _preMLModelId       :: !Text
+    , _preRecord          :: !(Map Text Text)
+    , _prePredictEndpoint :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Predict' smart constructor.
@@ -124,7 +124,7 @@ instance ToQuery Predict where
 --
 -- * 'prStatus'
 data PredictResponse = PredictResponse'
-    { _prPrediction :: Maybe Prediction
+    { _prPrediction :: !(Maybe Prediction)
     , _prStatus     :: !Int
     } deriving (Eq,Read,Show)
 

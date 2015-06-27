@@ -78,13 +78,13 @@ import           Network.AWS.Response
 --
 -- * 'utName'
 data UpdateTrail = UpdateTrail'
-    { _utS3KeyPrefix                :: Maybe Text
-    , _utSNSTopicName               :: Maybe Text
-    , _utCloudWatchLogsLogGroupARN  :: Maybe Text
-    , _utIncludeGlobalServiceEvents :: Maybe Bool
-    , _utCloudWatchLogsRoleARN      :: Maybe Text
-    , _utS3BucketName               :: Maybe Text
-    , _utName                       :: Text
+    { _utS3KeyPrefix                :: !(Maybe Text)
+    , _utSNSTopicName               :: !(Maybe Text)
+    , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utS3BucketName               :: !(Maybe Text)
+    , _utName                       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateTrail' smart constructor.
@@ -202,13 +202,13 @@ instance ToQuery UpdateTrail where
 --
 -- * 'utrStatus'
 data UpdateTrailResponse = UpdateTrailResponse'
-    { _utrS3KeyPrefix                :: Maybe Text
-    , _utrSNSTopicName               :: Maybe Text
-    , _utrCloudWatchLogsLogGroupARN  :: Maybe Text
-    , _utrName                       :: Maybe Text
-    , _utrIncludeGlobalServiceEvents :: Maybe Bool
-    , _utrCloudWatchLogsRoleARN      :: Maybe Text
-    , _utrS3BucketName               :: Maybe Text
+    { _utrS3KeyPrefix                :: !(Maybe Text)
+    , _utrSNSTopicName               :: !(Maybe Text)
+    , _utrCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utrName                       :: !(Maybe Text)
+    , _utrIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _utrCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utrS3BucketName               :: !(Maybe Text)
     , _utrStatus                     :: !Int
     } deriving (Eq,Read,Show)
 

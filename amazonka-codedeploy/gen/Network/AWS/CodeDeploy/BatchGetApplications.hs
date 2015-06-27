@@ -105,7 +105,7 @@ instance ToQuery BatchGetApplications where
 --
 -- * 'bgarStatus'
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
-    { _bgarApplicationsInfo :: Maybe [ApplicationInfo]
+    { _bgarApplicationsInfo :: !(Maybe [ApplicationInfo])
     , _bgarStatus           :: !Int
     } deriving (Eq,Read,Show)
 

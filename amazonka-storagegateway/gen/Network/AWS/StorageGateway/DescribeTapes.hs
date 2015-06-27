@@ -61,10 +61,10 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'dtGatewayARN'
 data DescribeTapes = DescribeTapes'
-    { _dtMarker     :: Maybe Text
-    , _dtLimit      :: Maybe Nat
-    , _dtTapeARNs   :: Maybe [Text]
-    , _dtGatewayARN :: Text
+    { _dtMarker     :: !(Maybe Text)
+    , _dtLimit      :: !(Maybe Nat)
+    , _dtTapeARNs   :: !(Maybe [Text])
+    , _dtGatewayARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeTapes' smart constructor.
@@ -154,8 +154,8 @@ instance ToQuery DescribeTapes where
 --
 -- * 'desStatus'
 data DescribeTapesResponse = DescribeTapesResponse'
-    { _desMarker :: Maybe Text
-    , _desTapes  :: Maybe [Tape]
+    { _desMarker :: !(Maybe Text)
+    , _desTapes  :: !(Maybe [Tape])
     , _desStatus :: !Int
     } deriving (Eq,Read,Show)
 

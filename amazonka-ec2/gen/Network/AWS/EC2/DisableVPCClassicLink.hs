@@ -50,8 +50,8 @@ import           Network.AWS.Response
 --
 -- * 'disVPCId'
 data DisableVPCClassicLink = DisableVPCClassicLink'
-    { _disDryRun :: Maybe Bool
-    , _disVPCId  :: Text
+    { _disDryRun :: !(Maybe Bool)
+    , _disVPCId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DisableVPCClassicLink' smart constructor.
@@ -105,7 +105,7 @@ instance ToQuery DisableVPCClassicLink where
 --
 -- * 'disStatus'
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
-    { _disReturn :: Maybe Bool
+    { _disReturn :: !(Maybe Bool)
     , _disStatus :: !Int
     } deriving (Eq,Read,Show)
 

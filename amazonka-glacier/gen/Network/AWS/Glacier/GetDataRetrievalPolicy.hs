@@ -105,7 +105,7 @@ instance ToQuery GetDataRetrievalPolicy where
 --
 -- * 'gdrprStatus'
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-    { _gdrprPolicy :: Maybe DataRetrievalPolicy
+    { _gdrprPolicy :: !(Maybe DataRetrievalPolicy)
     , _gdrprStatus :: !Int
     } deriving (Eq,Read,Show)
 

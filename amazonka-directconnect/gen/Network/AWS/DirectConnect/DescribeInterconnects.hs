@@ -107,7 +107,7 @@ instance ToQuery DescribeInterconnects where
 --
 -- * 'dirStatus'
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
-    { _dirInterconnects :: Maybe [Interconnect]
+    { _dirInterconnects :: !(Maybe [Interconnect])
     , _dirStatus        :: !Int
     } deriving (Eq,Read,Show)
 

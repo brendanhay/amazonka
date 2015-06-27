@@ -103,7 +103,7 @@ instance ToQuery GetCognitoEvents where
 --
 -- * 'gcerStatus'
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
-    { _gcerEvents :: Maybe (Map Text Text)
+    { _gcerEvents :: !(Maybe (Map Text Text))
     , _gcerStatus :: !Int
     } deriving (Eq,Read,Show)
 

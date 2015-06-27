@@ -114,9 +114,9 @@ instance ToQuery GetIdentityPoolConfiguration where
 --
 -- * 'gipcrStatus'
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
-    { _gipcrIdentityPoolId :: Maybe Text
-    , _gipcrCognitoStreams :: Maybe CognitoStreams
-    , _gipcrPushSync       :: Maybe PushSync
+    { _gipcrIdentityPoolId :: !(Maybe Text)
+    , _gipcrCognitoStreams :: !(Maybe CognitoStreams)
+    , _gipcrPushSync       :: !(Maybe PushSync)
     , _gipcrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

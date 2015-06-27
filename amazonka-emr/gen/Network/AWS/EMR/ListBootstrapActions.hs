@@ -54,8 +54,8 @@ import           Network.AWS.Response
 --
 -- * 'lbaClusterId'
 data ListBootstrapActions = ListBootstrapActions'
-    { _lbaMarker    :: Maybe Text
-    , _lbaClusterId :: Text
+    { _lbaMarker    :: !(Maybe Text)
+    , _lbaClusterId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListBootstrapActions' smart constructor.
@@ -129,8 +129,8 @@ instance ToQuery ListBootstrapActions where
 --
 -- * 'lbarStatus'
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
-    { _lbarBootstrapActions :: Maybe [Command]
-    , _lbarMarker           :: Maybe Text
+    { _lbarBootstrapActions :: !(Maybe [Command])
+    , _lbarMarker           :: !(Maybe Text)
     , _lbarStatus           :: !Int
     } deriving (Eq,Read,Show)
 

@@ -272,14 +272,14 @@ instance FromJSON LifeCycleState where
 --
 -- * 'fsdSizeInBytes'
 data FileSystemDescription = FileSystemDescription'
-    { _fsdName                 :: Maybe Text
-    , _fsdOwnerId              :: Text
-    , _fsdCreationToken        :: Text
-    , _fsdFileSystemId         :: Text
-    , _fsdCreationTime         :: POSIX
-    , _fsdLifeCycleState       :: LifeCycleState
+    { _fsdName                 :: !(Maybe Text)
+    , _fsdOwnerId              :: !Text
+    , _fsdCreationToken        :: !Text
+    , _fsdFileSystemId         :: !Text
+    , _fsdCreationTime         :: !POSIX
+    , _fsdLifeCycleState       :: !LifeCycleState
     , _fsdNumberOfMountTargets :: !Nat
-    , _fsdSizeInBytes          :: FileSystemSize
+    , _fsdSizeInBytes          :: !FileSystemSize
     } deriving (Eq,Read,Show)
 
 -- | 'FileSystemDescription' smart constructor.
@@ -375,7 +375,7 @@ instance FromJSON FileSystemDescription where
 --
 -- * 'fssValue'
 data FileSystemSize = FileSystemSize'
-    { _fssTimestamp :: Maybe POSIX
+    { _fssTimestamp :: !(Maybe POSIX)
     , _fssValue     :: !Nat
     } deriving (Eq,Read,Show)
 
@@ -425,13 +425,13 @@ instance FromJSON FileSystemSize where
 --
 -- * 'mtdLifeCycleState'
 data MountTargetDescription = MountTargetDescription'
-    { _mtdIPAddress          :: Maybe Text
-    , _mtdNetworkInterfaceId :: Maybe Text
-    , _mtdOwnerId            :: Maybe Text
-    , _mtdMountTargetId      :: Text
-    , _mtdFileSystemId       :: Text
-    , _mtdSubnetId           :: Text
-    , _mtdLifeCycleState     :: LifeCycleState
+    { _mtdIPAddress          :: !(Maybe Text)
+    , _mtdNetworkInterfaceId :: !(Maybe Text)
+    , _mtdOwnerId            :: !(Maybe Text)
+    , _mtdMountTargetId      :: !Text
+    , _mtdFileSystemId       :: !Text
+    , _mtdSubnetId           :: !Text
+    , _mtdLifeCycleState     :: !LifeCycleState
     } deriving (Eq,Read,Show)
 
 -- | 'MountTargetDescription' smart constructor.
@@ -501,8 +501,8 @@ instance FromJSON MountTargetDescription where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey   :: Text
-    , _tagValue :: Text
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.

@@ -90,14 +90,14 @@ import           Network.AWS.Response
 --
 -- * 'plhAutoScalingGroupName'
 data PutLifecycleHook = PutLifecycleHook'
-    { _plhDefaultResult         :: Maybe Text
-    , _plhHeartbeatTimeout      :: Maybe Int
-    , _plhNotificationMetadata  :: Maybe Text
-    , _plhRoleARN               :: Maybe Text
-    , _plhLifecycleTransition   :: Maybe Text
-    , _plhNotificationTargetARN :: Maybe Text
-    , _plhLifecycleHookName     :: Text
-    , _plhAutoScalingGroupName  :: Text
+    { _plhDefaultResult         :: !(Maybe Text)
+    , _plhHeartbeatTimeout      :: !(Maybe Int)
+    , _plhNotificationMetadata  :: !(Maybe Text)
+    , _plhRoleARN               :: !(Maybe Text)
+    , _plhLifecycleTransition   :: !(Maybe Text)
+    , _plhNotificationTargetARN :: !(Maybe Text)
+    , _plhLifecycleHookName     :: !Text
+    , _plhAutoScalingGroupName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutLifecycleHook' smart constructor.

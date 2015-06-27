@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'dcCommandIds'
 data DescribeCommands = DescribeCommands'
-    { _dcInstanceId   :: Maybe Text
-    , _dcDeploymentId :: Maybe Text
-    , _dcCommandIds   :: Maybe [Text]
+    { _dcInstanceId   :: !(Maybe Text)
+    , _dcDeploymentId :: !(Maybe Text)
+    , _dcCommandIds   :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCommands' smart constructor.
@@ -135,7 +135,7 @@ instance ToQuery DescribeCommands where
 --
 -- * 'dcrStatus'
 data DescribeCommandsResponse = DescribeCommandsResponse'
-    { _dcrCommands :: Maybe [Command]
+    { _dcrCommands :: !(Maybe [Command])
     , _dcrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

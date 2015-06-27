@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'lkLimit'
 data ListKeys = ListKeys'
-    { _lkMarker :: Maybe Text
-    , _lkLimit  :: Maybe Nat
+    { _lkMarker :: !(Maybe Text)
+    , _lkLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'ListKeys' smart constructor.
@@ -120,9 +120,9 @@ instance ToQuery ListKeys where
 --
 -- * 'lkrStatus'
 data ListKeysResponse = ListKeysResponse'
-    { _lkrTruncated  :: Maybe Bool
-    , _lkrKeys       :: Maybe [KeyListEntry]
-    , _lkrNextMarker :: Maybe Text
+    { _lkrTruncated  :: !(Maybe Bool)
+    , _lkrKeys       :: !(Maybe [KeyListEntry])
+    , _lkrNextMarker :: !(Maybe Text)
     , _lkrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

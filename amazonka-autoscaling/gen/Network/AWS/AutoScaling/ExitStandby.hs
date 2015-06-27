@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'exiAutoScalingGroupName'
 data ExitStandby = ExitStandby'
-    { _exiInstanceIds          :: Maybe [Text]
-    , _exiAutoScalingGroupName :: Text
+    { _exiInstanceIds          :: !(Maybe [Text])
+    , _exiAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ExitStandby' smart constructor.
@@ -108,7 +108,7 @@ instance ToQuery ExitStandby where
 --
 -- * 'exiStatus'
 data ExitStandbyResponse = ExitStandbyResponse'
-    { _exiActivities :: Maybe [Activity]
+    { _exiActivities :: !(Maybe [Activity])
     , _exiStatus     :: !Int
     } deriving (Eq,Read,Show)
 

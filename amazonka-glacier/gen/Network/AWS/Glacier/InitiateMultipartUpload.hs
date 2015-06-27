@@ -95,10 +95,10 @@ import           Network.AWS.Response
 --
 -- * 'imuVaultName'
 data InitiateMultipartUpload = InitiateMultipartUpload'
-    { _imuPartSize           :: Maybe Text
-    , _imuArchiveDescription :: Maybe Text
-    , _imuAccountId          :: Text
-    , _imuVaultName          :: Text
+    { _imuPartSize           :: !(Maybe Text)
+    , _imuArchiveDescription :: !(Maybe Text)
+    , _imuAccountId          :: !Text
+    , _imuVaultName          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InitiateMultipartUpload' smart constructor.
@@ -181,8 +181,8 @@ instance ToQuery InitiateMultipartUpload where
 --
 -- * 'imurStatus'
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
-    { _imurLocation :: Maybe Text
-    , _imurUploadId :: Maybe Text
+    { _imurLocation :: !(Maybe Text)
+    , _imurUploadId :: !(Maybe Text)
     , _imurStatus   :: !Int
     } deriving (Eq,Read,Show)
 

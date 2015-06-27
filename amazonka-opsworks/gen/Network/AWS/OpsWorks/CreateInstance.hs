@@ -101,23 +101,23 @@ import           Network.AWS.Response
 --
 -- * 'ciInstanceType'
 data CreateInstance = CreateInstance'
-    { _ciInstallUpdatesOnBoot :: Maybe Bool
-    , _ciVirtualizationType   :: Maybe Text
-    , _ciHostname             :: Maybe Text
-    , _ciSSHKeyName           :: Maybe Text
-    , _ciAgentVersion         :: Maybe Text
-    , _ciSubnetId             :: Maybe Text
-    , _ciEBSOptimized         :: Maybe Bool
-    , _ciOS                   :: Maybe Text
-    , _ciAvailabilityZone     :: Maybe Text
-    , _ciAutoScalingType      :: Maybe AutoScalingType
-    , _ciArchitecture         :: Maybe Architecture
-    , _ciAMIId                :: Maybe Text
-    , _ciBlockDeviceMappings  :: Maybe [BlockDeviceMapping]
-    , _ciRootDeviceType       :: Maybe RootDeviceType
-    , _ciStackId              :: Text
-    , _ciLayerIds             :: [Text]
-    , _ciInstanceType         :: Text
+    { _ciInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _ciVirtualizationType   :: !(Maybe Text)
+    , _ciHostname             :: !(Maybe Text)
+    , _ciSSHKeyName           :: !(Maybe Text)
+    , _ciAgentVersion         :: !(Maybe Text)
+    , _ciSubnetId             :: !(Maybe Text)
+    , _ciEBSOptimized         :: !(Maybe Bool)
+    , _ciOS                   :: !(Maybe Text)
+    , _ciAvailabilityZone     :: !(Maybe Text)
+    , _ciAutoScalingType      :: !(Maybe AutoScalingType)
+    , _ciArchitecture         :: !(Maybe Architecture)
+    , _ciAMIId                :: !(Maybe Text)
+    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
+    , _ciRootDeviceType       :: !(Maybe RootDeviceType)
+    , _ciStackId              :: !Text
+    , _ciLayerIds             :: ![Text]
+    , _ciInstanceType         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateInstance' smart constructor.
@@ -322,7 +322,7 @@ instance ToQuery CreateInstance where
 --
 -- * 'cirStatus'
 data CreateInstanceResponse = CreateInstanceResponse'
-    { _cirInstanceId :: Maybe Text
+    { _cirInstanceId :: !(Maybe Text)
     , _cirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -49,8 +49,8 @@ import           Network.AWS.Response
 --
 -- * 'aeuEnvironmentId'
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-    { _aeuEnvironmentName :: Maybe Text
-    , _aeuEnvironmentId   :: Maybe Text
+    { _aeuEnvironmentName :: !(Maybe Text)
+    , _aeuEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AbortEnvironmentUpdate' smart constructor.

@@ -90,7 +90,7 @@ instance ToQuery GetBucketReplication where
 --
 -- * 'gbrrStatus'
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-    { _gbrrReplicationConfiguration :: Maybe ReplicationConfiguration
+    { _gbrrReplicationConfiguration :: !(Maybe ReplicationConfiguration)
     , _gbrrStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

@@ -103,8 +103,8 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- * 'gaklurStatus'
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-    { _gaklurUserName          :: Maybe Text
-    , _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed
+    { _gaklurUserName          :: !(Maybe Text)
+    , _gaklurAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
     , _gaklurStatus            :: !Int
     } deriving (Eq,Read,Show)
 

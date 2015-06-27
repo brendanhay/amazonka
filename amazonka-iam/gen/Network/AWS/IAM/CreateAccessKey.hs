@@ -110,7 +110,7 @@ instance ToQuery CreateAccessKey where
 --
 -- * 'cakrStatus'
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrAccessKey :: AccessKey
+    { _cakrAccessKey :: !AccessKey
     , _cakrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

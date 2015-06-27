@@ -92,9 +92,9 @@ instance ToQuery GetCredentialReport where
 --
 -- * 'getStatus'
 data GetCredentialReportResponse = GetCredentialReportResponse'
-    { _getContent       :: Maybe Base64
-    , _getGeneratedTime :: Maybe ISO8601
-    , _getReportFormat  :: Maybe ReportFormatType
+    { _getContent       :: !(Maybe Base64)
+    , _getGeneratedTime :: !(Maybe ISO8601)
+    , _getReportFormat  :: !(Maybe ReportFormatType)
     , _getStatus        :: !Int
     } deriving (Eq,Read,Show)
 

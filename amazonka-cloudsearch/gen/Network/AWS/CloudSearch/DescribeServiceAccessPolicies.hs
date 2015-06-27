@@ -60,8 +60,8 @@ import           Network.AWS.Response
 --
 -- * 'dsapDomainName'
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-    { _dsapDeployed   :: Maybe Bool
-    , _dsapDomainName :: Text
+    { _dsapDeployed   :: !(Maybe Bool)
+    , _dsapDomainName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeServiceAccessPolicies' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- * 'dsaprStatus'
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-    { _dsaprAccessPolicies :: AccessPoliciesStatus
+    { _dsaprAccessPolicies :: !AccessPoliciesStatus
     , _dsaprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

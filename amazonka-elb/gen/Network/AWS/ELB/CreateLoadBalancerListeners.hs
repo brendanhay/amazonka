@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'clblListeners'
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
-    { _clblLoadBalancerName :: Text
-    , _clblListeners        :: [Listener]
+    { _clblLoadBalancerName :: !Text
+    , _clblListeners        :: ![Listener]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.

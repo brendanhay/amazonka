@@ -69,13 +69,13 @@ import           Network.AWS.Response
 --
 -- * 'drcnoReservedCacheNodesOfferingId'
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
-    { _drcnoCacheNodeType                :: Maybe Text
-    , _drcnoProductDescription           :: Maybe Text
-    , _drcnoMaxRecords                   :: Maybe Int
-    , _drcnoMarker                       :: Maybe Text
-    , _drcnoOfferingType                 :: Maybe Text
-    , _drcnoDuration                     :: Maybe Text
-    , _drcnoReservedCacheNodesOfferingId :: Maybe Text
+    { _drcnoCacheNodeType                :: !(Maybe Text)
+    , _drcnoProductDescription           :: !(Maybe Text)
+    , _drcnoMaxRecords                   :: !(Maybe Int)
+    , _drcnoMarker                       :: !(Maybe Text)
+    , _drcnoOfferingType                 :: !(Maybe Text)
+    , _drcnoDuration                     :: !(Maybe Text)
+    , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedCacheNodesOfferings' smart constructor.
@@ -234,8 +234,8 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 --
 -- * 'drcnorStatus'
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
-    { _drcnorMarker                      :: Maybe Text
-    , _drcnorReservedCacheNodesOfferings :: Maybe [ReservedCacheNodesOffering]
+    { _drcnorMarker                      :: !(Maybe Text)
+    , _drcnorReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
     , _drcnorStatus                      :: !Int
     } deriving (Eq,Read,Show)
 

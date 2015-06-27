@@ -67,13 +67,13 @@ import           Network.AWS.Response
 --
 -- * 'scscTask'
 data SubmitContainerStateChange = SubmitContainerStateChange'
-    { _scscNetworkBindings :: Maybe [NetworkBinding]
-    , _scscStatus          :: Maybe Text
-    , _scscCluster         :: Maybe Text
-    , _scscContainerName   :: Maybe Text
-    , _scscReason          :: Maybe Text
-    , _scscExitCode        :: Maybe Int
-    , _scscTask            :: Maybe Text
+    { _scscNetworkBindings :: !(Maybe [NetworkBinding])
+    , _scscStatus          :: !(Maybe Text)
+    , _scscCluster         :: !(Maybe Text)
+    , _scscContainerName   :: !(Maybe Text)
+    , _scscReason          :: !(Maybe Text)
+    , _scscExitCode        :: !(Maybe Int)
+    , _scscTask            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SubmitContainerStateChange' smart constructor.
@@ -163,7 +163,7 @@ instance ToQuery SubmitContainerStateChange where
 --
 -- * 'scscrStatus'
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
-    { _scscrAcknowledgment :: Maybe Text
+    { _scscrAcknowledgment :: !(Maybe Text)
     , _scscrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -92,14 +92,14 @@ import           Network.AWS.Response
 --
 -- * 'cesSNSTopicARN'
 data CreateEventSubscription = CreateEventSubscription'
-    { _cesEnabled          :: Maybe Bool
-    , _cesSourceType       :: Maybe Text
-    , _cesSeverity         :: Maybe Text
-    , _cesEventCategories  :: Maybe [Text]
-    , _cesSourceIds        :: Maybe [Text]
-    , _cesTags             :: Maybe [Tag]
-    , _cesSubscriptionName :: Text
-    , _cesSNSTopicARN      :: Text
+    { _cesEnabled          :: !(Maybe Bool)
+    , _cesSourceType       :: !(Maybe Text)
+    , _cesSeverity         :: !(Maybe Text)
+    , _cesEventCategories  :: !(Maybe [Text])
+    , _cesSourceIds        :: !(Maybe [Text])
+    , _cesTags             :: !(Maybe [Tag])
+    , _cesSubscriptionName :: !Text
+    , _cesSNSTopicARN      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateEventSubscription' smart constructor.
@@ -223,7 +223,7 @@ instance ToQuery CreateEventSubscription where
 --
 -- * 'cesrStatus'
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
-    { _cesrEventSubscription :: Maybe EventSubscription
+    { _cesrEventSubscription :: !(Maybe EventSubscription)
     , _cesrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

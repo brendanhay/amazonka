@@ -50,8 +50,8 @@ import           Network.AWS.SSM.Types
 --
 -- * 'daInstanceId'
 data DescribeAssociation = DescribeAssociation'
-    { _daName       :: Text
-    , _daInstanceId :: Text
+    { _daName       :: !Text
+    , _daInstanceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAssociation' smart constructor.
@@ -110,7 +110,7 @@ instance ToQuery DescribeAssociation where
 --
 -- * 'darStatus'
 data DescribeAssociationResponse = DescribeAssociationResponse'
-    { _darAssociationDescription :: Maybe AssociationDescription
+    { _darAssociationDescription :: !(Maybe AssociationDescription)
     , _darStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

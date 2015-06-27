@@ -66,12 +66,12 @@ import           Network.AWS.Response
 --
 -- * 'daMaxRecords'
 data DescribeAlarms = DescribeAlarms'
-    { _daAlarmNamePrefix :: Maybe Text
-    , _daActionPrefix    :: Maybe Text
-    , _daNextToken       :: Maybe Text
-    , _daStateValue      :: Maybe StateValue
-    , _daAlarmNames      :: Maybe [Text]
-    , _daMaxRecords      :: Maybe Nat
+    { _daAlarmNamePrefix :: !(Maybe Text)
+    , _daActionPrefix    :: !(Maybe Text)
+    , _daNextToken       :: !(Maybe Text)
+    , _daStateValue      :: !(Maybe StateValue)
+    , _daAlarmNames      :: !(Maybe [Text])
+    , _daMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarms' smart constructor.
@@ -163,8 +163,8 @@ instance ToQuery DescribeAlarms where
 --
 -- * 'darStatus'
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-    { _darMetricAlarms :: Maybe [MetricAlarm]
-    , _darNextToken    :: Maybe Text
+    { _darMetricAlarms :: !(Maybe [MetricAlarm])
+    , _darNextToken    :: !(Maybe Text)
     , _darStatus       :: !Int
     } deriving (Eq,Read,Show)
 

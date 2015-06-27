@@ -49,9 +49,9 @@ import           Network.AWS.Response
 --
 -- * 'drDestinationCIDRBlock'
 data DeleteRoute = DeleteRoute'
-    { _drDryRun               :: Maybe Bool
-    , _drRouteTableId         :: Text
-    , _drDestinationCIDRBlock :: Text
+    { _drDryRun               :: !(Maybe Bool)
+    , _drRouteTableId         :: !Text
+    , _drDestinationCIDRBlock :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteRoute' smart constructor.

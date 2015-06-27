@@ -46,8 +46,8 @@ import           Network.AWS.Response
 --
 -- * 'rufgUserName'
 data RemoveUserFromGroup = RemoveUserFromGroup'
-    { _rufgGroupName :: Text
-    , _rufgUserName  :: Text
+    { _rufgGroupName :: !Text
+    , _rufgUserName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveUserFromGroup' smart constructor.

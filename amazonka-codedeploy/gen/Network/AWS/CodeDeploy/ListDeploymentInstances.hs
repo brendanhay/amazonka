@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'ldiDeploymentId'
 data ListDeploymentInstances = ListDeploymentInstances'
-    { _ldiInstanceStatusFilter :: Maybe [InstanceStatus]
-    , _ldiNextToken            :: Maybe Text
-    , _ldiDeploymentId         :: Text
+    { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
+    , _ldiNextToken            :: !(Maybe Text)
+    , _ldiDeploymentId         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListDeploymentInstances' smart constructor.
@@ -145,8 +145,8 @@ instance ToQuery ListDeploymentInstances where
 --
 -- * 'ldirStatus'
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
-    { _ldirNextToken     :: Maybe Text
-    , _ldirInstancesList :: Maybe [Text]
+    { _ldirNextToken     :: !(Maybe Text)
+    , _ldirInstancesList :: !(Maybe [Text])
     , _ldirStatus        :: !Int
     } deriving (Eq,Read,Show)
 

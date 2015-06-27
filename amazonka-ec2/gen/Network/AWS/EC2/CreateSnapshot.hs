@@ -92,9 +92,9 @@ import           Network.AWS.Response
 --
 -- * 'cs1VolumeId'
 data CreateSnapshot = CreateSnapshot'
-    { _cs1DryRun      :: Maybe Bool
-    , _cs1Description :: Maybe Text
-    , _cs1VolumeId    :: Text
+    { _cs1DryRun      :: !(Maybe Bool)
+    , _cs1Description :: !(Maybe Text)
+    , _cs1VolumeId    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshot' smart constructor.

@@ -81,16 +81,16 @@ import           Network.AWS.Response
 --
 -- * 'rsiSpotPrice'
 data RequestSpotInstances = RequestSpotInstances'
-    { _rsiInstanceCount         :: Maybe Int
-    , _rsiClientToken           :: Maybe Text
-    , _rsiAvailabilityZoneGroup :: Maybe Text
-    , _rsiLaunchSpecification   :: Maybe RequestSpotLaunchSpecification
-    , _rsiValidUntil            :: Maybe ISO8601
-    , _rsiLaunchGroup           :: Maybe Text
-    , _rsiType                  :: Maybe SpotInstanceType
-    , _rsiValidFrom             :: Maybe ISO8601
-    , _rsiDryRun                :: Maybe Bool
-    , _rsiSpotPrice             :: Text
+    { _rsiInstanceCount         :: !(Maybe Int)
+    , _rsiClientToken           :: !(Maybe Text)
+    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
+    , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
+    , _rsiValidUntil            :: !(Maybe ISO8601)
+    , _rsiLaunchGroup           :: !(Maybe Text)
+    , _rsiType                  :: !(Maybe SpotInstanceType)
+    , _rsiValidFrom             :: !(Maybe ISO8601)
+    , _rsiDryRun                :: !(Maybe Bool)
+    , _rsiSpotPrice             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RequestSpotInstances' smart constructor.
@@ -235,7 +235,7 @@ instance ToQuery RequestSpotInstances where
 --
 -- * 'rsirStatus'
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
-    { _rsirSpotInstanceRequests :: Maybe [SpotInstanceRequest]
+    { _rsirSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
     , _rsirStatus               :: !Int
     } deriving (Eq,Read,Show)
 

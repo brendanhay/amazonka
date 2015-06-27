@@ -72,12 +72,12 @@ import           Network.AWS.Response
 --
 -- * 'dsfrhStartTime'
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-    { _dsfrhNextToken          :: Maybe Text
-    , _dsfrhEventType          :: Maybe EventType
-    , _dsfrhDryRun             :: Maybe Bool
-    , _dsfrhMaxResults         :: Maybe Int
-    , _dsfrhSpotFleetRequestId :: Text
-    , _dsfrhStartTime          :: ISO8601
+    { _dsfrhNextToken          :: !(Maybe Text)
+    , _dsfrhEventType          :: !(Maybe EventType)
+    , _dsfrhDryRun             :: !(Maybe Bool)
+    , _dsfrhMaxResults         :: !(Maybe Int)
+    , _dsfrhSpotFleetRequestId :: !Text
+    , _dsfrhStartTime          :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetRequestHistory' smart constructor.
@@ -178,11 +178,11 @@ instance ToQuery DescribeSpotFleetRequestHistory
 --
 -- * 'dsfrhrStatus'
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
-    { _dsfrhrNextToken          :: Maybe Text
-    , _dsfrhrSpotFleetRequestId :: Text
-    , _dsfrhrStartTime          :: ISO8601
-    , _dsfrhrLastEvaluatedTime  :: ISO8601
-    , _dsfrhrHistoryRecords     :: [HistoryRecord]
+    { _dsfrhrNextToken          :: !(Maybe Text)
+    , _dsfrhrSpotFleetRequestId :: !Text
+    , _dsfrhrStartTime          :: !ISO8601
+    , _dsfrhrLastEvaluatedTime  :: !ISO8601
+    , _dsfrhrHistoryRecords     :: ![HistoryRecord]
     , _dsfrhrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

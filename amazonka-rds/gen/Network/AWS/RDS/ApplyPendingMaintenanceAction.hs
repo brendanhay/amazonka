@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'apmaOptInType'
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
-    { _apmaResourceIdentifier :: Text
-    , _apmaApplyAction        :: Text
-    , _apmaOptInType          :: Text
+    { _apmaResourceIdentifier :: !Text
+    , _apmaApplyAction        :: !Text
+    , _apmaOptInType          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ApplyPendingMaintenanceAction' smart constructor.
@@ -129,7 +129,7 @@ instance ToQuery ApplyPendingMaintenanceAction where
 --
 -- * 'apmarStatus'
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
-    { _apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions
+    { _apmarResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
     , _apmarStatus                            :: !Int
     } deriving (Eq,Read,Show)
 

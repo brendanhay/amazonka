@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'uiLoginsToRemove'
 data UnlinkIdentity = UnlinkIdentity'
-    { _uiIdentityId     :: Text
-    , _uiLogins         :: Map Text Text
-    , _uiLoginsToRemove :: [Text]
+    { _uiIdentityId     :: !Text
+    , _uiLogins         :: !(Map Text Text)
+    , _uiLoginsToRemove :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'UnlinkIdentity' smart constructor.

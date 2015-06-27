@@ -109,19 +109,19 @@ import           Network.AWS.Response
 --
 -- * 'rjfInstances'
 data RunJobFlow = RunJobFlow'
-    { _rjfAMIVersion           :: Maybe Text
-    , _rjfAdditionalInfo       :: Maybe Text
-    , _rjfJobFlowRole          :: Maybe Text
-    , _rjfSteps                :: Maybe [StepConfig]
-    , _rjfBootstrapActions     :: Maybe [BootstrapActionConfig]
-    , _rjfNewSupportedProducts :: Maybe [SupportedProductConfig]
-    , _rjfLogURI               :: Maybe Text
-    , _rjfSupportedProducts    :: Maybe [Text]
-    , _rjfVisibleToAllUsers    :: Maybe Bool
-    , _rjfTags                 :: Maybe [Tag]
-    , _rjfServiceRole          :: Maybe Text
-    , _rjfName                 :: Text
-    , _rjfInstances            :: JobFlowInstancesConfig
+    { _rjfAMIVersion           :: !(Maybe Text)
+    , _rjfAdditionalInfo       :: !(Maybe Text)
+    , _rjfJobFlowRole          :: !(Maybe Text)
+    , _rjfSteps                :: !(Maybe [StepConfig])
+    , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
+    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
+    , _rjfLogURI               :: !(Maybe Text)
+    , _rjfSupportedProducts    :: !(Maybe [Text])
+    , _rjfVisibleToAllUsers    :: !(Maybe Bool)
+    , _rjfTags                 :: !(Maybe [Tag])
+    , _rjfServiceRole          :: !(Maybe Text)
+    , _rjfName                 :: !Text
+    , _rjfInstances            :: !JobFlowInstancesConfig
     } deriving (Eq,Read,Show)
 
 -- | 'RunJobFlow' smart constructor.
@@ -287,7 +287,7 @@ instance ToQuery RunJobFlow where
 --
 -- * 'rjfrStatus'
 data RunJobFlowResponse = RunJobFlowResponse'
-    { _rjfrJobFlowId :: Maybe Text
+    { _rjfrJobFlowId :: !(Maybe Text)
     , _rjfrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

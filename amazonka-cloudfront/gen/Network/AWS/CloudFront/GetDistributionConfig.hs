@@ -99,8 +99,8 @@ instance ToQuery GetDistributionConfig where
 --
 -- * 'gdcrStatus'
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-    { _gdcrETag               :: Maybe Text
-    , _gdcrDistributionConfig :: Maybe DistributionConfig
+    { _gdcrETag               :: !(Maybe Text)
+    , _gdcrDistributionConfig :: !(Maybe DistributionConfig)
     , _gdcrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

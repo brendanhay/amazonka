@@ -47,8 +47,8 @@ import           Network.AWS.Response
 --
 -- * 'dni1NetworkInterfaceId'
 data DeleteNetworkInterface = DeleteNetworkInterface'
-    { _dni1DryRun             :: Maybe Bool
-    , _dni1NetworkInterfaceId :: Text
+    { _dni1DryRun             :: !(Maybe Bool)
+    , _dni1NetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteNetworkInterface' smart constructor.

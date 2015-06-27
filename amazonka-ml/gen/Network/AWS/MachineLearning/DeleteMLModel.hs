@@ -109,7 +109,7 @@ instance ToQuery DeleteMLModel where
 --
 -- * 'dmlmrStatus'
 data DeleteMLModelResponse = DeleteMLModelResponse'
-    { _dmlmrMLModelId :: Maybe Text
+    { _dmlmrMLModelId :: !(Maybe Text)
     , _dmlmrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

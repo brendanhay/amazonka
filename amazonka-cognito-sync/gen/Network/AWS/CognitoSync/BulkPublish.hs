@@ -111,7 +111,7 @@ instance ToQuery BulkPublish where
 --
 -- * 'bprStatus'
 data BulkPublishResponse = BulkPublishResponse'
-    { _bprIdentityPoolId :: Maybe Text
+    { _bprIdentityPoolId :: !(Maybe Text)
     , _bprStatus         :: !Int
     } deriving (Eq,Read,Show)
 

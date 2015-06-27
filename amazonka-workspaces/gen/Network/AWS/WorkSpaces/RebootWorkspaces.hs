@@ -110,7 +110,7 @@ instance ToQuery RebootWorkspaces where
 --
 -- * 'rebStatus'
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
-    { _rebFailedRequests :: Maybe [FailedWorkspaceChangeRequest]
+    { _rebFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _rebStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -103,21 +103,21 @@ import           Network.AWS.Response
 --
 -- * 'mcClusterIdentifier'
 data ModifyCluster = ModifyCluster'
-    { _mcMasterUserPassword               :: Maybe Text
-    , _mcHSMConfigurationIdentifier       :: Maybe Text
-    , _mcClusterSecurityGroups            :: Maybe [Text]
-    , _mcAutomatedSnapshotRetentionPeriod :: Maybe Int
-    , _mcNumberOfNodes                    :: Maybe Int
-    , _mcHSMClientCertificateIdentifier   :: Maybe Text
-    , _mcPreferredMaintenanceWindow       :: Maybe Text
-    , _mcVPCSecurityGroupIds              :: Maybe [Text]
-    , _mcClusterType                      :: Maybe Text
-    , _mcNewClusterIdentifier             :: Maybe Text
-    , _mcClusterVersion                   :: Maybe Text
-    , _mcNodeType                         :: Maybe Text
-    , _mcAllowVersionUpgrade              :: Maybe Bool
-    , _mcClusterParameterGroupName        :: Maybe Text
-    , _mcClusterIdentifier                :: Text
+    { _mcMasterUserPassword               :: !(Maybe Text)
+    , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _mcClusterSecurityGroups            :: !(Maybe [Text])
+    , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _mcNumberOfNodes                    :: !(Maybe Int)
+    , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _mcClusterType                      :: !(Maybe Text)
+    , _mcNewClusterIdentifier             :: !(Maybe Text)
+    , _mcClusterVersion                   :: !(Maybe Text)
+    , _mcNodeType                         :: !(Maybe Text)
+    , _mcAllowVersionUpgrade              :: !(Maybe Bool)
+    , _mcClusterParameterGroupName        :: !(Maybe Text)
+    , _mcClusterIdentifier                :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyCluster' smart constructor.
@@ -381,7 +381,7 @@ instance ToQuery ModifyCluster where
 --
 -- * 'mcrStatus'
 data ModifyClusterResponse = ModifyClusterResponse'
-    { _mcrCluster :: Maybe Cluster
+    { _mcrCluster :: !(Maybe Cluster)
     , _mcrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

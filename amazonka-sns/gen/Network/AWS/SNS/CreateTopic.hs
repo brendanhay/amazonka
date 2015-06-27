@@ -104,7 +104,7 @@ instance ToQuery CreateTopic where
 --
 -- * 'ctrStatus'
 data CreateTopicResponse = CreateTopicResponse'
-    { _ctrTopicARN :: Maybe Text
+    { _ctrTopicARN :: !(Maybe Text)
     , _ctrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

@@ -86,15 +86,15 @@ import           Network.AWS.Support.Types
 --
 -- * 'dcMaxResults'
 data DescribeCases = DescribeCases'
-    { _dcIncludeResolvedCases  :: Maybe Bool
-    , _dcCaseIdList            :: Maybe [Text]
-    , _dcAfterTime             :: Maybe Text
-    , _dcNextToken             :: Maybe Text
-    , _dcBeforeTime            :: Maybe Text
-    , _dcIncludeCommunications :: Maybe Bool
-    , _dcDisplayId             :: Maybe Text
-    , _dcLanguage              :: Maybe Text
-    , _dcMaxResults            :: Maybe Nat
+    { _dcIncludeResolvedCases  :: !(Maybe Bool)
+    , _dcCaseIdList            :: !(Maybe [Text])
+    , _dcAfterTime             :: !(Maybe Text)
+    , _dcNextToken             :: !(Maybe Text)
+    , _dcBeforeTime            :: !(Maybe Text)
+    , _dcIncludeCommunications :: !(Maybe Bool)
+    , _dcDisplayId             :: !(Maybe Text)
+    , _dcLanguage              :: !(Maybe Text)
+    , _dcMaxResults            :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCases' smart constructor.
@@ -216,8 +216,8 @@ instance ToQuery DescribeCases where
 --
 -- * 'desStatus'
 data DescribeCasesResponse = DescribeCasesResponse'
-    { _desCases     :: Maybe [CaseDetails]
-    , _desNextToken :: Maybe Text
+    { _desCases     :: !(Maybe [CaseDetails])
+    , _desNextToken :: !(Maybe Text)
     , _desStatus    :: !Int
     } deriving (Eq,Read,Show)
 

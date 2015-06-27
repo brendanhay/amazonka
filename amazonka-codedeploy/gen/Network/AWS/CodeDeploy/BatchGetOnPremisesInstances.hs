@@ -104,7 +104,7 @@ instance ToQuery BatchGetOnPremisesInstances where
 --
 -- * 'bgopirStatus'
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
-    { _bgopirInstanceInfos :: Maybe [InstanceInfo]
+    { _bgopirInstanceInfos :: !(Maybe [InstanceInfo])
     , _bgopirStatus        :: !Int
     } deriving (Eq,Read,Show)
 

@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'deleVPCId'
 data DeleteVPC = DeleteVPC'
-    { _deleDryRun :: Maybe Bool
-    , _deleVPCId  :: Text
+    { _deleDryRun :: !(Maybe Bool)
+    , _deleVPCId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPC' smart constructor.

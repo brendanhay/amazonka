@@ -64,12 +64,12 @@ import           Network.AWS.Response
 --
 -- * 'pspAdjustmentType'
 data PutScalingPolicy = PutScalingPolicy'
-    { _pspMinAdjustmentStep    :: Maybe Int
-    , _pspScalingAdjustment    :: Maybe Int
-    , _pspCooldown             :: Maybe Int
-    , _pspAutoScalingGroupName :: Text
-    , _pspPolicyName           :: Text
-    , _pspAdjustmentType       :: Text
+    { _pspMinAdjustmentStep    :: !(Maybe Int)
+    , _pspScalingAdjustment    :: !(Maybe Int)
+    , _pspCooldown             :: !(Maybe Int)
+    , _pspAutoScalingGroupName :: !Text
+    , _pspPolicyName           :: !Text
+    , _pspAdjustmentType       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutScalingPolicy' smart constructor.
@@ -163,7 +163,7 @@ instance ToQuery PutScalingPolicy where
 --
 -- * 'psprStatus'
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-    { _psprPolicyARN :: Maybe Text
+    { _psprPolicyARN :: !(Maybe Text)
     , _psprStatus    :: !Int
     } deriving (Eq,Read,Show)
 

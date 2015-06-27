@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dasgMaxRecords'
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
-    { _dasgAutoScalingGroupNames :: Maybe [Text]
-    , _dasgNextToken             :: Maybe Text
-    , _dasgMaxRecords            :: Maybe Int
+    { _dasgAutoScalingGroupNames :: !(Maybe [Text])
+    , _dasgNextToken             :: !(Maybe Text)
+    , _dasgMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
@@ -132,8 +132,8 @@ instance ToQuery DescribeAutoScalingGroups where
 --
 -- * 'dasgrStatus'
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
-    { _dasgrNextToken         :: Maybe Text
-    , _dasgrAutoScalingGroups :: [AutoScalingGroup]
+    { _dasgrNextToken         :: !(Maybe Text)
+    , _dasgrAutoScalingGroups :: ![AutoScalingGroup]
     , _dasgrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

@@ -69,11 +69,11 @@ import           Network.AWS.Response
 --
 -- * 'uipAllowUnauthenticatedIdentities'
 data UpdateIdentityPool = UpdateIdentityPool'
-    { _uipSupportedLoginProviders        :: Maybe (Map Text Text)
-    , _uipDeveloperProviderName          :: Maybe Text
-    , _uipOpenIdConnectProviderARNs      :: Maybe [Text]
-    , _uipIdentityPoolId                 :: Text
-    , _uipIdentityPoolName               :: Text
+    { _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _uipDeveloperProviderName          :: !(Maybe Text)
+    , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _uipIdentityPoolId                 :: !Text
+    , _uipIdentityPoolName               :: !Text
     , _uipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show)
 

@@ -125,31 +125,31 @@ import           Network.AWS.S3.Types
 --
 -- * 'poBody'
 data PutObject = PutObject'
-    { _poContentLength           :: Maybe Int
-    , _poExpires                 :: Maybe RFC822
-    , _poSSECustomerAlgorithm    :: Maybe Text
-    , _poGrantReadACP            :: Maybe Text
-    , _poSSECustomerKey          :: Maybe (Sensitive Text)
-    , _poRequestPayer            :: Maybe RequestPayer
-    , _poGrantWriteACP           :: Maybe Text
-    , _poWebsiteRedirectLocation :: Maybe Text
-    , _poGrantRead               :: Maybe Text
-    , _poStorageClass            :: Maybe StorageClass
-    , _poContentEncoding         :: Maybe Text
-    , _poSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _poGrantFullControl        :: Maybe Text
-    , _poSSECustomerKeyMD5       :: Maybe Text
-    , _poMetadata                :: Map Text Text
-    , _poContentMD5              :: Maybe Text
-    , _poCacheControl            :: Maybe Text
-    , _poContentLanguage         :: Maybe Text
-    , _poACL                     :: Maybe ObjectCannedACL
-    , _poContentDisposition      :: Maybe Text
-    , _poServerSideEncryption    :: Maybe ServerSideEncryption
-    , _poContentType             :: Maybe Text
-    , _poBucket                  :: BucketName
-    , _poKey                     :: ObjectKey
-    , _poBody                    :: RqBody
+    { _poContentLength           :: !(Maybe Int)
+    , _poExpires                 :: !(Maybe RFC822)
+    , _poSSECustomerAlgorithm    :: !(Maybe Text)
+    , _poGrantReadACP            :: !(Maybe Text)
+    , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
+    , _poRequestPayer            :: !(Maybe RequestPayer)
+    , _poGrantWriteACP           :: !(Maybe Text)
+    , _poWebsiteRedirectLocation :: !(Maybe Text)
+    , _poGrantRead               :: !(Maybe Text)
+    , _poStorageClass            :: !(Maybe StorageClass)
+    , _poContentEncoding         :: !(Maybe Text)
+    , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _poGrantFullControl        :: !(Maybe Text)
+    , _poSSECustomerKeyMD5       :: !(Maybe Text)
+    , _poMetadata                :: !(Map Text Text)
+    , _poContentMD5              :: !(Maybe Text)
+    , _poCacheControl            :: !(Maybe Text)
+    , _poContentLanguage         :: !(Maybe Text)
+    , _poACL                     :: !(Maybe ObjectCannedACL)
+    , _poContentDisposition      :: !(Maybe Text)
+    , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _poContentType             :: !(Maybe Text)
+    , _poBucket                  :: !BucketName
+    , _poKey                     :: !ObjectKey
+    , _poBody                    :: !RqBody
     } deriving (Show)
 
 -- | 'PutObject' smart constructor.
@@ -387,14 +387,14 @@ instance ToQuery PutObject where
 --
 -- * 'porStatus'
 data PutObjectResponse = PutObjectResponse'
-    { _porVersionId            :: Maybe ObjectVersionId
-    , _porETag                 :: Maybe ETag
-    , _porRequestCharged       :: Maybe RequestCharged
-    , _porExpiration           :: Maybe Text
-    , _porSSECustomerAlgorithm :: Maybe Text
-    , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _porSSECustomerKeyMD5    :: Maybe Text
-    , _porServerSideEncryption :: Maybe ServerSideEncryption
+    { _porVersionId            :: !(Maybe ObjectVersionId)
+    , _porETag                 :: !(Maybe ETag)
+    , _porRequestCharged       :: !(Maybe RequestCharged)
+    , _porExpiration           :: !(Maybe Text)
+    , _porSSECustomerAlgorithm :: !(Maybe Text)
+    , _porSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _porSSECustomerKeyMD5    :: !(Maybe Text)
+    , _porServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _porStatus               :: !Int
     } deriving (Eq,Read,Show)
 

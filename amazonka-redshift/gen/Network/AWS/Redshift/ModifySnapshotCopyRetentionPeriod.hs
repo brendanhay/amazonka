@@ -52,7 +52,7 @@ import           Network.AWS.Response
 --
 -- * 'mscrpRetentionPeriod'
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
-    { _mscrpClusterIdentifier :: Text
+    { _mscrpClusterIdentifier :: !Text
     , _mscrpRetentionPeriod   :: !Int
     } deriving (Eq,Read,Show)
 
@@ -124,7 +124,7 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 --
 -- * 'mscrprStatus'
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
-    { _mscrprCluster :: Maybe Cluster
+    { _mscrprCluster :: !(Maybe Cluster)
     , _mscrprStatus  :: !Int
     } deriving (Eq,Read,Show)
 

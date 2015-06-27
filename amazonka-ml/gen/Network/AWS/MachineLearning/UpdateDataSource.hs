@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'udsDataSourceName'
 data UpdateDataSource = UpdateDataSource'
-    { _udsDataSourceId   :: Text
-    , _udsDataSourceName :: Text
+    { _udsDataSourceId   :: !Text
+    , _udsDataSourceName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDataSource' smart constructor.
@@ -117,7 +117,7 @@ instance ToQuery UpdateDataSource where
 --
 -- * 'udsrStatus'
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-    { _udsrDataSourceId :: Maybe Text
+    { _udsrDataSourceId :: !(Maybe Text)
     , _udsrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

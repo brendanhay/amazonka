@@ -52,8 +52,8 @@ import           Network.AWS.SSM.Types
 --
 -- * 'cdName'
 data CreateDocument = CreateDocument'
-    { _cdContent :: Text
-    , _cdName    :: Text
+    { _cdContent :: !Text
+    , _cdName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDocument' smart constructor.
@@ -112,7 +112,7 @@ instance ToQuery CreateDocument where
 --
 -- * 'cdrStatus'
 data CreateDocumentResponse = CreateDocumentResponse'
-    { _cdrDocumentDescription :: Maybe DocumentDescription
+    { _cdrDocumentDescription :: !(Maybe DocumentDescription)
     , _cdrStatus              :: !Int
     } deriving (Eq,Read,Show)
 

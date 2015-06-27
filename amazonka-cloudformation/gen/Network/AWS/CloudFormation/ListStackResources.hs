@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'lsrStackName'
 data ListStackResources = ListStackResources'
-    { _lsrNextToken :: Maybe Text
-    , _lsrStackName :: Text
+    { _lsrNextToken :: !(Maybe Text)
+    , _lsrStackName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListStackResources' smart constructor.
@@ -133,8 +133,8 @@ instance ToQuery ListStackResources where
 --
 -- * 'lsrrStatus'
 data ListStackResourcesResponse = ListStackResourcesResponse'
-    { _lsrrNextToken              :: Maybe Text
-    , _lsrrStackResourceSummaries :: Maybe [StackResourceSummary]
+    { _lsrrNextToken              :: !(Maybe Text)
+    , _lsrrStackResourceSummaries :: !(Maybe [StackResourceSummary])
     , _lsrrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'asgtlbSecurityGroups'
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
-    { _asgtlbLoadBalancerName :: Text
-    , _asgtlbSecurityGroups   :: [Text]
+    { _asgtlbLoadBalancerName :: !Text
+    , _asgtlbSecurityGroups   :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
@@ -118,7 +118,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 --
 -- * 'asgtlbrStatus'
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
-    { _asgtlbrSecurityGroups :: Maybe [Text]
+    { _asgtlbrSecurityGroups :: !(Maybe [Text])
     , _asgtlbrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'diflbInstances'
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
-    { _diflbLoadBalancerName :: Text
-    , _diflbInstances        :: [Instance]
+    { _diflbLoadBalancerName :: !Text
+    , _diflbInstances        :: ![Instance]
     } deriving (Eq,Read,Show)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 --
 -- * 'diflbrStatus'
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrInstances :: Maybe [Instance]
+    { _diflbrInstances :: !(Maybe [Instance])
     , _diflbrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

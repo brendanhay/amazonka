@@ -250,8 +250,8 @@ _CaseCreationLimitExceeded =
 --
 -- * 'attFileName'
 data Attachment = Attachment'
-    { _attData     :: Maybe Base64
-    , _attFileName :: Maybe Text
+    { _attData     :: !(Maybe Base64)
+    , _attFileName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Attachment' smart constructor.
@@ -294,8 +294,8 @@ instance ToJSON Attachment where
 --
 -- * 'adFileName'
 data AttachmentDetails = AttachmentDetails'
-    { _adAttachmentId :: Maybe Text
-    , _adFileName     :: Maybe Text
+    { _adAttachmentId :: !(Maybe Text)
+    , _adFileName     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AttachmentDetails' smart constructor.
@@ -379,18 +379,18 @@ instance FromJSON AttachmentDetails where
 --
 -- * 'cdServiceCode'
 data CaseDetails = CaseDetails'
-    { _cdSubject              :: Maybe Text
-    , _cdStatus               :: Maybe Text
-    , _cdRecentCommunications :: Maybe RecentCaseCommunications
-    , _cdSeverityCode         :: Maybe Text
-    , _cdCaseId               :: Maybe Text
-    , _cdCcEmailAddresses     :: Maybe [Text]
-    , _cdDisplayId            :: Maybe Text
-    , _cdSubmittedBy          :: Maybe Text
-    , _cdLanguage             :: Maybe Text
-    , _cdCategoryCode         :: Maybe Text
-    , _cdTimeCreated          :: Maybe Text
-    , _cdServiceCode          :: Maybe Text
+    { _cdSubject              :: !(Maybe Text)
+    , _cdStatus               :: !(Maybe Text)
+    , _cdRecentCommunications :: !(Maybe RecentCaseCommunications)
+    , _cdSeverityCode         :: !(Maybe Text)
+    , _cdCaseId               :: !(Maybe Text)
+    , _cdCcEmailAddresses     :: !(Maybe [Text])
+    , _cdDisplayId            :: !(Maybe Text)
+    , _cdSubmittedBy          :: !(Maybe Text)
+    , _cdLanguage             :: !(Maybe Text)
+    , _cdCategoryCode         :: !(Maybe Text)
+    , _cdTimeCreated          :: !(Maybe Text)
+    , _cdServiceCode          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CaseDetails' smart constructor.
@@ -498,8 +498,8 @@ instance FromJSON CaseDetails where
 --
 -- * 'catCode'
 data Category = Category'
-    { _catName :: Maybe Text
-    , _catCode :: Maybe Text
+    { _catName :: !(Maybe Text)
+    , _catCode :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Category' smart constructor.
@@ -542,11 +542,11 @@ instance FromJSON Category where
 --
 -- * 'comAttachmentSet'
 data Communication = Communication'
-    { _comBody          :: Maybe Text
-    , _comCaseId        :: Maybe Text
-    , _comSubmittedBy   :: Maybe Text
-    , _comTimeCreated   :: Maybe Text
-    , _comAttachmentSet :: Maybe [AttachmentDetails]
+    { _comBody          :: !(Maybe Text)
+    , _comCaseId        :: !(Maybe Text)
+    , _comSubmittedBy   :: !(Maybe Text)
+    , _comTimeCreated   :: !(Maybe Text)
+    , _comAttachmentSet :: !(Maybe [AttachmentDetails])
     } deriving (Eq,Read,Show)
 
 -- | 'Communication' smart constructor.
@@ -602,8 +602,8 @@ instance FromJSON Communication where
 --
 -- * 'rccCommunications'
 data RecentCaseCommunications = RecentCaseCommunications'
-    { _rccNextToken      :: Maybe Text
-    , _rccCommunications :: Maybe [Communication]
+    { _rccNextToken      :: !(Maybe Text)
+    , _rccCommunications :: !(Maybe [Communication])
     } deriving (Eq,Read,Show)
 
 -- | 'RecentCaseCommunications' smart constructor.
@@ -641,8 +641,8 @@ instance FromJSON RecentCaseCommunications where
 --
 -- * 'slCode'
 data SeverityLevel = SeverityLevel'
-    { _slName :: Maybe Text
-    , _slCode :: Maybe Text
+    { _slName :: !(Maybe Text)
+    , _slCode :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SeverityLevel' smart constructor.
@@ -683,9 +683,9 @@ instance FromJSON SeverityLevel where
 --
 -- * 'ssCode'
 data SupportService = SupportService'
-    { _ssCategories :: Maybe [Category]
-    , _ssName       :: Maybe Text
-    , _ssCode       :: Maybe Text
+    { _ssCategories :: !(Maybe [Category])
+    , _ssName       :: !(Maybe Text)
+    , _ssCode       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SupportService' smart constructor.
@@ -770,11 +770,11 @@ instance FromJSON
 --
 -- * 'tacdMetadata'
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
-    { _tacdId          :: Text
-    , _tacdName        :: Text
-    , _tacdDescription :: Text
-    , _tacdCategory    :: Text
-    , _tacdMetadata    :: [Text]
+    { _tacdId          :: !Text
+    , _tacdName        :: !Text
+    , _tacdDescription :: !Text
+    , _tacdCategory    :: !Text
+    , _tacdMetadata    :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckDescription' smart constructor.
@@ -836,8 +836,8 @@ instance FromJSON TrustedAdvisorCheckDescription
 --
 -- * 'tacrsMillisUntilNextRefreshable'
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
-    { _tacrsCheckId                    :: Text
-    , _tacrsStatus                     :: Text
+    { _tacrsCheckId                    :: !Text
+    , _tacrsStatus                     :: !Text
     , _tacrsMillisUntilNextRefreshable :: !Integer
     } deriving (Eq,Read,Show)
 
@@ -893,12 +893,12 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
 --
 -- * 'tacrFlaggedResources'
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
-    { _tacrCheckId                 :: Text
-    , _tacrTimestamp               :: Text
-    , _tacrStatus                  :: Text
-    , _tacrResourcesSummary        :: TrustedAdvisorResourcesSummary
-    , _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
-    , _tacrFlaggedResources        :: [TrustedAdvisorResourceDetail]
+    { _tacrCheckId                 :: !Text
+    , _tacrTimestamp               :: !Text
+    , _tacrStatus                  :: !Text
+    , _tacrResourcesSummary        :: !TrustedAdvisorResourcesSummary
+    , _tacrCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
+    , _tacrFlaggedResources        :: ![TrustedAdvisorResourceDetail]
     } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckResult' smart constructor.
@@ -969,12 +969,12 @@ instance FromJSON TrustedAdvisorCheckResult where
 --
 -- * 'tacsCategorySpecificSummary'
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
-    { _tacsHasFlaggedResources     :: Maybe Bool
-    , _tacsCheckId                 :: Text
-    , _tacsTimestamp               :: Text
-    , _tacsStatus                  :: Text
-    , _tacsResourcesSummary        :: TrustedAdvisorResourcesSummary
-    , _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+    { _tacsHasFlaggedResources     :: !(Maybe Bool)
+    , _tacsCheckId                 :: !Text
+    , _tacsTimestamp               :: !Text
+    , _tacsStatus                  :: !Text
+    , _tacsResourcesSummary        :: !TrustedAdvisorResourcesSummary
+    , _tacsCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
     } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorCheckSummary' smart constructor.
@@ -1085,11 +1085,11 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
 --
 -- * 'tardMetadata'
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
-    { _tardIsSuppressed :: Maybe Bool
-    , _tardStatus       :: Text
-    , _tardRegion       :: Text
-    , _tardResourceId   :: Text
-    , _tardMetadata     :: [Text]
+    { _tardIsSuppressed :: !(Maybe Bool)
+    , _tardStatus       :: !Text
+    , _tardRegion       :: !Text
+    , _tardResourceId   :: !Text
+    , _tardMetadata     :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'TrustedAdvisorResourceDetail' smart constructor.

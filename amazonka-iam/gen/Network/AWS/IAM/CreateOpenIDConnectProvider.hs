@@ -69,9 +69,9 @@ import           Network.AWS.Response
 --
 -- * 'coidcpThumbprintList'
 data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
-    { _coidcpClientIDList   :: Maybe [Text]
-    , _coidcpURL            :: Text
-    , _coidcpThumbprintList :: [Text]
+    { _coidcpClientIDList   :: !(Maybe [Text])
+    , _coidcpURL            :: !Text
+    , _coidcpThumbprintList :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateOpenIDConnectProvider' smart constructor.
@@ -179,7 +179,7 @@ instance ToQuery CreateOpenIDConnectProvider where
 --
 -- * 'coidcprStatus'
 data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
-    { _coidcprOpenIDConnectProviderARN :: Maybe Text
+    { _coidcprOpenIDConnectProviderARN :: !(Maybe Text)
     , _coidcprStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

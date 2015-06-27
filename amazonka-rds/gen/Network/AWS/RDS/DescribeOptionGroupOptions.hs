@@ -62,11 +62,11 @@ import           Network.AWS.Response
 --
 -- * 'dogoEngineName'
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
-    { _dogoFilters            :: Maybe [Filter]
-    , _dogoMajorEngineVersion :: Maybe Text
-    , _dogoMaxRecords         :: Maybe Int
-    , _dogoMarker             :: Maybe Text
-    , _dogoEngineName         :: Text
+    { _dogoFilters            :: !(Maybe [Filter])
+    , _dogoMajorEngineVersion :: !(Maybe Text)
+    , _dogoMaxRecords         :: !(Maybe Int)
+    , _dogoMarker             :: !(Maybe Text)
+    , _dogoEngineName         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeOptionGroupOptions' smart constructor.
@@ -164,8 +164,8 @@ instance ToQuery DescribeOptionGroupOptions where
 --
 -- * 'dogorStatus'
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
-    { _dogorOptionGroupOptions :: Maybe [OptionGroupOption]
-    , _dogorMarker             :: Maybe Text
+    { _dogorOptionGroupOptions :: !(Maybe [OptionGroupOption])
+    , _dogorMarker             :: !(Maybe Text)
     , _dogorStatus             :: !Int
     } deriving (Eq,Read,Show)
 

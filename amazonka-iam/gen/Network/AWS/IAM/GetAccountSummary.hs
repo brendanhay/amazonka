@@ -87,7 +87,7 @@ instance ToQuery GetAccountSummary where
 --
 -- * 'gasrStatus'
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
-    { _gasrSummaryMap :: Maybe (Map SummaryKeyType Int)
+    { _gasrSummaryMap :: !(Maybe (Map SummaryKeyType Int))
     , _gasrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

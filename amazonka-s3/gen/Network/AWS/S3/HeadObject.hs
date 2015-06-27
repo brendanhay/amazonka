@@ -104,18 +104,18 @@ import           Network.AWS.S3.Types
 --
 -- * 'hoKey'
 data HeadObject = HeadObject'
-    { _hoIfMatch              :: Maybe Text
-    , _hoVersionId            :: Maybe ObjectVersionId
-    , _hoSSECustomerAlgorithm :: Maybe Text
-    , _hoSSECustomerKey       :: Maybe (Sensitive Text)
-    , _hoRequestPayer         :: Maybe RequestPayer
-    , _hoIfModifiedSince      :: Maybe RFC822
-    , _hoRange                :: Maybe Text
-    , _hoIfUnmodifiedSince    :: Maybe RFC822
-    , _hoSSECustomerKeyMD5    :: Maybe Text
-    , _hoIfNoneMatch          :: Maybe Text
-    , _hoBucket               :: BucketName
-    , _hoKey                  :: ObjectKey
+    { _hoIfMatch              :: !(Maybe Text)
+    , _hoVersionId            :: !(Maybe ObjectVersionId)
+    , _hoSSECustomerAlgorithm :: !(Maybe Text)
+    , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _hoRequestPayer         :: !(Maybe RequestPayer)
+    , _hoIfModifiedSince      :: !(Maybe RFC822)
+    , _hoRange                :: !(Maybe Text)
+    , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _hoSSECustomerKeyMD5    :: !(Maybe Text)
+    , _hoIfNoneMatch          :: !(Maybe Text)
+    , _hoBucket               :: !BucketName
+    , _hoKey                  :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'HeadObject' smart constructor.
@@ -310,29 +310,29 @@ instance ToQuery HeadObject where
 --
 -- * 'horStatus'
 data HeadObjectResponse = HeadObjectResponse'
-    { _horVersionId               :: Maybe ObjectVersionId
-    , _horETag                    :: Maybe ETag
-    , _horRequestCharged          :: Maybe RequestCharged
-    , _horContentLength           :: Maybe Int
-    , _horRestore                 :: Maybe Text
-    , _horExpires                 :: Maybe RFC822
-    , _horDeleteMarker            :: Maybe Bool
-    , _horExpiration              :: Maybe Text
-    , _horSSECustomerAlgorithm    :: Maybe Text
-    , _horMissingMeta             :: Maybe Int
-    , _horWebsiteRedirectLocation :: Maybe Text
-    , _horAcceptRanges            :: Maybe Text
-    , _horContentEncoding         :: Maybe Text
-    , _horSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _horSSECustomerKeyMD5       :: Maybe Text
-    , _horMetadata                :: Map Text Text
-    , _horReplicationStatus       :: Maybe ReplicationStatus
-    , _horCacheControl            :: Maybe Text
-    , _horContentLanguage         :: Maybe Text
-    , _horLastModified            :: Maybe RFC822
-    , _horContentDisposition      :: Maybe Text
-    , _horServerSideEncryption    :: Maybe ServerSideEncryption
-    , _horContentType             :: Maybe Text
+    { _horVersionId               :: !(Maybe ObjectVersionId)
+    , _horETag                    :: !(Maybe ETag)
+    , _horRequestCharged          :: !(Maybe RequestCharged)
+    , _horContentLength           :: !(Maybe Int)
+    , _horRestore                 :: !(Maybe Text)
+    , _horExpires                 :: !(Maybe RFC822)
+    , _horDeleteMarker            :: !(Maybe Bool)
+    , _horExpiration              :: !(Maybe Text)
+    , _horSSECustomerAlgorithm    :: !(Maybe Text)
+    , _horMissingMeta             :: !(Maybe Int)
+    , _horWebsiteRedirectLocation :: !(Maybe Text)
+    , _horAcceptRanges            :: !(Maybe Text)
+    , _horContentEncoding         :: !(Maybe Text)
+    , _horSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _horSSECustomerKeyMD5       :: !(Maybe Text)
+    , _horMetadata                :: !(Map Text Text)
+    , _horReplicationStatus       :: !(Maybe ReplicationStatus)
+    , _horCacheControl            :: !(Maybe Text)
+    , _horContentLanguage         :: !(Maybe Text)
+    , _horLastModified            :: !(Maybe RFC822)
+    , _horContentDisposition      :: !(Maybe Text)
+    , _horServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _horContentType             :: !(Maybe Text)
     , _horStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

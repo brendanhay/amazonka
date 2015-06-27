@@ -72,8 +72,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'ussRecurrenceInHours'
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-    { _ussDescription       :: Maybe Text
-    , _ussVolumeARN         :: Text
+    { _ussDescription       :: !(Maybe Text)
+    , _ussVolumeARN         :: !Text
     , _ussStartAt           :: !Nat
     , _ussRecurrenceInHours :: !Nat
     } deriving (Eq,Read,Show)
@@ -153,7 +153,7 @@ instance ToQuery UpdateSnapshotSchedule where
 --
 -- * 'ussrStatus'
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-    { _ussrVolumeARN :: Maybe Text
+    { _ussrVolumeARN :: !(Maybe Text)
     , _ussrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

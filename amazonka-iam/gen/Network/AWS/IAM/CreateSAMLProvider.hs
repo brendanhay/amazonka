@@ -72,8 +72,8 @@ import           Network.AWS.Response
 --
 -- * 'csamlpName'
 data CreateSAMLProvider = CreateSAMLProvider'
-    { _csamlpSAMLMetadataDocument :: Text
-    , _csamlpName                 :: Text
+    { _csamlpSAMLMetadataDocument :: !Text
+    , _csamlpName                 :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSAMLProvider' smart constructor.
@@ -137,7 +137,7 @@ instance ToQuery CreateSAMLProvider where
 --
 -- * 'csamlprStatus'
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
-    { _csamlprSAMLProviderARN :: Maybe Text
+    { _csamlprSAMLProviderARN :: !(Maybe Text)
     , _csamlprStatus          :: !Int
     } deriving (Eq,Read,Show)
 

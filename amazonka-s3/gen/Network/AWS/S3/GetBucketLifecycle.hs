@@ -90,7 +90,7 @@ instance ToQuery GetBucketLifecycle where
 --
 -- * 'gblrStatus'
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
-    { _gblrRules  :: Maybe [Rule]
+    { _gblrRules  :: !(Maybe [Rule])
     , _gblrStatus :: !Int
     } deriving (Eq,Read,Show)
 

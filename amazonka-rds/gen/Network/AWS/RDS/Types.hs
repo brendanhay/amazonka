@@ -926,9 +926,9 @@ instance FromXML SourceType where
 --
 -- * 'aqAccountQuotaName'
 data AccountQuota = AccountQuota'
-    { _aqMax              :: Maybe Integer
-    , _aqUsed             :: Maybe Integer
-    , _aqAccountQuotaName :: Maybe Text
+    { _aqMax              :: !(Maybe Integer)
+    , _aqUsed             :: !(Maybe Integer)
+    , _aqAccountQuotaName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AccountQuota' smart constructor.
@@ -1003,11 +1003,11 @@ instance FromXML AvailabilityZone where
 --
 -- * 'cerValidFrom'
 data Certificate = Certificate'
-    { _cerCertificateType       :: Maybe Text
-    , _cerValidTill             :: Maybe ISO8601
-    , _cerCertificateIdentifier :: Maybe Text
-    , _cerThumbprint            :: Maybe Text
-    , _cerValidFrom             :: Maybe ISO8601
+    { _cerCertificateType       :: !(Maybe Text)
+    , _cerValidTill             :: !(Maybe ISO8601)
+    , _cerCertificateIdentifier :: !(Maybe Text)
+    , _cerThumbprint            :: !(Maybe Text)
+    , _cerValidFrom             :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'Certificate' smart constructor.
@@ -1060,8 +1060,8 @@ instance FromXML Certificate where
 --
 -- * 'csCharacterSetDescription'
 data CharacterSet = CharacterSet'
-    { _csCharacterSetName        :: Maybe Text
-    , _csCharacterSetDescription :: Maybe Text
+    { _csCharacterSetName        :: !(Maybe Text)
+    , _csCharacterSetDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CharacterSet' smart constructor.
@@ -1107,13 +1107,13 @@ instance FromXML CharacterSet where
 --
 -- * 'devDBEngineDescription'
 data DBEngineVersion = DBEngineVersion'
-    { _devDBEngineVersionDescription :: Maybe Text
-    , _devEngineVersion              :: Maybe Text
-    , _devDefaultCharacterSet        :: Maybe CharacterSet
-    , _devSupportedCharacterSets     :: Maybe [CharacterSet]
-    , _devEngine                     :: Maybe Text
-    , _devDBParameterGroupFamily     :: Maybe Text
-    , _devDBEngineDescription        :: Maybe Text
+    { _devDBEngineVersionDescription :: !(Maybe Text)
+    , _devEngineVersion              :: !(Maybe Text)
+    , _devDefaultCharacterSet        :: !(Maybe CharacterSet)
+    , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
+    , _devEngine                     :: !(Maybe Text)
+    , _devDBParameterGroupFamily     :: !(Maybe Text)
+    , _devDBEngineDescription        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBEngineVersion' smart constructor.
@@ -1260,43 +1260,43 @@ instance FromXML DBEngineVersion where
 --
 -- * 'diStorageType'
 data DBInstance = DBInstance'
-    { _diDBSecurityGroups                      :: Maybe [DBSecurityGroupMembership]
-    , _diEngineVersion                         :: Maybe Text
-    , _diStorageEncrypted                      :: Maybe Bool
-    , _diAutoMinorVersionUpgrade               :: Maybe Bool
-    , _diMasterUsername                        :: Maybe Text
-    , _diPubliclyAccessible                    :: Maybe Bool
-    , _diReadReplicaDBInstanceIdentifiers      :: Maybe [Text]
-    , _diIOPS                                  :: Maybe Int
-    , _diInstanceCreateTime                    :: Maybe ISO8601
-    , _diReadReplicaSourceDBInstanceIdentifier :: Maybe Text
-    , _diEngine                                :: Maybe Text
-    , _diLatestRestorableTime                  :: Maybe ISO8601
-    , _diDBInstanceClass                       :: Maybe Text
-    , _diLicenseModel                          :: Maybe Text
-    , _diPreferredMaintenanceWindow            :: Maybe Text
-    , _diCharacterSetName                      :: Maybe Text
-    , _diDBInstanceIdentifier                  :: Maybe Text
-    , _diCACertificateIdentifier               :: Maybe Text
-    , _diPreferredBackupWindow                 :: Maybe Text
-    , _diAvailabilityZone                      :: Maybe Text
-    , _diVPCSecurityGroups                     :: Maybe [VPCSecurityGroupMembership]
-    , _diBackupRetentionPeriod                 :: Maybe Int
-    , _diKMSKeyId                              :: Maybe Text
-    , _diDBSubnetGroup                         :: Maybe DBSubnetGroup
-    , _diMultiAZ                               :: Maybe Bool
-    , _diSecondaryAvailabilityZone             :: Maybe Text
-    , _diOptionGroupMemberships                :: Maybe [OptionGroupMembership]
-    , _diDBiResourceId                         :: Maybe Text
-    , _diAllocatedStorage                      :: Maybe Int
-    , _diEndpoint                              :: Maybe Endpoint
-    , _diDBParameterGroups                     :: Maybe [DBParameterGroupStatus]
-    , _diTDECredentialARN                      :: Maybe Text
-    , _diDBInstanceStatus                      :: Maybe Text
-    , _diPendingModifiedValues                 :: Maybe PendingModifiedValues
-    , _diStatusInfos                           :: Maybe [DBInstanceStatusInfo]
-    , _diDBName                                :: Maybe Text
-    , _diStorageType                           :: Maybe Text
+    { _diDBSecurityGroups                      :: !(Maybe [DBSecurityGroupMembership])
+    , _diEngineVersion                         :: !(Maybe Text)
+    , _diStorageEncrypted                      :: !(Maybe Bool)
+    , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
+    , _diMasterUsername                        :: !(Maybe Text)
+    , _diPubliclyAccessible                    :: !(Maybe Bool)
+    , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
+    , _diIOPS                                  :: !(Maybe Int)
+    , _diInstanceCreateTime                    :: !(Maybe ISO8601)
+    , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
+    , _diEngine                                :: !(Maybe Text)
+    , _diLatestRestorableTime                  :: !(Maybe ISO8601)
+    , _diDBInstanceClass                       :: !(Maybe Text)
+    , _diLicenseModel                          :: !(Maybe Text)
+    , _diPreferredMaintenanceWindow            :: !(Maybe Text)
+    , _diCharacterSetName                      :: !(Maybe Text)
+    , _diDBInstanceIdentifier                  :: !(Maybe Text)
+    , _diCACertificateIdentifier               :: !(Maybe Text)
+    , _diPreferredBackupWindow                 :: !(Maybe Text)
+    , _diAvailabilityZone                      :: !(Maybe Text)
+    , _diVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
+    , _diBackupRetentionPeriod                 :: !(Maybe Int)
+    , _diKMSKeyId                              :: !(Maybe Text)
+    , _diDBSubnetGroup                         :: !(Maybe DBSubnetGroup)
+    , _diMultiAZ                               :: !(Maybe Bool)
+    , _diSecondaryAvailabilityZone             :: !(Maybe Text)
+    , _diOptionGroupMemberships                :: !(Maybe [OptionGroupMembership])
+    , _diDBiResourceId                         :: !(Maybe Text)
+    , _diAllocatedStorage                      :: !(Maybe Int)
+    , _diEndpoint                              :: !(Maybe Endpoint)
+    , _diDBParameterGroups                     :: !(Maybe [DBParameterGroupStatus])
+    , _diTDECredentialARN                      :: !(Maybe Text)
+    , _diDBInstanceStatus                      :: !(Maybe Text)
+    , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
+    , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
+    , _diDBName                                :: !(Maybe Text)
+    , _diStorageType                           :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBInstance' smart constructor.
@@ -1616,10 +1616,10 @@ instance FromXML DBInstance where
 --
 -- * 'disiMessage'
 data DBInstanceStatusInfo = DBInstanceStatusInfo'
-    { _disiStatus     :: Maybe Text
-    , _disiNormal     :: Maybe Bool
-    , _disiStatusType :: Maybe Text
-    , _disiMessage    :: Maybe Text
+    { _disiStatus     :: !(Maybe Text)
+    , _disiNormal     :: !(Maybe Bool)
+    , _disiStatusType :: !(Maybe Text)
+    , _disiMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBInstanceStatusInfo' smart constructor.
@@ -1675,9 +1675,9 @@ instance FromXML DBInstanceStatusInfo where
 --
 -- * 'dpgDescription'
 data DBParameterGroup = DBParameterGroup'
-    { _dpgDBParameterGroupFamily :: Maybe Text
-    , _dpgDBParameterGroupName   :: Maybe Text
-    , _dpgDescription            :: Maybe Text
+    { _dpgDBParameterGroupFamily :: !(Maybe Text)
+    , _dpgDBParameterGroupName   :: !(Maybe Text)
+    , _dpgDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBParameterGroup' smart constructor.
@@ -1756,8 +1756,8 @@ instance FromXML DBParameterGroupNameMessage where
 --
 -- * 'dpgsParameterApplyStatus'
 data DBParameterGroupStatus = DBParameterGroupStatus'
-    { _dpgsDBParameterGroupName :: Maybe Text
-    , _dpgsParameterApplyStatus :: Maybe Text
+    { _dpgsDBParameterGroupName :: !(Maybe Text)
+    , _dpgsParameterApplyStatus :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBParameterGroupStatus' smart constructor.
@@ -1808,12 +1808,12 @@ instance FromXML DBParameterGroupStatus where
 --
 -- * 'dsgDBSecurityGroupDescription'
 data DBSecurityGroup = DBSecurityGroup'
-    { _dsgVPCId                      :: Maybe Text
-    , _dsgOwnerId                    :: Maybe Text
-    , _dsgIPRanges                   :: Maybe [IPRange]
-    , _dsgDBSecurityGroupName        :: Maybe Text
-    , _dsgEC2SecurityGroups          :: Maybe [EC2SecurityGroup]
-    , _dsgDBSecurityGroupDescription :: Maybe Text
+    { _dsgVPCId                      :: !(Maybe Text)
+    , _dsgOwnerId                    :: !(Maybe Text)
+    , _dsgIPRanges                   :: !(Maybe [IPRange])
+    , _dsgDBSecurityGroupName        :: !(Maybe Text)
+    , _dsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
+    , _dsgDBSecurityGroupDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBSecurityGroup' smart constructor.
@@ -1879,8 +1879,8 @@ instance FromXML DBSecurityGroup where
 --
 -- * 'dsgmDBSecurityGroupName'
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
-    { _dsgmStatus              :: Maybe Text
-    , _dsgmDBSecurityGroupName :: Maybe Text
+    { _dsgmStatus              :: !(Maybe Text)
+    , _dsgmDBSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBSecurityGroupMembership' smart constructor.
@@ -1960,28 +1960,28 @@ instance FromXML DBSecurityGroupMembership where
 --
 -- * 'dsStorageType'
 data DBSnapshot = DBSnapshot'
-    { _dsEngineVersion        :: Maybe Text
-    , _dsStatus               :: Maybe Text
-    , _dsMasterUsername       :: Maybe Text
-    , _dsSourceRegion         :: Maybe Text
-    , _dsIOPS                 :: Maybe Int
-    , _dsInstanceCreateTime   :: Maybe ISO8601
-    , _dsVPCId                :: Maybe Text
-    , _dsEngine               :: Maybe Text
-    , _dsEncrypted            :: Maybe Bool
-    , _dsDBSnapshotIdentifier :: Maybe Text
-    , _dsLicenseModel         :: Maybe Text
-    , _dsSnapshotType         :: Maybe Text
-    , _dsDBInstanceIdentifier :: Maybe Text
-    , _dsAvailabilityZone     :: Maybe Text
-    , _dsKMSKeyId             :: Maybe Text
-    , _dsSnapshotCreateTime   :: Maybe ISO8601
-    , _dsAllocatedStorage     :: Maybe Int
-    , _dsTDECredentialARN     :: Maybe Text
-    , _dsOptionGroupName      :: Maybe Text
-    , _dsPercentProgress      :: Maybe Int
-    , _dsPort                 :: Maybe Int
-    , _dsStorageType          :: Maybe Text
+    { _dsEngineVersion        :: !(Maybe Text)
+    , _dsStatus               :: !(Maybe Text)
+    , _dsMasterUsername       :: !(Maybe Text)
+    , _dsSourceRegion         :: !(Maybe Text)
+    , _dsIOPS                 :: !(Maybe Int)
+    , _dsInstanceCreateTime   :: !(Maybe ISO8601)
+    , _dsVPCId                :: !(Maybe Text)
+    , _dsEngine               :: !(Maybe Text)
+    , _dsEncrypted            :: !(Maybe Bool)
+    , _dsDBSnapshotIdentifier :: !(Maybe Text)
+    , _dsLicenseModel         :: !(Maybe Text)
+    , _dsSnapshotType         :: !(Maybe Text)
+    , _dsDBInstanceIdentifier :: !(Maybe Text)
+    , _dsAvailabilityZone     :: !(Maybe Text)
+    , _dsKMSKeyId             :: !(Maybe Text)
+    , _dsSnapshotCreateTime   :: !(Maybe ISO8601)
+    , _dsAllocatedStorage     :: !(Maybe Int)
+    , _dsTDECredentialARN     :: !(Maybe Text)
+    , _dsOptionGroupName      :: !(Maybe Text)
+    , _dsPercentProgress      :: !(Maybe Int)
+    , _dsPort                 :: !(Maybe Int)
+    , _dsStorageType          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBSnapshot' smart constructor.
@@ -2155,11 +2155,11 @@ instance FromXML DBSnapshot where
 --
 -- * 'dbsSubnetGroupStatus'
 data DBSubnetGroup = DBSubnetGroup'
-    { _dbsDBSubnetGroupName        :: Maybe Text
-    , _dbsVPCId                    :: Maybe Text
-    , _dbsSubnets                  :: Maybe [Subnet]
-    , _dbsDBSubnetGroupDescription :: Maybe Text
-    , _dbsSubnetGroupStatus        :: Maybe Text
+    { _dbsDBSubnetGroupName        :: !(Maybe Text)
+    , _dbsVPCId                    :: !(Maybe Text)
+    , _dbsSubnets                  :: !(Maybe [Subnet])
+    , _dbsDBSubnetGroupDescription :: !(Maybe Text)
+    , _dbsSubnetGroupStatus        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DBSubnetGroup' smart constructor.
@@ -2214,9 +2214,9 @@ instance FromXML DBSubnetGroup where
 --
 -- * 'ddlfdLogFileName'
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
-    { _ddlfdLastWritten :: Maybe Integer
-    , _ddlfdSize        :: Maybe Integer
-    , _ddlfdLogFileName :: Maybe Text
+    { _ddlfdLastWritten :: !(Maybe Integer)
+    , _ddlfdSize        :: !(Maybe Integer)
+    , _ddlfdLogFileName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBLogFilesDetails' smart constructor.
@@ -2264,10 +2264,10 @@ instance FromXML DescribeDBLogFilesDetails where
 --
 -- * 'esgEC2SecurityGroupId'
 data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: Maybe Text
-    , _esgEC2SecurityGroupOwnerId :: Maybe Text
-    , _esgEC2SecurityGroupName    :: Maybe Text
-    , _esgEC2SecurityGroupId      :: Maybe Text
+    { _esgStatus                  :: !(Maybe Text)
+    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _esgEC2SecurityGroupName    :: !(Maybe Text)
+    , _esgEC2SecurityGroupId      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EC2SecurityGroup' smart constructor.
@@ -2320,8 +2320,8 @@ instance FromXML EC2SecurityGroup where
 --
 -- * 'endPort'
 data Endpoint = Endpoint'
-    { _endAddress :: Maybe Text
-    , _endPort    :: Maybe Int
+    { _endAddress :: !(Maybe Text)
+    , _endPort    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Endpoint' smart constructor.
@@ -2357,9 +2357,9 @@ instance FromXML Endpoint where
 --
 -- * 'edMarker'
 data EngineDefaults = EngineDefaults'
-    { _edDBParameterGroupFamily :: Maybe Text
-    , _edParameters             :: Maybe [Parameter]
-    , _edMarker                 :: Maybe Text
+    { _edDBParameterGroupFamily :: !(Maybe Text)
+    , _edParameters             :: !(Maybe [Parameter])
+    , _edMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EngineDefaults' smart constructor.
@@ -2411,11 +2411,11 @@ instance FromXML EngineDefaults where
 --
 -- * 'eveMessage'
 data Event = Event'
-    { _eveSourceType       :: Maybe SourceType
-    , _eveSourceIdentifier :: Maybe Text
-    , _eveDate             :: Maybe ISO8601
-    , _eveEventCategories  :: Maybe [Text]
-    , _eveMessage          :: Maybe Text
+    { _eveSourceType       :: !(Maybe SourceType)
+    , _eveSourceIdentifier :: !(Maybe Text)
+    , _eveDate             :: !(Maybe ISO8601)
+    , _eveEventCategories  :: !(Maybe [Text])
+    , _eveMessage          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Event' smart constructor.
@@ -2470,8 +2470,8 @@ instance FromXML Event where
 --
 -- * 'ecmEventCategories'
 data EventCategoriesMap = EventCategoriesMap'
-    { _ecmSourceType      :: Maybe Text
-    , _ecmEventCategories :: Maybe [Text]
+    { _ecmSourceType      :: !(Maybe Text)
+    , _ecmEventCategories :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'EventCategoriesMap' smart constructor.
@@ -2522,15 +2522,15 @@ instance FromXML EventCategoriesMap where
 --
 -- * 'esSourceIdsList'
 data EventSubscription = EventSubscription'
-    { _esCustomerAWSId            :: Maybe Text
-    , _esStatus                   :: Maybe Text
-    , _esCustSubscriptionId       :: Maybe Text
-    , _esSNSTopicARN              :: Maybe Text
-    , _esEnabled                  :: Maybe Bool
-    , _esSourceType               :: Maybe Text
-    , _esSubscriptionCreationTime :: Maybe Text
-    , _esEventCategoriesList      :: Maybe [Text]
-    , _esSourceIdsList            :: Maybe [Text]
+    { _esCustomerAWSId            :: !(Maybe Text)
+    , _esStatus                   :: !(Maybe Text)
+    , _esCustSubscriptionId       :: !(Maybe Text)
+    , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEnabled                  :: !(Maybe Bool)
+    , _esSourceType               :: !(Maybe Text)
+    , _esSubscriptionCreationTime :: !(Maybe Text)
+    , _esEventCategoriesList      :: !(Maybe [Text])
+    , _esSourceIdsList            :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'EventSubscription' smart constructor.
@@ -2619,8 +2619,8 @@ instance FromXML EventSubscription where
 --
 -- * 'filValues'
 data Filter = Filter'
-    { _filName   :: Text
-    , _filValues :: [Text]
+    { _filName   :: !Text
+    , _filValues :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'Filter' smart constructor.
@@ -2656,8 +2656,8 @@ instance ToQuery Filter where
 --
 -- * 'irCIDRIP'
 data IPRange = IPRange'
-    { _irStatus :: Maybe Text
-    , _irCIDRIP :: Maybe Text
+    { _irStatus :: !(Maybe Text)
+    , _irCIDRIP :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'IPRange' smart constructor.
@@ -2703,14 +2703,14 @@ instance FromXML IPRange where
 --
 -- * 'optPort'
 data Option = Option'
-    { _optOptionName                  :: Maybe Text
-    , _optPermanent                   :: Maybe Bool
-    , _optPersistent                  :: Maybe Bool
-    , _optOptionDescription           :: Maybe Text
-    , _optOptionSettings              :: Maybe [OptionSetting]
-    , _optVPCSecurityGroupMemberships :: Maybe [VPCSecurityGroupMembership]
-    , _optDBSecurityGroupMemberships  :: Maybe [DBSecurityGroupMembership]
-    , _optPort                        :: Maybe Int
+    { _optOptionName                  :: !(Maybe Text)
+    , _optPermanent                   :: !(Maybe Bool)
+    , _optPersistent                  :: !(Maybe Bool)
+    , _optOptionDescription           :: !(Maybe Text)
+    , _optOptionSettings              :: !(Maybe [OptionSetting])
+    , _optVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
+    , _optDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
+    , _optPort                        :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Option' smart constructor.
@@ -2794,11 +2794,11 @@ instance FromXML Option where
 --
 -- * 'ocOptionName'
 data OptionConfiguration = OptionConfiguration'
-    { _ocOptionSettings              :: Maybe [OptionSetting]
-    , _ocVPCSecurityGroupMemberships :: Maybe [Text]
-    , _ocDBSecurityGroupMemberships  :: Maybe [Text]
-    , _ocPort                        :: Maybe Int
-    , _ocOptionName                  :: Text
+    { _ocOptionSettings              :: !(Maybe [OptionSetting])
+    , _ocVPCSecurityGroupMemberships :: !(Maybe [Text])
+    , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
+    , _ocPort                        :: !(Maybe Int)
+    , _ocOptionName                  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'OptionConfiguration' smart constructor.
@@ -2868,13 +2868,13 @@ instance ToQuery OptionConfiguration where
 --
 -- * 'ogOptionGroupName'
 data OptionGroup = OptionGroup'
-    { _ogOptionGroupDescription                :: Maybe Text
-    , _ogVPCId                                 :: Maybe Text
-    , _ogAllowsVPCAndNonVPCInstanceMemberships :: Maybe Bool
-    , _ogEngineName                            :: Maybe Text
-    , _ogMajorEngineVersion                    :: Maybe Text
-    , _ogOptions                               :: Maybe [Option]
-    , _ogOptionGroupName                       :: Maybe Text
+    { _ogOptionGroupDescription                :: !(Maybe Text)
+    , _ogVPCId                                 :: !(Maybe Text)
+    , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
+    , _ogEngineName                            :: !(Maybe Text)
+    , _ogMajorEngineVersion                    :: !(Maybe Text)
+    , _ogOptions                               :: !(Maybe [Option])
+    , _ogOptionGroupName                       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionGroup' smart constructor.
@@ -2948,8 +2948,8 @@ instance FromXML OptionGroup where
 --
 -- * 'ogmOptionGroupName'
 data OptionGroupMembership = OptionGroupMembership'
-    { _ogmStatus          :: Maybe Text
-    , _ogmOptionGroupName :: Maybe Text
+    { _ogmStatus          :: !(Maybe Text)
+    , _ogmOptionGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionGroupMembership' smart constructor.
@@ -3002,17 +3002,17 @@ instance FromXML OptionGroupMembership where
 --
 -- * 'ogoDescription'
 data OptionGroupOption = OptionGroupOption'
-    { _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
-    , _ogoPermanent                         :: Maybe Bool
-    , _ogoPersistent                        :: Maybe Bool
-    , _ogoEngineName                        :: Maybe Text
-    , _ogoName                              :: Maybe Text
-    , _ogoMajorEngineVersion                :: Maybe Text
-    , _ogoDefaultPort                       :: Maybe Int
-    , _ogoOptionGroupOptionSettings         :: Maybe [OptionGroupOptionSetting]
-    , _ogoPortRequired                      :: Maybe Bool
-    , _ogoOptionsDependedOn                 :: Maybe [Text]
-    , _ogoDescription                       :: Maybe Text
+    { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
+    , _ogoPermanent                         :: !(Maybe Bool)
+    , _ogoPersistent                        :: !(Maybe Bool)
+    , _ogoEngineName                        :: !(Maybe Text)
+    , _ogoName                              :: !(Maybe Text)
+    , _ogoMajorEngineVersion                :: !(Maybe Text)
+    , _ogoDefaultPort                       :: !(Maybe Int)
+    , _ogoOptionGroupOptionSettings         :: !(Maybe [OptionGroupOptionSetting])
+    , _ogoPortRequired                      :: !(Maybe Bool)
+    , _ogoOptionsDependedOn                 :: !(Maybe [Text])
+    , _ogoDescription                       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionGroupOption' smart constructor.
@@ -3122,12 +3122,12 @@ instance FromXML OptionGroupOption where
 --
 -- * 'ogosSettingDescription'
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
-    { _ogosApplyType          :: Maybe Text
-    , _ogosSettingName        :: Maybe Text
-    , _ogosDefaultValue       :: Maybe Text
-    , _ogosIsModifiable       :: Maybe Bool
-    , _ogosAllowedValues      :: Maybe Text
-    , _ogosSettingDescription :: Maybe Text
+    { _ogosApplyType          :: !(Maybe Text)
+    , _ogosSettingName        :: !(Maybe Text)
+    , _ogosDefaultValue       :: !(Maybe Text)
+    , _ogosIsModifiable       :: !(Maybe Bool)
+    , _ogosAllowedValues      :: !(Maybe Text)
+    , _ogosSettingDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionGroupOptionSetting' smart constructor.
@@ -3204,15 +3204,15 @@ instance FromXML OptionGroupOptionSetting where
 --
 -- * 'osDescription'
 data OptionSetting = OptionSetting'
-    { _osIsCollection  :: Maybe Bool
-    , _osApplyType     :: Maybe Text
-    , _osValue         :: Maybe Text
-    , _osName          :: Maybe Text
-    , _osDefaultValue  :: Maybe Text
-    , _osIsModifiable  :: Maybe Bool
-    , _osAllowedValues :: Maybe Text
-    , _osDataType      :: Maybe Text
-    , _osDescription   :: Maybe Text
+    { _osIsCollection  :: !(Maybe Bool)
+    , _osApplyType     :: !(Maybe Text)
+    , _osValue         :: !(Maybe Text)
+    , _osName          :: !(Maybe Text)
+    , _osDefaultValue  :: !(Maybe Text)
+    , _osIsModifiable  :: !(Maybe Bool)
+    , _osAllowedValues :: !(Maybe Text)
+    , _osDataType      :: !(Maybe Text)
+    , _osDescription   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OptionSetting' smart constructor.
@@ -3321,17 +3321,17 @@ instance ToQuery OptionSetting where
 --
 -- * 'odioStorageType'
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-    { _odioEngineVersion             :: Maybe Text
-    , _odioMultiAZCapable            :: Maybe Bool
-    , _odioEngine                    :: Maybe Text
-    , _odioSupportsIOPS              :: Maybe Bool
-    , _odioDBInstanceClass           :: Maybe Text
-    , _odioLicenseModel              :: Maybe Text
-    , _odioAvailabilityZones         :: Maybe [AvailabilityZone]
-    , _odioReadReplicaCapable        :: Maybe Bool
-    , _odioSupportsStorageEncryption :: Maybe Bool
-    , _odioVPC                       :: Maybe Bool
-    , _odioStorageType               :: Maybe Text
+    { _odioEngineVersion             :: !(Maybe Text)
+    , _odioMultiAZCapable            :: !(Maybe Bool)
+    , _odioEngine                    :: !(Maybe Text)
+    , _odioSupportsIOPS              :: !(Maybe Bool)
+    , _odioDBInstanceClass           :: !(Maybe Text)
+    , _odioLicenseModel              :: !(Maybe Text)
+    , _odioAvailabilityZones         :: !(Maybe [AvailabilityZone])
+    , _odioReadReplicaCapable        :: !(Maybe Bool)
+    , _odioSupportsStorageEncryption :: !(Maybe Bool)
+    , _odioVPC                       :: !(Maybe Bool)
+    , _odioStorageType               :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'OrderableDBInstanceOption' smart constructor.
@@ -3441,16 +3441,16 @@ instance FromXML OrderableDBInstanceOption where
 --
 -- * 'parDescription'
 data Parameter = Parameter'
-    { _parApplyType            :: Maybe Text
-    , _parParameterValue       :: Maybe Text
-    , _parApplyMethod          :: Maybe ApplyMethod
-    , _parMinimumEngineVersion :: Maybe Text
-    , _parSource               :: Maybe Text
-    , _parIsModifiable         :: Maybe Bool
-    , _parAllowedValues        :: Maybe Text
-    , _parDataType             :: Maybe Text
-    , _parParameterName        :: Maybe Text
-    , _parDescription          :: Maybe Text
+    { _parApplyType            :: !(Maybe Text)
+    , _parParameterValue       :: !(Maybe Text)
+    , _parApplyMethod          :: !(Maybe ApplyMethod)
+    , _parMinimumEngineVersion :: !(Maybe Text)
+    , _parSource               :: !(Maybe Text)
+    , _parIsModifiable         :: !(Maybe Bool)
+    , _parAllowedValues        :: !(Maybe Text)
+    , _parDataType             :: !(Maybe Text)
+    , _parParameterName        :: !(Maybe Text)
+    , _parDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Parameter' smart constructor.
@@ -3556,12 +3556,12 @@ instance ToQuery Parameter where
 --
 -- * 'pmaForcedApplyDate'
 data PendingMaintenanceAction = PendingMaintenanceAction'
-    { _pmaAutoAppliedAfterDate :: Maybe ISO8601
-    , _pmaAction               :: Maybe Text
-    , _pmaOptInStatus          :: Maybe Text
-    , _pmaDescription          :: Maybe Text
-    , _pmaCurrentApplyDate     :: Maybe ISO8601
-    , _pmaForcedApplyDate      :: Maybe ISO8601
+    { _pmaAutoAppliedAfterDate :: !(Maybe ISO8601)
+    , _pmaAction               :: !(Maybe Text)
+    , _pmaOptInStatus          :: !(Maybe Text)
+    , _pmaDescription          :: !(Maybe Text)
+    , _pmaCurrentApplyDate     :: !(Maybe ISO8601)
+    , _pmaForcedApplyDate      :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'PendingMaintenanceAction' smart constructor.
@@ -3651,17 +3651,17 @@ instance FromXML PendingMaintenanceAction where
 --
 -- * 'pmvStorageType'
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvEngineVersion           :: Maybe Text
-    , _pmvMasterUserPassword      :: Maybe Text
-    , _pmvIOPS                    :: Maybe Int
-    , _pmvDBInstanceClass         :: Maybe Text
-    , _pmvDBInstanceIdentifier    :: Maybe Text
-    , _pmvCACertificateIdentifier :: Maybe Text
-    , _pmvBackupRetentionPeriod   :: Maybe Int
-    , _pmvMultiAZ                 :: Maybe Bool
-    , _pmvAllocatedStorage        :: Maybe Int
-    , _pmvPort                    :: Maybe Int
-    , _pmvStorageType             :: Maybe Text
+    { _pmvEngineVersion           :: !(Maybe Text)
+    , _pmvMasterUserPassword      :: !(Maybe Text)
+    , _pmvIOPS                    :: !(Maybe Int)
+    , _pmvDBInstanceClass         :: !(Maybe Text)
+    , _pmvDBInstanceIdentifier    :: !(Maybe Text)
+    , _pmvCACertificateIdentifier :: !(Maybe Text)
+    , _pmvBackupRetentionPeriod   :: !(Maybe Int)
+    , _pmvMultiAZ                 :: !(Maybe Bool)
+    , _pmvAllocatedStorage        :: !(Maybe Int)
+    , _pmvPort                    :: !(Maybe Int)
+    , _pmvStorageType             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'PendingModifiedValues' smart constructor.
@@ -3759,8 +3759,8 @@ instance FromXML PendingModifiedValues where
 --
 -- * 'rcRecurringChargeAmount'
 data RecurringCharge = RecurringCharge'
-    { _rcRecurringChargeFrequency :: Maybe Text
-    , _rcRecurringChargeAmount    :: Maybe Double
+    { _rcRecurringChargeFrequency :: !(Maybe Text)
+    , _rcRecurringChargeAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'RecurringCharge' smart constructor.
@@ -3821,20 +3821,20 @@ instance FromXML RecurringCharge where
 --
 -- * 'rdiDuration'
 data ReservedDBInstance = ReservedDBInstance'
-    { _rdiDBInstanceCount               :: Maybe Int
-    , _rdiState                         :: Maybe Text
-    , _rdiCurrencyCode                  :: Maybe Text
-    , _rdiProductDescription            :: Maybe Text
-    , _rdiStartTime                     :: Maybe ISO8601
-    , _rdiReservedDBInstanceId          :: Maybe Text
-    , _rdiDBInstanceClass               :: Maybe Text
-    , _rdiMultiAZ                       :: Maybe Bool
-    , _rdiReservedDBInstancesOfferingId :: Maybe Text
-    , _rdiOfferingType                  :: Maybe Text
-    , _rdiUsagePrice                    :: Maybe Double
-    , _rdiRecurringCharges              :: Maybe [RecurringCharge]
-    , _rdiFixedPrice                    :: Maybe Double
-    , _rdiDuration                      :: Maybe Int
+    { _rdiDBInstanceCount               :: !(Maybe Int)
+    , _rdiState                         :: !(Maybe Text)
+    , _rdiCurrencyCode                  :: !(Maybe Text)
+    , _rdiProductDescription            :: !(Maybe Text)
+    , _rdiStartTime                     :: !(Maybe ISO8601)
+    , _rdiReservedDBInstanceId          :: !(Maybe Text)
+    , _rdiDBInstanceClass               :: !(Maybe Text)
+    , _rdiMultiAZ                       :: !(Maybe Bool)
+    , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _rdiOfferingType                  :: !(Maybe Text)
+    , _rdiUsagePrice                    :: !(Maybe Double)
+    , _rdiRecurringCharges              :: !(Maybe [RecurringCharge])
+    , _rdiFixedPrice                    :: !(Maybe Double)
+    , _rdiDuration                      :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedDBInstance' smart constructor.
@@ -3959,16 +3959,16 @@ instance FromXML ReservedDBInstance where
 --
 -- * 'rdioDuration'
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
-    { _rdioCurrencyCode                  :: Maybe Text
-    , _rdioProductDescription            :: Maybe Text
-    , _rdioDBInstanceClass               :: Maybe Text
-    , _rdioMultiAZ                       :: Maybe Bool
-    , _rdioReservedDBInstancesOfferingId :: Maybe Text
-    , _rdioOfferingType                  :: Maybe Text
-    , _rdioUsagePrice                    :: Maybe Double
-    , _rdioRecurringCharges              :: Maybe [RecurringCharge]
-    , _rdioFixedPrice                    :: Maybe Double
-    , _rdioDuration                      :: Maybe Int
+    { _rdioCurrencyCode                  :: !(Maybe Text)
+    , _rdioProductDescription            :: !(Maybe Text)
+    , _rdioDBInstanceClass               :: !(Maybe Text)
+    , _rdioMultiAZ                       :: !(Maybe Bool)
+    , _rdioReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _rdioOfferingType                  :: !(Maybe Text)
+    , _rdioUsagePrice                    :: !(Maybe Double)
+    , _rdioRecurringCharges              :: !(Maybe [RecurringCharge])
+    , _rdioFixedPrice                    :: !(Maybe Double)
+    , _rdioDuration                      :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ReservedDBInstancesOffering' smart constructor.
@@ -4053,8 +4053,8 @@ instance FromXML ReservedDBInstancesOffering where
 --
 -- * 'rpmaResourceIdentifier'
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-    { _rpmaPendingMaintenanceActionDetails :: Maybe [PendingMaintenanceAction]
-    , _rpmaResourceIdentifier              :: Maybe Text
+    { _rpmaPendingMaintenanceActionDetails :: !(Maybe [PendingMaintenanceAction])
+    , _rpmaResourceIdentifier              :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ResourcePendingMaintenanceActions' smart constructor.
@@ -4095,9 +4095,9 @@ instance FromXML ResourcePendingMaintenanceActions
 --
 -- * 'subSubnetAvailabilityZone'
 data Subnet = Subnet'
-    { _subSubnetStatus           :: Maybe Text
-    , _subSubnetIdentifier       :: Maybe Text
-    , _subSubnetAvailabilityZone :: Maybe AvailabilityZone
+    { _subSubnetStatus           :: !(Maybe Text)
+    , _subSubnetIdentifier       :: !(Maybe Text)
+    , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show)
 
 -- | 'Subnet' smart constructor.
@@ -4138,8 +4138,8 @@ instance FromXML Subnet where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -4185,8 +4185,8 @@ instance ToQuery Tag where
 --
 -- * 'vsgmVPCSecurityGroupId'
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-    { _vsgmStatus             :: Maybe Text
-    , _vsgmVPCSecurityGroupId :: Maybe Text
+    { _vsgmStatus             :: !(Maybe Text)
+    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VPCSecurityGroupMembership' smart constructor.

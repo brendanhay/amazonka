@@ -80,8 +80,8 @@ import           Network.AWS.SWF.Types
 --
 -- * 'resTaskToken'
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
-    { _resDetails   :: Maybe Text
-    , _resTaskToken :: Text
+    { _resDetails   :: !(Maybe Text)
+    , _resTaskToken :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RespondActivityTaskCanceled' smart constructor.

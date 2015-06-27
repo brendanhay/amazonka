@@ -110,8 +110,8 @@ instance ToQuery ListTopics where
 --
 -- * 'ltrStatus'
 data ListTopicsResponse = ListTopicsResponse'
-    { _ltrTopics    :: Maybe [Topic]
-    , _ltrNextToken :: Maybe Text
+    { _ltrTopics    :: !(Maybe [Topic])
+    , _ltrNextToken :: !(Maybe Text)
     , _ltrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

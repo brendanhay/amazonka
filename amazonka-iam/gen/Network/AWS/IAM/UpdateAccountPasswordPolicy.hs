@@ -76,15 +76,15 @@ import           Network.AWS.Response
 --
 -- * 'uappAllowUsersToChangePassword'
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-    { _uappRequireNumbers             :: Maybe Bool
-    , _uappMinimumPasswordLength      :: Maybe Nat
-    , _uappPasswordReusePrevention    :: Maybe Nat
-    , _uappRequireLowercaseCharacters :: Maybe Bool
-    , _uappMaxPasswordAge             :: Maybe Nat
-    , _uappHardExpiry                 :: Maybe Bool
-    , _uappRequireSymbols             :: Maybe Bool
-    , _uappRequireUppercaseCharacters :: Maybe Bool
-    , _uappAllowUsersToChangePassword :: Maybe Bool
+    { _uappRequireNumbers             :: !(Maybe Bool)
+    , _uappMinimumPasswordLength      :: !(Maybe Nat)
+    , _uappPasswordReusePrevention    :: !(Maybe Nat)
+    , _uappRequireLowercaseCharacters :: !(Maybe Bool)
+    , _uappMaxPasswordAge             :: !(Maybe Nat)
+    , _uappHardExpiry                 :: !(Maybe Bool)
+    , _uappRequireSymbols             :: !(Maybe Bool)
+    , _uappRequireUppercaseCharacters :: !(Maybe Bool)
+    , _uappAllowUsersToChangePassword :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateAccountPasswordPolicy' smart constructor.

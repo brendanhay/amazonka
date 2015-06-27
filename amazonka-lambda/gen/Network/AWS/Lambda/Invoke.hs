@@ -63,11 +63,11 @@ import           Network.AWS.Response
 --
 -- * 'invFunctionName'
 data Invoke = Invoke'
-    { _invInvocationType :: Maybe InvocationType
-    , _invPayload        :: Maybe Base64
-    , _invLogType        :: Maybe LogType
-    , _invClientContext  :: Maybe Text
-    , _invFunctionName   :: Text
+    { _invInvocationType :: !(Maybe InvocationType)
+    , _invPayload        :: !(Maybe Base64)
+    , _invLogType        :: !(Maybe LogType)
+    , _invClientContext  :: !(Maybe Text)
+    , _invFunctionName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Invoke' smart constructor.
@@ -175,9 +175,9 @@ instance ToQuery Invoke where
 --
 -- * 'irStatusCode'
 data InvokeResponse = InvokeResponse'
-    { _irFunctionError :: Maybe Text
-    , _irLogResult     :: Maybe Text
-    , _irPayload       :: Maybe Base64
+    { _irFunctionError :: !(Maybe Text)
+    , _irLogResult     :: !(Maybe Text)
+    , _irPayload       :: !(Maybe Base64)
     , _irStatusCode    :: !Int
     } deriving (Eq,Read,Show)
 

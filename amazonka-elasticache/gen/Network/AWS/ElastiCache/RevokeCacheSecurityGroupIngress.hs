@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'rcsgiEC2SecurityGroupOwnerId'
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
-    { _rcsgiCacheSecurityGroupName  :: Text
-    , _rcsgiEC2SecurityGroupName    :: Text
-    , _rcsgiEC2SecurityGroupOwnerId :: Text
+    { _rcsgiCacheSecurityGroupName  :: !Text
+    , _rcsgiEC2SecurityGroupName    :: !Text
+    , _rcsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
@@ -125,7 +125,7 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 --
 -- * 'rcsgirStatus'
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
-    { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
+    { _rcsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _rcsgirStatus             :: !Int
     } deriving (Eq,Read,Show)
 

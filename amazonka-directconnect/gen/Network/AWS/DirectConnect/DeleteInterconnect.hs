@@ -102,7 +102,7 @@ instance ToQuery DeleteInterconnect where
 --
 -- * 'delStatus'
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
-    { _delInterconnectState :: Maybe InterconnectState
+    { _delInterconnectState :: !(Maybe InterconnectState)
     , _delStatus            :: !Int
     } deriving (Eq,Read,Show)
 

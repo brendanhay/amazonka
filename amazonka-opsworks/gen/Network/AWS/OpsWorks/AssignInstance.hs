@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'aiLayerIds'
 data AssignInstance = AssignInstance'
-    { _aiInstanceId :: Text
-    , _aiLayerIds   :: [Text]
+    { _aiInstanceId :: !Text
+    , _aiLayerIds   :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'AssignInstance' smart constructor.

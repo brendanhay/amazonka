@@ -65,12 +65,12 @@ import           Network.AWS.Response
 --
 -- * 'dahMaxRecords'
 data DescribeAlarmHistory = DescribeAlarmHistory'
-    { _dahAlarmName       :: Maybe Text
-    , _dahHistoryItemType :: Maybe HistoryItemType
-    , _dahEndDate         :: Maybe ISO8601
-    , _dahStartDate       :: Maybe ISO8601
-    , _dahNextToken       :: Maybe Text
-    , _dahMaxRecords      :: Maybe Nat
+    { _dahAlarmName       :: !(Maybe Text)
+    , _dahHistoryItemType :: !(Maybe HistoryItemType)
+    , _dahEndDate         :: !(Maybe ISO8601)
+    , _dahStartDate       :: !(Maybe ISO8601)
+    , _dahNextToken       :: !(Maybe Text)
+    , _dahMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAlarmHistory' smart constructor.
@@ -161,8 +161,8 @@ instance ToQuery DescribeAlarmHistory where
 --
 -- * 'dahrStatus'
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
-    { _dahrAlarmHistoryItems :: Maybe [AlarmHistoryItem]
-    , _dahrNextToken         :: Maybe Text
+    { _dahrAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
+    , _dahrNextToken         :: !(Maybe Text)
     , _dahrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

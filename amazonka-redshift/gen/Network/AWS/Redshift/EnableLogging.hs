@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'elBucketName'
 data EnableLogging = EnableLogging'
-    { _elS3KeyPrefix       :: Maybe Text
-    , _elClusterIdentifier :: Text
-    , _elBucketName        :: Text
+    { _elS3KeyPrefix       :: !(Maybe Text)
+    , _elClusterIdentifier :: !Text
+    , _elBucketName        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'EnableLogging' smart constructor.

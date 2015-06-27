@@ -60,11 +60,11 @@ import           Network.AWS.Response
 --
 -- * 'diitMaxResults'
 data DescribeImportImageTasks = DescribeImportImageTasks'
-    { _diitFilters       :: Maybe [Filter]
-    , _diitImportTaskIds :: Maybe [Text]
-    , _diitNextToken     :: Maybe Text
-    , _diitDryRun        :: Maybe Bool
-    , _diitMaxResults    :: Maybe Int
+    { _diitFilters       :: !(Maybe [Filter])
+    , _diitImportTaskIds :: !(Maybe [Text])
+    , _diitNextToken     :: !(Maybe Text)
+    , _diitDryRun        :: !(Maybe Bool)
+    , _diitMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImportImageTasks' smart constructor.
@@ -142,8 +142,8 @@ instance ToQuery DescribeImportImageTasks where
 --
 -- * 'diitrStatus'
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-    { _diitrImportImageTasks :: Maybe [ImportImageTask]
-    , _diitrNextToken        :: Maybe Text
+    { _diitrImportImageTasks :: !(Maybe [ImportImageTask])
+    , _diitrNextToken        :: !(Maybe Text)
     , _diitrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

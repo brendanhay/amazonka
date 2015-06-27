@@ -107,8 +107,8 @@ instance ToQuery ListHAPGs where
 --
 -- * 'lhrStatus'
 data ListHAPGsResponse = ListHAPGsResponse'
-    { _lhrNextToken :: Maybe Text
-    , _lhrHAPGList  :: [Text]
+    { _lhrNextToken :: !(Maybe Text)
+    , _lhrHAPGList  :: ![Text]
     , _lhrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'dcsgMarker'
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
-    { _dcsgCacheSubnetGroupName :: Maybe Text
-    , _dcsgMaxRecords           :: Maybe Int
-    , _dcsgMarker               :: Maybe Text
+    { _dcsgCacheSubnetGroupName :: !(Maybe Text)
+    , _dcsgMaxRecords           :: !(Maybe Int)
+    , _dcsgMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeCacheSubnetGroups' smart constructor.
@@ -142,8 +142,8 @@ instance ToQuery DescribeCacheSubnetGroups where
 --
 -- * 'dcsgrStatus'
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
-    { _dcsgrMarker            :: Maybe Text
-    , _dcsgrCacheSubnetGroups :: Maybe [CacheSubnetGroup]
+    { _dcsgrMarker            :: !(Maybe Text)
+    , _dcsgrCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
     , _dcsgrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

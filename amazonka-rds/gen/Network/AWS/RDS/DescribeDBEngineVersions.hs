@@ -69,14 +69,14 @@ import           Network.AWS.Response
 --
 -- * 'ddevMarker'
 data DescribeDBEngineVersions = DescribeDBEngineVersions'
-    { _ddevEngineVersion              :: Maybe Text
-    , _ddevDefaultOnly                :: Maybe Bool
-    , _ddevFilters                    :: Maybe [Filter]
-    , _ddevEngine                     :: Maybe Text
-    , _ddevDBParameterGroupFamily     :: Maybe Text
-    , _ddevListSupportedCharacterSets :: Maybe Bool
-    , _ddevMaxRecords                 :: Maybe Int
-    , _ddevMarker                     :: Maybe Text
+    { _ddevEngineVersion              :: !(Maybe Text)
+    , _ddevDefaultOnly                :: !(Maybe Bool)
+    , _ddevFilters                    :: !(Maybe [Filter])
+    , _ddevEngine                     :: !(Maybe Text)
+    , _ddevDBParameterGroupFamily     :: !(Maybe Text)
+    , _ddevListSupportedCharacterSets :: !(Maybe Bool)
+    , _ddevMaxRecords                 :: !(Maybe Int)
+    , _ddevMarker                     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBEngineVersions' smart constructor.
@@ -203,8 +203,8 @@ instance ToQuery DescribeDBEngineVersions where
 --
 -- * 'ddevrStatus'
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
-    { _ddevrMarker           :: Maybe Text
-    , _ddevrDBEngineVersions :: Maybe [DBEngineVersion]
+    { _ddevrMarker           :: !(Maybe Text)
+    , _ddevrDBEngineVersions :: !(Maybe [DBEngineVersion])
     , _ddevrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

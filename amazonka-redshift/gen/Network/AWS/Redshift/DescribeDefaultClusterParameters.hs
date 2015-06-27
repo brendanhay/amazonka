@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'ddcpParameterGroupFamily'
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-    { _ddcpMaxRecords           :: Maybe Int
-    , _ddcpMarker               :: Maybe Text
-    , _ddcpParameterGroupFamily :: Text
+    { _ddcpMaxRecords           :: !(Maybe Int)
+    , _ddcpMarker               :: !(Maybe Text)
+    , _ddcpParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDefaultClusterParameters' smart constructor.
@@ -157,7 +157,7 @@ instance ToQuery DescribeDefaultClusterParameters
 --
 -- * 'ddcprStatus'
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-    { _ddcprDefaultClusterParameters :: DefaultClusterParameters
+    { _ddcprDefaultClusterParameters :: !DefaultClusterParameters
     , _ddcprStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

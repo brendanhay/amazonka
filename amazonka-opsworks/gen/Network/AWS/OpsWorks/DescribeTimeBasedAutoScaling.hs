@@ -113,7 +113,7 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 --
 -- * 'dtbasrStatus'
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
-    { _dtbasrTimeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration]
+    { _dtbasrTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
     , _dtbasrStatus                             :: !Int
     } deriving (Eq,Read,Show)
 

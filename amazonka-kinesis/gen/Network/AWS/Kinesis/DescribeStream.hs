@@ -77,9 +77,9 @@ import           Network.AWS.Response
 --
 -- * 'desStreamName'
 data DescribeStream = DescribeStream'
-    { _desExclusiveStartShardId :: Maybe Text
-    , _desLimit                 :: Maybe Nat
-    , _desStreamName            :: Text
+    { _desExclusiveStartShardId :: !(Maybe Text)
+    , _desLimit                 :: !(Maybe Nat)
+    , _desStreamName            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeStream' smart constructor.
@@ -159,7 +159,7 @@ instance ToQuery DescribeStream where
 --
 -- * 'dsrStatus'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrStreamDescription :: StreamDescription
+    { _dsrStreamDescription :: !StreamDescription
     , _dsrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

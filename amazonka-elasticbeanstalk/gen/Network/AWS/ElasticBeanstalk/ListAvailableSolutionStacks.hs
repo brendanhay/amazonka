@@ -92,8 +92,8 @@ instance ToQuery ListAvailableSolutionStacks where
 --
 -- * 'lassrStatus'
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-    { _lassrSolutionStacks       :: Maybe [Text]
-    , _lassrSolutionStackDetails :: Maybe [SolutionStackDescription]
+    { _lassrSolutionStacks       :: !(Maybe [Text])
+    , _lassrSolutionStackDetails :: !(Maybe [SolutionStackDescription])
     , _lassrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

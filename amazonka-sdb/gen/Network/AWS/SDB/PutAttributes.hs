@@ -87,10 +87,10 @@ import           Network.AWS.SDB.Types
 --
 -- * 'paAttributes'
 data PutAttributes = PutAttributes'
-    { _paExpected   :: Maybe UpdateCondition
-    , _paDomainName :: Text
-    , _paItemName   :: Text
-    , _paAttributes :: [ReplaceableAttribute]
+    { _paExpected   :: !(Maybe UpdateCondition)
+    , _paDomainName :: !Text
+    , _paItemName   :: !Text
+    , _paAttributes :: ![ReplaceableAttribute]
     } deriving (Eq,Read,Show)
 
 -- | 'PutAttributes' smart constructor.

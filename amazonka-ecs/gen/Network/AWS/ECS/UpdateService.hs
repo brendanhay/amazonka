@@ -70,10 +70,10 @@ import           Network.AWS.Response
 --
 -- * 'usService'
 data UpdateService = UpdateService'
-    { _usCluster        :: Maybe Text
-    , _usDesiredCount   :: Maybe Int
-    , _usTaskDefinition :: Maybe Text
-    , _usService        :: Text
+    { _usCluster        :: !(Maybe Text)
+    , _usDesiredCount   :: !(Maybe Int)
+    , _usTaskDefinition :: !(Maybe Text)
+    , _usService        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateService' smart constructor.
@@ -152,7 +152,7 @@ instance ToQuery UpdateService where
 --
 -- * 'usrStatus'
 data UpdateServiceResponse = UpdateServiceResponse'
-    { _usrService :: Maybe ContainerService
+    { _usrService :: !(Maybe ContainerService)
     , _usrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

@@ -1126,10 +1126,10 @@ instance FromJSON TagFilterType where
 --
 -- * 'aiCreateTime'
 data ApplicationInfo = ApplicationInfo'
-    { _aiLinkedToGitHub  :: Maybe Bool
-    , _aiApplicationId   :: Maybe Text
-    , _aiApplicationName :: Maybe Text
-    , _aiCreateTime      :: Maybe POSIX
+    { _aiLinkedToGitHub  :: !(Maybe Bool)
+    , _aiApplicationId   :: !(Maybe Text)
+    , _aiApplicationName :: !(Maybe Text)
+    , _aiCreateTime      :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'ApplicationInfo' smart constructor.
@@ -1178,8 +1178,8 @@ instance FromJSON ApplicationInfo where
 --
 -- * 'asgName'
 data AutoScalingGroup = AutoScalingGroup'
-    { _asgHook :: Maybe Text
-    , _asgName :: Maybe Text
+    { _asgHook :: !(Maybe Text)
+    , _asgName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingGroup' smart constructor.
@@ -1219,10 +1219,10 @@ instance FromJSON AutoScalingGroup where
 --
 -- * 'dciCreateTime'
 data DeploymentConfigInfo = DeploymentConfigInfo'
-    { _dciDeploymentConfigName :: Maybe Text
-    , _dciMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
-    , _dciDeploymentConfigId   :: Maybe Text
-    , _dciCreateTime           :: Maybe POSIX
+    { _dciDeploymentConfigName :: !(Maybe Text)
+    , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
+    , _dciDeploymentConfigId   :: !(Maybe Text)
+    , _dciCreateTime           :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'DeploymentConfigInfo' smart constructor.
@@ -1285,15 +1285,15 @@ instance FromJSON DeploymentConfigInfo where
 --
 -- * 'dgiDeploymentGroupName'
 data DeploymentGroupInfo = DeploymentGroupInfo'
-    { _dgiServiceRoleARN               :: Maybe Text
-    , _dgiDeploymentConfigName         :: Maybe Text
-    , _dgiTargetRevision               :: Maybe RevisionLocation
-    , _dgiEc2TagFilters                :: Maybe [EC2TagFilter]
-    , _dgiOnPremisesInstanceTagFilters :: Maybe [TagFilter]
-    , _dgiApplicationName              :: Maybe Text
-    , _dgiDeploymentGroupId            :: Maybe Text
-    , _dgiAutoScalingGroups            :: Maybe [AutoScalingGroup]
-    , _dgiDeploymentGroupName          :: Maybe Text
+    { _dgiServiceRoleARN               :: !(Maybe Text)
+    , _dgiDeploymentConfigName         :: !(Maybe Text)
+    , _dgiTargetRevision               :: !(Maybe RevisionLocation)
+    , _dgiEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _dgiApplicationName              :: !(Maybe Text)
+    , _dgiDeploymentGroupId            :: !(Maybe Text)
+    , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
+    , _dgiDeploymentGroupName          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DeploymentGroupInfo' smart constructor.
@@ -1397,20 +1397,20 @@ instance FromJSON DeploymentGroupInfo where
 --
 -- * 'diCreateTime'
 data DeploymentInfo = DeploymentInfo'
-    { _diDeploymentId                  :: Maybe Text
-    , _diCreator                       :: Maybe DeploymentCreator
-    , _diStatus                        :: Maybe DeploymentStatus
-    , _diDeploymentConfigName          :: Maybe Text
-    , _diStartTime                     :: Maybe POSIX
-    , _diCompleteTime                  :: Maybe POSIX
-    , _diErrorInformation              :: Maybe ErrorInformation
-    , _diDeploymentOverview            :: Maybe DeploymentOverview
-    , _diApplicationName               :: Maybe Text
-    , _diRevision                      :: Maybe RevisionLocation
-    , _diDescription                   :: Maybe Text
-    , _diIgnoreApplicationStopFailures :: Maybe Bool
-    , _diDeploymentGroupName           :: Maybe Text
-    , _diCreateTime                    :: Maybe POSIX
+    { _diDeploymentId                  :: !(Maybe Text)
+    , _diCreator                       :: !(Maybe DeploymentCreator)
+    , _diStatus                        :: !(Maybe DeploymentStatus)
+    , _diDeploymentConfigName          :: !(Maybe Text)
+    , _diStartTime                     :: !(Maybe POSIX)
+    , _diCompleteTime                  :: !(Maybe POSIX)
+    , _diErrorInformation              :: !(Maybe ErrorInformation)
+    , _diDeploymentOverview            :: !(Maybe DeploymentOverview)
+    , _diApplicationName               :: !(Maybe Text)
+    , _diRevision                      :: !(Maybe RevisionLocation)
+    , _diDescription                   :: !(Maybe Text)
+    , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
+    , _diDeploymentGroupName           :: !(Maybe Text)
+    , _diCreateTime                    :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'DeploymentInfo' smart constructor.
@@ -1543,11 +1543,11 @@ instance FromJSON DeploymentInfo where
 --
 -- * 'doFailed'
 data DeploymentOverview = DeploymentOverview'
-    { _doPending    :: Maybe Integer
-    , _doSkipped    :: Maybe Integer
-    , _doInProgress :: Maybe Integer
-    , _doSucceeded  :: Maybe Integer
-    , _doFailed     :: Maybe Integer
+    { _doPending    :: !(Maybe Integer)
+    , _doSkipped    :: !(Maybe Integer)
+    , _doInProgress :: !(Maybe Integer)
+    , _doSucceeded  :: !(Maybe Integer)
+    , _doFailed     :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'DeploymentOverview' smart constructor.
@@ -1606,10 +1606,10 @@ instance FromJSON DeploymentOverview where
 --
 -- * 'diaMessage'
 data Diagnostics = Diagnostics'
-    { _diaLogTail    :: Maybe Text
-    , _diaErrorCode  :: Maybe LifecycleErrorCode
-    , _diaScriptName :: Maybe Text
-    , _diaMessage    :: Maybe Text
+    { _diaLogTail    :: !(Maybe Text)
+    , _diaErrorCode  :: !(Maybe LifecycleErrorCode)
+    , _diaScriptName :: !(Maybe Text)
+    , _diaMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Diagnostics' smart constructor.
@@ -1670,9 +1670,9 @@ instance FromJSON Diagnostics where
 --
 -- * 'etfType'
 data EC2TagFilter = EC2TagFilter'
-    { _etfValue :: Maybe Text
-    , _etfKey   :: Maybe Text
-    , _etfType  :: Maybe EC2TagFilterType
+    { _etfValue :: !(Maybe Text)
+    , _etfKey   :: !(Maybe Text)
+    , _etfType  :: !(Maybe EC2TagFilterType)
     } deriving (Eq,Read,Show)
 
 -- | 'EC2TagFilter' smart constructor.
@@ -1723,8 +1723,8 @@ instance ToJSON EC2TagFilter where
 --
 -- * 'eiMessage'
 data ErrorInformation = ErrorInformation'
-    { _eiCode    :: Maybe DeployErrorCode
-    , _eiMessage :: Maybe Text
+    { _eiCode    :: !(Maybe DeployErrorCode)
+    , _eiMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ErrorInformation' smart constructor.
@@ -1794,11 +1794,11 @@ instance FromJSON ErrorInformation where
 --
 -- * 'griDescription'
 data GenericRevisionInfo = GenericRevisionInfo'
-    { _griRegisterTime     :: Maybe POSIX
-    , _griFirstUsedTime    :: Maybe POSIX
-    , _griDeploymentGroups :: Maybe [Text]
-    , _griLastUsedTime     :: Maybe POSIX
-    , _griDescription      :: Maybe Text
+    { _griRegisterTime     :: !(Maybe POSIX)
+    , _griFirstUsedTime    :: !(Maybe POSIX)
+    , _griDeploymentGroups :: !(Maybe [Text])
+    , _griLastUsedTime     :: !(Maybe POSIX)
+    , _griDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GenericRevisionInfo' smart constructor.
@@ -1853,8 +1853,8 @@ instance FromJSON GenericRevisionInfo where
 --
 -- * 'ghlRepository'
 data GitHubLocation = GitHubLocation'
-    { _ghlCommitId   :: Maybe Text
-    , _ghlRepository :: Maybe Text
+    { _ghlCommitId   :: !(Maybe Text)
+    , _ghlRepository :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GitHubLocation' smart constructor.
@@ -1909,12 +1909,12 @@ instance ToJSON GitHubLocation where
 --
 -- * 'iiTags'
 data InstanceInfo = InstanceInfo'
-    { _iiInstanceARN    :: Maybe Text
-    , _iiRegisterTime   :: Maybe POSIX
-    , _iiDeregisterTime :: Maybe POSIX
-    , _iiIamUserARN     :: Maybe Text
-    , _iiInstanceName   :: Maybe Text
-    , _iiTags           :: Maybe [Tag]
+    { _iiInstanceARN    :: !(Maybe Text)
+    , _iiRegisterTime   :: !(Maybe POSIX)
+    , _iiDeregisterTime :: !(Maybe POSIX)
+    , _iiIamUserARN     :: !(Maybe Text)
+    , _iiInstanceName   :: !(Maybe Text)
+    , _iiTags           :: !(Maybe [Tag])
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceInfo' smart constructor.
@@ -1981,11 +1981,11 @@ instance FromJSON InstanceInfo where
 --
 -- * 'isLifecycleEvents'
 data InstanceSummary = InstanceSummary'
-    { _isInstanceId      :: Maybe Text
-    , _isDeploymentId    :: Maybe Text
-    , _isStatus          :: Maybe InstanceStatus
-    , _isLastUpdatedAt   :: Maybe POSIX
-    , _isLifecycleEvents :: Maybe [LifecycleEvent]
+    { _isInstanceId      :: !(Maybe Text)
+    , _isDeploymentId    :: !(Maybe Text)
+    , _isStatus          :: !(Maybe InstanceStatus)
+    , _isLastUpdatedAt   :: !(Maybe POSIX)
+    , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceSummary' smart constructor.
@@ -2052,11 +2052,11 @@ instance FromJSON InstanceSummary where
 --
 -- * 'leEndTime'
 data LifecycleEvent = LifecycleEvent'
-    { _leStatus             :: Maybe LifecycleEventStatus
-    , _leStartTime          :: Maybe POSIX
-    , _leLifecycleEventName :: Maybe Text
-    , _leDiagnostics        :: Maybe Diagnostics
-    , _leEndTime            :: Maybe POSIX
+    { _leStatus             :: !(Maybe LifecycleEventStatus)
+    , _leStartTime          :: !(Maybe POSIX)
+    , _leLifecycleEventName :: !(Maybe Text)
+    , _leDiagnostics        :: !(Maybe Diagnostics)
+    , _leEndTime            :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'LifecycleEvent' smart constructor.
@@ -2118,8 +2118,8 @@ instance FromJSON LifecycleEvent where
 --
 -- * 'mhhType'
 data MinimumHealthyHosts = MinimumHealthyHosts'
-    { _mhhValue :: Maybe Int
-    , _mhhType  :: Maybe MinimumHealthyHostsType
+    { _mhhValue :: !(Maybe Int)
+    , _mhhType  :: !(Maybe MinimumHealthyHostsType)
     } deriving (Eq,Read,Show)
 
 -- | 'MinimumHealthyHosts' smart constructor.
@@ -2179,9 +2179,9 @@ instance ToJSON MinimumHealthyHosts where
 --
 -- * 'rlGitHubLocation'
 data RevisionLocation = RevisionLocation'
-    { _rlRevisionType   :: Maybe RevisionLocationType
-    , _rlS3Location     :: Maybe S3Location
-    , _rlGitHubLocation :: Maybe GitHubLocation
+    { _rlRevisionType   :: !(Maybe RevisionLocationType)
+    , _rlS3Location     :: !(Maybe S3Location)
+    , _rlGitHubLocation :: !(Maybe GitHubLocation)
     } deriving (Eq,Read,Show)
 
 -- | 'RevisionLocation' smart constructor.
@@ -2240,11 +2240,11 @@ instance ToJSON RevisionLocation where
 --
 -- * 'slVersion'
 data S3Location = S3Location'
-    { _slBundleType :: Maybe BundleType
-    , _slETag       :: Maybe Text
-    , _slBucket     :: Maybe Text
-    , _slKey        :: Maybe Text
-    , _slVersion    :: Maybe Text
+    { _slBundleType :: !(Maybe BundleType)
+    , _slETag       :: !(Maybe Text)
+    , _slBucket     :: !(Maybe Text)
+    , _slKey        :: !(Maybe Text)
+    , _slVersion    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'S3Location' smart constructor.
@@ -2319,8 +2319,8 @@ instance ToJSON S3Location where
 --
 -- * 'tagKey'
 data Tag = Tag'
-    { _tagValue :: Maybe Text
-    , _tagKey   :: Maybe Text
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -2360,9 +2360,9 @@ instance ToJSON Tag where
 --
 -- * 'tfType'
 data TagFilter = TagFilter'
-    { _tfValue :: Maybe Text
-    , _tfKey   :: Maybe Text
-    , _tfType  :: Maybe TagFilterType
+    { _tfValue :: !(Maybe Text)
+    , _tfKey   :: !(Maybe Text)
+    , _tfType  :: !(Maybe TagFilterType)
     } deriving (Eq,Read,Show)
 
 -- | 'TagFilter' smart constructor.
@@ -2413,8 +2413,8 @@ instance ToJSON TagFilter where
 --
 -- * 'trEnd'
 data TimeRange = TimeRange'
-    { _trStart :: Maybe POSIX
-    , _trEnd   :: Maybe POSIX
+    { _trStart :: !(Maybe POSIX)
+    , _trEnd   :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'TimeRange' smart constructor.

@@ -107,7 +107,7 @@ instance ToQuery DescribeTaskDefinition where
 --
 -- * 'descStatus'
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-    { _descTaskDefinition :: Maybe TaskDefinition
+    { _descTaskDefinition :: !(Maybe TaskDefinition)
     , _descStatus         :: !Int
     } deriving (Eq,Read,Show)
 

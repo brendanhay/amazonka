@@ -62,10 +62,10 @@ import           Network.AWS.Response
 --
 -- * 'rcsgiClusterSecurityGroupName'
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
-    { _rcsgiEC2SecurityGroupOwnerId  :: Maybe Text
-    , _rcsgiEC2SecurityGroupName     :: Maybe Text
-    , _rcsgiCIDRIP                   :: Maybe Text
-    , _rcsgiClusterSecurityGroupName :: Text
+    { _rcsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
+    , _rcsgiEC2SecurityGroupName     :: !(Maybe Text)
+    , _rcsgiCIDRIP                   :: !(Maybe Text)
+    , _rcsgiClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeClusterSecurityGroupIngress' smart constructor.
@@ -149,7 +149,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 --
 -- * 'rcsgirStatus'
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
-    { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
+    { _rcsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _rcsgirStatus               :: !Int
     } deriving (Eq,Read,Show)
 

@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'ueEvaluationName'
 data UpdateEvaluation = UpdateEvaluation'
-    { _ueEvaluationId   :: Text
-    , _ueEvaluationName :: Text
+    { _ueEvaluationId   :: !Text
+    , _ueEvaluationName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateEvaluation' smart constructor.
@@ -116,7 +116,7 @@ instance ToQuery UpdateEvaluation where
 --
 -- * 'uerStatus'
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
-    { _uerEvaluationId :: Maybe Text
+    { _uerEvaluationId :: !(Maybe Text)
     , _uerStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -115,9 +115,9 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
 --
 -- * 'ccfoairStatus'
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
-    { _ccfoairETag                           :: Maybe Text
-    , _ccfoairLocation                       :: Maybe Text
-    , _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
+    { _ccfoairETag                           :: !(Maybe Text)
+    , _ccfoairLocation                       :: !(Maybe Text)
+    , _ccfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _ccfoairStatus                         :: !Int
     } deriving (Eq,Read,Show)
 

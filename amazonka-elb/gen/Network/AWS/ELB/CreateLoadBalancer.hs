@@ -77,13 +77,13 @@ import           Network.AWS.Response
 --
 -- * 'clbListeners'
 data CreateLoadBalancer = CreateLoadBalancer'
-    { _clbSecurityGroups    :: Maybe [Text]
-    , _clbSubnets           :: Maybe [Text]
-    , _clbAvailabilityZones :: Maybe [Text]
-    , _clbScheme            :: Maybe Text
-    , _clbTags              :: Maybe (List1 Tag)
-    , _clbLoadBalancerName  :: Text
-    , _clbListeners         :: [Listener]
+    { _clbSecurityGroups    :: !(Maybe [Text])
+    , _clbSubnets           :: !(Maybe [Text])
+    , _clbAvailabilityZones :: !(Maybe [Text])
+    , _clbScheme            :: !(Maybe Text)
+    , _clbTags              :: !(Maybe (List1 Tag))
+    , _clbLoadBalancerName  :: !Text
+    , _clbListeners         :: ![Listener]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLoadBalancer' smart constructor.
@@ -202,7 +202,7 @@ instance ToQuery CreateLoadBalancer where
 --
 -- * 'clbrStatus'
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-    { _clbrDNSName :: Maybe Text
+    { _clbrDNSName :: !(Maybe Text)
     , _clbrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

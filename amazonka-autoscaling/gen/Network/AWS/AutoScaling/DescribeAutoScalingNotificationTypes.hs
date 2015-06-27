@@ -89,7 +89,7 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 --
 -- * 'dasntrStatus'
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
-    { _dasntrAutoScalingNotificationTypes :: Maybe [Text]
+    { _dasntrAutoScalingNotificationTypes :: !(Maybe [Text])
     , _dasntrStatus                       :: !Int
     } deriving (Eq,Read,Show)
 

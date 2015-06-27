@@ -60,10 +60,10 @@ import           Network.AWS.Response
 --
 -- * 'cietInstanceId'
 data CreateInstanceExportTask = CreateInstanceExportTask'
-    { _cietTargetEnvironment :: Maybe ExportEnvironment
-    , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
-    , _cietDescription       :: Maybe Text
-    , _cietInstanceId        :: Text
+    { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
+    , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
+    , _cietDescription       :: !(Maybe Text)
+    , _cietInstanceId        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateInstanceExportTask' smart constructor.
@@ -129,7 +129,7 @@ instance ToQuery CreateInstanceExportTask where
 --
 -- * 'cietrStatus'
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
-    { _cietrExportTask :: Maybe ExportTask
+    { _cietrExportTask :: !(Maybe ExportTask)
     , _cietrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

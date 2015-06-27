@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'delDatasetName'
 data DeleteDataset = DeleteDataset'
-    { _delIdentityPoolId :: Text
-    , _delIdentityId     :: Text
-    , _delDatasetName    :: Text
+    { _delIdentityPoolId :: !Text
+    , _delIdentityId     :: !Text
+    , _delDatasetName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDataset' smart constructor.
@@ -128,7 +128,7 @@ instance ToQuery DeleteDataset where
 --
 -- * 'delStatus'
 data DeleteDatasetResponse = DeleteDatasetResponse'
-    { _delDataset :: Maybe Dataset
+    { _delDataset :: !(Maybe Dataset)
     , _delStatus  :: !Int
     } deriving (Eq,Read,Show)
 

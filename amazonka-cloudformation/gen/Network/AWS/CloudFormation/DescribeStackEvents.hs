@@ -59,8 +59,8 @@ import           Network.AWS.Response
 --
 -- * 'dseStackName'
 data DescribeStackEvents = DescribeStackEvents'
-    { _dseNextToken :: Maybe Text
-    , _dseStackName :: Maybe Text
+    { _dseNextToken :: !(Maybe Text)
+    , _dseStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeStackEvents' smart constructor.
@@ -136,8 +136,8 @@ instance ToQuery DescribeStackEvents where
 --
 -- * 'dserStatus'
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
-    { _dserNextToken   :: Maybe Text
-    , _dserStackEvents :: Maybe [StackEvent]
+    { _dserNextToken   :: !(Maybe Text)
+    , _dserStackEvents :: !(Maybe [StackEvent])
     , _dserStatus      :: !Int
     } deriving (Eq,Read,Show)
 

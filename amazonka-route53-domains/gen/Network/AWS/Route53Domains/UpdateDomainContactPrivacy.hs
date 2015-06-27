@@ -68,10 +68,10 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'udcpDomainName'
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-    { _udcpTechPrivacy       :: Maybe Bool
-    , _udcpRegistrantPrivacy :: Maybe Bool
-    , _udcpAdminPrivacy      :: Maybe Bool
-    , _udcpDomainName        :: Text
+    { _udcpTechPrivacy       :: !(Maybe Bool)
+    , _udcpRegistrantPrivacy :: !(Maybe Bool)
+    , _udcpAdminPrivacy      :: !(Maybe Bool)
+    , _udcpDomainName        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainContactPrivacy' smart constructor.
@@ -188,7 +188,7 @@ instance ToQuery UpdateDomainContactPrivacy where
 --
 -- * 'udcprStatus'
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-    { _udcprOperationId :: Text
+    { _udcprOperationId :: !Text
     , _udcprStatus      :: !Int
     } deriving (Eq,Read,Show)
 

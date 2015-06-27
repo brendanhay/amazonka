@@ -93,7 +93,7 @@ instance ToQuery ReadPreset where
 --
 -- * 'rprStatus'
 data ReadPresetResponse = ReadPresetResponse'
-    { _rprPreset :: Maybe Preset
+    { _rprPreset :: !(Maybe Preset)
     , _rprStatus :: !Int
     } deriving (Eq,Read,Show)
 

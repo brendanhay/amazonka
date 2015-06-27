@@ -74,10 +74,10 @@ import           Network.AWS.SQS.Types
 --
 -- * 'apActions'
 data AddPermission = AddPermission'
-    { _apQueueURL      :: Text
-    , _apLabel         :: Text
-    , _apAWSAccountIds :: [Text]
-    , _apActions       :: [Text]
+    { _apQueueURL      :: !Text
+    , _apLabel         :: !Text
+    , _apAWSAccountIds :: ![Text]
+    , _apActions       :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'AddPermission' smart constructor.

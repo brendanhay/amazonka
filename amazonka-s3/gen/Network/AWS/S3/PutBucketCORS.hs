@@ -49,9 +49,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'pbcBucket'
 data PutBucketCORS = PutBucketCORS'
-    { _pbcContentMD5        :: Maybe Text
-    , _pbcCORSConfiguration :: Maybe CORSConfiguration
-    , _pbcBucket            :: BucketName
+    { _pbcContentMD5        :: !(Maybe Text)
+    , _pbcCORSConfiguration :: !(Maybe CORSConfiguration)
+    , _pbcBucket            :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketCORS' smart constructor.

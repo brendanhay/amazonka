@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'ckDescription'
 data CreateKey = CreateKey'
-    { _ckKeyUsage    :: Maybe KeyUsageType
-    , _ckPolicy      :: Maybe Text
-    , _ckDescription :: Maybe Text
+    { _ckKeyUsage    :: !(Maybe KeyUsageType)
+    , _ckPolicy      :: !(Maybe Text)
+    , _ckDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CreateKey' smart constructor.
@@ -125,7 +125,7 @@ instance ToQuery CreateKey where
 --
 -- * 'ckrStatus'
 data CreateKeyResponse = CreateKeyResponse'
-    { _ckrKeyMetadata :: Maybe KeyMetadata
+    { _ckrKeyMetadata :: !(Maybe KeyMetadata)
     , _ckrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

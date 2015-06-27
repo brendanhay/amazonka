@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'dvpngVPNGatewayIds'
 data DescribeVPNGateways = DescribeVPNGateways'
-    { _dvpngFilters       :: Maybe [Filter]
-    , _dvpngDryRun        :: Maybe Bool
-    , _dvpngVPNGatewayIds :: Maybe [Text]
+    { _dvpngFilters       :: !(Maybe [Filter])
+    , _dvpngDryRun        :: !(Maybe Bool)
+    , _dvpngVPNGatewayIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVPNGateways' smart constructor.
@@ -155,7 +155,7 @@ instance ToQuery DescribeVPNGateways where
 --
 -- * 'dvgrStatus'
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
-    { _dvgrVPNGateways :: Maybe [VPNGateway]
+    { _dvgrVPNGateways :: !(Maybe [VPNGateway])
     , _dvgrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

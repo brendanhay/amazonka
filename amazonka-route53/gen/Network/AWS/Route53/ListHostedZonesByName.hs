@@ -81,9 +81,9 @@ import           Network.AWS.Route53.Types
 --
 -- * 'lhzbnDNSName'
 data ListHostedZonesByName = ListHostedZonesByName'
-    { _lhzbnHostedZoneId :: Maybe Text
-    , _lhzbnMaxItems     :: Maybe Text
-    , _lhzbnDNSName      :: Maybe Text
+    { _lhzbnHostedZoneId :: !(Maybe Text)
+    , _lhzbnMaxItems     :: !(Maybe Text)
+    , _lhzbnDNSName      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZonesByName' smart constructor.
@@ -171,13 +171,13 @@ instance ToQuery ListHostedZonesByName where
 --
 -- * 'lhzbnrStatus'
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-    { _lhzbnrHostedZoneId     :: Maybe Text
-    , _lhzbnrNextHostedZoneId :: Maybe Text
-    , _lhzbnrDNSName          :: Maybe Text
-    , _lhzbnrNextDNSName      :: Maybe Text
-    , _lhzbnrHostedZones      :: [HostedZone]
+    { _lhzbnrHostedZoneId     :: !(Maybe Text)
+    , _lhzbnrNextHostedZoneId :: !(Maybe Text)
+    , _lhzbnrDNSName          :: !(Maybe Text)
+    , _lhzbnrNextDNSName      :: !(Maybe Text)
+    , _lhzbnrHostedZones      :: ![HostedZone]
     , _lhzbnrIsTruncated      :: !Bool
-    , _lhzbnrMaxItems         :: Text
+    , _lhzbnrMaxItems         :: !Text
     , _lhzbnrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

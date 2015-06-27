@@ -110,8 +110,8 @@ import           Network.AWS.Response
 --
 -- * 'pr1StreamName'
 data PutRecords = PutRecords'
-    { _pr1RecordEntries :: List1 PutRecordsRequestEntry
-    , _pr1StreamName    :: Text
+    { _pr1RecordEntries :: !(List1 PutRecordsRequestEntry)
+    , _pr1StreamName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutRecords' smart constructor.
@@ -174,8 +174,8 @@ instance ToQuery PutRecords where
 --
 -- * 'pStatus'
 data PutRecordsResponse = PutRecordsResponse'
-    { _pFailedRecordCount :: Maybe Nat
-    , _pRecords           :: List1 PutRecordsResultEntry
+    { _pFailedRecordCount :: !(Maybe Nat)
+    , _pRecords           :: !(List1 PutRecordsResultEntry)
     , _pStatus            :: !Int
     } deriving (Eq,Read,Show)
 

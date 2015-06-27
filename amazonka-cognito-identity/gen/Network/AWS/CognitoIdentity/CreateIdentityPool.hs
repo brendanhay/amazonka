@@ -67,10 +67,10 @@ import           Network.AWS.Response
 --
 -- * 'cipAllowUnauthenticatedIdentities'
 data CreateIdentityPool = CreateIdentityPool'
-    { _cipSupportedLoginProviders        :: Maybe (Map Text Text)
-    , _cipDeveloperProviderName          :: Maybe Text
-    , _cipOpenIdConnectProviderARNs      :: Maybe [Text]
-    , _cipIdentityPoolName               :: Text
+    { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _cipDeveloperProviderName          :: !(Maybe Text)
+    , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _cipIdentityPoolName               :: !Text
     , _cipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show)
 

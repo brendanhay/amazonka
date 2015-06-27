@@ -83,18 +83,18 @@ import           Network.AWS.Response
 --
 -- * 'csStackName'
 data CreateStack = CreateStack'
-    { _csDisableRollback  :: Maybe Bool
-    , _csNotificationARNs :: Maybe [Text]
-    , _csStackPolicyBody  :: Maybe Text
-    , _csParameters       :: Maybe [Parameter]
-    , _csStackPolicyURL   :: Maybe Text
-    , _csTemplateBody     :: Maybe Text
-    , _csTemplateURL      :: Maybe Text
-    , _csCapabilities     :: Maybe [Capability]
-    , _csOnFailure        :: Maybe OnFailure
-    , _csTags             :: Maybe [Tag]
-    , _csTimeoutInMinutes :: Maybe Nat
-    , _csStackName        :: Text
+    { _csDisableRollback  :: !(Maybe Bool)
+    , _csNotificationARNs :: !(Maybe [Text])
+    , _csStackPolicyBody  :: !(Maybe Text)
+    , _csParameters       :: !(Maybe [Parameter])
+    , _csStackPolicyURL   :: !(Maybe Text)
+    , _csTemplateBody     :: !(Maybe Text)
+    , _csTemplateURL      :: !(Maybe Text)
+    , _csCapabilities     :: !(Maybe [Capability])
+    , _csOnFailure        :: !(Maybe OnFailure)
+    , _csTags             :: !(Maybe [Tag])
+    , _csTimeoutInMinutes :: !(Maybe Nat)
+    , _csStackName        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateStack' smart constructor.
@@ -269,7 +269,7 @@ instance ToQuery CreateStack where
 --
 -- * 'csrStatus'
 data CreateStackResponse = CreateStackResponse'
-    { _csrStackId :: Maybe Text
+    { _csrStackId :: !(Maybe Text)
     , _csrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

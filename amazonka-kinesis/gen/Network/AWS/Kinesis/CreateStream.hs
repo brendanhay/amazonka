@@ -89,7 +89,7 @@ import           Network.AWS.Response
 --
 -- * 'csShardCount'
 data CreateStream = CreateStream'
-    { _csStreamName :: Text
+    { _csStreamName :: !Text
     , _csShardCount :: !Nat
     } deriving (Eq,Read,Show)
 

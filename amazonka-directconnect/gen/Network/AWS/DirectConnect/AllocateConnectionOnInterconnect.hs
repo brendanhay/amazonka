@@ -71,10 +71,10 @@ import           Network.AWS.Response
 --
 -- * 'acoiVlan'
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
-    { _acoiBandwidth      :: Text
-    , _acoiConnectionName :: Text
-    , _acoiOwnerAccount   :: Text
-    , _acoiInterconnectId :: Text
+    { _acoiBandwidth      :: !Text
+    , _acoiConnectionName :: !Text
+    , _acoiOwnerAccount   :: !Text
+    , _acoiInterconnectId :: !Text
     , _acoiVlan           :: !Int
     } deriving (Eq,Read,Show)
 

@@ -222,14 +222,14 @@ _InternalServerError =
 --
 -- * 'cscsivVolumeType'
 data CachediSCSIVolume = CachediSCSIVolume'
-    { _cscsivVolumeStatus          :: Maybe Text
-    , _cscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    , _cscsivSourceSnapshotId      :: Maybe Text
-    , _cscsivVolumeARN             :: Maybe Text
-    , _cscsivVolumeProgress        :: Maybe Double
-    , _cscsivVolumeSizeInBytes     :: Maybe Integer
-    , _cscsivVolumeId              :: Maybe Text
-    , _cscsivVolumeType            :: Maybe Text
+    { _cscsivVolumeStatus          :: !(Maybe Text)
+    , _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    , _cscsivSourceSnapshotId      :: !(Maybe Text)
+    , _cscsivVolumeARN             :: !(Maybe Text)
+    , _cscsivVolumeProgress        :: !(Maybe Double)
+    , _cscsivVolumeSizeInBytes     :: !(Maybe Integer)
+    , _cscsivVolumeId              :: !(Maybe Text)
+    , _cscsivVolumeType            :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CachediSCSIVolume' smart constructor.
@@ -307,10 +307,10 @@ instance FromJSON CachediSCSIVolume where
 --
 -- * 'ciSecretToAuthenticateTarget'
 data ChapInfo = ChapInfo'
-    { _ciTargetARN                     :: Maybe Text
-    , _ciSecretToAuthenticateInitiator :: Maybe Text
-    , _ciInitiatorName                 :: Maybe Text
-    , _ciSecretToAuthenticateTarget    :: Maybe Text
+    { _ciTargetARN                     :: !(Maybe Text)
+    , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
+    , _ciInitiatorName                 :: !(Maybe Text)
+    , _ciSecretToAuthenticateTarget    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ChapInfo' smart constructor.
@@ -368,10 +368,10 @@ instance FromJSON ChapInfo where
 --
 -- * 'dscsiaNetworkInterfacePort'
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
-    { _dscsiaTargetARN            :: Maybe Text
-    , _dscsiaChapEnabled          :: Maybe Bool
-    , _dscsiaNetworkInterfaceId   :: Maybe Text
-    , _dscsiaNetworkInterfacePort :: Maybe Int
+    { _dscsiaTargetARN            :: !(Maybe Text)
+    , _dscsiaChapEnabled          :: !(Maybe Bool)
+    , _dscsiaNetworkInterfaceId   :: !(Maybe Text)
+    , _dscsiaNetworkInterfacePort :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DeviceiSCSIAttributes' smart constructor.
@@ -428,13 +428,13 @@ instance FromJSON DeviceiSCSIAttributes where
 --
 -- * 'disDiskId'
 data Disk = Disk'
-    { _disDiskAllocationResource :: Maybe Text
-    , _disDiskAllocationType     :: Maybe Text
-    , _disDiskNode               :: Maybe Text
-    , _disDiskPath               :: Maybe Text
-    , _disDiskSizeInBytes        :: Maybe Integer
-    , _disDiskStatus             :: Maybe Text
-    , _disDiskId                 :: Maybe Text
+    { _disDiskAllocationResource :: !(Maybe Text)
+    , _disDiskAllocationType     :: !(Maybe Text)
+    , _disDiskNode               :: !(Maybe Text)
+    , _disDiskPath               :: !(Maybe Text)
+    , _disDiskSizeInBytes        :: !(Maybe Integer)
+    , _disDiskStatus             :: !(Maybe Text)
+    , _disDiskId                 :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Disk' smart constructor.
@@ -501,9 +501,9 @@ instance FromJSON Disk where
 --
 -- * 'giGatewayType'
 data GatewayInfo = GatewayInfo'
-    { _giGatewayARN              :: Maybe Text
-    , _giGatewayOperationalState :: Maybe Text
-    , _giGatewayType             :: Maybe Text
+    { _giGatewayARN              :: !(Maybe Text)
+    , _giGatewayOperationalState :: !(Maybe Text)
+    , _giGatewayType             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'GatewayInfo' smart constructor.
@@ -548,9 +548,9 @@ instance FromJSON GatewayInfo where
 --
 -- * 'niIPv4Address'
 data NetworkInterface = NetworkInterface'
-    { _niIPv6Address :: Maybe Text
-    , _niMACAddress  :: Maybe Text
-    , _niIPv4Address :: Maybe Text
+    { _niIPv6Address :: !(Maybe Text)
+    , _niMACAddress  :: !(Maybe Text)
+    , _niIPv4Address :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'NetworkInterface' smart constructor.
@@ -609,16 +609,16 @@ instance FromJSON NetworkInterface where
 --
 -- * 'sscsivVolumeDiskId'
 data StorediSCSIVolume = StorediSCSIVolume'
-    { _sscsivVolumeStatus          :: Maybe Text
-    , _sscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    , _sscsivSourceSnapshotId      :: Maybe Text
-    , _sscsivPreservedExistingData :: Maybe Bool
-    , _sscsivVolumeARN             :: Maybe Text
-    , _sscsivVolumeProgress        :: Maybe Double
-    , _sscsivVolumeSizeInBytes     :: Maybe Integer
-    , _sscsivVolumeId              :: Maybe Text
-    , _sscsivVolumeType            :: Maybe Text
-    , _sscsivVolumeDiskId          :: Maybe Text
+    { _sscsivVolumeStatus          :: !(Maybe Text)
+    , _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    , _sscsivSourceSnapshotId      :: !(Maybe Text)
+    , _sscsivPreservedExistingData :: !(Maybe Bool)
+    , _sscsivVolumeARN             :: !(Maybe Text)
+    , _sscsivVolumeProgress        :: !(Maybe Double)
+    , _sscsivVolumeSizeInBytes     :: !(Maybe Integer)
+    , _sscsivVolumeId              :: !(Maybe Text)
+    , _sscsivVolumeType            :: !(Maybe Text)
+    , _sscsivVolumeDiskId          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'StorediSCSIVolume' smart constructor.
@@ -711,12 +711,12 @@ instance FromJSON StorediSCSIVolume where
 --
 -- * 'tapVTLDevice'
 data Tape = Tape'
-    { _tapTapeBarcode     :: Maybe Text
-    , _tapTapeStatus      :: Maybe Text
-    , _tapProgress        :: Maybe Double
-    , _tapTapeARN         :: Maybe Text
-    , _tapTapeSizeInBytes :: Maybe Integer
-    , _tapVTLDevice       :: Maybe Text
+    { _tapTapeBarcode     :: !(Maybe Text)
+    , _tapTapeStatus      :: !(Maybe Text)
+    , _tapProgress        :: !(Maybe Double)
+    , _tapTapeARN         :: !(Maybe Text)
+    , _tapTapeSizeInBytes :: !(Maybe Integer)
+    , _tapVTLDevice       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Tape' smart constructor.
@@ -789,12 +789,12 @@ instance FromJSON Tape where
 --
 -- * 'taRetrievedTo'
 data TapeArchive = TapeArchive'
-    { _taTapeBarcode     :: Maybe Text
-    , _taTapeStatus      :: Maybe Text
-    , _taTapeARN         :: Maybe Text
-    , _taTapeSizeInBytes :: Maybe Integer
-    , _taCompletionTime  :: Maybe POSIX
-    , _taRetrievedTo     :: Maybe Text
+    { _taTapeBarcode     :: !(Maybe Text)
+    , _taTapeStatus      :: !(Maybe Text)
+    , _taTapeARN         :: !(Maybe Text)
+    , _taTapeSizeInBytes :: !(Maybe Integer)
+    , _taCompletionTime  :: !(Maybe POSIX)
+    , _taRetrievedTo     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TapeArchive' smart constructor.
@@ -864,10 +864,10 @@ instance FromJSON TapeArchive where
 --
 -- * 'trpiTapeSizeInBytes'
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
-    { _trpiTapeStatus            :: Maybe Text
-    , _trpiTapeRecoveryPointTime :: Maybe POSIX
-    , _trpiTapeARN               :: Maybe Text
-    , _trpiTapeSizeInBytes       :: Maybe Integer
+    { _trpiTapeStatus            :: !(Maybe Text)
+    , _trpiTapeRecoveryPointTime :: !(Maybe POSIX)
+    , _trpiTapeARN               :: !(Maybe Text)
+    , _trpiTapeSizeInBytes       :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'TapeRecoveryPointInfo' smart constructor.
@@ -926,11 +926,11 @@ instance FromJSON TapeRecoveryPointInfo where
 --
 -- * 'vtldVTLDeviceProductIdentifier'
 data VTLDevice = VTLDevice'
-    { _vtldDeviceiSCSIAttributes      :: Maybe DeviceiSCSIAttributes
-    , _vtldVTLDeviceVendor            :: Maybe Text
-    , _vtldVTLDeviceARN               :: Maybe Text
-    , _vtldVTLDeviceType              :: Maybe Text
-    , _vtldVTLDeviceProductIdentifier :: Maybe Text
+    { _vtldDeviceiSCSIAttributes      :: !(Maybe DeviceiSCSIAttributes)
+    , _vtldVTLDeviceVendor            :: !(Maybe Text)
+    , _vtldVTLDeviceARN               :: !(Maybe Text)
+    , _vtldVTLDeviceType              :: !(Maybe Text)
+    , _vtldVTLDeviceProductIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VTLDevice' smart constructor.
@@ -984,8 +984,8 @@ instance FromJSON VTLDevice where
 --
 -- * 'viVolumeType'
 data VolumeInfo = VolumeInfo'
-    { _viVolumeARN  :: Maybe Text
-    , _viVolumeType :: Maybe Text
+    { _viVolumeARN  :: !(Maybe Text)
+    , _viVolumeType :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeInfo' smart constructor.
@@ -1023,10 +1023,10 @@ instance FromJSON VolumeInfo where
 --
 -- * 'vrpiVolumeUsageInBytes'
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-    { _vrpiVolumeRecoveryPointTime :: Maybe Text
-    , _vrpiVolumeARN               :: Maybe Text
-    , _vrpiVolumeSizeInBytes       :: Maybe Integer
-    , _vrpiVolumeUsageInBytes      :: Maybe Integer
+    { _vrpiVolumeRecoveryPointTime :: !(Maybe Text)
+    , _vrpiVolumeARN               :: !(Maybe Text)
+    , _vrpiVolumeSizeInBytes       :: !(Maybe Integer)
+    , _vrpiVolumeUsageInBytes      :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeRecoveryPointInfo' smart constructor.
@@ -1081,11 +1081,11 @@ instance FromJSON VolumeRecoveryPointInfo where
 --
 -- * 'vscsiaNetworkInterfacePort'
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
-    { _vscsiaLunNumber            :: Maybe Nat
-    , _vscsiaTargetARN            :: Maybe Text
-    , _vscsiaChapEnabled          :: Maybe Bool
-    , _vscsiaNetworkInterfaceId   :: Maybe Text
-    , _vscsiaNetworkInterfacePort :: Maybe Int
+    { _vscsiaLunNumber            :: !(Maybe Nat)
+    , _vscsiaTargetARN            :: !(Maybe Text)
+    , _vscsiaChapEnabled          :: !(Maybe Bool)
+    , _vscsiaNetworkInterfaceId   :: !(Maybe Text)
+    , _vscsiaNetworkInterfacePort :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'VolumeiSCSIAttributes' smart constructor.

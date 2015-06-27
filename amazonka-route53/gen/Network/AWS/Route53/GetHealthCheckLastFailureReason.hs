@@ -106,7 +106,7 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- * 'ghclfrrStatus'
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
+    { _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
     , _ghclfrrStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

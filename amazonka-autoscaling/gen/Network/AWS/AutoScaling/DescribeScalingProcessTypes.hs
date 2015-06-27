@@ -84,7 +84,7 @@ instance ToQuery DescribeScalingProcessTypes where
 --
 -- * 'dsptrStatus'
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
-    { _dsptrProcesses :: Maybe [ProcessType]
+    { _dsptrProcesses :: !(Maybe [ProcessType])
     , _dsptrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -52,8 +52,8 @@ import           Network.AWS.Route53.Types
 --
 -- * 'lisResourceIds'
 data ListTagsForResources = ListTagsForResources'
-    { _lisResourceType :: TagResourceType
-    , _lisResourceIds  :: List1 Text
+    { _lisResourceType :: !TagResourceType
+    , _lisResourceIds  :: !(List1 Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListTagsForResources' smart constructor.
@@ -122,7 +122,7 @@ instance ToXML ListTagsForResources where
 --
 -- * 'lisStatus'
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
-    { _lisResourceTagSets :: [ResourceTagSet]
+    { _lisResourceTagSets :: ![ResourceTagSet]
     , _lisStatus          :: !Int
     } deriving (Eq,Read,Show)
 

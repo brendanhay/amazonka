@@ -105,7 +105,7 @@ instance ToQuery DescribeEventCategories where
 --
 -- * 'decrStatus'
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrEventCategoriesMapList :: Maybe [EventCategoriesMap]
+    { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
     , _decrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

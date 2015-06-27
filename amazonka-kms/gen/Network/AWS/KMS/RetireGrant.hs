@@ -62,9 +62,9 @@ import           Network.AWS.Response
 --
 -- * 'rgGrantToken'
 data RetireGrant = RetireGrant'
-    { _rgKeyId      :: Maybe Text
-    , _rgGrantId    :: Maybe Text
-    , _rgGrantToken :: Maybe Text
+    { _rgKeyId      :: !(Maybe Text)
+    , _rgGrantId    :: !(Maybe Text)
+    , _rgGrantToken :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RetireGrant' smart constructor.

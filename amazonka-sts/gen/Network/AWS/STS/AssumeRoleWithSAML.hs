@@ -118,11 +118,11 @@ import           Network.AWS.STS.Types
 --
 -- * 'arwsamlSAMLAssertion'
 data AssumeRoleWithSAML = AssumeRoleWithSAML'
-    { _arwsamlDurationSeconds :: Maybe Nat
-    , _arwsamlPolicy          :: Maybe Text
-    , _arwsamlRoleARN         :: Text
-    , _arwsamlPrincipalARN    :: Text
-    , _arwsamlSAMLAssertion   :: Text
+    { _arwsamlDurationSeconds :: !(Maybe Nat)
+    , _arwsamlPolicy          :: !(Maybe Text)
+    , _arwsamlRoleARN         :: !Text
+    , _arwsamlPrincipalARN    :: !Text
+    , _arwsamlSAMLAssertion   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssumeRoleWithSAML' smart constructor.
@@ -243,14 +243,14 @@ instance ToQuery AssumeRoleWithSAML where
 --
 -- * 'arwsamlrStatus'
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-    { _arwsamlrAudience         :: Maybe Text
-    , _arwsamlrSubject          :: Maybe Text
-    , _arwsamlrPackedPolicySize :: Maybe Nat
-    , _arwsamlrCredentials      :: Maybe Credentials
-    , _arwsamlrSubjectType      :: Maybe Text
-    , _arwsamlrNameQualifier    :: Maybe Text
-    , _arwsamlrAssumedRoleUser  :: Maybe AssumedRoleUser
-    , _arwsamlrIssuer           :: Maybe Text
+    { _arwsamlrAudience         :: !(Maybe Text)
+    , _arwsamlrSubject          :: !(Maybe Text)
+    , _arwsamlrPackedPolicySize :: !(Maybe Nat)
+    , _arwsamlrCredentials      :: !(Maybe Credentials)
+    , _arwsamlrSubjectType      :: !(Maybe Text)
+    , _arwsamlrNameQualifier    :: !(Maybe Text)
+    , _arwsamlrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
+    , _arwsamlrIssuer           :: !(Maybe Text)
     , _arwsamlrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

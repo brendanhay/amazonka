@@ -53,9 +53,9 @@ import           Network.AWS.Response
 --
 -- * 'derContainerInstance'
 data DeregisterContainerInstance = DeregisterContainerInstance'
-    { _derCluster           :: Maybe Text
-    , _derForce             :: Maybe Bool
-    , _derContainerInstance :: Text
+    { _derCluster           :: !(Maybe Text)
+    , _derForce             :: !(Maybe Bool)
+    , _derContainerInstance :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeregisterContainerInstance' smart constructor.
@@ -131,7 +131,7 @@ instance ToQuery DeregisterContainerInstance where
 --
 -- * 'dcirStatus'
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
-    { _dcirContainerInstance :: Maybe ContainerInstance
+    { _dcirContainerInstance :: !(Maybe ContainerInstance)
     , _dcirStatus            :: !Int
     } deriving (Eq,Read,Show)
 

@@ -117,28 +117,28 @@ import           Network.AWS.Response
 --
 -- * 'cloServiceRoleARN'
 data CloneStack = CloneStack'
-    { _cloCloneAppIds               :: Maybe [Text]
-    , _cloDefaultInstanceProfileARN :: Maybe Text
-    , _cloDefaultRootDeviceType     :: Maybe RootDeviceType
-    , _cloChefConfiguration         :: Maybe ChefConfiguration
-    , _cloVPCId                     :: Maybe Text
-    , _cloAgentVersion              :: Maybe Text
-    , _cloDefaultSSHKeyName         :: Maybe Text
-    , _cloCustomJSON                :: Maybe Text
-    , _cloClonePermissions          :: Maybe Bool
-    , _cloCustomCookbooksSource     :: Maybe Source
-    , _cloDefaultAvailabilityZone   :: Maybe Text
-    , _cloName                      :: Maybe Text
-    , _cloUseOpsworksSecurityGroups :: Maybe Bool
-    , _cloDefaultOS                 :: Maybe Text
-    , _cloAttributes                :: Maybe (Map StackAttributesKeys Text)
-    , _cloUseCustomCookbooks        :: Maybe Bool
-    , _cloDefaultSubnetId           :: Maybe Text
-    , _cloRegion                    :: Maybe Text
-    , _cloConfigurationManager      :: Maybe StackConfigurationManager
-    , _cloHostnameTheme             :: Maybe Text
-    , _cloSourceStackId             :: Text
-    , _cloServiceRoleARN            :: Text
+    { _cloCloneAppIds               :: !(Maybe [Text])
+    , _cloDefaultInstanceProfileARN :: !(Maybe Text)
+    , _cloDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _cloChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _cloVPCId                     :: !(Maybe Text)
+    , _cloAgentVersion              :: !(Maybe Text)
+    , _cloDefaultSSHKeyName         :: !(Maybe Text)
+    , _cloCustomJSON                :: !(Maybe Text)
+    , _cloClonePermissions          :: !(Maybe Bool)
+    , _cloCustomCookbooksSource     :: !(Maybe Source)
+    , _cloDefaultAvailabilityZone   :: !(Maybe Text)
+    , _cloName                      :: !(Maybe Text)
+    , _cloUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _cloDefaultOS                 :: !(Maybe Text)
+    , _cloAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _cloUseCustomCookbooks        :: !(Maybe Bool)
+    , _cloDefaultSubnetId           :: !(Maybe Text)
+    , _cloRegion                    :: !(Maybe Text)
+    , _cloConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _cloHostnameTheme             :: !(Maybe Text)
+    , _cloSourceStackId             :: !Text
+    , _cloServiceRoleARN            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CloneStack' smart constructor.
@@ -467,7 +467,7 @@ instance ToQuery CloneStack where
 --
 -- * 'csrStatus'
 data CloneStackResponse = CloneStackResponse'
-    { _csrStackId :: Maybe Text
+    { _csrStackId :: !(Maybe Text)
     , _csrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'laLimit'
 data ListAliases = ListAliases'
-    { _laMarker :: Maybe Text
-    , _laLimit  :: Maybe Nat
+    { _laMarker :: !(Maybe Text)
+    , _laLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'ListAliases' smart constructor.
@@ -120,9 +120,9 @@ instance ToQuery ListAliases where
 --
 -- * 'larStatus'
 data ListAliasesResponse = ListAliasesResponse'
-    { _larTruncated  :: Maybe Bool
-    , _larAliases    :: Maybe [AliasListEntry]
-    , _larNextMarker :: Maybe Text
+    { _larTruncated  :: !(Maybe Bool)
+    , _larAliases    :: !(Maybe [AliasListEntry])
+    , _larNextMarker :: !(Maybe Text)
     , _larStatus     :: !Int
     } deriving (Eq,Read,Show)
 

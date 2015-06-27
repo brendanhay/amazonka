@@ -59,10 +59,10 @@ import           Network.AWS.S3.Types
 --
 -- * 'amuUploadId'
 data AbortMultipartUpload = AbortMultipartUpload'
-    { _amuRequestPayer :: Maybe RequestPayer
-    , _amuBucket       :: BucketName
-    , _amuKey          :: ObjectKey
-    , _amuUploadId     :: Text
+    { _amuRequestPayer :: !(Maybe RequestPayer)
+    , _amuBucket       :: !BucketName
+    , _amuKey          :: !ObjectKey
+    , _amuUploadId     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AbortMultipartUpload' smart constructor.
@@ -124,7 +124,7 @@ instance ToQuery AbortMultipartUpload where
 --
 -- * 'amurStatus'
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-    { _amurRequestCharged :: Maybe RequestCharged
+    { _amurRequestCharged :: !(Maybe RequestCharged)
     , _amurStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -83,7 +83,7 @@ instance ToQuery ListDomainNames where
 --
 -- * 'ldnrStatus'
 data ListDomainNamesResponse = ListDomainNamesResponse'
-    { _ldnrDomainNames :: Maybe (Map Text Text)
+    { _ldnrDomainNames :: !(Maybe (Map Text Text))
     , _ldnrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

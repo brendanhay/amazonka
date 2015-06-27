@@ -64,9 +64,9 @@ import           Network.AWS.Response
 --
 -- * 'difDomainName'
 data DescribeIndexFields = DescribeIndexFields'
-    { _difDeployed   :: Maybe Bool
-    , _difFieldNames :: Maybe [Text]
-    , _difDomainName :: Text
+    { _difDeployed   :: !(Maybe Bool)
+    , _difFieldNames :: !(Maybe [Text])
+    , _difDomainName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeIndexFields' smart constructor.
@@ -132,7 +132,7 @@ instance ToQuery DescribeIndexFields where
 --
 -- * 'difr1Status'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difr1IndexFields :: [IndexFieldStatus]
+    { _difr1IndexFields :: ![IndexFieldStatus]
     , _difr1Status      :: !Int
     } deriving (Eq,Read,Show)
 

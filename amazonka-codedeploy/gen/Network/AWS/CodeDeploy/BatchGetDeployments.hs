@@ -105,7 +105,7 @@ instance ToQuery BatchGetDeployments where
 --
 -- * 'bgdrStatus'
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
-    { _bgdrDeploymentsInfo :: Maybe [DeploymentInfo]
+    { _bgdrDeploymentsInfo :: !(Maybe [DeploymentInfo])
     , _bgdrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

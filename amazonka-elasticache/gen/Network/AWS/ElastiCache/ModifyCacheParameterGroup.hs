@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'mcpgParameterNameValues'
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
-    { _mcpgCacheParameterGroupName :: Text
-    , _mcpgParameterNameValues     :: [ParameterNameValue]
+    { _mcpgCacheParameterGroupName :: !Text
+    , _mcpgParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyCacheParameterGroup' smart constructor.

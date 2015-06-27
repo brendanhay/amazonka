@@ -72,9 +72,9 @@ import           Network.AWS.Response
 --
 -- * 'delClusterIdentifier'
 data DeleteCluster = DeleteCluster'
-    { _delSkipFinalClusterSnapshot       :: Maybe Bool
-    , _delFinalClusterSnapshotIdentifier :: Maybe Text
-    , _delClusterIdentifier              :: Text
+    { _delSkipFinalClusterSnapshot       :: !(Maybe Bool)
+    , _delFinalClusterSnapshotIdentifier :: !(Maybe Text)
+    , _delClusterIdentifier              :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteCluster' smart constructor.
@@ -156,7 +156,7 @@ instance ToQuery DeleteCluster where
 --
 -- * 'delStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _delCluster :: Maybe Cluster
+    { _delCluster :: !(Maybe Cluster)
     , _delStatus  :: !Int
     } deriving (Eq,Read,Show)
 

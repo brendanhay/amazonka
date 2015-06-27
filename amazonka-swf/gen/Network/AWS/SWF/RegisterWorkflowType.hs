@@ -98,15 +98,15 @@ import           Network.AWS.SWF.Types
 --
 -- * 'rwtVersion'
 data RegisterWorkflowType = RegisterWorkflowType'
-    { _rwtDefaultChildPolicy                  :: Maybe ChildPolicy
-    , _rwtDefaultTaskList                     :: Maybe TaskList
-    , _rwtDefaultTaskPriority                 :: Maybe Text
-    , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
-    , _rwtDefaultTaskStartToCloseTimeout      :: Maybe Text
-    , _rwtDescription                         :: Maybe Text
-    , _rwtDomain                              :: Text
-    , _rwtName                                :: Text
-    , _rwtVersion                             :: Text
+    { _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+    , _rwtDefaultTaskList                     :: !(Maybe TaskList)
+    , _rwtDefaultTaskPriority                 :: !(Maybe Text)
+    , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _rwtDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _rwtDescription                         :: !(Maybe Text)
+    , _rwtDomain                              :: !Text
+    , _rwtName                                :: !Text
+    , _rwtVersion                             :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterWorkflowType' smart constructor.

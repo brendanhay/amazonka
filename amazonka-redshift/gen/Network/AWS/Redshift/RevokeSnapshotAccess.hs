@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'rsaAccountWithRestoreAccess'
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
-    { _rsaSnapshotClusterIdentifier :: Maybe Text
-    , _rsaSnapshotIdentifier        :: Text
-    , _rsaAccountWithRestoreAccess  :: Text
+    { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
+    , _rsaSnapshotIdentifier        :: !Text
+    , _rsaAccountWithRestoreAccess  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RevokeSnapshotAccess' smart constructor.
@@ -126,7 +126,7 @@ instance ToQuery RevokeSnapshotAccess where
 --
 -- * 'rsarStatus'
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-    { _rsarSnapshot :: Maybe Snapshot
+    { _rsarSnapshot :: !(Maybe Snapshot)
     , _rsarStatus   :: !Int
     } deriving (Eq,Read,Show)
 

@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'drt2RouteTableIds'
 data DescribeRouteTables = DescribeRouteTables'
-    { _drt2Filters       :: Maybe [Filter]
-    , _drt2DryRun        :: Maybe Bool
-    , _drt2RouteTableIds :: Maybe [Text]
+    { _drt2Filters       :: !(Maybe [Filter])
+    , _drt2DryRun        :: !(Maybe Bool)
+    , _drt2RouteTableIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeRouteTables' smart constructor.
@@ -181,7 +181,7 @@ instance ToQuery DescribeRouteTables where
 --
 -- * 'drtrStatus'
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
-    { _drtrRouteTables :: Maybe [RouteTable]
+    { _drtrRouteTables :: !(Maybe [RouteTable])
     , _drtrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

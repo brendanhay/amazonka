@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'rtdContainerDefinitions'
 data RegisterTaskDefinition = RegisterTaskDefinition'
-    { _rtdVolumes              :: Maybe [Volume]
-    , _rtdFamily               :: Text
-    , _rtdContainerDefinitions :: [ContainerDefinition]
+    { _rtdVolumes              :: !(Maybe [Volume])
+    , _rtdFamily               :: !Text
+    , _rtdContainerDefinitions :: ![ContainerDefinition]
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterTaskDefinition' smart constructor.
@@ -130,7 +130,7 @@ instance ToQuery RegisterTaskDefinition where
 --
 -- * 'rtdrStatus'
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
-    { _rtdrTaskDefinition :: Maybe TaskDefinition
+    { _rtdrTaskDefinition :: !(Maybe TaskDefinition)
     , _rtdrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

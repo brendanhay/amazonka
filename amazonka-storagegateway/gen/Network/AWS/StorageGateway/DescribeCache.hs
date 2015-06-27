@@ -126,13 +126,13 @@ instance ToQuery DescribeCache where
 --
 -- * 'dcrStatus'
 data DescribeCacheResponse = DescribeCacheResponse'
-    { _dcrGatewayARN            :: Maybe Text
-    , _dcrDiskIds               :: Maybe [Text]
-    , _dcrCacheUsedPercentage   :: Maybe Double
-    , _dcrCacheHitPercentage    :: Maybe Double
-    , _dcrCacheMissPercentage   :: Maybe Double
-    , _dcrCacheAllocatedInBytes :: Maybe Integer
-    , _dcrCacheDirtyPercentage  :: Maybe Double
+    { _dcrGatewayARN            :: !(Maybe Text)
+    , _dcrDiskIds               :: !(Maybe [Text])
+    , _dcrCacheUsedPercentage   :: !(Maybe Double)
+    , _dcrCacheHitPercentage    :: !(Maybe Double)
+    , _dcrCacheMissPercentage   :: !(Maybe Double)
+    , _dcrCacheAllocatedInBytes :: !(Maybe Integer)
+    , _dcrCacheDirtyPercentage  :: !(Maybe Double)
     , _dcrStatus                :: !Int
     } deriving (Eq,Read,Show)
 

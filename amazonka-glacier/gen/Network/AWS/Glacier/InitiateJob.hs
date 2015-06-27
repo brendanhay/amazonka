@@ -182,9 +182,9 @@ import           Network.AWS.Response
 --
 -- * 'ijVaultName'
 data InitiateJob = InitiateJob'
-    { _ijJobParameters :: Maybe JobParameters
-    , _ijAccountId     :: Text
-    , _ijVaultName     :: Text
+    { _ijJobParameters :: !(Maybe JobParameters)
+    , _ijAccountId     :: !Text
+    , _ijVaultName     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'InitiateJob' smart constructor.
@@ -251,8 +251,8 @@ instance ToQuery InitiateJob where
 --
 -- * 'ijrStatus'
 data InitiateJobResponse = InitiateJobResponse'
-    { _ijrJobId    :: Maybe Text
-    , _ijrLocation :: Maybe Text
+    { _ijrJobId    :: !(Maybe Text)
+    , _ijrLocation :: !(Maybe Text)
     , _ijrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

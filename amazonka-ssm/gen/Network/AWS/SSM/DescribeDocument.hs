@@ -97,7 +97,7 @@ instance ToQuery DescribeDocument where
 --
 -- * 'desStatus'
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _desDocument :: Maybe DocumentDescription
+    { _desDocument :: !(Maybe DocumentDescription)
     , _desStatus   :: !Int
     } deriving (Eq,Read,Show)
 

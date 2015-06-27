@@ -78,11 +78,11 @@ import           Network.AWS.Response
 --
 -- * 'dcsgMarker'
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
-    { _dcsgTagValues                :: Maybe [Text]
-    , _dcsgTagKeys                  :: Maybe [Text]
-    , _dcsgClusterSecurityGroupName :: Maybe Text
-    , _dcsgMaxRecords               :: Maybe Int
-    , _dcsgMarker                   :: Maybe Text
+    { _dcsgTagValues                :: !(Maybe [Text])
+    , _dcsgTagKeys                  :: !(Maybe [Text])
+    , _dcsgClusterSecurityGroupName :: !(Maybe Text)
+    , _dcsgMaxRecords               :: !(Maybe Int)
+    , _dcsgMarker                   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSecurityGroups' smart constructor.
@@ -204,8 +204,8 @@ instance ToQuery DescribeClusterSecurityGroups where
 --
 -- * 'dcsgr1Status'
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
-    { _dcsgr1ClusterSecurityGroups :: Maybe [ClusterSecurityGroup]
-    , _dcsgr1Marker                :: Maybe Text
+    { _dcsgr1ClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
+    , _dcsgr1Marker                :: !(Maybe Text)
     , _dcsgr1Status                :: !Int
     } deriving (Eq,Read,Show)
 

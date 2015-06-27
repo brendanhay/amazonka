@@ -103,7 +103,7 @@ instance ToQuery DescribeCluster where
 --
 -- * 'dcrStatus'
 data DescribeClusterResponse = DescribeClusterResponse'
-    { _dcrCluster :: Cluster
+    { _dcrCluster :: !Cluster
     , _dcrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

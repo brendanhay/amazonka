@@ -69,8 +69,8 @@ import           Network.AWS.Response
 --
 -- * 'daaDryRun'
 data DescribeAccountAttributes = DescribeAccountAttributes'
-    { _daaAttributeNames :: Maybe [AccountAttributeName]
-    , _daaDryRun         :: Maybe Bool
+    { _daaAttributeNames :: !(Maybe [AccountAttributeName])
+    , _daaDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAccountAttributes' smart constructor.
@@ -128,7 +128,7 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- * 'daarStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarAccountAttributes :: Maybe [AccountAttribute]
+    { _daarAccountAttributes :: !(Maybe [AccountAttribute])
     , _daarStatus            :: !Int
     } deriving (Eq,Read,Show)
 

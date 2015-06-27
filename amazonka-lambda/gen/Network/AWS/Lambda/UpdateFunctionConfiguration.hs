@@ -76,12 +76,12 @@ import           Network.AWS.Response
 --
 -- * 'ufcFunctionName'
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-    { _ufcMemorySize   :: Maybe Nat
-    , _ufcRole         :: Maybe Text
-    , _ufcHandler      :: Maybe Text
-    , _ufcTimeout      :: Maybe Nat
-    , _ufcDescription  :: Maybe Text
-    , _ufcFunctionName :: Text
+    { _ufcMemorySize   :: !(Maybe Nat)
+    , _ufcRole         :: !(Maybe Text)
+    , _ufcHandler      :: !(Maybe Text)
+    , _ufcTimeout      :: !(Maybe Nat)
+    , _ufcDescription  :: !(Maybe Text)
+    , _ufcFunctionName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateFunctionConfiguration' smart constructor.

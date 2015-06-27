@@ -53,7 +53,7 @@ import           Network.AWS.Response
 --
 -- * 'svtauVisibleToAllUsers'
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
-    { _svtauJobFlowIds        :: [Text]
+    { _svtauJobFlowIds        :: ![Text]
     , _svtauVisibleToAllUsers :: !Bool
     } deriving (Eq,Read,Show)
 

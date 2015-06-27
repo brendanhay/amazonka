@@ -68,13 +68,13 @@ import           Network.AWS.Response
 --
 -- * 'ddlfDBInstanceIdentifier'
 data DescribeDBLogFiles = DescribeDBLogFiles'
-    { _ddlfFilenameContains     :: Maybe Text
-    , _ddlfFileSize             :: Maybe Integer
-    , _ddlfFileLastWritten      :: Maybe Integer
-    , _ddlfFilters              :: Maybe [Filter]
-    , _ddlfMaxRecords           :: Maybe Int
-    , _ddlfMarker               :: Maybe Text
-    , _ddlfDBInstanceIdentifier :: Text
+    { _ddlfFilenameContains     :: !(Maybe Text)
+    , _ddlfFileSize             :: !(Maybe Integer)
+    , _ddlfFileLastWritten      :: !(Maybe Integer)
+    , _ddlfFilters              :: !(Maybe [Filter])
+    , _ddlfMaxRecords           :: !(Maybe Int)
+    , _ddlfMarker               :: !(Maybe Text)
+    , _ddlfDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeDBLogFiles' smart constructor.
@@ -186,8 +186,8 @@ instance ToQuery DescribeDBLogFiles where
 --
 -- * 'ddlfrStatus'
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
-    { _ddlfrDescribeDBLogFiles :: Maybe [DescribeDBLogFilesDetails]
-    , _ddlfrMarker             :: Maybe Text
+    { _ddlfrDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
+    , _ddlfrMarker             :: !(Maybe Text)
     , _ddlfrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

@@ -100,24 +100,24 @@ import           Network.AWS.Response
 --
 -- * 'usStackId'
 data UpdateStack = UpdateStack'
-    { _usDefaultInstanceProfileARN :: Maybe Text
-    , _usServiceRoleARN            :: Maybe Text
-    , _usDefaultRootDeviceType     :: Maybe RootDeviceType
-    , _usChefConfiguration         :: Maybe ChefConfiguration
-    , _usAgentVersion              :: Maybe Text
-    , _usDefaultSSHKeyName         :: Maybe Text
-    , _usCustomJSON                :: Maybe Text
-    , _usCustomCookbooksSource     :: Maybe Source
-    , _usDefaultAvailabilityZone   :: Maybe Text
-    , _usName                      :: Maybe Text
-    , _usUseOpsworksSecurityGroups :: Maybe Bool
-    , _usDefaultOS                 :: Maybe Text
-    , _usAttributes                :: Maybe (Map StackAttributesKeys Text)
-    , _usUseCustomCookbooks        :: Maybe Bool
-    , _usDefaultSubnetId           :: Maybe Text
-    , _usConfigurationManager      :: Maybe StackConfigurationManager
-    , _usHostnameTheme             :: Maybe Text
-    , _usStackId                   :: Text
+    { _usDefaultInstanceProfileARN :: !(Maybe Text)
+    , _usServiceRoleARN            :: !(Maybe Text)
+    , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _usChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _usAgentVersion              :: !(Maybe Text)
+    , _usDefaultSSHKeyName         :: !(Maybe Text)
+    , _usCustomJSON                :: !(Maybe Text)
+    , _usCustomCookbooksSource     :: !(Maybe Source)
+    , _usDefaultAvailabilityZone   :: !(Maybe Text)
+    , _usName                      :: !(Maybe Text)
+    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _usDefaultOS                 :: !(Maybe Text)
+    , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _usUseCustomCookbooks        :: !(Maybe Bool)
+    , _usDefaultSubnetId           :: !(Maybe Text)
+    , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _usHostnameTheme             :: !(Maybe Text)
+    , _usStackId                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateStack' smart constructor.

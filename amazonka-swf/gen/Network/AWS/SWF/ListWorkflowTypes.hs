@@ -83,12 +83,12 @@ import           Network.AWS.SWF.Types
 --
 -- * 'lwtRegistrationStatus'
 data ListWorkflowTypes = ListWorkflowTypes'
-    { _lwtNextPageToken      :: Maybe Text
-    , _lwtReverseOrder       :: Maybe Bool
-    , _lwtName               :: Maybe Text
-    , _lwtMaximumPageSize    :: Maybe Nat
-    , _lwtDomain             :: Text
-    , _lwtRegistrationStatus :: RegistrationStatus
+    { _lwtNextPageToken      :: !(Maybe Text)
+    , _lwtReverseOrder       :: !(Maybe Bool)
+    , _lwtName               :: !(Maybe Text)
+    , _lwtMaximumPageSize    :: !(Maybe Nat)
+    , _lwtDomain             :: !Text
+    , _lwtRegistrationStatus :: !RegistrationStatus
     } deriving (Eq,Read,Show)
 
 -- | 'ListWorkflowTypes' smart constructor.
@@ -200,8 +200,8 @@ instance ToQuery ListWorkflowTypes where
 --
 -- * 'lwtrStatus'
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
-    { _lwtrNextPageToken :: Maybe Text
-    , _lwtrTypeInfos     :: [WorkflowTypeInfo]
+    { _lwtrNextPageToken :: !(Maybe Text)
+    , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
     , _lwtrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

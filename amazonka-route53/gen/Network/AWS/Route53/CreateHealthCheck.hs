@@ -59,8 +59,8 @@ import           Network.AWS.Route53.Types
 --
 -- * 'chcHealthCheckConfig'
 data CreateHealthCheck = CreateHealthCheck'
-    { _chcCallerReference   :: Text
-    , _chcHealthCheckConfig :: HealthCheckConfig
+    { _chcCallerReference   :: !Text
+    , _chcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHealthCheck' smart constructor.
@@ -132,8 +132,8 @@ instance ToXML CreateHealthCheck where
 --
 -- * 'chcrStatus'
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-    { _chcrHealthCheck :: HealthCheck
-    , _chcrLocation    :: Text
+    { _chcrHealthCheck :: !HealthCheck
+    , _chcrLocation    :: !Text
     , _chcrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

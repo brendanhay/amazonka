@@ -66,9 +66,9 @@ import           Network.AWS.Response
 --
 -- * 'lMarker'
 data ListSigningCertificates = ListSigningCertificates'
-    { _lUserName :: Maybe Text
-    , _lMaxItems :: Maybe Nat
-    , _lMarker   :: Maybe Text
+    { _lUserName :: !(Maybe Text)
+    , _lMaxItems :: !(Maybe Nat)
+    , _lMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListSigningCertificates' smart constructor.
@@ -148,9 +148,9 @@ instance ToQuery ListSigningCertificates where
 --
 -- * 'lisStatus'
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-    { _lisMarker       :: Maybe Text
-    , _lisIsTruncated  :: Maybe Bool
-    , _lisCertificates :: [SigningCertificate]
+    { _lisMarker       :: !(Maybe Text)
+    , _lisIsTruncated  :: !(Maybe Bool)
+    , _lisCertificates :: ![SigningCertificate]
     , _lisStatus       :: !Int
     } deriving (Eq,Read,Show)
 

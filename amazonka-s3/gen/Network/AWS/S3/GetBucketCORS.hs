@@ -89,7 +89,7 @@ instance ToQuery GetBucketCORS where
 --
 -- * 'gbcrStatus'
 data GetBucketCORSResponse = GetBucketCORSResponse'
-    { _gbcrCORSRules :: Maybe [CORSRule]
+    { _gbcrCORSRules :: !(Maybe [CORSRule])
     , _gbcrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

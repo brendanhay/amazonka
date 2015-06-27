@@ -85,7 +85,7 @@ instance ToQuery DescribeTerminationPolicyTypes where
 --
 -- * 'dtptrStatus'
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
-    { _dtptrTerminationPolicyTypes :: Maybe [Text]
+    { _dtptrTerminationPolicyTypes :: !(Maybe [Text])
     , _dtptrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

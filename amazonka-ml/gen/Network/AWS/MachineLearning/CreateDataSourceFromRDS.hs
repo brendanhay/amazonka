@@ -73,11 +73,11 @@ import           Network.AWS.Response
 --
 -- * 'creRoleARN'
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-    { _creDataSourceName    :: Maybe Text
-    , _creComputeStatistics :: Maybe Bool
-    , _creDataSourceId      :: Text
-    , _creRDSData           :: RDSDataSpec
-    , _creRoleARN           :: Text
+    { _creDataSourceName    :: !(Maybe Text)
+    , _creComputeStatistics :: !(Maybe Bool)
+    , _creDataSourceId      :: !Text
+    , _creRDSData           :: !RDSDataSpec
+    , _creRoleARN           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDataSourceFromRDS' smart constructor.
@@ -218,7 +218,7 @@ instance ToQuery CreateDataSourceFromRDS where
 --
 -- * 'cStatus'
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
-    { _cDataSourceId :: Maybe Text
+    { _cDataSourceId :: !(Maybe Text)
     , _cStatus       :: !Int
     } deriving (Eq,Read,Show)
 

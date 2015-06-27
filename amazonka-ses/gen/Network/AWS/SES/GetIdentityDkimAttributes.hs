@@ -125,7 +125,7 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- * 'gidarStatus'
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-    { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
+    { _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
     , _gidarStatus         :: !Int
     } deriving (Eq,Read,Show)
 

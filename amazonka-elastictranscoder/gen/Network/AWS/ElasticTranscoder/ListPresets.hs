@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'lisPageToken'
 data ListPresets = ListPresets'
-    { _lisAscending :: Maybe Text
-    , _lisPageToken :: Maybe Text
+    { _lisAscending :: !(Maybe Text)
+    , _lisPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListPresets' smart constructor.
@@ -122,8 +122,8 @@ instance ToQuery ListPresets where
 --
 -- * 'lisStatus'
 data ListPresetsResponse = ListPresetsResponse'
-    { _lisNextPageToken :: Maybe Text
-    , _lisPresets       :: Maybe [Preset]
+    { _lisNextPageToken :: !(Maybe Text)
+    , _lisPresets       :: !(Maybe [Preset])
     , _lisStatus        :: !Int
     } deriving (Eq,Read,Show)
 

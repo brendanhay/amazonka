@@ -124,30 +124,30 @@ import           Network.AWS.Response
 --
 -- * 'ccMasterUserPassword'
 data CreateCluster = CreateCluster'
-    { _ccPubliclyAccessible               :: Maybe Bool
-    , _ccHSMConfigurationIdentifier       :: Maybe Text
-    , _ccClusterSecurityGroups            :: Maybe [Text]
-    , _ccAutomatedSnapshotRetentionPeriod :: Maybe Int
-    , _ccEncrypted                        :: Maybe Bool
-    , _ccNumberOfNodes                    :: Maybe Int
-    , _ccHSMClientCertificateIdentifier   :: Maybe Text
-    , _ccClusterSubnetGroupName           :: Maybe Text
-    , _ccElasticIP                        :: Maybe Text
-    , _ccPreferredMaintenanceWindow       :: Maybe Text
-    , _ccAvailabilityZone                 :: Maybe Text
-    , _ccKMSKeyId                         :: Maybe Text
-    , _ccVPCSecurityGroupIds              :: Maybe [Text]
-    , _ccClusterType                      :: Maybe Text
-    , _ccClusterVersion                   :: Maybe Text
-    , _ccAllowVersionUpgrade              :: Maybe Bool
-    , _ccClusterParameterGroupName        :: Maybe Text
-    , _ccDBName                           :: Maybe Text
-    , _ccTags                             :: Maybe [Tag]
-    , _ccPort                             :: Maybe Int
-    , _ccClusterIdentifier                :: Text
-    , _ccNodeType                         :: Text
-    , _ccMasterUsername                   :: Text
-    , _ccMasterUserPassword               :: Text
+    { _ccPubliclyAccessible               :: !(Maybe Bool)
+    , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _ccClusterSecurityGroups            :: !(Maybe [Text])
+    , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _ccEncrypted                        :: !(Maybe Bool)
+    , _ccNumberOfNodes                    :: !(Maybe Int)
+    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _ccClusterSubnetGroupName           :: !(Maybe Text)
+    , _ccElasticIP                        :: !(Maybe Text)
+    , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _ccAvailabilityZone                 :: !(Maybe Text)
+    , _ccKMSKeyId                         :: !(Maybe Text)
+    , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _ccClusterType                      :: !(Maybe Text)
+    , _ccClusterVersion                   :: !(Maybe Text)
+    , _ccAllowVersionUpgrade              :: !(Maybe Bool)
+    , _ccClusterParameterGroupName        :: !(Maybe Text)
+    , _ccDBName                           :: !(Maybe Text)
+    , _ccTags                             :: !(Maybe [Tag])
+    , _ccPort                             :: !(Maybe Int)
+    , _ccClusterIdentifier                :: !Text
+    , _ccNodeType                         :: !Text
+    , _ccMasterUsername                   :: !Text
+    , _ccMasterUserPassword               :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateCluster' smart constructor.
@@ -501,7 +501,7 @@ instance ToQuery CreateCluster where
 --
 -- * 'ccrStatus'
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrCluster :: Maybe Cluster
+    { _ccrCluster :: !(Maybe Cluster)
     , _ccrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

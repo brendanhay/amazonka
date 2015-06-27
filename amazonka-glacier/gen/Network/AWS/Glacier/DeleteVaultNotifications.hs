@@ -65,8 +65,8 @@ import           Network.AWS.Response
 --
 -- * 'dvnVaultName'
 data DeleteVaultNotifications = DeleteVaultNotifications'
-    { _dvnAccountId :: Text
-    , _dvnVaultName :: Text
+    { _dvnAccountId :: !Text
+    , _dvnVaultName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVaultNotifications' smart constructor.

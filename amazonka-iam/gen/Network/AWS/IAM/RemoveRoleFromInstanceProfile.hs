@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'rrfipRoleName'
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
-    { _rrfipInstanceProfileName :: Text
-    , _rrfipRoleName            :: Text
+    { _rrfipInstanceProfileName :: !Text
+    , _rrfipRoleName            :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveRoleFromInstanceProfile' smart constructor.

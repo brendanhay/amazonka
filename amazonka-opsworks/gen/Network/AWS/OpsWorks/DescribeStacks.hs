@@ -107,7 +107,7 @@ instance ToQuery DescribeStacks where
 --
 -- * 'dsrStatus'
 data DescribeStacksResponse = DescribeStacksResponse'
-    { _dsrStacks :: Maybe [Stack]
+    { _dsrStacks :: !(Maybe [Stack])
     , _dsrStatus :: !Int
     } deriving (Eq,Read,Show)
 

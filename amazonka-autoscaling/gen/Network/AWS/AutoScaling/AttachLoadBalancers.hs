@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'albLoadBalancerNames'
 data AttachLoadBalancers = AttachLoadBalancers'
-    { _albAutoScalingGroupName :: Maybe Text
-    , _albLoadBalancerNames    :: Maybe [Text]
+    { _albAutoScalingGroupName :: !(Maybe Text)
+    , _albLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'AttachLoadBalancers' smart constructor.

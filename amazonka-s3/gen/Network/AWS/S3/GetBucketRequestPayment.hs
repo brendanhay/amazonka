@@ -89,7 +89,7 @@ instance ToQuery GetBucketRequestPayment where
 --
 -- * 'gbrprStatus'
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
-    { _gbrprPayer  :: Maybe Payer
+    { _gbrprPayer  :: !(Maybe Payer)
     , _gbrprStatus :: !Int
     } deriving (Eq,Read,Show)
 

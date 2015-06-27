@@ -315,10 +315,10 @@ instance FromXML QueueAttributeName where
 --
 -- * 'breeCode'
 data BatchResultErrorEntry = BatchResultErrorEntry'
-    { _breeMessage     :: Maybe Text
-    , _breeId          :: Text
+    { _breeMessage     :: !(Maybe Text)
+    , _breeId          :: !Text
     , _breeSenderFault :: !Bool
-    , _breeCode        :: Text
+    , _breeCode        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'BatchResultErrorEntry' smart constructor.
@@ -378,9 +378,9 @@ instance FromXML BatchResultErrorEntry where
 --
 -- * 'chaReceiptHandle'
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-    { _chaVisibilityTimeout :: Maybe Int
-    , _chaId                :: Text
-    , _chaReceiptHandle     :: Text
+    { _chaVisibilityTimeout :: !(Maybe Int)
+    , _chaId                :: !Text
+    , _chaReceiptHandle     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' smart constructor.
@@ -452,8 +452,8 @@ instance FromXML
 --
 -- * 'dmbreReceiptHandle'
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
-    { _dmbreId            :: Text
-    , _dmbreReceiptHandle :: Text
+    { _dmbreId            :: !Text
+    , _dmbreReceiptHandle :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteMessageBatchRequestEntry' smart constructor.
@@ -526,13 +526,13 @@ instance FromXML DeleteMessageBatchResultEntry where
 --
 -- * 'mesMD5OfMessageAttributes'
 data Message = Message'
-    { _mesMessageAttributes      :: Maybe (Map Text MessageAttributeValue)
-    , _mesMD5OfBody              :: Maybe Text
-    , _mesBody                   :: Maybe Text
-    , _mesAttributes             :: Maybe (Map QueueAttributeName Text)
-    , _mesMessageId              :: Maybe Text
-    , _mesReceiptHandle          :: Maybe Text
-    , _mesMD5OfMessageAttributes :: Maybe Text
+    { _mesMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
+    , _mesMD5OfBody              :: !(Maybe Text)
+    , _mesBody                   :: !(Maybe Text)
+    , _mesAttributes             :: !(Maybe (Map QueueAttributeName Text))
+    , _mesMessageId              :: !(Maybe Text)
+    , _mesReceiptHandle          :: !(Maybe Text)
+    , _mesMD5OfMessageAttributes :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Message' smart constructor.
@@ -625,11 +625,11 @@ instance FromXML Message where
 --
 -- * 'mavDataType'
 data MessageAttributeValue = MessageAttributeValue'
-    { _mavBinaryValue      :: Maybe Base64
-    , _mavStringListValues :: Maybe [Text]
-    , _mavStringValue      :: Maybe Text
-    , _mavBinaryListValues :: Maybe [Base64]
-    , _mavDataType         :: Text
+    { _mavBinaryValue      :: !(Maybe Base64)
+    , _mavStringListValues :: !(Maybe [Text])
+    , _mavStringValue      :: !(Maybe Text)
+    , _mavBinaryListValues :: !(Maybe [Base64])
+    , _mavDataType         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'MessageAttributeValue' smart constructor.
@@ -710,10 +710,10 @@ instance ToQuery MessageAttributeValue where
 --
 -- * 'senMessageBody'
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-    { _senMessageAttributes :: Maybe (Map Text MessageAttributeValue)
-    , _senDelaySeconds      :: Maybe Int
-    , _senId                :: Text
-    , _senMessageBody       :: Text
+    { _senMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _senDelaySeconds      :: !(Maybe Int)
+    , _senId                :: !Text
+    , _senMessageBody       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
@@ -770,10 +770,10 @@ instance ToQuery SendMessageBatchRequestEntry where
 --
 -- * 'smbreMD5OfMessageBody'
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
-    { _smbreMD5OfMessageAttributes :: Maybe Text
-    , _smbreId                     :: Text
-    , _smbreMessageId              :: Text
-    , _smbreMD5OfMessageBody       :: Text
+    { _smbreMD5OfMessageAttributes :: !(Maybe Text)
+    , _smbreId                     :: !Text
+    , _smbreMessageId              :: !Text
+    , _smbreMD5OfMessageBody       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SendMessageBatchResultEntry' smart constructor.

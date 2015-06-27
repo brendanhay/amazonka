@@ -99,7 +99,7 @@ instance ToQuery CreateInternetGateway where
 --
 -- * 'cigrStatus'
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
-    { _cigrInternetGateway :: Maybe InternetGateway
+    { _cigrInternetGateway :: !(Maybe InternetGateway)
     , _cigrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

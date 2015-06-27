@@ -66,9 +66,9 @@ import           Network.AWS.SWF.Types
 --
 -- * 'rdtcTaskToken'
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
-    { _rdtcDecisions        :: Maybe [Decision]
-    , _rdtcExecutionContext :: Maybe Text
-    , _rdtcTaskToken        :: Text
+    { _rdtcDecisions        :: !(Maybe [Decision])
+    , _rdtcExecutionContext :: !(Maybe Text)
+    , _rdtcTaskToken        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RespondDecisionTaskCompleted' smart constructor.

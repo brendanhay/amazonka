@@ -54,8 +54,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'uvtldtDeviceType'
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-    { _uvtldtVTLDeviceARN :: Text
-    , _uvtldtDeviceType   :: Text
+    { _uvtldtVTLDeviceARN :: !Text
+    , _uvtldtDeviceType   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateVTLDeviceType' smart constructor.
@@ -119,7 +119,7 @@ instance ToQuery UpdateVTLDeviceType where
 --
 -- * 'uvtldtrStatus'
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
-    { _uvtldtrVTLDeviceARN :: Maybe Text
+    { _uvtldtrVTLDeviceARN :: !(Maybe Text)
     , _uvtldtrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

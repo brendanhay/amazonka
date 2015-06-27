@@ -105,7 +105,7 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 --
 -- * 'dlbptrStatus'
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrPolicyTypeDescriptions :: Maybe [PolicyTypeDescription]
+    { _dlbptrPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
     , _dlbptrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

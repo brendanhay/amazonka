@@ -74,14 +74,14 @@ import           Network.AWS.Response
 --
 -- * 'upId'
 data UpdatePipeline = UpdatePipeline'
-    { _upInputBucket     :: Maybe Text
-    , _upContentConfig   :: Maybe PipelineOutputConfig
-    , _upRole            :: Maybe Text
-    , _upName            :: Maybe Text
-    , _upAWSKMSKeyARN    :: Maybe Text
-    , _upThumbnailConfig :: Maybe PipelineOutputConfig
-    , _upNotifications   :: Maybe Notifications
-    , _upId              :: Text
+    { _upInputBucket     :: !(Maybe Text)
+    , _upContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _upRole            :: !(Maybe Text)
+    , _upName            :: !(Maybe Text)
+    , _upAWSKMSKeyARN    :: !(Maybe Text)
+    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _upNotifications   :: !(Maybe Notifications)
+    , _upId              :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdatePipeline' smart constructor.
@@ -293,8 +293,8 @@ instance ToQuery UpdatePipeline where
 --
 -- * 'uprStatus'
 data UpdatePipelineResponse = UpdatePipelineResponse'
-    { _uprWarnings :: Maybe [Warning]
-    , _uprPipeline :: Maybe Pipeline
+    { _uprWarnings :: !(Maybe [Warning])
+    , _uprPipeline :: !(Maybe Pipeline)
     , _uprStatus   :: !Int
     } deriving (Eq,Read,Show)
 

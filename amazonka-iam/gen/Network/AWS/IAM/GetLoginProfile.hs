@@ -95,7 +95,7 @@ instance ToQuery GetLoginProfile where
 --
 -- * 'glprStatus'
 data GetLoginProfileResponse = GetLoginProfileResponse'
-    { _glprLoginProfile :: LoginProfile
+    { _glprLoginProfile :: !LoginProfile
     , _glprStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'deaPipelineId'
 data DeactivatePipeline = DeactivatePipeline'
-    { _deaCancelActive :: Maybe Bool
-    , _deaPipelineId   :: Text
+    { _deaCancelActive :: !(Maybe Bool)
+    , _deaPipelineId   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeactivatePipeline' smart constructor.

@@ -114,7 +114,7 @@ instance ToQuery RetrieveDomainAuthCode where
 --
 -- * 'rdacrStatus'
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-    { _rdacrAuthCode :: Sensitive Text
+    { _rdacrAuthCode :: !(Sensitive Text)
     , _rdacrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

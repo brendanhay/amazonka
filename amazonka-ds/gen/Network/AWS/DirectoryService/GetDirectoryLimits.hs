@@ -89,7 +89,7 @@ instance ToQuery GetDirectoryLimits where
 --
 -- * 'gdlrStatus'
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
-    { _gdlrDirectoryLimits :: Maybe DirectoryLimits
+    { _gdlrDirectoryLimits :: !(Maybe DirectoryLimits)
     , _gdlrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -59,10 +59,10 @@ import           Network.AWS.Response
 --
 -- * 'dsfiSpotFleetRequestId'
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-    { _dsfiNextToken          :: Maybe Text
-    , _dsfiDryRun             :: Maybe Bool
-    , _dsfiMaxResults         :: Maybe Int
-    , _dsfiSpotFleetRequestId :: Text
+    { _dsfiNextToken          :: !(Maybe Text)
+    , _dsfiDryRun             :: !(Maybe Bool)
+    , _dsfiMaxResults         :: !(Maybe Int)
+    , _dsfiSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSpotFleetInstances' smart constructor.
@@ -141,9 +141,9 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- * 'dsfirStatus'
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-    { _dsfirNextToken          :: Maybe Text
-    , _dsfirSpotFleetRequestId :: Text
-    , _dsfirActiveInstances    :: [ActiveInstance]
+    { _dsfirNextToken          :: !(Maybe Text)
+    , _dsfirSpotFleetRequestId :: !Text
+    , _dsfirActiveInstances    :: ![ActiveInstance]
     , _dsfirStatus             :: !Int
     } deriving (Eq,Read,Show)
 

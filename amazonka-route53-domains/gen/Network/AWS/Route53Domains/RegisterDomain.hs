@@ -97,16 +97,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'rdTechContact'
 data RegisterDomain = RegisterDomain'
-    { _rdPrivacyProtectTechContact       :: Maybe Bool
-    , _rdPrivacyProtectRegistrantContact :: Maybe Bool
-    , _rdAutoRenew                       :: Maybe Bool
-    , _rdPrivacyProtectAdminContact      :: Maybe Bool
-    , _rdIDNLangCode                     :: Maybe Text
-    , _rdDomainName                      :: Text
+    { _rdPrivacyProtectTechContact       :: !(Maybe Bool)
+    , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _rdAutoRenew                       :: !(Maybe Bool)
+    , _rdPrivacyProtectAdminContact      :: !(Maybe Bool)
+    , _rdIDNLangCode                     :: !(Maybe Text)
+    , _rdDomainName                      :: !Text
     , _rdDurationInYears                 :: !Nat
-    , _rdAdminContact                    :: Sensitive ContactDetail
-    , _rdRegistrantContact               :: Sensitive ContactDetail
-    , _rdTechContact                     :: Sensitive ContactDetail
+    , _rdAdminContact                    :: !(Sensitive ContactDetail)
+    , _rdRegistrantContact               :: !(Sensitive ContactDetail)
+    , _rdTechContact                     :: !(Sensitive ContactDetail)
     } deriving (Eq,Read,Show)
 
 -- | 'RegisterDomain' smart constructor.
@@ -305,7 +305,7 @@ instance ToQuery RegisterDomain where
 --
 -- * 'rdrStatus'
 data RegisterDomainResponse = RegisterDomainResponse'
-    { _rdrOperationId :: Text
+    { _rdrOperationId :: !Text
     , _rdrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

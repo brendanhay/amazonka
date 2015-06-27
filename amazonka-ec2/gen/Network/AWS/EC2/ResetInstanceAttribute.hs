@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'riaAttribute'
 data ResetInstanceAttribute = ResetInstanceAttribute'
-    { _riaDryRun     :: Maybe Bool
-    , _riaInstanceId :: Text
-    , _riaAttribute  :: InstanceAttributeName
+    { _riaDryRun     :: !(Maybe Bool)
+    , _riaInstanceId :: !Text
+    , _riaAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show)
 
 -- | 'ResetInstanceAttribute' smart constructor.

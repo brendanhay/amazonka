@@ -113,8 +113,8 @@ instance ToQuery ListLocalDisks where
 --
 -- * 'lldrStatus'
 data ListLocalDisksResponse = ListLocalDisksResponse'
-    { _lldrGatewayARN :: Maybe Text
-    , _lldrDisks      :: Maybe [Disk]
+    { _lldrGatewayARN :: !(Maybe Text)
+    , _lldrDisks      :: !(Maybe [Disk])
     , _lldrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

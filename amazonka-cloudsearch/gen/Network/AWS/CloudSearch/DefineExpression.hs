@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'defExpression'
 data DefineExpression = DefineExpression'
-    { _defDomainName :: Text
-    , _defExpression :: Expression
+    { _defDomainName :: !Text
+    , _defExpression :: !Expression
     } deriving (Eq,Read,Show)
 
 -- | 'DefineExpression' smart constructor.
@@ -112,7 +112,7 @@ instance ToQuery DefineExpression where
 --
 -- * 'derStatus'
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _derExpression :: ExpressionStatus
+    { _derExpression :: !ExpressionStatus
     , _derStatus     :: !Int
     } deriving (Eq,Read,Show)
 

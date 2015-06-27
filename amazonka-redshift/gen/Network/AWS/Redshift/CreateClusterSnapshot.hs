@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'ccsClusterIdentifier'
 data CreateClusterSnapshot = CreateClusterSnapshot'
-    { _ccsTags               :: Maybe [Tag]
-    , _ccsSnapshotIdentifier :: Text
-    , _ccsClusterIdentifier  :: Text
+    { _ccsTags               :: !(Maybe [Tag])
+    , _ccsSnapshotIdentifier :: !Text
+    , _ccsClusterIdentifier  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSnapshot' smart constructor.
@@ -129,7 +129,7 @@ instance ToQuery CreateClusterSnapshot where
 --
 -- * 'cStatus'
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-    { _cSnapshot :: Maybe Snapshot
+    { _cSnapshot :: !(Maybe Snapshot)
     , _cStatus   :: !Int
     } deriving (Eq,Read,Show)
 

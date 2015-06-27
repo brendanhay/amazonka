@@ -102,7 +102,7 @@ instance ToQuery DeleteDirectory where
 --
 -- * 'dStatus'
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _dDirectoryId :: Maybe Text
+    { _dDirectoryId :: !(Maybe Text)
     , _dStatus      :: !Int
     } deriving (Eq,Read,Show)
 

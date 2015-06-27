@@ -68,12 +68,12 @@ import           Network.AWS.Response
 --
 -- * 'cveServiceName'
 data CreateVPCEndpoint = CreateVPCEndpoint'
-    { _cvePolicyDocument :: Maybe Text
-    , _cveClientToken    :: Maybe Text
-    , _cveDryRun         :: Maybe Bool
-    , _cveRouteTableIds  :: Maybe [Text]
-    , _cveVPCId          :: Text
-    , _cveServiceName    :: Text
+    { _cvePolicyDocument :: !(Maybe Text)
+    , _cveClientToken    :: !(Maybe Text)
+    , _cveDryRun         :: !(Maybe Bool)
+    , _cveRouteTableIds  :: !(Maybe [Text])
+    , _cveVPCId          :: !Text
+    , _cveServiceName    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPCEndpoint' smart constructor.
@@ -161,8 +161,8 @@ instance ToQuery CreateVPCEndpoint where
 --
 -- * 'cverStatus'
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
-    { _cverClientToken :: Maybe Text
-    , _cverVPCEndpoint :: Maybe VPCEndpoint
+    { _cverClientToken :: !(Maybe Text)
+    , _cverVPCEndpoint :: !(Maybe VPCEndpoint)
     , _cverStatus      :: !Int
     } deriving (Eq,Read,Show)
 

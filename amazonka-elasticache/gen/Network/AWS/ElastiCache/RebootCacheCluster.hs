@@ -61,8 +61,8 @@ import           Network.AWS.Response
 --
 -- * 'rccCacheNodeIdsToReboot'
 data RebootCacheCluster = RebootCacheCluster'
-    { _rccCacheClusterId       :: Text
-    , _rccCacheNodeIdsToReboot :: [Text]
+    { _rccCacheClusterId       :: !Text
+    , _rccCacheNodeIdsToReboot :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'RebootCacheCluster' smart constructor.
@@ -118,7 +118,7 @@ instance ToQuery RebootCacheCluster where
 --
 -- * 'rccrStatus'
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
-    { _rccrCacheCluster :: Maybe CacheCluster
+    { _rccrCacheCluster :: !(Maybe CacheCluster)
     , _rccrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -110,8 +110,8 @@ instance ToQuery GetIdentityPoolRoles where
 --
 -- * 'giprrStatus'
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-    { _giprrRoles          :: Maybe (Map Text Text)
-    , _giprrIdentityPoolId :: Maybe Text
+    { _giprrRoles          :: !(Maybe (Map Text Text))
+    , _giprrIdentityPoolId :: !(Maybe Text)
     , _giprrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

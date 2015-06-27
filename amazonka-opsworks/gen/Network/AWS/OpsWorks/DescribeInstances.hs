@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'diLayerId'
 data DescribeInstances = DescribeInstances'
-    { _diInstanceIds :: Maybe [Text]
-    , _diStackId     :: Maybe Text
-    , _diLayerId     :: Maybe Text
+    { _diInstanceIds :: !(Maybe [Text])
+    , _diStackId     :: !(Maybe Text)
+    , _diLayerId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstances' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery DescribeInstances where
 --
 -- * 'dirStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirInstances :: Maybe [Instance]
+    { _dirInstances :: !(Maybe [Instance])
     , _dirStatus    :: !Int
     } deriving (Eq,Read,Show)
 

@@ -69,10 +69,10 @@ import           Network.AWS.Response
 --
 -- * 'lagpGroupName'
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
-    { _lagpPathPrefix :: Maybe Text
-    , _lagpMaxItems   :: Maybe Nat
-    , _lagpMarker     :: Maybe Text
-    , _lagpGroupName  :: Text
+    { _lagpPathPrefix :: !(Maybe Text)
+    , _lagpMaxItems   :: !(Maybe Nat)
+    , _lagpMarker     :: !(Maybe Text)
+    , _lagpGroupName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
@@ -156,9 +156,9 @@ instance ToQuery ListAttachedGroupPolicies where
 --
 -- * 'lagprStatus'
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
-    { _lagprAttachedPolicies :: Maybe [AttachedPolicy]
-    , _lagprMarker           :: Maybe Text
-    , _lagprIsTruncated      :: Maybe Bool
+    { _lagprAttachedPolicies :: !(Maybe [AttachedPolicy])
+    , _lagprMarker           :: !(Maybe Text)
+    , _lagprIsTruncated      :: !(Maybe Bool)
     , _lagprStatus           :: !Int
     } deriving (Eq,Read,Show)
 

@@ -48,8 +48,8 @@ import           Network.AWS.Response
 --
 -- * 'rtTags'
 data RemoveTags = RemoveTags'
-    { _rtLoadBalancerNames :: [Text]
-    , _rtTags              :: List1 TagKeyOnly
+    { _rtLoadBalancerNames :: ![Text]
+    , _rtTags              :: !(List1 TagKeyOnly)
     } deriving (Eq,Read,Show)
 
 -- | 'RemoveTags' smart constructor.

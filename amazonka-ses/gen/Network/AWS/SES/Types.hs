@@ -223,8 +223,8 @@ instance FromXML VerificationStatus where
 --
 -- * 'bodHTML'
 data Body = Body'
-    { _bodText :: Maybe Content
-    , _bodHTML :: Maybe Content
+    { _bodText :: !(Maybe Content)
+    , _bodHTML :: !(Maybe Content)
     } deriving (Eq,Read,Show)
 
 -- | 'Body' smart constructor.
@@ -266,8 +266,8 @@ instance ToQuery Body where
 --
 -- * 'conData'
 data Content = Content'
-    { _conCharset :: Maybe Text
-    , _conData    :: Text
+    { _conCharset :: !(Maybe Text)
+    , _conData    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Content' smart constructor.
@@ -310,9 +310,9 @@ instance ToQuery Content where
 --
 -- * 'desToAddresses'
 data Destination = Destination'
-    { _desBCCAddresses :: Maybe [Text]
-    , _desCCAddresses  :: Maybe [Text]
-    , _desToAddresses  :: Maybe [Text]
+    { _desBCCAddresses :: !(Maybe [Text])
+    , _desCCAddresses  :: !(Maybe [Text])
+    , _desToAddresses  :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'Destination' smart constructor.
@@ -358,9 +358,9 @@ instance ToQuery Destination where
 --
 -- * 'idaDkimVerificationStatus'
 data IdentityDkimAttributes = IdentityDkimAttributes'
-    { _idaDkimTokens             :: Maybe [Text]
+    { _idaDkimTokens             :: !(Maybe [Text])
     , _idaDkimEnabled            :: !Bool
-    , _idaDkimVerificationStatus :: VerificationStatus
+    , _idaDkimVerificationStatus :: !VerificationStatus
     } deriving (Eq,Read,Show)
 
 -- | 'IdentityDkimAttributes' smart constructor.
@@ -422,9 +422,9 @@ instance FromXML IdentityDkimAttributes where
 --
 -- * 'inaForwardingEnabled'
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
-    { _inaBounceTopic       :: Text
-    , _inaComplaintTopic    :: Text
-    , _inaDeliveryTopic     :: Text
+    { _inaBounceTopic       :: !Text
+    , _inaComplaintTopic    :: !Text
+    , _inaDeliveryTopic     :: !Text
     , _inaForwardingEnabled :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -478,8 +478,8 @@ instance FromXML IdentityNotificationAttributes where
 --
 -- * 'ivaVerificationStatus'
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
-    { _ivaVerificationToken  :: Maybe Text
-    , _ivaVerificationStatus :: VerificationStatus
+    { _ivaVerificationToken  :: !(Maybe Text)
+    , _ivaVerificationStatus :: !VerificationStatus
     } deriving (Eq,Read,Show)
 
 -- | 'IdentityVerificationAttributes' smart constructor.
@@ -516,8 +516,8 @@ instance FromXML IdentityVerificationAttributes where
 --
 -- * 'mesBody'
 data Message = Message'
-    { _mesSubject :: Content
-    , _mesBody    :: Body
+    { _mesSubject :: !Content
+    , _mesBody    :: !Body
     } deriving (Eq,Read,Show)
 
 -- | 'Message' smart constructor.
@@ -592,11 +592,11 @@ instance ToQuery RawMessage where
 --
 -- * 'sdpTimestamp'
 data SendDataPoint = SendDataPoint'
-    { _sdpRejects          :: Maybe Integer
-    , _sdpComplaints       :: Maybe Integer
-    , _sdpDeliveryAttempts :: Maybe Integer
-    , _sdpBounces          :: Maybe Integer
-    , _sdpTimestamp        :: Maybe ISO8601
+    { _sdpRejects          :: !(Maybe Integer)
+    , _sdpComplaints       :: !(Maybe Integer)
+    , _sdpDeliveryAttempts :: !(Maybe Integer)
+    , _sdpBounces          :: !(Maybe Integer)
+    , _sdpTimestamp        :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show)
 
 -- | 'SendDataPoint' smart constructor.

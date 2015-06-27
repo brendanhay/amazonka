@@ -107,7 +107,7 @@ instance ToQuery GetPolicy where
 --
 -- * 'gprStatus'
 data GetPolicyResponse = GetPolicyResponse'
-    { _gprPolicy :: Maybe Policy
+    { _gprPolicy :: !(Maybe Policy)
     , _gprStatus :: !Int
     } deriving (Eq,Read,Show)
 

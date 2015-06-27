@@ -75,13 +75,13 @@ import           Network.AWS.Response
 --
 -- * 'chcHSMServerPublicCertificate'
 data CreateHSMConfiguration = CreateHSMConfiguration'
-    { _chcTags                       :: Maybe [Tag]
-    , _chcHSMConfigurationIdentifier :: Text
-    , _chcDescription                :: Text
-    , _chcHSMIPAddress               :: Text
-    , _chcHSMPartitionName           :: Text
-    , _chcHSMPartitionPassword       :: Text
-    , _chcHSMServerPublicCertificate :: Text
+    { _chcTags                       :: !(Maybe [Tag])
+    , _chcHSMConfigurationIdentifier :: !Text
+    , _chcDescription                :: !Text
+    , _chcHSMIPAddress               :: !Text
+    , _chcHSMPartitionName           :: !Text
+    , _chcHSMPartitionPassword       :: !Text
+    , _chcHSMServerPublicCertificate :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateHSMConfiguration' smart constructor.
@@ -170,7 +170,7 @@ instance ToQuery CreateHSMConfiguration where
 --
 -- * 'chcrStatus'
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
-    { _chcrHSMConfiguration :: Maybe HSMConfiguration
+    { _chcrHSMConfiguration :: !(Maybe HSMConfiguration)
     , _chcrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

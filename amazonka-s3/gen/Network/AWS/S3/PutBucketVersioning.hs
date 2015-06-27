@@ -53,10 +53,10 @@ import           Network.AWS.S3.Types
 --
 -- * 'pbvVersioningConfiguration'
 data PutBucketVersioning = PutBucketVersioning'
-    { _pbvMFA                     :: Maybe Text
-    , _pbvContentMD5              :: Maybe Text
-    , _pbvBucket                  :: BucketName
-    , _pbvVersioningConfiguration :: VersioningConfiguration
+    { _pbvMFA                     :: !(Maybe Text)
+    , _pbvContentMD5              :: !(Maybe Text)
+    , _pbvBucket                  :: !BucketName
+    , _pbvVersioningConfiguration :: !VersioningConfiguration
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketVersioning' smart constructor.

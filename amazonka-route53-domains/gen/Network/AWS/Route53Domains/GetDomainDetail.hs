@@ -193,27 +193,27 @@ instance ToQuery GetDomainDetail where
 --
 -- * 'gddrStatus'
 data GetDomainDetailResponse = GetDomainDetailResponse'
-    { _gddrTechPrivacy       :: Maybe Bool
-    , _gddrDNSSec            :: Maybe Text
-    , _gddrWhoIsServer       :: Maybe Text
-    , _gddrRegistryDomainId  :: Maybe Text
-    , _gddrRegistrantPrivacy :: Maybe Bool
-    , _gddrUpdatedDate       :: Maybe POSIX
-    , _gddrAdminPrivacy      :: Maybe Bool
-    , _gddrAbuseContactEmail :: Maybe Text
-    , _gddrRegistrarURL      :: Maybe Text
-    , _gddrAutoRenew         :: Maybe Bool
-    , _gddrAbuseContactPhone :: Maybe Text
-    , _gddrExpirationDate    :: Maybe POSIX
-    , _gddrCreationDate      :: Maybe POSIX
-    , _gddrRegistrarName     :: Maybe Text
-    , _gddrStatusList        :: Maybe [Text]
-    , _gddrReseller          :: Maybe Text
-    , _gddrDomainName        :: Text
-    , _gddrNameservers       :: [Nameserver]
-    , _gddrAdminContact      :: Sensitive ContactDetail
-    , _gddrRegistrantContact :: Sensitive ContactDetail
-    , _gddrTechContact       :: Sensitive ContactDetail
+    { _gddrTechPrivacy       :: !(Maybe Bool)
+    , _gddrDNSSec            :: !(Maybe Text)
+    , _gddrWhoIsServer       :: !(Maybe Text)
+    , _gddrRegistryDomainId  :: !(Maybe Text)
+    , _gddrRegistrantPrivacy :: !(Maybe Bool)
+    , _gddrUpdatedDate       :: !(Maybe POSIX)
+    , _gddrAdminPrivacy      :: !(Maybe Bool)
+    , _gddrAbuseContactEmail :: !(Maybe Text)
+    , _gddrRegistrarURL      :: !(Maybe Text)
+    , _gddrAutoRenew         :: !(Maybe Bool)
+    , _gddrAbuseContactPhone :: !(Maybe Text)
+    , _gddrExpirationDate    :: !(Maybe POSIX)
+    , _gddrCreationDate      :: !(Maybe POSIX)
+    , _gddrRegistrarName     :: !(Maybe Text)
+    , _gddrStatusList        :: !(Maybe [Text])
+    , _gddrReseller          :: !(Maybe Text)
+    , _gddrDomainName        :: !Text
+    , _gddrNameservers       :: ![Nameserver]
+    , _gddrAdminContact      :: !(Sensitive ContactDetail)
+    , _gddrRegistrantContact :: !(Sensitive ContactDetail)
+    , _gddrTechContact       :: !(Sensitive ContactDetail)
     , _gddrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

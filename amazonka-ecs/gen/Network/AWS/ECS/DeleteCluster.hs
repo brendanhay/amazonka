@@ -102,7 +102,7 @@ instance ToQuery DeleteCluster where
 --
 -- * 'delStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _delCluster :: Maybe Cluster
+    { _delCluster :: !(Maybe Cluster)
     , _delStatus  :: !Int
     } deriving (Eq,Read,Show)
 

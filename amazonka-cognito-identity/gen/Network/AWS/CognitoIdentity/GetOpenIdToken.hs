@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'goitIdentityId'
 data GetOpenIdToken = GetOpenIdToken'
-    { _goitLogins     :: Maybe (Map Text Text)
-    , _goitIdentityId :: Text
+    { _goitLogins     :: !(Maybe (Map Text Text))
+    , _goitIdentityId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetOpenIdToken' smart constructor.
@@ -127,8 +127,8 @@ instance ToQuery GetOpenIdToken where
 --
 -- * 'goitrStatus'
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-    { _goitrToken      :: Maybe Text
-    , _goitrIdentityId :: Maybe Text
+    { _goitrToken      :: !(Maybe Text)
+    , _goitrIdentityId :: !(Maybe Text)
     , _goitrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

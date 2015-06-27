@@ -75,13 +75,13 @@ import           Network.AWS.Response
 --
 -- * 'ctS3BucketName'
 data CreateTrail = CreateTrail'
-    { _ctS3KeyPrefix                :: Maybe Text
-    , _ctSNSTopicName               :: Maybe Text
-    , _ctCloudWatchLogsLogGroupARN  :: Maybe Text
-    , _ctIncludeGlobalServiceEvents :: Maybe Bool
-    , _ctCloudWatchLogsRoleARN      :: Maybe Text
-    , _ctName                       :: Text
-    , _ctS3BucketName               :: Text
+    { _ctS3KeyPrefix                :: !(Maybe Text)
+    , _ctSNSTopicName               :: !(Maybe Text)
+    , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctName                       :: !Text
+    , _ctS3BucketName               :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTrail' smart constructor.
@@ -199,13 +199,13 @@ instance ToQuery CreateTrail where
 --
 -- * 'ctrStatus'
 data CreateTrailResponse = CreateTrailResponse'
-    { _ctrS3KeyPrefix                :: Maybe Text
-    , _ctrSNSTopicName               :: Maybe Text
-    , _ctrCloudWatchLogsLogGroupARN  :: Maybe Text
-    , _ctrName                       :: Maybe Text
-    , _ctrIncludeGlobalServiceEvents :: Maybe Bool
-    , _ctrCloudWatchLogsRoleARN      :: Maybe Text
-    , _ctrS3BucketName               :: Maybe Text
+    { _ctrS3KeyPrefix                :: !(Maybe Text)
+    , _ctrSNSTopicName               :: !(Maybe Text)
+    , _ctrCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _ctrName                       :: !(Maybe Text)
+    , _ctrIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _ctrCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctrS3BucketName               :: !(Maybe Text)
     , _ctrStatus                     :: !Int
     } deriving (Eq,Read,Show)
 

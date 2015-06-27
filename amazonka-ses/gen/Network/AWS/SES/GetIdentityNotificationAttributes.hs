@@ -112,7 +112,7 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- * 'ginarStatus'
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-    { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
+    { _ginarNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
     , _ginarStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

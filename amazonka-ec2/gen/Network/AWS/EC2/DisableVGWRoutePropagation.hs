@@ -47,8 +47,8 @@ import           Network.AWS.Response
 --
 -- * 'dvrpGatewayId'
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
-    { _dvrpRouteTableId :: Text
-    , _dvrpGatewayId    :: Text
+    { _dvrpRouteTableId :: !Text
+    , _dvrpGatewayId    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DisableVGWRoutePropagation' smart constructor.

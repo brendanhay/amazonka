@@ -64,11 +64,11 @@ import           Network.AWS.Response
 --
 -- * 'iiPlatform'
 data ImportInstance = ImportInstance'
-    { _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
-    , _iiDiskImages          :: Maybe [DiskImage]
-    , _iiDryRun              :: Maybe Bool
-    , _iiDescription         :: Maybe Text
-    , _iiPlatform            :: PlatformValues
+    { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
+    , _iiDiskImages          :: !(Maybe [DiskImage])
+    , _iiDryRun              :: !(Maybe Bool)
+    , _iiDescription         :: !(Maybe Text)
+    , _iiPlatform            :: !PlatformValues
     } deriving (Eq,Read,Show)
 
 -- | 'ImportInstance' smart constructor.
@@ -140,7 +140,7 @@ instance ToQuery ImportInstance where
 --
 -- * 'iirStatus'
 data ImportInstanceResponse = ImportInstanceResponse'
-    { _iirConversionTask :: Maybe ConversionTask
+    { _iirConversionTask :: !(Maybe ConversionTask)
     , _iirStatus         :: !Int
     } deriving (Eq,Read,Show)
 

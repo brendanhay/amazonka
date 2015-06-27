@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'dmtFileSystemId'
 data DescribeMountTargets = DescribeMountTargets'
-    { _dmtMaxItems     :: Maybe Nat
-    , _dmtMarker       :: Maybe Text
-    , _dmtFileSystemId :: Text
+    { _dmtMaxItems     :: !(Maybe Nat)
+    , _dmtMarker       :: !(Maybe Text)
+    , _dmtFileSystemId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMountTargets' smart constructor.
@@ -126,9 +126,9 @@ instance ToQuery DescribeMountTargets where
 --
 -- * 'dmtrStatus'
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
-    { _dmtrMountTargets :: Maybe [MountTargetDescription]
-    , _dmtrMarker       :: Maybe Text
-    , _dmtrNextMarker   :: Maybe Text
+    { _dmtrMountTargets :: !(Maybe [MountTargetDescription])
+    , _dmtrMarker       :: !(Maybe Text)
+    , _dmtrNextMarker   :: !(Maybe Text)
     , _dmtrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

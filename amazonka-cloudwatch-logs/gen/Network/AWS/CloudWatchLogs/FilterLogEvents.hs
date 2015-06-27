@@ -83,14 +83,14 @@ import           Network.AWS.Response
 --
 -- * 'fleLogGroupName'
 data FilterLogEvents = FilterLogEvents'
-    { _fleStartTime      :: Maybe Nat
-    , _fleLogStreamNames :: Maybe (List1 Text)
-    , _fleNextToken      :: Maybe Text
-    , _fleEndTime        :: Maybe Nat
-    , _fleLimit          :: Maybe Nat
-    , _fleFilterPattern  :: Maybe Text
-    , _fleInterleaved    :: Maybe Bool
-    , _fleLogGroupName   :: Text
+    { _fleStartTime      :: !(Maybe Nat)
+    , _fleLogStreamNames :: !(Maybe (List1 Text))
+    , _fleNextToken      :: !(Maybe Text)
+    , _fleEndTime        :: !(Maybe Nat)
+    , _fleLimit          :: !(Maybe Nat)
+    , _fleFilterPattern  :: !(Maybe Text)
+    , _fleInterleaved    :: !(Maybe Bool)
+    , _fleLogGroupName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'FilterLogEvents' smart constructor.
@@ -202,9 +202,9 @@ instance ToQuery FilterLogEvents where
 --
 -- * 'flerStatus'
 data FilterLogEventsResponse = FilterLogEventsResponse'
-    { _flerSearchedLogStreams :: Maybe [SearchedLogStream]
-    , _flerNextToken          :: Maybe Text
-    , _flerEvents             :: Maybe [FilteredLogEvent]
+    { _flerSearchedLogStreams :: !(Maybe [SearchedLogStream])
+    , _flerNextToken          :: !(Maybe Text)
+    , _flerEvents             :: !(Maybe [FilteredLogEvent])
     , _flerStatus             :: !Int
     } deriving (Eq,Read,Show)
 

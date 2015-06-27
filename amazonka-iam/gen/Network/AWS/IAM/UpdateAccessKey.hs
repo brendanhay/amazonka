@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'uakStatus'
 data UpdateAccessKey = UpdateAccessKey'
-    { _uakUserName    :: Maybe Text
-    , _uakAccessKeyId :: Text
-    , _uakStatus      :: StatusType
+    { _uakUserName    :: !(Maybe Text)
+    , _uakAccessKeyId :: !Text
+    , _uakStatus      :: !StatusType
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateAccessKey' smart constructor.

@@ -110,7 +110,7 @@ instance ToQuery GetIdentityVerificationAttributes
 --
 -- * 'givarStatus'
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
-    { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
+    { _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
     , _givarStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

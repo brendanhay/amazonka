@@ -57,8 +57,8 @@ import           Network.AWS.Route53.Types
 --
 -- * 'uhzcId'
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
-    { _uhzcComment :: Maybe Text
-    , _uhzcId      :: Text
+    { _uhzcComment :: !(Maybe Text)
+    , _uhzcId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateHostedZoneComment' smart constructor.
@@ -118,7 +118,7 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- * 'uhzcrStatus'
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-    { _uhzcrHostedZone :: HostedZone
+    { _uhzcrHostedZone :: !HostedZone
     , _uhzcrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dpg1DryRun'
 data DescribePlacementGroups = DescribePlacementGroups'
-    { _dpg1GroupNames :: Maybe [Text]
-    , _dpg1Filters    :: Maybe [Filter]
-    , _dpg1DryRun     :: Maybe Bool
+    { _dpg1GroupNames :: !(Maybe [Text])
+    , _dpg1Filters    :: !(Maybe [Filter])
+    , _dpg1DryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribePlacementGroups' smart constructor.
@@ -132,7 +132,7 @@ instance ToQuery DescribePlacementGroups where
 --
 -- * 'dpgrStatus'
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
-    { _dpgrPlacementGroups :: Maybe [PlacementGroup]
+    { _dpgrPlacementGroups :: !(Maybe [PlacementGroup])
     , _dpgrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

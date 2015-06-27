@@ -51,9 +51,9 @@ import           Network.AWS.Response
 --
 -- * 'sspStackName'
 data SetStackPolicy = SetStackPolicy'
-    { _sspStackPolicyBody :: Maybe Text
-    , _sspStackPolicyURL  :: Maybe Text
-    , _sspStackName       :: Text
+    { _sspStackPolicyBody :: !(Maybe Text)
+    , _sspStackPolicyURL  :: !(Maybe Text)
+    , _sspStackName       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SetStackPolicy' smart constructor.

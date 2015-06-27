@@ -86,12 +86,12 @@ import           Network.AWS.SWF.Types
 --
 -- * 'latRegistrationStatus'
 data ListActivityTypes = ListActivityTypes'
-    { _latNextPageToken      :: Maybe Text
-    , _latReverseOrder       :: Maybe Bool
-    , _latName               :: Maybe Text
-    , _latMaximumPageSize    :: Maybe Nat
-    , _latDomain             :: Text
-    , _latRegistrationStatus :: RegistrationStatus
+    { _latNextPageToken      :: !(Maybe Text)
+    , _latReverseOrder       :: !(Maybe Bool)
+    , _latName               :: !(Maybe Text)
+    , _latMaximumPageSize    :: !(Maybe Nat)
+    , _latDomain             :: !Text
+    , _latRegistrationStatus :: !RegistrationStatus
     } deriving (Eq,Read,Show)
 
 -- | 'ListActivityTypes' smart constructor.
@@ -202,8 +202,8 @@ instance ToQuery ListActivityTypes where
 --
 -- * 'latrStatus'
 data ListActivityTypesResponse = ListActivityTypesResponse'
-    { _latrNextPageToken :: Maybe Text
-    , _latrTypeInfos     :: [ActivityTypeInfo]
+    { _latrNextPageToken :: !(Maybe Text)
+    , _latrTypeInfos     :: ![ActivityTypeInfo]
     , _latrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

@@ -69,10 +69,10 @@ import           Network.AWS.Response
 --
 -- * 'laupUserName'
 data ListAttachedUserPolicies = ListAttachedUserPolicies'
-    { _laupPathPrefix :: Maybe Text
-    , _laupMaxItems   :: Maybe Nat
-    , _laupMarker     :: Maybe Text
-    , _laupUserName   :: Text
+    { _laupPathPrefix :: !(Maybe Text)
+    , _laupMaxItems   :: !(Maybe Nat)
+    , _laupMarker     :: !(Maybe Text)
+    , _laupUserName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
@@ -156,9 +156,9 @@ instance ToQuery ListAttachedUserPolicies where
 --
 -- * 'lauprStatus'
 data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
-    { _lauprAttachedPolicies :: Maybe [AttachedPolicy]
-    , _lauprMarker           :: Maybe Text
-    , _lauprIsTruncated      :: Maybe Bool
+    { _lauprAttachedPolicies :: !(Maybe [AttachedPolicy])
+    , _lauprMarker           :: !(Maybe Text)
+    , _lauprIsTruncated      :: !(Maybe Bool)
     , _lauprStatus           :: !Int
     } deriving (Eq,Read,Show)
 

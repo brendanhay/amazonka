@@ -297,14 +297,14 @@ instance FromJSON Runtime where
 --
 -- * 'esmcLastModified'
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-    { _esmcEventSourceARN        :: Maybe Text
-    , _esmcFunctionARN           :: Maybe Text
-    , _esmcState                 :: Maybe Text
-    , _esmcUUID                  :: Maybe Text
-    , _esmcLastProcessingResult  :: Maybe Text
-    , _esmcBatchSize             :: Maybe Nat
-    , _esmcStateTransitionReason :: Maybe Text
-    , _esmcLastModified          :: Maybe POSIX
+    { _esmcEventSourceARN        :: !(Maybe Text)
+    , _esmcFunctionARN           :: !(Maybe Text)
+    , _esmcState                 :: !(Maybe Text)
+    , _esmcUUID                  :: !(Maybe Text)
+    , _esmcLastProcessingResult  :: !(Maybe Text)
+    , _esmcBatchSize             :: !(Maybe Nat)
+    , _esmcStateTransitionReason :: !(Maybe Text)
+    , _esmcLastModified          :: !(Maybe POSIX)
     } deriving (Eq,Read,Show)
 
 -- | 'EventSourceMappingConfiguration' smart constructor.
@@ -389,10 +389,10 @@ instance FromJSON EventSourceMappingConfiguration
 --
 -- * 'fcS3Bucket'
 data FunctionCode = FunctionCode'
-    { _fcS3ObjectVersion :: Maybe Text
-    , _fcS3Key           :: Maybe Text
-    , _fcZipFile         :: Maybe Base64
-    , _fcS3Bucket        :: Maybe Text
+    { _fcS3ObjectVersion :: !(Maybe Text)
+    , _fcS3Key           :: !(Maybe Text)
+    , _fcZipFile         :: !(Maybe Base64)
+    , _fcS3Bucket        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FunctionCode' smart constructor.
@@ -445,8 +445,8 @@ instance ToJSON FunctionCode where
 --
 -- * 'fclRepositoryType'
 data FunctionCodeLocation = FunctionCodeLocation'
-    { _fclLocation       :: Maybe Text
-    , _fclRepositoryType :: Maybe Text
+    { _fclLocation       :: !(Maybe Text)
+    , _fclRepositoryType :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FunctionCodeLocation' smart constructor.
@@ -499,16 +499,16 @@ instance FromJSON FunctionCodeLocation where
 --
 -- * 'fcDescription'
 data FunctionConfiguration = FunctionConfiguration'
-    { _fcRuntime      :: Maybe Runtime
-    , _fcMemorySize   :: Maybe Nat
-    , _fcFunctionARN  :: Maybe Text
-    , _fcRole         :: Maybe Text
-    , _fcFunctionName :: Maybe Text
-    , _fcCodeSize     :: Maybe Integer
-    , _fcHandler      :: Maybe Text
-    , _fcTimeout      :: Maybe Nat
-    , _fcLastModified :: Maybe Text
-    , _fcDescription  :: Maybe Text
+    { _fcRuntime      :: !(Maybe Runtime)
+    , _fcMemorySize   :: !(Maybe Nat)
+    , _fcFunctionARN  :: !(Maybe Text)
+    , _fcRole         :: !(Maybe Text)
+    , _fcFunctionName :: !(Maybe Text)
+    , _fcCodeSize     :: !(Maybe Integer)
+    , _fcHandler      :: !(Maybe Text)
+    , _fcTimeout      :: !(Maybe Nat)
+    , _fcLastModified :: !(Maybe Text)
+    , _fcDescription  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FunctionConfiguration' smart constructor.

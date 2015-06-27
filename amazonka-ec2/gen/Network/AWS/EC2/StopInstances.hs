@@ -85,9 +85,9 @@ import           Network.AWS.Response
 --
 -- * 'siInstanceIds'
 data StopInstances = StopInstances'
-    { _siForce       :: Maybe Bool
-    , _siDryRun      :: Maybe Bool
-    , _siInstanceIds :: [Text]
+    { _siForce       :: !(Maybe Bool)
+    , _siDryRun      :: !(Maybe Bool)
+    , _siInstanceIds :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'StopInstances' smart constructor.
@@ -152,7 +152,7 @@ instance ToQuery StopInstances where
 --
 -- * 'stoStatus'
 data StopInstancesResponse = StopInstancesResponse'
-    { _stoStoppingInstances :: Maybe [InstanceStateChange]
+    { _stoStoppingInstances :: !(Maybe [InstanceStateChange])
     , _stoStatus            :: !Int
     } deriving (Eq,Read,Show)
 

@@ -105,22 +105,22 @@ import           Network.AWS.Response
 --
 -- * 'clShortname'
 data CreateLayer = CreateLayer'
-    { _clCustomInstanceProfileARN    :: Maybe Text
-    , _clInstallUpdatesOnBoot        :: Maybe Bool
-    , _clCustomSecurityGroupIds      :: Maybe [Text]
-    , _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
-    , _clCustomRecipes               :: Maybe Recipes
-    , _clVolumeConfigurations        :: Maybe [VolumeConfiguration]
-    , _clEnableAutoHealing           :: Maybe Bool
-    , _clPackages                    :: Maybe [Text]
-    , _clAttributes                  :: Maybe (Map LayerAttributesKeys Text)
-    , _clAutoAssignPublicIPs         :: Maybe Bool
-    , _clUseEBSOptimizedInstances    :: Maybe Bool
-    , _clAutoAssignElasticIPs        :: Maybe Bool
-    , _clStackId                     :: Text
-    , _clType                        :: LayerType
-    , _clName                        :: Text
-    , _clShortname                   :: Text
+    { _clCustomInstanceProfileARN    :: !(Maybe Text)
+    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _clCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _clCustomRecipes               :: !(Maybe Recipes)
+    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _clEnableAutoHealing           :: !(Maybe Bool)
+    , _clPackages                    :: !(Maybe [Text])
+    , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _clAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _clUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _clAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _clStackId                     :: !Text
+    , _clType                        :: !LayerType
+    , _clName                        :: !Text
+    , _clShortname                   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateLayer' smart constructor.
@@ -294,7 +294,7 @@ instance ToQuery CreateLayer where
 --
 -- * 'clrStatus'
 data CreateLayerResponse = CreateLayerResponse'
-    { _clrLayerId :: Maybe Text
+    { _clrLayerId :: !(Maybe Text)
     , _clrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

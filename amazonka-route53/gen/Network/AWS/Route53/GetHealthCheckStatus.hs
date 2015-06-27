@@ -102,7 +102,7 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- * 'ghcsrStatus'
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
-    { _ghcsrHealthCheckObservations :: [HealthCheckObservation]
+    { _ghcsrHealthCheckObservations :: ![HealthCheckObservation]
     , _ghcsrStatus                  :: !Int
     } deriving (Eq,Read,Show)
 

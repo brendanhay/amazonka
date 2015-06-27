@@ -52,8 +52,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'caTapeARN'
 data CancelArchival = CancelArchival'
-    { _caGatewayARN :: Text
-    , _caTapeARN    :: Text
+    { _caGatewayARN :: !Text
+    , _caTapeARN    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CancelArchival' smart constructor.
@@ -115,7 +115,7 @@ instance ToQuery CancelArchival where
 --
 -- * 'carStatus'
 data CancelArchivalResponse = CancelArchivalResponse'
-    { _carTapeARN :: Maybe Text
+    { _carTapeARN :: !(Maybe Text)
     , _carStatus  :: !Int
     } deriving (Eq,Read,Show)
 

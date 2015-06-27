@@ -99,7 +99,7 @@ instance ToQuery DeleteDBSnapshot where
 --
 -- * 'dStatus'
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
-    { _dDBSnapshot :: Maybe DBSnapshot
+    { _dDBSnapshot :: !(Maybe DBSnapshot)
     , _dStatus     :: !Int
     } deriving (Eq,Read,Show)
 

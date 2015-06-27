@@ -75,8 +75,8 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'csSnapshotDescription'
 data CreateSnapshot = CreateSnapshot'
-    { _csVolumeARN           :: Text
-    , _csSnapshotDescription :: Text
+    { _csVolumeARN           :: !Text
+    , _csSnapshotDescription :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshot' smart constructor.
@@ -144,8 +144,8 @@ instance ToQuery CreateSnapshot where
 --
 -- * 'csrStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrVolumeARN  :: Maybe Text
-    , _csrSnapshotId :: Maybe Text
+    { _csrVolumeARN  :: !(Maybe Text)
+    , _csrSnapshotId :: !(Maybe Text)
     , _csrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

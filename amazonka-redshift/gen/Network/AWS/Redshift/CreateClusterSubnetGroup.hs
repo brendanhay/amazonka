@@ -63,10 +63,10 @@ import           Network.AWS.Response
 --
 -- * 'ccsgSubnetIds'
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-    { _ccsgTags                   :: Maybe [Tag]
-    , _ccsgClusterSubnetGroupName :: Text
-    , _ccsgDescription            :: Text
-    , _ccsgSubnetIds              :: [Text]
+    { _ccsgTags                   :: !(Maybe [Tag])
+    , _ccsgClusterSubnetGroupName :: !Text
+    , _ccsgDescription            :: !Text
+    , _ccsgSubnetIds              :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateClusterSubnetGroup' smart constructor.
@@ -144,7 +144,7 @@ instance ToQuery CreateClusterSubnetGroup where
 --
 -- * 'ccsgrStatus'
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
-    { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
+    { _ccsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _ccsgrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

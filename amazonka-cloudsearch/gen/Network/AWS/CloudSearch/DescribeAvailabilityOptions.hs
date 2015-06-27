@@ -59,8 +59,8 @@ import           Network.AWS.Response
 --
 -- * 'daoDomainName'
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
-    { _daoDeployed   :: Maybe Bool
-    , _daoDomainName :: Text
+    { _daoDeployed   :: !(Maybe Bool)
+    , _daoDomainName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
@@ -120,7 +120,7 @@ instance ToQuery DescribeAvailabilityOptions where
 --
 -- * 'daorStatus'
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
-    { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
+    { _daorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _daorStatus              :: !Int
     } deriving (Eq,Read,Show)
 

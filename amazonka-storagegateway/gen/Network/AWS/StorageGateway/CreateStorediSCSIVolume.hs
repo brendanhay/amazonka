@@ -83,12 +83,12 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'csscsivNetworkInterfaceId'
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-    { _csscsivSnapshotId           :: Maybe Text
-    , _csscsivGatewayARN           :: Text
-    , _csscsivDiskId               :: Text
+    { _csscsivSnapshotId           :: !(Maybe Text)
+    , _csscsivGatewayARN           :: !Text
+    , _csscsivDiskId               :: !Text
     , _csscsivPreserveExistingData :: !Bool
-    , _csscsivTargetName           :: Text
-    , _csscsivNetworkInterfaceId   :: Text
+    , _csscsivTargetName           :: !Text
+    , _csscsivNetworkInterfaceId   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateStorediSCSIVolume' smart constructor.
@@ -200,9 +200,9 @@ instance ToQuery CreateStorediSCSIVolume where
 --
 -- * 'csscsivrStatus'
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
-    { _csscsivrTargetARN         :: Maybe Text
-    , _csscsivrVolumeARN         :: Maybe Text
-    , _csscsivrVolumeSizeInBytes :: Maybe Integer
+    { _csscsivrTargetARN         :: !(Maybe Text)
+    , _csscsivrVolumeARN         :: !(Maybe Text)
+    , _csscsivrVolumeSizeInBytes :: !(Maybe Integer)
     , _csscsivrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

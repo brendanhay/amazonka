@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'cscgSnapshotCopyGrantName'
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-    { _cscgKMSKeyId              :: Maybe Text
-    , _cscgTags                  :: Maybe [Tag]
-    , _cscgSnapshotCopyGrantName :: Text
+    { _cscgKMSKeyId              :: !(Maybe Text)
+    , _cscgTags                  :: !(Maybe [Tag])
+    , _cscgSnapshotCopyGrantName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSnapshotCopyGrant' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery CreateSnapshotCopyGrant where
 --
 -- * 'cscgrStatus'
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
-    { _cscgrSnapshotCopyGrant :: Maybe SnapshotCopyGrant
+    { _cscgrSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
     , _cscgrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

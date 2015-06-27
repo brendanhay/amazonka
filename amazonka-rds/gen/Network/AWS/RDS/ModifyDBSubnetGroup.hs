@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'mdsgSubnetIds'
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
-    { _mdsgDBSubnetGroupDescription :: Maybe Text
-    , _mdsgDBSubnetGroupName        :: Text
-    , _mdsgSubnetIds                :: [Text]
+    { _mdsgDBSubnetGroupDescription :: !(Maybe Text)
+    , _mdsgDBSubnetGroupName        :: !Text
+    , _mdsgSubnetIds                :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
@@ -123,7 +123,7 @@ instance ToQuery ModifyDBSubnetGroup where
 --
 -- * 'mdsgrStatus'
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
-    { _mdsgrDBSubnetGroup :: Maybe DBSubnetGroup
+    { _mdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
     , _mdsgrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

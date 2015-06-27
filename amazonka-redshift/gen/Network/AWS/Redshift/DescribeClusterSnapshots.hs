@@ -93,16 +93,16 @@ import           Network.AWS.Response
 --
 -- * 'desOwnerAccount'
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
-    { _desSnapshotIdentifier :: Maybe Text
-    , _desTagValues          :: Maybe [Text]
-    , _desStartTime          :: Maybe ISO8601
-    , _desTagKeys            :: Maybe [Text]
-    , _desClusterIdentifier  :: Maybe Text
-    , _desSnapshotType       :: Maybe Text
-    , _desMaxRecords         :: Maybe Int
-    , _desEndTime            :: Maybe ISO8601
-    , _desMarker             :: Maybe Text
-    , _desOwnerAccount       :: Maybe Text
+    { _desSnapshotIdentifier :: !(Maybe Text)
+    , _desTagValues          :: !(Maybe [Text])
+    , _desStartTime          :: !(Maybe ISO8601)
+    , _desTagKeys            :: !(Maybe [Text])
+    , _desClusterIdentifier  :: !(Maybe Text)
+    , _desSnapshotType       :: !(Maybe Text)
+    , _desMaxRecords         :: !(Maybe Int)
+    , _desEndTime            :: !(Maybe ISO8601)
+    , _desMarker             :: !(Maybe Text)
+    , _desOwnerAccount       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterSnapshots' smart constructor.
@@ -259,8 +259,8 @@ instance ToQuery DescribeClusterSnapshots where
 --
 -- * 'descStatus'
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
-    { _descSnapshots :: Maybe [Snapshot]
-    , _descMarker    :: Maybe Text
+    { _descSnapshots :: !(Maybe [Snapshot])
+    , _descMarker    :: !(Maybe Text)
     , _descStatus    :: !Int
     } deriving (Eq,Read,Show)
 

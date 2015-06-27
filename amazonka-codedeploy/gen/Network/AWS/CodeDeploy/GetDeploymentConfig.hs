@@ -106,7 +106,7 @@ instance ToQuery GetDeploymentConfig where
 --
 -- * 'gdcrStatus'
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
-    { _gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo
+    { _gdcrDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
     , _gdcrStatus               :: !Int
     } deriving (Eq,Read,Show)
 

@@ -63,11 +63,11 @@ import           Network.AWS.Response
 --
 -- * 'stsTaskStatus'
 data SetTaskStatus = SetTaskStatus'
-    { _stsErrorStackTrace :: Maybe Text
-    , _stsErrorId         :: Maybe Text
-    , _stsErrorMessage    :: Maybe Text
-    , _stsTaskId          :: Text
-    , _stsTaskStatus      :: TaskStatus
+    { _stsErrorStackTrace :: !(Maybe Text)
+    , _stsErrorId         :: !(Maybe Text)
+    , _stsErrorMessage    :: !(Maybe Text)
+    , _stsTaskId          :: !Text
+    , _stsTaskStatus      :: !TaskStatus
     } deriving (Eq,Read,Show)
 
 -- | 'SetTaskStatus' smart constructor.

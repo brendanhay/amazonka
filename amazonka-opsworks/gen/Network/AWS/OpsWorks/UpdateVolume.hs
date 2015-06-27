@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'updVolumeId'
 data UpdateVolume = UpdateVolume'
-    { _updName       :: Maybe Text
-    , _updMountPoint :: Maybe Text
-    , _updVolumeId   :: Text
+    { _updName       :: !(Maybe Text)
+    , _updMountPoint :: !(Maybe Text)
+    , _updVolumeId   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateVolume' smart constructor.

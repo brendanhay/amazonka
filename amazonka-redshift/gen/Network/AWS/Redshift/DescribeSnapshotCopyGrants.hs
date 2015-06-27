@@ -66,11 +66,11 @@ import           Network.AWS.Response
 --
 -- * 'dscg1SnapshotCopyGrantName'
 data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
-    { _dscg1TagValues             :: Maybe [Text]
-    , _dscg1TagKeys               :: Maybe [Text]
-    , _dscg1MaxRecords            :: Maybe Int
-    , _dscg1Marker                :: Maybe Text
-    , _dscg1SnapshotCopyGrantName :: Maybe Text
+    { _dscg1TagValues             :: !(Maybe [Text])
+    , _dscg1TagKeys               :: !(Maybe [Text])
+    , _dscg1MaxRecords            :: !(Maybe Int)
+    , _dscg1Marker                :: !(Maybe Text)
+    , _dscg1SnapshotCopyGrantName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshotCopyGrants' smart constructor.
@@ -178,8 +178,8 @@ instance ToQuery DescribeSnapshotCopyGrants where
 --
 -- * 'dscgrStatus'
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
-    { _dscgrSnapshotCopyGrants :: Maybe [SnapshotCopyGrant]
-    , _dscgrMarker             :: Maybe Text
+    { _dscgrSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
+    , _dscgrMarker             :: !(Maybe Text)
     , _dscgrStatus             :: !Int
     } deriving (Eq,Read,Show)
 

@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'rcpgParameterGroupName'
 data ResetClusterParameterGroup = ResetClusterParameterGroup'
-    { _rcpgResetAllParameters :: Maybe Bool
-    , _rcpgParameters         :: Maybe [Parameter]
-    , _rcpgParameterGroupName :: Text
+    { _rcpgResetAllParameters :: !(Maybe Bool)
+    , _rcpgParameters         :: !(Maybe [Parameter])
+    , _rcpgParameterGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ResetClusterParameterGroup' smart constructor.

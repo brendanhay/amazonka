@@ -117,7 +117,7 @@ instance ToQuery DeleteVolume where
 --
 -- * 'dvrStatus'
 data DeleteVolumeResponse = DeleteVolumeResponse'
-    { _dvrVolumeARN :: Maybe Text
+    { _dvrVolumeARN :: !(Maybe Text)
     , _dvrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

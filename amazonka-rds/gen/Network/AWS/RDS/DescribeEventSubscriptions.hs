@@ -64,10 +64,10 @@ import           Network.AWS.Response
 --
 -- * 'dMarker'
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dSubscriptionName :: Maybe Text
-    , _dFilters          :: Maybe [Filter]
-    , _dMaxRecords       :: Maybe Int
-    , _dMarker           :: Maybe Text
+    { _dSubscriptionName :: !(Maybe Text)
+    , _dFilters          :: !(Maybe [Filter])
+    , _dMaxRecords       :: !(Maybe Int)
+    , _dMarker           :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
@@ -157,8 +157,8 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- * 'desrStatus'
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-    { _desrEventSubscriptionsList :: Maybe [EventSubscription]
-    , _desrMarker                 :: Maybe Text
+    { _desrEventSubscriptionsList :: !(Maybe [EventSubscription])
+    , _desrMarker                 :: !(Maybe Text)
     , _desrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

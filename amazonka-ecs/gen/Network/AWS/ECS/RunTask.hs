@@ -63,11 +63,11 @@ import           Network.AWS.Response
 --
 -- * 'rtTaskDefinition'
 data RunTask = RunTask'
-    { _rtOverrides      :: Maybe TaskOverride
-    , _rtCluster        :: Maybe Text
-    , _rtCount          :: Maybe Int
-    , _rtStartedBy      :: Maybe Text
-    , _rtTaskDefinition :: Text
+    { _rtOverrides      :: !(Maybe TaskOverride)
+    , _rtCluster        :: !(Maybe Text)
+    , _rtCount          :: !(Maybe Int)
+    , _rtStartedBy      :: !(Maybe Text)
+    , _rtTaskDefinition :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RunTask' smart constructor.
@@ -170,8 +170,8 @@ instance ToQuery RunTask where
 --
 -- * 'rtrStatus'
 data RunTaskResponse = RunTaskResponse'
-    { _rtrFailures :: Maybe [Failure]
-    , _rtrTasks    :: Maybe [Task]
+    { _rtrFailures :: !(Maybe [Failure])
+    , _rtrTasks    :: !(Maybe [Task])
     , _rtrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

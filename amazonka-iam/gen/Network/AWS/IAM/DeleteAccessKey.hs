@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'dakAccessKeyId'
 data DeleteAccessKey = DeleteAccessKey'
-    { _dakUserName    :: Maybe Text
-    , _dakAccessKeyId :: Text
+    { _dakUserName    :: !(Maybe Text)
+    , _dakAccessKeyId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteAccessKey' smart constructor.

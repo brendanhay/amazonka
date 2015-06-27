@@ -55,8 +55,8 @@ import           Network.AWS.Response
 --
 -- * 'ctTags'
 data CreateTags = CreateTags'
-    { _ctResourceName :: Text
-    , _ctTags         :: [Tag]
+    { _ctResourceName :: !Text
+    , _ctTags         :: ![Tag]
     } deriving (Eq,Read,Show)
 
 -- | 'CreateTags' smart constructor.

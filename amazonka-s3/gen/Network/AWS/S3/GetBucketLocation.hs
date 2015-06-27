@@ -88,7 +88,7 @@ instance ToQuery GetBucketLocation where
 --
 -- * 'gStatus'
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _gLocationConstraint :: Maybe Region
+    { _gLocationConstraint :: !(Maybe Region)
     , _gStatus             :: !Int
     } deriving (Eq,Read,Show)
 

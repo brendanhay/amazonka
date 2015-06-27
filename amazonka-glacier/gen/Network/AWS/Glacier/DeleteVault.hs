@@ -72,8 +72,8 @@ import           Network.AWS.Response
 --
 -- * 'delVaultName'
 data DeleteVault = DeleteVault'
-    { _delAccountId :: Text
-    , _delVaultName :: Text
+    { _delAccountId :: !Text
+    , _delVaultName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVault' smart constructor.

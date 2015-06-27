@@ -92,7 +92,7 @@ instance ToQuery DeleteFlowLogs where
 --
 -- * 'dflrStatus'
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
-    { _dflrUnsuccessful :: Maybe [UnsuccessfulItem]
+    { _dflrUnsuccessful :: !(Maybe [UnsuccessfulItem])
     , _dflrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

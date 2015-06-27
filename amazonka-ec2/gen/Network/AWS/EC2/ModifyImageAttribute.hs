@@ -74,16 +74,16 @@ import           Network.AWS.Response
 --
 -- * 'miaImageId'
 data ModifyImageAttribute = ModifyImageAttribute'
-    { _miaAttribute        :: Maybe Text
-    , _miaUserIds          :: Maybe [Text]
-    , _miaUserGroups       :: Maybe [Text]
-    , _miaValue            :: Maybe Text
-    , _miaLaunchPermission :: Maybe LaunchPermissionModifications
-    , _miaOperationType    :: Maybe Text
-    , _miaProductCodes     :: Maybe [Text]
-    , _miaDryRun           :: Maybe Bool
-    , _miaDescription      :: Maybe AttributeValue
-    , _miaImageId          :: Text
+    { _miaAttribute        :: !(Maybe Text)
+    , _miaUserIds          :: !(Maybe [Text])
+    , _miaUserGroups       :: !(Maybe [Text])
+    , _miaValue            :: !(Maybe Text)
+    , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
+    , _miaOperationType    :: !(Maybe Text)
+    , _miaProductCodes     :: !(Maybe [Text])
+    , _miaDryRun           :: !(Maybe Bool)
+    , _miaDescription      :: !(Maybe AttributeValue)
+    , _miaImageId          :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyImageAttribute' smart constructor.

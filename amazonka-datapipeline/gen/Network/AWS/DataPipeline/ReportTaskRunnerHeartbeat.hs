@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'rtrhTaskrunnerId'
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-    { _rtrhHostname     :: Maybe Text
-    , _rtrhWorkerGroup  :: Maybe Text
-    , _rtrhTaskrunnerId :: Text
+    { _rtrhHostname     :: !(Maybe Text)
+    , _rtrhWorkerGroup  :: !(Maybe Text)
+    , _rtrhTaskrunnerId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.

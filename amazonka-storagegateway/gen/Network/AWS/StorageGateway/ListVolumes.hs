@@ -70,9 +70,9 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'lvGatewayARN'
 data ListVolumes = ListVolumes'
-    { _lvMarker     :: Maybe Text
-    , _lvLimit      :: Maybe Nat
-    , _lvGatewayARN :: Text
+    { _lvMarker     :: !(Maybe Text)
+    , _lvLimit      :: !(Maybe Nat)
+    , _lvGatewayARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListVolumes' smart constructor.
@@ -151,9 +151,9 @@ instance ToQuery ListVolumes where
 --
 -- * 'lvrStatus'
 data ListVolumesResponse = ListVolumesResponse'
-    { _lvrGatewayARN  :: Maybe Text
-    , _lvrMarker      :: Maybe Text
-    , _lvrVolumeInfos :: Maybe [VolumeInfo]
+    { _lvrGatewayARN  :: !(Maybe Text)
+    , _lvrMarker      :: !(Maybe Text)
+    , _lvrVolumeInfos :: !(Maybe [VolumeInfo])
     , _lvrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

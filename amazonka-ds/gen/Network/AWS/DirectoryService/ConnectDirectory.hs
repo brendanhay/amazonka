@@ -63,12 +63,12 @@ import           Network.AWS.Response
 --
 -- * 'cdConnectSettings'
 data ConnectDirectory = ConnectDirectory'
-    { _cdShortName       :: Maybe Text
-    , _cdDescription     :: Maybe Text
-    , _cdName            :: Text
-    , _cdPassword        :: Sensitive Text
-    , _cdSize            :: DirectorySize
-    , _cdConnectSettings :: DirectoryConnectSettings
+    { _cdShortName       :: !(Maybe Text)
+    , _cdDescription     :: !(Maybe Text)
+    , _cdName            :: !Text
+    , _cdPassword        :: !(Sensitive Text)
+    , _cdSize            :: !DirectorySize
+    , _cdConnectSettings :: !DirectoryConnectSettings
     } deriving (Eq,Read,Show)
 
 -- | 'ConnectDirectory' smart constructor.
@@ -153,7 +153,7 @@ instance ToQuery ConnectDirectory where
 --
 -- * 'cdrStatus'
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
-    { _cdrDirectoryId :: Maybe Text
+    { _cdrDirectoryId :: !(Maybe Text)
     , _cdrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

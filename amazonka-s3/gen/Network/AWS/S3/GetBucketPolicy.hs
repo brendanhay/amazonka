@@ -88,7 +88,7 @@ instance ToQuery GetBucketPolicy where
 --
 -- * 'gbprStatus'
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-    { _gbprPolicy :: Maybe Text
+    { _gbprPolicy :: !(Maybe Text)
     , _gbprStatus :: !Int
     } deriving (Eq,Read,Show)
 

@@ -98,7 +98,7 @@ instance ToQuery GetRole where
 --
 -- * 'grrStatus'
 data GetRoleResponse = GetRoleResponse'
-    { _grrRole   :: Role
+    { _grrRole   :: !Role
     , _grrStatus :: !Int
     } deriving (Eq,Read,Show)
 

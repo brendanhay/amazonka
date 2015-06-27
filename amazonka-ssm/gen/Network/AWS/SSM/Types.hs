@@ -358,8 +358,8 @@ instance FromJSON Fault where
 --
 -- * 'assName'
 data Association = Association'
-    { _assInstanceId :: Maybe Text
-    , _assName       :: Maybe Text
+    { _assInstanceId :: !(Maybe Text)
+    , _assName       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Association' smart constructor.
@@ -399,10 +399,10 @@ instance FromJSON Association where
 --
 -- * 'adName'
 data AssociationDescription = AssociationDescription'
-    { _adInstanceId :: Maybe Text
-    , _adStatus     :: Maybe AssociationStatus
-    , _adDate       :: Maybe POSIX
-    , _adName       :: Maybe Text
+    { _adInstanceId :: !(Maybe Text)
+    , _adStatus     :: !(Maybe AssociationStatus)
+    , _adDate       :: !(Maybe POSIX)
+    , _adName       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AssociationDescription' smart constructor.
@@ -450,8 +450,8 @@ instance FromJSON AssociationDescription where
 --
 -- * 'afValue'
 data AssociationFilter = AssociationFilter'
-    { _afKey   :: AssociationFilterKey
-    , _afValue :: Text
+    { _afKey   :: !AssociationFilterKey
+    , _afValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssociationFilter' smart constructor.
@@ -488,10 +488,10 @@ instance ToJSON AssociationFilter where
 --
 -- * 'asMessage'
 data AssociationStatus = AssociationStatus'
-    { _asAdditionalInfo :: Maybe Text
-    , _asDate           :: POSIX
-    , _asName           :: AssociationStatusName
-    , _asMessage        :: Text
+    { _asAdditionalInfo :: !(Maybe Text)
+    , _asDate           :: !POSIX
+    , _asName           :: !AssociationStatusName
+    , _asMessage        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AssociationStatus' smart constructor.
@@ -546,8 +546,8 @@ instance ToJSON AssociationStatus where
 --
 -- * 'cabreName'
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
-    { _cabreInstanceId :: Maybe Text
-    , _cabreName       :: Maybe Text
+    { _cabreInstanceId :: !(Maybe Text)
+    , _cabreName       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CreateAssociationBatchRequestEntry' smart constructor.
@@ -595,10 +595,10 @@ instance ToJSON CreateAssociationBatchRequestEntry
 --
 -- * 'docName'
 data DocumentDescription = DocumentDescription'
-    { _docStatus      :: Maybe DocumentStatus
-    , _docSha1        :: Maybe Text
-    , _docCreatedDate :: Maybe POSIX
-    , _docName        :: Maybe Text
+    { _docStatus      :: !(Maybe DocumentStatus)
+    , _docSha1        :: !(Maybe Text)
+    , _docCreatedDate :: !(Maybe POSIX)
+    , _docName        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DocumentDescription' smart constructor.
@@ -647,8 +647,8 @@ instance FromJSON DocumentDescription where
 --
 -- * 'dfValue'
 data DocumentFilter = DocumentFilter'
-    { _dfKey   :: DocumentFilterKey
-    , _dfValue :: Text
+    { _dfKey   :: !DocumentFilterKey
+    , _dfValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DocumentFilter' smart constructor.
@@ -710,9 +710,9 @@ instance FromJSON DocumentIdentifier where
 --
 -- * 'fcaMessage'
 data FailedCreateAssociation = FailedCreateAssociation'
-    { _fcaEntry   :: Maybe CreateAssociationBatchRequestEntry
-    , _fcaFault   :: Maybe Fault
-    , _fcaMessage :: Maybe Text
+    { _fcaEntry   :: !(Maybe CreateAssociationBatchRequestEntry)
+    , _fcaFault   :: !(Maybe Fault)
+    , _fcaMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'FailedCreateAssociation' smart constructor.

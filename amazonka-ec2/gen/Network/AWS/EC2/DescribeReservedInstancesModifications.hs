@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'drimNextToken'
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-    { _drimFilters                          :: Maybe [Filter]
-    , _drimReservedInstancesModificationIds :: Maybe [Text]
-    , _drimNextToken                        :: Maybe Text
+    { _drimFilters                          :: !(Maybe [Filter])
+    , _drimReservedInstancesModificationIds :: !(Maybe [Text])
+    , _drimNextToken                        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
@@ -178,8 +178,8 @@ instance ToQuery
 --
 -- * 'drimrStatus'
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
-    { _drimrNextToken                      :: Maybe Text
-    , _drimrReservedInstancesModifications :: Maybe [ReservedInstancesModification]
+    { _drimrNextToken                      :: !(Maybe Text)
+    , _drimrReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
     , _drimrStatus                         :: !Int
     } deriving (Eq,Read,Show)
 

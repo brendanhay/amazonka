@@ -67,13 +67,13 @@ import           Network.AWS.Response
 --
 -- * 'lisApplicationName'
 data ListApplicationRevisions = ListApplicationRevisions'
-    { _lisS3KeyPrefix     :: Maybe Text
-    , _lisDeployed        :: Maybe ListStateFilterAction
-    , _lisNextToken       :: Maybe Text
-    , _lisSortOrder       :: Maybe SortOrder
-    , _lisS3Bucket        :: Maybe Text
-    , _lisSortBy          :: Maybe ApplicationRevisionSortBy
-    , _lisApplicationName :: Text
+    { _lisS3KeyPrefix     :: !(Maybe Text)
+    , _lisDeployed        :: !(Maybe ListStateFilterAction)
+    , _lisNextToken       :: !(Maybe Text)
+    , _lisSortOrder       :: !(Maybe SortOrder)
+    , _lisS3Bucket        :: !(Maybe Text)
+    , _lisSortBy          :: !(Maybe ApplicationRevisionSortBy)
+    , _lisApplicationName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListApplicationRevisions' smart constructor.
@@ -199,8 +199,8 @@ instance ToQuery ListApplicationRevisions where
 --
 -- * 'larrStatus'
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-    { _larrNextToken :: Maybe Text
-    , _larrRevisions :: Maybe [RevisionLocation]
+    { _larrNextToken :: !(Maybe Text)
+    , _larrRevisions :: !(Maybe [RevisionLocation])
     , _larrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

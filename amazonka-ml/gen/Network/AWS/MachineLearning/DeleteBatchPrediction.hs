@@ -115,7 +115,7 @@ instance ToQuery DeleteBatchPrediction where
 --
 -- * 'dbprStatus'
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
-    { _dbprBatchPredictionId :: Maybe Text
+    { _dbprBatchPredictionId :: !(Maybe Text)
     , _dbprStatus            :: !Int
     } deriving (Eq,Read,Show)
 

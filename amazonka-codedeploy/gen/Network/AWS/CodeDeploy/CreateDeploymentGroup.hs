@@ -67,13 +67,13 @@ import           Network.AWS.Response
 --
 -- * 'cdgServiceRoleARN'
 data CreateDeploymentGroup = CreateDeploymentGroup'
-    { _cdgDeploymentConfigName         :: Maybe Text
-    , _cdgEc2TagFilters                :: Maybe [EC2TagFilter]
-    , _cdgOnPremisesInstanceTagFilters :: Maybe [TagFilter]
-    , _cdgAutoScalingGroups            :: Maybe [Text]
-    , _cdgApplicationName              :: Text
-    , _cdgDeploymentGroupName          :: Text
-    , _cdgServiceRoleARN               :: Text
+    { _cdgDeploymentConfigName         :: !(Maybe Text)
+    , _cdgEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _cdgAutoScalingGroups            :: !(Maybe [Text])
+    , _cdgApplicationName              :: !Text
+    , _cdgDeploymentGroupName          :: !Text
+    , _cdgServiceRoleARN               :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateDeploymentGroup' smart constructor.
@@ -202,7 +202,7 @@ instance ToQuery CreateDeploymentGroup where
 --
 -- * 'cdgrStatus'
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
-    { _cdgrDeploymentGroupId :: Maybe Text
+    { _cdgrDeploymentGroupId :: !(Maybe Text)
     , _cdgrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

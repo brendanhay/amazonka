@@ -79,17 +79,17 @@ import           Network.AWS.Response
 --
 -- * 'dmlmLE'
 data DescribeMLModels = DescribeMLModels'
-    { _dmlmEQ             :: Maybe Text
-    , _dmlmGE             :: Maybe Text
-    , _dmlmPrefix         :: Maybe Text
-    , _dmlmGT             :: Maybe Text
-    , _dmlmNE             :: Maybe Text
-    , _dmlmNextToken      :: Maybe Text
-    , _dmlmSortOrder      :: Maybe SortOrder
-    , _dmlmLimit          :: Maybe Nat
-    , _dmlmLT             :: Maybe Text
-    , _dmlmFilterVariable :: Maybe MLModelFilterVariable
-    , _dmlmLE             :: Maybe Text
+    { _dmlmEQ             :: !(Maybe Text)
+    , _dmlmGE             :: !(Maybe Text)
+    , _dmlmPrefix         :: !(Maybe Text)
+    , _dmlmGT             :: !(Maybe Text)
+    , _dmlmNE             :: !(Maybe Text)
+    , _dmlmNextToken      :: !(Maybe Text)
+    , _dmlmSortOrder      :: !(Maybe SortOrder)
+    , _dmlmLimit          :: !(Maybe Nat)
+    , _dmlmLT             :: !(Maybe Text)
+    , _dmlmFilterVariable :: !(Maybe MLModelFilterVariable)
+    , _dmlmLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeMLModels' smart constructor.
@@ -257,8 +257,8 @@ instance ToQuery DescribeMLModels where
 --
 -- * 'descStatus'
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-    { _descResults   :: Maybe [MLModel]
-    , _descNextToken :: Maybe Text
+    { _descResults   :: !(Maybe [MLModel])
+    , _descNextToken :: !(Maybe Text)
     , _descStatus    :: !Int
     } deriving (Eq,Read,Show)
 

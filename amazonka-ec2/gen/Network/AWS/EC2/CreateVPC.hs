@@ -64,9 +64,9 @@ import           Network.AWS.Response
 --
 -- * 'cvCIDRBlock'
 data CreateVPC = CreateVPC'
-    { _cvInstanceTenancy :: Maybe Tenancy
-    , _cvDryRun          :: Maybe Bool
-    , _cvCIDRBlock       :: Text
+    { _cvInstanceTenancy :: !(Maybe Tenancy)
+    , _cvDryRun          :: !(Maybe Bool)
+    , _cvCIDRBlock       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPC' smart constructor.
@@ -133,7 +133,7 @@ instance ToQuery CreateVPC where
 --
 -- * 'cvrStatus'
 data CreateVPCResponse = CreateVPCResponse'
-    { _cvrVPC    :: Maybe VPC
+    { _cvrVPC    :: !(Maybe VPC)
     , _cvrStatus :: !Int
     } deriving (Eq,Read,Show)
 

@@ -61,9 +61,9 @@ import           Network.AWS.Response
 --
 -- * 'lrMarker'
 data ListRoles = ListRoles'
-    { _lrPathPrefix :: Maybe Text
-    , _lrMaxItems   :: Maybe Nat
-    , _lrMarker     :: Maybe Text
+    { _lrPathPrefix :: !(Maybe Text)
+    , _lrMaxItems   :: !(Maybe Nat)
+    , _lrMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListRoles' smart constructor.
@@ -145,9 +145,9 @@ instance ToQuery ListRoles where
 --
 -- * 'lrrStatus'
 data ListRolesResponse = ListRolesResponse'
-    { _lrrMarker      :: Maybe Text
-    , _lrrIsTruncated :: Maybe Bool
-    , _lrrRoles       :: [Role]
+    { _lrrMarker      :: !(Maybe Text)
+    , _lrrIsTruncated :: !(Maybe Bool)
+    , _lrrRoles       :: ![Role]
     , _lrrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

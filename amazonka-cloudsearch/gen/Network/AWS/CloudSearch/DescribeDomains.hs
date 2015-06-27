@@ -109,7 +109,7 @@ instance ToQuery DescribeDomains where
 --
 -- * 'descStatus'
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _descDomainStatusList :: [DomainStatus]
+    { _descDomainStatusList :: ![DomainStatus]
     , _descStatus           :: !Int
     } deriving (Eq,Read,Show)
 

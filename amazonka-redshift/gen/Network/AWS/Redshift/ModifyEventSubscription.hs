@@ -66,13 +66,13 @@ import           Network.AWS.Response
 --
 -- * 'mesSubscriptionName'
 data ModifyEventSubscription = ModifyEventSubscription'
-    { _mesSNSTopicARN      :: Maybe Text
-    , _mesEnabled          :: Maybe Bool
-    , _mesSourceType       :: Maybe Text
-    , _mesSeverity         :: Maybe Text
-    , _mesEventCategories  :: Maybe [Text]
-    , _mesSourceIds        :: Maybe [Text]
-    , _mesSubscriptionName :: Text
+    { _mesSNSTopicARN      :: !(Maybe Text)
+    , _mesEnabled          :: !(Maybe Bool)
+    , _mesSourceType       :: !(Maybe Text)
+    , _mesSeverity         :: !(Maybe Text)
+    , _mesEventCategories  :: !(Maybe [Text])
+    , _mesSourceIds        :: !(Maybe [Text])
+    , _mesSubscriptionName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyEventSubscription' smart constructor.
@@ -183,7 +183,7 @@ instance ToQuery ModifyEventSubscription where
 --
 -- * 'mesrStatus'
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
-    { _mesrEventSubscription :: Maybe EventSubscription
+    { _mesrEventSubscription :: !(Maybe EventSubscription)
     , _mesrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

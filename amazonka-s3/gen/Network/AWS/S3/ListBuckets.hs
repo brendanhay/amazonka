@@ -81,8 +81,8 @@ instance ToQuery ListBuckets where
 --
 -- * 'lbrStatus'
 data ListBucketsResponse = ListBucketsResponse'
-    { _lbrBuckets :: Maybe [Bucket]
-    , _lbrOwner   :: Maybe Owner
+    { _lbrBuckets :: !(Maybe [Bucket])
+    , _lbrOwner   :: !(Maybe Owner)
     , _lbrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

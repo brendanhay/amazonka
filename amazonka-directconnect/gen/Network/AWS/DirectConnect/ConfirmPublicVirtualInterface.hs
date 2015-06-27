@@ -113,7 +113,7 @@ instance ToQuery ConfirmPublicVirtualInterface where
 --
 -- * 'conStatus'
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
-    { _conVirtualInterfaceState :: Maybe VirtualInterfaceState
+    { _conVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _conStatus                :: !Int
     } deriving (Eq,Read,Show)
 

@@ -49,9 +49,9 @@ import           Network.AWS.Response
 --
 -- * 'epPolicyName'
 data ExecutePolicy = ExecutePolicy'
-    { _epHonorCooldown        :: Maybe Bool
-    , _epAutoScalingGroupName :: Maybe Text
-    , _epPolicyName           :: Text
+    { _epHonorCooldown        :: !(Maybe Bool)
+    , _epAutoScalingGroupName :: !(Maybe Text)
+    , _epPolicyName           :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ExecutePolicy' smart constructor.

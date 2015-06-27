@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- * 'gcfiIdentityId'
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-    { _gcfiLogins     :: Maybe (Map Text Text)
-    , _gcfiIdentityId :: Text
+    { _gcfiLogins     :: !(Maybe (Map Text Text))
+    , _gcfiIdentityId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
@@ -125,8 +125,8 @@ instance ToQuery GetCredentialsForIdentity where
 --
 -- * 'gcfirStatus'
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
-    { _gcfirCredentials :: Maybe Credentials
-    , _gcfirIdentityId  :: Maybe Text
+    { _gcfirCredentials :: !(Maybe Credentials)
+    , _gcfirIdentityId  :: !(Maybe Text)
     , _gcfirStatus      :: !Int
     } deriving (Eq,Read,Show)
 

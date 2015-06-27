@@ -80,9 +80,9 @@ import           Network.AWS.Route53.Types
 --
 -- * 'lhzMarker'
 data ListHostedZones = ListHostedZones'
-    { _lhzDelegationSetId :: Maybe Text
-    , _lhzMaxItems        :: Maybe Text
-    , _lhzMarker          :: Maybe Text
+    { _lhzDelegationSetId :: !(Maybe Text)
+    , _lhzMaxItems        :: !(Maybe Text)
+    , _lhzMarker          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListHostedZones' smart constructor.
@@ -162,11 +162,11 @@ instance ToQuery ListHostedZones where
 --
 -- * 'lhzrStatus'
 data ListHostedZonesResponse = ListHostedZonesResponse'
-    { _lhzrNextMarker  :: Maybe Text
-    , _lhzrHostedZones :: [HostedZone]
-    , _lhzrMarker      :: Text
+    { _lhzrNextMarker  :: !(Maybe Text)
+    , _lhzrHostedZones :: ![HostedZone]
+    , _lhzrMarker      :: !Text
     , _lhzrIsTruncated :: !Bool
-    , _lhzrMaxItems    :: Text
+    , _lhzrMaxItems    :: !Text
     , _lhzrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

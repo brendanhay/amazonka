@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'detPolicyARN'
 data DetachUserPolicy = DetachUserPolicy'
-    { _detUserName  :: Text
-    , _detPolicyARN :: Text
+    { _detUserName  :: !Text
+    , _detPolicyARN :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DetachUserPolicy' smart constructor.

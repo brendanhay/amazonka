@@ -112,8 +112,8 @@ instance ToQuery GetHostnameSuggestion where
 --
 -- * 'ghsrStatus'
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-    { _ghsrHostname :: Maybe Text
-    , _ghsrLayerId  :: Maybe Text
+    { _ghsrHostname :: !(Maybe Text)
+    , _ghsrLayerId  :: !(Maybe Text)
     , _ghsrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

@@ -55,9 +55,9 @@ import           Network.AWS.Response
 --
 -- * 'dclvVPCId'
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
-    { _dclvDryRun     :: Maybe Bool
-    , _dclvInstanceId :: Text
-    , _dclvVPCId      :: Text
+    { _dclvDryRun     :: !(Maybe Bool)
+    , _dclvInstanceId :: !Text
+    , _dclvVPCId      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DetachClassicLinkVPC' smart constructor.
@@ -118,7 +118,7 @@ instance ToQuery DetachClassicLinkVPC where
 --
 -- * 'dclvrStatus'
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
-    { _dclvrReturn :: Maybe Bool
+    { _dclvrReturn :: !(Maybe Bool)
     , _dclvrStatus :: !Int
     } deriving (Eq,Read,Show)
 

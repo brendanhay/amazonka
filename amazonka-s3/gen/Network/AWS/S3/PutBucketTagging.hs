@@ -49,9 +49,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'pbtTagging'
 data PutBucketTagging = PutBucketTagging'
-    { _pbtContentMD5 :: Maybe Text
-    , _pbtBucket     :: BucketName
-    , _pbtTagging    :: Tagging
+    { _pbtContentMD5 :: !(Maybe Text)
+    , _pbtBucket     :: !BucketName
+    , _pbtTagging    :: !Tagging
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketTagging' smart constructor.

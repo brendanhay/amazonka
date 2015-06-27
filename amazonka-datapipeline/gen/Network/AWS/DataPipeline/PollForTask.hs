@@ -68,9 +68,9 @@ import           Network.AWS.Response
 --
 -- * 'pftWorkerGroup'
 data PollForTask = PollForTask'
-    { _pftHostname         :: Maybe Text
-    , _pftInstanceIdentity :: Maybe InstanceIdentity
-    , _pftWorkerGroup      :: Text
+    { _pftHostname         :: !(Maybe Text)
+    , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
+    , _pftWorkerGroup      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PollForTask' smart constructor.
@@ -148,7 +148,7 @@ instance ToQuery PollForTask where
 --
 -- * 'pftrStatus'
 data PollForTaskResponse = PollForTaskResponse'
-    { _pftrTaskObject :: Maybe TaskObject
+    { _pftrTaskObject :: !(Maybe TaskObject)
     , _pftrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

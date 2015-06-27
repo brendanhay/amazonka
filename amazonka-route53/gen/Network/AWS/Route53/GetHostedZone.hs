@@ -106,9 +106,9 @@ instance ToQuery GetHostedZone where
 --
 -- * 'ghzrStatus'
 data GetHostedZoneResponse = GetHostedZoneResponse'
-    { _ghzrVPCs          :: Maybe (List1 VPC)
-    , _ghzrDelegationSet :: Maybe DelegationSet
-    , _ghzrHostedZone    :: HostedZone
+    { _ghzrVPCs          :: !(Maybe (List1 VPC))
+    , _ghzrDelegationSet :: !(Maybe DelegationSet)
+    , _ghzrHostedZone    :: !HostedZone
     , _ghzrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

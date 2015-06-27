@@ -86,12 +86,12 @@ import           Network.AWS.Response
 --
 -- * 'descMaxResults'
 data DescribeInstanceStatus = DescribeInstanceStatus'
-    { _descIncludeAllInstances :: Maybe Bool
-    , _descFilters             :: Maybe [Filter]
-    , _descNextToken           :: Maybe Text
-    , _descInstanceIds         :: Maybe [Text]
-    , _descDryRun              :: Maybe Bool
-    , _descMaxResults          :: Maybe Int
+    { _descIncludeAllInstances :: !(Maybe Bool)
+    , _descFilters             :: !(Maybe [Filter])
+    , _descNextToken           :: !(Maybe Text)
+    , _descInstanceIds         :: !(Maybe [Text])
+    , _descDryRun              :: !(Maybe Bool)
+    , _descMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeInstanceStatus' smart constructor.
@@ -235,8 +235,8 @@ instance ToQuery DescribeInstanceStatus where
 --
 -- * 'disrStatus'
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
-    { _disrInstanceStatuses :: Maybe [InstanceStatus]
-    , _disrNextToken        :: Maybe Text
+    { _disrInstanceStatuses :: !(Maybe [InstanceStatus])
+    , _disrNextToken        :: !(Maybe Text)
     , _disrStatus           :: !Int
     } deriving (Eq,Read,Show)
 

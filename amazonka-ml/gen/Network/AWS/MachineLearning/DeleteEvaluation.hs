@@ -112,7 +112,7 @@ instance ToQuery DeleteEvaluation where
 --
 -- * 'derStatus'
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
-    { _derEvaluationId :: Maybe Text
+    { _derEvaluationId :: !(Maybe Text)
     , _derStatus       :: !Int
     } deriving (Eq,Read,Show)
 

@@ -76,10 +76,10 @@ import           Network.AWS.Response
 --
 -- * 'crilClientToken'
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
-    { _crilReservedInstancesId :: Text
+    { _crilReservedInstancesId :: !Text
     , _crilInstanceCount       :: !Int
-    , _crilPriceSchedules      :: [PriceScheduleSpecification]
-    , _crilClientToken         :: Text
+    , _crilPriceSchedules      :: ![PriceScheduleSpecification]
+    , _crilClientToken         :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
@@ -154,7 +154,7 @@ instance ToQuery CreateReservedInstancesListing where
 --
 -- * 'cStatus'
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
-    { _cReservedInstancesListings :: Maybe [ReservedInstancesListing]
+    { _cReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _cStatus                    :: !Int
     } deriving (Eq,Read,Show)
 

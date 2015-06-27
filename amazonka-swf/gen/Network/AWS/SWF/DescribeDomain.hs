@@ -123,8 +123,8 @@ instance ToQuery DescribeDomain where
 --
 -- * 'ddrStatus'
 data DescribeDomainResponse = DescribeDomainResponse'
-    { _ddrDomainInfo    :: DomainInfo
-    , _ddrConfiguration :: DomainConfiguration
+    { _ddrDomainInfo    :: !DomainInfo
+    , _ddrConfiguration :: !DomainConfiguration
     , _ddrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

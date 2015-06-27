@@ -67,9 +67,9 @@ import           Network.AWS.Response
 --
 -- * 'pupPolicyDocument'
 data PutUserPolicy = PutUserPolicy'
-    { _pupUserName       :: Text
-    , _pupPolicyName     :: Text
-    , _pupPolicyDocument :: Text
+    { _pupUserName       :: !Text
+    , _pupPolicyName     :: !Text
+    , _pupPolicyDocument :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutUserPolicy' smart constructor.

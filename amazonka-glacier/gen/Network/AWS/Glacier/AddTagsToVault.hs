@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'attvVaultName'
 data AddTagsToVault = AddTagsToVault'
-    { _attvTags      :: Maybe (Map Text Text)
-    , _attvAccountId :: Text
-    , _attvVaultName :: Text
+    { _attvTags      :: !(Maybe (Map Text Text))
+    , _attvAccountId :: !Text
+    , _attvVaultName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AddTagsToVault' smart constructor.

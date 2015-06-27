@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'cvgType'
 data CreateVPNGateway = CreateVPNGateway'
-    { _cvgAvailabilityZone :: Maybe Text
-    , _cvgDryRun           :: Maybe Bool
-    , _cvgType             :: GatewayType
+    { _cvgAvailabilityZone :: !(Maybe Text)
+    , _cvgDryRun           :: !(Maybe Bool)
+    , _cvgType             :: !GatewayType
     } deriving (Eq,Read,Show)
 
 -- | 'CreateVPNGateway' smart constructor.
@@ -119,7 +119,7 @@ instance ToQuery CreateVPNGateway where
 --
 -- * 'cvgrStatus'
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
-    { _cvgrVPNGateway :: Maybe VPNGateway
+    { _cvgrVPNGateway :: !(Maybe VPNGateway)
     , _cvgrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

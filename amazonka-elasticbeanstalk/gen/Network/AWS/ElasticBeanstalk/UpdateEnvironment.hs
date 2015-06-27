@@ -98,15 +98,15 @@ import           Network.AWS.Response
 --
 -- * 'ueDescription'
 data UpdateEnvironment = UpdateEnvironment'
-    { _ueTemplateName      :: Maybe Text
-    , _ueOptionsToRemove   :: Maybe [OptionSpecification]
-    , _ueOptionSettings    :: Maybe [ConfigurationOptionSetting]
-    , _ueVersionLabel      :: Maybe Text
-    , _ueTier              :: Maybe EnvironmentTier
-    , _ueEnvironmentName   :: Maybe Text
-    , _ueEnvironmentId     :: Maybe Text
-    , _ueSolutionStackName :: Maybe Text
-    , _ueDescription       :: Maybe Text
+    { _ueTemplateName      :: !(Maybe Text)
+    , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
+    , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _ueVersionLabel      :: !(Maybe Text)
+    , _ueTier              :: !(Maybe EnvironmentTier)
+    , _ueEnvironmentName   :: !(Maybe Text)
+    , _ueEnvironmentId     :: !(Maybe Text)
+    , _ueSolutionStackName :: !(Maybe Text)
+    , _ueDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateEnvironment' smart constructor.

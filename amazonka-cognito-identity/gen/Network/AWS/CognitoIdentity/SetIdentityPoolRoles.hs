@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'siprRoles'
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
-    { _siprIdentityPoolId :: Text
-    , _siprRoles          :: Map Text Text
+    { _siprIdentityPoolId :: !Text
+    , _siprRoles          :: !(Map Text Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SetIdentityPoolRoles' smart constructor.

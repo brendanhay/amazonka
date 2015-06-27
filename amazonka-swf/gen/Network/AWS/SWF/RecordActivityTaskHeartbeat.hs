@@ -96,8 +96,8 @@ import           Network.AWS.SWF.Types
 --
 -- * 'rathTaskToken'
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
-    { _rathDetails   :: Maybe Text
-    , _rathTaskToken :: Text
+    { _rathDetails   :: !(Maybe Text)
+    , _rathTaskToken :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RecordActivityTaskHeartbeat' smart constructor.

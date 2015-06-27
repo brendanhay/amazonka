@@ -63,7 +63,7 @@ import           Network.AWS.StorageGateway.Types
 --
 -- * 'umstDayOfWeek'
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-    { _umstGatewayARN   :: Text
+    { _umstGatewayARN   :: !Text
     , _umstHourOfDay    :: !Nat
     , _umstMinuteOfHour :: !Nat
     , _umstDayOfWeek    :: !Nat
@@ -145,7 +145,7 @@ instance ToQuery UpdateMaintenanceStartTime where
 --
 -- * 'umstrStatus'
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
-    { _umstrGatewayARN :: Maybe Text
+    { _umstrGatewayARN :: !(Maybe Text)
     , _umstrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

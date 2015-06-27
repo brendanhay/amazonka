@@ -54,9 +54,9 @@ import           Network.AWS.Response
 --
 -- * 'lgKeyId'
 data ListGrants = ListGrants'
-    { _lgMarker :: Maybe Text
-    , _lgLimit  :: Maybe Nat
-    , _lgKeyId  :: Text
+    { _lgMarker :: !(Maybe Text)
+    , _lgLimit  :: !(Maybe Nat)
+    , _lgKeyId  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListGrants' smart constructor.
@@ -137,9 +137,9 @@ instance ToQuery ListGrants where
 --
 -- * 'lgrStatus'
 data ListGrantsResponse = ListGrantsResponse'
-    { _lgrTruncated  :: Maybe Bool
-    , _lgrGrants     :: Maybe [GrantListEntry]
-    , _lgrNextMarker :: Maybe Text
+    { _lgrTruncated  :: !(Maybe Bool)
+    , _lgrGrants     :: !(Maybe [GrantListEntry])
+    , _lgrNextMarker :: !(Maybe Text)
     , _lgrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'mlcCertificate'
 data ModifyLunaClient = ModifyLunaClient'
-    { _mlcClientARN   :: Text
-    , _mlcCertificate :: Text
+    { _mlcClientARN   :: !Text
+    , _mlcCertificate :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ModifyLunaClient' smart constructor.
@@ -112,7 +112,7 @@ instance ToQuery ModifyLunaClient where
 --
 -- * 'mlcrStatus'
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
-    { _mlcrClientARN :: Maybe Text
+    { _mlcrClientARN :: !(Maybe Text)
     , _mlcrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

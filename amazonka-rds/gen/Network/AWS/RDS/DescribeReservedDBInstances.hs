@@ -78,16 +78,16 @@ import           Network.AWS.Response
 --
 -- * 'drdiDuration'
 data DescribeReservedDBInstances = DescribeReservedDBInstances'
-    { _drdiProductDescription            :: Maybe Text
-    , _drdiFilters                       :: Maybe [Filter]
-    , _drdiReservedDBInstanceId          :: Maybe Text
-    , _drdiDBInstanceClass               :: Maybe Text
-    , _drdiMaxRecords                    :: Maybe Int
-    , _drdiMultiAZ                       :: Maybe Bool
-    , _drdiMarker                        :: Maybe Text
-    , _drdiReservedDBInstancesOfferingId :: Maybe Text
-    , _drdiOfferingType                  :: Maybe Text
-    , _drdiDuration                      :: Maybe Text
+    { _drdiProductDescription            :: !(Maybe Text)
+    , _drdiFilters                       :: !(Maybe [Filter])
+    , _drdiReservedDBInstanceId          :: !(Maybe Text)
+    , _drdiDBInstanceClass               :: !(Maybe Text)
+    , _drdiMaxRecords                    :: !(Maybe Int)
+    , _drdiMultiAZ                       :: !(Maybe Bool)
+    , _drdiMarker                        :: !(Maybe Text)
+    , _drdiReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _drdiOfferingType                  :: !(Maybe Text)
+    , _drdiDuration                      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedDBInstances' smart constructor.
@@ -226,8 +226,8 @@ instance ToQuery DescribeReservedDBInstances where
 --
 -- * 'drdirStatus'
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
-    { _drdirReservedDBInstances :: Maybe [ReservedDBInstance]
-    , _drdirMarker              :: Maybe Text
+    { _drdirReservedDBInstances :: !(Maybe [ReservedDBInstance])
+    , _drdirMarker              :: !(Maybe Text)
     , _drdirStatus              :: !Int
     } deriving (Eq,Read,Show)
 

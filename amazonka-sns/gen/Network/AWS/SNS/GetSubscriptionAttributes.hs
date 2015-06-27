@@ -99,7 +99,7 @@ instance ToQuery GetSubscriptionAttributes where
 --
 -- * 'gsarStatus'
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
-    { _gsarAttributes :: Maybe (Map Text Text)
+    { _gsarAttributes :: !(Maybe (Map Text Text))
     , _gsarStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -85,7 +85,7 @@ instance ToQuery GetCheckerIPRanges where
 --
 -- * 'gcirrStatus'
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-    { _gcirrCheckerIPRanges :: [Text]
+    { _gcirrCheckerIPRanges :: ![Text]
     , _gcirrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'usamlpSAMLProviderARN'
 data UpdateSAMLProvider = UpdateSAMLProvider'
-    { _usamlpSAMLMetadataDocument :: Text
-    , _usamlpSAMLProviderARN      :: Text
+    { _usamlpSAMLMetadataDocument :: !Text
+    , _usamlpSAMLProviderARN      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateSAMLProvider' smart constructor.
@@ -113,7 +113,7 @@ instance ToQuery UpdateSAMLProvider where
 --
 -- * 'usamlprStatus'
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
-    { _usamlprSAMLProviderARN :: Maybe Text
+    { _usamlprSAMLProviderARN :: !(Maybe Text)
     , _usamlprStatus          :: !Int
     } deriving (Eq,Read,Show)
 

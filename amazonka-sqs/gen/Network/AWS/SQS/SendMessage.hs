@@ -69,10 +69,10 @@ import           Network.AWS.SQS.Types
 --
 -- * 'smMessageBody'
 data SendMessage = SendMessage'
-    { _smMessageAttributes :: Maybe (Map Text MessageAttributeValue)
-    , _smDelaySeconds      :: Maybe Int
-    , _smQueueURL          :: Text
-    , _smMessageBody       :: Text
+    { _smMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _smDelaySeconds      :: !(Maybe Int)
+    , _smQueueURL          :: !Text
+    , _smMessageBody       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SendMessage' smart constructor.
@@ -151,9 +151,9 @@ instance ToQuery SendMessage where
 --
 -- * 'smrStatus'
 data SendMessageResponse = SendMessageResponse'
-    { _smrMessageId              :: Maybe Text
-    , _smrMD5OfMessageBody       :: Maybe Text
-    , _smrMD5OfMessageAttributes :: Maybe Text
+    { _smrMessageId              :: !(Maybe Text)
+    , _smrMD5OfMessageBody       :: !(Maybe Text)
+    , _smrMD5OfMessageAttributes :: !(Maybe Text)
     , _smrStatus                 :: !Int
     } deriving (Eq,Read,Show)
 

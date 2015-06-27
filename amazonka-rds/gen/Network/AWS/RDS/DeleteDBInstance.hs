@@ -63,9 +63,9 @@ import           Network.AWS.Response
 --
 -- * 'ddiDBInstanceIdentifier'
 data DeleteDBInstance = DeleteDBInstance'
-    { _ddiFinalDBSnapshotIdentifier :: Maybe Text
-    , _ddiSkipFinalSnapshot         :: Maybe Bool
-    , _ddiDBInstanceIdentifier      :: Text
+    { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
+    , _ddiDBInstanceIdentifier      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteDBInstance' smart constructor.
@@ -151,7 +151,7 @@ instance ToQuery DeleteDBInstance where
 --
 -- * 'ddirStatus'
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-    { _ddirDBInstance :: Maybe DBInstance
+    { _ddirDBInstance :: !(Maybe DBInstance)
     , _ddirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

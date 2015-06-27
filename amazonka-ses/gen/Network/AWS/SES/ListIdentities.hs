@@ -60,9 +60,9 @@ import           Network.AWS.SES.Types
 --
 -- * 'liMaxItems'
 data ListIdentities = ListIdentities'
-    { _liIdentityType :: Maybe IdentityType
-    , _liNextToken    :: Maybe Text
-    , _liMaxItems     :: Maybe Int
+    { _liIdentityType :: !(Maybe IdentityType)
+    , _liNextToken    :: !(Maybe Text)
+    , _liMaxItems     :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'ListIdentities' smart constructor.
@@ -136,8 +136,8 @@ instance ToQuery ListIdentities where
 --
 -- * 'lirStatus'
 data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirNextToken  :: Maybe Text
-    , _lirIdentities :: [Text]
+    { _lirNextToken  :: !(Maybe Text)
+    , _lirIdentities :: ![Text]
     , _lirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

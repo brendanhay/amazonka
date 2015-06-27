@@ -74,11 +74,11 @@ import           Network.AWS.Response
 --
 -- * 'dhsmcMarker'
 data DescribeHSMConfigurations = DescribeHSMConfigurations'
-    { _dhsmcTagValues                  :: Maybe [Text]
-    , _dhsmcHSMConfigurationIdentifier :: Maybe Text
-    , _dhsmcTagKeys                    :: Maybe [Text]
-    , _dhsmcMaxRecords                 :: Maybe Int
-    , _dhsmcMarker                     :: Maybe Text
+    { _dhsmcTagValues                  :: !(Maybe [Text])
+    , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
+    , _dhsmcTagKeys                    :: !(Maybe [Text])
+    , _dhsmcMaxRecords                 :: !(Maybe Int)
+    , _dhsmcMarker                     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeHSMConfigurations' smart constructor.
@@ -193,8 +193,8 @@ instance ToQuery DescribeHSMConfigurations where
 --
 -- * 'dhcrStatus'
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
-    { _dhcrMarker            :: Maybe Text
-    , _dhcrHSMConfigurations :: Maybe [HSMConfiguration]
+    { _dhcrMarker            :: !(Maybe Text)
+    , _dhcrHSMConfigurations :: !(Maybe [HSMConfiguration])
     , _dhcrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

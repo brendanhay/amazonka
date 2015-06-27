@@ -94,7 +94,7 @@ instance ToQuery DescribeVirtualGateways where
 --
 -- * 'dvgrStatus'
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
-    { _dvgrVirtualGateways :: Maybe [VirtualGateway]
+    { _dvgrVirtualGateways :: !(Maybe [VirtualGateway])
     , _dvgrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

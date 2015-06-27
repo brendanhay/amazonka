@@ -48,8 +48,8 @@ import           Network.AWS.SNS.Types
 --
 -- * 'rpLabel'
 data RemovePermission = RemovePermission'
-    { _rpTopicARN :: Text
-    , _rpLabel    :: Text
+    { _rpTopicARN :: !Text
+    , _rpLabel    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RemovePermission' smart constructor.

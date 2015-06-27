@@ -96,8 +96,8 @@ instance ToQuery ReadPipeline where
 --
 -- * 'reaStatus'
 data ReadPipelineResponse = ReadPipelineResponse'
-    { _reaWarnings :: Maybe [Warning]
-    , _reaPipeline :: Maybe Pipeline
+    { _reaWarnings :: !(Maybe [Warning])
+    , _reaPipeline :: !(Maybe Pipeline)
     , _reaStatus   :: !Int
     } deriving (Eq,Read,Show)
 

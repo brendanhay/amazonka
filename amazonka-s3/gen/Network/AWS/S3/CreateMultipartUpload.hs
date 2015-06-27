@@ -122,28 +122,28 @@ import           Network.AWS.S3.Types
 --
 -- * 'cmuKey'
 data CreateMultipartUpload = CreateMultipartUpload'
-    { _cmuExpires                 :: Maybe RFC822
-    , _cmuSSECustomerAlgorithm    :: Maybe Text
-    , _cmuGrantReadACP            :: Maybe Text
-    , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
-    , _cmuRequestPayer            :: Maybe RequestPayer
-    , _cmuGrantWriteACP           :: Maybe Text
-    , _cmuWebsiteRedirectLocation :: Maybe Text
-    , _cmuGrantRead               :: Maybe Text
-    , _cmuStorageClass            :: Maybe StorageClass
-    , _cmuContentEncoding         :: Maybe Text
-    , _cmuSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _cmuGrantFullControl        :: Maybe Text
-    , _cmuSSECustomerKeyMD5       :: Maybe Text
-    , _cmuMetadata                :: Map Text Text
-    , _cmuCacheControl            :: Maybe Text
-    , _cmuContentLanguage         :: Maybe Text
-    , _cmuACL                     :: Maybe ObjectCannedACL
-    , _cmuContentDisposition      :: Maybe Text
-    , _cmuServerSideEncryption    :: Maybe ServerSideEncryption
-    , _cmuContentType             :: Maybe Text
-    , _cmuBucket                  :: BucketName
-    , _cmuKey                     :: ObjectKey
+    { _cmuExpires                 :: !(Maybe RFC822)
+    , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
+    , _cmuGrantReadACP            :: !(Maybe Text)
+    , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
+    , _cmuRequestPayer            :: !(Maybe RequestPayer)
+    , _cmuGrantWriteACP           :: !(Maybe Text)
+    , _cmuWebsiteRedirectLocation :: !(Maybe Text)
+    , _cmuGrantRead               :: !(Maybe Text)
+    , _cmuStorageClass            :: !(Maybe StorageClass)
+    , _cmuContentEncoding         :: !(Maybe Text)
+    , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _cmuGrantFullControl        :: !(Maybe Text)
+    , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
+    , _cmuMetadata                :: !(Map Text Text)
+    , _cmuCacheControl            :: !(Maybe Text)
+    , _cmuContentLanguage         :: !(Maybe Text)
+    , _cmuACL                     :: !(Maybe ObjectCannedACL)
+    , _cmuContentDisposition      :: !(Maybe Text)
+    , _cmuServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _cmuContentType             :: !(Maybe Text)
+    , _cmuBucket                  :: !BucketName
+    , _cmuKey                     :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'CreateMultipartUpload' smart constructor.
@@ -362,14 +362,14 @@ instance ToQuery CreateMultipartUpload where
 --
 -- * 'cmurStatus'
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
-    { _cmurRequestCharged       :: Maybe RequestCharged
-    , _cmurSSECustomerAlgorithm :: Maybe Text
-    , _cmurBucket               :: Maybe BucketName
-    , _cmurKey                  :: Maybe ObjectKey
-    , _cmurSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _cmurSSECustomerKeyMD5    :: Maybe Text
-    , _cmurUploadId             :: Maybe Text
-    , _cmurServerSideEncryption :: Maybe ServerSideEncryption
+    { _cmurRequestCharged       :: !(Maybe RequestCharged)
+    , _cmurSSECustomerAlgorithm :: !(Maybe Text)
+    , _cmurBucket               :: !(Maybe BucketName)
+    , _cmurKey                  :: !(Maybe ObjectKey)
+    , _cmurSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _cmurSSECustomerKeyMD5    :: !(Maybe Text)
+    , _cmurUploadId             :: !(Maybe Text)
+    , _cmurServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cmurStatus               :: !Int
     } deriving (Eq,Read,Show)
 

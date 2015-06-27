@@ -63,11 +63,11 @@ import           Network.AWS.Response
 --
 -- * 'staContainerInstances'
 data StartTask = StartTask'
-    { _staOverrides          :: Maybe TaskOverride
-    , _staCluster            :: Maybe Text
-    , _staStartedBy          :: Maybe Text
-    , _staTaskDefinition     :: Text
-    , _staContainerInstances :: [Text]
+    { _staOverrides          :: !(Maybe TaskOverride)
+    , _staCluster            :: !(Maybe Text)
+    , _staStartedBy          :: !(Maybe Text)
+    , _staTaskDefinition     :: !Text
+    , _staContainerInstances :: ![Text]
     } deriving (Eq,Read,Show)
 
 -- | 'StartTask' smart constructor.
@@ -171,8 +171,8 @@ instance ToQuery StartTask where
 --
 -- * 'strStatus'
 data StartTaskResponse = StartTaskResponse'
-    { _strFailures :: Maybe [Failure]
-    , _strTasks    :: Maybe [Task]
+    { _strFailures :: !(Maybe [Failure])
+    , _strTasks    :: !(Maybe [Task])
     , _strStatus   :: !Int
     } deriving (Eq,Read,Show)
 

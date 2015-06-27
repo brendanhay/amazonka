@@ -87,17 +87,17 @@ import           Network.AWS.S3.Types
 --
 -- * 'upBody'
 data UploadPart = UploadPart'
-    { _upContentLength        :: Maybe Int
-    , _upSSECustomerAlgorithm :: Maybe Text
-    , _upSSECustomerKey       :: Maybe (Sensitive Text)
-    , _upRequestPayer         :: Maybe RequestPayer
-    , _upSSECustomerKeyMD5    :: Maybe Text
-    , _upContentMD5           :: Maybe Text
-    , _upBucket               :: BucketName
-    , _upKey                  :: ObjectKey
+    { _upContentLength        :: !(Maybe Int)
+    , _upSSECustomerAlgorithm :: !(Maybe Text)
+    , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _upRequestPayer         :: !(Maybe RequestPayer)
+    , _upSSECustomerKeyMD5    :: !(Maybe Text)
+    , _upContentMD5           :: !(Maybe Text)
+    , _upBucket               :: !BucketName
+    , _upKey                  :: !ObjectKey
     , _upPartNumber           :: !Int
-    , _upUploadId             :: Text
-    , _upBody                 :: RqBody
+    , _upUploadId             :: !Text
+    , _upBody                 :: !RqBody
     } deriving (Show)
 
 -- | 'UploadPart' smart constructor.
@@ -235,12 +235,12 @@ instance ToQuery UploadPart where
 --
 -- * 'uprStatus'
 data UploadPartResponse = UploadPartResponse'
-    { _uprETag                 :: Maybe ETag
-    , _uprRequestCharged       :: Maybe RequestCharged
-    , _uprSSECustomerAlgorithm :: Maybe Text
-    , _uprSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _uprSSECustomerKeyMD5    :: Maybe Text
-    , _uprServerSideEncryption :: Maybe ServerSideEncryption
+    { _uprETag                 :: !(Maybe ETag)
+    , _uprRequestCharged       :: !(Maybe RequestCharged)
+    , _uprSSECustomerAlgorithm :: !(Maybe Text)
+    , _uprSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _uprSSECustomerKeyMD5    :: !(Maybe Text)
+    , _uprServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _uprStatus               :: !Int
     } deriving (Eq,Read,Show)
 

@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- * 'dvcVPNConnectionId'
 data DeleteVPNConnection = DeleteVPNConnection'
-    { _dvcDryRun          :: Maybe Bool
-    , _dvcVPNConnectionId :: Text
+    { _dvcDryRun          :: !(Maybe Bool)
+    , _dvcVPNConnectionId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteVPNConnection' smart constructor.

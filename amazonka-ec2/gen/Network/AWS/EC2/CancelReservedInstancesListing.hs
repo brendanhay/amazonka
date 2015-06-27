@@ -102,7 +102,7 @@ instance ToQuery CancelReservedInstancesListing where
 --
 -- * 'crilrStatus'
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
-    { _crilrReservedInstancesListings :: Maybe [ReservedInstancesListing]
+    { _crilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crilrStatus                    :: !Int
     } deriving (Eq,Read,Show)
 

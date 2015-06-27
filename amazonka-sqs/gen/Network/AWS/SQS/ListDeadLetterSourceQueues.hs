@@ -100,7 +100,7 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- * 'ldlsqrStatus'
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrQueueURLs :: [Text]
+    { _ldlsqrQueueURLs :: ![Text]
     , _ldlsqrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

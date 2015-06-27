@@ -120,24 +120,24 @@ import           Network.AWS.S3.Types
 --
 -- * 'goKey'
 data GetObject = GetObject'
-    { _goIfMatch                    :: Maybe Text
-    , _goVersionId                  :: Maybe ObjectVersionId
-    , _goResponseContentType        :: Maybe Text
-    , _goResponseContentDisposition :: Maybe Text
-    , _goResponseContentLanguage    :: Maybe Text
-    , _goSSECustomerAlgorithm       :: Maybe Text
-    , _goSSECustomerKey             :: Maybe (Sensitive Text)
-    , _goRequestPayer               :: Maybe RequestPayer
-    , _goResponseContentEncoding    :: Maybe Text
-    , _goIfModifiedSince            :: Maybe RFC822
-    , _goRange                      :: Maybe Text
-    , _goIfUnmodifiedSince          :: Maybe RFC822
-    , _goSSECustomerKeyMD5          :: Maybe Text
-    , _goResponseCacheControl       :: Maybe Text
-    , _goResponseExpires            :: Maybe RFC822
-    , _goIfNoneMatch                :: Maybe Text
-    , _goBucket                     :: BucketName
-    , _goKey                        :: ObjectKey
+    { _goIfMatch                    :: !(Maybe Text)
+    , _goVersionId                  :: !(Maybe ObjectVersionId)
+    , _goResponseContentType        :: !(Maybe Text)
+    , _goResponseContentDisposition :: !(Maybe Text)
+    , _goResponseContentLanguage    :: !(Maybe Text)
+    , _goSSECustomerAlgorithm       :: !(Maybe Text)
+    , _goSSECustomerKey             :: !(Maybe (Sensitive Text))
+    , _goRequestPayer               :: !(Maybe RequestPayer)
+    , _goResponseContentEncoding    :: !(Maybe Text)
+    , _goIfModifiedSince            :: !(Maybe RFC822)
+    , _goRange                      :: !(Maybe Text)
+    , _goIfUnmodifiedSince          :: !(Maybe RFC822)
+    , _goSSECustomerKeyMD5          :: !(Maybe Text)
+    , _goResponseCacheControl       :: !(Maybe Text)
+    , _goResponseExpires            :: !(Maybe RFC822)
+    , _goIfNoneMatch                :: !(Maybe Text)
+    , _goBucket                     :: !BucketName
+    , _goKey                        :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'GetObject' smart constructor.
@@ -375,31 +375,31 @@ instance ToQuery GetObject where
 --
 -- * 'gorBody'
 data GetObjectResponse = GetObjectResponse'
-    { _gorVersionId               :: Maybe ObjectVersionId
-    , _gorETag                    :: Maybe ETag
-    , _gorRequestCharged          :: Maybe RequestCharged
-    , _gorContentLength           :: Maybe Int
-    , _gorRestore                 :: Maybe Text
-    , _gorExpires                 :: Maybe RFC822
-    , _gorDeleteMarker            :: Maybe Bool
-    , _gorExpiration              :: Maybe Text
-    , _gorSSECustomerAlgorithm    :: Maybe Text
-    , _gorMissingMeta             :: Maybe Int
-    , _gorWebsiteRedirectLocation :: Maybe Text
-    , _gorAcceptRanges            :: Maybe Text
-    , _gorContentEncoding         :: Maybe Text
-    , _gorSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _gorSSECustomerKeyMD5       :: Maybe Text
-    , _gorMetadata                :: Map Text Text
-    , _gorReplicationStatus       :: Maybe ReplicationStatus
-    , _gorCacheControl            :: Maybe Text
-    , _gorContentLanguage         :: Maybe Text
-    , _gorLastModified            :: Maybe RFC822
-    , _gorContentDisposition      :: Maybe Text
-    , _gorServerSideEncryption    :: Maybe ServerSideEncryption
-    , _gorContentType             :: Maybe Text
+    { _gorVersionId               :: !(Maybe ObjectVersionId)
+    , _gorETag                    :: !(Maybe ETag)
+    , _gorRequestCharged          :: !(Maybe RequestCharged)
+    , _gorContentLength           :: !(Maybe Int)
+    , _gorRestore                 :: !(Maybe Text)
+    , _gorExpires                 :: !(Maybe RFC822)
+    , _gorDeleteMarker            :: !(Maybe Bool)
+    , _gorExpiration              :: !(Maybe Text)
+    , _gorSSECustomerAlgorithm    :: !(Maybe Text)
+    , _gorMissingMeta             :: !(Maybe Int)
+    , _gorWebsiteRedirectLocation :: !(Maybe Text)
+    , _gorAcceptRanges            :: !(Maybe Text)
+    , _gorContentEncoding         :: !(Maybe Text)
+    , _gorSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _gorSSECustomerKeyMD5       :: !(Maybe Text)
+    , _gorMetadata                :: !(Map Text Text)
+    , _gorReplicationStatus       :: !(Maybe ReplicationStatus)
+    , _gorCacheControl            :: !(Maybe Text)
+    , _gorContentLanguage         :: !(Maybe Text)
+    , _gorLastModified            :: !(Maybe RFC822)
+    , _gorContentDisposition      :: !(Maybe Text)
+    , _gorServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _gorContentType             :: !(Maybe Text)
     , _gorStatus                  :: !Int
-    , _gorBody                    :: RsBody
+    , _gorBody                    :: !RsBody
     } deriving (Show)
 
 -- | 'GetObjectResponse' smart constructor.

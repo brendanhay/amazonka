@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'cgGroupName'
 data CreateGroup = CreateGroup'
-    { _cgPath      :: Maybe Text
-    , _cgGroupName :: Text
+    { _cgPath      :: !(Maybe Text)
+    , _cgGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateGroup' smart constructor.
@@ -111,7 +111,7 @@ instance ToQuery CreateGroup where
 --
 -- * 'cgrStatus'
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrGroup  :: Group
+    { _cgrGroup  :: !Group
     , _cgrStatus :: !Int
     } deriving (Eq,Read,Show)
 

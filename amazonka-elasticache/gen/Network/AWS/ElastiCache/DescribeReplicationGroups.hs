@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'descReplicationGroupId'
 data DescribeReplicationGroups = DescribeReplicationGroups'
-    { _descMaxRecords         :: Maybe Int
-    , _descMarker             :: Maybe Text
-    , _descReplicationGroupId :: Maybe Text
+    { _descMaxRecords         :: !(Maybe Int)
+    , _descMarker             :: !(Maybe Text)
+    , _descReplicationGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReplicationGroups' smart constructor.
@@ -147,8 +147,8 @@ instance ToQuery DescribeReplicationGroups where
 --
 -- * 'drgrStatus'
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
-    { _drgrMarker            :: Maybe Text
-    , _drgrReplicationGroups :: Maybe [ReplicationGroup]
+    { _drgrMarker            :: !(Maybe Text)
+    , _drgrReplicationGroups :: !(Maybe [ReplicationGroup])
     , _drgrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

@@ -97,7 +97,7 @@ instance ToQuery GetStackPolicy where
 --
 -- * 'gsprStatus'
 data GetStackPolicyResponse = GetStackPolicyResponse'
-    { _gsprStackPolicyBody :: Maybe Text
+    { _gsprStackPolicyBody :: !(Maybe Text)
     , _gsprStatus          :: !Int
     } deriving (Eq,Read,Show)
 

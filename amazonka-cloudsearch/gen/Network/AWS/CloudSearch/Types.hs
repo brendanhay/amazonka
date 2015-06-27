@@ -691,8 +691,8 @@ instance FromXML SuggesterFuzzyMatching where
 --
 -- * 'apsStatus'
 data AccessPoliciesStatus = AccessPoliciesStatus'
-    { _apsOptions :: Text
-    , _apsStatus  :: OptionStatus
+    { _apsOptions :: !Text
+    , _apsStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'AccessPoliciesStatus' smart constructor.
@@ -733,11 +733,11 @@ instance FromXML AccessPoliciesStatus where
 --
 -- * 'aoJapaneseTokenizationDictionary'
 data AnalysisOptions = AnalysisOptions'
-    { _aoAlgorithmicStemming            :: Maybe AlgorithmicStemming
-    , _aoStopwords                      :: Maybe Text
-    , _aoStemmingDictionary             :: Maybe Text
-    , _aoSynonyms                       :: Maybe Text
-    , _aoJapaneseTokenizationDictionary :: Maybe Text
+    { _aoAlgorithmicStemming            :: !(Maybe AlgorithmicStemming)
+    , _aoStopwords                      :: !(Maybe Text)
+    , _aoStemmingDictionary             :: !(Maybe Text)
+    , _aoSynonyms                       :: !(Maybe Text)
+    , _aoJapaneseTokenizationDictionary :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AnalysisOptions' smart constructor.
@@ -831,9 +831,9 @@ instance ToQuery AnalysisOptions where
 --
 -- * 'asAnalysisSchemeLanguage'
 data AnalysisScheme = AnalysisScheme'
-    { _asAnalysisOptions        :: Maybe AnalysisOptions
-    , _asAnalysisSchemeName     :: Text
-    , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
+    { _asAnalysisOptions        :: !(Maybe AnalysisOptions)
+    , _asAnalysisSchemeName     :: !Text
+    , _asAnalysisSchemeLanguage :: !AnalysisSchemeLanguage
     } deriving (Eq,Read,Show)
 
 -- | 'AnalysisScheme' smart constructor.
@@ -882,8 +882,8 @@ instance ToQuery AnalysisScheme where
 --
 -- * 'assStatus'
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
-    { _assOptions :: AnalysisScheme
-    , _assStatus  :: OptionStatus
+    { _assOptions :: !AnalysisScheme
+    , _assStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'AnalysisSchemeStatus' smart constructor.
@@ -918,7 +918,7 @@ instance FromXML AnalysisSchemeStatus where
 -- * 'aosStatus'
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
     { _aosOptions :: !Bool
-    , _aosStatus  :: OptionStatus
+    , _aosStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'AvailabilityOptionsStatus' smart constructor.
@@ -960,11 +960,11 @@ instance FromXML AvailabilityOptionsStatus where
 --
 -- * 'datDefaultValue'
 data DateArrayOptions = DateArrayOptions'
-    { _datSourceFields  :: Maybe Text
-    , _datReturnEnabled :: Maybe Bool
-    , _datFacetEnabled  :: Maybe Bool
-    , _datSearchEnabled :: Maybe Bool
-    , _datDefaultValue  :: Maybe Text
+    { _datSourceFields  :: !(Maybe Text)
+    , _datReturnEnabled :: !(Maybe Bool)
+    , _datFacetEnabled  :: !(Maybe Bool)
+    , _datSearchEnabled :: !(Maybe Bool)
+    , _datDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DateArrayOptions' smart constructor.
@@ -1037,12 +1037,12 @@ instance ToQuery DateArrayOptions where
 --
 -- * 'doDefaultValue'
 data DateOptions = DateOptions'
-    { _doSourceField   :: Maybe Text
-    , _doReturnEnabled :: Maybe Bool
-    , _doFacetEnabled  :: Maybe Bool
-    , _doSearchEnabled :: Maybe Bool
-    , _doSortEnabled   :: Maybe Bool
-    , _doDefaultValue  :: Maybe Text
+    { _doSourceField   :: !(Maybe Text)
+    , _doReturnEnabled :: !(Maybe Bool)
+    , _doFacetEnabled  :: !(Maybe Bool)
+    , _doSearchEnabled :: !(Maybe Bool)
+    , _doSortEnabled   :: !(Maybe Bool)
+    , _doDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DateOptions' smart constructor.
@@ -1113,9 +1113,9 @@ instance ToQuery DateOptions where
 --
 -- * 'dsoSourceField'
 data DocumentSuggesterOptions = DocumentSuggesterOptions'
-    { _dsoSortExpression :: Maybe Text
-    , _dsoFuzzyMatching  :: Maybe SuggesterFuzzyMatching
-    , _dsoSourceField    :: Text
+    { _dsoSortExpression :: !(Maybe Text)
+    , _dsoFuzzyMatching  :: !(Maybe SuggesterFuzzyMatching)
+    , _dsoSourceField    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DocumentSuggesterOptions' smart constructor.
@@ -1195,18 +1195,18 @@ instance ToQuery DocumentSuggesterOptions where
 --
 -- * 'dsRequiresIndexDocuments'
 data DomainStatus = DomainStatus'
-    { _dsSearchInstanceCount    :: Maybe Nat
-    , _dsSearchInstanceType     :: Maybe Text
-    , _dsARN                    :: Maybe Text
-    , _dsDocService             :: Maybe ServiceEndpoint
-    , _dsCreated                :: Maybe Bool
-    , _dsSearchService          :: Maybe ServiceEndpoint
-    , _dsLimits                 :: Maybe Limits
-    , _dsSearchPartitionCount   :: Maybe Nat
-    , _dsDeleted                :: Maybe Bool
-    , _dsProcessing             :: Maybe Bool
-    , _dsDomainId               :: Text
-    , _dsDomainName             :: Text
+    { _dsSearchInstanceCount    :: !(Maybe Nat)
+    , _dsSearchInstanceType     :: !(Maybe Text)
+    , _dsARN                    :: !(Maybe Text)
+    , _dsDocService             :: !(Maybe ServiceEndpoint)
+    , _dsCreated                :: !(Maybe Bool)
+    , _dsSearchService          :: !(Maybe ServiceEndpoint)
+    , _dsLimits                 :: !(Maybe Limits)
+    , _dsSearchPartitionCount   :: !(Maybe Nat)
+    , _dsDeleted                :: !(Maybe Bool)
+    , _dsProcessing             :: !(Maybe Bool)
+    , _dsDomainId               :: !Text
+    , _dsDomainName             :: !Text
     , _dsRequiresIndexDocuments :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -1326,11 +1326,11 @@ instance FromXML DomainStatus where
 --
 -- * 'daoDefaultValue'
 data DoubleArrayOptions = DoubleArrayOptions'
-    { _daoSourceFields  :: Maybe Text
-    , _daoReturnEnabled :: Maybe Bool
-    , _daoFacetEnabled  :: Maybe Bool
-    , _daoSearchEnabled :: Maybe Bool
-    , _daoDefaultValue  :: Maybe Double
+    { _daoSourceFields  :: !(Maybe Text)
+    , _daoReturnEnabled :: !(Maybe Bool)
+    , _daoFacetEnabled  :: !(Maybe Bool)
+    , _daoSearchEnabled :: !(Maybe Bool)
+    , _daoDefaultValue  :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'DoubleArrayOptions' smart constructor.
@@ -1402,12 +1402,12 @@ instance ToQuery DoubleArrayOptions where
 --
 -- * 'douDefaultValue'
 data DoubleOptions = DoubleOptions'
-    { _douSourceField   :: Maybe Text
-    , _douReturnEnabled :: Maybe Bool
-    , _douFacetEnabled  :: Maybe Bool
-    , _douSearchEnabled :: Maybe Bool
-    , _douSortEnabled   :: Maybe Bool
-    , _douDefaultValue  :: Maybe Double
+    { _douSourceField   :: !(Maybe Text)
+    , _douReturnEnabled :: !(Maybe Bool)
+    , _douFacetEnabled  :: !(Maybe Bool)
+    , _douSearchEnabled :: !(Maybe Bool)
+    , _douSortEnabled   :: !(Maybe Bool)
+    , _douDefaultValue  :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'DoubleOptions' smart constructor.
@@ -1479,8 +1479,8 @@ instance ToQuery DoubleOptions where
 --
 -- * 'expExpressionValue'
 data Expression = Expression'
-    { _expExpressionName  :: Text
-    , _expExpressionValue :: Text
+    { _expExpressionName  :: !Text
+    , _expExpressionValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Expression' smart constructor.
@@ -1520,8 +1520,8 @@ instance ToQuery Expression where
 --
 -- * 'esStatus'
 data ExpressionStatus = ExpressionStatus'
-    { _esOptions :: Expression
-    , _esStatus  :: OptionStatus
+    { _esOptions :: !Expression
+    , _esStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'ExpressionStatus' smart constructor.
@@ -1579,19 +1579,19 @@ instance FromXML ExpressionStatus where
 --
 -- * 'ifIndexFieldType'
 data IndexField = IndexField'
-    { _ifDateOptions         :: Maybe DateOptions
-    , _ifTextArrayOptions    :: Maybe TextArrayOptions
-    , _ifDoubleArrayOptions  :: Maybe DoubleArrayOptions
-    , _ifDoubleOptions       :: Maybe DoubleOptions
-    , _ifTextOptions         :: Maybe TextOptions
-    , _ifLatLonOptions       :: Maybe LatLonOptions
-    , _ifIntArrayOptions     :: Maybe IntArrayOptions
-    , _ifLiteralArrayOptions :: Maybe LiteralArrayOptions
-    , _ifDateArrayOptions    :: Maybe DateArrayOptions
-    , _ifLiteralOptions      :: Maybe LiteralOptions
-    , _ifIntOptions          :: Maybe IntOptions
-    , _ifIndexFieldName      :: Text
-    , _ifIndexFieldType      :: IndexFieldType
+    { _ifDateOptions         :: !(Maybe DateOptions)
+    , _ifTextArrayOptions    :: !(Maybe TextArrayOptions)
+    , _ifDoubleArrayOptions  :: !(Maybe DoubleArrayOptions)
+    , _ifDoubleOptions       :: !(Maybe DoubleOptions)
+    , _ifTextOptions         :: !(Maybe TextOptions)
+    , _ifLatLonOptions       :: !(Maybe LatLonOptions)
+    , _ifIntArrayOptions     :: !(Maybe IntArrayOptions)
+    , _ifLiteralArrayOptions :: !(Maybe LiteralArrayOptions)
+    , _ifDateArrayOptions    :: !(Maybe DateArrayOptions)
+    , _ifLiteralOptions      :: !(Maybe LiteralOptions)
+    , _ifIntOptions          :: !(Maybe IntOptions)
+    , _ifIndexFieldName      :: !Text
+    , _ifIndexFieldType      :: !IndexFieldType
     } deriving (Eq,Read,Show)
 
 -- | 'IndexField' smart constructor.
@@ -1722,8 +1722,8 @@ instance ToQuery IndexField where
 --
 -- * 'ifsStatus'
 data IndexFieldStatus = IndexFieldStatus'
-    { _ifsOptions :: IndexField
-    , _ifsStatus  :: OptionStatus
+    { _ifsOptions :: !IndexField
+    , _ifsStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'IndexFieldStatus' smart constructor.
@@ -1765,11 +1765,11 @@ instance FromXML IndexFieldStatus where
 --
 -- * 'iaoDefaultValue'
 data IntArrayOptions = IntArrayOptions'
-    { _iaoSourceFields  :: Maybe Text
-    , _iaoReturnEnabled :: Maybe Bool
-    , _iaoFacetEnabled  :: Maybe Bool
-    , _iaoSearchEnabled :: Maybe Bool
-    , _iaoDefaultValue  :: Maybe Integer
+    { _iaoSourceFields  :: !(Maybe Text)
+    , _iaoReturnEnabled :: !(Maybe Bool)
+    , _iaoFacetEnabled  :: !(Maybe Bool)
+    , _iaoSearchEnabled :: !(Maybe Bool)
+    , _iaoDefaultValue  :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'IntArrayOptions' smart constructor.
@@ -1841,12 +1841,12 @@ instance ToQuery IntArrayOptions where
 --
 -- * 'ioDefaultValue'
 data IntOptions = IntOptions'
-    { _ioSourceField   :: Maybe Text
-    , _ioReturnEnabled :: Maybe Bool
-    , _ioFacetEnabled  :: Maybe Bool
-    , _ioSearchEnabled :: Maybe Bool
-    , _ioSortEnabled   :: Maybe Bool
-    , _ioDefaultValue  :: Maybe Integer
+    { _ioSourceField   :: !(Maybe Text)
+    , _ioReturnEnabled :: !(Maybe Bool)
+    , _ioFacetEnabled  :: !(Maybe Bool)
+    , _ioSearchEnabled :: !(Maybe Bool)
+    , _ioSortEnabled   :: !(Maybe Bool)
+    , _ioDefaultValue  :: !(Maybe Integer)
     } deriving (Eq,Read,Show)
 
 -- | 'IntOptions' smart constructor.
@@ -1927,12 +1927,12 @@ instance ToQuery IntOptions where
 --
 -- * 'lloDefaultValue'
 data LatLonOptions = LatLonOptions'
-    { _lloSourceField   :: Maybe Text
-    , _lloReturnEnabled :: Maybe Bool
-    , _lloFacetEnabled  :: Maybe Bool
-    , _lloSearchEnabled :: Maybe Bool
-    , _lloSortEnabled   :: Maybe Bool
-    , _lloDefaultValue  :: Maybe Text
+    { _lloSourceField   :: !(Maybe Text)
+    , _lloReturnEnabled :: !(Maybe Bool)
+    , _lloFacetEnabled  :: !(Maybe Bool)
+    , _lloSearchEnabled :: !(Maybe Bool)
+    , _lloSortEnabled   :: !(Maybe Bool)
+    , _lloDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LatLonOptions' smart constructor.
@@ -2043,11 +2043,11 @@ instance FromXML Limits where
 --
 -- * 'laoDefaultValue'
 data LiteralArrayOptions = LiteralArrayOptions'
-    { _laoSourceFields  :: Maybe Text
-    , _laoReturnEnabled :: Maybe Bool
-    , _laoFacetEnabled  :: Maybe Bool
-    , _laoSearchEnabled :: Maybe Bool
-    , _laoDefaultValue  :: Maybe Text
+    { _laoSourceFields  :: !(Maybe Text)
+    , _laoReturnEnabled :: !(Maybe Bool)
+    , _laoFacetEnabled  :: !(Maybe Bool)
+    , _laoSearchEnabled :: !(Maybe Bool)
+    , _laoDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LiteralArrayOptions' smart constructor.
@@ -2118,12 +2118,12 @@ instance ToQuery LiteralArrayOptions where
 --
 -- * 'loDefaultValue'
 data LiteralOptions = LiteralOptions'
-    { _loSourceField   :: Maybe Text
-    , _loReturnEnabled :: Maybe Bool
-    , _loFacetEnabled  :: Maybe Bool
-    , _loSearchEnabled :: Maybe Bool
-    , _loSortEnabled   :: Maybe Bool
-    , _loDefaultValue  :: Maybe Text
+    { _loSourceField   :: !(Maybe Text)
+    , _loReturnEnabled :: !(Maybe Bool)
+    , _loFacetEnabled  :: !(Maybe Bool)
+    , _loSearchEnabled :: !(Maybe Bool)
+    , _loSortEnabled   :: !(Maybe Bool)
+    , _loDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LiteralOptions' smart constructor.
@@ -2198,11 +2198,11 @@ instance ToQuery LiteralOptions where
 --
 -- * 'osState'
 data OptionStatus = OptionStatus'
-    { _osPendingDeletion :: Maybe Bool
-    , _osUpdateVersion   :: Maybe Nat
-    , _osCreationDate    :: ISO8601
-    , _osUpdateDate      :: ISO8601
-    , _osState           :: OptionState
+    { _osPendingDeletion :: !(Maybe Bool)
+    , _osUpdateVersion   :: !(Maybe Nat)
+    , _osCreationDate    :: !ISO8601
+    , _osUpdateDate      :: !ISO8601
+    , _osState           :: !OptionState
     } deriving (Eq,Read,Show)
 
 -- | 'OptionStatus' smart constructor.
@@ -2268,9 +2268,9 @@ instance FromXML OptionStatus where
 --
 -- * 'spDesiredPartitionCount'
 data ScalingParameters = ScalingParameters'
-    { _spDesiredInstanceType     :: Maybe PartitionInstanceType
-    , _spDesiredReplicationCount :: Maybe Nat
-    , _spDesiredPartitionCount   :: Maybe Nat
+    { _spDesiredInstanceType     :: !(Maybe PartitionInstanceType)
+    , _spDesiredReplicationCount :: !(Maybe Nat)
+    , _spDesiredPartitionCount   :: !(Maybe Nat)
     } deriving (Eq,Read,Show)
 
 -- | 'ScalingParameters' smart constructor.
@@ -2322,8 +2322,8 @@ instance ToQuery ScalingParameters where
 --
 -- * 'spsStatus'
 data ScalingParametersStatus = ScalingParametersStatus'
-    { _spsOptions :: ScalingParameters
-    , _spsStatus  :: OptionStatus
+    { _spsOptions :: !ScalingParameters
+    , _spsStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'ScalingParametersStatus' smart constructor.
@@ -2385,8 +2385,8 @@ instance FromXML ServiceEndpoint where
 --
 -- * 'sugDocumentSuggesterOptions'
 data Suggester = Suggester'
-    { _sugSuggesterName            :: Text
-    , _sugDocumentSuggesterOptions :: DocumentSuggesterOptions
+    { _sugSuggesterName            :: !Text
+    , _sugDocumentSuggesterOptions :: !DocumentSuggesterOptions
     } deriving (Eq,Read,Show)
 
 -- | 'Suggester' smart constructor.
@@ -2428,8 +2428,8 @@ instance ToQuery Suggester where
 --
 -- * 'ssStatus'
 data SuggesterStatus = SuggesterStatus'
-    { _ssOptions :: Suggester
-    , _ssStatus  :: OptionStatus
+    { _ssOptions :: !Suggester
+    , _ssStatus  :: !OptionStatus
     } deriving (Eq,Read,Show)
 
 -- | 'SuggesterStatus' smart constructor.
@@ -2472,11 +2472,11 @@ instance FromXML SuggesterStatus where
 --
 -- * 'taoDefaultValue'
 data TextArrayOptions = TextArrayOptions'
-    { _taoSourceFields     :: Maybe Text
-    , _taoReturnEnabled    :: Maybe Bool
-    , _taoAnalysisScheme   :: Maybe Text
-    , _taoHighlightEnabled :: Maybe Bool
-    , _taoDefaultValue     :: Maybe Text
+    { _taoSourceFields     :: !(Maybe Text)
+    , _taoReturnEnabled    :: !(Maybe Bool)
+    , _taoAnalysisScheme   :: !(Maybe Text)
+    , _taoHighlightEnabled :: !(Maybe Bool)
+    , _taoDefaultValue     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TextArrayOptions' smart constructor.
@@ -2548,12 +2548,12 @@ instance ToQuery TextArrayOptions where
 --
 -- * 'toDefaultValue'
 data TextOptions = TextOptions'
-    { _toSourceField      :: Maybe Text
-    , _toReturnEnabled    :: Maybe Bool
-    , _toAnalysisScheme   :: Maybe Text
-    , _toHighlightEnabled :: Maybe Bool
-    , _toSortEnabled      :: Maybe Bool
-    , _toDefaultValue     :: Maybe Text
+    { _toSourceField      :: !(Maybe Text)
+    , _toReturnEnabled    :: !(Maybe Bool)
+    , _toAnalysisScheme   :: !(Maybe Text)
+    , _toHighlightEnabled :: !(Maybe Bool)
+    , _toSortEnabled      :: !(Maybe Bool)
+    , _toDefaultValue     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'TextOptions' smart constructor.

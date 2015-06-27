@@ -71,12 +71,12 @@ import           Network.AWS.Response
 --
 -- * 'cgGranteePrincipal'
 data CreateGrant = CreateGrant'
-    { _cgRetiringPrincipal :: Maybe Text
-    , _cgConstraints       :: Maybe GrantConstraints
-    , _cgGrantTokens       :: Maybe [Text]
-    , _cgOperations        :: Maybe [GrantOperation]
-    , _cgKeyId             :: Text
-    , _cgGranteePrincipal  :: Text
+    { _cgRetiringPrincipal :: !(Maybe Text)
+    , _cgConstraints       :: !(Maybe GrantConstraints)
+    , _cgGrantTokens       :: !(Maybe [Text])
+    , _cgOperations        :: !(Maybe [GrantOperation])
+    , _cgKeyId             :: !Text
+    , _cgGranteePrincipal  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateGrant' smart constructor.
@@ -180,8 +180,8 @@ instance ToQuery CreateGrant where
 --
 -- * 'cgrStatus'
 data CreateGrantResponse = CreateGrantResponse'
-    { _cgrGrantId    :: Maybe Text
-    , _cgrGrantToken :: Maybe Text
+    { _cgrGrantId    :: !(Maybe Text)
+    , _cgrGrantToken :: !(Maybe Text)
     , _cgrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

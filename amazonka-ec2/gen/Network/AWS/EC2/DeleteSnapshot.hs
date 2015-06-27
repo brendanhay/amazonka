@@ -62,8 +62,8 @@ import           Network.AWS.Response
 --
 -- * 'd1SnapshotId'
 data DeleteSnapshot = DeleteSnapshot'
-    { _d1DryRun     :: Maybe Bool
-    , _d1SnapshotId :: Text
+    { _d1DryRun     :: !(Maybe Bool)
+    , _d1SnapshotId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteSnapshot' smart constructor.

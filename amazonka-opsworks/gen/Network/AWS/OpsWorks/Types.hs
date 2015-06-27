@@ -1004,8 +1004,8 @@ instance FromJSON VolumeType where
 --
 -- * 'avConfigurationManager'
 data AgentVersion = AgentVersion'
-    { _avVersion              :: Maybe Text
-    , _avConfigurationManager :: Maybe StackConfigurationManager
+    { _avVersion              :: !(Maybe Text)
+    , _avConfigurationManager :: !(Maybe StackConfigurationManager)
     } deriving (Eq,Read,Show)
 
 -- | 'AgentVersion' smart constructor.
@@ -1065,20 +1065,20 @@ instance FromJSON AgentVersion where
 --
 -- * 'appDescription'
 data App = App'
-    { _appSSLConfiguration :: Maybe SSLConfiguration
-    , _appShortname        :: Maybe Text
-    , _appEnableSSL        :: Maybe Bool
-    , _appCreatedAt        :: Maybe Text
-    , _appEnvironment      :: Maybe [EnvironmentVariable]
-    , _appDataSources      :: Maybe [DataSource]
-    , _appAppId            :: Maybe Text
-    , _appAppSource        :: Maybe Source
-    , _appName             :: Maybe Text
-    , _appAttributes       :: Maybe (Map AppAttributesKeys Text)
-    , _appType             :: Maybe AppType
-    , _appDomains          :: Maybe [Text]
-    , _appStackId          :: Maybe Text
-    , _appDescription      :: Maybe Text
+    { _appSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _appShortname        :: !(Maybe Text)
+    , _appEnableSSL        :: !(Maybe Bool)
+    , _appCreatedAt        :: !(Maybe Text)
+    , _appEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _appDataSources      :: !(Maybe [DataSource])
+    , _appAppId            :: !(Maybe Text)
+    , _appAppSource        :: !(Maybe Source)
+    , _appName             :: !(Maybe Text)
+    , _appAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _appType             :: !(Maybe AppType)
+    , _appDomains          :: !(Maybe [Text])
+    , _appStackId          :: !(Maybe Text)
+    , _appDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'App' smart constructor.
@@ -1210,13 +1210,13 @@ instance FromJSON App where
 --
 -- * 'astCPUThreshold'
 data AutoScalingThresholds = AutoScalingThresholds'
-    { _astInstanceCount      :: Maybe Int
-    , _astIgnoreMetricsTime  :: Maybe Nat
-    , _astLoadThreshold      :: Maybe Double
-    , _astThresholdsWaitTime :: Maybe Nat
-    , _astAlarms             :: Maybe [Text]
-    , _astMemoryThreshold    :: Maybe Double
-    , _astCPUThreshold       :: Maybe Double
+    { _astInstanceCount      :: !(Maybe Int)
+    , _astIgnoreMetricsTime  :: !(Maybe Nat)
+    , _astLoadThreshold      :: !(Maybe Double)
+    , _astThresholdsWaitTime :: !(Maybe Nat)
+    , _astAlarms             :: !(Maybe [Text])
+    , _astMemoryThreshold    :: !(Maybe Double)
+    , _astCPUThreshold       :: !(Maybe Double)
     } deriving (Eq,Read,Show)
 
 -- | 'AutoScalingThresholds' smart constructor.
@@ -1319,10 +1319,10 @@ instance ToJSON AutoScalingThresholds where
 --
 -- * 'bdmDeviceName'
 data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: Maybe Text
-    , _bdmNoDevice    :: Maybe Text
-    , _bdmEBS         :: Maybe EBSBlockDevice
-    , _bdmDeviceName  :: Maybe Text
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmNoDevice    :: !(Maybe Text)
+    , _bdmEBS         :: !(Maybe EBSBlockDevice)
+    , _bdmDeviceName  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
@@ -1383,8 +1383,8 @@ instance ToJSON BlockDeviceMapping where
 --
 -- * 'ccManageBerkshelf'
 data ChefConfiguration = ChefConfiguration'
-    { _ccBerkshelfVersion :: Maybe Text
-    , _ccManageBerkshelf  :: Maybe Bool
+    { _ccBerkshelfVersion :: !(Maybe Text)
+    , _ccManageBerkshelf  :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'ChefConfiguration' smart constructor.
@@ -1443,16 +1443,16 @@ instance ToJSON ChefConfiguration where
 --
 -- * 'comAcknowledgedAt'
 data Command = Command'
-    { _comInstanceId     :: Maybe Text
-    , _comDeploymentId   :: Maybe Text
-    , _comStatus         :: Maybe Text
-    , _comLogURL         :: Maybe Text
-    , _comCreatedAt      :: Maybe Text
-    , _comCommandId      :: Maybe Text
-    , _comExitCode       :: Maybe Int
-    , _comType           :: Maybe Text
-    , _comCompletedAt    :: Maybe Text
-    , _comAcknowledgedAt :: Maybe Text
+    { _comInstanceId     :: !(Maybe Text)
+    , _comDeploymentId   :: !(Maybe Text)
+    , _comStatus         :: !(Maybe Text)
+    , _comLogURL         :: !(Maybe Text)
+    , _comCreatedAt      :: !(Maybe Text)
+    , _comCommandId      :: !(Maybe Text)
+    , _comExitCode       :: !(Maybe Int)
+    , _comType           :: !(Maybe Text)
+    , _comCompletedAt    :: !(Maybe Text)
+    , _comAcknowledgedAt :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Command' smart constructor.
@@ -1554,9 +1554,9 @@ instance FromJSON Command where
 --
 -- * 'dsType'
 data DataSource = DataSource'
-    { _dsARN          :: Maybe Text
-    , _dsDatabaseName :: Maybe Text
-    , _dsType         :: Maybe Text
+    { _dsARN          :: !(Maybe Text)
+    , _dsDatabaseName :: !(Maybe Text)
+    , _dsType         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DataSource' smart constructor.
@@ -1625,18 +1625,18 @@ instance ToJSON DataSource where
 --
 -- * 'depDuration'
 data Deployment = Deployment'
-    { _depDeploymentId :: Maybe Text
-    , _depStatus       :: Maybe Text
-    , _depCommand      :: Maybe DeploymentCommand
-    , _depCreatedAt    :: Maybe Text
-    , _depCustomJSON   :: Maybe Text
-    , _depIAMUserARN   :: Maybe Text
-    , _depAppId        :: Maybe Text
-    , _depInstanceIds  :: Maybe [Text]
-    , _depCompletedAt  :: Maybe Text
-    , _depStackId      :: Maybe Text
-    , _depComment      :: Maybe Text
-    , _depDuration     :: Maybe Int
+    { _depDeploymentId :: !(Maybe Text)
+    , _depStatus       :: !(Maybe Text)
+    , _depCommand      :: !(Maybe DeploymentCommand)
+    , _depCreatedAt    :: !(Maybe Text)
+    , _depCustomJSON   :: !(Maybe Text)
+    , _depIAMUserARN   :: !(Maybe Text)
+    , _depAppId        :: !(Maybe Text)
+    , _depInstanceIds  :: !(Maybe [Text])
+    , _depCompletedAt  :: !(Maybe Text)
+    , _depStackId      :: !(Maybe Text)
+    , _depComment      :: !(Maybe Text)
+    , _depDuration     :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'Deployment' smart constructor.
@@ -1744,8 +1744,8 @@ instance FromJSON Deployment where
 --
 -- * 'dcName'
 data DeploymentCommand = DeploymentCommand'
-    { _dcArgs :: Maybe (Map Text [Text])
-    , _dcName :: DeploymentCommandName
+    { _dcArgs :: !(Maybe (Map Text [Text]))
+    , _dcName :: !DeploymentCommandName
     } deriving (Eq,Read,Show)
 
 -- | 'DeploymentCommand' smart constructor.
@@ -1842,11 +1842,11 @@ instance ToJSON DeploymentCommand where
 --
 -- * 'ebdSnapshotId'
 data EBSBlockDevice = EBSBlockDevice'
-    { _ebdDeleteOnTermination :: Maybe Bool
-    , _ebdVolumeSize          :: Maybe Int
-    , _ebdIOPS                :: Maybe Int
-    , _ebdVolumeType          :: Maybe VolumeType
-    , _ebdSnapshotId          :: Maybe Text
+    { _ebdDeleteOnTermination :: !(Maybe Bool)
+    , _ebdVolumeSize          :: !(Maybe Int)
+    , _ebdIOPS                :: !(Maybe Int)
+    , _ebdVolumeType          :: !(Maybe VolumeType)
+    , _ebdSnapshotId          :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'EBSBlockDevice' smart constructor.
@@ -1919,11 +1919,11 @@ instance ToJSON EBSBlockDevice where
 --
 -- * 'eiRegion'
 data ElasticIP = ElasticIP'
-    { _eiInstanceId :: Maybe Text
-    , _eiDomain     :: Maybe Text
-    , _eiIP         :: Maybe Text
-    , _eiName       :: Maybe Text
-    , _eiRegion     :: Maybe Text
+    { _eiInstanceId :: !(Maybe Text)
+    , _eiDomain     :: !(Maybe Text)
+    , _eiIP         :: !(Maybe Text)
+    , _eiName       :: !(Maybe Text)
+    , _eiRegion     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ElasticIP' smart constructor.
@@ -1992,15 +1992,15 @@ instance FromJSON ElasticIP where
 --
 -- * 'elbDNSName'
 data ElasticLoadBalancer = ElasticLoadBalancer'
-    { _elbSubnetIds               :: Maybe [Text]
-    , _elbVPCId                   :: Maybe Text
-    , _elbAvailabilityZones       :: Maybe [Text]
-    , _elbRegion                  :: Maybe Text
-    , _elbElasticLoadBalancerName :: Maybe Text
-    , _elbEC2InstanceIds          :: Maybe [Text]
-    , _elbStackId                 :: Maybe Text
-    , _elbLayerId                 :: Maybe Text
-    , _elbDNSName                 :: Maybe Text
+    { _elbSubnetIds               :: !(Maybe [Text])
+    , _elbVPCId                   :: !(Maybe Text)
+    , _elbAvailabilityZones       :: !(Maybe [Text])
+    , _elbRegion                  :: !(Maybe Text)
+    , _elbElasticLoadBalancerName :: !(Maybe Text)
+    , _elbEC2InstanceIds          :: !(Maybe [Text])
+    , _elbStackId                 :: !(Maybe Text)
+    , _elbLayerId                 :: !(Maybe Text)
+    , _elbDNSName                 :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ElasticLoadBalancer' smart constructor.
@@ -2081,9 +2081,9 @@ instance FromJSON ElasticLoadBalancer where
 --
 -- * 'evValue'
 data EnvironmentVariable = EnvironmentVariable'
-    { _evSecure :: Maybe Bool
-    , _evKey    :: Text
-    , _evValue  :: Text
+    { _evSecure :: !(Maybe Bool)
+    , _evKey    :: !Text
+    , _evValue  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'EnvironmentVariable' smart constructor.
@@ -2208,43 +2208,43 @@ instance ToJSON EnvironmentVariable where
 --
 -- * 'insRootDeviceType'
 data Instance = Instance'
-    { _insInstanceId               :: Maybe Text
-    , _insPrivateIP                :: Maybe Text
-    , _insInstallUpdatesOnBoot     :: Maybe Bool
-    , _insReportedAgentVersion     :: Maybe Text
-    , _insStatus                   :: Maybe Text
-    , _insPrivateDNS               :: Maybe Text
-    , _insVirtualizationType       :: Maybe VirtualizationType
-    , _insSecurityGroupIds         :: Maybe [Text]
-    , _insSSHHostRsaKeyFingerprint :: Maybe Text
-    , _insInstanceProfileARN       :: Maybe Text
-    , _insPlatform                 :: Maybe Text
-    , _insHostname                 :: Maybe Text
-    , _insCreatedAt                :: Maybe Text
-    , _insSSHKeyName               :: Maybe Text
-    , _insEC2InstanceId            :: Maybe Text
-    , _insAgentVersion             :: Maybe Text
-    , _insRootDeviceVolumeId       :: Maybe Text
-    , _insSubnetId                 :: Maybe Text
-    , _insInstanceType             :: Maybe Text
-    , _insInfrastructureClass      :: Maybe Text
-    , _insEBSOptimized             :: Maybe Bool
-    , _insSSHHostDsaKeyFingerprint :: Maybe Text
-    , _insElasticIP                :: Maybe Text
-    , _insOS                       :: Maybe Text
-    , _insAvailabilityZone         :: Maybe Text
-    , _insLastServiceErrorId       :: Maybe Text
-    , _insAutoScalingType          :: Maybe AutoScalingType
-    , _insLayerIds                 :: Maybe [Text]
-    , _insArchitecture             :: Maybe Architecture
-    , _insPublicDNS                :: Maybe Text
-    , _insPublicIP                 :: Maybe Text
-    , _insAMIId                    :: Maybe Text
-    , _insReportedOS               :: Maybe ReportedOS
-    , _insStackId                  :: Maybe Text
-    , _insRegisteredBy             :: Maybe Text
-    , _insBlockDeviceMappings      :: Maybe [BlockDeviceMapping]
-    , _insRootDeviceType           :: Maybe RootDeviceType
+    { _insInstanceId               :: !(Maybe Text)
+    , _insPrivateIP                :: !(Maybe Text)
+    , _insInstallUpdatesOnBoot     :: !(Maybe Bool)
+    , _insReportedAgentVersion     :: !(Maybe Text)
+    , _insStatus                   :: !(Maybe Text)
+    , _insPrivateDNS               :: !(Maybe Text)
+    , _insVirtualizationType       :: !(Maybe VirtualizationType)
+    , _insSecurityGroupIds         :: !(Maybe [Text])
+    , _insSSHHostRsaKeyFingerprint :: !(Maybe Text)
+    , _insInstanceProfileARN       :: !(Maybe Text)
+    , _insPlatform                 :: !(Maybe Text)
+    , _insHostname                 :: !(Maybe Text)
+    , _insCreatedAt                :: !(Maybe Text)
+    , _insSSHKeyName               :: !(Maybe Text)
+    , _insEC2InstanceId            :: !(Maybe Text)
+    , _insAgentVersion             :: !(Maybe Text)
+    , _insRootDeviceVolumeId       :: !(Maybe Text)
+    , _insSubnetId                 :: !(Maybe Text)
+    , _insInstanceType             :: !(Maybe Text)
+    , _insInfrastructureClass      :: !(Maybe Text)
+    , _insEBSOptimized             :: !(Maybe Bool)
+    , _insSSHHostDsaKeyFingerprint :: !(Maybe Text)
+    , _insElasticIP                :: !(Maybe Text)
+    , _insOS                       :: !(Maybe Text)
+    , _insAvailabilityZone         :: !(Maybe Text)
+    , _insLastServiceErrorId       :: !(Maybe Text)
+    , _insAutoScalingType          :: !(Maybe AutoScalingType)
+    , _insLayerIds                 :: !(Maybe [Text])
+    , _insArchitecture             :: !(Maybe Architecture)
+    , _insPublicDNS                :: !(Maybe Text)
+    , _insPublicIP                 :: !(Maybe Text)
+    , _insAMIId                    :: !(Maybe Text)
+    , _insReportedOS               :: !(Maybe ReportedOS)
+    , _insStackId                  :: !(Maybe Text)
+    , _insRegisteredBy             :: !(Maybe Text)
+    , _insBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
+    , _insRootDeviceType           :: !(Maybe RootDeviceType)
     } deriving (Eq,Read,Show)
 
 -- | 'Instance' smart constructor.
@@ -2528,8 +2528,8 @@ instance FromJSON Instance where
 --
 -- * 'iiDocument'
 data InstanceIdentity = InstanceIdentity'
-    { _iiSignature :: Maybe Text
-    , _iiDocument  :: Maybe Text
+    { _iiSignature :: !(Maybe Text)
+    , _iiDocument  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'InstanceIdentity' smart constructor.
@@ -2599,25 +2599,25 @@ instance ToJSON InstanceIdentity where
 --
 -- * 'icRegistering'
 data InstancesCount = InstancesCount'
-    { _icTerminating    :: Maybe Int
-    , _icPending        :: Maybe Int
-    , _icOnline         :: Maybe Int
-    , _icUnassigning    :: Maybe Int
-    , _icRequested      :: Maybe Int
-    , _icRunningSetup   :: Maybe Int
-    , _icDeregistering  :: Maybe Int
-    , _icBooting        :: Maybe Int
-    , _icStopped        :: Maybe Int
-    , _icRebooting      :: Maybe Int
-    , _icAssigning      :: Maybe Int
-    , _icShuttingDown   :: Maybe Int
-    , _icSetupFailed    :: Maybe Int
-    , _icConnectionLost :: Maybe Int
-    , _icTerminated     :: Maybe Int
-    , _icStopping       :: Maybe Int
-    , _icRegistered     :: Maybe Int
-    , _icStartFailed    :: Maybe Int
-    , _icRegistering    :: Maybe Int
+    { _icTerminating    :: !(Maybe Int)
+    , _icPending        :: !(Maybe Int)
+    , _icOnline         :: !(Maybe Int)
+    , _icUnassigning    :: !(Maybe Int)
+    , _icRequested      :: !(Maybe Int)
+    , _icRunningSetup   :: !(Maybe Int)
+    , _icDeregistering  :: !(Maybe Int)
+    , _icBooting        :: !(Maybe Int)
+    , _icStopped        :: !(Maybe Int)
+    , _icRebooting      :: !(Maybe Int)
+    , _icAssigning      :: !(Maybe Int)
+    , _icShuttingDown   :: !(Maybe Int)
+    , _icSetupFailed    :: !(Maybe Int)
+    , _icConnectionLost :: !(Maybe Int)
+    , _icTerminated     :: !(Maybe Int)
+    , _icStopping       :: !(Maybe Int)
+    , _icRegistered     :: !(Maybe Int)
+    , _icStartFailed    :: !(Maybe Int)
+    , _icRegistering    :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'InstancesCount' smart constructor.
@@ -2791,26 +2791,26 @@ instance FromJSON InstancesCount where
 --
 -- * 'layAutoAssignElasticIPs'
 data Layer = Layer'
-    { _layCustomInstanceProfileARN    :: Maybe Text
-    , _layInstallUpdatesOnBoot        :: Maybe Bool
-    , _layCustomSecurityGroupIds      :: Maybe [Text]
-    , _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
-    , _layShortname                   :: Maybe Text
-    , _layCreatedAt                   :: Maybe Text
-    , _layDefaultRecipes              :: Maybe Recipes
-    , _layCustomRecipes               :: Maybe Recipes
-    , _layVolumeConfigurations        :: Maybe [VolumeConfiguration]
-    , _layEnableAutoHealing           :: Maybe Bool
-    , _layPackages                    :: Maybe [Text]
-    , _layName                        :: Maybe Text
-    , _layAttributes                  :: Maybe (Map LayerAttributesKeys Text)
-    , _layAutoAssignPublicIPs         :: Maybe Bool
-    , _layUseEBSOptimizedInstances    :: Maybe Bool
-    , _layType                        :: Maybe LayerType
-    , _layStackId                     :: Maybe Text
-    , _layLayerId                     :: Maybe Text
-    , _layDefaultSecurityGroupNames   :: Maybe [Text]
-    , _layAutoAssignElasticIPs        :: Maybe Bool
+    { _layCustomInstanceProfileARN    :: !(Maybe Text)
+    , _layInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _layCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _layLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _layShortname                   :: !(Maybe Text)
+    , _layCreatedAt                   :: !(Maybe Text)
+    , _layDefaultRecipes              :: !(Maybe Recipes)
+    , _layCustomRecipes               :: !(Maybe Recipes)
+    , _layVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _layEnableAutoHealing           :: !(Maybe Bool)
+    , _layPackages                    :: !(Maybe [Text])
+    , _layName                        :: !(Maybe Text)
+    , _layAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _layAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _layUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _layType                        :: !(Maybe LayerType)
+    , _layStackId                     :: !(Maybe Text)
+    , _layLayerId                     :: !(Maybe Text)
+    , _layDefaultSecurityGroupNames   :: !(Maybe [Text])
+    , _layAutoAssignElasticIPs        :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'Layer' smart constructor.
@@ -3014,10 +3014,10 @@ instance ToJSON LifecycleEventConfiguration where
 --
 -- * 'lbascLayerId'
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-    { _lbascUpScaling   :: Maybe AutoScalingThresholds
-    , _lbascEnable      :: Maybe Bool
-    , _lbascDownScaling :: Maybe AutoScalingThresholds
-    , _lbascLayerId     :: Maybe Text
+    { _lbascUpScaling   :: !(Maybe AutoScalingThresholds)
+    , _lbascEnable      :: !(Maybe Bool)
+    , _lbascDownScaling :: !(Maybe AutoScalingThresholds)
+    , _lbascLayerId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LoadBasedAutoScalingConfiguration' smart constructor.
@@ -3076,11 +3076,11 @@ instance FromJSON LoadBasedAutoScalingConfiguration
 --
 -- * 'perAllowSSH'
 data Permission = Permission'
-    { _perIAMUserARN :: Maybe Text
-    , _perAllowSudo  :: Maybe Bool
-    , _perStackId    :: Maybe Text
-    , _perLevel      :: Maybe Text
-    , _perAllowSSH   :: Maybe Bool
+    { _perIAMUserARN :: !(Maybe Text)
+    , _perAllowSudo  :: !(Maybe Bool)
+    , _perStackId    :: !(Maybe Text)
+    , _perLevel      :: !(Maybe Text)
+    , _perAllowSSH   :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'Permission' smart constructor.
@@ -3168,19 +3168,19 @@ instance FromJSON Permission where
 --
 -- * 'raMountPoint'
 data RAIDArray = RAIDArray'
-    { _raInstanceId       :: Maybe Text
-    , _raSize             :: Maybe Int
-    , _raCreatedAt        :: Maybe Text
-    , _raIOPS             :: Maybe Int
-    , _raRAIDLevel        :: Maybe Int
-    , _raDevice           :: Maybe Text
-    , _raNumberOfDisks    :: Maybe Int
-    , _raName             :: Maybe Text
-    , _raAvailabilityZone :: Maybe Text
-    , _raRAIDArrayId      :: Maybe Text
-    , _raVolumeType       :: Maybe Text
-    , _raStackId          :: Maybe Text
-    , _raMountPoint       :: Maybe Text
+    { _raInstanceId       :: !(Maybe Text)
+    , _raSize             :: !(Maybe Int)
+    , _raCreatedAt        :: !(Maybe Text)
+    , _raIOPS             :: !(Maybe Int)
+    , _raRAIDLevel        :: !(Maybe Int)
+    , _raDevice           :: !(Maybe Text)
+    , _raNumberOfDisks    :: !(Maybe Int)
+    , _raName             :: !(Maybe Text)
+    , _raAvailabilityZone :: !(Maybe Text)
+    , _raRAIDArrayId      :: !(Maybe Text)
+    , _raVolumeType       :: !(Maybe Text)
+    , _raStackId          :: !(Maybe Text)
+    , _raMountPoint       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RAIDArray' smart constructor.
@@ -3297,15 +3297,15 @@ instance FromJSON RAIDArray where
 --
 -- * 'rdiDBPassword'
 data RDSDBInstance = RDSDBInstance'
-    { _rdiDBUser               :: Maybe Text
-    , _rdiRDSDBInstanceARN     :: Maybe Text
-    , _rdiMissingOnRDS         :: Maybe Bool
-    , _rdiEngine               :: Maybe Text
-    , _rdiAddress              :: Maybe Text
-    , _rdiDBInstanceIdentifier :: Maybe Text
-    , _rdiRegion               :: Maybe Text
-    , _rdiStackId              :: Maybe Text
-    , _rdiDBPassword           :: Maybe Text
+    { _rdiDBUser               :: !(Maybe Text)
+    , _rdiRDSDBInstanceARN     :: !(Maybe Text)
+    , _rdiMissingOnRDS         :: !(Maybe Bool)
+    , _rdiEngine               :: !(Maybe Text)
+    , _rdiAddress              :: !(Maybe Text)
+    , _rdiDBInstanceIdentifier :: !(Maybe Text)
+    , _rdiRegion               :: !(Maybe Text)
+    , _rdiStackId              :: !(Maybe Text)
+    , _rdiDBPassword           :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'RDSDBInstance' smart constructor.
@@ -3404,11 +3404,11 @@ instance FromJSON RDSDBInstance where
 --
 -- * 'recDeploy'
 data Recipes = Recipes'
-    { _recSetup     :: Maybe [Text]
-    , _recUndeploy  :: Maybe [Text]
-    , _recShutdown  :: Maybe [Text]
-    , _recConfigure :: Maybe [Text]
-    , _recDeploy    :: Maybe [Text]
+    { _recSetup     :: !(Maybe [Text])
+    , _recUndeploy  :: !(Maybe [Text])
+    , _recShutdown  :: !(Maybe [Text])
+    , _recConfigure :: !(Maybe [Text])
+    , _recDeploy    :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'Recipes' smart constructor.
@@ -3472,9 +3472,9 @@ instance ToJSON Recipes where
 --
 -- * 'roVersion'
 data ReportedOS = ReportedOS'
-    { _roFamily  :: Maybe Text
-    , _roName    :: Maybe Text
-    , _roVersion :: Maybe Text
+    { _roFamily  :: !(Maybe Text)
+    , _roName    :: !(Maybe Text)
+    , _roVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ReportedOS' smart constructor.
@@ -3518,9 +3518,9 @@ instance FromJSON ReportedOS where
 --
 -- * 'scPrivateKey'
 data SSLConfiguration = SSLConfiguration'
-    { _scChain       :: Maybe Text
-    , _scCertificate :: Text
-    , _scPrivateKey  :: Text
+    { _scChain       :: !(Maybe Text)
+    , _scCertificate :: !Text
+    , _scPrivateKey  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'SSLConfiguration' smart constructor.
@@ -3574,10 +3574,10 @@ instance ToJSON SSLConfiguration where
 --
 -- * 'supName'
 data SelfUserProfile = SelfUserProfile'
-    { _supSSHUsername  :: Maybe Text
-    , _supSSHPublicKey :: Maybe Text
-    , _supIAMUserARN   :: Maybe Text
-    , _supName         :: Maybe Text
+    { _supSSHUsername  :: !(Maybe Text)
+    , _supSSHPublicKey :: !(Maybe Text)
+    , _supIAMUserARN   :: !(Maybe Text)
+    , _supName         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'SelfUserProfile' smart constructor.
@@ -3633,12 +3633,12 @@ instance FromJSON SelfUserProfile where
 --
 -- * 'seStackId'
 data ServiceError' = ServiceError''
-    { _seInstanceId     :: Maybe Text
-    , _seCreatedAt      :: Maybe Text
-    , _seServiceErrorId :: Maybe Text
-    , _seType           :: Maybe Text
-    , _seMessage        :: Maybe Text
-    , _seStackId        :: Maybe Text
+    { _seInstanceId     :: !(Maybe Text)
+    , _seCreatedAt      :: !(Maybe Text)
+    , _seServiceErrorId :: !(Maybe Text)
+    , _seType           :: !(Maybe Text)
+    , _seMessage        :: !(Maybe Text)
+    , _seStackId        :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ServiceError'' smart constructor.
@@ -3698,8 +3698,8 @@ instance FromJSON ServiceError' where
 --
 -- * 'secDelayUntilElbConnectionsDrained'
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
-    { _secExecutionTimeout                :: Maybe Int
-    , _secDelayUntilElbConnectionsDrained :: Maybe Bool
+    { _secExecutionTimeout                :: !(Maybe Int)
+    , _secDelayUntilElbConnectionsDrained :: !(Maybe Bool)
     } deriving (Eq,Read,Show)
 
 -- | 'ShutdownEventConfiguration' smart constructor.
@@ -3758,12 +3758,12 @@ instance ToJSON ShutdownEventConfiguration where
 --
 -- * 'souRevision'
 data Source = Source'
-    { _souURL      :: Maybe Text
-    , _souUsername :: Maybe Text
-    , _souSSHKey   :: Maybe Text
-    , _souPassword :: Maybe Text
-    , _souType     :: Maybe SourceType
-    , _souRevision :: Maybe Text
+    { _souURL      :: !(Maybe Text)
+    , _souUsername :: !(Maybe Text)
+    , _souSSHKey   :: !(Maybe Text)
+    , _souPassword :: !(Maybe Text)
+    , _souType     :: !(Maybe SourceType)
+    , _souRevision :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Source' smart constructor.
@@ -3893,28 +3893,28 @@ instance ToJSON Source where
 --
 -- * 'staHostnameTheme'
 data Stack = Stack'
-    { _staDefaultInstanceProfileARN :: Maybe Text
-    , _staServiceRoleARN            :: Maybe Text
-    , _staARN                       :: Maybe Text
-    , _staDefaultRootDeviceType     :: Maybe RootDeviceType
-    , _staCreatedAt                 :: Maybe Text
-    , _staChefConfiguration         :: Maybe ChefConfiguration
-    , _staVPCId                     :: Maybe Text
-    , _staAgentVersion              :: Maybe Text
-    , _staDefaultSSHKeyName         :: Maybe Text
-    , _staCustomJSON                :: Maybe Text
-    , _staCustomCookbooksSource     :: Maybe Source
-    , _staDefaultAvailabilityZone   :: Maybe Text
-    , _staName                      :: Maybe Text
-    , _staUseOpsworksSecurityGroups :: Maybe Bool
-    , _staDefaultOS                 :: Maybe Text
-    , _staAttributes                :: Maybe (Map StackAttributesKeys Text)
-    , _staUseCustomCookbooks        :: Maybe Bool
-    , _staDefaultSubnetId           :: Maybe Text
-    , _staRegion                    :: Maybe Text
-    , _staConfigurationManager      :: Maybe StackConfigurationManager
-    , _staStackId                   :: Maybe Text
-    , _staHostnameTheme             :: Maybe Text
+    { _staDefaultInstanceProfileARN :: !(Maybe Text)
+    , _staServiceRoleARN            :: !(Maybe Text)
+    , _staARN                       :: !(Maybe Text)
+    , _staDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _staCreatedAt                 :: !(Maybe Text)
+    , _staChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _staVPCId                     :: !(Maybe Text)
+    , _staAgentVersion              :: !(Maybe Text)
+    , _staDefaultSSHKeyName         :: !(Maybe Text)
+    , _staCustomJSON                :: !(Maybe Text)
+    , _staCustomCookbooksSource     :: !(Maybe Source)
+    , _staDefaultAvailabilityZone   :: !(Maybe Text)
+    , _staName                      :: !(Maybe Text)
+    , _staUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _staDefaultOS                 :: !(Maybe Text)
+    , _staAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _staUseCustomCookbooks        :: !(Maybe Bool)
+    , _staDefaultSubnetId           :: !(Maybe Text)
+    , _staRegion                    :: !(Maybe Text)
+    , _staConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _staStackId                   :: !(Maybe Text)
+    , _staHostnameTheme             :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Stack' smart constructor.
@@ -4093,8 +4093,8 @@ instance FromJSON Stack where
 --
 -- * 'scmVersion'
 data StackConfigurationManager = StackConfigurationManager'
-    { _scmName    :: Maybe Text
-    , _scmVersion :: Maybe Text
+    { _scmName    :: !(Maybe Text)
+    , _scmVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'StackConfigurationManager' smart constructor.
@@ -4144,12 +4144,12 @@ instance ToJSON StackConfigurationManager where
 --
 -- * 'ssInstancesCount'
 data StackSummary = StackSummary'
-    { _ssARN            :: Maybe Text
-    , _ssAppsCount      :: Maybe Int
-    , _ssName           :: Maybe Text
-    , _ssStackId        :: Maybe Text
-    , _ssLayersCount    :: Maybe Int
-    , _ssInstancesCount :: Maybe InstancesCount
+    { _ssARN            :: !(Maybe Text)
+    , _ssAppsCount      :: !(Maybe Int)
+    , _ssName           :: !(Maybe Text)
+    , _ssStackId        :: !(Maybe Text)
+    , _ssLayersCount    :: !(Maybe Int)
+    , _ssInstancesCount :: !(Maybe InstancesCount)
     } deriving (Eq,Read,Show)
 
 -- | 'StackSummary' smart constructor.
@@ -4214,10 +4214,10 @@ instance FromJSON StackSummary where
 --
 -- * 'tcValidForInMinutes'
 data TemporaryCredential = TemporaryCredential'
-    { _tcInstanceId        :: Maybe Text
-    , _tcUsername          :: Maybe Text
-    , _tcPassword          :: Maybe Text
-    , _tcValidForInMinutes :: Maybe Int
+    { _tcInstanceId        :: !(Maybe Text)
+    , _tcUsername          :: !(Maybe Text)
+    , _tcPassword          :: !(Maybe Text)
+    , _tcValidForInMinutes :: !(Maybe Int)
     } deriving (Eq,Read,Show)
 
 -- | 'TemporaryCredential' smart constructor.
@@ -4268,8 +4268,8 @@ instance FromJSON TemporaryCredential where
 --
 -- * 'tbascAutoScalingSchedule'
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
-    { _tbascInstanceId          :: Maybe Text
-    , _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
+    { _tbascInstanceId          :: !(Maybe Text)
+    , _tbascAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
     } deriving (Eq,Read,Show)
 
 -- | 'TimeBasedAutoScalingConfiguration' smart constructor.
@@ -4313,11 +4313,11 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 --
 -- * 'upName'
 data UserProfile = UserProfile'
-    { _upSSHUsername         :: Maybe Text
-    , _upSSHPublicKey        :: Maybe Text
-    , _upAllowSelfManagement :: Maybe Bool
-    , _upIAMUserARN          :: Maybe Text
-    , _upName                :: Maybe Text
+    { _upSSHUsername         :: !(Maybe Text)
+    , _upSSHPublicKey        :: !(Maybe Text)
+    , _upAllowSelfManagement :: !(Maybe Bool)
+    , _upIAMUserARN          :: !(Maybe Text)
+    , _upName                :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'UserProfile' smart constructor.
@@ -4395,19 +4395,19 @@ instance FromJSON UserProfile where
 --
 -- * 'volMountPoint'
 data Volume = Volume'
-    { _volInstanceId       :: Maybe Text
-    , _volStatus           :: Maybe Text
-    , _volSize             :: Maybe Int
-    , _volIOPS             :: Maybe Int
-    , _volDevice           :: Maybe Text
-    , _volName             :: Maybe Text
-    , _volAvailabilityZone :: Maybe Text
-    , _volRAIDArrayId      :: Maybe Text
-    , _volVolumeId         :: Maybe Text
-    , _volRegion           :: Maybe Text
-    , _volVolumeType       :: Maybe Text
-    , _volEC2VolumeId      :: Maybe Text
-    , _volMountPoint       :: Maybe Text
+    { _volInstanceId       :: !(Maybe Text)
+    , _volStatus           :: !(Maybe Text)
+    , _volSize             :: !(Maybe Int)
+    , _volIOPS             :: !(Maybe Int)
+    , _volDevice           :: !(Maybe Text)
+    , _volName             :: !(Maybe Text)
+    , _volAvailabilityZone :: !(Maybe Text)
+    , _volRAIDArrayId      :: !(Maybe Text)
+    , _volVolumeId         :: !(Maybe Text)
+    , _volRegion           :: !(Maybe Text)
+    , _volVolumeType       :: !(Maybe Text)
+    , _volEC2VolumeId      :: !(Maybe Text)
+    , _volMountPoint       :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Volume' smart constructor.
@@ -4520,10 +4520,10 @@ instance FromJSON Volume where
 --
 -- * 'vcSize'
 data VolumeConfiguration = VolumeConfiguration'
-    { _vcIOPS          :: Maybe Int
-    , _vcRAIDLevel     :: Maybe Int
-    , _vcVolumeType    :: Maybe Text
-    , _vcMountPoint    :: Text
+    { _vcIOPS          :: !(Maybe Int)
+    , _vcRAIDLevel     :: !(Maybe Int)
+    , _vcVolumeType    :: !(Maybe Text)
+    , _vcMountPoint    :: !Text
     , _vcNumberOfDisks :: !Int
     , _vcSize          :: !Int
     } deriving (Eq,Read,Show)
@@ -4626,13 +4626,13 @@ instance ToJSON VolumeConfiguration where
 --
 -- * 'wassTuesday'
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-    { _wassThursday  :: Maybe (Map Text Text)
-    , _wassWednesday :: Maybe (Map Text Text)
-    , _wassSaturday  :: Maybe (Map Text Text)
-    , _wassMonday    :: Maybe (Map Text Text)
-    , _wassFriday    :: Maybe (Map Text Text)
-    , _wassSunday    :: Maybe (Map Text Text)
-    , _wassTuesday   :: Maybe (Map Text Text)
+    { _wassThursday  :: !(Maybe (Map Text Text))
+    , _wassWednesday :: !(Maybe (Map Text Text))
+    , _wassSaturday  :: !(Maybe (Map Text Text))
+    , _wassMonday    :: !(Maybe (Map Text Text))
+    , _wassFriday    :: !(Maybe (Map Text Text))
+    , _wassSunday    :: !(Maybe (Map Text Text))
+    , _wassTuesday   :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show)
 
 -- | 'WeeklyAutoScalingSchedule' smart constructor.

@@ -103,7 +103,7 @@ instance ToQuery GetOnPremisesInstance where
 --
 -- * 'gopirStatus'
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
-    { _gopirInstanceInfo :: Maybe InstanceInfo
+    { _gopirInstanceInfo :: !(Maybe InstanceInfo)
     , _gopirStatus       :: !Int
     } deriving (Eq,Read,Show)
 

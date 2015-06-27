@@ -86,7 +86,7 @@ instance ToQuery DescribeLocations where
 --
 -- * 'dlrStatus'
 data DescribeLocationsResponse = DescribeLocationsResponse'
-    { _dlrLocations :: Maybe [Location]
+    { _dlrLocations :: !(Maybe [Location])
     , _dlrStatus    :: !Int
     } deriving (Eq,Read,Show)
 

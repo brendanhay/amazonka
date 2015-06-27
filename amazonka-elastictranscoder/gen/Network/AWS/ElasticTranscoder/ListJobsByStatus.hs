@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'ljbsStatus'
 data ListJobsByStatus = ListJobsByStatus'
-    { _ljbsAscending :: Maybe Text
-    , _ljbsPageToken :: Maybe Text
-    , _ljbsStatus    :: Text
+    { _ljbsAscending :: !(Maybe Text)
+    , _ljbsPageToken :: !(Maybe Text)
+    , _ljbsStatus    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListJobsByStatus' smart constructor.
@@ -134,8 +134,8 @@ instance ToQuery ListJobsByStatus where
 --
 -- * 'ljbsrStatus'
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
-    { _ljbsrNextPageToken :: Maybe Text
-    , _ljbsrJobs          :: Maybe [Job']
+    { _ljbsrNextPageToken :: !(Maybe Text)
+    , _ljbsrJobs          :: !(Maybe [Job'])
     , _ljbsrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

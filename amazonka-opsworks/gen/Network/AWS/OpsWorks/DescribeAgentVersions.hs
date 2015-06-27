@@ -52,8 +52,8 @@ import           Network.AWS.Response
 --
 -- * 'davStackId'
 data DescribeAgentVersions = DescribeAgentVersions'
-    { _davConfigurationManager :: Maybe StackConfigurationManager
-    , _davStackId              :: Maybe Text
+    { _davConfigurationManager :: !(Maybe StackConfigurationManager)
+    , _davStackId              :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeAgentVersions' smart constructor.
@@ -116,7 +116,7 @@ instance ToQuery DescribeAgentVersions where
 --
 -- * 'davrStatus'
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
-    { _davrAgentVersions :: Maybe [AgentVersion]
+    { _davrAgentVersions :: !(Maybe [AgentVersion])
     , _davrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

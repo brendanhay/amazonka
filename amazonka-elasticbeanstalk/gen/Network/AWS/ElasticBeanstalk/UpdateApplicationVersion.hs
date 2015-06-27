@@ -57,9 +57,9 @@ import           Network.AWS.Response
 --
 -- * 'uavVersionLabel'
 data UpdateApplicationVersion = UpdateApplicationVersion'
-    { _uavDescription     :: Maybe Text
-    , _uavApplicationName :: Text
-    , _uavVersionLabel    :: Text
+    { _uavDescription     :: !(Maybe Text)
+    , _uavApplicationName :: !Text
+    , _uavVersionLabel    :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateApplicationVersion' smart constructor.

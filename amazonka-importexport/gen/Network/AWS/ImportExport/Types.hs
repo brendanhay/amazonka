@@ -234,8 +234,8 @@ instance FromXML JobType where
 --
 -- * 'artDescription'
 data Artifact = Artifact'
-    { _artURL         :: Maybe Text
-    , _artDescription :: Maybe Text
+    { _artURL         :: !(Maybe Text)
+    , _artDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Artifact' smart constructor.
@@ -273,10 +273,10 @@ instance FromXML Artifact where
 --
 -- * 'jobCreationDate'
 data Job = Job'
-    { _jobJobType      :: JobType
-    , _jobJobId        :: Text
+    { _jobJobType      :: !JobType
+    , _jobJobId        :: !Text
     , _jobIsCanceled   :: !Bool
-    , _jobCreationDate :: ISO8601
+    , _jobCreationDate :: !ISO8601
     } deriving (Eq,Read,Show)
 
 -- | 'Job' smart constructor.

@@ -69,10 +69,10 @@ import           Network.AWS.Response
 --
 -- * 'dcp1ParameterGroupName'
 data DescribeClusterParameters = DescribeClusterParameters'
-    { _dcp1MaxRecords         :: Maybe Int
-    , _dcp1Marker             :: Maybe Text
-    , _dcp1Source             :: Maybe Text
-    , _dcp1ParameterGroupName :: Text
+    { _dcp1MaxRecords         :: !(Maybe Int)
+    , _dcp1Marker             :: !(Maybe Text)
+    , _dcp1Source             :: !(Maybe Text)
+    , _dcp1ParameterGroupName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeClusterParameters' smart constructor.
@@ -169,8 +169,8 @@ instance ToQuery DescribeClusterParameters where
 --
 -- * 'dcprStatus'
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-    { _dcprParameters :: Maybe [Parameter]
-    , _dcprMarker     :: Maybe Text
+    { _dcprParameters :: !(Maybe [Parameter])
+    , _dcprMarker     :: !(Maybe Text)
     , _dcprStatus     :: !Int
     } deriving (Eq,Read,Show)
 

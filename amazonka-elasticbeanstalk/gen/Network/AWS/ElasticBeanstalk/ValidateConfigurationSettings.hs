@@ -61,10 +61,10 @@ import           Network.AWS.Response
 --
 -- * 'vcsOptionSettings'
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsTemplateName    :: Maybe Text
-    , _vcsEnvironmentName :: Maybe Text
-    , _vcsApplicationName :: Text
-    , _vcsOptionSettings  :: [ConfigurationOptionSetting]
+    { _vcsTemplateName    :: !(Maybe Text)
+    , _vcsEnvironmentName :: !(Maybe Text)
+    , _vcsApplicationName :: !Text
+    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
     } deriving (Eq,Read,Show)
 
 -- | 'ValidateConfigurationSettings' smart constructor.
@@ -144,7 +144,7 @@ instance ToQuery ValidateConfigurationSettings where
 --
 -- * 'vcsrStatus'
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
-    { _vcsrMessages :: Maybe [ValidationMessage]
+    { _vcsrMessages :: !(Maybe [ValidationMessage])
     , _vcsrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

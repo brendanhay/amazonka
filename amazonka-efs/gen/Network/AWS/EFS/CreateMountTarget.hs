@@ -159,10 +159,10 @@ import           Network.AWS.Response
 --
 -- * 'cmtSubnetId'
 data CreateMountTarget = CreateMountTarget'
-    { _cmtIPAddress      :: Maybe Text
-    , _cmtSecurityGroups :: Maybe [Text]
-    , _cmtFileSystemId   :: Text
-    , _cmtSubnetId       :: Text
+    { _cmtIPAddress      :: !(Maybe Text)
+    , _cmtSecurityGroups :: !(Maybe [Text])
+    , _cmtFileSystemId   :: !Text
+    , _cmtSubnetId       :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateMountTarget' smart constructor.

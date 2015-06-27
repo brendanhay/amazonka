@@ -51,8 +51,8 @@ import           Network.AWS.Response
 --
 -- * 'urRadiusSettings'
 data UpdateRadius = UpdateRadius'
-    { _urDirectoryId    :: Text
-    , _urRadiusSettings :: RadiusSettings
+    { _urDirectoryId    :: !Text
+    , _urRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateRadius' smart constructor.

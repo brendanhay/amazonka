@@ -59,8 +59,8 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- * 'dwdDirectoryIds'
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-    { _dwdNextToken    :: Maybe Text
-    , _dwdDirectoryIds :: Maybe (List1 Text)
+    { _dwdNextToken    :: !(Maybe Text)
+    , _dwdDirectoryIds :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeWorkspaceDirectories' smart constructor.
@@ -129,8 +129,8 @@ instance ToQuery DescribeWorkspaceDirectories where
 --
 -- * 'dwdrStatus'
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-    { _dwdrDirectories :: Maybe [WorkspaceDirectory]
-    , _dwdrNextToken   :: Maybe Text
+    { _dwdrDirectories :: !(Maybe [WorkspaceDirectory])
+    , _dwdrNextToken   :: !(Maybe Text)
     , _dwdrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

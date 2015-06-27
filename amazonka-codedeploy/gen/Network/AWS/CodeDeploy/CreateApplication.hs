@@ -103,7 +103,7 @@ instance ToQuery CreateApplication where
 --
 -- * 'carStatus'
 data CreateApplicationResponse = CreateApplicationResponse'
-    { _carApplicationId :: Maybe Text
+    { _carApplicationId :: !(Maybe Text)
     , _carStatus        :: !Int
     } deriving (Eq,Read,Show)
 

@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- * 'garRevision'
 data GetApplicationRevision = GetApplicationRevision'
-    { _garApplicationName :: Text
-    , _garRevision        :: RevisionLocation
+    { _garApplicationName :: !Text
+    , _garRevision        :: !RevisionLocation
     } deriving (Eq,Read,Show)
 
 -- | 'GetApplicationRevision' smart constructor.
@@ -123,9 +123,9 @@ instance ToQuery GetApplicationRevision where
 --
 -- * 'garrStatus'
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-    { _garrRevisionInfo    :: Maybe GenericRevisionInfo
-    , _garrApplicationName :: Maybe Text
-    , _garrRevision        :: Maybe RevisionLocation
+    { _garrRevisionInfo    :: !(Maybe GenericRevisionInfo)
+    , _garrApplicationName :: !(Maybe Text)
+    , _garrRevision        :: !(Maybe RevisionLocation)
     , _garrStatus          :: !Int
     } deriving (Eq,Read,Show)
 

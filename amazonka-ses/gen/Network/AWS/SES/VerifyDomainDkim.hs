@@ -114,7 +114,7 @@ instance ToQuery VerifyDomainDkim where
 --
 -- * 'vddrStatus'
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
-    { _vddrDkimTokens :: [Text]
+    { _vddrDkimTokens :: ![Text]
     , _vddrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

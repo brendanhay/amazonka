@@ -46,8 +46,8 @@ import           Network.AWS.Response
 --
 -- * 'dFilterName'
 data DeleteMetricFilter = DeleteMetricFilter'
-    { _dLogGroupName :: Text
-    , _dFilterName   :: Text
+    { _dLogGroupName :: !Text
+    , _dFilterName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteMetricFilter' smart constructor.

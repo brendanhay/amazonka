@@ -1133,8 +1133,8 @@ instance ToXML Type where
 --
 -- * 'acpOwner'
 data AccessControlPolicy = AccessControlPolicy'
-    { _acpGrants :: Maybe [Grant]
-    , _acpOwner  :: Maybe Owner
+    { _acpGrants :: !(Maybe [Grant])
+    , _acpOwner  :: !(Maybe Owner)
     } deriving (Eq,Read,Show)
 
 -- | 'AccessControlPolicy' smart constructor.
@@ -1168,8 +1168,8 @@ instance ToXML AccessControlPolicy where
 --
 -- * 'bucName'
 data Bucket = Bucket'
-    { _bucCreationDate :: RFC822
-    , _bucName         :: BucketName
+    { _bucCreationDate :: !RFC822
+    , _bucName         :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'Bucket' smart constructor.
@@ -1255,11 +1255,11 @@ instance ToXML CORSConfiguration where
 --
 -- * 'crExposeHeaders'
 data CORSRule = CORSRule'
-    { _crAllowedMethods :: Maybe [Text]
-    , _crMaxAgeSeconds  :: Maybe Int
-    , _crAllowedHeaders :: Maybe [Text]
-    , _crAllowedOrigins :: Maybe [Text]
-    , _crExposeHeaders  :: Maybe [Text]
+    { _crAllowedMethods :: !(Maybe [Text])
+    , _crMaxAgeSeconds  :: !(Maybe Int)
+    , _crAllowedHeaders :: !(Maybe [Text])
+    , _crAllowedOrigins :: !(Maybe [Text])
+    , _crExposeHeaders  :: !(Maybe [Text])
     } deriving (Eq,Read,Show)
 
 -- | 'CORSRule' smart constructor.
@@ -1376,7 +1376,7 @@ instance ToXML CompletedMultipartUpload where
 -- * 'cpETag'
 data CompletedPart = CompletedPart'
     { _cpPartNumber :: !Int
-    , _cpETag       :: ETag
+    , _cpETag       :: !ETag
     } deriving (Eq,Read,Show)
 
 -- | 'CompletedPart' smart constructor.
@@ -1408,8 +1408,8 @@ instance ToXML CompletedPart where
 --
 -- * 'conHTTPErrorCodeReturnedEquals'
 data Condition = Condition'
-    { _conKeyPrefixEquals             :: Maybe Text
-    , _conHTTPErrorCodeReturnedEquals :: Maybe Text
+    { _conKeyPrefixEquals             :: !(Maybe Text)
+    , _conHTTPErrorCodeReturnedEquals :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Condition' smart constructor.
@@ -1460,8 +1460,8 @@ instance ToXML Condition where
 --
 -- * 'corLastModified'
 data CopyObjectResult = CopyObjectResult'
-    { _corETag         :: Maybe ETag
-    , _corLastModified :: Maybe RFC822
+    { _corETag         :: !(Maybe ETag)
+    , _corLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show)
 
 -- | 'CopyObjectResult' smart constructor.
@@ -1493,8 +1493,8 @@ instance FromXML CopyObjectResult where
 --
 -- * 'cprLastModified'
 data CopyPartResult = CopyPartResult'
-    { _cprETag         :: Maybe ETag
-    , _cprLastModified :: Maybe RFC822
+    { _cprETag         :: !(Maybe ETag)
+    , _cprLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show)
 
 -- | 'CopyPartResult' smart constructor.
@@ -1552,8 +1552,8 @@ instance ToXML CreateBucketConfiguration where
 --
 -- * 'delObjects'
 data Delete = Delete'
-    { _delQuiet   :: Maybe Bool
-    , _delObjects :: [ObjectIdentifier]
+    { _delQuiet   :: !(Maybe Bool)
+    , _delObjects :: ![ObjectIdentifier]
     } deriving (Eq,Read,Show)
 
 -- | 'Delete' smart constructor.
@@ -1593,11 +1593,11 @@ instance ToXML Delete where
 --
 -- * 'dmeLastModified'
 data DeleteMarkerEntry = DeleteMarkerEntry'
-    { _dmeVersionId    :: Maybe ObjectVersionId
-    , _dmeIsLatest     :: Maybe Bool
-    , _dmeOwner        :: Maybe Owner
-    , _dmeKey          :: Maybe ObjectKey
-    , _dmeLastModified :: Maybe RFC822
+    { _dmeVersionId    :: !(Maybe ObjectVersionId)
+    , _dmeIsLatest     :: !(Maybe Bool)
+    , _dmeOwner        :: !(Maybe Owner)
+    , _dmeKey          :: !(Maybe ObjectKey)
+    , _dmeLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show)
 
 -- | 'DeleteMarkerEntry' smart constructor.
@@ -1652,10 +1652,10 @@ instance FromXML DeleteMarkerEntry where
 --
 -- * 'delKey'
 data DeletedObject = DeletedObject'
-    { _delVersionId             :: Maybe ObjectVersionId
-    , _delDeleteMarker          :: Maybe Bool
-    , _delDeleteMarkerVersionId :: Maybe Text
-    , _delKey                   :: Maybe ObjectKey
+    { _delVersionId             :: !(Maybe ObjectVersionId)
+    , _delDeleteMarker          :: !(Maybe Bool)
+    , _delDeleteMarkerVersionId :: !(Maybe Text)
+    , _delKey                   :: !(Maybe ObjectKey)
     } deriving (Eq,Read,Show)
 
 -- | 'DeletedObject' smart constructor.
@@ -1753,8 +1753,8 @@ instance ToXML ErrorDocument where
 --
 -- * 'graGrantee'
 data Grant = Grant'
-    { _graPermission :: Maybe Permission
-    , _graGrantee    :: Maybe Grantee
+    { _graPermission :: !(Maybe Permission)
+    , _graGrantee    :: !(Maybe Grantee)
     } deriving (Eq,Read,Show)
 
 -- | 'Grant' smart constructor.
@@ -1798,11 +1798,11 @@ instance ToXML Grant where
 --
 -- * 'graType'
 data Grantee = Grantee'
-    { _graURI          :: Maybe Text
-    , _graEmailAddress :: Maybe Text
-    , _graID           :: Maybe Text
-    , _graDisplayName  :: Maybe Text
-    , _graType         :: Type
+    { _graURI          :: !(Maybe Text)
+    , _graEmailAddress :: !(Maybe Text)
+    , _graID           :: !(Maybe Text)
+    , _graDisplayName  :: !(Maybe Text)
+    , _graType         :: !Type
     } deriving (Eq,Read,Show)
 
 -- | 'Grantee' smart constructor.
@@ -1891,8 +1891,8 @@ instance ToXML IndexDocument where
 --
 -- * 'iniDisplayName'
 data Initiator = Initiator'
-    { _iniID          :: Maybe Text
-    , _iniDisplayName :: Maybe Text
+    { _iniID          :: !(Maybe Text)
+    , _iniDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Initiator' smart constructor.
@@ -1929,9 +1929,9 @@ instance FromXML Initiator where
 --
 -- * 'lfcEvents'
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
-    { _lfcId                :: Maybe Text
-    , _lfcLambdaFunctionARN :: Text
-    , _lfcEvents            :: [Event]
+    { _lfcId                :: !(Maybe Text)
+    , _lfcLambdaFunctionARN :: !Text
+    , _lfcEvents            :: ![Event]
     } deriving (Eq,Read,Show)
 
 -- | 'LambdaFunctionConfiguration' smart constructor.
@@ -2001,8 +2001,8 @@ instance ToXML LifecycleConfiguration where
 --
 -- * 'leDate'
 data LifecycleExpiration = LifecycleExpiration'
-    { _leDays :: Maybe Int
-    , _leDate :: Maybe RFC822
+    { _leDays :: !(Maybe Int)
+    , _leDate :: !(Maybe RFC822)
     } deriving (Eq,Read,Show)
 
 -- | 'LifecycleExpiration' smart constructor.
@@ -2042,9 +2042,9 @@ instance ToXML LifecycleExpiration where
 --
 -- * 'leTargetPrefix'
 data LoggingEnabled = LoggingEnabled'
-    { _leTargetBucket :: Maybe Text
-    , _leTargetGrants :: Maybe [TargetGrant]
-    , _leTargetPrefix :: Maybe Text
+    { _leTargetBucket :: !(Maybe Text)
+    , _leTargetGrants :: !(Maybe [TargetGrant])
+    , _leTargetPrefix :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'LoggingEnabled' smart constructor.
@@ -2106,12 +2106,12 @@ instance ToXML LoggingEnabled where
 --
 -- * 'muUploadId'
 data MultipartUpload = MultipartUpload'
-    { _muInitiated    :: Maybe RFC822
-    , _muInitiator    :: Maybe Initiator
-    , _muOwner        :: Maybe Owner
-    , _muKey          :: Maybe ObjectKey
-    , _muStorageClass :: Maybe StorageClass
-    , _muUploadId     :: Maybe Text
+    { _muInitiated    :: !(Maybe RFC822)
+    , _muInitiator    :: !(Maybe Initiator)
+    , _muOwner        :: !(Maybe Owner)
+    , _muKey          :: !(Maybe ObjectKey)
+    , _muStorageClass :: !(Maybe StorageClass)
+    , _muUploadId     :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'MultipartUpload' smart constructor.
@@ -2213,7 +2213,7 @@ instance ToXML NoncurrentVersionExpiration where
 -- * 'nvtStorageClass'
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
     { _nvtNoncurrentDays :: !Int
-    , _nvtStorageClass   :: TransitionStorageClass
+    , _nvtStorageClass   :: !TransitionStorageClass
     } deriving (Eq,Read,Show)
 
 -- | 'NoncurrentVersionTransition' smart constructor.
@@ -2260,9 +2260,9 @@ instance ToXML NoncurrentVersionTransition where
 --
 -- * 'ncLambdaFunctionConfigurations'
 data NotificationConfiguration = NotificationConfiguration'
-    { _ncQueueConfigurations          :: Maybe [QueueConfiguration]
-    , _ncTopicConfigurations          :: Maybe [TopicConfiguration]
-    , _ncLambdaFunctionConfigurations :: Maybe [LambdaFunctionConfiguration]
+    { _ncQueueConfigurations          :: !(Maybe [QueueConfiguration])
+    , _ncTopicConfigurations          :: !(Maybe [TopicConfiguration])
+    , _ncLambdaFunctionConfigurations :: !(Maybe [LambdaFunctionConfiguration])
     } deriving (Eq,Read,Show)
 
 -- | 'NotificationConfiguration' smart constructor.
@@ -2323,12 +2323,12 @@ instance ToXML NotificationConfiguration where
 --
 -- * 'objLastModified'
 data Object = Object'
-    { _objETag         :: ETag
+    { _objETag         :: !ETag
     , _objSize         :: !Int
-    , _objOwner        :: Owner
-    , _objKey          :: ObjectKey
-    , _objStorageClass :: ObjectStorageClass
-    , _objLastModified :: RFC822
+    , _objOwner        :: !Owner
+    , _objKey          :: !ObjectKey
+    , _objStorageClass :: !ObjectStorageClass
+    , _objLastModified :: !RFC822
     } deriving (Eq,Read,Show)
 
 -- | 'Object' smart constructor.
@@ -2383,8 +2383,8 @@ instance FromXML Object where
 --
 -- * 'oiKey'
 data ObjectIdentifier = ObjectIdentifier'
-    { _oiVersionId :: Maybe ObjectVersionId
-    , _oiKey       :: ObjectKey
+    { _oiVersionId :: !(Maybe ObjectVersionId)
+    , _oiKey       :: !ObjectKey
     } deriving (Eq,Read,Show)
 
 -- | 'ObjectIdentifier' smart constructor.
@@ -2428,14 +2428,14 @@ instance ToXML ObjectIdentifier where
 --
 -- * 'ovLastModified'
 data ObjectVersion = ObjectVersion'
-    { _ovVersionId    :: Maybe ObjectVersionId
-    , _ovETag         :: Maybe ETag
-    , _ovSize         :: Maybe Int
-    , _ovIsLatest     :: Maybe Bool
-    , _ovOwner        :: Maybe Owner
-    , _ovKey          :: Maybe ObjectKey
-    , _ovStorageClass :: Maybe ObjectVersionStorageClass
-    , _ovLastModified :: Maybe RFC822
+    { _ovVersionId    :: !(Maybe ObjectVersionId)
+    , _ovETag         :: !(Maybe ETag)
+    , _ovSize         :: !(Maybe Int)
+    , _ovIsLatest     :: !(Maybe Bool)
+    , _ovOwner        :: !(Maybe Owner)
+    , _ovKey          :: !(Maybe ObjectKey)
+    , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
+    , _ovLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show)
 
 -- | 'ObjectVersion' smart constructor.
@@ -2504,8 +2504,8 @@ instance FromXML ObjectVersion where
 --
 -- * 'ownDisplayName'
 data Owner = Owner'
-    { _ownID          :: Maybe Text
-    , _ownDisplayName :: Maybe Text
+    { _ownID          :: !(Maybe Text)
+    , _ownDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Owner' smart constructor.
@@ -2545,10 +2545,10 @@ instance ToXML Owner where
 --
 -- * 'parLastModified'
 data Part = Part'
-    { _parETag         :: Maybe ETag
-    , _parSize         :: Maybe Int
-    , _parPartNumber   :: Maybe Int
-    , _parLastModified :: Maybe RFC822
+    { _parETag         :: !(Maybe ETag)
+    , _parSize         :: !(Maybe Int)
+    , _parPartNumber   :: !(Maybe Int)
+    , _parLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show)
 
 -- | 'Part' smart constructor.
@@ -2597,9 +2597,9 @@ instance FromXML Part where
 --
 -- * 'qcEvents'
 data QueueConfiguration = QueueConfiguration'
-    { _qcId       :: Maybe Text
-    , _qcQueueARN :: Text
-    , _qcEvents   :: [Event]
+    { _qcId       :: !(Maybe Text)
+    , _qcQueueARN :: !Text
+    , _qcEvents   :: ![Event]
     } deriving (Eq,Read,Show)
 
 -- | 'QueueConfiguration' smart constructor.
@@ -2650,11 +2650,11 @@ instance ToXML QueueConfiguration where
 --
 -- * 'redReplaceKeyPrefixWith'
 data Redirect = Redirect'
-    { _redHostName             :: Maybe Text
-    , _redProtocol             :: Maybe Protocol
-    , _redHTTPRedirectCode     :: Maybe Text
-    , _redReplaceKeyWith       :: Maybe Text
-    , _redReplaceKeyPrefixWith :: Maybe Text
+    { _redHostName             :: !(Maybe Text)
+    , _redProtocol             :: !(Maybe Protocol)
+    , _redHTTPRedirectCode     :: !(Maybe Text)
+    , _redReplaceKeyWith       :: !(Maybe Text)
+    , _redReplaceKeyPrefixWith :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'Redirect' smart constructor.
@@ -2722,8 +2722,8 @@ instance ToXML Redirect where
 --
 -- * 'rartHostName'
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
-    { _rartProtocol :: Maybe Protocol
-    , _rartHostName :: Text
+    { _rartProtocol :: !(Maybe Protocol)
+    , _rartHostName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RedirectAllRequestsTo' smart constructor.
@@ -2765,8 +2765,8 @@ instance ToXML RedirectAllRequestsTo where
 --
 -- * 'rcRules'
 data ReplicationConfiguration = ReplicationConfiguration'
-    { _rcRole  :: Text
-    , _rcRules :: [ReplicationRule]
+    { _rcRole  :: !Text
+    , _rcRules :: ![ReplicationRule]
     } deriving (Eq,Read,Show)
 
 -- | 'ReplicationConfiguration' smart constructor.
@@ -2810,10 +2810,10 @@ instance ToXML ReplicationConfiguration where
 --
 -- * 'rrDestination'
 data ReplicationRule = ReplicationRule'
-    { _rrID          :: Maybe Text
-    , _rrPrefix      :: Text
-    , _rrStatus      :: ReplicationRuleStatus
-    , _rrDestination :: Destination
+    { _rrID          :: !(Maybe Text)
+    , _rrPrefix      :: !Text
+    , _rrStatus      :: !ReplicationRuleStatus
+    , _rrDestination :: !Destination
     } deriving (Eq,Read,Show)
 
 -- | 'ReplicationRule' smart constructor.
@@ -2914,8 +2914,8 @@ instance ToXML RestoreRequest where
 --
 -- * 'rrRedirect'
 data RoutingRule = RoutingRule'
-    { _rrCondition :: Maybe Condition
-    , _rrRedirect  :: Redirect
+    { _rrCondition :: !(Maybe Condition)
+    , _rrRedirect  :: !Redirect
     } deriving (Eq,Read,Show)
 
 -- | 'RoutingRule' smart constructor.
@@ -2969,13 +2969,13 @@ instance ToXML RoutingRule where
 --
 -- * 'rulStatus'
 data Rule = Rule'
-    { _rulNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
-    , _rulTransition                  :: Maybe Transition
-    , _rulExpiration                  :: Maybe LifecycleExpiration
-    , _rulNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
-    , _rulID                          :: Maybe Text
-    , _rulPrefix                      :: Text
-    , _rulStatus                      :: ExpirationStatus
+    { _rulNoncurrentVersionExpiration :: !(Maybe NoncurrentVersionExpiration)
+    , _rulTransition                  :: !(Maybe Transition)
+    , _rulExpiration                  :: !(Maybe LifecycleExpiration)
+    , _rulNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
+    , _rulID                          :: !(Maybe Text)
+    , _rulPrefix                      :: !Text
+    , _rulStatus                      :: !ExpirationStatus
     } deriving (Eq,Read,Show)
 
 -- | 'Rule' smart constructor.
@@ -3056,10 +3056,10 @@ instance ToXML Rule where
 --
 -- * 'sseMessage'
 data S3ServiceError = S3ServiceError'
-    { _sseVersionId :: Maybe ObjectVersionId
-    , _sseKey       :: Maybe ObjectKey
-    , _sseCode      :: Maybe Text
-    , _sseMessage   :: Maybe Text
+    { _sseVersionId :: !(Maybe ObjectVersionId)
+    , _sseKey       :: !(Maybe ObjectKey)
+    , _sseCode      :: !(Maybe Text)
+    , _sseMessage   :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'S3ServiceError' smart constructor.
@@ -3103,8 +3103,8 @@ instance FromXML S3ServiceError where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey   :: ObjectKey
-    , _tagValue :: Text
+    { _tagKey   :: !ObjectKey
+    , _tagValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Tag' smart constructor.
@@ -3162,8 +3162,8 @@ instance ToXML Tagging where
 --
 -- * 'tgGrantee'
 data TargetGrant = TargetGrant'
-    { _tgPermission :: Maybe BucketLogsPermission
-    , _tgGrantee    :: Maybe Grantee
+    { _tgPermission :: !(Maybe BucketLogsPermission)
+    , _tgGrantee    :: !(Maybe Grantee)
     } deriving (Eq,Read,Show)
 
 -- | 'TargetGrant' smart constructor.
@@ -3207,9 +3207,9 @@ instance ToXML TargetGrant where
 --
 -- * 'tcEvents'
 data TopicConfiguration = TopicConfiguration'
-    { _tcId       :: Maybe Text
-    , _tcTopicARN :: Text
-    , _tcEvents   :: [Event]
+    { _tcId       :: !(Maybe Text)
+    , _tcTopicARN :: !Text
+    , _tcEvents   :: ![Event]
     } deriving (Eq,Read,Show)
 
 -- | 'TopicConfiguration' smart constructor.
@@ -3256,9 +3256,9 @@ instance ToXML TopicConfiguration where
 --
 -- * 'traStorageClass'
 data Transition = Transition'
-    { _traDays         :: Maybe Int
-    , _traDate         :: Maybe RFC822
-    , _traStorageClass :: Maybe TransitionStorageClass
+    { _traDays         :: !(Maybe Int)
+    , _traDate         :: !(Maybe RFC822)
+    , _traStorageClass :: !(Maybe TransitionStorageClass)
     } deriving (Eq,Read,Show)
 
 -- | 'Transition' smart constructor.
@@ -3304,8 +3304,8 @@ instance ToXML Transition where
 --
 -- * 'vcMFADelete'
 data VersioningConfiguration = VersioningConfiguration'
-    { _vcStatus    :: Maybe BucketVersioningStatus
-    , _vcMFADelete :: Maybe MFADelete
+    { _vcStatus    :: !(Maybe BucketVersioningStatus)
+    , _vcMFADelete :: !(Maybe MFADelete)
     } deriving (Eq,Read,Show)
 
 -- | 'VersioningConfiguration' smart constructor.
@@ -3344,10 +3344,10 @@ instance ToXML VersioningConfiguration where
 --
 -- * 'wcIndexDocument'
 data WebsiteConfiguration = WebsiteConfiguration'
-    { _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _wcErrorDocument         :: Maybe ErrorDocument
-    , _wcRoutingRules          :: Maybe [RoutingRule]
-    , _wcIndexDocument         :: Maybe IndexDocument
+    { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+    , _wcErrorDocument         :: !(Maybe ErrorDocument)
+    , _wcRoutingRules          :: !(Maybe [RoutingRule])
+    , _wcIndexDocument         :: !(Maybe IndexDocument)
     } deriving (Eq,Read,Show)
 
 -- | 'WebsiteConfiguration' smart constructor.

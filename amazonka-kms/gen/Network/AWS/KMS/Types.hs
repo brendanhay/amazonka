@@ -306,9 +306,9 @@ instance FromJSON KeyUsageType where
 --
 -- * 'aleAliasARN'
 data AliasListEntry = AliasListEntry'
-    { _aleTargetKeyId :: Maybe Text
-    , _aleAliasName   :: Maybe Text
-    , _aleAliasARN    :: Maybe Text
+    { _aleTargetKeyId :: !(Maybe Text)
+    , _aleAliasName   :: !(Maybe Text)
+    , _aleAliasARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AliasListEntry' smart constructor.
@@ -350,8 +350,8 @@ instance FromJSON AliasListEntry where
 --
 -- * 'gcEncryptionContextSubset'
 data GrantConstraints = GrantConstraints'
-    { _gcEncryptionContextEquals :: Maybe (Map Text Text)
-    , _gcEncryptionContextSubset :: Maybe (Map Text Text)
+    { _gcEncryptionContextEquals :: !(Maybe (Map Text Text))
+    , _gcEncryptionContextSubset :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show)
 
 -- | 'GrantConstraints' smart constructor.
@@ -405,12 +405,12 @@ instance ToJSON GrantConstraints where
 --
 -- * 'gleOperations'
 data GrantListEntry = GrantListEntry'
-    { _gleRetiringPrincipal :: Maybe Text
-    , _gleIssuingAccount    :: Maybe Text
-    , _gleGrantId           :: Maybe Text
-    , _gleConstraints       :: Maybe GrantConstraints
-    , _gleGranteePrincipal  :: Maybe Text
-    , _gleOperations        :: Maybe [GrantOperation]
+    { _gleRetiringPrincipal :: !(Maybe Text)
+    , _gleIssuingAccount    :: !(Maybe Text)
+    , _gleGrantId           :: !(Maybe Text)
+    , _gleConstraints       :: !(Maybe GrantConstraints)
+    , _gleGranteePrincipal  :: !(Maybe Text)
+    , _gleOperations        :: !(Maybe [GrantOperation])
     } deriving (Eq,Read,Show)
 
 -- | 'GrantListEntry' smart constructor.
@@ -481,8 +481,8 @@ instance FromJSON GrantListEntry where
 --
 -- * 'kleKeyId'
 data KeyListEntry = KeyListEntry'
-    { _kleKeyARN :: Maybe Text
-    , _kleKeyId  :: Maybe Text
+    { _kleKeyARN :: !(Maybe Text)
+    , _kleKeyId  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'KeyListEntry' smart constructor.
@@ -528,13 +528,13 @@ instance FromJSON KeyListEntry where
 --
 -- * 'kmKeyId'
 data KeyMetadata = KeyMetadata'
-    { _kmARN          :: Maybe Text
-    , _kmEnabled      :: Maybe Bool
-    , _kmAWSAccountId :: Maybe Text
-    , _kmKeyUsage     :: Maybe KeyUsageType
-    , _kmCreationDate :: Maybe POSIX
-    , _kmDescription  :: Maybe Text
-    , _kmKeyId        :: Text
+    { _kmARN          :: !(Maybe Text)
+    , _kmEnabled      :: !(Maybe Bool)
+    , _kmAWSAccountId :: !(Maybe Text)
+    , _kmKeyUsage     :: !(Maybe KeyUsageType)
+    , _kmCreationDate :: !(Maybe POSIX)
+    , _kmDescription  :: !(Maybe Text)
+    , _kmKeyId        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'KeyMetadata' smart constructor.

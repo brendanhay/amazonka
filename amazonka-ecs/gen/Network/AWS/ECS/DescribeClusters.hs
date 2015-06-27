@@ -105,8 +105,8 @@ instance ToQuery DescribeClusters where
 --
 -- * 'dcrStatus'
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrFailures :: Maybe [Failure]
-    , _dcrClusters :: Maybe [Cluster]
+    { _dcrFailures :: !(Maybe [Failure])
+    , _dcrClusters :: !(Maybe [Cluster])
     , _dcrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

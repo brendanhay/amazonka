@@ -434,11 +434,11 @@ instance FromXML Statistic where
 --
 -- * 'ahiHistorySummary'
 data AlarmHistoryItem = AlarmHistoryItem'
-    { _ahiAlarmName       :: Maybe Text
-    , _ahiHistoryItemType :: Maybe HistoryItemType
-    , _ahiHistoryData     :: Maybe Text
-    , _ahiTimestamp       :: Maybe ISO8601
-    , _ahiHistorySummary  :: Maybe Text
+    { _ahiAlarmName       :: !(Maybe Text)
+    , _ahiHistoryItemType :: !(Maybe HistoryItemType)
+    , _ahiHistoryData     :: !(Maybe Text)
+    , _ahiTimestamp       :: !(Maybe ISO8601)
+    , _ahiHistorySummary  :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'AlarmHistoryItem' smart constructor.
@@ -506,13 +506,13 @@ instance FromXML AlarmHistoryItem where
 --
 -- * 'datUnit'
 data Datapoint = Datapoint'
-    { _datSampleCount :: Maybe Double
-    , _datMaximum     :: Maybe Double
-    , _datAverage     :: Maybe Double
-    , _datMinimum     :: Maybe Double
-    , _datSum         :: Maybe Double
-    , _datTimestamp   :: Maybe ISO8601
-    , _datUnit        :: Maybe StandardUnit
+    { _datSampleCount :: !(Maybe Double)
+    , _datMaximum     :: !(Maybe Double)
+    , _datAverage     :: !(Maybe Double)
+    , _datMinimum     :: !(Maybe Double)
+    , _datSum         :: !(Maybe Double)
+    , _datTimestamp   :: !(Maybe ISO8601)
+    , _datUnit        :: !(Maybe StandardUnit)
     } deriving (Eq,Read,Show)
 
 -- | 'Datapoint' smart constructor.
@@ -585,8 +585,8 @@ instance FromXML Datapoint where
 --
 -- * 'dimValue'
 data Dimension = Dimension'
-    { _dimName  :: Text
-    , _dimValue :: Text
+    { _dimName  :: !Text
+    , _dimValue :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'Dimension' smart constructor.
@@ -623,8 +623,8 @@ instance ToQuery Dimension where
 --
 -- * 'dfName'
 data DimensionFilter = DimensionFilter'
-    { _dfValue :: Maybe Text
-    , _dfName  :: Text
+    { _dfValue :: !(Maybe Text)
+    , _dfName  :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'DimensionFilter' smart constructor.
@@ -665,9 +665,9 @@ instance ToQuery DimensionFilter where
 --
 -- * 'metDimensions'
 data Metric = Metric'
-    { _metMetricName :: Maybe Text
-    , _metNamespace  :: Maybe Text
-    , _metDimensions :: Maybe [Dimension]
+    { _metMetricName :: !(Maybe Text)
+    , _metNamespace  :: !(Maybe Text)
+    , _metDimensions :: !(Maybe [Dimension])
     } deriving (Eq,Read,Show)
 
 -- | 'Metric' smart constructor.
@@ -747,27 +747,27 @@ instance FromXML Metric where
 --
 -- * 'maUnit'
 data MetricAlarm = MetricAlarm'
-    { _maAlarmName                          :: Maybe Text
-    , _maStateUpdatedTimestamp              :: Maybe ISO8601
-    , _maAlarmDescription                   :: Maybe Text
-    , _maPeriod                             :: Maybe Nat
-    , _maEvaluationPeriods                  :: Maybe Nat
-    , _maMetricName                         :: Maybe Text
-    , _maNamespace                          :: Maybe Text
-    , _maOKActions                          :: Maybe [Text]
-    , _maComparisonOperator                 :: Maybe ComparisonOperator
-    , _maStateValue                         :: Maybe StateValue
-    , _maThreshold                          :: Maybe Double
-    , _maActionsEnabled                     :: Maybe Bool
-    , _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
-    , _maInsufficientDataActions            :: Maybe [Text]
-    , _maDimensions                         :: Maybe [Dimension]
-    , _maStateReasonData                    :: Maybe Text
-    , _maStateReason                        :: Maybe Text
-    , _maAlarmARN                           :: Maybe Text
-    , _maAlarmActions                       :: Maybe [Text]
-    , _maStatistic                          :: Maybe Statistic
-    , _maUnit                               :: Maybe StandardUnit
+    { _maAlarmName                          :: !(Maybe Text)
+    , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
+    , _maAlarmDescription                   :: !(Maybe Text)
+    , _maPeriod                             :: !(Maybe Nat)
+    , _maEvaluationPeriods                  :: !(Maybe Nat)
+    , _maMetricName                         :: !(Maybe Text)
+    , _maNamespace                          :: !(Maybe Text)
+    , _maOKActions                          :: !(Maybe [Text])
+    , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
+    , _maStateValue                         :: !(Maybe StateValue)
+    , _maThreshold                          :: !(Maybe Double)
+    , _maActionsEnabled                     :: !(Maybe Bool)
+    , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
+    , _maInsufficientDataActions            :: !(Maybe [Text])
+    , _maDimensions                         :: !(Maybe [Dimension])
+    , _maStateReasonData                    :: !(Maybe Text)
+    , _maStateReason                        :: !(Maybe Text)
+    , _maAlarmARN                           :: !(Maybe Text)
+    , _maAlarmActions                       :: !(Maybe [Text])
+    , _maStatistic                          :: !(Maybe Statistic)
+    , _maUnit                               :: !(Maybe StandardUnit)
     } deriving (Eq,Read,Show)
 
 -- | 'MetricAlarm' smart constructor.
@@ -960,12 +960,12 @@ instance FromXML MetricAlarm where
 --
 -- * 'mdMetricName'
 data MetricDatum = MetricDatum'
-    { _mdValue           :: Maybe Double
-    , _mdDimensions      :: Maybe [Dimension]
-    , _mdTimestamp       :: Maybe ISO8601
-    , _mdStatisticValues :: Maybe StatisticSet
-    , _mdUnit            :: Maybe StandardUnit
-    , _mdMetricName      :: Text
+    { _mdValue           :: !(Maybe Double)
+    , _mdDimensions      :: !(Maybe [Dimension])
+    , _mdTimestamp       :: !(Maybe ISO8601)
+    , _mdStatisticValues :: !(Maybe StatisticSet)
+    , _mdUnit            :: !(Maybe StandardUnit)
+    , _mdMetricName      :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'MetricDatum' smart constructor.

@@ -65,9 +65,9 @@ import           Network.AWS.Response
 --
 -- * 'lupUserName'
 data ListUserPolicies = ListUserPolicies'
-    { _lupMaxItems :: Maybe Nat
-    , _lupMarker   :: Maybe Text
-    , _lupUserName :: Text
+    { _lupMaxItems :: !(Maybe Nat)
+    , _lupMarker   :: !(Maybe Text)
+    , _lupUserName :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'ListUserPolicies' smart constructor.
@@ -146,9 +146,9 @@ instance ToQuery ListUserPolicies where
 --
 -- * 'luprStatus'
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-    { _luprMarker      :: Maybe Text
-    , _luprIsTruncated :: Maybe Bool
-    , _luprPolicyNames :: [Text]
+    { _luprMarker      :: !(Maybe Text)
+    , _luprIsTruncated :: !(Maybe Bool)
+    , _luprPolicyNames :: ![Text]
     , _luprStatus      :: !Int
     } deriving (Eq,Read,Show)
 

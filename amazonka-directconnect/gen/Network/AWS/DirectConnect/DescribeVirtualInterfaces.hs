@@ -63,8 +63,8 @@ import           Network.AWS.Response
 --
 -- * 'dviVirtualInterfaceId'
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-    { _dviConnectionId       :: Maybe Text
-    , _dviVirtualInterfaceId :: Maybe Text
+    { _dviConnectionId       :: !(Maybe Text)
+    , _dviVirtualInterfaceId :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeVirtualInterfaces' smart constructor.
@@ -127,7 +127,7 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- * 'desStatus'
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
-    { _desVirtualInterfaces :: Maybe [VirtualInterface]
+    { _desVirtualInterfaces :: !(Maybe [VirtualInterface])
     , _desStatus            :: !Int
     } deriving (Eq,Read,Show)
 

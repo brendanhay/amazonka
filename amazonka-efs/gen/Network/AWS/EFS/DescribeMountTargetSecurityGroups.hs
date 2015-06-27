@@ -106,7 +106,7 @@ instance ToQuery DescribeMountTargetSecurityGroups
 --
 -- * 'dmtsgrStatus'
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrSecurityGroups :: [Text]
+    { _dmtsgrSecurityGroups :: ![Text]
     , _dmtsgrStatus         :: !Int
     } deriving (Eq,Read,Show)
 

@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'dia1Attribute'
 data DescribeImageAttribute = DescribeImageAttribute'
-    { _dia1DryRun    :: Maybe Bool
-    , _dia1ImageId   :: Text
-    , _dia1Attribute :: ImageAttributeName
+    { _dia1DryRun    :: !(Maybe Bool)
+    , _dia1ImageId   :: !Text
+    , _dia1Attribute :: !ImageAttributeName
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeImageAttribute' smart constructor.
@@ -151,14 +151,14 @@ instance ToQuery DescribeImageAttribute where
 --
 -- * 'diarStatus'
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-    { _diarLaunchPermissions   :: Maybe [LaunchPermission]
-    , _diarRAMDiskId           :: Maybe AttributeValue
-    , _diarKernelId            :: Maybe AttributeValue
-    , _diarSRIOVNetSupport     :: Maybe AttributeValue
-    , _diarImageId             :: Maybe Text
-    , _diarProductCodes        :: Maybe [ProductCode]
-    , _diarBlockDeviceMappings :: Maybe [BlockDeviceMapping]
-    , _diarDescription         :: Maybe AttributeValue
+    { _diarLaunchPermissions   :: !(Maybe [LaunchPermission])
+    , _diarRAMDiskId           :: !(Maybe AttributeValue)
+    , _diarKernelId            :: !(Maybe AttributeValue)
+    , _diarSRIOVNetSupport     :: !(Maybe AttributeValue)
+    , _diarImageId             :: !(Maybe Text)
+    , _diarProductCodes        :: !(Maybe [ProductCode])
+    , _diarBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _diarDescription         :: !(Maybe AttributeValue)
     , _diarStatus              :: !Int
     } deriving (Eq,Read,Show)
 

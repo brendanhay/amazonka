@@ -59,9 +59,9 @@ import           Network.AWS.Response
 --
 -- * 'giIdentityPoolId'
 data GetId = GetId'
-    { _giAccountId      :: Maybe Text
-    , _giLogins         :: Maybe (Map Text Text)
-    , _giIdentityPoolId :: Text
+    { _giAccountId      :: !(Maybe Text)
+    , _giLogins         :: !(Maybe (Map Text Text))
+    , _giIdentityPoolId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetId' smart constructor.
@@ -135,7 +135,7 @@ instance ToQuery GetId where
 --
 -- * 'girStatus'
 data GetIdResponse = GetIdResponse'
-    { _girIdentityId :: Maybe Text
+    { _girIdentityId :: !(Maybe Text)
     , _girStatus     :: !Int
     } deriving (Eq,Read,Show)
 

@@ -102,7 +102,7 @@ instance ToQuery CreateHAPG where
 --
 -- * 'chrStatus'
 data CreateHAPGResponse = CreateHAPGResponse'
-    { _chrHAPGARN :: Maybe Text
+    { _chrHAPGARN :: !(Maybe Text)
     , _chrStatus  :: !Int
     } deriving (Eq,Read,Show)
 

@@ -62,9 +62,9 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'udnNameservers'
 data UpdateDomainNameservers = UpdateDomainNameservers'
-    { _udnFIAuthKey   :: Maybe Text
-    , _udnDomainName  :: Text
-    , _udnNameservers :: [Nameserver]
+    { _udnFIAuthKey   :: !(Maybe Text)
+    , _udnDomainName  :: !Text
+    , _udnNameservers :: ![Nameserver]
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDomainNameservers' smart constructor.
@@ -148,7 +148,7 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- * 'udnrStatus'
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-    { _udnrOperationId :: Text
+    { _udnrOperationId :: !Text
     , _udnrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

@@ -69,14 +69,14 @@ import           Network.AWS.Response
 --
 -- * 'udgCurrentDeploymentGroupName'
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-    { _udgServiceRoleARN               :: Maybe Text
-    , _udgDeploymentConfigName         :: Maybe Text
-    , _udgEc2TagFilters                :: Maybe [EC2TagFilter]
-    , _udgNewDeploymentGroupName       :: Maybe Text
-    , _udgOnPremisesInstanceTagFilters :: Maybe [TagFilter]
-    , _udgAutoScalingGroups            :: Maybe [Text]
-    , _udgApplicationName              :: Text
-    , _udgCurrentDeploymentGroupName   :: Text
+    { _udgServiceRoleARN               :: !(Maybe Text)
+    , _udgDeploymentConfigName         :: !(Maybe Text)
+    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _udgNewDeploymentGroupName       :: !(Maybe Text)
+    , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _udgAutoScalingGroups            :: !(Maybe [Text])
+    , _udgApplicationName              :: !Text
+    , _udgCurrentDeploymentGroupName   :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'UpdateDeploymentGroup' smart constructor.
@@ -182,7 +182,7 @@ instance ToQuery UpdateDeploymentGroup where
 --
 -- * 'udgrStatus'
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
-    { _udgrHooksNotCleanedUp :: Maybe [AutoScalingGroup]
+    { _udgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _udgrStatus            :: !Int
     } deriving (Eq,Read,Show)
 

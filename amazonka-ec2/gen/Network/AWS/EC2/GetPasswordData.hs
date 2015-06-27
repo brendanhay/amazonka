@@ -65,8 +65,8 @@ import           Network.AWS.Response
 --
 -- * 'gpdInstanceId'
 data GetPasswordData = GetPasswordData'
-    { _gpdDryRun     :: Maybe Bool
-    , _gpdInstanceId :: Text
+    { _gpdDryRun     :: !(Maybe Bool)
+    , _gpdInstanceId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'GetPasswordData' smart constructor.
@@ -126,9 +126,9 @@ instance ToQuery GetPasswordData where
 --
 -- * 'gpdrStatus'
 data GetPasswordDataResponse = GetPasswordDataResponse'
-    { _gpdrInstanceId   :: Text
-    , _gpdrPasswordData :: Text
-    , _gpdrTimestamp    :: ISO8601
+    { _gpdrInstanceId   :: !Text
+    , _gpdrPasswordData :: !Text
+    , _gpdrTimestamp    :: !ISO8601
     , _gpdrStatus       :: !Int
     } deriving (Eq,Read,Show)
 

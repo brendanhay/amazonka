@@ -65,11 +65,11 @@ import           Network.AWS.Response
 --
 -- * 'dsSnapshotSource'
 data DescribeSnapshots = DescribeSnapshots'
-    { _dsCacheClusterId :: Maybe Text
-    , _dsMaxRecords     :: Maybe Int
-    , _dsMarker         :: Maybe Text
-    , _dsSnapshotName   :: Maybe Text
-    , _dsSnapshotSource :: Maybe Text
+    { _dsCacheClusterId :: !(Maybe Text)
+    , _dsMaxRecords     :: !(Maybe Int)
+    , _dsMarker         :: !(Maybe Text)
+    , _dsSnapshotName   :: !(Maybe Text)
+    , _dsSnapshotSource :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeSnapshots' smart constructor.
@@ -165,8 +165,8 @@ instance ToQuery DescribeSnapshots where
 --
 -- * 'dsr1Status'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsr1Snapshots :: Maybe [Snapshot]
-    , _dsr1Marker    :: Maybe Text
+    { _dsr1Snapshots :: !(Maybe [Snapshot])
+    , _dsr1Marker    :: !(Maybe Text)
     , _dsr1Status    :: !Int
     } deriving (Eq,Read,Show)
 

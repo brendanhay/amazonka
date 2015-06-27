@@ -62,11 +62,11 @@ import           Network.AWS.Response
 --
 -- * 'ldDeploymentGroupName'
 data ListDeployments = ListDeployments'
-    { _ldCreateTimeRange     :: Maybe TimeRange
-    , _ldNextToken           :: Maybe Text
-    , _ldIncludeOnlyStatuses :: Maybe [DeploymentStatus]
-    , _ldApplicationName     :: Maybe Text
-    , _ldDeploymentGroupName :: Maybe Text
+    { _ldCreateTimeRange     :: !(Maybe TimeRange)
+    , _ldNextToken           :: !(Maybe Text)
+    , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
+    , _ldApplicationName     :: !(Maybe Text)
+    , _ldDeploymentGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'ListDeployments' smart constructor.
@@ -159,8 +159,8 @@ instance ToQuery ListDeployments where
 --
 -- * 'ldrStatus'
 data ListDeploymentsResponse = ListDeploymentsResponse'
-    { _ldrNextToken   :: Maybe Text
-    , _ldrDeployments :: Maybe [Text]
+    { _ldrNextToken   :: !(Maybe Text)
+    , _ldrDeployments :: !(Maybe [Text])
     , _ldrStatus      :: !Int
     } deriving (Eq,Read,Show)
 

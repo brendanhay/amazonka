@@ -57,10 +57,10 @@ import           Network.AWS.Response
 --
 -- * 'pmfMetricTransformations'
 data PutMetricFilter = PutMetricFilter'
-    { _pmfLogGroupName          :: Text
-    , _pmfFilterName            :: Text
-    , _pmfFilterPattern         :: Text
-    , _pmfMetricTransformations :: List1 MetricTransformation
+    { _pmfLogGroupName          :: !Text
+    , _pmfFilterName            :: !Text
+    , _pmfFilterPattern         :: !Text
+    , _pmfMetricTransformations :: !(List1 MetricTransformation)
     } deriving (Eq,Read,Show)
 
 -- | 'PutMetricFilter' smart constructor.

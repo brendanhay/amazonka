@@ -107,7 +107,7 @@ instance ToQuery DescribeUserProfiles where
 --
 -- * 'duprStatus'
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
-    { _duprUserProfiles :: Maybe [UserProfile]
+    { _duprUserProfiles :: !(Maybe [UserProfile])
     , _duprStatus       :: !Int
     } deriving (Eq,Read,Show)
 

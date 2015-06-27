@@ -81,13 +81,13 @@ import           Network.AWS.Response
 --
 -- * 'cctTemplateName'
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-    { _cctOptionSettings      :: Maybe [ConfigurationOptionSetting]
-    , _cctSourceConfiguration :: Maybe SourceConfiguration
-    , _cctEnvironmentId       :: Maybe Text
-    , _cctSolutionStackName   :: Maybe Text
-    , _cctDescription         :: Maybe Text
-    , _cctApplicationName     :: Text
-    , _cctTemplateName        :: Text
+    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
+    , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
+    , _cctEnvironmentId       :: !(Maybe Text)
+    , _cctSolutionStackName   :: !(Maybe Text)
+    , _cctDescription         :: !(Maybe Text)
+    , _cctApplicationName     :: !Text
+    , _cctTemplateName        :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateConfigurationTemplate' smart constructor.

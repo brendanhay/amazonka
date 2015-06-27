@@ -109,7 +109,7 @@ instance ToQuery DisableGateway where
 --
 -- * 'dStatus'
 data DisableGatewayResponse = DisableGatewayResponse'
-    { _dGatewayARN :: Maybe Text
+    { _dGatewayARN :: !(Maybe Text)
     , _dStatus     :: !Int
     } deriving (Eq,Read,Show)
 

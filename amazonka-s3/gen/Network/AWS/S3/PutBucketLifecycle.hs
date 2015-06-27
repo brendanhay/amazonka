@@ -50,9 +50,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'putBucket'
 data PutBucketLifecycle = PutBucketLifecycle'
-    { _putContentMD5             :: Maybe Text
-    , _putLifecycleConfiguration :: Maybe LifecycleConfiguration
-    , _putBucket                 :: BucketName
+    { _putContentMD5             :: !(Maybe Text)
+    , _putLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
+    , _putBucket                 :: !BucketName
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketLifecycle' smart constructor.

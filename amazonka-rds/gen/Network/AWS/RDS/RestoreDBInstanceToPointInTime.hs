@@ -110,26 +110,26 @@ import           Network.AWS.Response
 --
 -- * 'rditpitTargetDBInstanceIdentifier'
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-    { _rditpitUseLatestRestorableTime    :: Maybe Bool
-    , _rditpitAutoMinorVersionUpgrade    :: Maybe Bool
-    , _rditpitPubliclyAccessible         :: Maybe Bool
-    , _rditpitDBSubnetGroupName          :: Maybe Text
-    , _rditpitRestoreTime                :: Maybe ISO8601
-    , _rditpitIOPS                       :: Maybe Int
-    , _rditpitEngine                     :: Maybe Text
-    , _rditpitTDECredentialPassword      :: Maybe Text
-    , _rditpitDBInstanceClass            :: Maybe Text
-    , _rditpitLicenseModel               :: Maybe Text
-    , _rditpitAvailabilityZone           :: Maybe Text
-    , _rditpitMultiAZ                    :: Maybe Bool
-    , _rditpitTDECredentialARN           :: Maybe Text
-    , _rditpitOptionGroupName            :: Maybe Text
-    , _rditpitDBName                     :: Maybe Text
-    , _rditpitTags                       :: Maybe [Tag]
-    , _rditpitPort                       :: Maybe Int
-    , _rditpitStorageType                :: Maybe Text
-    , _rditpitSourceDBInstanceIdentifier :: Text
-    , _rditpitTargetDBInstanceIdentifier :: Text
+    { _rditpitUseLatestRestorableTime    :: !(Maybe Bool)
+    , _rditpitAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _rditpitPubliclyAccessible         :: !(Maybe Bool)
+    , _rditpitDBSubnetGroupName          :: !(Maybe Text)
+    , _rditpitRestoreTime                :: !(Maybe ISO8601)
+    , _rditpitIOPS                       :: !(Maybe Int)
+    , _rditpitEngine                     :: !(Maybe Text)
+    , _rditpitTDECredentialPassword      :: !(Maybe Text)
+    , _rditpitDBInstanceClass            :: !(Maybe Text)
+    , _rditpitLicenseModel               :: !(Maybe Text)
+    , _rditpitAvailabilityZone           :: !(Maybe Text)
+    , _rditpitMultiAZ                    :: !(Maybe Bool)
+    , _rditpitTDECredentialARN           :: !(Maybe Text)
+    , _rditpitOptionGroupName            :: !(Maybe Text)
+    , _rditpitDBName                     :: !(Maybe Text)
+    , _rditpitTags                       :: !(Maybe [Tag])
+    , _rditpitPort                       :: !(Maybe Int)
+    , _rditpitStorageType                :: !(Maybe Text)
+    , _rditpitSourceDBInstanceIdentifier :: !Text
+    , _rditpitTargetDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'RestoreDBInstanceToPointInTime' smart constructor.
@@ -400,7 +400,7 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 --
 -- * 'rditpitrStatus'
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-    { _rditpitrDBInstance :: Maybe DBInstance
+    { _rditpitrDBInstance :: !(Maybe DBInstance)
     , _rditpitrStatus     :: !Int
     } deriving (Eq,Read,Show)
 

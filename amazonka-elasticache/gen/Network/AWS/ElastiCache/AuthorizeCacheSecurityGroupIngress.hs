@@ -60,9 +60,9 @@ import           Network.AWS.Response
 --
 -- * 'acsgiEC2SecurityGroupOwnerId'
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
-    { _acsgiCacheSecurityGroupName  :: Text
-    , _acsgiEC2SecurityGroupName    :: Text
-    , _acsgiEC2SecurityGroupOwnerId :: Text
+    { _acsgiCacheSecurityGroupName  :: !Text
+    , _acsgiEC2SecurityGroupName    :: !Text
+    , _acsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
@@ -132,7 +132,7 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 --
 -- * 'acsgirStatus'
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
-    { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
+    { _acsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _acsgirStatus             :: !Int
     } deriving (Eq,Read,Show)
 

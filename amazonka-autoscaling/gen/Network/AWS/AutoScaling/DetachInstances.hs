@@ -58,8 +58,8 @@ import           Network.AWS.Response
 --
 -- * 'diShouldDecrementDesiredCapacity'
 data DetachInstances = DetachInstances'
-    { _diInstanceIds                    :: Maybe [Text]
-    , _diAutoScalingGroupName           :: Text
+    { _diInstanceIds                    :: !(Maybe [Text])
+    , _diAutoScalingGroupName           :: !Text
     , _diShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show)
 
@@ -122,7 +122,7 @@ instance ToQuery DetachInstances where
 --
 -- * 'dirStatus'
 data DetachInstancesResponse = DetachInstancesResponse'
-    { _dirActivities :: Maybe [Activity]
+    { _dirActivities :: !(Maybe [Activity])
     , _dirStatus     :: !Int
     } deriving (Eq,Read,Show)
 

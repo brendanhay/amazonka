@@ -50,9 +50,9 @@ import           Network.AWS.S3.Types
 --
 -- * 'pbpPolicy'
 data PutBucketPolicy = PutBucketPolicy'
-    { _pbpContentMD5 :: Maybe Text
-    , _pbpBucket     :: BucketName
-    , _pbpPolicy     :: Text
+    { _pbpContentMD5 :: !(Maybe Text)
+    , _pbpBucket     :: !BucketName
+    , _pbpPolicy     :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'PutBucketPolicy' smart constructor.

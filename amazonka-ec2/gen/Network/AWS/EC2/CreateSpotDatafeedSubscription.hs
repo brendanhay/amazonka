@@ -58,9 +58,9 @@ import           Network.AWS.Response
 --
 -- * 'csdsBucket'
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
-    { _csdsPrefix :: Maybe Text
-    , _csdsDryRun :: Maybe Bool
-    , _csdsBucket :: Text
+    { _csdsPrefix :: !(Maybe Text)
+    , _csdsDryRun :: !(Maybe Bool)
+    , _csdsBucket :: !Text
     } deriving (Eq,Read,Show)
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
@@ -126,7 +126,7 @@ instance ToQuery CreateSpotDatafeedSubscription where
 --
 -- * 'csdsrStatus'
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
-    { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
+    { _csdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _csdsrStatus                   :: !Int
     } deriving (Eq,Read,Show)
 

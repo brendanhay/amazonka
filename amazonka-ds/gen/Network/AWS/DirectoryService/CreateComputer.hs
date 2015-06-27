@@ -61,11 +61,11 @@ import           Network.AWS.Response
 --
 -- * 'ccPassword'
 data CreateComputer = CreateComputer'
-    { _ccComputerAttributes                  :: Maybe [Attribute]
-    , _ccOrganizationalUnitDistinguishedName :: Maybe Text
-    , _ccDirectoryId                         :: Text
-    , _ccComputerName                        :: Text
-    , _ccPassword                            :: Sensitive Text
+    { _ccComputerAttributes                  :: !(Maybe [Attribute])
+    , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
+    , _ccDirectoryId                         :: !Text
+    , _ccComputerName                        :: !Text
+    , _ccPassword                            :: !(Sensitive Text)
     } deriving (Eq,Read,Show)
 
 -- | 'CreateComputer' smart constructor.
@@ -148,7 +148,7 @@ instance ToQuery CreateComputer where
 --
 -- * 'ccrStatus'
 data CreateComputerResponse = CreateComputerResponse'
-    { _ccrComputer :: Maybe Computer
+    { _ccrComputer :: !(Maybe Computer)
     , _ccrStatus   :: !Int
     } deriving (Eq,Read,Show)
 

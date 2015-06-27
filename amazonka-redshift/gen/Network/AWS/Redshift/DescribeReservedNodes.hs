@@ -56,9 +56,9 @@ import           Network.AWS.Response
 --
 -- * 'drnMarker'
 data DescribeReservedNodes = DescribeReservedNodes'
-    { _drnReservedNodeId :: Maybe Text
-    , _drnMaxRecords     :: Maybe Int
-    , _drnMarker         :: Maybe Text
+    { _drnReservedNodeId :: !(Maybe Text)
+    , _drnMaxRecords     :: !(Maybe Int)
+    , _drnMarker         :: !(Maybe Text)
     } deriving (Eq,Read,Show)
 
 -- | 'DescribeReservedNodes' smart constructor.
@@ -143,8 +143,8 @@ instance ToQuery DescribeReservedNodes where
 --
 -- * 'drnrStatus'
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
-    { _drnrReservedNodes :: Maybe [ReservedNode]
-    , _drnrMarker        :: Maybe Text
+    { _drnrReservedNodes :: !(Maybe [ReservedNode])
+    , _drnrMarker        :: !(Maybe Text)
     , _drnrStatus        :: !Int
     } deriving (Eq,Read,Show)
 

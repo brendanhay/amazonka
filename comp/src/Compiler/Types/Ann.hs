@@ -5,7 +5,7 @@
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell    #-}
 
--- Module      : Compiler.Types.Ann
+-- Module      : Gen.Types.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,10 +15,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Ann where
+module Gen.Types.Ann where
 
-import           Compiler.TH
-import           Compiler.Types.Id
+import           Gen.TH
+import           Gen.Types.Id
 import           Control.Applicative
 import           Control.Comonad
 import           Control.Comonad.Cofree

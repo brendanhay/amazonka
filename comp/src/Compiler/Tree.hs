@@ -8,7 +8,7 @@
 {-# LANGUAGE TupleSections         #-}
 {-# LANGUAGE ViewPatterns          #-}
 
--- Module      : Compiler.Tree
+-- Module      : Gen.Tree
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -18,15 +18,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Tree
+module Gen.Tree
     ( root
     , fold
     , populate
     ) where
 
-import           Compiler.Import
-import qualified Compiler.JSON             as JS
-import           Compiler.Types
+import           Gen.Import
+import qualified Gen.JSON             as JS
+import           Gen.Types
 import           Control.Error
 import           Control.Lens              (each, (^.), (^..))
 import           Control.Monad

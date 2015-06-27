@@ -6,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TupleSections              #-}
 
--- Module      : Compiler.Types.Retry
+-- Module      : Gen.Types.Retry
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -16,12 +16,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Retry where
+module Gen.Types.Retry where
 
-import           Compiler.TH
-import           Compiler.Types.Id
-import           Compiler.Types.Map
-import           Compiler.Types.Notation
+import           Gen.TH
+import           Gen.Types.Id
+import           Gen.Types.Map
+import           Gen.Types.Notation
 import           Control.Applicative
 import           Control.Error           (note)
 import           Control.Lens

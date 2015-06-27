@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Compiler.AST.Data.Syntax
+-- Module      : Gen.AST.Data.Syntax
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,16 +16,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Data.Syntax where
+module Gen.AST.Data.Syntax where
 
-import           Compiler.AST.Data.Field
-import           Compiler.AST.Data.Instance
-import           Compiler.AST.TypeOf
-import           Compiler.Formatting
-import           Compiler.Protocol            (Names (..))
-import qualified Compiler.Protocol            as Proto
-import           Compiler.Text
-import           Compiler.Types
+import           Gen.AST.Data.Field
+import           Gen.AST.Data.Instance
+import           Gen.AST.TypeOf
+import           Gen.Formatting
+import           Gen.Protocol            (Names (..))
+import qualified Gen.Protocol            as Proto
+import           Gen.Text
+import           Gen.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error

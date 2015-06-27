@@ -6,7 +6,7 @@
 {-# LANGUAGE TypeOperators     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Compiler.AST.Prefix
+-- Module      : Gen.AST.Prefix
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,14 +16,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Prefix
+module Gen.AST.Prefix
     ( prefixes
     ) where
 
-import           Compiler.AST.Cofree
-import           Compiler.Formatting
-import           Compiler.Text
-import           Compiler.Types
+import           Gen.AST.Cofree
+import           Gen.Formatting
+import           Gen.Text
+import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Control.Monad.Except

@@ -17,7 +17,7 @@
 {-# LANGUAGE TupleSections          #-}
 {-# LANGUAGE TypeOperators          #-}
 
--- Module      : Compiler.Types.Service
+-- Module      : Gen.Types.Service
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -27,20 +27,20 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Service where
+module Gen.Types.Service where
 
-import           Compiler.Text
-import           Compiler.TH
-import           Compiler.Types.Ann
-import           Compiler.Types.Help
-import           Compiler.Types.Id
-import           Compiler.Types.Map
-import           Compiler.Types.NS
-import           Compiler.Types.Orphans ()
-import           Compiler.Types.Pager
-import           Compiler.Types.Retry
-import           Compiler.Types.URI
-import           Compiler.Types.Waiter
+import           Gen.Text
+import           Gen.TH
+import           Gen.Types.Ann
+import           Gen.Types.Help
+import           Gen.Types.Id
+import           Gen.Types.Map
+import           Gen.Types.NS
+import           Gen.Types.Orphans ()
+import           Gen.Types.Pager
+import           Gen.Types.Retry
+import           Gen.Types.URI
+import           Gen.Types.Waiter
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((.=))

@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.IO
+-- Module      : Gen.IO
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -12,10 +12,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.IO where
+module Gen.IO where
 
-import           Compiler.Formatting
-import           Compiler.Types
+import           Gen.Formatting
+import           Gen.Types
 import           Control.Error
 import           Control.Monad.Except
 import           Control.Monad.State

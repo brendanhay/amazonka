@@ -7,7 +7,7 @@
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
 
--- Module      : Compiler.Types.URI
+-- Module      : Gen.Types.URI
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,10 +17,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.URI where
+module Gen.Types.URI where
 
-import           Compiler.TH
-import           Compiler.Types.Id
+import           Gen.TH
+import           Gen.Types.Id
 import           Control.Applicative
 import           Control.Lens
 import           Data.Aeson

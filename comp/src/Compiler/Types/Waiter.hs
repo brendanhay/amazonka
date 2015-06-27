@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
 
--- Module      : Compiler.Types.Waiter
+-- Module      : Gen.Types.Waiter
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -14,11 +14,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Waiter where
+module Gen.Types.Waiter where
 
-import           Compiler.TH
-import           Compiler.Types.Id
-import           Compiler.Types.Notation
+import           Gen.TH
+import           Gen.Types.Id
+import           Gen.Types.Notation
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad

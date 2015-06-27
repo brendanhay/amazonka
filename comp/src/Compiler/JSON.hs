@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Compiler.JSON
+-- Module      : Gen.JSON
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -11,11 +11,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.JSON where
+module Gen.JSON where
 
-import           Compiler.Formatting
-import           Compiler.IO
-import           Compiler.Types
+import           Gen.Formatting
+import           Gen.IO
+import           Gen.Types
 import           Control.Error
 import           Control.Monad.Except
 import           Data.Aeson           hiding (decode)

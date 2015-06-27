@@ -6,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.AST.Subst
+-- Module      : Gen.AST.Subst
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,17 +16,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Subst
+module Gen.AST.Subst
     ( substitute
     ) where
 
-import           Compiler.AST.Cofree
-import           Compiler.AST.Data
-import           Compiler.AST.Override
-import           Compiler.AST.Prefix
-import           Compiler.Formatting
-import           Compiler.Protocol
-import           Compiler.Types
+import           Gen.AST.Cofree
+import           Gen.AST.Data
+import           Gen.AST.Override
+import           Gen.AST.Prefix
+import           Gen.Formatting
+import           Gen.Protocol
+import           Gen.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error

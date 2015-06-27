@@ -1,6 +1,6 @@
-name:                  amazonka-compiler
+name:                  amazonka-gen
 version:               1.0.0
-synopsis:              Amazonka Compiler
+synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -15,44 +15,44 @@ cabal-version:         >= 1.10
 description:
     Compiler and generator for Amazonka related AWS SDKs
 
-executable amazonka-compiler
+executable amazonka-gen
     default-language:  Haskell2010
     hs-source-dirs:    src
     main-is:           Main.hs
 
     other-modules:
-          Compiler.AST
-        , Compiler.AST.Cofree
-        , Compiler.AST.Data
-        , Compiler.AST.Data.Field
-        , Compiler.AST.Data.Instance
-        , Compiler.AST.Data.Syntax
-        , Compiler.AST.Override
-        , Compiler.AST.Prefix
-        , Compiler.AST.Subst
-        , Compiler.AST.TypeOf
-        , Compiler.Formatting
-        , Compiler.IO
-        , Compiler.JSON
-        , Compiler.Protocol
-        , Compiler.TH
-        , Compiler.Text
-        , Compiler.Tree
-        , Compiler.Types
-        , Compiler.Types.Ann
-        , Compiler.Types.Data
-        , Compiler.Types.Help
-        , Compiler.Types.Id
-        , Compiler.Types.Map
-        , Compiler.Types.NS
-        , Compiler.Types.Notation
-        , Compiler.Types.Orphans
-        , Compiler.Types.Pager
-        , Compiler.Types.Retry
-        , Compiler.Types.Pager
-        , Compiler.Types.Service
-        , Compiler.Types.URI
-        , Compiler.Types.Waiter
+          Gen.AST
+        , Gen.AST.Cofree
+        , Gen.AST.Data
+        , Gen.AST.Data.Field
+        , Gen.AST.Data.Instance
+        , Gen.AST.Data.Syntax
+        , Gen.AST.Override
+        , Gen.AST.Prefix
+        , Gen.AST.Subst
+        , Gen.AST.TypeOf
+        , Gen.Formatting
+        , Gen.IO
+        , Gen.JSON
+        , Gen.Protocol
+        , Gen.TH
+        , Gen.Text
+        , Gen.Tree
+        , Gen.Types
+        , Gen.Types.Ann
+        , Gen.Types.Data
+        , Gen.Types.Help
+        , Gen.Types.Id
+        , Gen.Types.Map
+        , Gen.Types.NS
+        , Gen.Types.Notation
+        , Gen.Types.Orphans
+        , Gen.Types.Pager
+        , Gen.Types.Retry
+        , Gen.Types.Pager
+        , Gen.Types.Service
+        , Gen.Types.URI
+        , Gen.Types.Waiter
 
     ghc-options:       -Wall -threaded
 

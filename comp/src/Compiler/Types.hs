@@ -17,7 +17,7 @@
 {-# LANGUAGE TupleSections          #-}
 {-# LANGUAGE TypeOperators          #-}
 
--- Module      : Compiler.Types
+-- Module      : Gen.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -27,26 +27,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types
-    ( module Compiler.Types
+module Gen.Types
+    ( module Gen.Types
     , module Types
     ) where
 
-import           Compiler.Text
-import           Compiler.TH
-import           Compiler.Types.Ann        as Types
-import           Compiler.Types.Data       as Types
-import           Compiler.Types.Help       as Types
-import           Compiler.Types.Id         as Types
-import           Compiler.Types.Map        as Types
-import           Compiler.Types.Notation   as Types
-import           Compiler.Types.NS         as Types
-import           Compiler.Types.Orphans    ()
-import           Compiler.Types.Pager      as Types
-import           Compiler.Types.Retry      as Types
-import           Compiler.Types.Service    as Types
-import           Compiler.Types.URI        as Types
-import           Compiler.Types.Waiter     as Types
+import           Gen.Text
+import           Gen.TH
+import           Gen.Types.Ann        as Types
+import           Gen.Types.Data       as Types
+import           Gen.Types.Help       as Types
+import           Gen.Types.Id         as Types
+import           Gen.Types.Map        as Types
+import           Gen.Types.Notation   as Types
+import           Gen.Types.NS         as Types
+import           Gen.Types.Orphans    ()
+import           Gen.Types.Pager      as Types
+import           Gen.Types.Retry      as Types
+import           Gen.Types.Service    as Types
+import           Gen.Types.URI        as Types
+import           Gen.Types.Waiter     as Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson

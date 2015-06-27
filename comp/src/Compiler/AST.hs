@@ -5,7 +5,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.AST
+-- Module      : Gen.AST
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,16 +15,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST where
+module Gen.AST where
 
-import           Compiler.AST.Cofree
-import           Compiler.AST.Data
-import           Compiler.AST.Override
-import           Compiler.AST.Prefix
-import           Compiler.AST.Subst
-import           Compiler.AST.TypeOf
-import           Compiler.Formatting
-import           Compiler.Types
+import           Gen.AST.Cofree
+import           Gen.AST.Data
+import           Gen.AST.Override
+import           Gen.AST.Prefix
+import           Gen.AST.Subst
+import           Gen.AST.TypeOf
+import           Gen.Formatting
+import           Gen.Types
 import           Control.Arrow
 import           Control.Error
 import           Control.Lens

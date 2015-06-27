@@ -6,7 +6,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TupleSections       #-}
 
--- Module      : Compiler.AST.Data
+-- Module      : Gen.AST.Data
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,20 +16,20 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Data
+module Gen.AST.Data
     ( serviceData
     , operationData
     , shapeData
     , waiterData
     ) where
 
-import           Compiler.AST.Data.Field
-import           Compiler.AST.Data.Instance
-import           Compiler.AST.Data.Syntax
-import           Compiler.AST.TypeOf
-import           Compiler.Formatting
-import           Compiler.Protocol
-import           Compiler.Types
+import           Gen.AST.Data.Field
+import           Gen.AST.Data.Instance
+import           Gen.AST.Data.Syntax
+import           Gen.AST.TypeOf
+import           Gen.Formatting
+import           Gen.Protocol
+import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))

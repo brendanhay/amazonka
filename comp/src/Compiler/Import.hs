@@ -2,7 +2,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Compiler.Import
+-- Module      : Gen.Import
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,13 +12,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Import
+module Gen.Import
     ( operationImports
     , typeImports
     , waiterImports
     ) where
 
-import           Compiler.Types
+import           Gen.Types
 import           Control.Lens
 import           Data.List      (sort)
 import           Data.Maybe

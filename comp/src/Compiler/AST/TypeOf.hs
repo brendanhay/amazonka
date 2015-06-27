@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.AST.TypeOf
+-- Module      : Gen.AST.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,13 +14,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.TypeOf
+module Gen.AST.TypeOf
     ( TypeOf (..)
     , derivingOf
     , typeDefault
     ) where
 
-import           Compiler.Types
+import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
 import           Data.Foldable          (foldr')

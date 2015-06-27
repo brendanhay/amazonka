@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Compiler.Formatting
+-- Module      : Gen.Formatting
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -11,14 +11,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Formatting
-    ( module Compiler.Formatting
+module Gen.Formatting
+    ( module Gen.Formatting
     , module Formatting
     , module Formatting.Time
     , runFormat
     ) where
 
-import           Compiler.Types
+import           Gen.Types
 import           Control.Lens
 import           Control.Monad.Except
 import qualified Data.CaseInsensitive   as CI

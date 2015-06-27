@@ -4,7 +4,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 
--- Module      : Compiler.Types.Data
+-- Module      : Gen.Types.Data
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -14,16 +14,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Data where
+module Gen.Types.Data where
 
-import           Compiler.Text
-import           Compiler.TH
-import           Compiler.Types.Ann
-import           Compiler.Types.Help
-import           Compiler.Types.Id
-import           Compiler.Types.Map
-import           Compiler.Types.NS
-import           Compiler.Types.URI
+import           Gen.Text
+import           Gen.TH
+import           Gen.Types.Ann
+import           Gen.Types.Help
+import           Gen.Types.Id
+import           Gen.Types.Map
+import           Gen.Types.NS
+import           Gen.Types.URI
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson

@@ -3,7 +3,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 
--- Module      : Compiler.TH
+-- Module      : Gen.TH
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.TH
+module Gen.TH
     ( gParseJSON'
     , gToJSON'
 
@@ -28,7 +28,7 @@ module Compiler.TH
     , camel
     ) where
 
-import           Compiler.Text
+import           Gen.Text
 import           Control.Lens
 import           Data.Aeson.TH
 import           Data.Aeson.Types

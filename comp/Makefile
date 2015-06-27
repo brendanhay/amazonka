@@ -8,7 +8,7 @@ define version =
 $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
 endef
 
-VERSION        = $(call version,amazonka-compiler.cabal)
+VERSION        = $(call version,amazonka-gen.cabal)
 CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
 CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
 
@@ -67,7 +67,7 @@ MODELS ?= \
 release: compile format
 
 compile: install
-	~/.local/bin/amazonka-compiler \
+	~/.local/bin/amazonka-gen \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \
  --client-version=$(VERSION) \
@@ -88,7 +88,7 @@ format:
  -exec stylish-haskell -i {} \;
 
 build: $(MODEL_DIR)
-	stack build amazonka-compiler
+	stack build amazonka-gen
 
 install: $(MODEL_DIR) build
 	stack install

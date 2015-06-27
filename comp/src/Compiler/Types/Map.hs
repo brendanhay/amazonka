@@ -1,4 +1,4 @@
--- Module      : Compiler.Types.Map
+-- Module      : Gen.Types.Map
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Map where
+module Gen.Types.Map where
 
 import           Control.Lens
 import           Data.Hashable

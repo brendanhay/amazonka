@@ -17,12 +17,12 @@
 
 module Main (main) where
 
-import qualified Compiler.AST              as AST
-import           Compiler.Formatting
-import           Compiler.IO
-import qualified Compiler.JSON             as JS
-import qualified Compiler.Tree             as Tree
-import           Compiler.Types            hiding (info)
+import qualified Gen.AST              as AST
+import           Gen.Formatting
+import           Gen.IO
+import qualified Gen.JSON             as JS
+import qualified Gen.Tree             as Tree
+import           Gen.Types            hiding (info)
 import           Control.Error
 import           Control.Lens
 import           Control.Monad

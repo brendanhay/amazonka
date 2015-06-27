@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 
--- Module      : Compiler.Protocol
+-- Module      : Gen.Protocol
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,14 +12,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Protocol
+module Gen.Protocol
     ( Names(..)
     , memberName
     , nestedNames
     , suffix
     ) where
 
-import           Compiler.Types
+import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Maybe

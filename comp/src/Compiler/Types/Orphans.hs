@@ -2,7 +2,7 @@
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
--- Module      : Compiler.Types.Orphans
+-- Module      : Gen.Types.Orphans
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
@@ -12,10 +12,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Types.Orphans where
+module Gen.Types.Orphans where
 
-import           Compiler.Types.Id
-import           Compiler.Types.Map
+import           Gen.Types.Id
+import           Gen.Types.Map
 import           Control.Lens
 import           Control.Monad
 import           Data.Aeson

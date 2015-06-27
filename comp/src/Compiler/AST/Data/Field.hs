@@ -6,7 +6,7 @@
 {-# LANGUAGE TypeOperators     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Compiler.AST.Data.Field
+-- Module      : Gen.AST.Data.Field
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,10 +16,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Data.Field where
+module Gen.AST.Data.Field where
 
-import           Compiler.AST.TypeOf
-import           Compiler.Types
+import           Gen.AST.TypeOf
+import           Gen.Types
 import           Control.Applicative
 import           Control.Comonad.Cofree
 import           Control.Lens

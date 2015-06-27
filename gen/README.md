@@ -1,4 +1,4 @@
-# amazonka-compiler
+# amazonka-gen
 
 For pull requests which affect generated output, please _do not include_ the
 actual regenerated service code, only commit the updates to the generator, config and annex.

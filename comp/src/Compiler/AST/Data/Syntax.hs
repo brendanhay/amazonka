@@ -70,8 +70,8 @@ fieldUpdate :: Field -> FieldUpdate
 fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
   where
     set' :: Exp
-    set' | f ^. fieldMaybe          = var "Nothing"
-         | f ^. fieldMonoid         = var "mempty"
+    set' | f ^. fieldMaybe          = nothingE
+         | f ^. fieldMonoid         = memptyE
          | Just v <- iso (typeOf f) = infixApp v "#" p
          | otherwise                = p
 
@@ -138,7 +138,7 @@ serviceD m r = instD "AWSService" n
     ]
   where
     rhs   = app (var "const") (var "svc")
-    binds = [svc noBinds, try noBinds]
+    binds = [svc noBinds, try noBinds, chk noBinds]
 
     svc = sfun noLoc (ident "svc") [] . UnGuardedRhs $
         RecConstr (unqual "Service")
@@ -160,12 +160,32 @@ serviceD m r = instD "AWSService" n
             , FieldUpdate (unqual "_retryCheck")    (var "check")
             ]
 
---   check :: ServiceError -> Bool #}
---    check ServiceError'{..} = error "FIXME: Retry check not implemented." #}
+    chk = sfun noLoc (ident "check") [ident "e"] . GuardedRhss $
+        mapMaybe policy (r ^.. retryPolicies . kvTraversal) ++ [otherE nothingE]
+      where
+        policy (k, v) = (`guardE` app justE (str k)) <$> policyE v
 
     n      = mkId abbrev
     abbrev = m ^. serviceAbbrev
     sig    = m ^. signatureVersion . to sigToText
+
+policyE :: Policy -> Maybe Exp
+policyE = \case
+   When (WhenStatus (Just c) s)
+       -> Just $ appFun (var "has")
+           [ paren $ infixApp (app (var "hasCode") (str c))
+                              "."
+                              (app (var "hasStatus") (intE s))
+           , var "e"
+           ]
+
+   When (WhenStatus Nothing  s)
+       -> Just $ appFun (var "has")
+           [ paren $ app (var "hasStatus") (intE s)
+           , var "e"
+           ]
+
+   _   -> Nothing
 
 pagerD :: Id -> Pager Field -> Decl
 pagerD n p = instD "AWSPager" n
@@ -174,70 +194,68 @@ pagerD n p = instD "AWSPager" n
   where
     rhs = \case
         Next k t -> GuardedRhss
-            [ stop (t ^. tokenOutput . to notation)
-            , stop (notation k)
+            [ stop (t ^. tokenOutput . to notationE)
+            , stop (notationE k)
             , other [t]
             ]
 
         Many k (t :| ts) -> GuardedRhss
-            [ stop  (notation k)
+            [ stop  (notationE k)
             , check t ts
             , other (t:ts)
             ]
 
-    stop x = guard (app (var "stop") (rs x)) (var "Nothing")
+    stop x = guardE (app (var "stop") (rs x)) nothingE
 
-    other = guard (var "otherwise") . Fold.foldl' f rq
+    other = otherE . Fold.foldl' f rq
       where
         f :: Exp -> Token Field -> Exp
         f e x = infixApp e "&"
-              . infixApp (x ^. tokenInput . to notation) ".~"
-              $ rs (x ^. tokenOutput . to notation)
+              . infixApp (x ^. tokenInput . to notationE) ".~"
+              $ rs (x ^. tokenOutput . to notationE)
 
-    check t ts = guard (Fold.foldl' f (g t) ts) (var "Nothing")
+    check t ts = guardE (Fold.foldl' f (g t) ts) nothingE
       where
         f x = infixApp x "&&" . g
-        g y = app (var "isNothing") $ rs (y ^. tokenOutput . to notation)
+        g y = app (var "isNothing") $ rs (y ^. tokenOutput . to notationE)
 
-    guard x = GuardedRhs noLoc [Qualifier x]
+    rq   = infixApp justE "$" (var "rq")
+    rs x = infixApp (var "rs") (qop (getterN x)) x
 
-    rq   = infixApp (var "Just") "$" (var "rq")
-    rs x = infixApp (var "rs") (qop (getter x)) x
-
-    getter :: Exp -> Text
-    getter e = if go e then "^?" else "^."
-      where
-        go = \case
-            Exts.App x y                      -> go x || go y
-            Exts.InfixApp x _ y               -> go x || go y
-            Exts.Var (UnQual (Ident "_last")) -> True
-            Exts.Var (UnQual (Ident "_Just")) -> True
-            _                                 -> False
+getterN :: Exp -> Text
+getterN e = if go e then "^?" else "^."
+  where
+    go = \case
+        Exts.App x y                      -> go x || go y
+        Exts.InfixApp x _ y               -> go x || go y
+        Exts.Var (UnQual (Ident "_last")) -> True
+        Exts.Var (UnQual (Ident "_Just")) -> True
+        _                                 -> False
 
     -- FIXME: doesn't support Maybe fields currently.
-    notation :: Notation Field -> Exp
-    notation = \case
-        Access   (k :| ks) -> labels k ks
-        NonEmpty k         -> app (var "nonEmpty") (label False k)
-        Choice   x y       -> appFun (var "choice") [branch x, branch y]
+notationE :: Notation Field -> Exp
+notationE = \case
+    Access   (k :| ks) -> labels k ks
+    NonEmpty k         -> app (var "nonEmpty") (label False k)
+    Choice   x y       -> appFun (var "choice") [branch x, branch y]
+  where
+    branch x = let e = notationE x in paren $ app (var (getterN e)) e
+
+    labels k [] = label False k
+    labels k ks = Fold.foldl' f (label True k) ks
       where
-        branch x = let e = notation x in paren $ app (var (getter e)) e
+         f e x = infixApp e "." (label True x)
 
-        labels k [] = label False k
-        labels k ks = Fold.foldl' f (label True k) ks
-          where
-             f e x = infixApp e "." (label True x)
+    label b = \case
+        Key  f -> key b f
+        Each f -> app (var "folding") . paren $ app (var "concatOf") (key False f)
+        Last f -> infixApp (key False f) "." (var "_last")
 
-        label b = \case
-            Key  f -> key b f
-            Each f -> app (var "folding") . paren $ app (var "concatOf") (key False f)
-            Last f -> infixApp (key False f) "." (var "_last")
-
-        key False f = f ^. fieldLens . to var
-        key True  f
-            | f ^. fieldMonoid = key False f
-            | f ^. fieldMaybe  = infixApp (key False f) "." (var "_Just")
-            | otherwise        = key False f
+    key False f = f ^. fieldLens . to var
+    key True  f
+        | f ^. fieldMonoid = key False f
+        | f ^. fieldMaybe  = infixApp (key False f) "." (var "_Just")
+        | otherwise        = key False f
 
 requestD :: HasMetadata a f
          => a
@@ -271,8 +289,8 @@ responseE p h r fs = app (responseF p h r fs) bdy
         Just Headers        -> parseHeadersE p x
         Just Header         -> parseHeadersE p x
         Just StatusCode     -> parseStatusE    x
-        Just Body    | body -> app (var "pure") (var "x")
-        Nothing      | body -> app (var "pure") (var "x")
+        Just Body    | body -> app pureE (var "x")
+        Nothing      | body -> app pureE (var "x")
         _                   -> parseProto x
 
     parseProto :: Field -> Exp
@@ -320,41 +338,37 @@ toElementD p n ns = instD1 "ToElement" n . funD "toElement" . toElementE p ns
 
 toXMLD :: Protocol -> Id -> [Field] -> Decl
 toXMLD p n = instD1 "ToXML" n
-    . wildcardD n "toXML" enc null
+    . wildcardD n "toXML" enc memptyE
     . map (Right . toXMLE p)
   where
-    null = var "mempty"
-    enc  = mconcatE . map (either id id)
+    enc = mconcatE . map (either id id)
 
 toJSOND :: Protocol -> Id -> [Field] -> Decl
 toJSOND p n = instD1 "ToJSON" n
     . wildcardD n "toJSON" enc null
     . map (Right . toJSONE p)
   where
-    null = paren $ app (var "Object") (var "mempty")
+    null = paren $ app (var "Object") memptyE
     enc  = app (var "object")
          . listE
          . map (either id id)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
-toHeadersD p n = instD1 "ToHeaders" n . wildcardD n "toHeaders" enc null
+toHeadersD p n = instD1 "ToHeaders" n . wildcardD n "toHeaders" enc memptyE
   where
-    null = var "mempty"
     enc  = mconcatE . map (toHeadersE p)
 
 toQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Decl
-toQueryD p n = instD1 "ToQuery" n . wildcardD n "toQuery" enc null
+toQueryD p n = instD1 "ToQuery" n . wildcardD n "toQuery" enc memptyE
   where
-    null = var "mempty"
     enc  = mconcatE . map (toQueryE p)
 
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n = instD1 "ToPath" n . \case
     [Left t] -> funD "toPath" . app (var "const") $ str t
-    es       -> wildcardD n "toPath" enc null es
+    es       -> wildcardD n "toPath" enc memptyE es
   where
-    null = var "mempty"
-    enc  = mconcatE . map toPathE
+    enc = mconcatE . map toPathE
 
 toBodyD :: Id -> Field -> Decl
 toBodyD n f = instD "ToBody" n [funD "toBody" (toBodyE f)]
@@ -480,8 +494,8 @@ parseHeadersE p f
 
 parseStatusE :: Field -> Exp
 parseStatusE f
-    | f ^. fieldMaybe = app (var "pure") (app (var "Just") v)
-    | otherwise       = app (var "pure") v
+    | f ^. fieldMaybe = app pureE (app justE v)
+    | otherwise       = app pureE v
   where
     v = paren $ app (var "fromEnum") (var "s")
 
@@ -537,14 +551,32 @@ toGenericE p toO toF toM toL f = case inputNames p f of
   where
     a = var (f ^. fieldAccessor)
 
+pureE :: Exp
+pureE = var "pure"
+
+nothingE :: Exp
+nothingE = var "Nothing"
+
+justE :: Exp
+justE = var "Just"
+
+otherE :: Exp -> GuardedRhs
+otherE = guardE (var "otherwise")
+
+guardE :: Exp -> Exp -> GuardedRhs
+guardE x = GuardedRhs noLoc [Qualifier x]
+
 ctorE :: Id -> [Exp] -> Exp
 ctorE n = seqE (n ^. ctorId . to var) . map paren
+
+memptyE :: Exp
+memptyE = var "mempty"
 
 mconcatE :: [Exp] -> Exp
 mconcatE = app (var "mconcat") . listE
 
 seqE :: Exp -> [Exp] -> Exp
-seqE l []     = app (var "pure") l
+seqE l []     = app pureE l
 seqE l (r:rs) = infixApp l "<$>" (infixE r "<*>" rs)
 
 infixE :: Exp -> QOp -> [Exp] -> Exp
@@ -559,7 +591,7 @@ flatE Nothing  _ = id
 
 defaultMonoidE :: Exp -> Text -> QOp -> QOp -> Exp
 defaultMonoidE v n dm dd =
-    infixApp (infixApp v dm (str n)) dd (var "mempty")
+    infixApp (infixApp v dm (str n)) dd memptyE
 
 encodeE :: Text -> QOp -> Exp -> Exp
 encodeE n o = infixApp (str n) o
@@ -639,28 +671,26 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Failure -> var "AcceptFailure"
 
     argument x = go <$>
-        maybe [] ((:[]) . notation) (_acceptArgument x)
+        maybe [] ((:[]) . notationE) (_acceptArgument x)
       where
         go = case _acceptExpect x of
             Textual {} -> \c -> infixApp c "." (app (var "to") (var "toText"))
             _          -> id
 
-    notation = undefined
-    -- notation = \case
-    --     Label    k   -> label k
-    --     NonEmpty f   -> app (var "nonEmpty") (key f)
-    --     Apply    k x -> infixApp (label k) "."  (notation x)
-    --     Choice   x y -> infixApp (notation x) "||" (notation y)
-    --   where
-    --     key f = f ^. fieldLens . to var
+      --   Label    k   -> label k
+      --   NonEmpty f   -> app (var "nonEmpty") (key f)
+      --   Apply    k x -> infixApp (label k) "."  (notation x)
+      --   Choice   x y -> infixApp (notation x) "||" (notation y)
+      -- where
+      --   key f = f ^. fieldLens . to var
 
-    --     label = \case
-    --         Key  f -> jkey f
-    --         Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
-    --         Last f -> jkey f
+      --   label = \case
+      --       Key  f -> jkey f
+      --       Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
+      --       Last f -> jkey f
 
-    --     jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
-    --            | otherwise       = key f
+      --   jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
+      --          | otherwise       = key f
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing

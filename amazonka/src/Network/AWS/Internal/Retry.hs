@@ -54,15 +54,21 @@ retrier Env{..} Service{..} rq =
     check n = \case
         Left (HTTPError e) -> do
             p <- liftIO (_envRetryCheck n e)
-            when p (msg n) >> return p
+            when p (msg "http_error" n) >> return p
 
-        Left e | Just x <- e ^? _ServiceError, _retryCheck x ->
-            msg n >> return True
+        Left e | Just x <- e ^? _ServiceError . to _retryCheck . _Just ->
+            msg x n >> return True
 
         _ -> return False
 
-    msg n = logDebug _envLogger $
-        "[Retrying] after " <> build (n + 1) <> " attempts."
+    msg x n = logDebug _envLogger
+        . mconcat
+        . intersperse " "
+        $ [ "[Retry " <> build x <> "]"
+          , " after "
+          , build (n + 1)
+          , "attempts."
+          ]
 
     Exponential{..} = _svcRetry
 

@@ -30,6 +30,7 @@ import           Data.Aeson
 import           Data.Aeson.Types
 import qualified Data.HashMap.Strict     as Map
 import           Data.Maybe
+import           Data.Monoid
 import           Data.Ord
 import           Data.Scientific
 import           Data.Text               (Text)
@@ -41,7 +42,7 @@ defKey :: Text
 defKey = "__default__"
 
 data When
-    = WhenStatus (Maybe Text) !Int
+    = WhenStatus (Maybe Text) !Integer
     | WhenCRC32  !Text
       deriving (Eq, Show)
 
@@ -105,25 +106,26 @@ instance FromJSON (Retry -> Retry) where
     parseJSON = withObject "retry" $ \o -> do
         m <- o .:? "max_attempts"
         d <- o .:? "delay"
-        p <- o .:  "policies"
+        p <- (o .: defKey >>= (.: "policies"))
         return $ \r ->
             Retry' (fromMaybe (r ^. retryAttempts) m)
                    (fromMaybe (r ^. retryDelay)    d)
-                   p
+                   (r ^. retryPolicies <> p)
 
 parseRetry :: Text -> Object -> Parser Retry
 parseRetry svc o = do
-    p <- o .: "definitions"
-    r <- o .: "retry"
+    p <- o .: "definitions" :: Parser (Map Text Policy)
+    r <- o .: "retry"       :: Parser (Map Text Object)
     -- Since the __default__ policy is everything in
     -- definitions, just add them all rather than dealing
     -- with references.
-    case Map.lookup defKey r of
+    case r ^. at defKey of
         Nothing -> fail $ "Missing: " ++ show defKey
         Just x  -> do
             Identity d <- parseJSON (Object x)
-            case Map.lookup svc r of
+            case r ^. at (Text.toLower svc) of
                 Nothing -> pure (d & retryPolicies .~ p)
                 Just y  -> do
                     z <- parseJSON (Object y)
-                    return (z d)
+                    return $! z (d & retryPolicies .~ p)
+

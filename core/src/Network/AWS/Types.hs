@@ -140,7 +140,9 @@ data Retry = Exponential
     { _retryBase     :: !Double
     , _retryGrowth   :: !Int
     , _retryAttempts :: !Int
-    , _retryCheck    :: ServiceError -> Bool
+    , _retryCheck    :: ServiceError -> Maybe Text
+      -- ^ Returns a descriptive name for logging
+      -- if the request should be retried.
     }
 
 -- | Attributes and functions specific to an AWS service.

@@ -34,9 +34,20 @@ test-suite tests
         , Test.AWS.Util
 
     build-depends:
-          amazonka-core
-        , aeson
+          aeson
+        , amazonka-core
+        , amazonka-sqs
+        , attoparsec
         , base
+        , bifunctors
+        , bytestring
+        , conduit
+        , conduit-extra
+        , directory
+        , filepath
+        , http-client
+        , http-types
+        , resourcet
         , tasty
         , tasty-golden
         , tasty-hunit
